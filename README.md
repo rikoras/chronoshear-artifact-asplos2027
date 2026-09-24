@@ -9,17 +9,23 @@ execute them in parallel and accelerate RTL simulation.
 
 ## Access to the prepared host
 
-1. **Tailscale:** Install Tailscale, sign in, and accept [this invitation](https://login.tailscale.com/admin/invite/D3mSr6UGjtckUk5XjGg621). Then run:
+Choose **either** of the following two connection methods. You only need one.
 
-   ```bash
-   ssh user1@100.94.25.12
-   ```
+### Via Tailscale
 
-2. **SSH jump host (no Tailscale required):** Please send us your SSH public key, and we will set up access for you. Once it is ready, run:
+Install Tailscale, sign in, and accept [this invitation](https://login.tailscale.com/admin/invite/D3mSr6UGjtckUk5XjGg621). Then run:
 
-   ```bash
-   ssh -J ae-jump@43.110.144.168 -p 22022 user1@127.0.0.1
-   ```
+```bash
+ssh user1@100.94.25.12
+```
+
+### Via an SSH jump host (no Tailscale required)
+
+Please send us your SSH public key, and we will set up access for you. Once it is ready, run:
+
+```bash
+ssh -J ae-jump@43.110.144.168 -p 22022 user1@127.0.0.1
+```
 
 Accounts **`user1` through `user8`** are all available. Please replace `user1` in either command with your assigned account and enter the T550 password when prompted: **`asplos27_chisa`** (the same for all eight accounts).
 
