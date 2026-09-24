@@ -4,6 +4,42 @@ from pathlib import Path
 import argparse,csv,json,os,re,shlex,subprocess,sys,time
 from chronoshear_machine import PHYSICAL_CPUS,binding,host_lock
 ROOT=Path(__file__).resolve().parents[1]
+MISMATCH_FIELDS=['oracle_mismatch_signals','oracle_checked_signals','oracle_mismatch_raw_events']
+
+def mismatch_statistics(text):
+    def last(pattern,source=text):
+        matches=re.findall(pattern,source);return matches[-1] if matches else ''
+    summaries='\n'.join(re.findall(r'(?m)^(?:LIVE_SIDECAR_(?:COMPLETED|OK)|MODEL_VALIDATION|ROCKET_NATIVE_LIVE)\b[^\n]*',text))
+    distinct=last(r'(?<!\w)oracle_mismatch_signals=(\d+)',summaries)
+    checked=last(r'(?<!\w)oracle_checked_signals=(\d+)',summaries)
+    raw=last(r'(?m)^ORACLE_MISMATCH_DETAIL[ \t]+raw_events=(\d+)[ \t]*$')
+    if not raw:
+        ordinary='\n'.join(line for line in text.splitlines() if not line.startswith('LIVE_PARTITION '))
+        raw=last(r'(?<!\w)oracle_mismatches=(\d+)',ordinary)
+    if not distinct and raw=='0':distinct='0'
+    return dict(zip(MISMATCH_FIELDS,[distinct,checked,raw]))
+
+def normalize_sample(row):
+    row=dict(row)
+    if not row.get('oracle_mismatch_raw_events'):
+        row['oracle_mismatch_raw_events']=row.get('oracle_mismatches','')
+    if not row.get('oracle_mismatch_signals') and str(row['oracle_mismatch_raw_events'])=='0':
+        row['oracle_mismatch_signals']='0'
+    for field in MISMATCH_FIELDS:row.setdefault(field,'')
+    return row
+
+def write_samples(path,rows,fields=()):
+    rows=[normalize_sample(row) for row in rows]
+    names=list(dict.fromkeys([*fields,*(key for row in rows for key in row),*MISMATCH_FIELDS]))
+    if 'oracle_mismatches' in names:
+        for row in rows:row['oracle_mismatches']=row['oracle_mismatch_raw_events']
+    with path.open('w',newline='') as f:
+        writer=csv.DictWriter(f,fieldnames=names);writer.writeheader();writer.writerows(rows)
+
+def signal_summary(row):
+    signals=row.get('oracle_mismatch_signals','');checked=row.get('oracle_checked_signals','')
+    if signals!='':return ' differing_signals='+str(signals)+('/'+str(checked) if checked!='' else '')
+    return ' differing_signals=unknown' if row.get('oracle_mismatch_raw_events','')!='' else ''
 
 def main():
     ap=argparse.ArgumentParser(description=__doc__)
@@ -20,6 +56,10 @@ def main():
     def expand(s):return re.sub(r'\$\{(\w+)\}',lambda m:values[m[1]],s)
     failed=False
     with host_lock():
+        reference_duts=sorted({c['dut'] for c in cases if c['experiment']=='main' and c['simulator']=='chronoshear' and c['dut'] in ['rocket','boom-small','boom-medium','boom-large']})
+        if reference_duts:
+            from chronoshear_reference_check import run_checks
+            run_checks(reference_duts,out/'reference')
         selected={(c['experiment'],c['id']) for c in cases}
         main_duts={c['dut'] for c in cases if c['experiment']=='main'}
         samples=out/'samples.csv'
@@ -29,8 +69,7 @@ def main():
             prior=[r for r in prior if (r['experiment'],r['id']) not in selected and not
                    (r['experiment']=='main' and r['simulator']=='chronoshear' and
                     r['dut'] in main_duts and r['id'] not in main_ids)]
-            with samples.open('w') as f:
-                writer=csv.DictWriter(f,fieldnames=fields);writer.writeheader();writer.writerows(prior)
+            write_samples(samples,prior,fields)
         for c in cases:
             mask=cpus[:c['cores']]
             if len(mask)!=c['cores']:raise SystemExit('Not enough physical cores in chronoshear_machine.py')
@@ -55,18 +94,18 @@ def main():
                 row.update(status='pass' if ok else 'fail',returncode=code,missing='; '.join(missing),
                            cpus=','.join(map(str,mask)),elapsed_seconds=time.time()-started,sample=rep+1,
                            ns_per_cycle=ns,throughput_khz=1e6/ns if ok else None,log=log.name)
-                for label,pattern in [('oracle_mismatches',r'(?<![\w])oracle_mismatches=(\d+)'),
-                                      ('reference_active_ns',r'producer_ns_per_cycle=([0-9.]+)'),
+                row.update(mismatch_statistics(text))
+                for label,pattern in [('reference_active_ns',r'producer_ns_per_cycle=([0-9.]+)'),
                                       ('rtl_active_ns',r'consumer_ns_per_cycle=([0-9.]+)'),
                                       ('reference_wait_ns',r'(?:consumer_wait|wait_source)_ns_per_cycle=([0-9.]+)')]:
                     m=re.findall(pattern,text);row[label]=m[-1] if m else ''
-                samples=out/'samples.csv';prior=[]
+                samples=out/'samples.csv';prior=[];fields=[]
                 if samples.exists():
-                    with samples.open() as f:prior=list(csv.DictReader(f))
+                    with samples.open() as f:
+                        reader=csv.DictReader(f);fields=reader.fieldnames;prior=list(reader)
                 prior=[r for r in prior if (r['experiment'],r['id'],r['sample'])!=(row['experiment'],row['id'],str(row['sample']))]
-                with samples.open('w') as f:
-                    writer=csv.DictWriter(f,fieldnames=list(row));writer.writeheader();writer.writerows([*prior,row])
-                print(('PASS '+stem+' %.3f kHz'%row['throughput_khz']) if ok else ('FAIL '+stem+'; see '+str(log)),flush=True)
+                write_samples(samples,[*prior,row],fields)
+                print(('PASS '+stem+' %.3f kHz'%row['throughput_khz']+signal_summary(row)) if ok else ('FAIL '+stem+'; see '+str(log)),flush=True)
                 failed|=not ok
     return int(failed)
 

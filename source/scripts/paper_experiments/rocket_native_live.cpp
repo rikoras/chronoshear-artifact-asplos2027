@@ -239,10 +239,12 @@ int main(int argc, char** argv) {
     const bool functional_pass = tohost == 1 && functional.finish(read_result);
     const double ns = std::chrono::duration<double, std::nano>(std::chrono::steady_clock::now()-begin).count();
     const bool pass = functional_pass && final_mismatches == 0 && (continue_oracle_mismatches || rtl.mismatches() == 0);
-    std::printf("ROCKET_NATIVE_LIVE status=%s width=%u cycles=%llu streams=1092 oracle_mismatches=%llu boundary_mismatches=0 final_mismatches=%llu tohost=%llu model=native trace=none threads=%u physical_cores=%u wall_ns_per_cycle=%.3f producer_cpu=%d consumer_cpu=%d\n",
-                pass ? "pass" : "fail", W, (unsigned long long)cycles, (unsigned long long)rtl.mismatches(),
+    std::printf("ROCKET_NATIVE_LIVE status=%s width=%u cycles=%llu streams=1092 oracle_mismatch_signals=%llu oracle_checked_signals=%llu boundary_mismatches=0 final_mismatches=%llu tohost=%llu model=native trace=none threads=%u physical_cores=%u wall_ns_per_cycle=%.3f producer_cpu=%d consumer_cpu=%d\n",
+                pass ? "pass" : "fail", W, (unsigned long long)cycles,
+                (unsigned long long)rtl.oracle_mismatch_signals(), (unsigned long long)rtl.oracle_checked_signals(),
                 (unsigned long long)final_mismatches, (unsigned long long)tohost, parallel ? 2u : 1u, parallel ? 2u : 1u,
                 ns/cycles, sched_getcpu(), consumer_cpu);
+    std::printf("ORACLE_MISMATCH_DETAIL raw_events=%llu\n", (unsigned long long)rtl.mismatches());
     std::printf("ROCKET_ORACLE_POLICY mode=%s checks=enabled\n", continue_oracle_mismatches ? "report-only" : "strict");
     if (verify_pack) std::printf("ROCKET_NATIVE_PACK_MATCH windows=%llu streams=1092 bytes_per_window=%llu\n",
                                  (unsigned long long)verified_windows, (unsigned long long)reference_block.size());

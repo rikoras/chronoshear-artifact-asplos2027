@@ -7,6 +7,22 @@ loop-carried dependencies so that multiple simulation cycles can be evaluated
 independently. The compiler maps these cycles onto SIMD instructions to
 execute them in parallel and accelerate RTL simulation.
 
+## Access to the prepared host
+
+1. **Tailscale:** Install Tailscale, sign in, and accept [this invitation](https://login.tailscale.com/admin/invite/D3mSr6UGjtckUk5XjGg621). Then run:
+
+   ```bash
+   ssh user1@100.94.25.12
+   ```
+
+2. **SSH jump host (no Tailscale required):** Please send us your SSH public key, and we will set up access for you. Once it is ready, run:
+
+   ```bash
+   ssh -J ae-jump@43.110.144.168 -p 22022 user1@127.0.0.1
+   ```
+
+Accounts **`user1` through `user8`** are all available. Please replace `user1` in either command with your assigned account and enter the T550 password when prompted: **`asplos27_chisa`** (the same for all eight accounts).
+
 ## Directory overview
 
 ```text
@@ -78,11 +94,14 @@ inputs/<dut>/design.fir
 | 3. Verilator generation | `inputs/<dut>/design.fir`, external RTL modules, compiler tools | `generated/<dut>/verilog/`, `verilator1/`, `verilator4/` |
 | 4. Verilator backend compilation | Verilator-generated C++, runtime and baseline harness | Selected `.build/` objects and `bin/*-verilator-*` |
 | 5. ChronoShear compiler | `source/compiler/` and bundled Scala dependencies | `.build/compiler/` and `tools/chronoshear.jar` |
+| 6. Reference-model architectural checks | Original RTL, reference models and check harnesses | Generated check code, `.build/` objects and `bin/chronoshear-architecture-*` |
 
 For example, to rebuild MatMul from FIRRTL through both executable backends,
 choose action **3**, DUT **2**, and components **1,2,3,4**. After editing only a
 reference model or harness, choose action **2** and component **2** for that DUT.
 Choose component **5** to rebuild the ChronoShear compiler itself.
+Components **2** and **4** also update the corresponding architectural-check
+programs; choose component **6** to rebuild those programs separately.
 
 Regenerating C++ also removes its old objects and executables, so include the
 matching backend component when you need runnable programs. Missing generated
@@ -112,9 +131,7 @@ bash scripts/chronoshear_threads.sh
 ```
 
 No recompilation is needed. Each command recreates its own result directory.
-With one sample per configuration on the supplied Xeon host, allow roughly
-25 minutes for the main experiment, 9 minutes for width sensitivity and
-3 minutes for two-level parallelism, or about 35–40 minutes in total.
+The main experiment also reruns the reference-model architectural checks below.
 
 ## Experiments
 
@@ -147,6 +164,9 @@ and all four baseline configurations, including both Verilator thread counts.
 The summary selects the fastest passing ChronoShear width from that run on
 the current host. With repeated samples, selection uses each width's median
 time per cycle. All four widths' measurements and logs are retained.
+Rocket and BOOM scripts first check the reference model against independently
+executed original RTL; a failed check stops the measurement. These check logs
+and their summary are saved under the selected output directory's `reference/`.
 
 | DUT | Script |
 | --- | --- |
@@ -196,6 +216,30 @@ between Intel and AMD processors, the Xeon uses **DDR4** memory whereas the Ryze
 machine uses **DDR5**. These memory-system differences matter substantially for
 memory-intensive RTL simulation. Use the same-host Verilator-normalized results
 when comparing relative performance.
+
+### Reference-model architectural checks
+
+These checks run the reference model and original Verilator RTL independently,
+without oracle injection. Rocket compares the complete retirement sequence and
+final PC, integer registers and floating-point registers. Per-instruction value
+comparison covers immediate integer writes; individual delayed writebacks are
+not compared at retirement, while final register values are checked.
+
+BOOM compares ordered retirement, written register state and the committed-store
+memory footprint of the deterministic Dhrystone computation. Timer and HTIF
+polling are excluded from exact sequence matching. Both independent executions
+also complete and check the full workload results.
+
+To run these checks separately for all four processors, or only one DUT:
+
+```sh
+bash scripts/chronoshear_reference_check.sh
+bash scripts/chronoshear_reference_check.sh --dut boom-large
+```
+
+The scripts read the supplied processor workloads and write logs and
+`summary.csv` to `results/reference/`. Each `REFERENCE ARCHITECTURE ... PASS`
+reports the architectural comparison for that workload and scope.
 
 ### Sensitivity to lane width — Table 5
 
@@ -254,12 +298,20 @@ Plotting may also create its font cache in `~/.cache/chronoshear-matplotlib/`.
 `PASS` means the run met its configured stopping and checking criteria.
 ChronoShear main runs require successful workload completion. BOOM width and thread
 timing runs stop earlier, so `program_done=0` is expected there.
-`architecture_status=not-run` means a full architectural-state comparison
-was not performed; oracle and external-boundary checks are separate.
+`architecture_status` describes the optional comparator within the timed run;
+the independent architectural checks are reported separately in `reference/`.
 Counters marked `_supported=0` are unavailable.
 
 `ns_per_cycle` is the measured time per simulated cycle; throughput in kHz
 is `1,000,000 / ns_per_cycle`.
+
+`differing_signals=A/B` reports distinct mismatching RTL signals among the
+`B` checked signal identities. A signal contributes at most once per run,
+including repeated checks across cycles and words. The log fields are
+`oracle_mismatch_signals` and `oracle_checked_signals`. With repeated samples,
+`summary.csv` reports the range of individual runs' counts. All repeated events
+remain recorded in `ORACLE_MISMATCH_DETAIL raw_events=...` and the raw-event
+column of `samples.csv`.
 
 Nonzero oracle-mismatch counts are handled according to the benign-mismatch
 discussion in Section 3.5 of the paper. Micro-Lockstep verification remains

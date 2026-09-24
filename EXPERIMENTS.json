@@ -588,20 +588,17 @@
       "experiment": "main",
       "simulator": "repcut-4t",
       "command": [
-        "${PYTHON}",
-        "${ROOT}/scripts/chronoshear_baseline_interval.py",
-        "--binary",
         "${ROOT}/bin/boom-large-repcut-4t",
-        "--elf",
-        "${ROOT}/inputs/boom-large/boom-dhrystone.riscv",
-        "--begin",
-        "750016",
-        "--end",
-        "1000000"
+        "--seed=1",
+        "--cycle-count",
+        "--max-cycles=4000000",
+        "${ROOT}/inputs/boom-large/boom-dhrystone.riscv"
       ],
-      "ns_pattern": "BASELINE_INTERVAL_PASS timed_cycles=\\d+ ns_per_cycle=([0-9.]+)",
+      "ns_pattern": "TIMED timed_cycles=\\d+ ns_per_cycle=([0-9.]+)",
       "accept": [
-        "BASELINE_INTERVAL_PASS timed_cycles=249984"
+        "\\*\\*\\* PASSED \\*\\*\\*",
+        "TIMED timed_cycles=249984",
+        "after_loading=1"
       ],
       "cores": 4,
       "cycles": 249984,
@@ -609,7 +606,7 @@
         "VERILATOR_TIMING_FROM": "750016",
         "VERILATOR_TIMING_UNTIL": "1000000"
       },
-      "timing_scope": "difference of two bounded wall times"
+      "timing_scope": "rtl-evaluation"
     },
     {
       "id": "chronoshear-boom-small-w4",
@@ -2393,6 +2390,82 @@
       "cores": 2,
       "width": 32,
       "timing_scope": "online end-to-end wall time"
+    }
+  ],
+  "reference_checks": [
+    {
+      "dut": "rocket",
+      "command": [
+        "${ROOT}/bin/chronoshear-architecture-rocket",
+        "--image=${ROOT}/inputs/rocket/rocket-dhrystone.bin"
+      ],
+      "summary": "ROCKET_ARCHITECTURE",
+      "required": {
+        "retirement_mismatches": 0,
+        "boundary_mismatches": 0,
+        "final_mismatches": 0,
+        "tohost": 1,
+        "reference_functional": "pass",
+        "rtl_functional": "pass",
+        "rtl_oracle_input": "none"
+      },
+      "scope": "Dhrystone retirement and final results",
+      "register_scope": "final PC/GPR/FPR; immediate retired integer values",
+      "memory_scope": "independent Dhrystone expected results"
+    },
+    {
+      "dut": "boom-small",
+      "command": [
+        "${ROOT}/bin/chronoshear-architecture-boom-small",
+        "--",
+        "${ROOT}/inputs/boom-small/boom-dhrystone.riscv"
+      ],
+      "summary": "ARCHITECTURE_CHECK",
+      "required": {
+        "oracle_injection": "none",
+        "workload": "dhrystone-500",
+        "model_program_done": 1,
+        "rtl_program_done": 1
+      },
+      "scope": "Dhrystone computation, excluding timer and HTIF polling",
+      "register_scope": "written in computation",
+      "memory_scope": "committed-store footprint and independent Dhrystone expected results"
+    },
+    {
+      "dut": "boom-medium",
+      "command": [
+        "${ROOT}/bin/chronoshear-architecture-boom-medium",
+        "--",
+        "${ROOT}/inputs/boom-medium/boom-dhrystone.riscv"
+      ],
+      "summary": "ARCHITECTURE_CHECK",
+      "required": {
+        "oracle_injection": "none",
+        "workload": "dhrystone-500",
+        "model_program_done": 1,
+        "rtl_program_done": 1
+      },
+      "scope": "Dhrystone computation, excluding timer and HTIF polling",
+      "register_scope": "written in computation",
+      "memory_scope": "committed-store footprint and independent Dhrystone expected results"
+    },
+    {
+      "dut": "boom-large",
+      "command": [
+        "${ROOT}/bin/chronoshear-architecture-boom-large",
+        "--",
+        "${ROOT}/inputs/boom-large/boom-dhrystone.riscv"
+      ],
+      "summary": "ARCHITECTURE_CHECK",
+      "required": {
+        "oracle_injection": "none",
+        "workload": "dhrystone-500",
+        "model_program_done": 1,
+        "rtl_program_done": 1
+      },
+      "scope": "Dhrystone computation, excluding timer and HTIF polling",
+      "register_scope": "written in computation",
+      "memory_scope": "committed-store footprint and independent Dhrystone expected results"
     }
   ]
 }

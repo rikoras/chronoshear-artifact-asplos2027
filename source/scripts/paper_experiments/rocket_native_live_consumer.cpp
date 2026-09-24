@@ -63,5 +63,7 @@ Endpoint Consumer::endpoint() const {
   return result;
 }
 uint64_t Consumer::mismatches() const { return static_cast<TestHarness*>(impl_)->verify_mismatches; }
+uint64_t Consumer::oracle_mismatch_signals() const { return static_cast<TestHarness*>(impl_)->oracle_mismatch_signal_count(); }
+uint64_t Consumer::oracle_checked_signals() const { return TestHarness::oracle_checked_signal_count(); }
 uint64_t Consumer::block_bytes() const { return ORACLE_DATA_BLOCK_BYTES; }
 }

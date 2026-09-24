@@ -3,6 +3,7 @@
 from pathlib import Path
 import argparse,concurrent.futures,csv,json,os,re,shutil,subprocess,sys
 from chronoshear_machine import binding
+from chronoshear_oracle_signals import prepare as prepare_signal_counts
 ROOT=Path(__file__).resolve().parents[1]
 sys.path[:0]=[str(ROOT/'source/duts/boom-repcut/scripts'),str(ROOT/'source/scripts/paper_experiments')]
 
@@ -72,13 +73,16 @@ def emit(dut,width,partitioned=False):
     if dut.startswith('boom-') or dut=='rocket':
         from prepare_oracle_report_only import prepare
         policy=work/'checked';prepare(header,policy,fast_count=True,direct_count=dut in ['boom-medium','boom-large'] and not partitioned)
+        prepare_signal_counts(policy/header.name)
         if dut in ['boom-medium','boom-large']:
             from split_partition_kernel import split
             # Remove former kernel units if a compiler update changes their count.
             for p in output.glob('kernel_*.cpp'):p.unlink()
             split(policy/header.name,output,cooperative_poll=partitioned,poll_bytes=32768 if partitioned else 0)
         else:shutil.copy2(policy/header.name,output/header.name)
-    else:shutil.copy2(header,output/header.name)
+    else:
+        shutil.copy2(header,output/header.name)
+        if dut!='matmul':prepare_signal_counts(output/header.name)
     for p in work.glob('*.inc'):shutil.copy2(p,output/p.name)
     if dut=='aes':
         from aes_live_layout import generate

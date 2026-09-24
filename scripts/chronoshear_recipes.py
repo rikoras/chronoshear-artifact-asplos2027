@@ -5,7 +5,7 @@ ROOT=Path(__file__).resolve().parents[1]
 
 def refresh():
     path=ROOT/'BUILD.json';data=json.loads(path.read_text());templates=data['templates']
-    binaries={k:v for k,v in data['binaries'].items() if not k.startswith('chronoshear-')}
+    binaries={k:v for k,v in data['binaries'].items() if not k.startswith('chronoshear-') or v.get('kind')=='architecture'}
     for dut,template in templates.items():
         partitioned=dut.endswith('-mt');design=dut.removesuffix('-mt')
         base_width=32 if design in ['aes','matmul','sodor','rocket','boom-small'] else 16
@@ -33,7 +33,10 @@ def refresh():
             binaries[name]=spec
     from chronoshear_verilator import recipes
     binaries.update(recipes(data))
-    data['binaries']=binaries;path.write_text(json.dumps(data,indent=2)+'\n')
+    data['binaries']=binaries
+    from chronoshear_architecture import recipes as architecture_recipes
+    binaries.update(architecture_recipes(data))
+    path.write_text(json.dumps(data,indent=2)+'\n')
     return data
 
 if __name__=='__main__':refresh()

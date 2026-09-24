@@ -1829,10 +1829,13 @@ int main(int argc, char** argv) {
           for (auto& f : partition_failure) if (f) std::rethrow_exception(f);
           dut_success = partition_success.load();
           consumer_elapsed = partition_elapsed[static_cast<std::size_t>(options.check_partition)];
-          for (int p = 0; p < partitions; ++p)
-            std::printf("LIVE_PARTITION partition=%d completed_windows=%" PRIu64 " oracle_mismatches=%" PRIu64 " timed_eval_ns_per_cycle=%.1f\n", p,
-                        partition_consumed[p].load(), static_cast<std::uint64_t>(partition_duts[p]->verify_mismatches),
+          for (int p = 0; p < partitions; ++p) {
+            std::printf("LIVE_PARTITION partition=%d completed_windows=%" PRIu64 " oracle_mismatch_signals=%" PRIu64 " timed_eval_ns_per_cycle=%.1f\n", p,
+                        partition_consumed[p].load(), partition_duts[p]->oracle_mismatch_signal_count(),
                         timed_cycles ? 1e9 * partition_elapsed[static_cast<std::size_t>(p)].count() / double(timed_cycles) : 0.0);
+            std::printf("ORACLE_MISMATCH_DETAIL partition=%d raw_events=%" PRIu64 "\n", p,
+                        static_cast<std::uint64_t>(partition_duts[p]->verify_mismatches));
+          }
           if (options.joint_execution)
             for (unsigned worker = 0; worker < joint_pumps.size(); ++worker)
               std::printf("JOINT_WORKER worker=%u cpu=%d polls=%" PRIu64 " model_tasks=%" PRIu64 " decode_tasks=%" PRIu64 "\n",
@@ -1941,27 +1944,35 @@ int main(int argc, char** argv) {
 
     std::uint64_t total_verify_mismatches = dut->verify_mismatches;
     for (const auto& d : extra_duts) total_verify_mismatches += d->verify_mismatches;
+    std::uint64_t oracle_signal_union[TestHarness::oracle_mismatch_signal_words()]{};
+    dut->oracle_mismatch_signal_union(oracle_signal_union);
+    for (const auto& d : extra_duts) d->oracle_mismatch_signal_union(oracle_signal_union);
+    std::uint64_t oracle_mismatch_signals = 0;
+    for (std::uint64_t bits : oracle_signal_union)
+      oracle_mismatch_signals += __builtin_popcountll(bits);
+    const auto oracle_checked_signals = TestHarness::oracle_checked_signal_count();
     std::printf(
         "%s width=%u cycles=%" PRIu64 " active_blocks=%" PRIu64
-        " verify_windows=%" PRIu64 " mismatches=%" PRIu64
+        " verify_windows=%" PRIu64 " oracle_mismatch_signals=%" PRIu64 " oracle_checked_signals=%u"
         " dut_success=%d\n",
         options.continue_oracle_mismatches ? "LIVE_SIDECAR_COMPLETED" : "LIVE_SIDECAR_OK",
         kW, produced_cycles, active_blocks, verify_windows,
-        total_verify_mismatches,
+        oracle_mismatch_signals, oracle_checked_signals,
         dut_success ? 1 : 0);
+    std::printf("ORACLE_MISMATCH_DETAIL raw_events=%" PRIu64 "\n", total_verify_mismatches);
     const auto window_boundary = window_boundary_statistics(*dut, 0);
     std::printf(
-        "MODEL_VALIDATION schema=1 comparison_start_cycle=%" PRIu64
+        "MODEL_VALIDATION schema=2 comparison_start_cycle=%" PRIu64
         " compared_cycles=%" PRIu64 " compared_windows=%" PRIu64
         " consumed_cycles=%" PRIu64 " reset_cycles=%" PRIu64
-        " streams=%zu oracle_mismatches=%" PRIu64 " boundary_mismatches=%" PRIu64
+        " streams=%zu oracle_mismatch_signals=%" PRIu64 " oracle_checked_signals=%u boundary_mismatches=%" PRIu64
         " initialization_compared=%d consumer=%s program_done=%d program_exit=%" PRId64
         " architectural_state_compared=%d architecture_status=%s"
         " window_boundary_oracle_mismatches_supported=%d"
         " window_boundary_oracle_mismatches=%" PRIu64 "\n",
         options.reset_cycles, verify_windows * kWindow, verify_windows,
         consumed_cycles, options.reset_cycles, kConsumerOracleStreams,
-        total_verify_mismatches, boundary_mismatches,
+        oracle_mismatch_signals, oracle_checked_signals, boundary_mismatches,
         !options.skip_consumer && verify_windows != 0 ? 1 : 0,
         options.skip_consumer ? "skipped" : options.continue_oracle_mismatches ? "verify-report-only" : "verify",
         (consumed_exit & 1u) ? 1 : 0,

@@ -18,6 +18,8 @@ class Consumer {
   void evaluate(const char* block, const Cycle* cycles, uint64_t first, bool reset);
   Endpoint endpoint() const;
   uint64_t mismatches() const;
+  uint64_t oracle_mismatch_signals() const;
+  uint64_t oracle_checked_signals() const;
   uint64_t block_bytes() const;
  private:
   void* impl_;
