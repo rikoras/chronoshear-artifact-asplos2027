@@ -9,7 +9,7 @@ execute them in parallel and accelerate RTL simulation.
 
 ## Access to the prepared host
 
-Choose **either** of the following two connection methods. You only need one.
+Choose **either** of the following two connection methods. 
 
 ### Via Tailscale
 
