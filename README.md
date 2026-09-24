@@ -252,7 +252,7 @@ Plotting may also create its font cache in `~/.cache/chronoshear-matplotlib/`.
 ## Reading the logs
 
 `PASS` means the run met its configured stopping and checking criteria.
-Main runs require successful workload completion. BOOM width and thread
+ChronoShear main runs require successful workload completion. BOOM width and thread
 timing runs stop earlier, so `program_done=0` is expected there.
 `architecture_status=not-run` means a full architectural-state comparison
 was not performed; oracle and external-boundary checks are separate.
