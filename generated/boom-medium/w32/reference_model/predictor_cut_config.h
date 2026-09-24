@@ -1,0 +1,3 @@
+#pragma once
+#define CHISA_PREDICTOR_TAIL_CUT 0
+#define CHISA_FRONTEND_EXTRA_CUT 1

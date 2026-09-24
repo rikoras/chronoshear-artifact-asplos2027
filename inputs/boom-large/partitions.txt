@@ -1,0 +1,15 @@
+# Two-level parallelism partition spec: "<index> <flat-name prefix>", longest prefix wins, unmatched -> 0.
+# 2026-09-18: same six partitions as boom_mt6.txt except the branch predictors stay with the frontend.
+# Cross-partition registers outside the single-thread oracle contract: 498 instead of 897 (bpd table entries were 334 of them);
+# the largest partition cone is unchanged (45.5k templates). See paper/results/reliability/partition-study-2026-09-18/.
+# 0: uncore/debug/memory; 1: frontend incl. branch predictors; 2: core (rename, dispatch, ROB, execute);
+# 3: int/mem issue units; 4: FP issue unit + FP pipeline; 5: LSU + D-cache + PTW
+1 ldut.tile_prci_domain.tile_reset_domain.boom_tile.frontend
+2 ldut.tile_prci_domain.tile_reset_domain.boom_tile.core
+3 ldut.tile_prci_domain.tile_reset_domain.boom_tile.core.int_issue_unit
+3 ldut.tile_prci_domain.tile_reset_domain.boom_tile.core.mem_issue_unit
+4 ldut.tile_prci_domain.tile_reset_domain.boom_tile.core.fp_issue_unit
+4 ldut.tile_prci_domain.tile_reset_domain.boom_tile.core.fp_pipeline
+5 ldut.tile_prci_domain.tile_reset_domain.boom_tile.lsu
+5 ldut.tile_prci_domain.tile_reset_domain.boom_tile.dcache
+5 ldut.tile_prci_domain.tile_reset_domain.boom_tile.ptw

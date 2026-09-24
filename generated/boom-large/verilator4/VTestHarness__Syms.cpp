@@ -1,0 +1,36 @@
+// Verilated -*- C++ -*-
+// DESCRIPTION: Verilator output: Symbol table implementation internals
+
+#include "VTestHarness__pch.h"
+#include "VTestHarness.h"
+#include "VTestHarness___024root.h"
+#include "VTestHarness___024unit.h"
+
+// FUNCTIONS
+VTestHarness__Syms::~VTestHarness__Syms()
+{
+}
+
+VTestHarness__Syms::VTestHarness__Syms(VerilatedContext* contextp, const char* namep, VTestHarness* modelp)
+    : VerilatedSyms{contextp}
+    // Setup internal state of the Syms class
+    , __Vm_modelp{modelp}
+    , __Vm_threadPoolp{static_cast<VlThreadPool*>(contextp->threadPoolp())}
+    // Setup module instances
+    , TOP{this, namep}
+    , TOP____024unit{this, Verilated::catName(namep, "$unit")}
+{
+        // Check resources
+        Verilated::stackCheck(64467);
+    // Configure time unit / time precision
+    _vm_contextp__->timeunit(-12);
+    _vm_contextp__->timeprecision(-12);
+    // Setup each module's pointers to their submodules
+    TOP.__PVT____024unit = &TOP____024unit;
+    // Setup each module's pointer back to symbol table (for public functions)
+    TOP.__Vconfigure(true);
+    TOP____024unit.__Vconfigure(true);
+    // Setup export functions
+    for (int __Vfinal = 0; __Vfinal < 2; ++__Vfinal) {
+    }
+}

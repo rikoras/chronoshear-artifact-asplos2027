@@ -1,0 +1,2398 @@
+{
+  "cases": [
+    {
+      "id": "rocket-verilator-1t",
+      "dut": "rocket",
+      "experiment": "main",
+      "simulator": "verilator-1t",
+      "command": [
+        "${ROOT}/bin/rocket-verilator-1t",
+        "--image",
+        "${ROOT}/inputs/rocket/rocket-dhrystone.bin",
+        "--max-cycles",
+        "5000000",
+        "--reset-cycles",
+        "64",
+        "--progress-cycles",
+        "0",
+        "--finish-alignment",
+        "64",
+        "--memory-check-address",
+        "0x80000000",
+        "--memory-check-bytes",
+        "0x200000",
+        "--expected-memory-hash",
+        "0x39085746aa219c0f"
+      ],
+      "ns_pattern": "execution_ns_per_cycle=([0-9.]+)",
+      "accept": [
+        "status=pass",
+        "memory_hash=0x39085746aa219c0f"
+      ],
+      "cores": 1,
+      "cycles": 244352,
+      "env": {},
+      "timing_scope": "RTL evaluation"
+    },
+    {
+      "id": "rocket-verilator-4t",
+      "dut": "rocket",
+      "experiment": "main",
+      "simulator": "verilator-4t",
+      "command": [
+        "${ROOT}/bin/rocket-verilator-4t",
+        "--image",
+        "${ROOT}/inputs/rocket/rocket-dhrystone.bin",
+        "--max-cycles",
+        "5000000",
+        "--reset-cycles",
+        "64",
+        "--progress-cycles",
+        "0",
+        "--finish-alignment",
+        "64",
+        "--memory-check-address",
+        "0x80000000",
+        "--memory-check-bytes",
+        "0x200000",
+        "--expected-memory-hash",
+        "0x39085746aa219c0f"
+      ],
+      "ns_pattern": "execution_ns_per_cycle=([0-9.]+)",
+      "accept": [
+        "status=pass",
+        "memory_hash=0x39085746aa219c0f"
+      ],
+      "cores": 4,
+      "cycles": 244352,
+      "env": {},
+      "timing_scope": "RTL evaluation"
+    },
+    {
+      "id": "rocket-essent-1t",
+      "dut": "rocket",
+      "experiment": "main",
+      "simulator": "essent-1t",
+      "command": [
+        "${ROOT}/bin/rocket-essent-1t",
+        "--image",
+        "${ROOT}/inputs/rocket/rocket-dhrystone.bin",
+        "--max-cycles",
+        "5000000",
+        "--reset-cycles",
+        "64",
+        "--progress-cycles",
+        "0",
+        "--finish-alignment",
+        "64",
+        "--memory-check-address",
+        "0x80000000",
+        "--memory-check-bytes",
+        "0x200000",
+        "--expected-memory-hash",
+        "0x39085746aa219c0f"
+      ],
+      "ns_pattern": "execution_ns_per_cycle=([0-9.]+)",
+      "accept": [
+        "status=pass",
+        "memory_hash=0x39085746aa219c0f"
+      ],
+      "cores": 1,
+      "cycles": 244352,
+      "env": {},
+      "timing_scope": "RTL evaluation"
+    },
+    {
+      "id": "rocket-repcut-4t",
+      "dut": "rocket",
+      "experiment": "main",
+      "simulator": "repcut-4t",
+      "command": [
+        "${ROOT}/bin/rocket-repcut-4t",
+        "--image",
+        "${ROOT}/inputs/rocket/rocket-dhrystone.bin",
+        "--max-cycles",
+        "5000000",
+        "--reset-cycles",
+        "64",
+        "--progress-cycles",
+        "0",
+        "--finish-alignment",
+        "64",
+        "--memory-check-address",
+        "0x80000000",
+        "--memory-check-bytes",
+        "0x200000",
+        "--expected-memory-hash",
+        "0x39085746aa219c0f"
+      ],
+      "ns_pattern": "execution_ns_per_cycle=([0-9.]+)",
+      "accept": [
+        "status=pass",
+        "memory_hash=0x39085746aa219c0f"
+      ],
+      "cores": 4,
+      "cycles": 244352,
+      "env": {},
+      "timing_scope": "RTL evaluation"
+    },
+    {
+      "id": "aes-verilator-1t",
+      "dut": "aes",
+      "experiment": "main",
+      "simulator": "verilator-1t",
+      "command": [
+        "${ROOT}/bin/aes-verilator-1t",
+        "100000",
+        "10"
+      ],
+      "ns_pattern": "Benchmark: ([0-9.]+)",
+      "accept": [
+        "Benchmark:",
+        "OUT_ACC=0x0000000000000000"
+      ],
+      "cores": 1,
+      "cycles": 100000,
+      "env": {},
+      "timing_scope": "RTL evaluation"
+    },
+    {
+      "id": "aes-verilator-4t",
+      "dut": "aes",
+      "experiment": "main",
+      "simulator": "verilator-4t",
+      "command": [
+        "${ROOT}/bin/aes-verilator-4t",
+        "100000",
+        "10"
+      ],
+      "ns_pattern": "Benchmark: ([0-9.]+)",
+      "accept": [
+        "Benchmark:",
+        "OUT_ACC=0x0000000000000000"
+      ],
+      "cores": 4,
+      "cycles": 100000,
+      "env": {},
+      "timing_scope": "RTL evaluation"
+    },
+    {
+      "id": "aes-essent-1t",
+      "dut": "aes",
+      "experiment": "main",
+      "simulator": "essent-1t",
+      "command": [
+        "${ROOT}/bin/aes-essent-1t",
+        "100000",
+        "10"
+      ],
+      "ns_pattern": "Benchmark: ([0-9.]+)",
+      "accept": [
+        "Benchmark:",
+        "OUT_ACC=0x0000000000000001"
+      ],
+      "cores": 1,
+      "cycles": 100000,
+      "env": {},
+      "timing_scope": "RTL evaluation"
+    },
+    {
+      "id": "aes-repcut-4t",
+      "dut": "aes",
+      "experiment": "main",
+      "simulator": "repcut-4t",
+      "command": [
+        "${ROOT}/bin/aes-repcut-4t",
+        "100000",
+        "10"
+      ],
+      "ns_pattern": "Benchmark: ([0-9.]+)",
+      "accept": [
+        "Benchmark:",
+        "OUT_ACC=0x000000000000004a"
+      ],
+      "cores": 4,
+      "cycles": 100000,
+      "env": {},
+      "timing_scope": "RTL evaluation"
+    },
+    {
+      "id": "sodor-verilator-1t",
+      "dut": "sodor",
+      "experiment": "main",
+      "simulator": "verilator-1t",
+      "command": [
+        "${ROOT}/bin/sodor-verilator-1t",
+        "${ROOT}/inputs/sodor/sodor-bubblesort.bin",
+        "500000",
+        "10",
+        "332825",
+        "0x9f068cf2dfff396c"
+      ],
+      "ns_pattern": "Execution: mean=([0-9.]+)",
+      "accept": [
+        "status=pass cycles=332825.*memory_hash=0x9f068cf2dfff396c"
+      ],
+      "cores": 1,
+      "cycles": 332825,
+      "env": {},
+      "timing_scope": "RTL evaluation"
+    },
+    {
+      "id": "sodor-verilator-4t",
+      "dut": "sodor",
+      "experiment": "main",
+      "simulator": "verilator-4t",
+      "command": [
+        "${ROOT}/bin/sodor-verilator-4t",
+        "${ROOT}/inputs/sodor/sodor-bubblesort.bin",
+        "500000",
+        "10",
+        "332825",
+        "0x9f068cf2dfff396c"
+      ],
+      "ns_pattern": "Execution: mean=([0-9.]+)",
+      "accept": [
+        "status=pass cycles=332825.*memory_hash=0x9f068cf2dfff396c"
+      ],
+      "cores": 4,
+      "cycles": 332825,
+      "env": {},
+      "timing_scope": "RTL evaluation"
+    },
+    {
+      "id": "sodor-essent-1t",
+      "dut": "sodor",
+      "experiment": "main",
+      "simulator": "essent-1t",
+      "command": [
+        "${ROOT}/bin/sodor-essent-1t",
+        "${ROOT}/inputs/sodor/sodor-bubblesort.bin",
+        "500000",
+        "10",
+        "332825",
+        "0x9f068cf2dfff396c"
+      ],
+      "ns_pattern": "Execution: mean=([0-9.]+)",
+      "accept": [
+        "status=pass cycles=332825.*memory_hash=0x9f068cf2dfff396c"
+      ],
+      "cores": 1,
+      "cycles": 332825,
+      "env": {},
+      "timing_scope": "RTL evaluation"
+    },
+    {
+      "id": "sodor-repcut-4t",
+      "dut": "sodor",
+      "experiment": "main",
+      "simulator": "repcut-4t",
+      "command": [
+        "${ROOT}/bin/sodor-repcut-4t",
+        "${ROOT}/inputs/sodor/sodor-bubblesort.bin",
+        "500000",
+        "10",
+        "332825",
+        "0x9f068cf2dfff396c"
+      ],
+      "ns_pattern": "Execution: mean=([0-9.]+)",
+      "accept": [
+        "status=pass cycles=332825.*memory_hash=0x9f068cf2dfff396c"
+      ],
+      "cores": 4,
+      "cycles": 332825,
+      "env": {},
+      "timing_scope": "RTL evaluation"
+    },
+    {
+      "id": "boom-small-verilator-1t",
+      "dut": "boom-small",
+      "experiment": "main",
+      "simulator": "verilator-1t",
+      "command": [
+        "${ROOT}/bin/boom-small-verilator-1t",
+        "-c",
+        "+max-cycles=5000000",
+        "${ROOT}/inputs/boom-small/boom-dhrystone.riscv"
+      ],
+      "ns_pattern": "TIMED timed_cycles=196800 ns_per_cycle=([0-9.]+)",
+      "accept": [
+        "Completed after"
+      ],
+      "cores": 1,
+      "cycles": 196800,
+      "env": {
+        "VERILATOR_TIMING_FROM": "803200",
+        "PAPER_TIMING_FROM": "803200",
+        "PAPER_TIMING_UNTIL": "1000000"
+      },
+      "timing_scope": "RTL evaluation"
+    },
+    {
+      "id": "boom-small-verilator-4t",
+      "dut": "boom-small",
+      "experiment": "main",
+      "simulator": "verilator-4t",
+      "command": [
+        "${ROOT}/bin/boom-small-verilator-4t",
+        "-c",
+        "+max-cycles=5000000",
+        "${ROOT}/inputs/boom-small/boom-dhrystone.riscv"
+      ],
+      "ns_pattern": "TIMED timed_cycles=196800 ns_per_cycle=([0-9.]+)",
+      "accept": [
+        "Completed after"
+      ],
+      "cores": 4,
+      "cycles": 196800,
+      "env": {
+        "VERILATOR_TIMING_FROM": "803200",
+        "PAPER_TIMING_FROM": "803200",
+        "PAPER_TIMING_UNTIL": "1000000"
+      },
+      "timing_scope": "RTL evaluation"
+    },
+    {
+      "id": "boom-small-essent-1t",
+      "dut": "boom-small",
+      "experiment": "main",
+      "simulator": "essent-1t",
+      "command": [
+        "${ROOT}/bin/boom-small-essent-1t",
+        "-c",
+        "+max-cycles=5000000",
+        "${ROOT}/inputs/boom-small/boom-dhrystone.riscv"
+      ],
+      "ns_pattern": "PAPER_BASELINE_TIMING cycles=196800 ns_per_cycle=([0-9.]+)",
+      "accept": [
+        "Completed after"
+      ],
+      "cores": 1,
+      "cycles": 196800,
+      "env": {
+        "VERILATOR_TIMING_FROM": "803200",
+        "PAPER_TIMING_FROM": "803200",
+        "PAPER_TIMING_UNTIL": "1000000"
+      },
+      "timing_scope": "RTL evaluation"
+    },
+    {
+      "id": "boom-small-repcut-4t",
+      "dut": "boom-small",
+      "experiment": "main",
+      "simulator": "repcut-4t",
+      "command": [
+        "${ROOT}/bin/boom-small-repcut-4t",
+        "-c",
+        "+max-cycles=5000000",
+        "${ROOT}/inputs/boom-small/boom-dhrystone.riscv"
+      ],
+      "ns_pattern": "PAPER_BASELINE_TIMING cycles=196800 ns_per_cycle=([0-9.]+)",
+      "accept": [
+        "Completed after"
+      ],
+      "cores": 4,
+      "cycles": 196800,
+      "env": {
+        "VERILATOR_TIMING_FROM": "803200",
+        "PAPER_TIMING_FROM": "803200",
+        "PAPER_TIMING_UNTIL": "1000000"
+      },
+      "timing_scope": "RTL evaluation"
+    },
+    {
+      "id": "boom-medium-verilator-1t",
+      "dut": "boom-medium",
+      "experiment": "main",
+      "simulator": "verilator-1t",
+      "command": [
+        "${ROOT}/bin/boom-medium-verilator-1t",
+        "--seed=1",
+        "--cycle-count",
+        "--max-cycles=4000000",
+        "${ROOT}/inputs/boom-medium/boom-dhrystone.riscv"
+      ],
+      "ns_pattern": "TIMED timed_cycles=\\d+ ns_per_cycle=([0-9.]+)",
+      "accept": [
+        "\\*\\*\\* PASSED \\*\\*\\*",
+        "TIMED timed_cycles=249984",
+        "after_loading=1"
+      ],
+      "cores": 1,
+      "cycles": 249984,
+      "env": {
+        "VERILATOR_TIMING_FROM": "750016",
+        "VERILATOR_TIMING_UNTIL": "1000000"
+      },
+      "timing_scope": "RTL evaluation"
+    },
+    {
+      "id": "boom-medium-verilator-4t",
+      "dut": "boom-medium",
+      "experiment": "main",
+      "simulator": "verilator-4t",
+      "command": [
+        "${ROOT}/bin/boom-medium-verilator-4t",
+        "--seed=1",
+        "--cycle-count",
+        "--max-cycles=4000000",
+        "${ROOT}/inputs/boom-medium/boom-dhrystone.riscv"
+      ],
+      "ns_pattern": "TIMED timed_cycles=\\d+ ns_per_cycle=([0-9.]+)",
+      "accept": [
+        "\\*\\*\\* PASSED \\*\\*\\*",
+        "TIMED timed_cycles=249984",
+        "after_loading=1"
+      ],
+      "cores": 4,
+      "cycles": 249984,
+      "env": {
+        "VERILATOR_TIMING_FROM": "750016",
+        "VERILATOR_TIMING_UNTIL": "1000000"
+      },
+      "timing_scope": "RTL evaluation"
+    },
+    {
+      "id": "boom-medium-essent-1t",
+      "dut": "boom-medium",
+      "experiment": "main",
+      "simulator": "essent-1t",
+      "command": [
+        "${ROOT}/bin/boom-medium-essent-1t",
+        "--seed=1",
+        "--cycle-count",
+        "--max-cycles=4000000",
+        "${ROOT}/inputs/boom-medium/boom-dhrystone.riscv"
+      ],
+      "ns_pattern": "TIMED timed_cycles=\\d+ ns_per_cycle=([0-9.]+)",
+      "accept": [
+        "\\*\\*\\* PASSED \\*\\*\\*",
+        "TIMED timed_cycles=249984",
+        "after_loading=1"
+      ],
+      "cores": 1,
+      "cycles": 249984,
+      "env": {
+        "VERILATOR_TIMING_FROM": "750016",
+        "VERILATOR_TIMING_UNTIL": "1000000"
+      },
+      "timing_scope": "RTL evaluation"
+    },
+    {
+      "id": "boom-medium-repcut-4t",
+      "dut": "boom-medium",
+      "experiment": "main",
+      "simulator": "repcut-4t",
+      "command": [
+        "${ROOT}/bin/boom-medium-repcut-4t",
+        "--seed=1",
+        "--cycle-count",
+        "--max-cycles=4000000",
+        "${ROOT}/inputs/boom-medium/boom-dhrystone.riscv"
+      ],
+      "ns_pattern": "TIMED timed_cycles=\\d+ ns_per_cycle=([0-9.]+)",
+      "accept": [
+        "\\*\\*\\* PASSED \\*\\*\\*",
+        "TIMED timed_cycles=249984",
+        "after_loading=1"
+      ],
+      "cores": 4,
+      "cycles": 249984,
+      "env": {
+        "VERILATOR_TIMING_FROM": "750016",
+        "VERILATOR_TIMING_UNTIL": "1000000"
+      },
+      "timing_scope": "RTL evaluation"
+    },
+    {
+      "id": "boom-large-verilator-1t",
+      "dut": "boom-large",
+      "experiment": "main",
+      "simulator": "verilator-1t",
+      "command": [
+        "${ROOT}/bin/boom-large-verilator-1t",
+        "--seed=1",
+        "--cycle-count",
+        "--max-cycles=4000000",
+        "${ROOT}/inputs/boom-large/boom-dhrystone.riscv"
+      ],
+      "ns_pattern": "TIMED timed_cycles=\\d+ ns_per_cycle=([0-9.]+)",
+      "accept": [
+        "\\*\\*\\* PASSED \\*\\*\\*",
+        "TIMED timed_cycles=249984",
+        "after_loading=1"
+      ],
+      "cores": 1,
+      "cycles": 249984,
+      "env": {
+        "VERILATOR_TIMING_FROM": "750016",
+        "VERILATOR_TIMING_UNTIL": "1000000"
+      },
+      "timing_scope": "RTL evaluation"
+    },
+    {
+      "id": "boom-large-verilator-4t",
+      "dut": "boom-large",
+      "experiment": "main",
+      "simulator": "verilator-4t",
+      "command": [
+        "${ROOT}/bin/boom-large-verilator-4t",
+        "--seed=1",
+        "--cycle-count",
+        "--max-cycles=4000000",
+        "${ROOT}/inputs/boom-large/boom-dhrystone.riscv"
+      ],
+      "ns_pattern": "TIMED timed_cycles=\\d+ ns_per_cycle=([0-9.]+)",
+      "accept": [
+        "\\*\\*\\* PASSED \\*\\*\\*",
+        "TIMED timed_cycles=249984",
+        "after_loading=1"
+      ],
+      "cores": 4,
+      "cycles": 249984,
+      "env": {
+        "VERILATOR_TIMING_FROM": "750016",
+        "VERILATOR_TIMING_UNTIL": "1000000"
+      },
+      "timing_scope": "RTL evaluation"
+    },
+    {
+      "id": "boom-large-essent-1t",
+      "dut": "boom-large",
+      "experiment": "main",
+      "simulator": "essent-1t",
+      "command": [
+        "${ROOT}/bin/boom-large-essent-1t",
+        "--seed=1",
+        "--cycle-count",
+        "--max-cycles=4000000",
+        "${ROOT}/inputs/boom-large/boom-dhrystone.riscv"
+      ],
+      "ns_pattern": "TIMED timed_cycles=\\d+ ns_per_cycle=([0-9.]+)",
+      "accept": [
+        "\\*\\*\\* PASSED \\*\\*\\*",
+        "TIMED timed_cycles=249984",
+        "after_loading=1"
+      ],
+      "cores": 1,
+      "cycles": 249984,
+      "env": {
+        "VERILATOR_TIMING_FROM": "750016",
+        "VERILATOR_TIMING_UNTIL": "1000000"
+      },
+      "timing_scope": "RTL evaluation"
+    },
+    {
+      "id": "boom-large-repcut-4t",
+      "dut": "boom-large",
+      "experiment": "main",
+      "simulator": "repcut-4t",
+      "command": [
+        "${PYTHON}",
+        "${ROOT}/scripts/chronoshear_baseline_interval.py",
+        "--binary",
+        "${ROOT}/bin/boom-large-repcut-4t",
+        "--elf",
+        "${ROOT}/inputs/boom-large/boom-dhrystone.riscv",
+        "--begin",
+        "750016",
+        "--end",
+        "1000000"
+      ],
+      "ns_pattern": "BASELINE_INTERVAL_PASS timed_cycles=\\d+ ns_per_cycle=([0-9.]+)",
+      "accept": [
+        "BASELINE_INTERVAL_PASS timed_cycles=249984"
+      ],
+      "cores": 4,
+      "cycles": 249984,
+      "env": {
+        "VERILATOR_TIMING_FROM": "750016",
+        "VERILATOR_TIMING_UNTIL": "1000000"
+      },
+      "timing_scope": "difference of two bounded wall times"
+    },
+    {
+      "id": "chronoshear-boom-small-w4",
+      "dut": "boom-small",
+      "experiment": "main",
+      "simulator": "chronoshear",
+      "command": [
+        "${ROOT}/bin/chronoshear-boom-small-w4",
+        "--max-cycles=4000000",
+        "--reset-cycles=64",
+        "--require-success",
+        "--continue-oracle-mismatches",
+        "--mismatch-log-limit=4",
+        "--overlap",
+        "--decode-thread",
+        "--consumer-cpu=${CPU0}",
+        "--producer-cpu=${CPU1}",
+        "--decoder-cpu=${CPU2}",
+        "--eval-timing",
+        "--timing-from=803200",
+        "--timing-until=1000000",
+        "--",
+        "${ROOT}/inputs/boom-small/boom-dhrystone.riscv"
+      ],
+      "ns_pattern": "LIVE_SIDECAR_TIMING overlap .*wall_ns_per_cycle=([0-9.]+)",
+      "accept": [
+        "LIVE_SIDECAR_COMPLETED width=4 .*dut_success=1",
+        "MODEL_VALIDATION .*streams=2171 .*boundary_mismatches=0 .*consumer=verify-report-only program_done=1 program_exit=0",
+        "LIVE_SIDECAR_TIMING_RANGE begin=803200 end=1000000 measured_end=1000000"
+      ],
+      "cores": 3,
+      "cycles": 196800,
+      "width": 4,
+      "timing_scope": "online end-to-end wall time"
+    },
+    {
+      "id": "chronoshear-boom-small-w8",
+      "dut": "boom-small",
+      "experiment": "main",
+      "simulator": "chronoshear",
+      "command": [
+        "${ROOT}/bin/chronoshear-boom-small-w8",
+        "--max-cycles=4000000",
+        "--reset-cycles=64",
+        "--require-success",
+        "--continue-oracle-mismatches",
+        "--mismatch-log-limit=4",
+        "--overlap",
+        "--decode-thread",
+        "--consumer-cpu=${CPU0}",
+        "--producer-cpu=${CPU1}",
+        "--decoder-cpu=${CPU2}",
+        "--eval-timing",
+        "--timing-from=803200",
+        "--timing-until=1000000",
+        "--",
+        "${ROOT}/inputs/boom-small/boom-dhrystone.riscv"
+      ],
+      "ns_pattern": "LIVE_SIDECAR_TIMING overlap .*wall_ns_per_cycle=([0-9.]+)",
+      "accept": [
+        "LIVE_SIDECAR_COMPLETED width=8 .*dut_success=1",
+        "MODEL_VALIDATION .*streams=2171 .*boundary_mismatches=0 .*consumer=verify-report-only program_done=1 program_exit=0",
+        "LIVE_SIDECAR_TIMING_RANGE begin=803200 end=1000000 measured_end=1000000"
+      ],
+      "cores": 3,
+      "cycles": 196800,
+      "width": 8,
+      "timing_scope": "online end-to-end wall time"
+    },
+    {
+      "id": "chronoshear-boom-small-w16",
+      "dut": "boom-small",
+      "experiment": "main",
+      "simulator": "chronoshear",
+      "command": [
+        "${ROOT}/bin/chronoshear-boom-small-w16",
+        "--max-cycles=4000000",
+        "--reset-cycles=64",
+        "--require-success",
+        "--continue-oracle-mismatches",
+        "--mismatch-log-limit=4",
+        "--overlap",
+        "--decode-thread",
+        "--consumer-cpu=${CPU0}",
+        "--producer-cpu=${CPU1}",
+        "--decoder-cpu=${CPU2}",
+        "--eval-timing",
+        "--timing-from=803200",
+        "--timing-until=1000000",
+        "--",
+        "${ROOT}/inputs/boom-small/boom-dhrystone.riscv"
+      ],
+      "ns_pattern": "LIVE_SIDECAR_TIMING overlap .*wall_ns_per_cycle=([0-9.]+)",
+      "accept": [
+        "LIVE_SIDECAR_COMPLETED width=16 .*dut_success=1",
+        "MODEL_VALIDATION .*streams=2171 .*boundary_mismatches=0 .*consumer=verify-report-only program_done=1 program_exit=0",
+        "LIVE_SIDECAR_TIMING_RANGE begin=803200 end=1000000 measured_end=1000000"
+      ],
+      "cores": 3,
+      "cycles": 196800,
+      "width": 16,
+      "timing_scope": "online end-to-end wall time"
+    },
+    {
+      "id": "chronoshear-boom-small-w32",
+      "dut": "boom-small",
+      "experiment": "main",
+      "simulator": "chronoshear",
+      "command": [
+        "${ROOT}/bin/chronoshear-boom-small-w32",
+        "--max-cycles=4000000",
+        "--reset-cycles=64",
+        "--require-success",
+        "--continue-oracle-mismatches",
+        "--mismatch-log-limit=4",
+        "--overlap",
+        "--decode-thread",
+        "--consumer-cpu=${CPU0}",
+        "--producer-cpu=${CPU1}",
+        "--decoder-cpu=${CPU2}",
+        "--eval-timing",
+        "--timing-from=803200",
+        "--timing-until=1000000",
+        "--",
+        "${ROOT}/inputs/boom-small/boom-dhrystone.riscv"
+      ],
+      "ns_pattern": "LIVE_SIDECAR_TIMING overlap .*wall_ns_per_cycle=([0-9.]+)",
+      "accept": [
+        "LIVE_SIDECAR_COMPLETED width=32 .*dut_success=1",
+        "MODEL_VALIDATION .*streams=2171 .*boundary_mismatches=0 .*consumer=verify-report-only program_done=1 program_exit=0",
+        "LIVE_SIDECAR_TIMING_RANGE begin=803200 end=1000000 measured_end=1000000"
+      ],
+      "cores": 3,
+      "cycles": 196800,
+      "width": 32,
+      "timing_scope": "online end-to-end wall time"
+    },
+    {
+      "id": "chronoshear-boom-medium-w4",
+      "dut": "boom-medium",
+      "experiment": "main",
+      "simulator": "chronoshear",
+      "command": [
+        "${ROOT}/bin/chronoshear-boom-medium-w4",
+        "--max-cycles=4000000",
+        "--reset-cycles=64",
+        "--require-success",
+        "--continue-oracle-mismatches",
+        "--mismatch-log-limit=4",
+        "--overlap",
+        "--decode-thread",
+        "--consumer-cpu=${CPU0}",
+        "--producer-cpu=${CPU1}",
+        "--decoder-cpu=${CPU2}",
+        "--eval-timing",
+        "--timing-from=750016",
+        "--timing-until=1000000",
+        "--",
+        "${ROOT}/inputs/boom-medium/boom-dhrystone.riscv"
+      ],
+      "ns_pattern": "LIVE_SIDECAR_TIMING overlap .*wall_ns_per_cycle=([0-9.]+)",
+      "accept": [
+        "LIVE_SIDECAR_COMPLETED width=4 .*dut_success=1",
+        "MODEL_VALIDATION .*streams=2838 .*boundary_mismatches=0 .*consumer=verify-report-only program_done=1 program_exit=0",
+        "LIVE_SIDECAR_TIMING_RANGE begin=750016 end=1000000 measured_end=1000000"
+      ],
+      "cores": 3,
+      "cycles": 249984,
+      "width": 4,
+      "timing_scope": "online end-to-end wall time"
+    },
+    {
+      "id": "chronoshear-boom-medium-w8",
+      "dut": "boom-medium",
+      "experiment": "main",
+      "simulator": "chronoshear",
+      "command": [
+        "${ROOT}/bin/chronoshear-boom-medium-w8",
+        "--max-cycles=4000000",
+        "--reset-cycles=64",
+        "--require-success",
+        "--continue-oracle-mismatches",
+        "--mismatch-log-limit=4",
+        "--overlap",
+        "--decode-thread",
+        "--consumer-cpu=${CPU0}",
+        "--producer-cpu=${CPU1}",
+        "--decoder-cpu=${CPU2}",
+        "--eval-timing",
+        "--timing-from=750016",
+        "--timing-until=1000000",
+        "--",
+        "${ROOT}/inputs/boom-medium/boom-dhrystone.riscv"
+      ],
+      "ns_pattern": "LIVE_SIDECAR_TIMING overlap .*wall_ns_per_cycle=([0-9.]+)",
+      "accept": [
+        "LIVE_SIDECAR_COMPLETED width=8 .*dut_success=1",
+        "MODEL_VALIDATION .*streams=2838 .*boundary_mismatches=0 .*consumer=verify-report-only program_done=1 program_exit=0",
+        "LIVE_SIDECAR_TIMING_RANGE begin=750016 end=1000000 measured_end=1000000"
+      ],
+      "cores": 3,
+      "cycles": 249984,
+      "width": 8,
+      "timing_scope": "online end-to-end wall time"
+    },
+    {
+      "id": "chronoshear-boom-medium-w16",
+      "dut": "boom-medium",
+      "experiment": "main",
+      "simulator": "chronoshear",
+      "command": [
+        "${ROOT}/bin/chronoshear-boom-medium-w16",
+        "--max-cycles=4000000",
+        "--reset-cycles=64",
+        "--require-success",
+        "--continue-oracle-mismatches",
+        "--mismatch-log-limit=4",
+        "--overlap",
+        "--decode-thread",
+        "--consumer-cpu=${CPU0}",
+        "--producer-cpu=${CPU1}",
+        "--decoder-cpu=${CPU2}",
+        "--eval-timing",
+        "--timing-from=750016",
+        "--timing-until=1000000",
+        "--",
+        "${ROOT}/inputs/boom-medium/boom-dhrystone.riscv"
+      ],
+      "ns_pattern": "LIVE_SIDECAR_TIMING overlap .*wall_ns_per_cycle=([0-9.]+)",
+      "accept": [
+        "LIVE_SIDECAR_COMPLETED width=16 .*dut_success=1",
+        "MODEL_VALIDATION .*streams=2838 .*boundary_mismatches=0 .*consumer=verify-report-only program_done=1 program_exit=0",
+        "LIVE_SIDECAR_TIMING_RANGE begin=750016 end=1000000 measured_end=1000000"
+      ],
+      "cores": 3,
+      "cycles": 249984,
+      "width": 16,
+      "timing_scope": "online end-to-end wall time"
+    },
+    {
+      "id": "chronoshear-boom-medium-w32",
+      "dut": "boom-medium",
+      "experiment": "main",
+      "simulator": "chronoshear",
+      "command": [
+        "${ROOT}/bin/chronoshear-boom-medium-w32",
+        "--max-cycles=4000000",
+        "--reset-cycles=64",
+        "--require-success",
+        "--continue-oracle-mismatches",
+        "--mismatch-log-limit=4",
+        "--overlap",
+        "--decode-thread",
+        "--consumer-cpu=${CPU0}",
+        "--producer-cpu=${CPU1}",
+        "--decoder-cpu=${CPU2}",
+        "--eval-timing",
+        "--timing-from=750016",
+        "--timing-until=1000000",
+        "--",
+        "${ROOT}/inputs/boom-medium/boom-dhrystone.riscv"
+      ],
+      "ns_pattern": "LIVE_SIDECAR_TIMING overlap .*wall_ns_per_cycle=([0-9.]+)",
+      "accept": [
+        "LIVE_SIDECAR_COMPLETED width=32 .*dut_success=1",
+        "MODEL_VALIDATION .*streams=2838 .*boundary_mismatches=0 .*consumer=verify-report-only program_done=1 program_exit=0",
+        "LIVE_SIDECAR_TIMING_RANGE begin=750016 end=1000000 measured_end=1000000"
+      ],
+      "cores": 3,
+      "cycles": 249984,
+      "width": 32,
+      "timing_scope": "online end-to-end wall time"
+    },
+    {
+      "id": "chronoshear-boom-large-w4",
+      "dut": "boom-large",
+      "experiment": "main",
+      "simulator": "chronoshear",
+      "command": [
+        "${ROOT}/bin/chronoshear-boom-large-w4",
+        "--max-cycles=4000000",
+        "--reset-cycles=64",
+        "--require-success",
+        "--continue-oracle-mismatches",
+        "--mismatch-log-limit=4",
+        "--overlap",
+        "--decode-thread",
+        "--consumer-cpu=${CPU0}",
+        "--producer-cpu=${CPU1}",
+        "--decoder-cpu=${CPU2}",
+        "--eval-timing",
+        "--timing-from=750016",
+        "--timing-until=1000000",
+        "--",
+        "${ROOT}/inputs/boom-large/boom-dhrystone.riscv"
+      ],
+      "ns_pattern": "LIVE_SIDECAR_TIMING overlap .*wall_ns_per_cycle=([0-9.]+)",
+      "accept": [
+        "LIVE_SIDECAR_COMPLETED width=4 .*dut_success=1",
+        "MODEL_VALIDATION .*streams=3997 .*boundary_mismatches=0 .*consumer=verify-report-only program_done=1 program_exit=0",
+        "LIVE_SIDECAR_TIMING_RANGE begin=750016 end=1000000 measured_end=1000000"
+      ],
+      "cores": 3,
+      "cycles": 249984,
+      "width": 4,
+      "timing_scope": "online end-to-end wall time"
+    },
+    {
+      "id": "chronoshear-boom-large-w8",
+      "dut": "boom-large",
+      "experiment": "main",
+      "simulator": "chronoshear",
+      "command": [
+        "${ROOT}/bin/chronoshear-boom-large-w8",
+        "--max-cycles=4000000",
+        "--reset-cycles=64",
+        "--require-success",
+        "--continue-oracle-mismatches",
+        "--mismatch-log-limit=4",
+        "--overlap",
+        "--decode-thread",
+        "--consumer-cpu=${CPU0}",
+        "--producer-cpu=${CPU1}",
+        "--decoder-cpu=${CPU2}",
+        "--eval-timing",
+        "--timing-from=750016",
+        "--timing-until=1000000",
+        "--",
+        "${ROOT}/inputs/boom-large/boom-dhrystone.riscv"
+      ],
+      "ns_pattern": "LIVE_SIDECAR_TIMING overlap .*wall_ns_per_cycle=([0-9.]+)",
+      "accept": [
+        "LIVE_SIDECAR_COMPLETED width=8 .*dut_success=1",
+        "MODEL_VALIDATION .*streams=3997 .*boundary_mismatches=0 .*consumer=verify-report-only program_done=1 program_exit=0",
+        "LIVE_SIDECAR_TIMING_RANGE begin=750016 end=1000000 measured_end=1000000"
+      ],
+      "cores": 3,
+      "cycles": 249984,
+      "width": 8,
+      "timing_scope": "online end-to-end wall time"
+    },
+    {
+      "id": "chronoshear-boom-large-w16",
+      "dut": "boom-large",
+      "experiment": "main",
+      "simulator": "chronoshear",
+      "command": [
+        "${ROOT}/bin/chronoshear-boom-large-w16",
+        "--max-cycles=4000000",
+        "--reset-cycles=64",
+        "--require-success",
+        "--continue-oracle-mismatches",
+        "--mismatch-log-limit=4",
+        "--overlap",
+        "--decode-thread",
+        "--consumer-cpu=${CPU0}",
+        "--producer-cpu=${CPU1}",
+        "--decoder-cpu=${CPU2}",
+        "--eval-timing",
+        "--timing-from=750016",
+        "--timing-until=1000000",
+        "--",
+        "${ROOT}/inputs/boom-large/boom-dhrystone.riscv"
+      ],
+      "ns_pattern": "LIVE_SIDECAR_TIMING overlap .*wall_ns_per_cycle=([0-9.]+)",
+      "accept": [
+        "LIVE_SIDECAR_COMPLETED width=16 .*dut_success=1",
+        "MODEL_VALIDATION .*streams=3997 .*boundary_mismatches=0 .*consumer=verify-report-only program_done=1 program_exit=0",
+        "LIVE_SIDECAR_TIMING_RANGE begin=750016 end=1000000 measured_end=1000000"
+      ],
+      "cores": 3,
+      "cycles": 249984,
+      "width": 16,
+      "timing_scope": "online end-to-end wall time"
+    },
+    {
+      "id": "chronoshear-boom-large-w32",
+      "dut": "boom-large",
+      "experiment": "main",
+      "simulator": "chronoshear",
+      "command": [
+        "${ROOT}/bin/chronoshear-boom-large-w32",
+        "--max-cycles=4000000",
+        "--reset-cycles=64",
+        "--require-success",
+        "--continue-oracle-mismatches",
+        "--mismatch-log-limit=4",
+        "--overlap",
+        "--decode-thread",
+        "--consumer-cpu=${CPU0}",
+        "--producer-cpu=${CPU1}",
+        "--decoder-cpu=${CPU2}",
+        "--eval-timing",
+        "--timing-from=750016",
+        "--timing-until=1000000",
+        "--",
+        "${ROOT}/inputs/boom-large/boom-dhrystone.riscv"
+      ],
+      "ns_pattern": "LIVE_SIDECAR_TIMING overlap .*wall_ns_per_cycle=([0-9.]+)",
+      "accept": [
+        "LIVE_SIDECAR_COMPLETED width=32 .*dut_success=1",
+        "MODEL_VALIDATION .*streams=3997 .*boundary_mismatches=0 .*consumer=verify-report-only program_done=1 program_exit=0",
+        "LIVE_SIDECAR_TIMING_RANGE begin=750016 end=1000000 measured_end=1000000"
+      ],
+      "cores": 3,
+      "cycles": 249984,
+      "width": 32,
+      "timing_scope": "online end-to-end wall time"
+    },
+    {
+      "id": "chronoshear-aes-w4",
+      "dut": "aes",
+      "experiment": "main",
+      "simulator": "chronoshear",
+      "command": [
+        "${ROOT}/bin/chronoshear-aes-w4",
+        "--cycles",
+        "100000",
+        "--consumer-cpu",
+        "${CPU0}",
+        "--overlap",
+        "--producer-cpu",
+        "${CPU1}"
+      ],
+      "ns_pattern": "AES_LIVE_TIMING .*wall_ns_per_cycle=([0-9.]+)",
+      "accept": [
+        "AES_LIVE_CHECK .*oracle_mismatches=0 output_mismatches=0"
+      ],
+      "cores": 2,
+      "width": 4,
+      "cycles": 100000,
+      "timing_scope": "online end-to-end wall time"
+    },
+    {
+      "id": "chronoshear-aes-w8",
+      "dut": "aes",
+      "experiment": "main",
+      "simulator": "chronoshear",
+      "command": [
+        "${ROOT}/bin/chronoshear-aes-w8",
+        "--cycles",
+        "100000",
+        "--consumer-cpu",
+        "${CPU0}",
+        "--overlap",
+        "--producer-cpu",
+        "${CPU1}"
+      ],
+      "ns_pattern": "AES_LIVE_TIMING .*wall_ns_per_cycle=([0-9.]+)",
+      "accept": [
+        "AES_LIVE_CHECK .*oracle_mismatches=0 output_mismatches=0"
+      ],
+      "cores": 2,
+      "width": 8,
+      "cycles": 100000,
+      "timing_scope": "online end-to-end wall time"
+    },
+    {
+      "id": "chronoshear-aes-w16",
+      "dut": "aes",
+      "experiment": "main",
+      "simulator": "chronoshear",
+      "command": [
+        "${ROOT}/bin/chronoshear-aes-w16",
+        "--cycles",
+        "100000",
+        "--consumer-cpu",
+        "${CPU0}",
+        "--overlap",
+        "--producer-cpu",
+        "${CPU1}"
+      ],
+      "ns_pattern": "AES_LIVE_TIMING .*wall_ns_per_cycle=([0-9.]+)",
+      "accept": [
+        "AES_LIVE_CHECK .*oracle_mismatches=0 output_mismatches=0"
+      ],
+      "cores": 2,
+      "width": 16,
+      "cycles": 100000,
+      "timing_scope": "online end-to-end wall time"
+    },
+    {
+      "id": "chronoshear-aes-w32",
+      "dut": "aes",
+      "experiment": "main",
+      "simulator": "chronoshear",
+      "command": [
+        "${ROOT}/bin/chronoshear-aes-w32",
+        "--cycles",
+        "100000",
+        "--consumer-cpu",
+        "${CPU0}",
+        "--overlap",
+        "--producer-cpu",
+        "${CPU1}"
+      ],
+      "ns_pattern": "AES_LIVE_TIMING .*wall_ns_per_cycle=([0-9.]+)",
+      "accept": [
+        "AES_LIVE_CHECK .*oracle_mismatches=0 output_mismatches=0"
+      ],
+      "cores": 2,
+      "width": 32,
+      "cycles": 100000,
+      "timing_scope": "online end-to-end wall time"
+    },
+    {
+      "id": "chronoshear-matmul-w4",
+      "dut": "matmul",
+      "experiment": "main",
+      "simulator": "chronoshear",
+      "command": [
+        "${ROOT}/bin/chronoshear-matmul-w4",
+        "bench",
+        "262144",
+        "1"
+      ],
+      "ns_pattern": "BENCH .*ns_per_cycle=([0-9.]+)",
+      "accept": [
+        "CHECK .*mismatches=0"
+      ],
+      "cores": 1,
+      "width": 4,
+      "cycles": 262144,
+      "timing_scope": "input assignment, RTL evaluation and output reduction"
+    },
+    {
+      "id": "chronoshear-matmul-w8",
+      "dut": "matmul",
+      "experiment": "main",
+      "simulator": "chronoshear",
+      "command": [
+        "${ROOT}/bin/chronoshear-matmul-w8",
+        "bench",
+        "262144",
+        "1"
+      ],
+      "ns_pattern": "BENCH .*ns_per_cycle=([0-9.]+)",
+      "accept": [
+        "CHECK .*mismatches=0"
+      ],
+      "cores": 1,
+      "width": 8,
+      "cycles": 262144,
+      "timing_scope": "input assignment, RTL evaluation and output reduction"
+    },
+    {
+      "id": "chronoshear-matmul-w16",
+      "dut": "matmul",
+      "experiment": "main",
+      "simulator": "chronoshear",
+      "command": [
+        "${ROOT}/bin/chronoshear-matmul-w16",
+        "bench",
+        "262144",
+        "1"
+      ],
+      "ns_pattern": "BENCH .*ns_per_cycle=([0-9.]+)",
+      "accept": [
+        "CHECK .*mismatches=0"
+      ],
+      "cores": 1,
+      "width": 16,
+      "cycles": 262144,
+      "timing_scope": "input assignment, RTL evaluation and output reduction"
+    },
+    {
+      "id": "chronoshear-matmul-w32",
+      "dut": "matmul",
+      "experiment": "main",
+      "simulator": "chronoshear",
+      "command": [
+        "${ROOT}/bin/chronoshear-matmul-w32",
+        "bench",
+        "262144",
+        "1"
+      ],
+      "ns_pattern": "BENCH .*ns_per_cycle=([0-9.]+)",
+      "accept": [
+        "CHECK .*mismatches=0"
+      ],
+      "cores": 1,
+      "width": 32,
+      "cycles": 262144,
+      "timing_scope": "input assignment, RTL evaluation and output reduction"
+    },
+    {
+      "id": "matmul-verilator-1t",
+      "dut": "matmul",
+      "experiment": "main",
+      "simulator": "verilator-1t",
+      "command": [
+        "${ROOT}/bin/matmul-verilator-1t",
+        "bench",
+        "262144",
+        "1"
+      ],
+      "ns_pattern": "BENCH .*ns_per_cycle=([0-9.]+)",
+      "accept": [
+        "CHECK .*mismatches=0"
+      ],
+      "cores": 1,
+      "cycles": 262144,
+      "timing_scope": "input assignment, RTL evaluation and output reduction"
+    },
+    {
+      "id": "matmul-essent-1t",
+      "dut": "matmul",
+      "experiment": "main",
+      "simulator": "essent-1t",
+      "command": [
+        "${ROOT}/bin/matmul-essent-1t",
+        "bench",
+        "262144",
+        "1"
+      ],
+      "ns_pattern": "BENCH .*ns_per_cycle=([0-9.]+)",
+      "accept": [
+        "CHECK .*mismatches=0"
+      ],
+      "cores": 1,
+      "cycles": 262144,
+      "timing_scope": "input assignment, RTL evaluation and output reduction"
+    },
+    {
+      "id": "matmul-repcut-4t",
+      "dut": "matmul",
+      "experiment": "main",
+      "simulator": "repcut-4t",
+      "command": [
+        "${ROOT}/bin/matmul-repcut-4t",
+        "bench",
+        "262144",
+        "1"
+      ],
+      "ns_pattern": "BENCH .*ns_per_cycle=([0-9.]+)",
+      "accept": [
+        "CHECK .*mismatches=0"
+      ],
+      "cores": 4,
+      "cycles": 262144,
+      "timing_scope": "input assignment, RTL evaluation and output reduction"
+    },
+    {
+      "id": "chronoshear-sodor-w4",
+      "dut": "sodor",
+      "experiment": "main",
+      "simulator": "chronoshear",
+      "command": [
+        "${ROOT}/bin/chronoshear-sodor-w4",
+        "${ROOT}/inputs/sodor/sodor-bubblesort.bin",
+        "2000000",
+        "--producer=optimized",
+        "--overlap",
+        "--bench",
+        "1"
+      ],
+      "ns_pattern": "SODOR_FULLCHIP_TIMING mode=overlap .*loop_ns_per_cycle=([0-9.]+)",
+      "accept": [
+        "\\(PASS\\)",
+        "memory_hash=0x9f068cf2dfff396c"
+      ],
+      "cores": 2,
+      "width": 4,
+      "cycles": 332825,
+      "env": {
+        "SIDECAR_CPU_CONS": "${CPU0}",
+        "SIDECAR_CPU_PROD": "${CPU1}"
+      },
+      "timing_scope": "online end-to-end wall time"
+    },
+    {
+      "id": "chronoshear-sodor-w8",
+      "dut": "sodor",
+      "experiment": "main",
+      "simulator": "chronoshear",
+      "command": [
+        "${ROOT}/bin/chronoshear-sodor-w8",
+        "${ROOT}/inputs/sodor/sodor-bubblesort.bin",
+        "2000000",
+        "--producer=optimized",
+        "--overlap",
+        "--bench",
+        "1"
+      ],
+      "ns_pattern": "SODOR_FULLCHIP_TIMING mode=overlap .*loop_ns_per_cycle=([0-9.]+)",
+      "accept": [
+        "\\(PASS\\)",
+        "memory_hash=0x9f068cf2dfff396c"
+      ],
+      "cores": 2,
+      "width": 8,
+      "cycles": 332825,
+      "env": {
+        "SIDECAR_CPU_CONS": "${CPU0}",
+        "SIDECAR_CPU_PROD": "${CPU1}"
+      },
+      "timing_scope": "online end-to-end wall time"
+    },
+    {
+      "id": "chronoshear-sodor-w16",
+      "dut": "sodor",
+      "experiment": "main",
+      "simulator": "chronoshear",
+      "command": [
+        "${ROOT}/bin/chronoshear-sodor-w16",
+        "${ROOT}/inputs/sodor/sodor-bubblesort.bin",
+        "2000000",
+        "--producer=optimized",
+        "--overlap",
+        "--bench",
+        "1"
+      ],
+      "ns_pattern": "SODOR_FULLCHIP_TIMING mode=overlap .*loop_ns_per_cycle=([0-9.]+)",
+      "accept": [
+        "\\(PASS\\)",
+        "memory_hash=0x9f068cf2dfff396c"
+      ],
+      "cores": 2,
+      "width": 16,
+      "cycles": 332825,
+      "env": {
+        "SIDECAR_CPU_CONS": "${CPU0}",
+        "SIDECAR_CPU_PROD": "${CPU1}"
+      },
+      "timing_scope": "online end-to-end wall time"
+    },
+    {
+      "id": "chronoshear-sodor-w32",
+      "dut": "sodor",
+      "experiment": "main",
+      "simulator": "chronoshear",
+      "command": [
+        "${ROOT}/bin/chronoshear-sodor-w32",
+        "${ROOT}/inputs/sodor/sodor-bubblesort.bin",
+        "2000000",
+        "--producer=optimized",
+        "--overlap",
+        "--bench",
+        "1"
+      ],
+      "ns_pattern": "SODOR_FULLCHIP_TIMING mode=overlap .*loop_ns_per_cycle=([0-9.]+)",
+      "accept": [
+        "\\(PASS\\)",
+        "memory_hash=0x9f068cf2dfff396c"
+      ],
+      "cores": 2,
+      "width": 32,
+      "cycles": 332825,
+      "env": {
+        "SIDECAR_CPU_CONS": "${CPU0}",
+        "SIDECAR_CPU_PROD": "${CPU1}"
+      },
+      "timing_scope": "online end-to-end wall time"
+    },
+    {
+      "id": "chronoshear-rocket-w4",
+      "dut": "rocket",
+      "experiment": "main",
+      "simulator": "chronoshear",
+      "command": [
+        "${ROOT}/bin/chronoshear-rocket-w4",
+        "${ROOT}/inputs/rocket/rocket-dhrystone.bin",
+        "--max-cycles=500000",
+        "--producer-cpu=${CPU0}",
+        "--consumer-cpu=${CPU1}",
+        "--wait=yield",
+        "--continue-oracle-mismatches",
+        "--mismatch-log-limit=4"
+      ],
+      "ns_pattern": "ROCKET_NATIVE_LIVE status=pass .*wall_ns_per_cycle=([0-9.]+)",
+      "accept": [
+        "ROCKET_NATIVE_LIVE status=pass .*boundary_mismatches=0 final_mismatches=0",
+        "ROCKET_ORACLE_POLICY mode=report-only checks=enabled"
+      ],
+      "cores": 2,
+      "width": 4,
+      "timing_scope": "online end-to-end wall time"
+    },
+    {
+      "id": "chronoshear-rocket-w8",
+      "dut": "rocket",
+      "experiment": "main",
+      "simulator": "chronoshear",
+      "command": [
+        "${ROOT}/bin/chronoshear-rocket-w8",
+        "${ROOT}/inputs/rocket/rocket-dhrystone.bin",
+        "--max-cycles=500000",
+        "--producer-cpu=${CPU0}",
+        "--consumer-cpu=${CPU1}",
+        "--wait=yield",
+        "--continue-oracle-mismatches",
+        "--mismatch-log-limit=4"
+      ],
+      "ns_pattern": "ROCKET_NATIVE_LIVE status=pass .*wall_ns_per_cycle=([0-9.]+)",
+      "accept": [
+        "ROCKET_NATIVE_LIVE status=pass .*boundary_mismatches=0 final_mismatches=0",
+        "ROCKET_ORACLE_POLICY mode=report-only checks=enabled"
+      ],
+      "cores": 2,
+      "width": 8,
+      "timing_scope": "online end-to-end wall time"
+    },
+    {
+      "id": "chronoshear-rocket-w16",
+      "dut": "rocket",
+      "experiment": "main",
+      "simulator": "chronoshear",
+      "command": [
+        "${ROOT}/bin/chronoshear-rocket-w16",
+        "${ROOT}/inputs/rocket/rocket-dhrystone.bin",
+        "--max-cycles=500000",
+        "--producer-cpu=${CPU0}",
+        "--consumer-cpu=${CPU1}",
+        "--wait=yield",
+        "--continue-oracle-mismatches",
+        "--mismatch-log-limit=4"
+      ],
+      "ns_pattern": "ROCKET_NATIVE_LIVE status=pass .*wall_ns_per_cycle=([0-9.]+)",
+      "accept": [
+        "ROCKET_NATIVE_LIVE status=pass .*boundary_mismatches=0 final_mismatches=0",
+        "ROCKET_ORACLE_POLICY mode=report-only checks=enabled"
+      ],
+      "cores": 2,
+      "width": 16,
+      "timing_scope": "online end-to-end wall time"
+    },
+    {
+      "id": "chronoshear-rocket-w32",
+      "dut": "rocket",
+      "experiment": "main",
+      "simulator": "chronoshear",
+      "command": [
+        "${ROOT}/bin/chronoshear-rocket-w32",
+        "${ROOT}/inputs/rocket/rocket-dhrystone.bin",
+        "--max-cycles=500000",
+        "--producer-cpu=${CPU0}",
+        "--consumer-cpu=${CPU1}",
+        "--wait=yield",
+        "--continue-oracle-mismatches",
+        "--mismatch-log-limit=4"
+      ],
+      "ns_pattern": "ROCKET_NATIVE_LIVE status=pass .*wall_ns_per_cycle=([0-9.]+)",
+      "accept": [
+        "ROCKET_NATIVE_LIVE status=pass .*boundary_mismatches=0 final_mismatches=0",
+        "ROCKET_ORACLE_POLICY mode=report-only checks=enabled"
+      ],
+      "cores": 2,
+      "width": 32,
+      "timing_scope": "online end-to-end wall time"
+    },
+    {
+      "id": "chronoshear-boom-large-rtl2",
+      "dut": "boom-large",
+      "experiment": "threads",
+      "simulator": "chronoshear",
+      "command": [
+        "${ROOT}/bin/chronoshear-boom-large-mt6-w16",
+        "--execution=joint",
+        "--joint-cpus=${CPU0},${CPU1},${CPU2},${CPU3},${CPU4},${CPU5}",
+        "--joint-partition-workers=1,2,1,2,1,2",
+        "--joint-frontend-worker=3",
+        "--joint-memory-worker=4",
+        "--joint-decode-workers=5",
+        "--reset-cycles=64",
+        "--continue-oracle-mismatches",
+        "--mismatch-log-limit=4",
+        "--joint-idle-pauses=1",
+        "--max-cycles=1000000",
+        "--eval-timing",
+        "--timing-from=750016",
+        "--timing-until=1000000",
+        "--",
+        "${ROOT}/inputs/boom-large/boom-dhrystone.riscv"
+      ],
+      "ns_pattern": "LIVE_SIDECAR_TIMING overlap .*wall_ns_per_cycle=([0-9.]+)",
+      "accept": [
+        "LIVE_SIDECAR_COMPLETED .*dut_success=0",
+        "MODEL_VALIDATION .*streams=4342 .*boundary_mismatches=0 .*program_done=0 program_exit=-1",
+        "LIVE_SIDECAR_TIMING_RANGE begin=750016 end=1000000 measured_end=1000000"
+      ],
+      "cores": 6,
+      "width": 16,
+      "cycles": 249984,
+      "rtl_cores": 2,
+      "env": {
+        "SYSMODEL_EARLY_FRONTEND_POST": "1",
+        "SYSMODEL_FRONTEND_MEMORY_PIPELINE": "1",
+        "SYSMODEL_HEAD_AFTER_DTM": "1",
+        "SYSMODEL_LATE_FRONTEND_TAIL": "1",
+        "SYSMODEL_NATIVE_FABRIC_READY": "1",
+        "SYSMODEL_OWNER_LOCAL_HEAD": "1",
+        "SYSMODEL_RECORD_THREAD": "0"
+      },
+      "timing_scope": "online end-to-end wall time"
+    },
+    {
+      "id": "chronoshear-boom-large-rtl4",
+      "dut": "boom-large",
+      "experiment": "threads",
+      "simulator": "chronoshear",
+      "command": [
+        "${ROOT}/bin/chronoshear-boom-large-mt6-w16",
+        "--execution=joint",
+        "--joint-cpus=${CPU0},${CPU1},${CPU2},${CPU3},${CPU4},${CPU5},${CPU6},${CPU7}",
+        "--joint-partition-workers=1,2,3,4,1,2",
+        "--joint-frontend-worker=5",
+        "--joint-memory-worker=6",
+        "--joint-decode-workers=7",
+        "--reset-cycles=64",
+        "--continue-oracle-mismatches",
+        "--mismatch-log-limit=4",
+        "--joint-idle-pauses=1",
+        "--max-cycles=1000000",
+        "--eval-timing",
+        "--timing-from=750016",
+        "--timing-until=1000000",
+        "--",
+        "${ROOT}/inputs/boom-large/boom-dhrystone.riscv"
+      ],
+      "ns_pattern": "LIVE_SIDECAR_TIMING overlap .*wall_ns_per_cycle=([0-9.]+)",
+      "accept": [
+        "LIVE_SIDECAR_COMPLETED .*dut_success=0",
+        "MODEL_VALIDATION .*streams=4342 .*boundary_mismatches=0 .*program_done=0 program_exit=-1",
+        "LIVE_SIDECAR_TIMING_RANGE begin=750016 end=1000000 measured_end=1000000"
+      ],
+      "cores": 8,
+      "width": 16,
+      "cycles": 249984,
+      "rtl_cores": 4,
+      "env": {
+        "SYSMODEL_EARLY_FRONTEND_POST": "1",
+        "SYSMODEL_FRONTEND_MEMORY_PIPELINE": "1",
+        "SYSMODEL_HEAD_AFTER_DTM": "1",
+        "SYSMODEL_LATE_FRONTEND_TAIL": "1",
+        "SYSMODEL_NATIVE_FABRIC_READY": "1",
+        "SYSMODEL_OWNER_LOCAL_HEAD": "1",
+        "SYSMODEL_RECORD_THREAD": "0"
+      },
+      "timing_scope": "online end-to-end wall time"
+    },
+    {
+      "id": "chronoshear-boom-large-rtl6",
+      "dut": "boom-large",
+      "experiment": "threads",
+      "simulator": "chronoshear",
+      "command": [
+        "${ROOT}/bin/chronoshear-boom-large-mt6-w16",
+        "--execution=joint",
+        "--joint-cpus=${CPU0},${CPU1},${CPU2},${CPU3},${CPU4},${CPU5},${CPU6},${CPU7},${CPU8},${CPU9}",
+        "--joint-partition-workers=1,2,3,4,5,6",
+        "--joint-frontend-worker=7",
+        "--joint-memory-worker=8",
+        "--joint-decode-workers=9",
+        "--reset-cycles=64",
+        "--continue-oracle-mismatches",
+        "--mismatch-log-limit=4",
+        "--joint-idle-pauses=1",
+        "--max-cycles=1000000",
+        "--eval-timing",
+        "--timing-from=750016",
+        "--timing-until=1000000",
+        "--",
+        "${ROOT}/inputs/boom-large/boom-dhrystone.riscv"
+      ],
+      "ns_pattern": "LIVE_SIDECAR_TIMING overlap .*wall_ns_per_cycle=([0-9.]+)",
+      "accept": [
+        "LIVE_SIDECAR_COMPLETED .*dut_success=0",
+        "MODEL_VALIDATION .*streams=4342 .*boundary_mismatches=0 .*program_done=0 program_exit=-1",
+        "LIVE_SIDECAR_TIMING_RANGE begin=750016 end=1000000 measured_end=1000000"
+      ],
+      "cores": 10,
+      "width": 16,
+      "cycles": 249984,
+      "rtl_cores": 6,
+      "env": {
+        "SYSMODEL_EARLY_FRONTEND_POST": "1",
+        "SYSMODEL_FRONTEND_MEMORY_PIPELINE": "1",
+        "SYSMODEL_HEAD_AFTER_DTM": "1",
+        "SYSMODEL_LATE_FRONTEND_TAIL": "1",
+        "SYSMODEL_NATIVE_FABRIC_READY": "1",
+        "SYSMODEL_OWNER_LOCAL_HEAD": "1",
+        "SYSMODEL_RECORD_THREAD": "0"
+      },
+      "timing_scope": "online end-to-end wall time"
+    },
+    {
+      "id": "matmul-verilator-4t",
+      "dut": "matmul",
+      "experiment": "main",
+      "simulator": "verilator-4t",
+      "command": [
+        "${ROOT}/bin/matmul-verilator-4t",
+        "bench",
+        "262144",
+        "1"
+      ],
+      "ns_pattern": "BENCH .*ns_per_cycle=([0-9.]+)",
+      "accept": [
+        "CHECK .*mismatches=0"
+      ],
+      "cores": 4,
+      "cycles": 262144,
+      "timing_scope": "input assignment, RTL evaluation and output reduction"
+    },
+    {
+      "id": "chronoshear-boom-small-w4",
+      "dut": "boom-small",
+      "experiment": "width",
+      "simulator": "chronoshear",
+      "command": [
+        "${ROOT}/bin/chronoshear-boom-small-w4",
+        "--max-cycles=1000000",
+        "--reset-cycles=64",
+        "--continue-oracle-mismatches",
+        "--mismatch-log-limit=4",
+        "--overlap",
+        "--decode-thread",
+        "--consumer-cpu=${CPU0}",
+        "--producer-cpu=${CPU1}",
+        "--decoder-cpu=${CPU2}",
+        "--eval-timing",
+        "--timing-from=803200",
+        "--timing-until=1000000",
+        "--",
+        "${ROOT}/inputs/boom-small/boom-dhrystone.riscv"
+      ],
+      "ns_pattern": "LIVE_SIDECAR_TIMING overlap .*wall_ns_per_cycle=([0-9.]+)",
+      "accept": [
+        "LIVE_SIDECAR_COMPLETED width=4 .*dut_success=0",
+        "MODEL_VALIDATION .*streams=2171 .*boundary_mismatches=0 .*consumer=verify-report-only program_done=0 program_exit=-1",
+        "LIVE_SIDECAR_TIMING_RANGE begin=803200 end=1000000 measured_end=1000000"
+      ],
+      "cores": 3,
+      "cycles": 196800,
+      "width": 4,
+      "timing_scope": "online end-to-end wall time"
+    },
+    {
+      "id": "chronoshear-boom-small-w8",
+      "dut": "boom-small",
+      "experiment": "width",
+      "simulator": "chronoshear",
+      "command": [
+        "${ROOT}/bin/chronoshear-boom-small-w8",
+        "--max-cycles=1000000",
+        "--reset-cycles=64",
+        "--continue-oracle-mismatches",
+        "--mismatch-log-limit=4",
+        "--overlap",
+        "--decode-thread",
+        "--consumer-cpu=${CPU0}",
+        "--producer-cpu=${CPU1}",
+        "--decoder-cpu=${CPU2}",
+        "--eval-timing",
+        "--timing-from=803200",
+        "--timing-until=1000000",
+        "--",
+        "${ROOT}/inputs/boom-small/boom-dhrystone.riscv"
+      ],
+      "ns_pattern": "LIVE_SIDECAR_TIMING overlap .*wall_ns_per_cycle=([0-9.]+)",
+      "accept": [
+        "LIVE_SIDECAR_COMPLETED width=8 .*dut_success=0",
+        "MODEL_VALIDATION .*streams=2171 .*boundary_mismatches=0 .*consumer=verify-report-only program_done=0 program_exit=-1",
+        "LIVE_SIDECAR_TIMING_RANGE begin=803200 end=1000000 measured_end=1000000"
+      ],
+      "cores": 3,
+      "cycles": 196800,
+      "width": 8,
+      "timing_scope": "online end-to-end wall time"
+    },
+    {
+      "id": "chronoshear-boom-small-w16",
+      "dut": "boom-small",
+      "experiment": "width",
+      "simulator": "chronoshear",
+      "command": [
+        "${ROOT}/bin/chronoshear-boom-small-w16",
+        "--max-cycles=1000000",
+        "--reset-cycles=64",
+        "--continue-oracle-mismatches",
+        "--mismatch-log-limit=4",
+        "--overlap",
+        "--decode-thread",
+        "--consumer-cpu=${CPU0}",
+        "--producer-cpu=${CPU1}",
+        "--decoder-cpu=${CPU2}",
+        "--eval-timing",
+        "--timing-from=803200",
+        "--timing-until=1000000",
+        "--",
+        "${ROOT}/inputs/boom-small/boom-dhrystone.riscv"
+      ],
+      "ns_pattern": "LIVE_SIDECAR_TIMING overlap .*wall_ns_per_cycle=([0-9.]+)",
+      "accept": [
+        "LIVE_SIDECAR_COMPLETED width=16 .*dut_success=0",
+        "MODEL_VALIDATION .*streams=2171 .*boundary_mismatches=0 .*consumer=verify-report-only program_done=0 program_exit=-1",
+        "LIVE_SIDECAR_TIMING_RANGE begin=803200 end=1000000 measured_end=1000000"
+      ],
+      "cores": 3,
+      "cycles": 196800,
+      "width": 16,
+      "timing_scope": "online end-to-end wall time"
+    },
+    {
+      "id": "chronoshear-boom-small-w32",
+      "dut": "boom-small",
+      "experiment": "width",
+      "simulator": "chronoshear",
+      "command": [
+        "${ROOT}/bin/chronoshear-boom-small-w32",
+        "--max-cycles=1000000",
+        "--reset-cycles=64",
+        "--continue-oracle-mismatches",
+        "--mismatch-log-limit=4",
+        "--overlap",
+        "--decode-thread",
+        "--consumer-cpu=${CPU0}",
+        "--producer-cpu=${CPU1}",
+        "--decoder-cpu=${CPU2}",
+        "--eval-timing",
+        "--timing-from=803200",
+        "--timing-until=1000000",
+        "--",
+        "${ROOT}/inputs/boom-small/boom-dhrystone.riscv"
+      ],
+      "ns_pattern": "LIVE_SIDECAR_TIMING overlap .*wall_ns_per_cycle=([0-9.]+)",
+      "accept": [
+        "LIVE_SIDECAR_COMPLETED width=32 .*dut_success=0",
+        "MODEL_VALIDATION .*streams=2171 .*boundary_mismatches=0 .*consumer=verify-report-only program_done=0 program_exit=-1",
+        "LIVE_SIDECAR_TIMING_RANGE begin=803200 end=1000000 measured_end=1000000"
+      ],
+      "cores": 3,
+      "cycles": 196800,
+      "width": 32,
+      "timing_scope": "online end-to-end wall time"
+    },
+    {
+      "id": "chronoshear-boom-medium-w4",
+      "dut": "boom-medium",
+      "experiment": "width",
+      "simulator": "chronoshear",
+      "command": [
+        "${ROOT}/bin/chronoshear-boom-medium-w4",
+        "--max-cycles=1000000",
+        "--reset-cycles=64",
+        "--continue-oracle-mismatches",
+        "--mismatch-log-limit=4",
+        "--overlap",
+        "--decode-thread",
+        "--consumer-cpu=${CPU0}",
+        "--producer-cpu=${CPU1}",
+        "--decoder-cpu=${CPU2}",
+        "--eval-timing",
+        "--timing-from=750016",
+        "--timing-until=1000000",
+        "--",
+        "${ROOT}/inputs/boom-medium/boom-dhrystone.riscv"
+      ],
+      "ns_pattern": "LIVE_SIDECAR_TIMING overlap .*wall_ns_per_cycle=([0-9.]+)",
+      "accept": [
+        "LIVE_SIDECAR_COMPLETED width=4 .*dut_success=0",
+        "MODEL_VALIDATION .*streams=2838 .*boundary_mismatches=0 .*consumer=verify-report-only program_done=0 program_exit=-1",
+        "LIVE_SIDECAR_TIMING_RANGE begin=750016 end=1000000 measured_end=1000000"
+      ],
+      "cores": 3,
+      "cycles": 249984,
+      "width": 4,
+      "timing_scope": "online end-to-end wall time"
+    },
+    {
+      "id": "chronoshear-boom-medium-w8",
+      "dut": "boom-medium",
+      "experiment": "width",
+      "simulator": "chronoshear",
+      "command": [
+        "${ROOT}/bin/chronoshear-boom-medium-w8",
+        "--max-cycles=1000000",
+        "--reset-cycles=64",
+        "--continue-oracle-mismatches",
+        "--mismatch-log-limit=4",
+        "--overlap",
+        "--decode-thread",
+        "--consumer-cpu=${CPU0}",
+        "--producer-cpu=${CPU1}",
+        "--decoder-cpu=${CPU2}",
+        "--eval-timing",
+        "--timing-from=750016",
+        "--timing-until=1000000",
+        "--",
+        "${ROOT}/inputs/boom-medium/boom-dhrystone.riscv"
+      ],
+      "ns_pattern": "LIVE_SIDECAR_TIMING overlap .*wall_ns_per_cycle=([0-9.]+)",
+      "accept": [
+        "LIVE_SIDECAR_COMPLETED width=8 .*dut_success=0",
+        "MODEL_VALIDATION .*streams=2838 .*boundary_mismatches=0 .*consumer=verify-report-only program_done=0 program_exit=-1",
+        "LIVE_SIDECAR_TIMING_RANGE begin=750016 end=1000000 measured_end=1000000"
+      ],
+      "cores": 3,
+      "cycles": 249984,
+      "width": 8,
+      "timing_scope": "online end-to-end wall time"
+    },
+    {
+      "id": "chronoshear-boom-medium-w16",
+      "dut": "boom-medium",
+      "experiment": "width",
+      "simulator": "chronoshear",
+      "command": [
+        "${ROOT}/bin/chronoshear-boom-medium-w16",
+        "--max-cycles=1000000",
+        "--reset-cycles=64",
+        "--continue-oracle-mismatches",
+        "--mismatch-log-limit=4",
+        "--overlap",
+        "--decode-thread",
+        "--consumer-cpu=${CPU0}",
+        "--producer-cpu=${CPU1}",
+        "--decoder-cpu=${CPU2}",
+        "--eval-timing",
+        "--timing-from=750016",
+        "--timing-until=1000000",
+        "--",
+        "${ROOT}/inputs/boom-medium/boom-dhrystone.riscv"
+      ],
+      "ns_pattern": "LIVE_SIDECAR_TIMING overlap .*wall_ns_per_cycle=([0-9.]+)",
+      "accept": [
+        "LIVE_SIDECAR_COMPLETED width=16 .*dut_success=0",
+        "MODEL_VALIDATION .*streams=2838 .*boundary_mismatches=0 .*consumer=verify-report-only program_done=0 program_exit=-1",
+        "LIVE_SIDECAR_TIMING_RANGE begin=750016 end=1000000 measured_end=1000000"
+      ],
+      "cores": 3,
+      "cycles": 249984,
+      "width": 16,
+      "timing_scope": "online end-to-end wall time"
+    },
+    {
+      "id": "chronoshear-boom-medium-w32",
+      "dut": "boom-medium",
+      "experiment": "width",
+      "simulator": "chronoshear",
+      "command": [
+        "${ROOT}/bin/chronoshear-boom-medium-w32",
+        "--max-cycles=1000000",
+        "--reset-cycles=64",
+        "--continue-oracle-mismatches",
+        "--mismatch-log-limit=4",
+        "--overlap",
+        "--decode-thread",
+        "--consumer-cpu=${CPU0}",
+        "--producer-cpu=${CPU1}",
+        "--decoder-cpu=${CPU2}",
+        "--eval-timing",
+        "--timing-from=750016",
+        "--timing-until=1000000",
+        "--",
+        "${ROOT}/inputs/boom-medium/boom-dhrystone.riscv"
+      ],
+      "ns_pattern": "LIVE_SIDECAR_TIMING overlap .*wall_ns_per_cycle=([0-9.]+)",
+      "accept": [
+        "LIVE_SIDECAR_COMPLETED width=32 .*dut_success=0",
+        "MODEL_VALIDATION .*streams=2838 .*boundary_mismatches=0 .*consumer=verify-report-only program_done=0 program_exit=-1",
+        "LIVE_SIDECAR_TIMING_RANGE begin=750016 end=1000000 measured_end=1000000"
+      ],
+      "cores": 3,
+      "cycles": 249984,
+      "width": 32,
+      "timing_scope": "online end-to-end wall time"
+    },
+    {
+      "id": "chronoshear-boom-large-w4",
+      "dut": "boom-large",
+      "experiment": "width",
+      "simulator": "chronoshear",
+      "command": [
+        "${ROOT}/bin/chronoshear-boom-large-w4",
+        "--max-cycles=1000000",
+        "--reset-cycles=64",
+        "--continue-oracle-mismatches",
+        "--mismatch-log-limit=4",
+        "--overlap",
+        "--decode-thread",
+        "--consumer-cpu=${CPU0}",
+        "--producer-cpu=${CPU1}",
+        "--decoder-cpu=${CPU2}",
+        "--eval-timing",
+        "--timing-from=750016",
+        "--timing-until=1000000",
+        "--",
+        "${ROOT}/inputs/boom-large/boom-dhrystone.riscv"
+      ],
+      "ns_pattern": "LIVE_SIDECAR_TIMING overlap .*wall_ns_per_cycle=([0-9.]+)",
+      "accept": [
+        "LIVE_SIDECAR_COMPLETED width=4 .*dut_success=0",
+        "MODEL_VALIDATION .*streams=3997 .*boundary_mismatches=0 .*consumer=verify-report-only program_done=0 program_exit=-1",
+        "LIVE_SIDECAR_TIMING_RANGE begin=750016 end=1000000 measured_end=1000000"
+      ],
+      "cores": 3,
+      "cycles": 249984,
+      "width": 4,
+      "timing_scope": "online end-to-end wall time"
+    },
+    {
+      "id": "chronoshear-boom-large-w8",
+      "dut": "boom-large",
+      "experiment": "width",
+      "simulator": "chronoshear",
+      "command": [
+        "${ROOT}/bin/chronoshear-boom-large-w8",
+        "--max-cycles=1000000",
+        "--reset-cycles=64",
+        "--continue-oracle-mismatches",
+        "--mismatch-log-limit=4",
+        "--overlap",
+        "--decode-thread",
+        "--consumer-cpu=${CPU0}",
+        "--producer-cpu=${CPU1}",
+        "--decoder-cpu=${CPU2}",
+        "--eval-timing",
+        "--timing-from=750016",
+        "--timing-until=1000000",
+        "--",
+        "${ROOT}/inputs/boom-large/boom-dhrystone.riscv"
+      ],
+      "ns_pattern": "LIVE_SIDECAR_TIMING overlap .*wall_ns_per_cycle=([0-9.]+)",
+      "accept": [
+        "LIVE_SIDECAR_COMPLETED width=8 .*dut_success=0",
+        "MODEL_VALIDATION .*streams=3997 .*boundary_mismatches=0 .*consumer=verify-report-only program_done=0 program_exit=-1",
+        "LIVE_SIDECAR_TIMING_RANGE begin=750016 end=1000000 measured_end=1000000"
+      ],
+      "cores": 3,
+      "cycles": 249984,
+      "width": 8,
+      "timing_scope": "online end-to-end wall time"
+    },
+    {
+      "id": "chronoshear-boom-large-w16",
+      "dut": "boom-large",
+      "experiment": "width",
+      "simulator": "chronoshear",
+      "command": [
+        "${ROOT}/bin/chronoshear-boom-large-w16",
+        "--max-cycles=1000000",
+        "--reset-cycles=64",
+        "--continue-oracle-mismatches",
+        "--mismatch-log-limit=4",
+        "--overlap",
+        "--decode-thread",
+        "--consumer-cpu=${CPU0}",
+        "--producer-cpu=${CPU1}",
+        "--decoder-cpu=${CPU2}",
+        "--eval-timing",
+        "--timing-from=750016",
+        "--timing-until=1000000",
+        "--",
+        "${ROOT}/inputs/boom-large/boom-dhrystone.riscv"
+      ],
+      "ns_pattern": "LIVE_SIDECAR_TIMING overlap .*wall_ns_per_cycle=([0-9.]+)",
+      "accept": [
+        "LIVE_SIDECAR_COMPLETED width=16 .*dut_success=0",
+        "MODEL_VALIDATION .*streams=3997 .*boundary_mismatches=0 .*consumer=verify-report-only program_done=0 program_exit=-1",
+        "LIVE_SIDECAR_TIMING_RANGE begin=750016 end=1000000 measured_end=1000000"
+      ],
+      "cores": 3,
+      "cycles": 249984,
+      "width": 16,
+      "timing_scope": "online end-to-end wall time"
+    },
+    {
+      "id": "chronoshear-boom-large-w32",
+      "dut": "boom-large",
+      "experiment": "width",
+      "simulator": "chronoshear",
+      "command": [
+        "${ROOT}/bin/chronoshear-boom-large-w32",
+        "--max-cycles=1000000",
+        "--reset-cycles=64",
+        "--continue-oracle-mismatches",
+        "--mismatch-log-limit=4",
+        "--overlap",
+        "--decode-thread",
+        "--consumer-cpu=${CPU0}",
+        "--producer-cpu=${CPU1}",
+        "--decoder-cpu=${CPU2}",
+        "--eval-timing",
+        "--timing-from=750016",
+        "--timing-until=1000000",
+        "--",
+        "${ROOT}/inputs/boom-large/boom-dhrystone.riscv"
+      ],
+      "ns_pattern": "LIVE_SIDECAR_TIMING overlap .*wall_ns_per_cycle=([0-9.]+)",
+      "accept": [
+        "LIVE_SIDECAR_COMPLETED width=32 .*dut_success=0",
+        "MODEL_VALIDATION .*streams=3997 .*boundary_mismatches=0 .*consumer=verify-report-only program_done=0 program_exit=-1",
+        "LIVE_SIDECAR_TIMING_RANGE begin=750016 end=1000000 measured_end=1000000"
+      ],
+      "cores": 3,
+      "cycles": 249984,
+      "width": 32,
+      "timing_scope": "online end-to-end wall time"
+    },
+    {
+      "id": "chronoshear-aes-w4",
+      "dut": "aes",
+      "experiment": "width",
+      "simulator": "chronoshear",
+      "command": [
+        "${ROOT}/bin/chronoshear-aes-w4",
+        "--cycles",
+        "100000",
+        "--consumer-cpu",
+        "${CPU0}",
+        "--overlap",
+        "--producer-cpu",
+        "${CPU1}"
+      ],
+      "ns_pattern": "AES_LIVE_TIMING .*wall_ns_per_cycle=([0-9.]+)",
+      "accept": [
+        "AES_LIVE_CHECK .*oracle_mismatches=0 output_mismatches=0"
+      ],
+      "cores": 2,
+      "width": 4,
+      "cycles": 100000,
+      "timing_scope": "online end-to-end wall time"
+    },
+    {
+      "id": "chronoshear-aes-w8",
+      "dut": "aes",
+      "experiment": "width",
+      "simulator": "chronoshear",
+      "command": [
+        "${ROOT}/bin/chronoshear-aes-w8",
+        "--cycles",
+        "100000",
+        "--consumer-cpu",
+        "${CPU0}",
+        "--overlap",
+        "--producer-cpu",
+        "${CPU1}"
+      ],
+      "ns_pattern": "AES_LIVE_TIMING .*wall_ns_per_cycle=([0-9.]+)",
+      "accept": [
+        "AES_LIVE_CHECK .*oracle_mismatches=0 output_mismatches=0"
+      ],
+      "cores": 2,
+      "width": 8,
+      "cycles": 100000,
+      "timing_scope": "online end-to-end wall time"
+    },
+    {
+      "id": "chronoshear-aes-w16",
+      "dut": "aes",
+      "experiment": "width",
+      "simulator": "chronoshear",
+      "command": [
+        "${ROOT}/bin/chronoshear-aes-w16",
+        "--cycles",
+        "100000",
+        "--consumer-cpu",
+        "${CPU0}",
+        "--overlap",
+        "--producer-cpu",
+        "${CPU1}"
+      ],
+      "ns_pattern": "AES_LIVE_TIMING .*wall_ns_per_cycle=([0-9.]+)",
+      "accept": [
+        "AES_LIVE_CHECK .*oracle_mismatches=0 output_mismatches=0"
+      ],
+      "cores": 2,
+      "width": 16,
+      "cycles": 100000,
+      "timing_scope": "online end-to-end wall time"
+    },
+    {
+      "id": "chronoshear-aes-w32",
+      "dut": "aes",
+      "experiment": "width",
+      "simulator": "chronoshear",
+      "command": [
+        "${ROOT}/bin/chronoshear-aes-w32",
+        "--cycles",
+        "100000",
+        "--consumer-cpu",
+        "${CPU0}",
+        "--overlap",
+        "--producer-cpu",
+        "${CPU1}"
+      ],
+      "ns_pattern": "AES_LIVE_TIMING .*wall_ns_per_cycle=([0-9.]+)",
+      "accept": [
+        "AES_LIVE_CHECK .*oracle_mismatches=0 output_mismatches=0"
+      ],
+      "cores": 2,
+      "width": 32,
+      "cycles": 100000,
+      "timing_scope": "online end-to-end wall time"
+    },
+    {
+      "id": "chronoshear-matmul-w4",
+      "dut": "matmul",
+      "experiment": "width",
+      "simulator": "chronoshear",
+      "command": [
+        "${ROOT}/bin/chronoshear-matmul-w4",
+        "bench",
+        "262144",
+        "1"
+      ],
+      "ns_pattern": "BENCH .*ns_per_cycle=([0-9.]+)",
+      "accept": [
+        "CHECK .*mismatches=0"
+      ],
+      "cores": 1,
+      "width": 4,
+      "cycles": 262144,
+      "timing_scope": "input assignment, RTL evaluation and output reduction"
+    },
+    {
+      "id": "chronoshear-matmul-w8",
+      "dut": "matmul",
+      "experiment": "width",
+      "simulator": "chronoshear",
+      "command": [
+        "${ROOT}/bin/chronoshear-matmul-w8",
+        "bench",
+        "262144",
+        "1"
+      ],
+      "ns_pattern": "BENCH .*ns_per_cycle=([0-9.]+)",
+      "accept": [
+        "CHECK .*mismatches=0"
+      ],
+      "cores": 1,
+      "width": 8,
+      "cycles": 262144,
+      "timing_scope": "input assignment, RTL evaluation and output reduction"
+    },
+    {
+      "id": "chronoshear-matmul-w16",
+      "dut": "matmul",
+      "experiment": "width",
+      "simulator": "chronoshear",
+      "command": [
+        "${ROOT}/bin/chronoshear-matmul-w16",
+        "bench",
+        "262144",
+        "1"
+      ],
+      "ns_pattern": "BENCH .*ns_per_cycle=([0-9.]+)",
+      "accept": [
+        "CHECK .*mismatches=0"
+      ],
+      "cores": 1,
+      "width": 16,
+      "cycles": 262144,
+      "timing_scope": "input assignment, RTL evaluation and output reduction"
+    },
+    {
+      "id": "chronoshear-matmul-w32",
+      "dut": "matmul",
+      "experiment": "width",
+      "simulator": "chronoshear",
+      "command": [
+        "${ROOT}/bin/chronoshear-matmul-w32",
+        "bench",
+        "262144",
+        "1"
+      ],
+      "ns_pattern": "BENCH .*ns_per_cycle=([0-9.]+)",
+      "accept": [
+        "CHECK .*mismatches=0"
+      ],
+      "cores": 1,
+      "width": 32,
+      "cycles": 262144,
+      "timing_scope": "input assignment, RTL evaluation and output reduction"
+    },
+    {
+      "id": "chronoshear-sodor-w4",
+      "dut": "sodor",
+      "experiment": "width",
+      "simulator": "chronoshear",
+      "command": [
+        "${ROOT}/bin/chronoshear-sodor-w4",
+        "${ROOT}/inputs/sodor/sodor-bubblesort.bin",
+        "2000000",
+        "--producer=optimized",
+        "--overlap",
+        "--bench",
+        "1"
+      ],
+      "ns_pattern": "SODOR_FULLCHIP_TIMING mode=overlap .*loop_ns_per_cycle=([0-9.]+)",
+      "accept": [
+        "\\(PASS\\)",
+        "memory_hash=0x9f068cf2dfff396c"
+      ],
+      "cores": 2,
+      "width": 4,
+      "cycles": 332825,
+      "env": {
+        "SIDECAR_CPU_CONS": "${CPU0}",
+        "SIDECAR_CPU_PROD": "${CPU1}"
+      },
+      "timing_scope": "online end-to-end wall time"
+    },
+    {
+      "id": "chronoshear-sodor-w8",
+      "dut": "sodor",
+      "experiment": "width",
+      "simulator": "chronoshear",
+      "command": [
+        "${ROOT}/bin/chronoshear-sodor-w8",
+        "${ROOT}/inputs/sodor/sodor-bubblesort.bin",
+        "2000000",
+        "--producer=optimized",
+        "--overlap",
+        "--bench",
+        "1"
+      ],
+      "ns_pattern": "SODOR_FULLCHIP_TIMING mode=overlap .*loop_ns_per_cycle=([0-9.]+)",
+      "accept": [
+        "\\(PASS\\)",
+        "memory_hash=0x9f068cf2dfff396c"
+      ],
+      "cores": 2,
+      "width": 8,
+      "cycles": 332825,
+      "env": {
+        "SIDECAR_CPU_CONS": "${CPU0}",
+        "SIDECAR_CPU_PROD": "${CPU1}"
+      },
+      "timing_scope": "online end-to-end wall time"
+    },
+    {
+      "id": "chronoshear-sodor-w16",
+      "dut": "sodor",
+      "experiment": "width",
+      "simulator": "chronoshear",
+      "command": [
+        "${ROOT}/bin/chronoshear-sodor-w16",
+        "${ROOT}/inputs/sodor/sodor-bubblesort.bin",
+        "2000000",
+        "--producer=optimized",
+        "--overlap",
+        "--bench",
+        "1"
+      ],
+      "ns_pattern": "SODOR_FULLCHIP_TIMING mode=overlap .*loop_ns_per_cycle=([0-9.]+)",
+      "accept": [
+        "\\(PASS\\)",
+        "memory_hash=0x9f068cf2dfff396c"
+      ],
+      "cores": 2,
+      "width": 16,
+      "cycles": 332825,
+      "env": {
+        "SIDECAR_CPU_CONS": "${CPU0}",
+        "SIDECAR_CPU_PROD": "${CPU1}"
+      },
+      "timing_scope": "online end-to-end wall time"
+    },
+    {
+      "id": "chronoshear-sodor-w32",
+      "dut": "sodor",
+      "experiment": "width",
+      "simulator": "chronoshear",
+      "command": [
+        "${ROOT}/bin/chronoshear-sodor-w32",
+        "${ROOT}/inputs/sodor/sodor-bubblesort.bin",
+        "2000000",
+        "--producer=optimized",
+        "--overlap",
+        "--bench",
+        "1"
+      ],
+      "ns_pattern": "SODOR_FULLCHIP_TIMING mode=overlap .*loop_ns_per_cycle=([0-9.]+)",
+      "accept": [
+        "\\(PASS\\)",
+        "memory_hash=0x9f068cf2dfff396c"
+      ],
+      "cores": 2,
+      "width": 32,
+      "cycles": 332825,
+      "env": {
+        "SIDECAR_CPU_CONS": "${CPU0}",
+        "SIDECAR_CPU_PROD": "${CPU1}"
+      },
+      "timing_scope": "online end-to-end wall time"
+    },
+    {
+      "id": "chronoshear-rocket-w4",
+      "dut": "rocket",
+      "experiment": "width",
+      "simulator": "chronoshear",
+      "command": [
+        "${ROOT}/bin/chronoshear-rocket-w4",
+        "${ROOT}/inputs/rocket/rocket-dhrystone.bin",
+        "--max-cycles=500000",
+        "--producer-cpu=${CPU0}",
+        "--consumer-cpu=${CPU1}",
+        "--wait=yield",
+        "--continue-oracle-mismatches",
+        "--mismatch-log-limit=4"
+      ],
+      "ns_pattern": "ROCKET_NATIVE_LIVE status=pass .*wall_ns_per_cycle=([0-9.]+)",
+      "accept": [
+        "ROCKET_NATIVE_LIVE status=pass .*boundary_mismatches=0 final_mismatches=0",
+        "ROCKET_ORACLE_POLICY mode=report-only checks=enabled"
+      ],
+      "cores": 2,
+      "width": 4,
+      "timing_scope": "online end-to-end wall time"
+    },
+    {
+      "id": "chronoshear-rocket-w8",
+      "dut": "rocket",
+      "experiment": "width",
+      "simulator": "chronoshear",
+      "command": [
+        "${ROOT}/bin/chronoshear-rocket-w8",
+        "${ROOT}/inputs/rocket/rocket-dhrystone.bin",
+        "--max-cycles=500000",
+        "--producer-cpu=${CPU0}",
+        "--consumer-cpu=${CPU1}",
+        "--wait=yield",
+        "--continue-oracle-mismatches",
+        "--mismatch-log-limit=4"
+      ],
+      "ns_pattern": "ROCKET_NATIVE_LIVE status=pass .*wall_ns_per_cycle=([0-9.]+)",
+      "accept": [
+        "ROCKET_NATIVE_LIVE status=pass .*boundary_mismatches=0 final_mismatches=0",
+        "ROCKET_ORACLE_POLICY mode=report-only checks=enabled"
+      ],
+      "cores": 2,
+      "width": 8,
+      "timing_scope": "online end-to-end wall time"
+    },
+    {
+      "id": "chronoshear-rocket-w16",
+      "dut": "rocket",
+      "experiment": "width",
+      "simulator": "chronoshear",
+      "command": [
+        "${ROOT}/bin/chronoshear-rocket-w16",
+        "${ROOT}/inputs/rocket/rocket-dhrystone.bin",
+        "--max-cycles=500000",
+        "--producer-cpu=${CPU0}",
+        "--consumer-cpu=${CPU1}",
+        "--wait=yield",
+        "--continue-oracle-mismatches",
+        "--mismatch-log-limit=4"
+      ],
+      "ns_pattern": "ROCKET_NATIVE_LIVE status=pass .*wall_ns_per_cycle=([0-9.]+)",
+      "accept": [
+        "ROCKET_NATIVE_LIVE status=pass .*boundary_mismatches=0 final_mismatches=0",
+        "ROCKET_ORACLE_POLICY mode=report-only checks=enabled"
+      ],
+      "cores": 2,
+      "width": 16,
+      "timing_scope": "online end-to-end wall time"
+    },
+    {
+      "id": "chronoshear-rocket-w32",
+      "dut": "rocket",
+      "experiment": "width",
+      "simulator": "chronoshear",
+      "command": [
+        "${ROOT}/bin/chronoshear-rocket-w32",
+        "${ROOT}/inputs/rocket/rocket-dhrystone.bin",
+        "--max-cycles=500000",
+        "--producer-cpu=${CPU0}",
+        "--consumer-cpu=${CPU1}",
+        "--wait=yield",
+        "--continue-oracle-mismatches",
+        "--mismatch-log-limit=4"
+      ],
+      "ns_pattern": "ROCKET_NATIVE_LIVE status=pass .*wall_ns_per_cycle=([0-9.]+)",
+      "accept": [
+        "ROCKET_NATIVE_LIVE status=pass .*boundary_mismatches=0 final_mismatches=0",
+        "ROCKET_ORACLE_POLICY mode=report-only checks=enabled"
+      ],
+      "cores": 2,
+      "width": 32,
+      "timing_scope": "online end-to-end wall time"
+    }
+  ]
+}

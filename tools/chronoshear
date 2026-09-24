@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+set -euo pipefail
+ROOT="$(cd -- "$(dirname -- "${BASH_SOURCE[0]}")/.." && pwd)"
+exec java -Xmx8G -Xss16M -cp "$ROOT/tools/chronoshear.jar:$ROOT/deps/compiler-libraries.jar" essent.Driver "$@"

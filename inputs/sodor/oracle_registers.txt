@@ -1,0 +1,17 @@
+tile.core.c.exe_reg_wbaddr
+tile.core.c.io_ctl_mem_exception_REG
+tile.core.d.brjmp_offset
+tile.core.d.csr.reg_dcsr_step
+tile.core.d.csr.reg_mie_mtip
+tile.core.d.csr.reg_mstatus_mpie
+tile.core.d.csr.small
+tile.core.d.csr.small_1
+tile.core.d.dec_reg_inst
+tile.core.d.exe_alu_op1
+tile.core.d.exe_reg_ctrl_br_type
+tile.core.d.exe_reg_pc
+tile.core.d.exe_reg_rs2_data
+tile.core.d.mem_reg_alu_out
+tile.core.d.mem_reg_ctrl_csr_cmd
+tile.core.d.mem_reg_ctrl_mem_val
+tile.core.d.mem_reg_inst
