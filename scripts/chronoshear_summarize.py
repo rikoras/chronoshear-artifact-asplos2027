@@ -2,6 +2,7 @@
 """Summarize raw samples in kHz and relative to single-threaded Verilator."""
 from pathlib import Path
 import argparse,csv,statistics
+from chronoshear_verification import verification_note
 
 def signal_statistics(samples):
     counts=[];checked=[]
@@ -52,6 +53,9 @@ def main():
         detail=(' differing_signals_per_run='+signals+('/'+checked if checked else '')) if signals else ''
         print(f"SELECT {dut}: ChronoShear W={best['width']}, {best['throughput_khz']:.3f} kHz"+detail)
     rows=[row for row in rows if row['id'] not in excluded]
+    if any(r.get('oracle_mismatch_signals_max') not in ('',None) and
+           int(r['oracle_mismatch_signals_max'])>0 for r in rows):
+        print(verification_note())
     baselines={r['dut']:r['ns_per_cycle'] for r in rows if r['simulator']=='verilator-1t' and r['status']=='pass'}
     for r in rows:
         r['speedup_verilator_1t']=baselines[r['dut']]/r['ns_per_cycle'] if r['dut'] in baselines and r['ns_per_cycle'] else None

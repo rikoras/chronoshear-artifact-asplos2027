@@ -73,6 +73,10 @@ this command from the artifact directory:
 bash scripts/chronoshear_maintenance.sh
 ```
 
+The prepared host uses Ubuntu 22.04, Python 3.10, Clang 19 and Java 17.
+The bundled plotting modules require Python 3.10. The build script restores
+Verilator's generated version header from the bundled template when needed.
+
 Select **Clean only**, **Rebuild**, or **Clean and rebuild**, then choose one or
 more DUTs and the components to process. Enter comma-separated menu numbers or
 `all` at the DUT and component prompts. The two compilation flows are:
@@ -97,7 +101,7 @@ inputs/<dut>/design.fir
 | --- | --- | --- |
 | 1. ChronoShear FIRRTL compilation | `inputs/<dut>/`, `tools/chronoshear.jar` | `generated/<dut>/w*/`, model bindings, and `mt6-w16/` for Large BOOM |
 | 2. ChronoShear backend compilation | Generated C++, `source/reference_models/`, runtime and harness | Selected `.build/` objects and `bin/chronoshear-*` |
-| 3. Verilator generation | `inputs/<dut>/design.fir`, external RTL modules, compiler tools | `generated/<dut>/verilog/`, `verilator1/`, `verilator4/` |
+| 3. Verilator generation | `inputs/<dut>/design.fir`, external RTL modules, compiler tools | `generated/<dut>/verilog/`, `verilator1/`, `verilator4/`; LargeBOOM also includes `verilator2/` and `verilator6/` |
 | 4. Verilator backend compilation | Verilator-generated C++, runtime and baseline harness | Selected `.build/` objects and `bin/*-verilator-*` |
 | 5. ChronoShear compiler | `source/compiler/` and bundled Scala dependencies | `.build/compiler/` and `tools/chronoshear.jar` |
 | 6. Reference-model architectural checks | Original RTL, reference models and check harnesses | Generated check code, `.build/` objects and `bin/chronoshear-architecture-*` |
@@ -268,10 +272,13 @@ a lane width.
 ### Two-level parallelism — Figure 9
 
 This experiment combines ChronoShear's SIMD inter-cycle execution with RTL
-partition parallelism on LargeBOOM at **W=16**. The online artifact places the
-six RTL partitions on **2,4,6 RTL cores**, with **four additional cores** for
-reference-model work and oracle expansion: six, eight and ten physical cores
-in total. A single-threaded Verilator run supplies the speedup denominator.
+partition parallelism on LargeBOOM at **W=16**. The single-RTL-core point uses
+the unpartitioned simulator and two additional model/supply cores. The other
+points place six RTL partitions on **2,4,6 RTL cores**, with four additional
+model/supply cores. ChronoShear thus uses **3,6,8,10 total physical cores** for
+its **1,2,4,6 RTL-core** points. Verilator and RepCut each use **1,2,4,6 RTL threads** on the
+corresponding number of physical cores. The single-threaded Verilator result
+supplies the speedup denominator.
 The measured total throughput includes online reference-model execution and
 oracle delivery.
 
@@ -279,8 +286,9 @@ oracle delivery.
 bash scripts/chronoshear_threads.sh results/my-threads
 ```
 
-The script reads the LargeBOOM workload, its partitioned ChronoShear executable
-and its single-threaded Verilator baseline. It writes logs, measured throughput
+The script first checks the reference model against original RTL, then measures
+all **12 simulator/thread-count configurations** using the LargeBOOM workload.
+It writes logs, measured throughput
 and normalized performance to `results/my-threads/summary.csv`; the figure is
 `results/my-threads/throughput.{pdf,svg,png}`. The left axis is throughput and the
 right axis is speedup over single-threaded Verilator. 
@@ -320,7 +328,10 @@ remain recorded in `ORACLE_MISMATCH_DETAIL raw_events=...` and the raw-event
 column of `samples.csv`.
 
 Nonzero oracle-mismatch counts are handled according to the benign-mismatch
-discussion in Section 3.5 of the paper. Micro-Lockstep verification remains
-active and its cost is included in the measurement, but oracle mismatches do
-not abort the program. A program failure or external-boundary error is still
-reported as `FAIL` and retained in the log.
+discussion in Section 3.5 of the paper. The supplied reference models have
+passed independent architectural checks for the packaged workloads; benign
+signal-level differences may still occur. A nonzero oracle-mismatch count
+alone does not imply an architectural error. `ORACLE_CHECK_NOTE` states this
+distinction in the console and individual run logs. Micro-Lockstep comparisons
+remain active and their cost is included in the measurement. A program failure
+or external-boundary error is still reported as `FAIL` and retained in the log.

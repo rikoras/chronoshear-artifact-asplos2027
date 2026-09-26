@@ -1458,141 +1458,6 @@
       "timing_scope": "online end-to-end wall time"
     },
     {
-      "id": "chronoshear-boom-large-rtl2",
-      "dut": "boom-large",
-      "experiment": "threads",
-      "simulator": "chronoshear",
-      "command": [
-        "${ROOT}/bin/chronoshear-boom-large-mt6-w16",
-        "--execution=joint",
-        "--joint-cpus=${CPU0},${CPU1},${CPU2},${CPU3},${CPU4},${CPU5}",
-        "--joint-partition-workers=1,2,1,2,1,2",
-        "--joint-frontend-worker=3",
-        "--joint-memory-worker=4",
-        "--joint-decode-workers=5",
-        "--reset-cycles=64",
-        "--continue-oracle-mismatches",
-        "--mismatch-log-limit=4",
-        "--joint-idle-pauses=1",
-        "--max-cycles=1000000",
-        "--eval-timing",
-        "--timing-from=750016",
-        "--timing-until=1000000",
-        "--",
-        "${ROOT}/inputs/boom-large/boom-dhrystone.riscv"
-      ],
-      "ns_pattern": "LIVE_SIDECAR_TIMING overlap .*wall_ns_per_cycle=([0-9.]+)",
-      "accept": [
-        "LIVE_SIDECAR_COMPLETED .*dut_success=0",
-        "MODEL_VALIDATION .*streams=4342 .*boundary_mismatches=0 .*program_done=0 program_exit=-1",
-        "LIVE_SIDECAR_TIMING_RANGE begin=750016 end=1000000 measured_end=1000000"
-      ],
-      "cores": 6,
-      "width": 16,
-      "cycles": 249984,
-      "rtl_cores": 2,
-      "env": {
-        "SYSMODEL_EARLY_FRONTEND_POST": "1",
-        "SYSMODEL_FRONTEND_MEMORY_PIPELINE": "1",
-        "SYSMODEL_HEAD_AFTER_DTM": "1",
-        "SYSMODEL_LATE_FRONTEND_TAIL": "1",
-        "SYSMODEL_NATIVE_FABRIC_READY": "1",
-        "SYSMODEL_OWNER_LOCAL_HEAD": "1",
-        "SYSMODEL_RECORD_THREAD": "0"
-      },
-      "timing_scope": "online end-to-end wall time"
-    },
-    {
-      "id": "chronoshear-boom-large-rtl4",
-      "dut": "boom-large",
-      "experiment": "threads",
-      "simulator": "chronoshear",
-      "command": [
-        "${ROOT}/bin/chronoshear-boom-large-mt6-w16",
-        "--execution=joint",
-        "--joint-cpus=${CPU0},${CPU1},${CPU2},${CPU3},${CPU4},${CPU5},${CPU6},${CPU7}",
-        "--joint-partition-workers=1,2,3,4,1,2",
-        "--joint-frontend-worker=5",
-        "--joint-memory-worker=6",
-        "--joint-decode-workers=7",
-        "--reset-cycles=64",
-        "--continue-oracle-mismatches",
-        "--mismatch-log-limit=4",
-        "--joint-idle-pauses=1",
-        "--max-cycles=1000000",
-        "--eval-timing",
-        "--timing-from=750016",
-        "--timing-until=1000000",
-        "--",
-        "${ROOT}/inputs/boom-large/boom-dhrystone.riscv"
-      ],
-      "ns_pattern": "LIVE_SIDECAR_TIMING overlap .*wall_ns_per_cycle=([0-9.]+)",
-      "accept": [
-        "LIVE_SIDECAR_COMPLETED .*dut_success=0",
-        "MODEL_VALIDATION .*streams=4342 .*boundary_mismatches=0 .*program_done=0 program_exit=-1",
-        "LIVE_SIDECAR_TIMING_RANGE begin=750016 end=1000000 measured_end=1000000"
-      ],
-      "cores": 8,
-      "width": 16,
-      "cycles": 249984,
-      "rtl_cores": 4,
-      "env": {
-        "SYSMODEL_EARLY_FRONTEND_POST": "1",
-        "SYSMODEL_FRONTEND_MEMORY_PIPELINE": "1",
-        "SYSMODEL_HEAD_AFTER_DTM": "1",
-        "SYSMODEL_LATE_FRONTEND_TAIL": "1",
-        "SYSMODEL_NATIVE_FABRIC_READY": "1",
-        "SYSMODEL_OWNER_LOCAL_HEAD": "1",
-        "SYSMODEL_RECORD_THREAD": "0"
-      },
-      "timing_scope": "online end-to-end wall time"
-    },
-    {
-      "id": "chronoshear-boom-large-rtl6",
-      "dut": "boom-large",
-      "experiment": "threads",
-      "simulator": "chronoshear",
-      "command": [
-        "${ROOT}/bin/chronoshear-boom-large-mt6-w16",
-        "--execution=joint",
-        "--joint-cpus=${CPU0},${CPU1},${CPU2},${CPU3},${CPU4},${CPU5},${CPU6},${CPU7},${CPU8},${CPU9}",
-        "--joint-partition-workers=1,2,3,4,5,6",
-        "--joint-frontend-worker=7",
-        "--joint-memory-worker=8",
-        "--joint-decode-workers=9",
-        "--reset-cycles=64",
-        "--continue-oracle-mismatches",
-        "--mismatch-log-limit=4",
-        "--joint-idle-pauses=1",
-        "--max-cycles=1000000",
-        "--eval-timing",
-        "--timing-from=750016",
-        "--timing-until=1000000",
-        "--",
-        "${ROOT}/inputs/boom-large/boom-dhrystone.riscv"
-      ],
-      "ns_pattern": "LIVE_SIDECAR_TIMING overlap .*wall_ns_per_cycle=([0-9.]+)",
-      "accept": [
-        "LIVE_SIDECAR_COMPLETED .*dut_success=0",
-        "MODEL_VALIDATION .*streams=4342 .*boundary_mismatches=0 .*program_done=0 program_exit=-1",
-        "LIVE_SIDECAR_TIMING_RANGE begin=750016 end=1000000 measured_end=1000000"
-      ],
-      "cores": 10,
-      "width": 16,
-      "cycles": 249984,
-      "rtl_cores": 6,
-      "env": {
-        "SYSMODEL_EARLY_FRONTEND_POST": "1",
-        "SYSMODEL_FRONTEND_MEMORY_PIPELINE": "1",
-        "SYSMODEL_HEAD_AFTER_DTM": "1",
-        "SYSMODEL_LATE_FRONTEND_TAIL": "1",
-        "SYSMODEL_NATIVE_FABRIC_READY": "1",
-        "SYSMODEL_OWNER_LOCAL_HEAD": "1",
-        "SYSMODEL_RECORD_THREAD": "0"
-      },
-      "timing_scope": "online end-to-end wall time"
-    },
-    {
       "id": "matmul-verilator-4t",
       "dut": "matmul",
       "experiment": "main",
@@ -2390,6 +2255,391 @@
       "cores": 2,
       "width": 32,
       "timing_scope": "online end-to-end wall time"
+    },
+    {
+      "id": "chronoshear-boom-large-rtl1",
+      "dut": "boom-large",
+      "experiment": "threads",
+      "simulator": "chronoshear",
+      "command": [
+        "${ROOT}/bin/chronoshear-boom-large-w16",
+        "--max-cycles=1000000",
+        "--reset-cycles=64",
+        "--continue-oracle-mismatches",
+        "--mismatch-log-limit=4",
+        "--overlap",
+        "--decode-thread",
+        "--consumer-cpu=${CPU0}",
+        "--producer-cpu=${CPU1}",
+        "--decoder-cpu=${CPU2}",
+        "--eval-timing",
+        "--timing-from=750016",
+        "--timing-until=1000000",
+        "--",
+        "${ROOT}/inputs/boom-large/boom-dhrystone.riscv"
+      ],
+      "ns_pattern": "LIVE_SIDECAR_TIMING overlap .*wall_ns_per_cycle=([0-9.]+)",
+      "accept": [
+        "LIVE_SIDECAR_COMPLETED width=16 .*dut_success=0",
+        "MODEL_VALIDATION .*streams=3997 .*boundary_mismatches=0 .*consumer=verify-report-only program_done=0 program_exit=-1",
+        "LIVE_SIDECAR_TIMING_RANGE begin=750016 end=1000000 measured_end=1000000"
+      ],
+      "cores": 3,
+      "cycles": 249984,
+      "width": 16,
+      "timing_scope": "online end-to-end wall time",
+      "rtl_cores": 1
+    },
+    {
+      "id": "boom-large-verilator-1t-threads",
+      "dut": "boom-large",
+      "experiment": "threads",
+      "simulator": "verilator-1t",
+      "command": [
+        "${ROOT}/bin/boom-large-verilator-1t",
+        "--seed=1",
+        "--cycle-count",
+        "--max-cycles=4000000",
+        "${ROOT}/inputs/boom-large/boom-dhrystone.riscv"
+      ],
+      "ns_pattern": "TIMED timed_cycles=\\d+ ns_per_cycle=([0-9.]+)",
+      "accept": [
+        "\\*\\*\\* PASSED \\*\\*\\*",
+        "TIMED timed_cycles=249984",
+        "after_loading=1"
+      ],
+      "cores": 1,
+      "cycles": 249984,
+      "env": {
+        "VERILATOR_TIMING_FROM": "750016",
+        "VERILATOR_TIMING_UNTIL": "1000000"
+      },
+      "timing_scope": "RTL evaluation",
+      "rtl_cores": 1
+    },
+    {
+      "id": "boom-large-repcut-1t-threads",
+      "dut": "boom-large",
+      "experiment": "threads",
+      "simulator": "repcut-1t",
+      "command": [
+        "${ROOT}/bin/boom-large-repcut-1t",
+        "--seed=1",
+        "--cycle-count",
+        "--max-cycles=4000000",
+        "${ROOT}/inputs/boom-large/boom-dhrystone.riscv"
+      ],
+      "ns_pattern": "TIMED timed_cycles=\\d+ ns_per_cycle=([0-9.]+)",
+      "accept": [
+        "\\*\\*\\* PASSED \\*\\*\\*",
+        "TIMED timed_cycles=249984",
+        "after_loading=1"
+      ],
+      "cores": 1,
+      "cycles": 249984,
+      "env": {
+        "VERILATOR_TIMING_FROM": "750016",
+        "VERILATOR_TIMING_UNTIL": "1000000"
+      },
+      "timing_scope": "rtl-evaluation",
+      "rtl_cores": 1
+    },
+    {
+      "id": "chronoshear-boom-large-rtl2",
+      "dut": "boom-large",
+      "experiment": "threads",
+      "simulator": "chronoshear",
+      "command": [
+        "${ROOT}/bin/chronoshear-boom-large-mt6-w16",
+        "--execution=joint",
+        "--joint-cpus=${CPU0},${CPU1},${CPU2},${CPU3},${CPU4},${CPU5}",
+        "--joint-partition-workers=1,2,1,2,1,2",
+        "--joint-frontend-worker=3",
+        "--joint-memory-worker=4",
+        "--joint-decode-workers=5",
+        "--reset-cycles=64",
+        "--continue-oracle-mismatches",
+        "--mismatch-log-limit=4",
+        "--joint-idle-pauses=1",
+        "--max-cycles=1000000",
+        "--eval-timing",
+        "--timing-from=750016",
+        "--timing-until=1000000",
+        "--",
+        "${ROOT}/inputs/boom-large/boom-dhrystone.riscv"
+      ],
+      "ns_pattern": "LIVE_SIDECAR_TIMING overlap .*wall_ns_per_cycle=([0-9.]+)",
+      "accept": [
+        "LIVE_SIDECAR_COMPLETED .*dut_success=0",
+        "MODEL_VALIDATION .*streams=4342 .*boundary_mismatches=0 .*program_done=0 program_exit=-1",
+        "LIVE_SIDECAR_TIMING_RANGE begin=750016 end=1000000 measured_end=1000000"
+      ],
+      "cores": 6,
+      "width": 16,
+      "cycles": 249984,
+      "rtl_cores": 2,
+      "env": {
+        "SYSMODEL_EARLY_FRONTEND_POST": "1",
+        "SYSMODEL_FRONTEND_MEMORY_PIPELINE": "1",
+        "SYSMODEL_HEAD_AFTER_DTM": "1",
+        "SYSMODEL_LATE_FRONTEND_TAIL": "1",
+        "SYSMODEL_NATIVE_FABRIC_READY": "1",
+        "SYSMODEL_OWNER_LOCAL_HEAD": "1",
+        "SYSMODEL_RECORD_THREAD": "0"
+      },
+      "timing_scope": "online end-to-end wall time"
+    },
+    {
+      "id": "boom-large-verilator-2t-threads",
+      "dut": "boom-large",
+      "experiment": "threads",
+      "simulator": "verilator-2t",
+      "command": [
+        "${ROOT}/bin/boom-large-verilator-2t",
+        "--seed=1",
+        "--cycle-count",
+        "--max-cycles=4000000",
+        "${ROOT}/inputs/boom-large/boom-dhrystone.riscv"
+      ],
+      "ns_pattern": "TIMED timed_cycles=\\d+ ns_per_cycle=([0-9.]+)",
+      "accept": [
+        "\\*\\*\\* PASSED \\*\\*\\*",
+        "TIMED timed_cycles=249984",
+        "after_loading=1"
+      ],
+      "cores": 2,
+      "cycles": 249984,
+      "env": {
+        "VERILATOR_TIMING_FROM": "750016",
+        "VERILATOR_TIMING_UNTIL": "1000000"
+      },
+      "timing_scope": "RTL evaluation",
+      "rtl_cores": 2
+    },
+    {
+      "id": "boom-large-repcut-2t-threads",
+      "dut": "boom-large",
+      "experiment": "threads",
+      "simulator": "repcut-2t",
+      "command": [
+        "${ROOT}/bin/boom-large-repcut-2t",
+        "--seed=1",
+        "--cycle-count",
+        "--max-cycles=4000000",
+        "${ROOT}/inputs/boom-large/boom-dhrystone.riscv"
+      ],
+      "ns_pattern": "TIMED timed_cycles=\\d+ ns_per_cycle=([0-9.]+)",
+      "accept": [
+        "\\*\\*\\* PASSED \\*\\*\\*",
+        "TIMED timed_cycles=249984",
+        "after_loading=1"
+      ],
+      "cores": 2,
+      "cycles": 249984,
+      "env": {
+        "VERILATOR_TIMING_FROM": "750016",
+        "VERILATOR_TIMING_UNTIL": "1000000"
+      },
+      "timing_scope": "rtl-evaluation",
+      "rtl_cores": 2
+    },
+    {
+      "id": "chronoshear-boom-large-rtl4",
+      "dut": "boom-large",
+      "experiment": "threads",
+      "simulator": "chronoshear",
+      "command": [
+        "${ROOT}/bin/chronoshear-boom-large-mt6-w16",
+        "--execution=joint",
+        "--joint-cpus=${CPU0},${CPU1},${CPU2},${CPU3},${CPU4},${CPU5},${CPU6},${CPU7}",
+        "--joint-partition-workers=1,2,3,4,1,2",
+        "--joint-frontend-worker=5",
+        "--joint-memory-worker=6",
+        "--joint-decode-workers=7",
+        "--reset-cycles=64",
+        "--continue-oracle-mismatches",
+        "--mismatch-log-limit=4",
+        "--joint-idle-pauses=1",
+        "--max-cycles=1000000",
+        "--eval-timing",
+        "--timing-from=750016",
+        "--timing-until=1000000",
+        "--",
+        "${ROOT}/inputs/boom-large/boom-dhrystone.riscv"
+      ],
+      "ns_pattern": "LIVE_SIDECAR_TIMING overlap .*wall_ns_per_cycle=([0-9.]+)",
+      "accept": [
+        "LIVE_SIDECAR_COMPLETED .*dut_success=0",
+        "MODEL_VALIDATION .*streams=4342 .*boundary_mismatches=0 .*program_done=0 program_exit=-1",
+        "LIVE_SIDECAR_TIMING_RANGE begin=750016 end=1000000 measured_end=1000000"
+      ],
+      "cores": 8,
+      "width": 16,
+      "cycles": 249984,
+      "rtl_cores": 4,
+      "env": {
+        "SYSMODEL_EARLY_FRONTEND_POST": "1",
+        "SYSMODEL_FRONTEND_MEMORY_PIPELINE": "1",
+        "SYSMODEL_HEAD_AFTER_DTM": "1",
+        "SYSMODEL_LATE_FRONTEND_TAIL": "1",
+        "SYSMODEL_NATIVE_FABRIC_READY": "1",
+        "SYSMODEL_OWNER_LOCAL_HEAD": "1",
+        "SYSMODEL_RECORD_THREAD": "0"
+      },
+      "timing_scope": "online end-to-end wall time"
+    },
+    {
+      "id": "boom-large-verilator-4t-threads",
+      "dut": "boom-large",
+      "experiment": "threads",
+      "simulator": "verilator-4t",
+      "command": [
+        "${ROOT}/bin/boom-large-verilator-4t",
+        "--seed=1",
+        "--cycle-count",
+        "--max-cycles=4000000",
+        "${ROOT}/inputs/boom-large/boom-dhrystone.riscv"
+      ],
+      "ns_pattern": "TIMED timed_cycles=\\d+ ns_per_cycle=([0-9.]+)",
+      "accept": [
+        "\\*\\*\\* PASSED \\*\\*\\*",
+        "TIMED timed_cycles=249984",
+        "after_loading=1"
+      ],
+      "cores": 4,
+      "cycles": 249984,
+      "env": {
+        "VERILATOR_TIMING_FROM": "750016",
+        "VERILATOR_TIMING_UNTIL": "1000000"
+      },
+      "timing_scope": "RTL evaluation",
+      "rtl_cores": 4
+    },
+    {
+      "id": "boom-large-repcut-4t-threads",
+      "dut": "boom-large",
+      "experiment": "threads",
+      "simulator": "repcut-4t",
+      "command": [
+        "${ROOT}/bin/boom-large-repcut-4t",
+        "--seed=1",
+        "--cycle-count",
+        "--max-cycles=4000000",
+        "${ROOT}/inputs/boom-large/boom-dhrystone.riscv"
+      ],
+      "ns_pattern": "TIMED timed_cycles=\\d+ ns_per_cycle=([0-9.]+)",
+      "accept": [
+        "\\*\\*\\* PASSED \\*\\*\\*",
+        "TIMED timed_cycles=249984",
+        "after_loading=1"
+      ],
+      "cores": 4,
+      "cycles": 249984,
+      "env": {
+        "VERILATOR_TIMING_FROM": "750016",
+        "VERILATOR_TIMING_UNTIL": "1000000"
+      },
+      "timing_scope": "rtl-evaluation",
+      "rtl_cores": 4
+    },
+    {
+      "id": "chronoshear-boom-large-rtl6",
+      "dut": "boom-large",
+      "experiment": "threads",
+      "simulator": "chronoshear",
+      "command": [
+        "${ROOT}/bin/chronoshear-boom-large-mt6-w16",
+        "--execution=joint",
+        "--joint-cpus=${CPU0},${CPU1},${CPU2},${CPU3},${CPU4},${CPU5},${CPU6},${CPU7},${CPU8},${CPU9}",
+        "--joint-partition-workers=1,2,3,4,5,6",
+        "--joint-frontend-worker=7",
+        "--joint-memory-worker=8",
+        "--joint-decode-workers=9",
+        "--reset-cycles=64",
+        "--continue-oracle-mismatches",
+        "--mismatch-log-limit=4",
+        "--joint-idle-pauses=1",
+        "--max-cycles=1000000",
+        "--eval-timing",
+        "--timing-from=750016",
+        "--timing-until=1000000",
+        "--",
+        "${ROOT}/inputs/boom-large/boom-dhrystone.riscv"
+      ],
+      "ns_pattern": "LIVE_SIDECAR_TIMING overlap .*wall_ns_per_cycle=([0-9.]+)",
+      "accept": [
+        "LIVE_SIDECAR_COMPLETED .*dut_success=0",
+        "MODEL_VALIDATION .*streams=4342 .*boundary_mismatches=0 .*program_done=0 program_exit=-1",
+        "LIVE_SIDECAR_TIMING_RANGE begin=750016 end=1000000 measured_end=1000000"
+      ],
+      "cores": 10,
+      "width": 16,
+      "cycles": 249984,
+      "rtl_cores": 6,
+      "env": {
+        "SYSMODEL_EARLY_FRONTEND_POST": "1",
+        "SYSMODEL_FRONTEND_MEMORY_PIPELINE": "1",
+        "SYSMODEL_HEAD_AFTER_DTM": "1",
+        "SYSMODEL_LATE_FRONTEND_TAIL": "1",
+        "SYSMODEL_NATIVE_FABRIC_READY": "1",
+        "SYSMODEL_OWNER_LOCAL_HEAD": "1",
+        "SYSMODEL_RECORD_THREAD": "0"
+      },
+      "timing_scope": "online end-to-end wall time"
+    },
+    {
+      "id": "boom-large-verilator-6t-threads",
+      "dut": "boom-large",
+      "experiment": "threads",
+      "simulator": "verilator-6t",
+      "command": [
+        "${ROOT}/bin/boom-large-verilator-6t",
+        "--seed=1",
+        "--cycle-count",
+        "--max-cycles=4000000",
+        "${ROOT}/inputs/boom-large/boom-dhrystone.riscv"
+      ],
+      "ns_pattern": "TIMED timed_cycles=\\d+ ns_per_cycle=([0-9.]+)",
+      "accept": [
+        "\\*\\*\\* PASSED \\*\\*\\*",
+        "TIMED timed_cycles=249984",
+        "after_loading=1"
+      ],
+      "cores": 6,
+      "cycles": 249984,
+      "env": {
+        "VERILATOR_TIMING_FROM": "750016",
+        "VERILATOR_TIMING_UNTIL": "1000000"
+      },
+      "timing_scope": "RTL evaluation",
+      "rtl_cores": 6
+    },
+    {
+      "id": "boom-large-repcut-6t-threads",
+      "dut": "boom-large",
+      "experiment": "threads",
+      "simulator": "repcut-6t",
+      "command": [
+        "${ROOT}/bin/boom-large-repcut-6t",
+        "--seed=1",
+        "--cycle-count",
+        "--max-cycles=4000000",
+        "${ROOT}/inputs/boom-large/boom-dhrystone.riscv"
+      ],
+      "ns_pattern": "TIMED timed_cycles=\\d+ ns_per_cycle=([0-9.]+)",
+      "accept": [
+        "\\*\\*\\* PASSED \\*\\*\\*",
+        "TIMED timed_cycles=249984",
+        "after_loading=1"
+      ],
+      "cores": 6,
+      "cycles": 249984,
+      "env": {
+        "VERILATOR_TIMING_FROM": "750016",
+        "VERILATOR_TIMING_UNTIL": "1000000"
+      },
+      "timing_scope": "rtl-evaluation",
+      "rtl_cores": 6
     }
   ],
   "reference_checks": [

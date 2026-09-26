@@ -28,6 +28,8 @@ def main():
         build(args,cpus,memory)
 
 def build(args,cpus,memory):
+    from chronoshear_verilator import ensure_runtime_header
+    ensure_runtime_header()
     specs=json.loads((ROOT/'BUILD.json').read_text())['binaries']
     selected={k:v for k,v in specs.items() if re.search(args.select,k)}
     if not selected:raise RuntimeError('no matching executables')

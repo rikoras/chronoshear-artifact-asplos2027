@@ -3,6 +3,7 @@
 from pathlib import Path
 import argparse,csv,json,os,re,shlex,subprocess,sys,time
 from chronoshear_machine import PHYSICAL_CPUS,binding,host_lock
+from chronoshear_verification import verification_note,ARCHITECTURALLY_VALIDATED_DUTS
 ROOT=Path(__file__).resolve().parents[1]
 MISMATCH_FIELDS=['oracle_mismatch_signals','oracle_checked_signals','oracle_mismatch_raw_events']
 
@@ -50,25 +51,31 @@ def main():
     out=(a.output or ROOT/'results'/a.experiment).resolve();out.mkdir(parents=True,exist_ok=True)
     cases=json.loads((ROOT/'EXPERIMENTS.json').read_text())['cases']
     main_ids={c['id'] for c in cases if c['experiment']=='main' and c['simulator']=='chronoshear'}
+    thread_ids={c['id'] for c in cases if c['experiment']=='threads'}
     cases=[c for c in cases if c['experiment']==a.experiment and (not a.dut or c['dut']==a.dut) and re.search(a.select,c['id'])]
     if not cases:raise SystemExit('No matching experiments')
     values={'ROOT':str(ROOT),'OUTPUT':str(out),'PYTHON':sys.executable,**{'CPU'+str(i):str(cpu) for i,cpu in enumerate(cpus)}}
     def expand(s):return re.sub(r'\$\{(\w+)\}',lambda m:values[m[1]],s)
     failed=False
     with host_lock():
-        reference_duts=sorted({c['dut'] for c in cases if c['experiment']=='main' and c['simulator']=='chronoshear' and c['dut'] in ['rocket','boom-small','boom-medium','boom-large']})
+        reference_duts=sorted({c['dut'] for c in cases if c['experiment'] in ['main','threads'] and c['simulator']=='chronoshear' and c['dut'] in ['rocket','boom-small','boom-medium','boom-large']})
         if reference_duts:
             from chronoshear_reference_check import run_checks
             run_checks(reference_duts,out/'reference')
         selected={(c['experiment'],c['id']) for c in cases}
         main_duts={c['dut'] for c in cases if c['experiment']=='main'}
+        thread_duts={c['dut'] for c in cases if c['experiment']=='threads'}
+        if any(c['simulator']=='chronoshear' and c['dut'] in ARCHITECTURALLY_VALIDATED_DUTS for c in cases):
+            print(verification_note(),flush=True)
         samples=out/'samples.csv'
         if samples.exists():
             with samples.open() as f:
                 reader=csv.DictReader(f);fields=reader.fieldnames;prior=list(reader)
             prior=[r for r in prior if (r['experiment'],r['id']) not in selected and not
                    (r['experiment']=='main' and r['simulator']=='chronoshear' and
-                    r['dut'] in main_duts and r['id'] not in main_ids)]
+                    r['dut'] in main_duts and r['id'] not in main_ids) and not
+                   (r['dut'] in thread_duts and ((r['experiment']=='threads' and r['id'] not in thread_ids) or
+                    (r['experiment']=='main' and r['simulator']=='verilator-1t')))]
             write_samples(samples,prior,fields)
         for c in cases:
             mask=cpus[:c['cores']]
@@ -81,6 +88,8 @@ def main():
                 with log.open('w') as f:
                     f.write('COMMAND '+shlex.join(cmd)+'\n')
                     for key in c.get('env',{}):f.write(key+'='+env[key]+'\n')
+                    if c['simulator']=='chronoshear' and c['dut'] in ARCHITECTURALLY_VALIDATED_DUTS:
+                        f.write(verification_note()+'\n')
                     f.flush()
                     try:
                         result=subprocess.run(cmd,cwd=ROOT,env=env,stdout=f,stderr=subprocess.STDOUT,timeout=1200)

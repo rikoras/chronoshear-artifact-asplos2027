@@ -32,9 +32,12 @@ def main():
     if 'threads' in kinds:
         data={'rows':[]}
         for r in rows:
-            if r['experiment']=='threads':sim='chisa';n=int(r['rtl_cores'])
-            elif r['simulator']=='verilator-1t':sim='verilator';n=1
+            if r['experiment']!='threads':continue
+            if r['simulator']=='chronoshear':sim='chisa'
+            elif r['simulator'].startswith('verilator-'):sim='verilator'
+            elif r['simulator'].startswith('repcut-'):sim='repcut'
             else:continue
+            n=int(r['rtl_cores'])
             data['rows'].append({'simulator':sim,'threads':n,'status':'pass','kcycles_per_second':float(r['throughput_khz'])})
         threads.thread_figure(data,a.directory);print(a.directory/'throughput.pdf')
     elif 'width' in kinds:

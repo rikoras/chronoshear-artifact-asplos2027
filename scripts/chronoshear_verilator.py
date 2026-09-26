@@ -5,11 +5,32 @@ import argparse,concurrent.futures,json,os,re,subprocess,sys
 from chronoshear_machine import binding
 ROOT=Path(__file__).resolve().parents[1]
 
+def thread_counts(dut):
+    return (1,2,4,6) if dut=='boom-large' else (1,4)
+
+def ensure_runtime_header():
+    """Restore the generated version header required by Verilator's C++ runtime."""
+    directory=ROOT/'tools/verilator/include'
+    template=directory/'verilated_config.h.in'
+    version=subprocess.check_output([str(ROOT/'tools/verilator/bin/verilator'),'--version'],
+                                    text=True,env={**os.environ,'VERILATOR_ROOT':str(ROOT/'tools/verilator')}).strip()
+    match=re.match(r'^Verilator (\d+)\.(\d{3}) ',version)
+    if not match:raise RuntimeError('Cannot determine bundled Verilator version: '+version)
+    package_version=version.removeprefix('Verilator ').split(' rev ',1)[0]
+    integer=str(int(match[1])*1000000+int(match[2])*1000)
+    content=template.read_text().replace('@PACKAGE_NAME@','Verilator').replace(
+        '@PACKAGE_VERSION@',package_version).replace('@VERILATOR_VERSION_INTEGER@',integer)
+    header=directory/'verilated_config.h'
+    if not header.exists() or header.read_text()!=content:
+        temporary=header.with_suffix('.h.tmp')
+        temporary.write_text(content);temporary.replace(header)
+    return header
+
 def run(command,log,**kwargs):
     log.parent.mkdir(parents=True,exist_ok=True)
     with log.open('w') as f:subprocess.run(list(map(str,command)),stdout=f,stderr=subprocess.STDOUT,check=True,**kwargs)
 
-def generate(dut):
+def generate(dut,counts=None):
     plan=json.loads((ROOT/'BUILD.json').read_text());top=plan['designs'][dut]['top'];inp=ROOT/'inputs'/dut
     lower=ROOT/'generated'/dut/'verilog';lower.mkdir(parents=True,exist_ok=True)
     cp=str(ROOT/'tools/chronoshear.jar')+os.pathsep+str(ROOT/'deps/compiler-libraries.jar')
@@ -36,7 +57,7 @@ def generate(dut):
     elif dut.startswith('boom-'):
         extra=[inp/'blackboxes'/n for n in ['AsyncResetReg.v','EICG_wrapper.v','plusarg_reader.v','SimDTM.v','SimJTAG.v'] if (inp/'blackboxes'/n).exists()]
     vr=ROOT/'tools/verilator';env={**os.environ,'VERILATOR_ROOT':str(vr)}
-    for threads in [1,4]:
+    for threads in (counts or thread_counts(dut)):
         output=ROOT/'generated'/dut/('verilator'+str(threads));output.mkdir(parents=True,exist_ok=True)
         flags=['--cc','--top-module',top,'--threads',str(threads),'--no-timing','-O3','-Wno-fatal','-Wno-STMTDLY']
         if dut.startswith('boom-'):flags+=['--output-split','20000','--x-assign','unique','-DPRINTF_COND=0','-DSTOP_COND=0']
@@ -49,7 +70,7 @@ def recipes(plan):
     result={}
     inc=lambda p:'-I${ROOT}/'+str(p)
     for dut,config in plan['designs'].items():
-        for n in [1,4]:
+        for n in thread_counts(dut):
             folder=Path('generated')/dut/('verilator'+str(n));top='V'+config['top']
             if not (ROOT/folder/(top+'_classes.mk')).exists():continue
             flags=['-std=c++17','-O3' if dut=='matmul' else '-O2','-march=icelake-server','-DNDEBUG','-pthread','-fbracket-depth=1024',
@@ -80,4 +101,6 @@ def generate_all(duts):
         for future in [pool.submit(generate,dut) for dut in duts]:future.result()
 
 if __name__=='__main__':
-    p=argparse.ArgumentParser(description=__doc__);p.add_argument('--dut',required=True);a=p.parse_args();generate(a.dut)
+    p=argparse.ArgumentParser(description=__doc__);p.add_argument('--dut',required=True)
+    p.add_argument('--threads',type=int,nargs='+',choices=[1,2,4,6])
+    a=p.parse_args();generate(a.dut,a.threads)

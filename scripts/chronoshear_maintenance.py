@@ -65,7 +65,7 @@ def execute(selection):
             if 3 in stages:
                 clean_backend(plan,[dut],'verilator')
                 clean_backend(plan,[dut],'architecture')
-                for name in ['verilog','verilator1','verilator4']:remove(ROOT/'generated'/dut/name)
+                for name in ['verilog',*['verilator'+str(n) for n in verilator.thread_counts(dut)]]:remove(ROOT/'generated'/dut/name)
                 if dut in architecture.BOOMS:remove(ROOT/'generated'/dut/'architecture')
             if 4 in stages and action in ['clean','clean-rebuild']:
                 clean_backend(plan,[dut],'verilator')
@@ -81,7 +81,7 @@ def execute(selection):
                 if not (ROOT/'.build/emission/boom-large/w16/oracle_manifest.json').exists():emit.emit('boom-large',16)
                 subprocess.run([sys.executable,str(ROOT/'scripts/chronoshear_emit.py'),'--dut','boom-large','--width','16','--partitioned'],check=True)
         if 3 in stages or 4 in stages:
-            required=[dut for dut in duts if 3 in stages or not all((ROOT/'generated'/dut/('verilator'+str(n))/(('V'+plan['designs'][dut]['top'])+'_classes.mk')).exists() for n in [1,4])]
+            required=[dut for dut in duts if 3 in stages or not all((ROOT/'generated'/dut/('verilator'+str(n))/(('V'+plan['designs'][dut]['top'])+'_classes.mk')).exists() for n in verilator.thread_counts(dut))]
             if required:verilator.generate_all(required)
         if build_checks and processors:
             required=[dut for dut in processors if not (ROOT/'generated'/dut/'w32'/(plan['designs'][dut]['top']+'.h')).is_file()]
