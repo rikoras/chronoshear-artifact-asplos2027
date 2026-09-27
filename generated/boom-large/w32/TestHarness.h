@@ -91369,7 +91369,8 @@ typedef struct TestHarness {
 
   #if ESSENT_ORACLE_VERIFY
 
-  ESSENT_COLD_NOINLINE void _v2_verify_boundary_rescan(int _v2_group, bool _forward);
+  ESSENT_NOINLINE void _v2_verify_boundary_rescan(int _v2_group, bool _forward);
+  ESSENT_COLD_NOINLINE void _v2_verify_boundary_report(int _v2_group, bool _forward);
   #endif
 
   // [v2 shared-comb] 913 groups called from both directions

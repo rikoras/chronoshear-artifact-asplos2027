@@ -79,6 +79,9 @@ def emit(dut,width,partitioned=False):
             # Remove former kernel units if a compiler update changes their count.
             for p in output.glob('kernel_*.cpp'):p.unlink()
             split(policy/header.name,output,cooperative_poll=partitioned,poll_bytes=32768 if partitioned else 0)
+            if dut=='boom-large' and not partitioned:
+                from chronoshear_boundary_count import prepare as prepare_boundary_count
+                prepare_boundary_count(output/header.name,sorted(output.glob('kernel_*.cpp')))
         else:shutil.copy2(policy/header.name,output/header.name)
     else:
         shutil.copy2(header,output/header.name)
