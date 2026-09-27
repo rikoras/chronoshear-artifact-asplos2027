@@ -832,7 +832,7 @@ static inline void essent_affine_scan_rev(UInt<BW>* __restrict r, const UInt<1>*
   for (int L = W - 2; L >= 0; L--) r[L].val = static_cast<S>((keep[L + 1].val ? static_cast<S>(r[L + 1].val + add[L + 1].val) : add[L + 1].val) & M);
 }
 
-// v2 produced-local scratch, file-scope static (620 arrays).
+// v2 produced-local scratch, file-scope static (656 arrays).
 // Not per-Top-instance; eval overwrites scratch before use.
 alignas(16) static UInt<32> _s_tile$core$c$_csignals_T[4];
 alignas(16) static UInt<1> _s_tile$core$c$_csignals_T_1[4];
@@ -1369,6 +1369,8 @@ alignas(16) static UInt<1> _s_tile$core$d$exe_reg_ctrl_rf_wen$wen[4];
 alignas(16) static UInt<1> _s_tile$core$d$exe_reg_ctrl_rf_wen$wdata[4];
 alignas(16) static UInt<1> _s_tile$core$d$exe_reg_ctrl_mem_val$wen[4];
 alignas(16) static UInt<1> _s_tile$core$d$exe_reg_ctrl_mem_val$wdata[4];
+alignas(16) static UInt<1> _s_tile$core$d$exe_reg_ctrl_mem_fcn$wen[4];
+alignas(16) static UInt<1> _s_tile$core$d$exe_reg_ctrl_mem_fcn$wdata[4];
 alignas(16) static UInt<1> _s_tile$core$d$exe_reg_ctrl_mem_typ$wen[4];
 alignas(16) static UInt<3> _s_tile$core$d$exe_reg_ctrl_mem_typ$wdata[4];
 alignas(16) static UInt<1> _s_tile$core$d$exe_reg_ctrl_csr_cmd$wen[4];
@@ -1401,6 +1403,40 @@ alignas(16) static UInt<1> _s_tile$core$d$csr$reg_mscratch$gwen[4];
 alignas(16) static UInt<1> _s_tile$core$d$csr$reg_medeleg$gwen[4];
 alignas(16) static UInt<1> _s_tile$core$d$csr$reg_mip_msip$gwen[4];
 alignas(16) static UInt<1> _s_tile$core$d$csr$reg_mie_msip$gwen[4];
+alignas(16) static UInt<1> _s_tile$core$d$csr$large$gwen[4];
+alignas(16) static UInt<1> _s_tile$core$d$csr$large_1$gwen[4];
+alignas(16) static UInt<1> _s_tile$core$d$csr$small_2$gwen[4];
+alignas(16) static UInt<1> _s_tile$core$d$csr$small_3$gwen[4];
+alignas(16) static UInt<1> _s_tile$core$d$csr$small_4$gwen[4];
+alignas(16) static UInt<1> _s_tile$core$d$csr$small_5$gwen[4];
+alignas(16) static UInt<1> _s_tile$core$d$csr$small_6$gwen[4];
+alignas(16) static UInt<1> _s_tile$core$d$csr$small_7$gwen[4];
+alignas(16) static UInt<1> _s_tile$core$d$csr$small_8$gwen[4];
+alignas(16) static UInt<1> _s_tile$core$d$csr$small_9$gwen[4];
+alignas(16) static UInt<1> _s_tile$core$d$csr$small_10$gwen[4];
+alignas(16) static UInt<1> _s_tile$core$d$csr$small_11$gwen[4];
+alignas(16) static UInt<1> _s_tile$core$d$csr$small_12$gwen[4];
+alignas(16) static UInt<1> _s_tile$core$d$csr$small_13$gwen[4];
+alignas(16) static UInt<1> _s_tile$core$d$csr$small_14$gwen[4];
+alignas(16) static UInt<1> _s_tile$core$d$csr$small_15$gwen[4];
+alignas(16) static UInt<1> _s_tile$core$d$csr$small_16$gwen[4];
+alignas(16) static UInt<1> _s_tile$core$d$csr$small_17$gwen[4];
+alignas(16) static UInt<1> _s_tile$core$d$csr$small_18$gwen[4];
+alignas(16) static UInt<1> _s_tile$core$d$csr$small_19$gwen[4];
+alignas(16) static UInt<1> _s_tile$core$d$csr$small_20$gwen[4];
+alignas(16) static UInt<1> _s_tile$core$d$csr$small_21$gwen[4];
+alignas(16) static UInt<1> _s_tile$core$d$csr$small_22$gwen[4];
+alignas(16) static UInt<1> _s_tile$core$d$csr$small_23$gwen[4];
+alignas(16) static UInt<1> _s_tile$core$d$csr$small_24$gwen[4];
+alignas(16) static UInt<1> _s_tile$core$d$csr$small_25$gwen[4];
+alignas(16) static UInt<1> _s_tile$core$d$csr$small_26$gwen[4];
+alignas(16) static UInt<1> _s_tile$core$d$csr$small_27$gwen[4];
+alignas(16) static UInt<1> _s_tile$core$d$csr$small_28$gwen[4];
+alignas(16) static UInt<1> _s_tile$core$d$csr$small_29$gwen[4];
+alignas(16) static UInt<1> _s_tile$core$d$csr$small_30$gwen[4];
+alignas(16) static UInt<1> _s_tile$core$d$csr$small_31$gwen[4];
+alignas(16) static UInt<1> _s_tile$core$d$csr$small_32$gwen[4];
+alignas(16) static UInt<1> _s_tile$core$d$csr$small_33$gwen[4];
 alignas(16) static UInt<1> _s_tile$core$d$csr$reg_dpc$gwen[4];
 alignas(16) static UInt<1> _s_tile$core$d$csr$reg_dscratch$gwen[4];
 alignas(16) static UInt<1> _s_tile$core$d$csr$reg_dcsr_ebreakm$gwen[4];
@@ -1732,6 +1768,34 @@ typedef struct SodorFullChip {
   bool assert_triggered = false;
   int assert_exit_code = 0;
   uint64_t verify_mismatches = 0;
+  // CHRONOSHEAR_DISTINCT_ORACLE_SIGNALS
+  mutable uint64_t _chronoshear_oracle_seen[5]{};
+  static constexpr unsigned oracle_checked_signal_count() { return 60; }
+  static constexpr unsigned oracle_mismatch_signal_words() { return 1; }
+  void _chronoshear_mark_oracle_mask(unsigned group, uint64_t mask) const {
+    if (mask && (__atomic_load_n(&_chronoshear_oracle_seen[group], __ATOMIC_RELAXED) & mask) != mask)
+      __atomic_fetch_or(&_chronoshear_oracle_seen[group], mask, __ATOMIC_RELAXED);
+  }
+  void oracle_mismatch_signal_union(uint64_t* signals) const {
+    static constexpr unsigned offsets[] = {0,17,32,34,66,77};
+    static constexpr unsigned short identities[] = {52,55,56,59,57,51,53,43,58,44,45,54,50,49,48,47,46,52,55,56,59,57,51,53,43,58,44,45,54,50,49,48,47,46,27,24,25,26,31,28,29,30,35,32,33,34,39,36,37,38,2,0,1,5,3,4,8,6,7,11,9,10,14,12,13,17,15,16,20,18,19,23,21,22,41,42,40};
+    for (unsigned group = 0; group < 5; ++group) {
+      uint64_t mask = __atomic_load_n(&_chronoshear_oracle_seen[group], __ATOMIC_RELAXED);
+      while (mask) {
+        const unsigned bit = __builtin_ctzll(mask);
+        const unsigned id = identities[offsets[group] + bit];
+        signals[id / 64] |= UINT64_C(1) << (id % 64);
+        mask &= mask - 1;
+      }
+    }
+  }
+  uint64_t oracle_mismatch_signal_count() const {
+    uint64_t signals[1]{}, count = 0;
+    oracle_mismatch_signal_union(signals);
+    for (uint64_t bits : signals) count += __builtin_popcountll(bits);
+    return count;
+  }
+
   bool oracle_mismatches_fatal = true;
   uint64_t oracle_mismatch_log_limit = 16;
   void set_oracle_mismatch_policy(bool fatal, uint64_t log_limit = 16) {
@@ -1815,7 +1879,7 @@ typedef struct SodorFullChip {
     int16_t _v2_cond_idx_3[4];
     int16_t _v2_cond_idx_4[4];
     int16_t _v2_cond_idx_5[4];
-    // [v2 schedule] 1125 units, 71 serial regions (71 templates x 4 lanes), 76 oracle streams
+    // [v2 schedule] 1161 units, 71 serial regions (71 templates x 4 lanes), 76 oracle streams
     bool _v2_quiet_base = false;
     // [boundary-verify] 17 register oracles: previous sweep's last-lane next-state vs this sweep's boundary injection (group 0)
     #if ESSENT_ORACLE_VERIFY
@@ -2348,20 +2412,37 @@ typedef struct SodorFullChip {
       _s_tile$core$c$exe_reg_is_csr$gwen[L].val = static_cast<typename UInt<1>::scalar_t>((static_cast<uint8_t>((static_cast<uint8_t>(0x1u) & 0x1u)) & 0x1u));
       _s_tile$core$d$csr$reg_mstatus_mie$gwen[L].val = static_cast<typename UInt<1>::scalar_t>((static_cast<uint8_t>((static_cast<uint8_t>(0x1u) & 0x1u)) & 0x1u));
     }
-    // [vec comb] 8 templates x 4 lanes [cold-guarded base: quiet drops 8, specializes 0]
+    // [vec comb] 5 templates x 4 lanes [cold-guarded base: quiet drops 5, specializes 0]
     if (UNLIKELY(!_v2_quiet_base)) {
       _v2_cold_comb_full(5);
     }
-    // [vec comb] 4 templates x 4 lanes
+    // [vec comb] 2 templates x 4 lanes
+    ESSENT_LANE_LOOP
+    for (int L = 0; L < 4; L++) {
+      _s_tile$core$d$csr$large$gwen[L].val = static_cast<typename UInt<1>::scalar_t>((static_cast<uint8_t>((static_cast<uint8_t>(0x1u) & 0x1u)) & 0x1u));
+      _s_tile$core$d$csr$large_1$gwen[L].val = static_cast<typename UInt<1>::scalar_t>((static_cast<uint8_t>((static_cast<uint8_t>(0x1u) & 0x1u)) & 0x1u));
+    }
+    // [vec comb] 5 templates x 4 lanes [cold-guarded base: quiet drops 5, specializes 0]
+    if (UNLIKELY(!_v2_quiet_base)) {
+      _v2_cold_comb_full(6);
+    }
+    // [vec comb] 30 templates x 4 lanes [cold-guarded base: quiet drops 30, specializes 0]
+    if (UNLIKELY(!_v2_quiet_base)) {
+      _v2_cold_comb_full(7);
+    }
+    // [vec comb] 2 templates x 4 lanes
     ESSENT_LANE_LOOP
     for (int L = 0; L < 4; L++) {
       _s_memory$bytes$__access_write_4_MPORT_4_enable$rtl[L].val = static_cast<typename UInt<1>::scalar_t>((static_cast<uint8_t>((static_cast<uint8_t>(((io_host_valid[L].val) & (io_host_write[L].val))) & 0x1u)) & 0x1u));
       _s_memory$bytes$__access_write_4_MPORT_4_address$rtl[L].val = static_cast<typename UInt<21>::scalar_t>((static_cast<uint64_t>((static_cast<uint64_t>(((((static_cast<uint64_t>(((static_cast<uint64_t>((static_cast<uint64_t>((static_cast<uint64_t>((static_cast<uint64_t>(io_host_addr[L].val) & 0x1ffffffffULL)) & 0xffffffffULL)) & 0xffffffffULL)) >> 0) & 0x1fffffULL)) & 0x1fffffULL)) & ((uint64_t)0 - (uint64_t)(((static_cast<uint64_t>(_s_memory$bytes$__access_write_4_MPORT_4_enable$rtl[L].val) & 0x1ULL)) != 0))) | (((static_cast<uint64_t>(0x0ULL) & 0x1fffffULL)) & ~((uint64_t)0 - (uint64_t)(((static_cast<uint64_t>(_s_memory$bytes$__access_write_4_MPORT_4_enable$rtl[L].val) & 0x1ULL)) != 0))))) & 0x1fffffULL)) & 0x1fffffULL));
-      _s_memory$bytes$__access_write_4_MPORT_4_data$rtl[L].val = static_cast<typename UInt<8>::scalar_t>((static_cast<uint32_t>((static_cast<uint32_t>(((((static_cast<uint32_t>(((static_cast<uint32_t>(io_host_wdata[L].val) >> 0) & 0xffu)) & 0xffu)) & ((uint32_t)0 - (uint32_t)(((static_cast<uint32_t>(_s_memory$bytes$__access_write_4_MPORT_4_enable$rtl[L].val) & 0x1u)) != 0))) | (((static_cast<uint32_t>(0x0u) & 0xffu)) & ~((uint32_t)0 - (uint32_t)(((static_cast<uint32_t>(_s_memory$bytes$__access_write_4_MPORT_4_enable$rtl[L].val) & 0x1u)) != 0))))) & 0xffu)) & 0xffu));
-      _s_memory$bytes$__access_write_5_MPORT_5_enable$rtl[L].val = static_cast<typename UInt<1>::scalar_t>((static_cast<uint8_t>(_s_memory$bytes$__access_write_4_MPORT_4_enable$rtl[L].val) & 0x1u));
     }
-    // [vec comb] 31 templates x 4 lanes
+    // [vec comb] 32 templates x 4 lanes
     _v2_cshare_2();
+    // [vec comb] 1 templates x 4 lanes
+    ESSENT_LANE_LOOP
+    for (int L = 0; L < 4; L++) {
+      _s_tile$core$d$exe_reg_ctrl_wb_sel$wdata[L].val = static_cast<typename UInt<2>::scalar_t>((static_cast<uint8_t>(_s_tile$core$c$io_ctl_wb_sel[L].val) & 0x3u));
+    }
     // [serial scc=24] 1 templates (0 comb), regs=[exe_inst_is_load]
     // [serial scc=24 chain-loop]
     essent_condhold_scan_fwd<4>(tile.core.c.exe_inst_is_load, _s_tile$core$c$exe_inst_is_load$wen, _s_tile$core$c$exe_inst_is_load$wdata);
@@ -2372,7 +2453,7 @@ typedef struct SodorFullChip {
     }
     // [vec comb] 1 templates x 4 lanes [cold-guarded base: quiet drops 0, specializes 1]
     if (UNLIKELY(!_v2_quiet_base)) {
-      _v2_cold_comb_full(6);
+      _v2_cold_comb_full(8);
     } else {
       // [vec comb-quiet] 1 templates x 4 lanes
       ESSENT_LANE_LOOP
@@ -2406,7 +2487,7 @@ typedef struct SodorFullChip {
     }
     // [vec comb] 1 templates x 4 lanes [cold-guarded base: quiet drops 0, specializes 1]
     if (UNLIKELY(!_v2_quiet_base)) {
-      _v2_cold_comb_full(7);
+      _v2_cold_comb_full(9);
     } else {
       // [vec comb-quiet] 1 templates x 4 lanes
       ESSENT_LANE_LOOP
@@ -2427,7 +2508,7 @@ typedef struct SodorFullChip {
     }
     // [vec comb] 7 templates x 4 lanes [cold-guarded base: quiet drops 0, specializes 7]
     if (UNLIKELY(!_v2_quiet_base)) {
-      _v2_cold_comb_full(8);
+      _v2_cold_comb_full(10);
     } else {
       // [vec comb-quiet] 7 templates x 4 lanes
       ESSENT_LANE_LOOP
@@ -2448,7 +2529,7 @@ typedef struct SodorFullChip {
     }
     // [vec comb] 1 templates x 4 lanes [cold-guarded base: quiet drops 0, specializes 1]
     if (UNLIKELY(!_v2_quiet_base)) {
-      _v2_cold_comb_full(9);
+      _v2_cold_comb_full(11);
     } else {
       // [vec comb-quiet] 1 templates x 4 lanes
       ESSENT_LANE_LOOP
@@ -2470,7 +2551,7 @@ typedef struct SodorFullChip {
     }
     // [vec comb] 1 templates x 4 lanes [cold-guarded base: quiet drops 0, specializes 1]
     if (UNLIKELY(!_v2_quiet_base)) {
-      _v2_cold_comb_full(10);
+      _v2_cold_comb_full(12);
     } else {
       // [vec comb-quiet] 1 templates x 4 lanes
       ESSENT_LANE_LOOP
@@ -2483,14 +2564,29 @@ typedef struct SodorFullChip {
     for (int L = 0; L < 4; L++) {
       _s_tile$core$d$exe_reg_ctrl_mem_val$wen[L].val = static_cast<typename UInt<1>::scalar_t>((static_cast<uint8_t>(_s_tile$core$d$exe_reg_valid$wen[L].val) & 0x1u));
     }
+    // [vec comb] 1 templates x 4 lanes [cold-guarded base: quiet drops 0, specializes 1]
+    if (UNLIKELY(!_v2_quiet_base)) {
+      _v2_cold_comb_full(13);
+    } else {
+      // [vec comb-quiet] 1 templates x 4 lanes
+      ESSENT_LANE_LOOP
+      for (int L = 0; L < 4; L++) {
+        _s_tile$core$d$exe_reg_ctrl_mem_val$wdata[L].val = static_cast<typename UInt<1>::scalar_t>((static_cast<uint8_t>((static_cast<uint8_t>((((static_cast<uint8_t>((~static_cast<uint8_t>(_s_tile$core$d$_T_17[L].val))) & 0x1u)) & (_s_tile$core$d$_GEN_14[L].val))) & 0x1u)) & 0x1u));
+      }
+    }
+    // [vec comb] 1 templates x 4 lanes
+    ESSENT_LANE_LOOP
+    for (int L = 0; L < 4; L++) {
+      _s_tile$core$d$exe_reg_ctrl_mem_fcn$wen[L].val = static_cast<typename UInt<1>::scalar_t>((static_cast<uint8_t>(_s_tile$core$d$exe_reg_valid$wen[L].val) & 0x1u));
+    }
     // [vec comb] 2 templates x 4 lanes [cold-guarded base: quiet drops 0, specializes 2]
     if (UNLIKELY(!_v2_quiet_base)) {
-      _v2_cold_comb_full(11);
+      _v2_cold_comb_full(14);
     } else {
       // [vec comb-quiet] 2 templates x 4 lanes
       ESSENT_LANE_LOOP
       for (int L = 0; L < 4; L++) {
-        _s_tile$core$d$exe_reg_ctrl_mem_val$wdata[L].val = static_cast<typename UInt<1>::scalar_t>((static_cast<uint8_t>((static_cast<uint8_t>((((static_cast<uint8_t>((~static_cast<uint8_t>(_s_tile$core$d$_T_17[L].val))) & 0x1u)) & (_s_tile$core$d$_GEN_14[L].val))) & 0x1u)) & 0x1u));
+        _s_tile$core$d$exe_reg_ctrl_mem_fcn$wdata[L].val = static_cast<typename UInt<1>::scalar_t>((static_cast<uint8_t>((static_cast<uint8_t>((((static_cast<uint8_t>((~static_cast<uint8_t>(_s_tile$core$d$_T_17[L].val))) & 0x1u)) & ((static_cast<uint8_t>(((static_cast<uint8_t>(_s_tile$core$d$_GEN_15[L].val) >> 0) & 0x1u)) & 0x1u)))) & 0x1u)) & 0x1u));
         _s_tile$core$d$exe_reg_ctrl_mem_typ$wen[L].val = static_cast<typename UInt<1>::scalar_t>((static_cast<uint8_t>((static_cast<uint8_t>((((static_cast<uint8_t>((~static_cast<uint8_t>(_s_tile$core$d$_T_17[L].val))) & 0x1u)) & ((static_cast<uint8_t>(((_s_tile$core$d$_T_2[L].val) & ((static_cast<uint8_t>((~static_cast<uint8_t>(_s_tile$core$c$io_ctl_dec_kill[L].val))) & 0x1u)))) & 0x1u)))) & 0x1u)) & 0x1u));
       }
     }
@@ -2499,23 +2595,14 @@ typedef struct SodorFullChip {
     for (int L = 0; L < 4; L++) {
       _s_tile$core$d$exe_reg_ctrl_csr_cmd$wen[L].val = static_cast<typename UInt<1>::scalar_t>((static_cast<uint8_t>(_s_tile$core$d$exe_reg_valid$wen[L].val) & 0x1u));
     }
-    // [vec comb] 1 templates x 4 lanes [cold-guarded base: quiet drops 0, specializes 1]
+    // [vec comb] 2 templates x 4 lanes [cold-guarded base: quiet drops 0, specializes 2]
     if (UNLIKELY(!_v2_quiet_base)) {
-      _v2_cold_comb_full(12);
+      _v2_cold_comb_full(15);
     } else {
-      // [vec comb-quiet] 1 templates x 4 lanes
+      // [vec comb-quiet] 2 templates x 4 lanes
       ESSENT_LANE_LOOP
       for (int L = 0; L < 4; L++) {
         _s_tile$core$d$exe_reg_ctrl_csr_cmd$wdata[L].val = static_cast<typename UInt<3>::scalar_t>((static_cast<uint8_t>((static_cast<uint8_t>(((((static_cast<uint8_t>(0x0u) & 0x7u)) & ((uint8_t)0 - (uint8_t)(((static_cast<uint8_t>(_s_tile$core$d$_T_17[L].val) & 0x1u)) != 0))) | ((_s_tile$core$d$_GEN_16[L].val) & ~((uint8_t)0 - (uint8_t)(((static_cast<uint8_t>(_s_tile$core$d$_T_17[L].val) & 0x1u)) != 0))))) & 0x7u)) & 0x7u));
-      }
-    }
-    // [vec comb] 1 templates x 4 lanes [cold-guarded base: quiet drops 0, specializes 1]
-    if (UNLIKELY(!_v2_quiet_base)) {
-      _v2_cold_comb_full(13);
-    } else {
-      // [vec comb-quiet] 1 templates x 4 lanes
-      ESSENT_LANE_LOOP
-      for (int L = 0; L < 4; L++) {
         _s_tile$core$d$if_reg_pc$gwen[L].val = static_cast<typename UInt<1>::scalar_t>((static_cast<uint8_t>((static_cast<uint8_t>(((_s_tile$core$d$_T_3[L].val) & ((static_cast<uint8_t>((~static_cast<uint8_t>(_s_tile$core$d$_T_11[L].val))) & 0x1u)))) & 0x1u)) & 0x1u));
       }
     }
@@ -2524,7 +2611,7 @@ typedef struct SodorFullChip {
     essent_condhold_scan_fwd<4>(tile.core.c.exe_reg_exception, _s_tile$core$c$exe_reg_exception$wen, _s_tile$core$c$exe_reg_exception$wdata);
     // [vec comb] 1 templates x 4 lanes [cold-guarded base: quiet drops 0, specializes 1]
     if (UNLIKELY(!_v2_quiet_base)) {
-      _v2_cold_comb_full(14);
+      _v2_cold_comb_full(16);
     } else {
       // [vec comb-quiet] 1 templates x 4 lanes
       ESSENT_LANE_LOOP
@@ -2537,45 +2624,8 @@ typedef struct SodorFullChip {
     for (int L = 0; L < 4; L++) {
       _s_tile$core$c$io_ctl_mem_exception_REG$next[L].val = static_cast<typename UInt<1>::scalar_t>((static_cast<uint8_t>(tile.core.c.exe_reg_exception[L].val) & 0x1u));
     }
-    // [serial scc=4] 1 templates (0 comb), regs=[exe_reg_ctrl_mem_fcn]
-    // [serial scc=4 lane=1]
-    tile.core.d.exe_reg_ctrl_mem_fcn[1] = (reset ? UInt<2>(0x0) : (_s_tile$core$d$_T_17[1 - 1] ? UInt<2>(0x0) : (_s_tile$core$d$_T_2[1 - 1] ? _s_tile$core$d$_GEN_15[1 - 1] : (tile.core.d.exe_reg_ctrl_mem_fcn[1 - 1].pad<2>())))).bits<0,0>();
-    // [serial scc=4 lane=2]
-    tile.core.d.exe_reg_ctrl_mem_fcn[2] = (reset ? UInt<2>(0x0) : (_s_tile$core$d$_T_17[2 - 1] ? UInt<2>(0x0) : (_s_tile$core$d$_T_2[2 - 1] ? _s_tile$core$d$_GEN_15[2 - 1] : (tile.core.d.exe_reg_ctrl_mem_fcn[2 - 1].pad<2>())))).bits<0,0>();
-    // [serial scc=4 lane=3]
-    tile.core.d.exe_reg_ctrl_mem_fcn[3] = (reset ? UInt<2>(0x0) : (_s_tile$core$d$_T_17[3 - 1] ? UInt<2>(0x0) : (_s_tile$core$d$_T_2[3 - 1] ? _s_tile$core$d$_GEN_15[3 - 1] : (tile.core.d.exe_reg_ctrl_mem_fcn[3 - 1].pad<2>())))).bits<0,0>();
-    // [vec comb] 2 templates x 4 lanes [cold-guarded base: quiet drops 0, specializes 2]
-    if (UNLIKELY(!_v2_quiet_base)) {
-      _v2_cold_comb_full(15);
-    } else {
-      // [vec comb-quiet] 2 templates x 4 lanes
-      ESSENT_LANE_LOOP
-      for (int L = 0; L < 4; L++) {
-        _s_tile$core$d$exe_reg_ctrl_mem_fcn$next[L].val = static_cast<typename UInt<1>::scalar_t>((static_cast<uint8_t>((static_cast<uint8_t>(((static_cast<uint8_t>((static_cast<uint8_t>(((((static_cast<uint8_t>(0x0u) & 0x3u)) & ((uint8_t)0 - (uint8_t)(((static_cast<uint8_t>(_s_tile$core$d$_T_17[L].val) & 0x1u)) != 0))) | (((static_cast<uint8_t>((((_s_tile$core$d$_GEN_15[L].val) & ((uint8_t)0 - (uint8_t)(((static_cast<uint8_t>(_s_tile$core$d$_T_2[L].val) & 0x1u)) != 0))) | (((static_cast<uint8_t>(tile.core.d.exe_reg_ctrl_mem_fcn[L].val) & 0x3u)) & ~((uint8_t)0 - (uint8_t)(((static_cast<uint8_t>(_s_tile$core$d$_T_2[L].val) & 0x1u)) != 0))))) & 0x3u)) & ~((uint8_t)0 - (uint8_t)(((static_cast<uint8_t>(_s_tile$core$d$_T_17[L].val) & 0x1u)) != 0))))) & 0x3u)) >> 0) & 0x1u)) & 0x1u)) & 0x1u));
-        _s_tile$core$d$mem_reg_ctrl_mem_fcn$wdata[L].val = static_cast<typename UInt<1>::scalar_t>((static_cast<uint8_t>(tile.core.d.exe_reg_ctrl_mem_fcn[L].val) & 0x1u));
-      }
-    }
-    // [serial scc=3] 1 templates (0 comb), regs=[mem_reg_ctrl_mem_fcn]
-    // [serial scc=3 chain-loop]
-    essent_condhold_index_fwd<4>(_v2_cond_idx_4, _s_tile$core$d$mem_reg_ctrl_mem_fcn$wen);
-    essent_condhold_apply_fwd<4>(tile.core.d.mem_reg_ctrl_mem_fcn, _v2_cond_idx_4, _s_tile$core$d$mem_reg_ctrl_mem_fcn$wdata);
-    // [vec comb] 1 templates x 4 lanes [cold-guarded base: quiet drops 0, specializes 1]
-    if (UNLIKELY(!_v2_quiet_base)) {
-      _v2_cold_comb_full(16);
-    } else {
-      // [vec comb-quiet] 1 templates x 4 lanes
-      ESSENT_LANE_LOOP
-      for (int L = 0; L < 4; L++) {
-        _s_tile$core$d$mem_reg_ctrl_mem_fcn$next[L].val = static_cast<typename UInt<1>::scalar_t>((static_cast<uint8_t>((static_cast<uint8_t>((((static_cast<uint8_t>(((_s_tile$core$c$io_ctl_pipeline_kill[L].val) & (tile.core.d.mem_reg_ctrl_mem_fcn[L].val))) & 0x1u)) | ((static_cast<uint8_t>((((static_cast<uint8_t>((~static_cast<uint8_t>(_s_tile$core$c$io_ctl_pipeline_kill[L].val))) & 0x1u)) & ((static_cast<uint8_t>((((static_cast<uint8_t>(((_s_tile$core$d$_T_1[L].val) & (tile.core.d.exe_reg_ctrl_mem_fcn[L].val))) & 0x1u)) | ((static_cast<uint8_t>((((static_cast<uint8_t>((~static_cast<uint8_t>(_s_tile$core$d$_T_1[L].val))) & 0x1u)) & (tile.core.d.mem_reg_ctrl_mem_fcn[L].val))) & 0x1u)))) & 0x1u)))) & 0x1u)))) & 0x1u)) & 0x1u));
-      }
-    }
-    // [vec comb] 1 templates x 4 lanes
-    ESSENT_LANE_LOOP
-    for (int L = 0; L < 4; L++) {
-      _s_memory$_T_3[L].val = static_cast<typename UInt<1>::scalar_t>((static_cast<uint8_t>((static_cast<uint8_t>(((tile.core.d.mem_reg_ctrl_mem_val[L].val) & ((static_cast<uint8_t>(((tile.core.d.mem_reg_ctrl_mem_fcn[L].val) & ((static_cast<uint8_t>((~static_cast<uint8_t>(io_host_valid[L].val))) & 0x1u)))) & 0x1u)))) & 0x1u)) & 0x1u));
-    }
-    // [serial scc=9] 1 templates (0 comb), regs=[dec_reg_valid]
-    // [serial scc=9 chain-loop]
+    // [serial scc=7] 1 templates (0 comb), regs=[dec_reg_valid]
+    // [serial scc=7 chain-loop]
     essent_condhold_scan_fwd<4>(tile.core.d.dec_reg_valid, _s_tile$core$d$dec_reg_valid$wen, _s_tile$core$d$dec_reg_valid$wdata);
     // [vec comb] 1 templates x 4 lanes
     ESSENT_LANE_LOOP
@@ -2593,8 +2643,8 @@ typedef struct SodorFullChip {
         _s_tile$core$d$exe_reg_valid$wdata[L].val = static_cast<typename UInt<1>::scalar_t>((static_cast<uint8_t>((static_cast<uint8_t>((((static_cast<uint8_t>((~static_cast<uint8_t>(_s_tile$core$d$_T_17[L].val))) & 0x1u)) & (_s_tile$core$d$_GEN_10[L].val))) & 0x1u)) & 0x1u));
       }
     }
-    // [serial scc=8] 1 templates (0 comb), regs=[exe_reg_valid]
-    // [serial scc=8 chain-loop]
+    // [serial scc=6] 1 templates (0 comb), regs=[exe_reg_valid]
+    // [serial scc=6 chain-loop]
     essent_condhold_index_fwd<4>(_v2_cond_idx_0, _s_tile$core$d$exe_reg_valid$wen);
     essent_condhold_apply_fwd<4>(tile.core.d.exe_reg_valid, _v2_cond_idx_0, _s_tile$core$d$exe_reg_valid$wdata);
     // [vec comb] 2 templates x 4 lanes [cold-guarded base: quiet drops 0, specializes 2]
@@ -2608,8 +2658,8 @@ typedef struct SodorFullChip {
         _s_tile$core$d$mem_reg_valid$wdata[L].val = static_cast<typename UInt<1>::scalar_t>((static_cast<uint8_t>((static_cast<uint8_t>((((static_cast<uint8_t>((~static_cast<uint8_t>(_s_tile$core$c$io_ctl_pipeline_kill[L].val))) & 0x1u)) & (tile.core.d.exe_reg_valid[L].val))) & 0x1u)) & 0x1u));
       }
     }
-    // [serial scc=7] 1 templates (0 comb), regs=[mem_reg_valid]
-    // [serial scc=7 chain-loop]
+    // [serial scc=5] 1 templates (0 comb), regs=[mem_reg_valid]
+    // [serial scc=5 chain-loop]
     essent_condhold_index_fwd<4>(_v2_cond_idx_2, _s_tile$core$d$mem_reg_valid$wen);
     essent_condhold_apply_fwd<4>(tile.core.d.mem_reg_valid, _v2_cond_idx_2, _s_tile$core$d$mem_reg_valid$wdata);
     // [vec comb] 2 templates x 4 lanes [cold-guarded base: quiet drops 0, specializes 2]
@@ -2635,13 +2685,19 @@ typedef struct SodorFullChip {
       _s_tile$core$d$csr$nextSmall_1[L].val = static_cast<typename UInt<7>::scalar_t>((static_cast<uint8_t>((static_cast<uint8_t>((static_cast<uint8_t>(tile.core.d.csr.small_1[L].val) + static_cast<uint8_t>((static_cast<uint8_t>(tile.core.d.wb_reg_valid[L].val) & 0x3fu)))) & 0x7fu)) & 0x7fu));
       _s_tile$core$d$csr$_large_T_1[L].val = static_cast<typename UInt<1>::scalar_t>((static_cast<uint8_t>((static_cast<uint8_t>(((static_cast<uint8_t>(_s_tile$core$d$csr$nextSmall_1[L].val) >> 6) & 0x1u)) & 0x1u)) & 0x1u));
     }
-    // [serial scc=6] 1 templates (0 comb), regs=[large_1]
-    // [serial scc=6 lane=1]
-    tile.core.d.csr.large_1[1] = (reset ? UInt<90>(0x0) : (_s_tile$core$d$csr$wen[1 - 1] ? (_s_tile$core$d$csr$_T_4[1 - 1] ? ((((tile.core.d.csr.large_1[1 - 1].cat(tile.core.d.csr.small_1[1 - 1])).bits<63,32>()).cat(((_s_tile$core$d$csr$_w_T_3[1 - 1] ? (tile.core.d.csr.large_1[1 - 1].cat(tile.core.d.csr.small_1[1 - 1])) : UInt<64>(0x0)) | _s_tile$core$d$csr$_GEN_297[1 - 1]) & _s_tile$core$d$csr$_GEN_298[1 - 1])).shr<6>()) : ((_s_tile$core$d$csr$_T_87[1 - 1] ? ((((((_s_tile$core$d$csr$_w_T_3[1 - 1] ? (tile.core.d.csr.large_1[1 - 1].cat(tile.core.d.csr.small_1[1 - 1])) : UInt<64>(0x0)) | _s_tile$core$d$csr$_GEN_297[1 - 1]) & _s_tile$core$d$csr$_GEN_298[1 - 1]).bits<31,0>()).cat((tile.core.d.csr.large_1[1 - 1].cat(tile.core.d.csr.small_1[1 - 1])).bits<31,0>())).shr<6>()) : (_s_tile$core$d$csr$_large_T_1[1 - 1] ? ((tile.core.d.csr.large_1[1 - 1] + UInt<58>(0x1)).tail<1>()) : tile.core.d.csr.large_1[1 - 1])).pad<90>())) : ((_s_tile$core$d$csr$_large_T_1[1 - 1] ? ((tile.core.d.csr.large_1[1 - 1] + UInt<58>(0x1)).tail<1>()) : tile.core.d.csr.large_1[1 - 1]).pad<90>()))).bits<57,0>();
-    // [serial scc=6 lane=2]
-    tile.core.d.csr.large_1[2] = (reset ? UInt<90>(0x0) : (_s_tile$core$d$csr$wen[2 - 1] ? (_s_tile$core$d$csr$_T_4[2 - 1] ? ((((tile.core.d.csr.large_1[2 - 1].cat(tile.core.d.csr.small_1[2 - 1])).bits<63,32>()).cat(((_s_tile$core$d$csr$_w_T_3[2 - 1] ? (tile.core.d.csr.large_1[2 - 1].cat(tile.core.d.csr.small_1[2 - 1])) : UInt<64>(0x0)) | _s_tile$core$d$csr$_GEN_297[2 - 1]) & _s_tile$core$d$csr$_GEN_298[2 - 1])).shr<6>()) : ((_s_tile$core$d$csr$_T_87[2 - 1] ? ((((((_s_tile$core$d$csr$_w_T_3[2 - 1] ? (tile.core.d.csr.large_1[2 - 1].cat(tile.core.d.csr.small_1[2 - 1])) : UInt<64>(0x0)) | _s_tile$core$d$csr$_GEN_297[2 - 1]) & _s_tile$core$d$csr$_GEN_298[2 - 1]).bits<31,0>()).cat((tile.core.d.csr.large_1[2 - 1].cat(tile.core.d.csr.small_1[2 - 1])).bits<31,0>())).shr<6>()) : (_s_tile$core$d$csr$_large_T_1[2 - 1] ? ((tile.core.d.csr.large_1[2 - 1] + UInt<58>(0x1)).tail<1>()) : tile.core.d.csr.large_1[2 - 1])).pad<90>())) : ((_s_tile$core$d$csr$_large_T_1[2 - 1] ? ((tile.core.d.csr.large_1[2 - 1] + UInt<58>(0x1)).tail<1>()) : tile.core.d.csr.large_1[2 - 1]).pad<90>()))).bits<57,0>();
-    // [serial scc=6 lane=3]
-    tile.core.d.csr.large_1[3] = (reset ? UInt<90>(0x0) : (_s_tile$core$d$csr$wen[3 - 1] ? (_s_tile$core$d$csr$_T_4[3 - 1] ? ((((tile.core.d.csr.large_1[3 - 1].cat(tile.core.d.csr.small_1[3 - 1])).bits<63,32>()).cat(((_s_tile$core$d$csr$_w_T_3[3 - 1] ? (tile.core.d.csr.large_1[3 - 1].cat(tile.core.d.csr.small_1[3 - 1])) : UInt<64>(0x0)) | _s_tile$core$d$csr$_GEN_297[3 - 1]) & _s_tile$core$d$csr$_GEN_298[3 - 1])).shr<6>()) : ((_s_tile$core$d$csr$_T_87[3 - 1] ? ((((((_s_tile$core$d$csr$_w_T_3[3 - 1] ? (tile.core.d.csr.large_1[3 - 1].cat(tile.core.d.csr.small_1[3 - 1])) : UInt<64>(0x0)) | _s_tile$core$d$csr$_GEN_297[3 - 1]) & _s_tile$core$d$csr$_GEN_298[3 - 1]).bits<31,0>()).cat((tile.core.d.csr.large_1[3 - 1].cat(tile.core.d.csr.small_1[3 - 1])).bits<31,0>())).shr<6>()) : (_s_tile$core$d$csr$_large_T_1[3 - 1] ? ((tile.core.d.csr.large_1[3 - 1] + UInt<58>(0x1)).tail<1>()) : tile.core.d.csr.large_1[3 - 1])).pad<90>())) : ((_s_tile$core$d$csr$_large_T_1[3 - 1] ? ((tile.core.d.csr.large_1[3 - 1] + UInt<58>(0x1)).tail<1>()) : tile.core.d.csr.large_1[3 - 1]).pad<90>()))).bits<57,0>();
+    // [serial scc=4] 1 templates (0 comb), regs=[large_1]
+    // [serial scc=4 chain-loop]
+    {
+      uint64_t _gany = 0;
+      for (int L = 0; L < 3; L++) _gany |= essent_to_u64(_s_tile$core$d$csr$large_1$gwen[L]);
+      if (_gany == 0) {
+        const UInt<58> _gv = tile.core.d.csr.large_1[0];
+        ESSENT_LANE_LOOP
+        for (int L = 0; L < 4; L++) tile.core.d.csr.large_1[L] = _gv;
+      } else {
+        for (int L = 1; L < 4; L++) tile.core.d.csr.large_1[L] = (reset ? UInt<90>(0x0) : (_s_tile$core$d$csr$wen[L - 1] ? (_s_tile$core$d$csr$_T_4[L - 1] ? ((((tile.core.d.csr.large_1[L - 1].cat(tile.core.d.csr.small_1[L - 1])).bits<63,32>()).cat(((_s_tile$core$d$csr$_w_T_3[L - 1] ? (tile.core.d.csr.large_1[L - 1].cat(tile.core.d.csr.small_1[L - 1])) : UInt<64>(0x0)) | _s_tile$core$d$csr$_GEN_297[L - 1]) & _s_tile$core$d$csr$_GEN_298[L - 1])).shr<6>()) : ((_s_tile$core$d$csr$_T_87[L - 1] ? ((((((_s_tile$core$d$csr$_w_T_3[L - 1] ? (tile.core.d.csr.large_1[L - 1].cat(tile.core.d.csr.small_1[L - 1])) : UInt<64>(0x0)) | _s_tile$core$d$csr$_GEN_297[L - 1]) & _s_tile$core$d$csr$_GEN_298[L - 1]).bits<31,0>()).cat((tile.core.d.csr.large_1[L - 1].cat(tile.core.d.csr.small_1[L - 1])).bits<31,0>())).shr<6>()) : (_s_tile$core$d$csr$_large_T_1[L - 1] ? ((tile.core.d.csr.large_1[L - 1] + UInt<58>(0x1)).tail<1>()) : tile.core.d.csr.large_1[L - 1])).pad<90>())) : ((_s_tile$core$d$csr$_large_T_1[L - 1] ? ((tile.core.d.csr.large_1[L - 1] + UInt<58>(0x1)).tail<1>()) : tile.core.d.csr.large_1[L - 1]).pad<90>()))).bits<57,0>();
+      }
+    }
     // [vec comb] 2 templates x 4 lanes
     ESSENT_LANE_LOOP
     for (int L = 0; L < 4; L++) {
@@ -2659,8 +2715,8 @@ typedef struct SodorFullChip {
         _s_tile$core$d$csr$large_1$next[L].val = static_cast<typename UInt<58>::scalar_t>((static_cast<uint64_t>((static_cast<uint64_t>((static_cast<uint64_t>((static_cast<uint64_t>(_s_tile$core$d$csr$_GEN_1[L].val) >> 0)) & 0x3ffffffffffffffULL)) & 0x3ffffffffffffffULL)) & 0x3ffffffffffffffULL));
       }
     }
-    // [serial scc=10] 1 templates (0 comb), regs=[exe_reg_inst]
-    // [serial scc=10 chain-loop]
+    // [serial scc=8] 1 templates (0 comb), regs=[exe_reg_inst]
+    // [serial scc=8 chain-loop]
     essent_condhold_apply_fwd<4>(tile.core.d.exe_reg_inst, _v2_cond_idx_0, _s_tile$core$d$exe_reg_inst$wdata);
     // [vec comb] 1 templates x 4 lanes [cold-guarded base: quiet drops 0, specializes 1]
     if (UNLIKELY(!_v2_quiet_base)) {
@@ -2677,8 +2733,8 @@ typedef struct SodorFullChip {
     for (int L = 0; L < 4; L++) {
       _s_tile$core$d$mem_reg_inst$next[L].val = static_cast<typename UInt<32>::scalar_t>((static_cast<uint32_t>((static_cast<uint32_t>(((((static_cast<uint32_t>(0x4033u) & 0xffffffffu)) & ((uint32_t)0 - (uint32_t)(((static_cast<uint32_t>(_s_tile$core$c$io_ctl_pipeline_kill[L].val) & 0x1u)) != 0))) | (((static_cast<uint32_t>((((tile.core.d.exe_reg_inst[L].val) & ((uint32_t)0 - (uint32_t)(((static_cast<uint32_t>(_s_tile$core$d$_T_1[L].val) & 0x1u)) != 0))) | ((tile.core.d.mem_reg_inst[L].val) & ~((uint32_t)0 - (uint32_t)(((static_cast<uint32_t>(_s_tile$core$d$_T_1[L].val) & 0x1u)) != 0))))) & 0xffffffffu)) & ~((uint32_t)0 - (uint32_t)(((static_cast<uint32_t>(_s_tile$core$c$io_ctl_pipeline_kill[L].val) & 0x1u)) != 0))))) & 0xffffffffu)) & 0xffffffffu));
     }
-    // [serial scc=12] 1 templates (0 comb), regs=[exe_reg_ctrl_rf_wen]
-    // [serial scc=12 chain-loop]
+    // [serial scc=10] 1 templates (0 comb), regs=[exe_reg_ctrl_rf_wen]
+    // [serial scc=10 chain-loop]
     essent_condhold_apply_fwd<4>(tile.core.d.exe_reg_ctrl_rf_wen, _v2_cond_idx_0, _s_tile$core$d$exe_reg_ctrl_rf_wen$wdata);
     // [vec comb] 2 templates x 4 lanes [cold-guarded base: quiet drops 0, specializes 2]
     if (UNLIKELY(!_v2_quiet_base)) {
@@ -2691,8 +2747,8 @@ typedef struct SodorFullChip {
         _s_tile$core$d$mem_reg_ctrl_rf_wen$wdata[L].val = static_cast<typename UInt<1>::scalar_t>((static_cast<uint8_t>((static_cast<uint8_t>((((static_cast<uint8_t>((~static_cast<uint8_t>(_s_tile$core$c$io_ctl_pipeline_kill[L].val))) & 0x1u)) & (tile.core.d.exe_reg_ctrl_rf_wen[L].val))) & 0x1u)) & 0x1u));
       }
     }
-    // [serial scc=11] 1 templates (0 comb), regs=[mem_reg_ctrl_rf_wen]
-    // [serial scc=11 chain-loop]
+    // [serial scc=9] 1 templates (0 comb), regs=[mem_reg_ctrl_rf_wen]
+    // [serial scc=9 chain-loop]
     essent_condhold_apply_fwd<4>(tile.core.d.mem_reg_ctrl_rf_wen, _v2_cond_idx_2, _s_tile$core$d$mem_reg_ctrl_rf_wen$wdata);
     // [vec comb] 2 templates x 4 lanes [cold-guarded base: quiet drops 0, specializes 2]
     if (UNLIKELY(!_v2_quiet_base)) {
@@ -2711,8 +2767,8 @@ typedef struct SodorFullChip {
       memcpy(_v2s_0, &_s_tile$core$d$wb_reg_ctrl_rf_wen$next[0], sizeof(_v2s_0));
       memcpy(&tile.core.d.wb_reg_ctrl_rf_wen[1], &_v2s_0[0], sizeof(_v2s_0) - sizeof(_v2s_0[0]));
     }
-    // [serial scc=13] 1 templates (0 comb), regs=[exe_reg_ctrl_mem_val]
-    // [serial scc=13 chain-loop]
+    // [serial scc=11] 1 templates (0 comb), regs=[exe_reg_ctrl_mem_val]
+    // [serial scc=11 chain-loop]
     essent_condhold_apply_fwd<4>(tile.core.d.exe_reg_ctrl_mem_val, _v2_cond_idx_0, _s_tile$core$d$exe_reg_ctrl_mem_val$wdata);
     // [vec comb] 2 templates x 4 lanes [cold-guarded base: quiet drops 0, specializes 2]
     if (UNLIKELY(!_v2_quiet_base)) {
@@ -2725,12 +2781,45 @@ typedef struct SodorFullChip {
         _s_tile$core$d$mem_reg_ctrl_mem_val$next[L].val = static_cast<typename UInt<1>::scalar_t>((static_cast<uint8_t>((static_cast<uint8_t>((((static_cast<uint8_t>((~static_cast<uint8_t>(_s_tile$core$c$io_ctl_pipeline_kill[L].val))) & 0x1u)) & ((static_cast<uint8_t>((((static_cast<uint8_t>(((_s_tile$core$d$_T_1[L].val) & (tile.core.d.exe_reg_ctrl_mem_val[L].val))) & 0x1u)) | ((static_cast<uint8_t>((((static_cast<uint8_t>((~static_cast<uint8_t>(_s_tile$core$d$_T_1[L].val))) & 0x1u)) & (tile.core.d.mem_reg_ctrl_mem_val[L].val))) & 0x1u)))) & 0x1u)))) & 0x1u)) & 0x1u));
       }
     }
+    // [serial scc=13] 1 templates (0 comb), regs=[exe_reg_ctrl_mem_fcn]
+    // [serial scc=13 chain-loop]
+    essent_condhold_apply_fwd<4>(tile.core.d.exe_reg_ctrl_mem_fcn, _v2_cond_idx_0, _s_tile$core$d$exe_reg_ctrl_mem_fcn$wdata);
+    // [vec comb] 2 templates x 4 lanes [cold-guarded base: quiet drops 0, specializes 2]
+    if (UNLIKELY(!_v2_quiet_base)) {
+      _v2_cold_comb_full(25);
+    } else {
+      // [vec comb-quiet] 2 templates x 4 lanes
+      ESSENT_LANE_LOOP
+      for (int L = 0; L < 4; L++) {
+        _s_tile$core$d$exe_reg_ctrl_mem_fcn$next[L].val = static_cast<typename UInt<1>::scalar_t>((static_cast<uint8_t>((static_cast<uint8_t>(((static_cast<uint8_t>((static_cast<uint8_t>(((((static_cast<uint8_t>(0x0u) & 0x3u)) & ((uint8_t)0 - (uint8_t)(((static_cast<uint8_t>(_s_tile$core$d$_T_17[L].val) & 0x1u)) != 0))) | (((static_cast<uint8_t>((((_s_tile$core$d$_GEN_15[L].val) & ((uint8_t)0 - (uint8_t)(((static_cast<uint8_t>(_s_tile$core$d$_T_2[L].val) & 0x1u)) != 0))) | (((static_cast<uint8_t>(tile.core.d.exe_reg_ctrl_mem_fcn[L].val) & 0x3u)) & ~((uint8_t)0 - (uint8_t)(((static_cast<uint8_t>(_s_tile$core$d$_T_2[L].val) & 0x1u)) != 0))))) & 0x3u)) & ~((uint8_t)0 - (uint8_t)(((static_cast<uint8_t>(_s_tile$core$d$_T_17[L].val) & 0x1u)) != 0))))) & 0x3u)) >> 0) & 0x1u)) & 0x1u)) & 0x1u));
+        _s_tile$core$d$mem_reg_ctrl_mem_fcn$wdata[L].val = static_cast<typename UInt<1>::scalar_t>((static_cast<uint8_t>(tile.core.d.exe_reg_ctrl_mem_fcn[L].val) & 0x1u));
+      }
+    }
+    // [serial scc=12] 1 templates (0 comb), regs=[mem_reg_ctrl_mem_fcn]
+    // [serial scc=12 chain-loop]
+    essent_condhold_index_fwd<4>(_v2_cond_idx_4, _s_tile$core$d$mem_reg_ctrl_mem_fcn$wen);
+    essent_condhold_apply_fwd<4>(tile.core.d.mem_reg_ctrl_mem_fcn, _v2_cond_idx_4, _s_tile$core$d$mem_reg_ctrl_mem_fcn$wdata);
+    // [vec comb] 1 templates x 4 lanes [cold-guarded base: quiet drops 0, specializes 1]
+    if (UNLIKELY(!_v2_quiet_base)) {
+      _v2_cold_comb_full(26);
+    } else {
+      // [vec comb-quiet] 1 templates x 4 lanes
+      ESSENT_LANE_LOOP
+      for (int L = 0; L < 4; L++) {
+        _s_tile$core$d$mem_reg_ctrl_mem_fcn$next[L].val = static_cast<typename UInt<1>::scalar_t>((static_cast<uint8_t>((static_cast<uint8_t>((((static_cast<uint8_t>(((_s_tile$core$c$io_ctl_pipeline_kill[L].val) & (tile.core.d.mem_reg_ctrl_mem_fcn[L].val))) & 0x1u)) | ((static_cast<uint8_t>((((static_cast<uint8_t>((~static_cast<uint8_t>(_s_tile$core$c$io_ctl_pipeline_kill[L].val))) & 0x1u)) & ((static_cast<uint8_t>((((static_cast<uint8_t>(((_s_tile$core$d$_T_1[L].val) & (tile.core.d.exe_reg_ctrl_mem_fcn[L].val))) & 0x1u)) | ((static_cast<uint8_t>((((static_cast<uint8_t>((~static_cast<uint8_t>(_s_tile$core$d$_T_1[L].val))) & 0x1u)) & (tile.core.d.mem_reg_ctrl_mem_fcn[L].val))) & 0x1u)))) & 0x1u)))) & 0x1u)))) & 0x1u)) & 0x1u));
+      }
+    }
+    // [vec comb] 1 templates x 4 lanes
+    ESSENT_LANE_LOOP
+    for (int L = 0; L < 4; L++) {
+      _s_memory$_T_3[L].val = static_cast<typename UInt<1>::scalar_t>((static_cast<uint8_t>((static_cast<uint8_t>(((tile.core.d.mem_reg_ctrl_mem_val[L].val) & ((static_cast<uint8_t>(((tile.core.d.mem_reg_ctrl_mem_fcn[L].val) & ((static_cast<uint8_t>((~static_cast<uint8_t>(io_host_valid[L].val))) & 0x1u)))) & 0x1u)))) & 0x1u)) & 0x1u));
+    }
     // [serial scc=14] 1 templates (0 comb), regs=[exe_reg_ctrl_csr_cmd]
     // [serial scc=14 chain-loop]
     essent_condhold_apply_fwd<4>(tile.core.d.exe_reg_ctrl_csr_cmd, _v2_cond_idx_0, _s_tile$core$d$exe_reg_ctrl_csr_cmd$wdata);
     // [vec comb] 2 templates x 4 lanes [cold-guarded base: quiet drops 0, specializes 2]
     if (UNLIKELY(!_v2_quiet_base)) {
-      _v2_cold_comb_full(25);
+      _v2_cold_comb_full(27);
     } else {
       // [vec comb-quiet] 2 templates x 4 lanes
       ESSENT_LANE_LOOP
@@ -2854,7 +2943,7 @@ typedef struct SodorFullChip {
     essent_condhold_scan_fwd<4>(tile.core.d.exe_reg_ctrl_mem_typ, _s_tile$core$d$exe_reg_ctrl_mem_typ$wen, _s_tile$core$d$exe_reg_ctrl_mem_typ$wdata);
     // [vec comb] 2 templates x 4 lanes [cold-guarded base: quiet drops 0, specializes 2]
     if (UNLIKELY(!_v2_quiet_base)) {
-      _v2_cold_comb_full(26);
+      _v2_cold_comb_full(28);
     } else {
       // [vec comb-quiet] 2 templates x 4 lanes
       ESSENT_LANE_LOOP
@@ -2868,7 +2957,7 @@ typedef struct SodorFullChip {
     essent_condhold_apply_fwd<4>(tile.core.d.mem_reg_ctrl_mem_typ, _v2_cond_idx_4, _s_tile$core$d$mem_reg_ctrl_mem_typ$wdata);
     // [vec comb] 1 templates x 4 lanes [cold-guarded base: quiet drops 0, specializes 1]
     if (UNLIKELY(!_v2_quiet_base)) {
-      _v2_cold_comb_full(27);
+      _v2_cold_comb_full(29);
     } else {
       // [vec comb-quiet] 1 templates x 4 lanes
       ESSENT_LANE_LOOP
@@ -2924,7 +3013,7 @@ typedef struct SodorFullChip {
     }
     // [vec comb] 1 templates x 4 lanes [cold-guarded base: quiet drops 0, specializes 1]
     if (UNLIKELY(!_v2_quiet_base)) {
-      _v2_cold_comb_full(28);
+      _v2_cold_comb_full(30);
     } else {
       // [vec comb-quiet] 1 templates x 4 lanes
       ESSENT_LANE_LOOP
@@ -2953,7 +3042,17 @@ typedef struct SodorFullChip {
     }
     // [serial scc=28] 1 templates (0 comb), regs=[large]
     // [serial scc=28 chain-loop]
-    for (int L = 1; L < 4; L++) tile.core.d.csr.large[L] = (reset ? UInt<90>(0x0) : (_s_tile$core$d$csr$wen[L - 1] ? (_s_tile$core$d$csr$_T_3[L - 1] ? ((((tile.core.d.csr.large[L - 1].cat(tile.core.d.csr.small[L - 1])).bits<63,32>()).cat(((_s_tile$core$d$csr$_w_T_3[L - 1] ? (tile.core.d.csr.large[L - 1].cat(tile.core.d.csr.small[L - 1])) : UInt<64>(0x0)) | _s_tile$core$d$csr$_GEN_297[L - 1]) & _s_tile$core$d$csr$_GEN_298[L - 1])).shr<6>()) : ((_s_tile$core$d$csr$_T_86[L - 1] ? ((((((_s_tile$core$d$csr$_w_T_3[L - 1] ? (tile.core.d.csr.large[L - 1].cat(tile.core.d.csr.small[L - 1])) : UInt<64>(0x0)) | _s_tile$core$d$csr$_GEN_297[L - 1]) & _s_tile$core$d$csr$_GEN_298[L - 1]).bits<31,0>()).cat((tile.core.d.csr.large[L - 1].cat(tile.core.d.csr.small[L - 1])).bits<31,0>())).shr<6>()) : (_s_tile$core$d$csr$_large_T[L - 1] ? ((tile.core.d.csr.large[L - 1] + UInt<58>(0x1)).tail<1>()) : tile.core.d.csr.large[L - 1])).pad<90>())) : ((_s_tile$core$d$csr$_large_T[L - 1] ? ((tile.core.d.csr.large[L - 1] + UInt<58>(0x1)).tail<1>()) : tile.core.d.csr.large[L - 1]).pad<90>()))).bits<57,0>();
+    {
+      uint64_t _gany = 0;
+      for (int L = 0; L < 3; L++) _gany |= essent_to_u64(_s_tile$core$d$csr$large$gwen[L]);
+      if (_gany == 0) {
+        const UInt<58> _gv = tile.core.d.csr.large[0];
+        ESSENT_LANE_LOOP
+        for (int L = 0; L < 4; L++) tile.core.d.csr.large[L] = _gv;
+      } else {
+        for (int L = 1; L < 4; L++) tile.core.d.csr.large[L] = (reset ? UInt<90>(0x0) : (_s_tile$core$d$csr$wen[L - 1] ? (_s_tile$core$d$csr$_T_3[L - 1] ? ((((tile.core.d.csr.large[L - 1].cat(tile.core.d.csr.small[L - 1])).bits<63,32>()).cat(((_s_tile$core$d$csr$_w_T_3[L - 1] ? (tile.core.d.csr.large[L - 1].cat(tile.core.d.csr.small[L - 1])) : UInt<64>(0x0)) | _s_tile$core$d$csr$_GEN_297[L - 1]) & _s_tile$core$d$csr$_GEN_298[L - 1])).shr<6>()) : ((_s_tile$core$d$csr$_T_86[L - 1] ? ((((((_s_tile$core$d$csr$_w_T_3[L - 1] ? (tile.core.d.csr.large[L - 1].cat(tile.core.d.csr.small[L - 1])) : UInt<64>(0x0)) | _s_tile$core$d$csr$_GEN_297[L - 1]) & _s_tile$core$d$csr$_GEN_298[L - 1]).bits<31,0>()).cat((tile.core.d.csr.large[L - 1].cat(tile.core.d.csr.small[L - 1])).bits<31,0>())).shr<6>()) : (_s_tile$core$d$csr$_large_T[L - 1] ? ((tile.core.d.csr.large[L - 1] + UInt<58>(0x1)).tail<1>()) : tile.core.d.csr.large[L - 1])).pad<90>())) : ((_s_tile$core$d$csr$_large_T[L - 1] ? ((tile.core.d.csr.large[L - 1] + UInt<58>(0x1)).tail<1>()) : tile.core.d.csr.large[L - 1]).pad<90>()))).bits<57,0>();
+      }
+    }
     // [vec comb] 2 templates x 4 lanes
     ESSENT_LANE_LOOP
     for (int L = 0; L < 4; L++) {
@@ -2962,7 +3061,7 @@ typedef struct SodorFullChip {
     }
     // [vec comb] 5 templates x 4 lanes [cold-guarded base: quiet drops 3, specializes 2]
     if (UNLIKELY(!_v2_quiet_base)) {
-      _v2_cold_comb_full(29);
+      _v2_cold_comb_full(31);
     } else {
       // [vec comb-quiet] 2 templates x 4 lanes
       ESSENT_LANE_LOOP
@@ -2986,7 +3085,7 @@ typedef struct SodorFullChip {
     }
     // [vec comb] 1 templates x 4 lanes [cold-guarded base: quiet drops 0, specializes 1]
     if (UNLIKELY(!_v2_quiet_base)) {
-      _v2_cold_comb_full(30);
+      _v2_cold_comb_full(32);
     } else {
       // [vec comb-quiet] 1 templates x 4 lanes
       ESSENT_LANE_LOOP
@@ -3001,7 +3100,7 @@ typedef struct SodorFullChip {
     }
     // [vec comb] 3 templates x 4 lanes [cold-guarded base: quiet drops 1, specializes 2]
     if (UNLIKELY(!_v2_quiet_base)) {
-      _v2_cold_comb_full(31);
+      _v2_cold_comb_full(33);
     } else {
       // [vec comb-quiet] 2 templates x 4 lanes
       ESSENT_LANE_LOOP
@@ -3038,7 +3137,7 @@ typedef struct SodorFullChip {
     }
     // [vec comb] 1 templates x 4 lanes [cold-guarded base: quiet drops 1, specializes 0]
     if (UNLIKELY(!_v2_quiet_base)) {
-      _v2_cold_comb_full(32);
+      _v2_cold_comb_full(34);
     }
     // [serial scc=31] 1 templates (0 comb), regs=[reg_mie_msip]
     // [serial scc=31 chain-loop]
@@ -3068,7 +3167,7 @@ typedef struct SodorFullChip {
     }
     // [vec comb] 3 templates x 4 lanes [cold-guarded base: quiet drops 3, specializes 0]
     if (UNLIKELY(!_v2_quiet_base)) {
-      _v2_cold_comb_full(33);
+      _v2_cold_comb_full(35);
     }
     // [serial scc=32] 1 templates (0 comb), regs=[reg_mscratch]
     // [serial scc=32 chain-loop]
@@ -3093,7 +3192,7 @@ typedef struct SodorFullChip {
     }
     // [vec comb] 1 templates x 4 lanes [cold-guarded base: quiet drops 1, specializes 0]
     if (UNLIKELY(!_v2_quiet_base)) {
-      _v2_cold_comb_full(34);
+      _v2_cold_comb_full(36);
     }
     // [serial scc=33] 1 templates (0 comb), regs=[reg_mtval]
     // [serial scc=33 chain-loop]
@@ -3118,7 +3217,7 @@ typedef struct SodorFullChip {
     }
     // [vec comb] 1 templates x 4 lanes [cold-guarded base: quiet drops 1, specializes 0]
     if (UNLIKELY(!_v2_quiet_base)) {
-      _v2_cold_comb_full(35);
+      _v2_cold_comb_full(37);
     }
     // [serial scc=34] 1 templates (0 comb), regs=[reg_mcause]
     // [serial scc=34 chain-loop]
@@ -3130,7 +3229,7 @@ typedef struct SodorFullChip {
     }
     // [vec comb] 1 templates x 4 lanes [cold-guarded base: quiet drops 0, specializes 1]
     if (UNLIKELY(!_v2_quiet_base)) {
-      _v2_cold_comb_full(36);
+      _v2_cold_comb_full(38);
     } else {
       // [vec comb-quiet] 1 templates x 4 lanes
       ESSENT_LANE_LOOP
@@ -3166,7 +3265,7 @@ typedef struct SodorFullChip {
     }
     // [vec comb] 3 templates x 4 lanes [cold-guarded base: quiet drops 3, specializes 0]
     if (UNLIKELY(!_v2_quiet_base)) {
-      _v2_cold_comb_full(37);
+      _v2_cold_comb_full(39);
     }
     // [serial scc=36] 1 templates (0 comb), regs=[reg_dpc]
     // [serial scc=36 chain-loop]
@@ -3199,7 +3298,7 @@ typedef struct SodorFullChip {
     }
     // [vec comb] 1 templates x 4 lanes [cold-guarded base: quiet drops 1, specializes 0]
     if (UNLIKELY(!_v2_quiet_base)) {
-      _v2_cold_comb_full(38);
+      _v2_cold_comb_full(40);
     }
     // [serial scc=2] 1 templates (0 comb), regs=[if_reg_pc]
     // [serial scc=2 chain-loop]
@@ -3216,7 +3315,7 @@ typedef struct SodorFullChip {
     }
     // [vec comb] 1 templates x 4 lanes [cold-guarded base: quiet drops 0, specializes 1]
     if (UNLIKELY(!_v2_quiet_base)) {
-      _v2_cold_comb_full(39);
+      _v2_cold_comb_full(41);
     } else {
       // [vec comb-quiet] 1 templates x 4 lanes
       ESSENT_LANE_LOOP
@@ -3246,7 +3345,7 @@ typedef struct SodorFullChip {
     }
     // [vec comb] 1 templates x 4 lanes [cold-guarded base: quiet drops 0, specializes 1]
     if (UNLIKELY(!_v2_quiet_base)) {
-      _v2_cold_comb_full(40);
+      _v2_cold_comb_full(42);
     } else {
       // [vec comb-quiet] 1 templates x 4 lanes
       ESSENT_LANE_LOOP
@@ -3260,7 +3359,7 @@ typedef struct SodorFullChip {
     essent_condhold_scan_fwd<4>(tile.core.d.dec_reg_pc, _s_tile$core$d$dec_reg_pc$wen, _s_tile$core$d$dec_reg_pc$wdata);
     // [vec comb] 2 templates x 4 lanes [cold-guarded base: quiet drops 0, specializes 2]
     if (UNLIKELY(!_v2_quiet_base)) {
-      _v2_cold_comb_full(41);
+      _v2_cold_comb_full(43);
     } else {
       // [vec comb-quiet] 2 templates x 4 lanes
       ESSENT_LANE_LOOP
@@ -3292,7 +3391,7 @@ typedef struct SodorFullChip {
     }
     // [vec comb] 1 templates x 4 lanes [cold-guarded base: quiet drops 1, specializes 0]
     if (UNLIKELY(!_v2_quiet_base)) {
-      _v2_cold_comb_full(42);
+      _v2_cold_comb_full(44);
     }
     // [serial scc=38] 1 templates (0 comb), regs=[reg_medeleg]
     // [serial scc=38 chain-loop]
@@ -3322,63 +3421,207 @@ typedef struct SodorFullChip {
     }
     // [vec comb] 1 templates x 4 lanes [cold-guarded base: quiet drops 1, specializes 0]
     if (UNLIKELY(!_v2_quiet_base)) {
-      _v2_cold_comb_full(43);
+      _v2_cold_comb_full(45);
     }
     // [serial scc=39] 1 templates (0 comb), regs=[small_2]
     // [serial scc=39 chain-loop]
-    for (int L = 1; L < 4; L++) tile.core.d.csr.small_2[L] = (_s_tile$core$d$csr$wen[L - 1] ? (_s_tile$core$d$csr$_T_22[L - 1] ? ((tile.core.d.csr.small_2[L - 1].bits<39,32>()).cat(((_s_tile$core$d$csr$_w_T_3[L - 1] ? tile.core.d.csr.small_2[L - 1] : UInt<40>(0x0)) | _s_tile$core$d$csr$_GEN_233[L - 1]) & _s_tile$core$d$csr$_GEN_234[L - 1])) : ((_s_tile$core$d$csr$_T_23[L - 1] ? ((((((_s_tile$core$d$csr$_w_T_3[L - 1] ? tile.core.d.csr.small_2[L - 1] : UInt<40>(0x0)) | _s_tile$core$d$csr$_GEN_233[L - 1]) & _s_tile$core$d$csr$_GEN_234[L - 1]).bits<7,0>()).cat(tile.core.d.csr.small_2[L - 1].bits<31,0>())).pad<41>()) : (tile.core.d.csr.small_2[L - 1].pad<41>())).pad<48>())) : ((tile.core.d.csr.small_2[L - 1].pad<41>()).pad<48>())).bits<39,0>();
-    // [vec comb] 3 templates x 4 lanes [cold-guarded base: quiet drops 3, specializes 0]
     if (UNLIKELY(!_v2_quiet_base)) {
-      _v2_cold_comb_full(44);
+      {
+        uint64_t _gany = 0;
+        for (int L = 0; L < 3; L++) _gany |= essent_to_u64(_s_tile$core$d$csr$small_2$gwen[L]);
+        if (_gany == 0) {
+          const UInt<40> _gv = tile.core.d.csr.small_2[0];
+          ESSENT_LANE_LOOP
+          for (int L = 0; L < 4; L++) tile.core.d.csr.small_2[L] = _gv;
+        } else {
+          for (int L = 1; L < 4; L++) tile.core.d.csr.small_2[L] = (_s_tile$core$d$csr$wen[L - 1] ? (_s_tile$core$d$csr$_T_22[L - 1] ? ((tile.core.d.csr.small_2[L - 1].bits<39,32>()).cat(((_s_tile$core$d$csr$_w_T_3[L - 1] ? tile.core.d.csr.small_2[L - 1] : UInt<40>(0x0)) | _s_tile$core$d$csr$_GEN_233[L - 1]) & _s_tile$core$d$csr$_GEN_234[L - 1])) : ((_s_tile$core$d$csr$_T_23[L - 1] ? ((((((_s_tile$core$d$csr$_w_T_3[L - 1] ? tile.core.d.csr.small_2[L - 1] : UInt<40>(0x0)) | _s_tile$core$d$csr$_GEN_233[L - 1]) & _s_tile$core$d$csr$_GEN_234[L - 1]).bits<7,0>()).cat(tile.core.d.csr.small_2[L - 1].bits<31,0>())).pad<41>()) : (tile.core.d.csr.small_2[L - 1].pad<41>())).pad<48>())) : ((tile.core.d.csr.small_2[L - 1].pad<41>()).pad<48>())).bits<39,0>();
+        }
+      }
+    } else {
+      {
+        const UInt<40> _gv = tile.core.d.csr.small_2[0];
+        ESSENT_LANE_LOOP
+        for (int L = 0; L < 4; L++) tile.core.d.csr.small_2[L] = _gv;
+      }
     }
-    // [serial scc=40] 1 templates (0 comb), regs=[small_3]
-    // [serial scc=40 chain-loop]
-    for (int L = 1; L < 4; L++) tile.core.d.csr.small_3[L] = (_s_tile$core$d$csr$wen[L - 1] ? (_s_tile$core$d$csr$_T_24[L - 1] ? ((tile.core.d.csr.small_3[L - 1].bits<39,32>()).cat(((_s_tile$core$d$csr$_w_T_3[L - 1] ? tile.core.d.csr.small_3[L - 1] : UInt<40>(0x0)) | _s_tile$core$d$csr$_GEN_233[L - 1]) & _s_tile$core$d$csr$_GEN_234[L - 1])) : ((_s_tile$core$d$csr$_T_25[L - 1] ? ((((((_s_tile$core$d$csr$_w_T_3[L - 1] ? tile.core.d.csr.small_3[L - 1] : UInt<40>(0x0)) | _s_tile$core$d$csr$_GEN_233[L - 1]) & _s_tile$core$d$csr$_GEN_234[L - 1]).bits<7,0>()).cat(tile.core.d.csr.small_3[L - 1].bits<31,0>())).pad<41>()) : (tile.core.d.csr.small_3[L - 1].pad<41>())).pad<48>())) : ((tile.core.d.csr.small_3[L - 1].pad<41>()).pad<48>())).bits<39,0>();
-    // [vec comb] 3 templates x 4 lanes [cold-guarded base: quiet drops 3, specializes 0]
-    if (UNLIKELY(!_v2_quiet_base)) {
-      _v2_cold_comb_full(45);
-    }
-    // [serial scc=41] 1 templates (0 comb), regs=[small_4]
-    // [serial scc=41 chain-loop]
-    for (int L = 1; L < 4; L++) tile.core.d.csr.small_4[L] = (_s_tile$core$d$csr$wen[L - 1] ? (_s_tile$core$d$csr$_T_26[L - 1] ? ((tile.core.d.csr.small_4[L - 1].bits<39,32>()).cat(((_s_tile$core$d$csr$_w_T_3[L - 1] ? tile.core.d.csr.small_4[L - 1] : UInt<40>(0x0)) | _s_tile$core$d$csr$_GEN_233[L - 1]) & _s_tile$core$d$csr$_GEN_234[L - 1])) : ((_s_tile$core$d$csr$_T_27[L - 1] ? ((((((_s_tile$core$d$csr$_w_T_3[L - 1] ? tile.core.d.csr.small_4[L - 1] : UInt<40>(0x0)) | _s_tile$core$d$csr$_GEN_233[L - 1]) & _s_tile$core$d$csr$_GEN_234[L - 1]).bits<7,0>()).cat(tile.core.d.csr.small_4[L - 1].bits<31,0>())).pad<41>()) : (tile.core.d.csr.small_4[L - 1].pad<41>())).pad<48>())) : ((tile.core.d.csr.small_4[L - 1].pad<41>()).pad<48>())).bits<39,0>();
     // [vec comb] 3 templates x 4 lanes [cold-guarded base: quiet drops 3, specializes 0]
     if (UNLIKELY(!_v2_quiet_base)) {
       _v2_cold_comb_full(46);
     }
-    // [serial scc=42] 1 templates (0 comb), regs=[small_5]
-    // [serial scc=42 chain-loop]
-    for (int L = 1; L < 4; L++) tile.core.d.csr.small_5[L] = (_s_tile$core$d$csr$wen[L - 1] ? (_s_tile$core$d$csr$_T_28[L - 1] ? ((tile.core.d.csr.small_5[L - 1].bits<39,32>()).cat(((_s_tile$core$d$csr$_w_T_3[L - 1] ? tile.core.d.csr.small_5[L - 1] : UInt<40>(0x0)) | _s_tile$core$d$csr$_GEN_233[L - 1]) & _s_tile$core$d$csr$_GEN_234[L - 1])) : ((_s_tile$core$d$csr$_T_29[L - 1] ? ((((((_s_tile$core$d$csr$_w_T_3[L - 1] ? tile.core.d.csr.small_5[L - 1] : UInt<40>(0x0)) | _s_tile$core$d$csr$_GEN_233[L - 1]) & _s_tile$core$d$csr$_GEN_234[L - 1]).bits<7,0>()).cat(tile.core.d.csr.small_5[L - 1].bits<31,0>())).pad<41>()) : (tile.core.d.csr.small_5[L - 1].pad<41>())).pad<48>())) : ((tile.core.d.csr.small_5[L - 1].pad<41>()).pad<48>())).bits<39,0>();
+    // [serial scc=40] 1 templates (0 comb), regs=[small_3]
+    // [serial scc=40 chain-loop]
+    if (UNLIKELY(!_v2_quiet_base)) {
+      {
+        uint64_t _gany = 0;
+        for (int L = 0; L < 3; L++) _gany |= essent_to_u64(_s_tile$core$d$csr$small_3$gwen[L]);
+        if (_gany == 0) {
+          const UInt<40> _gv = tile.core.d.csr.small_3[0];
+          ESSENT_LANE_LOOP
+          for (int L = 0; L < 4; L++) tile.core.d.csr.small_3[L] = _gv;
+        } else {
+          for (int L = 1; L < 4; L++) tile.core.d.csr.small_3[L] = (_s_tile$core$d$csr$wen[L - 1] ? (_s_tile$core$d$csr$_T_24[L - 1] ? ((tile.core.d.csr.small_3[L - 1].bits<39,32>()).cat(((_s_tile$core$d$csr$_w_T_3[L - 1] ? tile.core.d.csr.small_3[L - 1] : UInt<40>(0x0)) | _s_tile$core$d$csr$_GEN_233[L - 1]) & _s_tile$core$d$csr$_GEN_234[L - 1])) : ((_s_tile$core$d$csr$_T_25[L - 1] ? ((((((_s_tile$core$d$csr$_w_T_3[L - 1] ? tile.core.d.csr.small_3[L - 1] : UInt<40>(0x0)) | _s_tile$core$d$csr$_GEN_233[L - 1]) & _s_tile$core$d$csr$_GEN_234[L - 1]).bits<7,0>()).cat(tile.core.d.csr.small_3[L - 1].bits<31,0>())).pad<41>()) : (tile.core.d.csr.small_3[L - 1].pad<41>())).pad<48>())) : ((tile.core.d.csr.small_3[L - 1].pad<41>()).pad<48>())).bits<39,0>();
+        }
+      }
+    } else {
+      {
+        const UInt<40> _gv = tile.core.d.csr.small_3[0];
+        ESSENT_LANE_LOOP
+        for (int L = 0; L < 4; L++) tile.core.d.csr.small_3[L] = _gv;
+      }
+    }
     // [vec comb] 3 templates x 4 lanes [cold-guarded base: quiet drops 3, specializes 0]
     if (UNLIKELY(!_v2_quiet_base)) {
       _v2_cold_comb_full(47);
     }
-    // [serial scc=43] 1 templates (0 comb), regs=[small_6]
-    // [serial scc=43 chain-loop]
-    for (int L = 1; L < 4; L++) tile.core.d.csr.small_6[L] = (_s_tile$core$d$csr$wen[L - 1] ? (_s_tile$core$d$csr$_T_30[L - 1] ? ((tile.core.d.csr.small_6[L - 1].bits<39,32>()).cat(((_s_tile$core$d$csr$_w_T_3[L - 1] ? tile.core.d.csr.small_6[L - 1] : UInt<40>(0x0)) | _s_tile$core$d$csr$_GEN_233[L - 1]) & _s_tile$core$d$csr$_GEN_234[L - 1])) : ((_s_tile$core$d$csr$_T_31[L - 1] ? ((((((_s_tile$core$d$csr$_w_T_3[L - 1] ? tile.core.d.csr.small_6[L - 1] : UInt<40>(0x0)) | _s_tile$core$d$csr$_GEN_233[L - 1]) & _s_tile$core$d$csr$_GEN_234[L - 1]).bits<7,0>()).cat(tile.core.d.csr.small_6[L - 1].bits<31,0>())).pad<41>()) : (tile.core.d.csr.small_6[L - 1].pad<41>())).pad<48>())) : ((tile.core.d.csr.small_6[L - 1].pad<41>()).pad<48>())).bits<39,0>();
+    // [serial scc=41] 1 templates (0 comb), regs=[small_4]
+    // [serial scc=41 chain-loop]
+    if (UNLIKELY(!_v2_quiet_base)) {
+      {
+        uint64_t _gany = 0;
+        for (int L = 0; L < 3; L++) _gany |= essent_to_u64(_s_tile$core$d$csr$small_4$gwen[L]);
+        if (_gany == 0) {
+          const UInt<40> _gv = tile.core.d.csr.small_4[0];
+          ESSENT_LANE_LOOP
+          for (int L = 0; L < 4; L++) tile.core.d.csr.small_4[L] = _gv;
+        } else {
+          for (int L = 1; L < 4; L++) tile.core.d.csr.small_4[L] = (_s_tile$core$d$csr$wen[L - 1] ? (_s_tile$core$d$csr$_T_26[L - 1] ? ((tile.core.d.csr.small_4[L - 1].bits<39,32>()).cat(((_s_tile$core$d$csr$_w_T_3[L - 1] ? tile.core.d.csr.small_4[L - 1] : UInt<40>(0x0)) | _s_tile$core$d$csr$_GEN_233[L - 1]) & _s_tile$core$d$csr$_GEN_234[L - 1])) : ((_s_tile$core$d$csr$_T_27[L - 1] ? ((((((_s_tile$core$d$csr$_w_T_3[L - 1] ? tile.core.d.csr.small_4[L - 1] : UInt<40>(0x0)) | _s_tile$core$d$csr$_GEN_233[L - 1]) & _s_tile$core$d$csr$_GEN_234[L - 1]).bits<7,0>()).cat(tile.core.d.csr.small_4[L - 1].bits<31,0>())).pad<41>()) : (tile.core.d.csr.small_4[L - 1].pad<41>())).pad<48>())) : ((tile.core.d.csr.small_4[L - 1].pad<41>()).pad<48>())).bits<39,0>();
+        }
+      }
+    } else {
+      {
+        const UInt<40> _gv = tile.core.d.csr.small_4[0];
+        ESSENT_LANE_LOOP
+        for (int L = 0; L < 4; L++) tile.core.d.csr.small_4[L] = _gv;
+      }
+    }
     // [vec comb] 3 templates x 4 lanes [cold-guarded base: quiet drops 3, specializes 0]
     if (UNLIKELY(!_v2_quiet_base)) {
       _v2_cold_comb_full(48);
     }
-    // [serial scc=44] 1 templates (0 comb), regs=[small_7]
-    // [serial scc=44 chain-loop]
-    for (int L = 1; L < 4; L++) tile.core.d.csr.small_7[L] = (_s_tile$core$d$csr$wen[L - 1] ? (_s_tile$core$d$csr$_T_32[L - 1] ? ((tile.core.d.csr.small_7[L - 1].bits<39,32>()).cat(((_s_tile$core$d$csr$_w_T_3[L - 1] ? tile.core.d.csr.small_7[L - 1] : UInt<40>(0x0)) | _s_tile$core$d$csr$_GEN_233[L - 1]) & _s_tile$core$d$csr$_GEN_234[L - 1])) : ((_s_tile$core$d$csr$_T_33[L - 1] ? ((((((_s_tile$core$d$csr$_w_T_3[L - 1] ? tile.core.d.csr.small_7[L - 1] : UInt<40>(0x0)) | _s_tile$core$d$csr$_GEN_233[L - 1]) & _s_tile$core$d$csr$_GEN_234[L - 1]).bits<7,0>()).cat(tile.core.d.csr.small_7[L - 1].bits<31,0>())).pad<41>()) : (tile.core.d.csr.small_7[L - 1].pad<41>())).pad<48>())) : ((tile.core.d.csr.small_7[L - 1].pad<41>()).pad<48>())).bits<39,0>();
+    // [serial scc=42] 1 templates (0 comb), regs=[small_5]
+    // [serial scc=42 chain-loop]
+    if (UNLIKELY(!_v2_quiet_base)) {
+      {
+        uint64_t _gany = 0;
+        for (int L = 0; L < 3; L++) _gany |= essent_to_u64(_s_tile$core$d$csr$small_5$gwen[L]);
+        if (_gany == 0) {
+          const UInt<40> _gv = tile.core.d.csr.small_5[0];
+          ESSENT_LANE_LOOP
+          for (int L = 0; L < 4; L++) tile.core.d.csr.small_5[L] = _gv;
+        } else {
+          for (int L = 1; L < 4; L++) tile.core.d.csr.small_5[L] = (_s_tile$core$d$csr$wen[L - 1] ? (_s_tile$core$d$csr$_T_28[L - 1] ? ((tile.core.d.csr.small_5[L - 1].bits<39,32>()).cat(((_s_tile$core$d$csr$_w_T_3[L - 1] ? tile.core.d.csr.small_5[L - 1] : UInt<40>(0x0)) | _s_tile$core$d$csr$_GEN_233[L - 1]) & _s_tile$core$d$csr$_GEN_234[L - 1])) : ((_s_tile$core$d$csr$_T_29[L - 1] ? ((((((_s_tile$core$d$csr$_w_T_3[L - 1] ? tile.core.d.csr.small_5[L - 1] : UInt<40>(0x0)) | _s_tile$core$d$csr$_GEN_233[L - 1]) & _s_tile$core$d$csr$_GEN_234[L - 1]).bits<7,0>()).cat(tile.core.d.csr.small_5[L - 1].bits<31,0>())).pad<41>()) : (tile.core.d.csr.small_5[L - 1].pad<41>())).pad<48>())) : ((tile.core.d.csr.small_5[L - 1].pad<41>()).pad<48>())).bits<39,0>();
+        }
+      }
+    } else {
+      {
+        const UInt<40> _gv = tile.core.d.csr.small_5[0];
+        ESSENT_LANE_LOOP
+        for (int L = 0; L < 4; L++) tile.core.d.csr.small_5[L] = _gv;
+      }
+    }
     // [vec comb] 3 templates x 4 lanes [cold-guarded base: quiet drops 3, specializes 0]
     if (UNLIKELY(!_v2_quiet_base)) {
       _v2_cold_comb_full(49);
     }
-    // [serial scc=45] 1 templates (0 comb), regs=[small_8]
-    // [serial scc=45 chain-loop]
-    for (int L = 1; L < 4; L++) tile.core.d.csr.small_8[L] = (_s_tile$core$d$csr$wen[L - 1] ? (_s_tile$core$d$csr$_T_34[L - 1] ? ((tile.core.d.csr.small_8[L - 1].bits<39,32>()).cat(((_s_tile$core$d$csr$_w_T_3[L - 1] ? tile.core.d.csr.small_8[L - 1] : UInt<40>(0x0)) | _s_tile$core$d$csr$_GEN_233[L - 1]) & _s_tile$core$d$csr$_GEN_234[L - 1])) : ((_s_tile$core$d$csr$_T_35[L - 1] ? ((((((_s_tile$core$d$csr$_w_T_3[L - 1] ? tile.core.d.csr.small_8[L - 1] : UInt<40>(0x0)) | _s_tile$core$d$csr$_GEN_233[L - 1]) & _s_tile$core$d$csr$_GEN_234[L - 1]).bits<7,0>()).cat(tile.core.d.csr.small_8[L - 1].bits<31,0>())).pad<41>()) : (tile.core.d.csr.small_8[L - 1].pad<41>())).pad<48>())) : ((tile.core.d.csr.small_8[L - 1].pad<41>()).pad<48>())).bits<39,0>();
+    // [serial scc=43] 1 templates (0 comb), regs=[small_6]
+    // [serial scc=43 chain-loop]
+    if (UNLIKELY(!_v2_quiet_base)) {
+      {
+        uint64_t _gany = 0;
+        for (int L = 0; L < 3; L++) _gany |= essent_to_u64(_s_tile$core$d$csr$small_6$gwen[L]);
+        if (_gany == 0) {
+          const UInt<40> _gv = tile.core.d.csr.small_6[0];
+          ESSENT_LANE_LOOP
+          for (int L = 0; L < 4; L++) tile.core.d.csr.small_6[L] = _gv;
+        } else {
+          for (int L = 1; L < 4; L++) tile.core.d.csr.small_6[L] = (_s_tile$core$d$csr$wen[L - 1] ? (_s_tile$core$d$csr$_T_30[L - 1] ? ((tile.core.d.csr.small_6[L - 1].bits<39,32>()).cat(((_s_tile$core$d$csr$_w_T_3[L - 1] ? tile.core.d.csr.small_6[L - 1] : UInt<40>(0x0)) | _s_tile$core$d$csr$_GEN_233[L - 1]) & _s_tile$core$d$csr$_GEN_234[L - 1])) : ((_s_tile$core$d$csr$_T_31[L - 1] ? ((((((_s_tile$core$d$csr$_w_T_3[L - 1] ? tile.core.d.csr.small_6[L - 1] : UInt<40>(0x0)) | _s_tile$core$d$csr$_GEN_233[L - 1]) & _s_tile$core$d$csr$_GEN_234[L - 1]).bits<7,0>()).cat(tile.core.d.csr.small_6[L - 1].bits<31,0>())).pad<41>()) : (tile.core.d.csr.small_6[L - 1].pad<41>())).pad<48>())) : ((tile.core.d.csr.small_6[L - 1].pad<41>()).pad<48>())).bits<39,0>();
+        }
+      }
+    } else {
+      {
+        const UInt<40> _gv = tile.core.d.csr.small_6[0];
+        ESSENT_LANE_LOOP
+        for (int L = 0; L < 4; L++) tile.core.d.csr.small_6[L] = _gv;
+      }
+    }
     // [vec comb] 3 templates x 4 lanes [cold-guarded base: quiet drops 3, specializes 0]
     if (UNLIKELY(!_v2_quiet_base)) {
       _v2_cold_comb_full(50);
     }
-    // [serial scc=46] 1 templates (0 comb), regs=[small_9]
-    // [serial scc=46 chain-loop]
-    for (int L = 1; L < 4; L++) tile.core.d.csr.small_9[L] = (_s_tile$core$d$csr$wen[L - 1] ? (_s_tile$core$d$csr$_T_36[L - 1] ? ((tile.core.d.csr.small_9[L - 1].bits<39,32>()).cat(((_s_tile$core$d$csr$_w_T_3[L - 1] ? tile.core.d.csr.small_9[L - 1] : UInt<40>(0x0)) | _s_tile$core$d$csr$_GEN_233[L - 1]) & _s_tile$core$d$csr$_GEN_234[L - 1])) : ((_s_tile$core$d$csr$_T_37[L - 1] ? ((((((_s_tile$core$d$csr$_w_T_3[L - 1] ? tile.core.d.csr.small_9[L - 1] : UInt<40>(0x0)) | _s_tile$core$d$csr$_GEN_233[L - 1]) & _s_tile$core$d$csr$_GEN_234[L - 1]).bits<7,0>()).cat(tile.core.d.csr.small_9[L - 1].bits<31,0>())).pad<41>()) : (tile.core.d.csr.small_9[L - 1].pad<41>())).pad<48>())) : ((tile.core.d.csr.small_9[L - 1].pad<41>()).pad<48>())).bits<39,0>();
-    // [vec comb] 1 templates x 4 lanes [cold-guarded base: quiet drops 1, specializes 0]
+    // [serial scc=44] 1 templates (0 comb), regs=[small_7]
+    // [serial scc=44 chain-loop]
+    if (UNLIKELY(!_v2_quiet_base)) {
+      {
+        uint64_t _gany = 0;
+        for (int L = 0; L < 3; L++) _gany |= essent_to_u64(_s_tile$core$d$csr$small_7$gwen[L]);
+        if (_gany == 0) {
+          const UInt<40> _gv = tile.core.d.csr.small_7[0];
+          ESSENT_LANE_LOOP
+          for (int L = 0; L < 4; L++) tile.core.d.csr.small_7[L] = _gv;
+        } else {
+          for (int L = 1; L < 4; L++) tile.core.d.csr.small_7[L] = (_s_tile$core$d$csr$wen[L - 1] ? (_s_tile$core$d$csr$_T_32[L - 1] ? ((tile.core.d.csr.small_7[L - 1].bits<39,32>()).cat(((_s_tile$core$d$csr$_w_T_3[L - 1] ? tile.core.d.csr.small_7[L - 1] : UInt<40>(0x0)) | _s_tile$core$d$csr$_GEN_233[L - 1]) & _s_tile$core$d$csr$_GEN_234[L - 1])) : ((_s_tile$core$d$csr$_T_33[L - 1] ? ((((((_s_tile$core$d$csr$_w_T_3[L - 1] ? tile.core.d.csr.small_7[L - 1] : UInt<40>(0x0)) | _s_tile$core$d$csr$_GEN_233[L - 1]) & _s_tile$core$d$csr$_GEN_234[L - 1]).bits<7,0>()).cat(tile.core.d.csr.small_7[L - 1].bits<31,0>())).pad<41>()) : (tile.core.d.csr.small_7[L - 1].pad<41>())).pad<48>())) : ((tile.core.d.csr.small_7[L - 1].pad<41>()).pad<48>())).bits<39,0>();
+        }
+      }
+    } else {
+      {
+        const UInt<40> _gv = tile.core.d.csr.small_7[0];
+        ESSENT_LANE_LOOP
+        for (int L = 0; L < 4; L++) tile.core.d.csr.small_7[L] = _gv;
+      }
+    }
+    // [vec comb] 3 templates x 4 lanes [cold-guarded base: quiet drops 3, specializes 0]
     if (UNLIKELY(!_v2_quiet_base)) {
       _v2_cold_comb_full(51);
+    }
+    // [serial scc=45] 1 templates (0 comb), regs=[small_8]
+    // [serial scc=45 chain-loop]
+    if (UNLIKELY(!_v2_quiet_base)) {
+      {
+        uint64_t _gany = 0;
+        for (int L = 0; L < 3; L++) _gany |= essent_to_u64(_s_tile$core$d$csr$small_8$gwen[L]);
+        if (_gany == 0) {
+          const UInt<40> _gv = tile.core.d.csr.small_8[0];
+          ESSENT_LANE_LOOP
+          for (int L = 0; L < 4; L++) tile.core.d.csr.small_8[L] = _gv;
+        } else {
+          for (int L = 1; L < 4; L++) tile.core.d.csr.small_8[L] = (_s_tile$core$d$csr$wen[L - 1] ? (_s_tile$core$d$csr$_T_34[L - 1] ? ((tile.core.d.csr.small_8[L - 1].bits<39,32>()).cat(((_s_tile$core$d$csr$_w_T_3[L - 1] ? tile.core.d.csr.small_8[L - 1] : UInt<40>(0x0)) | _s_tile$core$d$csr$_GEN_233[L - 1]) & _s_tile$core$d$csr$_GEN_234[L - 1])) : ((_s_tile$core$d$csr$_T_35[L - 1] ? ((((((_s_tile$core$d$csr$_w_T_3[L - 1] ? tile.core.d.csr.small_8[L - 1] : UInt<40>(0x0)) | _s_tile$core$d$csr$_GEN_233[L - 1]) & _s_tile$core$d$csr$_GEN_234[L - 1]).bits<7,0>()).cat(tile.core.d.csr.small_8[L - 1].bits<31,0>())).pad<41>()) : (tile.core.d.csr.small_8[L - 1].pad<41>())).pad<48>())) : ((tile.core.d.csr.small_8[L - 1].pad<41>()).pad<48>())).bits<39,0>();
+        }
+      }
+    } else {
+      {
+        const UInt<40> _gv = tile.core.d.csr.small_8[0];
+        ESSENT_LANE_LOOP
+        for (int L = 0; L < 4; L++) tile.core.d.csr.small_8[L] = _gv;
+      }
+    }
+    // [vec comb] 3 templates x 4 lanes [cold-guarded base: quiet drops 3, specializes 0]
+    if (UNLIKELY(!_v2_quiet_base)) {
+      _v2_cold_comb_full(52);
+    }
+    // [serial scc=46] 1 templates (0 comb), regs=[small_9]
+    // [serial scc=46 chain-loop]
+    if (UNLIKELY(!_v2_quiet_base)) {
+      {
+        uint64_t _gany = 0;
+        for (int L = 0; L < 3; L++) _gany |= essent_to_u64(_s_tile$core$d$csr$small_9$gwen[L]);
+        if (_gany == 0) {
+          const UInt<40> _gv = tile.core.d.csr.small_9[0];
+          ESSENT_LANE_LOOP
+          for (int L = 0; L < 4; L++) tile.core.d.csr.small_9[L] = _gv;
+        } else {
+          for (int L = 1; L < 4; L++) tile.core.d.csr.small_9[L] = (_s_tile$core$d$csr$wen[L - 1] ? (_s_tile$core$d$csr$_T_36[L - 1] ? ((tile.core.d.csr.small_9[L - 1].bits<39,32>()).cat(((_s_tile$core$d$csr$_w_T_3[L - 1] ? tile.core.d.csr.small_9[L - 1] : UInt<40>(0x0)) | _s_tile$core$d$csr$_GEN_233[L - 1]) & _s_tile$core$d$csr$_GEN_234[L - 1])) : ((_s_tile$core$d$csr$_T_37[L - 1] ? ((((((_s_tile$core$d$csr$_w_T_3[L - 1] ? tile.core.d.csr.small_9[L - 1] : UInt<40>(0x0)) | _s_tile$core$d$csr$_GEN_233[L - 1]) & _s_tile$core$d$csr$_GEN_234[L - 1]).bits<7,0>()).cat(tile.core.d.csr.small_9[L - 1].bits<31,0>())).pad<41>()) : (tile.core.d.csr.small_9[L - 1].pad<41>())).pad<48>())) : ((tile.core.d.csr.small_9[L - 1].pad<41>()).pad<48>())).bits<39,0>();
+        }
+      }
+    } else {
+      {
+        const UInt<40> _gv = tile.core.d.csr.small_9[0];
+        ESSENT_LANE_LOOP
+        for (int L = 0; L < 4; L++) tile.core.d.csr.small_9[L] = _gv;
+      }
+    }
+    // [vec comb] 1 templates x 4 lanes [cold-guarded base: quiet drops 1, specializes 0]
+    if (UNLIKELY(!_v2_quiet_base)) {
+      _v2_cold_comb_full(53);
     }
     // [vec comb] 1 templates x 4 lanes
     ESSENT_LANE_LOOP
@@ -3387,63 +3630,207 @@ typedef struct SodorFullChip {
     }
     // [vec comb] 2 templates x 4 lanes [cold-guarded base: quiet drops 2, specializes 0]
     if (UNLIKELY(!_v2_quiet_base)) {
-      _v2_cold_comb_full(52);
+      _v2_cold_comb_full(54);
     }
     // [serial scc=47] 1 templates (0 comb), regs=[small_10]
     // [serial scc=47 chain-loop]
-    for (int L = 1; L < 4; L++) tile.core.d.csr.small_10[L] = (_s_tile$core$d$csr$wen[L - 1] ? (_s_tile$core$d$csr$_T_38[L - 1] ? ((tile.core.d.csr.small_10[L - 1].bits<39,32>()).cat(((_s_tile$core$d$csr$_w_T_3[L - 1] ? tile.core.d.csr.small_10[L - 1] : UInt<40>(0x0)) | _s_tile$core$d$csr$_GEN_233[L - 1]) & _s_tile$core$d$csr$_GEN_234[L - 1])) : ((_s_tile$core$d$csr$_T_39[L - 1] ? ((((((_s_tile$core$d$csr$_w_T_3[L - 1] ? tile.core.d.csr.small_10[L - 1] : UInt<40>(0x0)) | _s_tile$core$d$csr$_GEN_233[L - 1]) & _s_tile$core$d$csr$_GEN_234[L - 1]).bits<7,0>()).cat(tile.core.d.csr.small_10[L - 1].bits<31,0>())).pad<41>()) : (tile.core.d.csr.small_10[L - 1].pad<41>())).pad<48>())) : ((tile.core.d.csr.small_10[L - 1].pad<41>()).pad<48>())).bits<39,0>();
-    // [vec comb] 3 templates x 4 lanes [cold-guarded base: quiet drops 3, specializes 0]
     if (UNLIKELY(!_v2_quiet_base)) {
-      _v2_cold_comb_full(53);
+      {
+        uint64_t _gany = 0;
+        for (int L = 0; L < 3; L++) _gany |= essent_to_u64(_s_tile$core$d$csr$small_10$gwen[L]);
+        if (_gany == 0) {
+          const UInt<40> _gv = tile.core.d.csr.small_10[0];
+          ESSENT_LANE_LOOP
+          for (int L = 0; L < 4; L++) tile.core.d.csr.small_10[L] = _gv;
+        } else {
+          for (int L = 1; L < 4; L++) tile.core.d.csr.small_10[L] = (_s_tile$core$d$csr$wen[L - 1] ? (_s_tile$core$d$csr$_T_38[L - 1] ? ((tile.core.d.csr.small_10[L - 1].bits<39,32>()).cat(((_s_tile$core$d$csr$_w_T_3[L - 1] ? tile.core.d.csr.small_10[L - 1] : UInt<40>(0x0)) | _s_tile$core$d$csr$_GEN_233[L - 1]) & _s_tile$core$d$csr$_GEN_234[L - 1])) : ((_s_tile$core$d$csr$_T_39[L - 1] ? ((((((_s_tile$core$d$csr$_w_T_3[L - 1] ? tile.core.d.csr.small_10[L - 1] : UInt<40>(0x0)) | _s_tile$core$d$csr$_GEN_233[L - 1]) & _s_tile$core$d$csr$_GEN_234[L - 1]).bits<7,0>()).cat(tile.core.d.csr.small_10[L - 1].bits<31,0>())).pad<41>()) : (tile.core.d.csr.small_10[L - 1].pad<41>())).pad<48>())) : ((tile.core.d.csr.small_10[L - 1].pad<41>()).pad<48>())).bits<39,0>();
+        }
+      }
+    } else {
+      {
+        const UInt<40> _gv = tile.core.d.csr.small_10[0];
+        ESSENT_LANE_LOOP
+        for (int L = 0; L < 4; L++) tile.core.d.csr.small_10[L] = _gv;
+      }
     }
-    // [serial scc=48] 1 templates (0 comb), regs=[small_11]
-    // [serial scc=48 chain-loop]
-    for (int L = 1; L < 4; L++) tile.core.d.csr.small_11[L] = (_s_tile$core$d$csr$wen[L - 1] ? (_s_tile$core$d$csr$_T_40[L - 1] ? ((tile.core.d.csr.small_11[L - 1].bits<39,32>()).cat(((_s_tile$core$d$csr$_w_T_3[L - 1] ? tile.core.d.csr.small_11[L - 1] : UInt<40>(0x0)) | _s_tile$core$d$csr$_GEN_233[L - 1]) & _s_tile$core$d$csr$_GEN_234[L - 1])) : ((_s_tile$core$d$csr$_T_41[L - 1] ? ((((((_s_tile$core$d$csr$_w_T_3[L - 1] ? tile.core.d.csr.small_11[L - 1] : UInt<40>(0x0)) | _s_tile$core$d$csr$_GEN_233[L - 1]) & _s_tile$core$d$csr$_GEN_234[L - 1]).bits<7,0>()).cat(tile.core.d.csr.small_11[L - 1].bits<31,0>())).pad<41>()) : (tile.core.d.csr.small_11[L - 1].pad<41>())).pad<48>())) : ((tile.core.d.csr.small_11[L - 1].pad<41>()).pad<48>())).bits<39,0>();
-    // [vec comb] 3 templates x 4 lanes [cold-guarded base: quiet drops 3, specializes 0]
-    if (UNLIKELY(!_v2_quiet_base)) {
-      _v2_cold_comb_full(54);
-    }
-    // [serial scc=49] 1 templates (0 comb), regs=[small_12]
-    // [serial scc=49 chain-loop]
-    for (int L = 1; L < 4; L++) tile.core.d.csr.small_12[L] = (_s_tile$core$d$csr$wen[L - 1] ? (_s_tile$core$d$csr$_T_42[L - 1] ? ((tile.core.d.csr.small_12[L - 1].bits<39,32>()).cat(((_s_tile$core$d$csr$_w_T_3[L - 1] ? tile.core.d.csr.small_12[L - 1] : UInt<40>(0x0)) | _s_tile$core$d$csr$_GEN_233[L - 1]) & _s_tile$core$d$csr$_GEN_234[L - 1])) : ((_s_tile$core$d$csr$_T_43[L - 1] ? ((((((_s_tile$core$d$csr$_w_T_3[L - 1] ? tile.core.d.csr.small_12[L - 1] : UInt<40>(0x0)) | _s_tile$core$d$csr$_GEN_233[L - 1]) & _s_tile$core$d$csr$_GEN_234[L - 1]).bits<7,0>()).cat(tile.core.d.csr.small_12[L - 1].bits<31,0>())).pad<41>()) : (tile.core.d.csr.small_12[L - 1].pad<41>())).pad<48>())) : ((tile.core.d.csr.small_12[L - 1].pad<41>()).pad<48>())).bits<39,0>();
     // [vec comb] 3 templates x 4 lanes [cold-guarded base: quiet drops 3, specializes 0]
     if (UNLIKELY(!_v2_quiet_base)) {
       _v2_cold_comb_full(55);
     }
-    // [serial scc=50] 1 templates (0 comb), regs=[small_13]
-    // [serial scc=50 chain-loop]
-    for (int L = 1; L < 4; L++) tile.core.d.csr.small_13[L] = (_s_tile$core$d$csr$wen[L - 1] ? (_s_tile$core$d$csr$_T_44[L - 1] ? ((tile.core.d.csr.small_13[L - 1].bits<39,32>()).cat(((_s_tile$core$d$csr$_w_T_3[L - 1] ? tile.core.d.csr.small_13[L - 1] : UInt<40>(0x0)) | _s_tile$core$d$csr$_GEN_233[L - 1]) & _s_tile$core$d$csr$_GEN_234[L - 1])) : ((_s_tile$core$d$csr$_T_45[L - 1] ? ((((((_s_tile$core$d$csr$_w_T_3[L - 1] ? tile.core.d.csr.small_13[L - 1] : UInt<40>(0x0)) | _s_tile$core$d$csr$_GEN_233[L - 1]) & _s_tile$core$d$csr$_GEN_234[L - 1]).bits<7,0>()).cat(tile.core.d.csr.small_13[L - 1].bits<31,0>())).pad<41>()) : (tile.core.d.csr.small_13[L - 1].pad<41>())).pad<48>())) : ((tile.core.d.csr.small_13[L - 1].pad<41>()).pad<48>())).bits<39,0>();
+    // [serial scc=48] 1 templates (0 comb), regs=[small_11]
+    // [serial scc=48 chain-loop]
+    if (UNLIKELY(!_v2_quiet_base)) {
+      {
+        uint64_t _gany = 0;
+        for (int L = 0; L < 3; L++) _gany |= essent_to_u64(_s_tile$core$d$csr$small_11$gwen[L]);
+        if (_gany == 0) {
+          const UInt<40> _gv = tile.core.d.csr.small_11[0];
+          ESSENT_LANE_LOOP
+          for (int L = 0; L < 4; L++) tile.core.d.csr.small_11[L] = _gv;
+        } else {
+          for (int L = 1; L < 4; L++) tile.core.d.csr.small_11[L] = (_s_tile$core$d$csr$wen[L - 1] ? (_s_tile$core$d$csr$_T_40[L - 1] ? ((tile.core.d.csr.small_11[L - 1].bits<39,32>()).cat(((_s_tile$core$d$csr$_w_T_3[L - 1] ? tile.core.d.csr.small_11[L - 1] : UInt<40>(0x0)) | _s_tile$core$d$csr$_GEN_233[L - 1]) & _s_tile$core$d$csr$_GEN_234[L - 1])) : ((_s_tile$core$d$csr$_T_41[L - 1] ? ((((((_s_tile$core$d$csr$_w_T_3[L - 1] ? tile.core.d.csr.small_11[L - 1] : UInt<40>(0x0)) | _s_tile$core$d$csr$_GEN_233[L - 1]) & _s_tile$core$d$csr$_GEN_234[L - 1]).bits<7,0>()).cat(tile.core.d.csr.small_11[L - 1].bits<31,0>())).pad<41>()) : (tile.core.d.csr.small_11[L - 1].pad<41>())).pad<48>())) : ((tile.core.d.csr.small_11[L - 1].pad<41>()).pad<48>())).bits<39,0>();
+        }
+      }
+    } else {
+      {
+        const UInt<40> _gv = tile.core.d.csr.small_11[0];
+        ESSENT_LANE_LOOP
+        for (int L = 0; L < 4; L++) tile.core.d.csr.small_11[L] = _gv;
+      }
+    }
     // [vec comb] 3 templates x 4 lanes [cold-guarded base: quiet drops 3, specializes 0]
     if (UNLIKELY(!_v2_quiet_base)) {
       _v2_cold_comb_full(56);
     }
-    // [serial scc=51] 1 templates (0 comb), regs=[small_14]
-    // [serial scc=51 chain-loop]
-    for (int L = 1; L < 4; L++) tile.core.d.csr.small_14[L] = (_s_tile$core$d$csr$wen[L - 1] ? (_s_tile$core$d$csr$_T_46[L - 1] ? ((tile.core.d.csr.small_14[L - 1].bits<39,32>()).cat(((_s_tile$core$d$csr$_w_T_3[L - 1] ? tile.core.d.csr.small_14[L - 1] : UInt<40>(0x0)) | _s_tile$core$d$csr$_GEN_233[L - 1]) & _s_tile$core$d$csr$_GEN_234[L - 1])) : ((_s_tile$core$d$csr$_T_47[L - 1] ? ((((((_s_tile$core$d$csr$_w_T_3[L - 1] ? tile.core.d.csr.small_14[L - 1] : UInt<40>(0x0)) | _s_tile$core$d$csr$_GEN_233[L - 1]) & _s_tile$core$d$csr$_GEN_234[L - 1]).bits<7,0>()).cat(tile.core.d.csr.small_14[L - 1].bits<31,0>())).pad<41>()) : (tile.core.d.csr.small_14[L - 1].pad<41>())).pad<48>())) : ((tile.core.d.csr.small_14[L - 1].pad<41>()).pad<48>())).bits<39,0>();
+    // [serial scc=49] 1 templates (0 comb), regs=[small_12]
+    // [serial scc=49 chain-loop]
+    if (UNLIKELY(!_v2_quiet_base)) {
+      {
+        uint64_t _gany = 0;
+        for (int L = 0; L < 3; L++) _gany |= essent_to_u64(_s_tile$core$d$csr$small_12$gwen[L]);
+        if (_gany == 0) {
+          const UInt<40> _gv = tile.core.d.csr.small_12[0];
+          ESSENT_LANE_LOOP
+          for (int L = 0; L < 4; L++) tile.core.d.csr.small_12[L] = _gv;
+        } else {
+          for (int L = 1; L < 4; L++) tile.core.d.csr.small_12[L] = (_s_tile$core$d$csr$wen[L - 1] ? (_s_tile$core$d$csr$_T_42[L - 1] ? ((tile.core.d.csr.small_12[L - 1].bits<39,32>()).cat(((_s_tile$core$d$csr$_w_T_3[L - 1] ? tile.core.d.csr.small_12[L - 1] : UInt<40>(0x0)) | _s_tile$core$d$csr$_GEN_233[L - 1]) & _s_tile$core$d$csr$_GEN_234[L - 1])) : ((_s_tile$core$d$csr$_T_43[L - 1] ? ((((((_s_tile$core$d$csr$_w_T_3[L - 1] ? tile.core.d.csr.small_12[L - 1] : UInt<40>(0x0)) | _s_tile$core$d$csr$_GEN_233[L - 1]) & _s_tile$core$d$csr$_GEN_234[L - 1]).bits<7,0>()).cat(tile.core.d.csr.small_12[L - 1].bits<31,0>())).pad<41>()) : (tile.core.d.csr.small_12[L - 1].pad<41>())).pad<48>())) : ((tile.core.d.csr.small_12[L - 1].pad<41>()).pad<48>())).bits<39,0>();
+        }
+      }
+    } else {
+      {
+        const UInt<40> _gv = tile.core.d.csr.small_12[0];
+        ESSENT_LANE_LOOP
+        for (int L = 0; L < 4; L++) tile.core.d.csr.small_12[L] = _gv;
+      }
+    }
     // [vec comb] 3 templates x 4 lanes [cold-guarded base: quiet drops 3, specializes 0]
     if (UNLIKELY(!_v2_quiet_base)) {
       _v2_cold_comb_full(57);
     }
-    // [serial scc=52] 1 templates (0 comb), regs=[small_15]
-    // [serial scc=52 chain-loop]
-    for (int L = 1; L < 4; L++) tile.core.d.csr.small_15[L] = (_s_tile$core$d$csr$wen[L - 1] ? (_s_tile$core$d$csr$_T_48[L - 1] ? ((tile.core.d.csr.small_15[L - 1].bits<39,32>()).cat(((_s_tile$core$d$csr$_w_T_3[L - 1] ? tile.core.d.csr.small_15[L - 1] : UInt<40>(0x0)) | _s_tile$core$d$csr$_GEN_233[L - 1]) & _s_tile$core$d$csr$_GEN_234[L - 1])) : ((_s_tile$core$d$csr$_T_49[L - 1] ? ((((((_s_tile$core$d$csr$_w_T_3[L - 1] ? tile.core.d.csr.small_15[L - 1] : UInt<40>(0x0)) | _s_tile$core$d$csr$_GEN_233[L - 1]) & _s_tile$core$d$csr$_GEN_234[L - 1]).bits<7,0>()).cat(tile.core.d.csr.small_15[L - 1].bits<31,0>())).pad<41>()) : (tile.core.d.csr.small_15[L - 1].pad<41>())).pad<48>())) : ((tile.core.d.csr.small_15[L - 1].pad<41>()).pad<48>())).bits<39,0>();
+    // [serial scc=50] 1 templates (0 comb), regs=[small_13]
+    // [serial scc=50 chain-loop]
+    if (UNLIKELY(!_v2_quiet_base)) {
+      {
+        uint64_t _gany = 0;
+        for (int L = 0; L < 3; L++) _gany |= essent_to_u64(_s_tile$core$d$csr$small_13$gwen[L]);
+        if (_gany == 0) {
+          const UInt<40> _gv = tile.core.d.csr.small_13[0];
+          ESSENT_LANE_LOOP
+          for (int L = 0; L < 4; L++) tile.core.d.csr.small_13[L] = _gv;
+        } else {
+          for (int L = 1; L < 4; L++) tile.core.d.csr.small_13[L] = (_s_tile$core$d$csr$wen[L - 1] ? (_s_tile$core$d$csr$_T_44[L - 1] ? ((tile.core.d.csr.small_13[L - 1].bits<39,32>()).cat(((_s_tile$core$d$csr$_w_T_3[L - 1] ? tile.core.d.csr.small_13[L - 1] : UInt<40>(0x0)) | _s_tile$core$d$csr$_GEN_233[L - 1]) & _s_tile$core$d$csr$_GEN_234[L - 1])) : ((_s_tile$core$d$csr$_T_45[L - 1] ? ((((((_s_tile$core$d$csr$_w_T_3[L - 1] ? tile.core.d.csr.small_13[L - 1] : UInt<40>(0x0)) | _s_tile$core$d$csr$_GEN_233[L - 1]) & _s_tile$core$d$csr$_GEN_234[L - 1]).bits<7,0>()).cat(tile.core.d.csr.small_13[L - 1].bits<31,0>())).pad<41>()) : (tile.core.d.csr.small_13[L - 1].pad<41>())).pad<48>())) : ((tile.core.d.csr.small_13[L - 1].pad<41>()).pad<48>())).bits<39,0>();
+        }
+      }
+    } else {
+      {
+        const UInt<40> _gv = tile.core.d.csr.small_13[0];
+        ESSENT_LANE_LOOP
+        for (int L = 0; L < 4; L++) tile.core.d.csr.small_13[L] = _gv;
+      }
+    }
     // [vec comb] 3 templates x 4 lanes [cold-guarded base: quiet drops 3, specializes 0]
     if (UNLIKELY(!_v2_quiet_base)) {
       _v2_cold_comb_full(58);
     }
-    // [serial scc=53] 1 templates (0 comb), regs=[small_16]
-    // [serial scc=53 chain-loop]
-    for (int L = 1; L < 4; L++) tile.core.d.csr.small_16[L] = (_s_tile$core$d$csr$wen[L - 1] ? (_s_tile$core$d$csr$_T_50[L - 1] ? ((tile.core.d.csr.small_16[L - 1].bits<39,32>()).cat(((_s_tile$core$d$csr$_w_T_3[L - 1] ? tile.core.d.csr.small_16[L - 1] : UInt<40>(0x0)) | _s_tile$core$d$csr$_GEN_233[L - 1]) & _s_tile$core$d$csr$_GEN_234[L - 1])) : ((_s_tile$core$d$csr$_T_51[L - 1] ? ((((((_s_tile$core$d$csr$_w_T_3[L - 1] ? tile.core.d.csr.small_16[L - 1] : UInt<40>(0x0)) | _s_tile$core$d$csr$_GEN_233[L - 1]) & _s_tile$core$d$csr$_GEN_234[L - 1]).bits<7,0>()).cat(tile.core.d.csr.small_16[L - 1].bits<31,0>())).pad<41>()) : (tile.core.d.csr.small_16[L - 1].pad<41>())).pad<48>())) : ((tile.core.d.csr.small_16[L - 1].pad<41>()).pad<48>())).bits<39,0>();
+    // [serial scc=51] 1 templates (0 comb), regs=[small_14]
+    // [serial scc=51 chain-loop]
+    if (UNLIKELY(!_v2_quiet_base)) {
+      {
+        uint64_t _gany = 0;
+        for (int L = 0; L < 3; L++) _gany |= essent_to_u64(_s_tile$core$d$csr$small_14$gwen[L]);
+        if (_gany == 0) {
+          const UInt<40> _gv = tile.core.d.csr.small_14[0];
+          ESSENT_LANE_LOOP
+          for (int L = 0; L < 4; L++) tile.core.d.csr.small_14[L] = _gv;
+        } else {
+          for (int L = 1; L < 4; L++) tile.core.d.csr.small_14[L] = (_s_tile$core$d$csr$wen[L - 1] ? (_s_tile$core$d$csr$_T_46[L - 1] ? ((tile.core.d.csr.small_14[L - 1].bits<39,32>()).cat(((_s_tile$core$d$csr$_w_T_3[L - 1] ? tile.core.d.csr.small_14[L - 1] : UInt<40>(0x0)) | _s_tile$core$d$csr$_GEN_233[L - 1]) & _s_tile$core$d$csr$_GEN_234[L - 1])) : ((_s_tile$core$d$csr$_T_47[L - 1] ? ((((((_s_tile$core$d$csr$_w_T_3[L - 1] ? tile.core.d.csr.small_14[L - 1] : UInt<40>(0x0)) | _s_tile$core$d$csr$_GEN_233[L - 1]) & _s_tile$core$d$csr$_GEN_234[L - 1]).bits<7,0>()).cat(tile.core.d.csr.small_14[L - 1].bits<31,0>())).pad<41>()) : (tile.core.d.csr.small_14[L - 1].pad<41>())).pad<48>())) : ((tile.core.d.csr.small_14[L - 1].pad<41>()).pad<48>())).bits<39,0>();
+        }
+      }
+    } else {
+      {
+        const UInt<40> _gv = tile.core.d.csr.small_14[0];
+        ESSENT_LANE_LOOP
+        for (int L = 0; L < 4; L++) tile.core.d.csr.small_14[L] = _gv;
+      }
+    }
     // [vec comb] 3 templates x 4 lanes [cold-guarded base: quiet drops 3, specializes 0]
     if (UNLIKELY(!_v2_quiet_base)) {
       _v2_cold_comb_full(59);
     }
-    // [serial scc=54] 1 templates (0 comb), regs=[small_17]
-    // [serial scc=54 chain-loop]
-    for (int L = 1; L < 4; L++) tile.core.d.csr.small_17[L] = (_s_tile$core$d$csr$wen[L - 1] ? (_s_tile$core$d$csr$_T_52[L - 1] ? ((tile.core.d.csr.small_17[L - 1].bits<39,32>()).cat(((_s_tile$core$d$csr$_w_T_3[L - 1] ? tile.core.d.csr.small_17[L - 1] : UInt<40>(0x0)) | _s_tile$core$d$csr$_GEN_233[L - 1]) & _s_tile$core$d$csr$_GEN_234[L - 1])) : ((_s_tile$core$d$csr$_T_53[L - 1] ? ((((((_s_tile$core$d$csr$_w_T_3[L - 1] ? tile.core.d.csr.small_17[L - 1] : UInt<40>(0x0)) | _s_tile$core$d$csr$_GEN_233[L - 1]) & _s_tile$core$d$csr$_GEN_234[L - 1]).bits<7,0>()).cat(tile.core.d.csr.small_17[L - 1].bits<31,0>())).pad<41>()) : (tile.core.d.csr.small_17[L - 1].pad<41>())).pad<48>())) : ((tile.core.d.csr.small_17[L - 1].pad<41>()).pad<48>())).bits<39,0>();
-    // [vec comb] 1 templates x 4 lanes [cold-guarded base: quiet drops 1, specializes 0]
+    // [serial scc=52] 1 templates (0 comb), regs=[small_15]
+    // [serial scc=52 chain-loop]
+    if (UNLIKELY(!_v2_quiet_base)) {
+      {
+        uint64_t _gany = 0;
+        for (int L = 0; L < 3; L++) _gany |= essent_to_u64(_s_tile$core$d$csr$small_15$gwen[L]);
+        if (_gany == 0) {
+          const UInt<40> _gv = tile.core.d.csr.small_15[0];
+          ESSENT_LANE_LOOP
+          for (int L = 0; L < 4; L++) tile.core.d.csr.small_15[L] = _gv;
+        } else {
+          for (int L = 1; L < 4; L++) tile.core.d.csr.small_15[L] = (_s_tile$core$d$csr$wen[L - 1] ? (_s_tile$core$d$csr$_T_48[L - 1] ? ((tile.core.d.csr.small_15[L - 1].bits<39,32>()).cat(((_s_tile$core$d$csr$_w_T_3[L - 1] ? tile.core.d.csr.small_15[L - 1] : UInt<40>(0x0)) | _s_tile$core$d$csr$_GEN_233[L - 1]) & _s_tile$core$d$csr$_GEN_234[L - 1])) : ((_s_tile$core$d$csr$_T_49[L - 1] ? ((((((_s_tile$core$d$csr$_w_T_3[L - 1] ? tile.core.d.csr.small_15[L - 1] : UInt<40>(0x0)) | _s_tile$core$d$csr$_GEN_233[L - 1]) & _s_tile$core$d$csr$_GEN_234[L - 1]).bits<7,0>()).cat(tile.core.d.csr.small_15[L - 1].bits<31,0>())).pad<41>()) : (tile.core.d.csr.small_15[L - 1].pad<41>())).pad<48>())) : ((tile.core.d.csr.small_15[L - 1].pad<41>()).pad<48>())).bits<39,0>();
+        }
+      }
+    } else {
+      {
+        const UInt<40> _gv = tile.core.d.csr.small_15[0];
+        ESSENT_LANE_LOOP
+        for (int L = 0; L < 4; L++) tile.core.d.csr.small_15[L] = _gv;
+      }
+    }
+    // [vec comb] 3 templates x 4 lanes [cold-guarded base: quiet drops 3, specializes 0]
     if (UNLIKELY(!_v2_quiet_base)) {
       _v2_cold_comb_full(60);
+    }
+    // [serial scc=53] 1 templates (0 comb), regs=[small_16]
+    // [serial scc=53 chain-loop]
+    if (UNLIKELY(!_v2_quiet_base)) {
+      {
+        uint64_t _gany = 0;
+        for (int L = 0; L < 3; L++) _gany |= essent_to_u64(_s_tile$core$d$csr$small_16$gwen[L]);
+        if (_gany == 0) {
+          const UInt<40> _gv = tile.core.d.csr.small_16[0];
+          ESSENT_LANE_LOOP
+          for (int L = 0; L < 4; L++) tile.core.d.csr.small_16[L] = _gv;
+        } else {
+          for (int L = 1; L < 4; L++) tile.core.d.csr.small_16[L] = (_s_tile$core$d$csr$wen[L - 1] ? (_s_tile$core$d$csr$_T_50[L - 1] ? ((tile.core.d.csr.small_16[L - 1].bits<39,32>()).cat(((_s_tile$core$d$csr$_w_T_3[L - 1] ? tile.core.d.csr.small_16[L - 1] : UInt<40>(0x0)) | _s_tile$core$d$csr$_GEN_233[L - 1]) & _s_tile$core$d$csr$_GEN_234[L - 1])) : ((_s_tile$core$d$csr$_T_51[L - 1] ? ((((((_s_tile$core$d$csr$_w_T_3[L - 1] ? tile.core.d.csr.small_16[L - 1] : UInt<40>(0x0)) | _s_tile$core$d$csr$_GEN_233[L - 1]) & _s_tile$core$d$csr$_GEN_234[L - 1]).bits<7,0>()).cat(tile.core.d.csr.small_16[L - 1].bits<31,0>())).pad<41>()) : (tile.core.d.csr.small_16[L - 1].pad<41>())).pad<48>())) : ((tile.core.d.csr.small_16[L - 1].pad<41>()).pad<48>())).bits<39,0>();
+        }
+      }
+    } else {
+      {
+        const UInt<40> _gv = tile.core.d.csr.small_16[0];
+        ESSENT_LANE_LOOP
+        for (int L = 0; L < 4; L++) tile.core.d.csr.small_16[L] = _gv;
+      }
+    }
+    // [vec comb] 3 templates x 4 lanes [cold-guarded base: quiet drops 3, specializes 0]
+    if (UNLIKELY(!_v2_quiet_base)) {
+      _v2_cold_comb_full(61);
+    }
+    // [serial scc=54] 1 templates (0 comb), regs=[small_17]
+    // [serial scc=54 chain-loop]
+    if (UNLIKELY(!_v2_quiet_base)) {
+      {
+        uint64_t _gany = 0;
+        for (int L = 0; L < 3; L++) _gany |= essent_to_u64(_s_tile$core$d$csr$small_17$gwen[L]);
+        if (_gany == 0) {
+          const UInt<40> _gv = tile.core.d.csr.small_17[0];
+          ESSENT_LANE_LOOP
+          for (int L = 0; L < 4; L++) tile.core.d.csr.small_17[L] = _gv;
+        } else {
+          for (int L = 1; L < 4; L++) tile.core.d.csr.small_17[L] = (_s_tile$core$d$csr$wen[L - 1] ? (_s_tile$core$d$csr$_T_52[L - 1] ? ((tile.core.d.csr.small_17[L - 1].bits<39,32>()).cat(((_s_tile$core$d$csr$_w_T_3[L - 1] ? tile.core.d.csr.small_17[L - 1] : UInt<40>(0x0)) | _s_tile$core$d$csr$_GEN_233[L - 1]) & _s_tile$core$d$csr$_GEN_234[L - 1])) : ((_s_tile$core$d$csr$_T_53[L - 1] ? ((((((_s_tile$core$d$csr$_w_T_3[L - 1] ? tile.core.d.csr.small_17[L - 1] : UInt<40>(0x0)) | _s_tile$core$d$csr$_GEN_233[L - 1]) & _s_tile$core$d$csr$_GEN_234[L - 1]).bits<7,0>()).cat(tile.core.d.csr.small_17[L - 1].bits<31,0>())).pad<41>()) : (tile.core.d.csr.small_17[L - 1].pad<41>())).pad<48>())) : ((tile.core.d.csr.small_17[L - 1].pad<41>()).pad<48>())).bits<39,0>();
+        }
+      }
+    } else {
+      {
+        const UInt<40> _gv = tile.core.d.csr.small_17[0];
+        ESSENT_LANE_LOOP
+        for (int L = 0; L < 4; L++) tile.core.d.csr.small_17[L] = _gv;
+      }
+    }
+    // [vec comb] 1 templates x 4 lanes [cold-guarded base: quiet drops 1, specializes 0]
+    if (UNLIKELY(!_v2_quiet_base)) {
+      _v2_cold_comb_full(62);
     }
     // [vec comb] 1 templates x 4 lanes
     ESSENT_LANE_LOOP
@@ -3452,63 +3839,207 @@ typedef struct SodorFullChip {
     }
     // [vec comb] 2 templates x 4 lanes [cold-guarded base: quiet drops 2, specializes 0]
     if (UNLIKELY(!_v2_quiet_base)) {
-      _v2_cold_comb_full(61);
+      _v2_cold_comb_full(63);
     }
     // [serial scc=55] 1 templates (0 comb), regs=[small_18]
     // [serial scc=55 chain-loop]
-    for (int L = 1; L < 4; L++) tile.core.d.csr.small_18[L] = (_s_tile$core$d$csr$wen[L - 1] ? (_s_tile$core$d$csr$_T_54[L - 1] ? ((tile.core.d.csr.small_18[L - 1].bits<39,32>()).cat(((_s_tile$core$d$csr$_w_T_3[L - 1] ? tile.core.d.csr.small_18[L - 1] : UInt<40>(0x0)) | _s_tile$core$d$csr$_GEN_233[L - 1]) & _s_tile$core$d$csr$_GEN_234[L - 1])) : ((_s_tile$core$d$csr$_T_55[L - 1] ? ((((((_s_tile$core$d$csr$_w_T_3[L - 1] ? tile.core.d.csr.small_18[L - 1] : UInt<40>(0x0)) | _s_tile$core$d$csr$_GEN_233[L - 1]) & _s_tile$core$d$csr$_GEN_234[L - 1]).bits<7,0>()).cat(tile.core.d.csr.small_18[L - 1].bits<31,0>())).pad<41>()) : (tile.core.d.csr.small_18[L - 1].pad<41>())).pad<48>())) : ((tile.core.d.csr.small_18[L - 1].pad<41>()).pad<48>())).bits<39,0>();
-    // [vec comb] 3 templates x 4 lanes [cold-guarded base: quiet drops 3, specializes 0]
     if (UNLIKELY(!_v2_quiet_base)) {
-      _v2_cold_comb_full(62);
+      {
+        uint64_t _gany = 0;
+        for (int L = 0; L < 3; L++) _gany |= essent_to_u64(_s_tile$core$d$csr$small_18$gwen[L]);
+        if (_gany == 0) {
+          const UInt<40> _gv = tile.core.d.csr.small_18[0];
+          ESSENT_LANE_LOOP
+          for (int L = 0; L < 4; L++) tile.core.d.csr.small_18[L] = _gv;
+        } else {
+          for (int L = 1; L < 4; L++) tile.core.d.csr.small_18[L] = (_s_tile$core$d$csr$wen[L - 1] ? (_s_tile$core$d$csr$_T_54[L - 1] ? ((tile.core.d.csr.small_18[L - 1].bits<39,32>()).cat(((_s_tile$core$d$csr$_w_T_3[L - 1] ? tile.core.d.csr.small_18[L - 1] : UInt<40>(0x0)) | _s_tile$core$d$csr$_GEN_233[L - 1]) & _s_tile$core$d$csr$_GEN_234[L - 1])) : ((_s_tile$core$d$csr$_T_55[L - 1] ? ((((((_s_tile$core$d$csr$_w_T_3[L - 1] ? tile.core.d.csr.small_18[L - 1] : UInt<40>(0x0)) | _s_tile$core$d$csr$_GEN_233[L - 1]) & _s_tile$core$d$csr$_GEN_234[L - 1]).bits<7,0>()).cat(tile.core.d.csr.small_18[L - 1].bits<31,0>())).pad<41>()) : (tile.core.d.csr.small_18[L - 1].pad<41>())).pad<48>())) : ((tile.core.d.csr.small_18[L - 1].pad<41>()).pad<48>())).bits<39,0>();
+        }
+      }
+    } else {
+      {
+        const UInt<40> _gv = tile.core.d.csr.small_18[0];
+        ESSENT_LANE_LOOP
+        for (int L = 0; L < 4; L++) tile.core.d.csr.small_18[L] = _gv;
+      }
     }
-    // [serial scc=56] 1 templates (0 comb), regs=[small_19]
-    // [serial scc=56 chain-loop]
-    for (int L = 1; L < 4; L++) tile.core.d.csr.small_19[L] = (_s_tile$core$d$csr$wen[L - 1] ? (_s_tile$core$d$csr$_T_56[L - 1] ? ((tile.core.d.csr.small_19[L - 1].bits<39,32>()).cat(((_s_tile$core$d$csr$_w_T_3[L - 1] ? tile.core.d.csr.small_19[L - 1] : UInt<40>(0x0)) | _s_tile$core$d$csr$_GEN_233[L - 1]) & _s_tile$core$d$csr$_GEN_234[L - 1])) : ((_s_tile$core$d$csr$_T_57[L - 1] ? ((((((_s_tile$core$d$csr$_w_T_3[L - 1] ? tile.core.d.csr.small_19[L - 1] : UInt<40>(0x0)) | _s_tile$core$d$csr$_GEN_233[L - 1]) & _s_tile$core$d$csr$_GEN_234[L - 1]).bits<7,0>()).cat(tile.core.d.csr.small_19[L - 1].bits<31,0>())).pad<41>()) : (tile.core.d.csr.small_19[L - 1].pad<41>())).pad<48>())) : ((tile.core.d.csr.small_19[L - 1].pad<41>()).pad<48>())).bits<39,0>();
-    // [vec comb] 3 templates x 4 lanes [cold-guarded base: quiet drops 3, specializes 0]
-    if (UNLIKELY(!_v2_quiet_base)) {
-      _v2_cold_comb_full(63);
-    }
-    // [serial scc=57] 1 templates (0 comb), regs=[small_20]
-    // [serial scc=57 chain-loop]
-    for (int L = 1; L < 4; L++) tile.core.d.csr.small_20[L] = (_s_tile$core$d$csr$wen[L - 1] ? (_s_tile$core$d$csr$_T_58[L - 1] ? ((tile.core.d.csr.small_20[L - 1].bits<39,32>()).cat(((_s_tile$core$d$csr$_w_T_3[L - 1] ? tile.core.d.csr.small_20[L - 1] : UInt<40>(0x0)) | _s_tile$core$d$csr$_GEN_233[L - 1]) & _s_tile$core$d$csr$_GEN_234[L - 1])) : ((_s_tile$core$d$csr$_T_59[L - 1] ? ((((((_s_tile$core$d$csr$_w_T_3[L - 1] ? tile.core.d.csr.small_20[L - 1] : UInt<40>(0x0)) | _s_tile$core$d$csr$_GEN_233[L - 1]) & _s_tile$core$d$csr$_GEN_234[L - 1]).bits<7,0>()).cat(tile.core.d.csr.small_20[L - 1].bits<31,0>())).pad<41>()) : (tile.core.d.csr.small_20[L - 1].pad<41>())).pad<48>())) : ((tile.core.d.csr.small_20[L - 1].pad<41>()).pad<48>())).bits<39,0>();
     // [vec comb] 3 templates x 4 lanes [cold-guarded base: quiet drops 3, specializes 0]
     if (UNLIKELY(!_v2_quiet_base)) {
       _v2_cold_comb_full(64);
     }
-    // [serial scc=58] 1 templates (0 comb), regs=[small_21]
-    // [serial scc=58 chain-loop]
-    for (int L = 1; L < 4; L++) tile.core.d.csr.small_21[L] = (_s_tile$core$d$csr$wen[L - 1] ? (_s_tile$core$d$csr$_T_60[L - 1] ? ((tile.core.d.csr.small_21[L - 1].bits<39,32>()).cat(((_s_tile$core$d$csr$_w_T_3[L - 1] ? tile.core.d.csr.small_21[L - 1] : UInt<40>(0x0)) | _s_tile$core$d$csr$_GEN_233[L - 1]) & _s_tile$core$d$csr$_GEN_234[L - 1])) : ((_s_tile$core$d$csr$_T_61[L - 1] ? ((((((_s_tile$core$d$csr$_w_T_3[L - 1] ? tile.core.d.csr.small_21[L - 1] : UInt<40>(0x0)) | _s_tile$core$d$csr$_GEN_233[L - 1]) & _s_tile$core$d$csr$_GEN_234[L - 1]).bits<7,0>()).cat(tile.core.d.csr.small_21[L - 1].bits<31,0>())).pad<41>()) : (tile.core.d.csr.small_21[L - 1].pad<41>())).pad<48>())) : ((tile.core.d.csr.small_21[L - 1].pad<41>()).pad<48>())).bits<39,0>();
+    // [serial scc=56] 1 templates (0 comb), regs=[small_19]
+    // [serial scc=56 chain-loop]
+    if (UNLIKELY(!_v2_quiet_base)) {
+      {
+        uint64_t _gany = 0;
+        for (int L = 0; L < 3; L++) _gany |= essent_to_u64(_s_tile$core$d$csr$small_19$gwen[L]);
+        if (_gany == 0) {
+          const UInt<40> _gv = tile.core.d.csr.small_19[0];
+          ESSENT_LANE_LOOP
+          for (int L = 0; L < 4; L++) tile.core.d.csr.small_19[L] = _gv;
+        } else {
+          for (int L = 1; L < 4; L++) tile.core.d.csr.small_19[L] = (_s_tile$core$d$csr$wen[L - 1] ? (_s_tile$core$d$csr$_T_56[L - 1] ? ((tile.core.d.csr.small_19[L - 1].bits<39,32>()).cat(((_s_tile$core$d$csr$_w_T_3[L - 1] ? tile.core.d.csr.small_19[L - 1] : UInt<40>(0x0)) | _s_tile$core$d$csr$_GEN_233[L - 1]) & _s_tile$core$d$csr$_GEN_234[L - 1])) : ((_s_tile$core$d$csr$_T_57[L - 1] ? ((((((_s_tile$core$d$csr$_w_T_3[L - 1] ? tile.core.d.csr.small_19[L - 1] : UInt<40>(0x0)) | _s_tile$core$d$csr$_GEN_233[L - 1]) & _s_tile$core$d$csr$_GEN_234[L - 1]).bits<7,0>()).cat(tile.core.d.csr.small_19[L - 1].bits<31,0>())).pad<41>()) : (tile.core.d.csr.small_19[L - 1].pad<41>())).pad<48>())) : ((tile.core.d.csr.small_19[L - 1].pad<41>()).pad<48>())).bits<39,0>();
+        }
+      }
+    } else {
+      {
+        const UInt<40> _gv = tile.core.d.csr.small_19[0];
+        ESSENT_LANE_LOOP
+        for (int L = 0; L < 4; L++) tile.core.d.csr.small_19[L] = _gv;
+      }
+    }
     // [vec comb] 3 templates x 4 lanes [cold-guarded base: quiet drops 3, specializes 0]
     if (UNLIKELY(!_v2_quiet_base)) {
       _v2_cold_comb_full(65);
     }
-    // [serial scc=59] 1 templates (0 comb), regs=[small_22]
-    // [serial scc=59 chain-loop]
-    for (int L = 1; L < 4; L++) tile.core.d.csr.small_22[L] = (_s_tile$core$d$csr$wen[L - 1] ? (_s_tile$core$d$csr$_T_62[L - 1] ? ((tile.core.d.csr.small_22[L - 1].bits<39,32>()).cat(((_s_tile$core$d$csr$_w_T_3[L - 1] ? tile.core.d.csr.small_22[L - 1] : UInt<40>(0x0)) | _s_tile$core$d$csr$_GEN_233[L - 1]) & _s_tile$core$d$csr$_GEN_234[L - 1])) : ((_s_tile$core$d$csr$_T_63[L - 1] ? ((((((_s_tile$core$d$csr$_w_T_3[L - 1] ? tile.core.d.csr.small_22[L - 1] : UInt<40>(0x0)) | _s_tile$core$d$csr$_GEN_233[L - 1]) & _s_tile$core$d$csr$_GEN_234[L - 1]).bits<7,0>()).cat(tile.core.d.csr.small_22[L - 1].bits<31,0>())).pad<41>()) : (tile.core.d.csr.small_22[L - 1].pad<41>())).pad<48>())) : ((tile.core.d.csr.small_22[L - 1].pad<41>()).pad<48>())).bits<39,0>();
+    // [serial scc=57] 1 templates (0 comb), regs=[small_20]
+    // [serial scc=57 chain-loop]
+    if (UNLIKELY(!_v2_quiet_base)) {
+      {
+        uint64_t _gany = 0;
+        for (int L = 0; L < 3; L++) _gany |= essent_to_u64(_s_tile$core$d$csr$small_20$gwen[L]);
+        if (_gany == 0) {
+          const UInt<40> _gv = tile.core.d.csr.small_20[0];
+          ESSENT_LANE_LOOP
+          for (int L = 0; L < 4; L++) tile.core.d.csr.small_20[L] = _gv;
+        } else {
+          for (int L = 1; L < 4; L++) tile.core.d.csr.small_20[L] = (_s_tile$core$d$csr$wen[L - 1] ? (_s_tile$core$d$csr$_T_58[L - 1] ? ((tile.core.d.csr.small_20[L - 1].bits<39,32>()).cat(((_s_tile$core$d$csr$_w_T_3[L - 1] ? tile.core.d.csr.small_20[L - 1] : UInt<40>(0x0)) | _s_tile$core$d$csr$_GEN_233[L - 1]) & _s_tile$core$d$csr$_GEN_234[L - 1])) : ((_s_tile$core$d$csr$_T_59[L - 1] ? ((((((_s_tile$core$d$csr$_w_T_3[L - 1] ? tile.core.d.csr.small_20[L - 1] : UInt<40>(0x0)) | _s_tile$core$d$csr$_GEN_233[L - 1]) & _s_tile$core$d$csr$_GEN_234[L - 1]).bits<7,0>()).cat(tile.core.d.csr.small_20[L - 1].bits<31,0>())).pad<41>()) : (tile.core.d.csr.small_20[L - 1].pad<41>())).pad<48>())) : ((tile.core.d.csr.small_20[L - 1].pad<41>()).pad<48>())).bits<39,0>();
+        }
+      }
+    } else {
+      {
+        const UInt<40> _gv = tile.core.d.csr.small_20[0];
+        ESSENT_LANE_LOOP
+        for (int L = 0; L < 4; L++) tile.core.d.csr.small_20[L] = _gv;
+      }
+    }
     // [vec comb] 3 templates x 4 lanes [cold-guarded base: quiet drops 3, specializes 0]
     if (UNLIKELY(!_v2_quiet_base)) {
       _v2_cold_comb_full(66);
     }
-    // [serial scc=60] 1 templates (0 comb), regs=[small_23]
-    // [serial scc=60 chain-loop]
-    for (int L = 1; L < 4; L++) tile.core.d.csr.small_23[L] = (_s_tile$core$d$csr$wen[L - 1] ? (_s_tile$core$d$csr$_T_64[L - 1] ? ((tile.core.d.csr.small_23[L - 1].bits<39,32>()).cat(((_s_tile$core$d$csr$_w_T_3[L - 1] ? tile.core.d.csr.small_23[L - 1] : UInt<40>(0x0)) | _s_tile$core$d$csr$_GEN_233[L - 1]) & _s_tile$core$d$csr$_GEN_234[L - 1])) : ((_s_tile$core$d$csr$_T_65[L - 1] ? ((((((_s_tile$core$d$csr$_w_T_3[L - 1] ? tile.core.d.csr.small_23[L - 1] : UInt<40>(0x0)) | _s_tile$core$d$csr$_GEN_233[L - 1]) & _s_tile$core$d$csr$_GEN_234[L - 1]).bits<7,0>()).cat(tile.core.d.csr.small_23[L - 1].bits<31,0>())).pad<41>()) : (tile.core.d.csr.small_23[L - 1].pad<41>())).pad<48>())) : ((tile.core.d.csr.small_23[L - 1].pad<41>()).pad<48>())).bits<39,0>();
+    // [serial scc=58] 1 templates (0 comb), regs=[small_21]
+    // [serial scc=58 chain-loop]
+    if (UNLIKELY(!_v2_quiet_base)) {
+      {
+        uint64_t _gany = 0;
+        for (int L = 0; L < 3; L++) _gany |= essent_to_u64(_s_tile$core$d$csr$small_21$gwen[L]);
+        if (_gany == 0) {
+          const UInt<40> _gv = tile.core.d.csr.small_21[0];
+          ESSENT_LANE_LOOP
+          for (int L = 0; L < 4; L++) tile.core.d.csr.small_21[L] = _gv;
+        } else {
+          for (int L = 1; L < 4; L++) tile.core.d.csr.small_21[L] = (_s_tile$core$d$csr$wen[L - 1] ? (_s_tile$core$d$csr$_T_60[L - 1] ? ((tile.core.d.csr.small_21[L - 1].bits<39,32>()).cat(((_s_tile$core$d$csr$_w_T_3[L - 1] ? tile.core.d.csr.small_21[L - 1] : UInt<40>(0x0)) | _s_tile$core$d$csr$_GEN_233[L - 1]) & _s_tile$core$d$csr$_GEN_234[L - 1])) : ((_s_tile$core$d$csr$_T_61[L - 1] ? ((((((_s_tile$core$d$csr$_w_T_3[L - 1] ? tile.core.d.csr.small_21[L - 1] : UInt<40>(0x0)) | _s_tile$core$d$csr$_GEN_233[L - 1]) & _s_tile$core$d$csr$_GEN_234[L - 1]).bits<7,0>()).cat(tile.core.d.csr.small_21[L - 1].bits<31,0>())).pad<41>()) : (tile.core.d.csr.small_21[L - 1].pad<41>())).pad<48>())) : ((tile.core.d.csr.small_21[L - 1].pad<41>()).pad<48>())).bits<39,0>();
+        }
+      }
+    } else {
+      {
+        const UInt<40> _gv = tile.core.d.csr.small_21[0];
+        ESSENT_LANE_LOOP
+        for (int L = 0; L < 4; L++) tile.core.d.csr.small_21[L] = _gv;
+      }
+    }
     // [vec comb] 3 templates x 4 lanes [cold-guarded base: quiet drops 3, specializes 0]
     if (UNLIKELY(!_v2_quiet_base)) {
       _v2_cold_comb_full(67);
     }
-    // [serial scc=61] 1 templates (0 comb), regs=[small_24]
-    // [serial scc=61 chain-loop]
-    for (int L = 1; L < 4; L++) tile.core.d.csr.small_24[L] = (_s_tile$core$d$csr$wen[L - 1] ? (_s_tile$core$d$csr$_T_66[L - 1] ? ((tile.core.d.csr.small_24[L - 1].bits<39,32>()).cat(((_s_tile$core$d$csr$_w_T_3[L - 1] ? tile.core.d.csr.small_24[L - 1] : UInt<40>(0x0)) | _s_tile$core$d$csr$_GEN_233[L - 1]) & _s_tile$core$d$csr$_GEN_234[L - 1])) : ((_s_tile$core$d$csr$_T_67[L - 1] ? ((((((_s_tile$core$d$csr$_w_T_3[L - 1] ? tile.core.d.csr.small_24[L - 1] : UInt<40>(0x0)) | _s_tile$core$d$csr$_GEN_233[L - 1]) & _s_tile$core$d$csr$_GEN_234[L - 1]).bits<7,0>()).cat(tile.core.d.csr.small_24[L - 1].bits<31,0>())).pad<41>()) : (tile.core.d.csr.small_24[L - 1].pad<41>())).pad<48>())) : ((tile.core.d.csr.small_24[L - 1].pad<41>()).pad<48>())).bits<39,0>();
+    // [serial scc=59] 1 templates (0 comb), regs=[small_22]
+    // [serial scc=59 chain-loop]
+    if (UNLIKELY(!_v2_quiet_base)) {
+      {
+        uint64_t _gany = 0;
+        for (int L = 0; L < 3; L++) _gany |= essent_to_u64(_s_tile$core$d$csr$small_22$gwen[L]);
+        if (_gany == 0) {
+          const UInt<40> _gv = tile.core.d.csr.small_22[0];
+          ESSENT_LANE_LOOP
+          for (int L = 0; L < 4; L++) tile.core.d.csr.small_22[L] = _gv;
+        } else {
+          for (int L = 1; L < 4; L++) tile.core.d.csr.small_22[L] = (_s_tile$core$d$csr$wen[L - 1] ? (_s_tile$core$d$csr$_T_62[L - 1] ? ((tile.core.d.csr.small_22[L - 1].bits<39,32>()).cat(((_s_tile$core$d$csr$_w_T_3[L - 1] ? tile.core.d.csr.small_22[L - 1] : UInt<40>(0x0)) | _s_tile$core$d$csr$_GEN_233[L - 1]) & _s_tile$core$d$csr$_GEN_234[L - 1])) : ((_s_tile$core$d$csr$_T_63[L - 1] ? ((((((_s_tile$core$d$csr$_w_T_3[L - 1] ? tile.core.d.csr.small_22[L - 1] : UInt<40>(0x0)) | _s_tile$core$d$csr$_GEN_233[L - 1]) & _s_tile$core$d$csr$_GEN_234[L - 1]).bits<7,0>()).cat(tile.core.d.csr.small_22[L - 1].bits<31,0>())).pad<41>()) : (tile.core.d.csr.small_22[L - 1].pad<41>())).pad<48>())) : ((tile.core.d.csr.small_22[L - 1].pad<41>()).pad<48>())).bits<39,0>();
+        }
+      }
+    } else {
+      {
+        const UInt<40> _gv = tile.core.d.csr.small_22[0];
+        ESSENT_LANE_LOOP
+        for (int L = 0; L < 4; L++) tile.core.d.csr.small_22[L] = _gv;
+      }
+    }
     // [vec comb] 3 templates x 4 lanes [cold-guarded base: quiet drops 3, specializes 0]
     if (UNLIKELY(!_v2_quiet_base)) {
       _v2_cold_comb_full(68);
     }
-    // [serial scc=62] 1 templates (0 comb), regs=[small_25]
-    // [serial scc=62 chain-loop]
-    for (int L = 1; L < 4; L++) tile.core.d.csr.small_25[L] = (_s_tile$core$d$csr$wen[L - 1] ? (_s_tile$core$d$csr$_T_68[L - 1] ? ((tile.core.d.csr.small_25[L - 1].bits<39,32>()).cat(((_s_tile$core$d$csr$_w_T_3[L - 1] ? tile.core.d.csr.small_25[L - 1] : UInt<40>(0x0)) | _s_tile$core$d$csr$_GEN_233[L - 1]) & _s_tile$core$d$csr$_GEN_234[L - 1])) : ((_s_tile$core$d$csr$_T_69[L - 1] ? ((((((_s_tile$core$d$csr$_w_T_3[L - 1] ? tile.core.d.csr.small_25[L - 1] : UInt<40>(0x0)) | _s_tile$core$d$csr$_GEN_233[L - 1]) & _s_tile$core$d$csr$_GEN_234[L - 1]).bits<7,0>()).cat(tile.core.d.csr.small_25[L - 1].bits<31,0>())).pad<41>()) : (tile.core.d.csr.small_25[L - 1].pad<41>())).pad<48>())) : ((tile.core.d.csr.small_25[L - 1].pad<41>()).pad<48>())).bits<39,0>();
-    // [vec comb] 1 templates x 4 lanes [cold-guarded base: quiet drops 1, specializes 0]
+    // [serial scc=60] 1 templates (0 comb), regs=[small_23]
+    // [serial scc=60 chain-loop]
+    if (UNLIKELY(!_v2_quiet_base)) {
+      {
+        uint64_t _gany = 0;
+        for (int L = 0; L < 3; L++) _gany |= essent_to_u64(_s_tile$core$d$csr$small_23$gwen[L]);
+        if (_gany == 0) {
+          const UInt<40> _gv = tile.core.d.csr.small_23[0];
+          ESSENT_LANE_LOOP
+          for (int L = 0; L < 4; L++) tile.core.d.csr.small_23[L] = _gv;
+        } else {
+          for (int L = 1; L < 4; L++) tile.core.d.csr.small_23[L] = (_s_tile$core$d$csr$wen[L - 1] ? (_s_tile$core$d$csr$_T_64[L - 1] ? ((tile.core.d.csr.small_23[L - 1].bits<39,32>()).cat(((_s_tile$core$d$csr$_w_T_3[L - 1] ? tile.core.d.csr.small_23[L - 1] : UInt<40>(0x0)) | _s_tile$core$d$csr$_GEN_233[L - 1]) & _s_tile$core$d$csr$_GEN_234[L - 1])) : ((_s_tile$core$d$csr$_T_65[L - 1] ? ((((((_s_tile$core$d$csr$_w_T_3[L - 1] ? tile.core.d.csr.small_23[L - 1] : UInt<40>(0x0)) | _s_tile$core$d$csr$_GEN_233[L - 1]) & _s_tile$core$d$csr$_GEN_234[L - 1]).bits<7,0>()).cat(tile.core.d.csr.small_23[L - 1].bits<31,0>())).pad<41>()) : (tile.core.d.csr.small_23[L - 1].pad<41>())).pad<48>())) : ((tile.core.d.csr.small_23[L - 1].pad<41>()).pad<48>())).bits<39,0>();
+        }
+      }
+    } else {
+      {
+        const UInt<40> _gv = tile.core.d.csr.small_23[0];
+        ESSENT_LANE_LOOP
+        for (int L = 0; L < 4; L++) tile.core.d.csr.small_23[L] = _gv;
+      }
+    }
+    // [vec comb] 3 templates x 4 lanes [cold-guarded base: quiet drops 3, specializes 0]
     if (UNLIKELY(!_v2_quiet_base)) {
       _v2_cold_comb_full(69);
+    }
+    // [serial scc=61] 1 templates (0 comb), regs=[small_24]
+    // [serial scc=61 chain-loop]
+    if (UNLIKELY(!_v2_quiet_base)) {
+      {
+        uint64_t _gany = 0;
+        for (int L = 0; L < 3; L++) _gany |= essent_to_u64(_s_tile$core$d$csr$small_24$gwen[L]);
+        if (_gany == 0) {
+          const UInt<40> _gv = tile.core.d.csr.small_24[0];
+          ESSENT_LANE_LOOP
+          for (int L = 0; L < 4; L++) tile.core.d.csr.small_24[L] = _gv;
+        } else {
+          for (int L = 1; L < 4; L++) tile.core.d.csr.small_24[L] = (_s_tile$core$d$csr$wen[L - 1] ? (_s_tile$core$d$csr$_T_66[L - 1] ? ((tile.core.d.csr.small_24[L - 1].bits<39,32>()).cat(((_s_tile$core$d$csr$_w_T_3[L - 1] ? tile.core.d.csr.small_24[L - 1] : UInt<40>(0x0)) | _s_tile$core$d$csr$_GEN_233[L - 1]) & _s_tile$core$d$csr$_GEN_234[L - 1])) : ((_s_tile$core$d$csr$_T_67[L - 1] ? ((((((_s_tile$core$d$csr$_w_T_3[L - 1] ? tile.core.d.csr.small_24[L - 1] : UInt<40>(0x0)) | _s_tile$core$d$csr$_GEN_233[L - 1]) & _s_tile$core$d$csr$_GEN_234[L - 1]).bits<7,0>()).cat(tile.core.d.csr.small_24[L - 1].bits<31,0>())).pad<41>()) : (tile.core.d.csr.small_24[L - 1].pad<41>())).pad<48>())) : ((tile.core.d.csr.small_24[L - 1].pad<41>()).pad<48>())).bits<39,0>();
+        }
+      }
+    } else {
+      {
+        const UInt<40> _gv = tile.core.d.csr.small_24[0];
+        ESSENT_LANE_LOOP
+        for (int L = 0; L < 4; L++) tile.core.d.csr.small_24[L] = _gv;
+      }
+    }
+    // [vec comb] 3 templates x 4 lanes [cold-guarded base: quiet drops 3, specializes 0]
+    if (UNLIKELY(!_v2_quiet_base)) {
+      _v2_cold_comb_full(70);
+    }
+    // [serial scc=62] 1 templates (0 comb), regs=[small_25]
+    // [serial scc=62 chain-loop]
+    if (UNLIKELY(!_v2_quiet_base)) {
+      {
+        uint64_t _gany = 0;
+        for (int L = 0; L < 3; L++) _gany |= essent_to_u64(_s_tile$core$d$csr$small_25$gwen[L]);
+        if (_gany == 0) {
+          const UInt<40> _gv = tile.core.d.csr.small_25[0];
+          ESSENT_LANE_LOOP
+          for (int L = 0; L < 4; L++) tile.core.d.csr.small_25[L] = _gv;
+        } else {
+          for (int L = 1; L < 4; L++) tile.core.d.csr.small_25[L] = (_s_tile$core$d$csr$wen[L - 1] ? (_s_tile$core$d$csr$_T_68[L - 1] ? ((tile.core.d.csr.small_25[L - 1].bits<39,32>()).cat(((_s_tile$core$d$csr$_w_T_3[L - 1] ? tile.core.d.csr.small_25[L - 1] : UInt<40>(0x0)) | _s_tile$core$d$csr$_GEN_233[L - 1]) & _s_tile$core$d$csr$_GEN_234[L - 1])) : ((_s_tile$core$d$csr$_T_69[L - 1] ? ((((((_s_tile$core$d$csr$_w_T_3[L - 1] ? tile.core.d.csr.small_25[L - 1] : UInt<40>(0x0)) | _s_tile$core$d$csr$_GEN_233[L - 1]) & _s_tile$core$d$csr$_GEN_234[L - 1]).bits<7,0>()).cat(tile.core.d.csr.small_25[L - 1].bits<31,0>())).pad<41>()) : (tile.core.d.csr.small_25[L - 1].pad<41>())).pad<48>())) : ((tile.core.d.csr.small_25[L - 1].pad<41>()).pad<48>())).bits<39,0>();
+        }
+      }
+    } else {
+      {
+        const UInt<40> _gv = tile.core.d.csr.small_25[0];
+        ESSENT_LANE_LOOP
+        for (int L = 0; L < 4; L++) tile.core.d.csr.small_25[L] = _gv;
+      }
+    }
+    // [vec comb] 1 templates x 4 lanes [cold-guarded base: quiet drops 1, specializes 0]
+    if (UNLIKELY(!_v2_quiet_base)) {
+      _v2_cold_comb_full(71);
     }
     // [vec comb] 1 templates x 4 lanes
     ESSENT_LANE_LOOP
@@ -3517,63 +4048,207 @@ typedef struct SodorFullChip {
     }
     // [vec comb] 2 templates x 4 lanes [cold-guarded base: quiet drops 2, specializes 0]
     if (UNLIKELY(!_v2_quiet_base)) {
-      _v2_cold_comb_full(70);
+      _v2_cold_comb_full(72);
     }
     // [serial scc=63] 1 templates (0 comb), regs=[small_26]
     // [serial scc=63 chain-loop]
-    for (int L = 1; L < 4; L++) tile.core.d.csr.small_26[L] = (_s_tile$core$d$csr$wen[L - 1] ? (_s_tile$core$d$csr$_T_70[L - 1] ? ((tile.core.d.csr.small_26[L - 1].bits<39,32>()).cat(((_s_tile$core$d$csr$_w_T_3[L - 1] ? tile.core.d.csr.small_26[L - 1] : UInt<40>(0x0)) | _s_tile$core$d$csr$_GEN_233[L - 1]) & _s_tile$core$d$csr$_GEN_234[L - 1])) : ((_s_tile$core$d$csr$_T_71[L - 1] ? ((((((_s_tile$core$d$csr$_w_T_3[L - 1] ? tile.core.d.csr.small_26[L - 1] : UInt<40>(0x0)) | _s_tile$core$d$csr$_GEN_233[L - 1]) & _s_tile$core$d$csr$_GEN_234[L - 1]).bits<7,0>()).cat(tile.core.d.csr.small_26[L - 1].bits<31,0>())).pad<41>()) : (tile.core.d.csr.small_26[L - 1].pad<41>())).pad<48>())) : ((tile.core.d.csr.small_26[L - 1].pad<41>()).pad<48>())).bits<39,0>();
-    // [vec comb] 3 templates x 4 lanes [cold-guarded base: quiet drops 3, specializes 0]
     if (UNLIKELY(!_v2_quiet_base)) {
-      _v2_cold_comb_full(71);
+      {
+        uint64_t _gany = 0;
+        for (int L = 0; L < 3; L++) _gany |= essent_to_u64(_s_tile$core$d$csr$small_26$gwen[L]);
+        if (_gany == 0) {
+          const UInt<40> _gv = tile.core.d.csr.small_26[0];
+          ESSENT_LANE_LOOP
+          for (int L = 0; L < 4; L++) tile.core.d.csr.small_26[L] = _gv;
+        } else {
+          for (int L = 1; L < 4; L++) tile.core.d.csr.small_26[L] = (_s_tile$core$d$csr$wen[L - 1] ? (_s_tile$core$d$csr$_T_70[L - 1] ? ((tile.core.d.csr.small_26[L - 1].bits<39,32>()).cat(((_s_tile$core$d$csr$_w_T_3[L - 1] ? tile.core.d.csr.small_26[L - 1] : UInt<40>(0x0)) | _s_tile$core$d$csr$_GEN_233[L - 1]) & _s_tile$core$d$csr$_GEN_234[L - 1])) : ((_s_tile$core$d$csr$_T_71[L - 1] ? ((((((_s_tile$core$d$csr$_w_T_3[L - 1] ? tile.core.d.csr.small_26[L - 1] : UInt<40>(0x0)) | _s_tile$core$d$csr$_GEN_233[L - 1]) & _s_tile$core$d$csr$_GEN_234[L - 1]).bits<7,0>()).cat(tile.core.d.csr.small_26[L - 1].bits<31,0>())).pad<41>()) : (tile.core.d.csr.small_26[L - 1].pad<41>())).pad<48>())) : ((tile.core.d.csr.small_26[L - 1].pad<41>()).pad<48>())).bits<39,0>();
+        }
+      }
+    } else {
+      {
+        const UInt<40> _gv = tile.core.d.csr.small_26[0];
+        ESSENT_LANE_LOOP
+        for (int L = 0; L < 4; L++) tile.core.d.csr.small_26[L] = _gv;
+      }
     }
-    // [serial scc=64] 1 templates (0 comb), regs=[small_27]
-    // [serial scc=64 chain-loop]
-    for (int L = 1; L < 4; L++) tile.core.d.csr.small_27[L] = (_s_tile$core$d$csr$wen[L - 1] ? (_s_tile$core$d$csr$_T_72[L - 1] ? ((tile.core.d.csr.small_27[L - 1].bits<39,32>()).cat(((_s_tile$core$d$csr$_w_T_3[L - 1] ? tile.core.d.csr.small_27[L - 1] : UInt<40>(0x0)) | _s_tile$core$d$csr$_GEN_233[L - 1]) & _s_tile$core$d$csr$_GEN_234[L - 1])) : ((_s_tile$core$d$csr$_T_73[L - 1] ? ((((((_s_tile$core$d$csr$_w_T_3[L - 1] ? tile.core.d.csr.small_27[L - 1] : UInt<40>(0x0)) | _s_tile$core$d$csr$_GEN_233[L - 1]) & _s_tile$core$d$csr$_GEN_234[L - 1]).bits<7,0>()).cat(tile.core.d.csr.small_27[L - 1].bits<31,0>())).pad<41>()) : (tile.core.d.csr.small_27[L - 1].pad<41>())).pad<48>())) : ((tile.core.d.csr.small_27[L - 1].pad<41>()).pad<48>())).bits<39,0>();
-    // [vec comb] 3 templates x 4 lanes [cold-guarded base: quiet drops 3, specializes 0]
-    if (UNLIKELY(!_v2_quiet_base)) {
-      _v2_cold_comb_full(72);
-    }
-    // [serial scc=65] 1 templates (0 comb), regs=[small_28]
-    // [serial scc=65 chain-loop]
-    for (int L = 1; L < 4; L++) tile.core.d.csr.small_28[L] = (_s_tile$core$d$csr$wen[L - 1] ? (_s_tile$core$d$csr$_T_74[L - 1] ? ((tile.core.d.csr.small_28[L - 1].bits<39,32>()).cat(((_s_tile$core$d$csr$_w_T_3[L - 1] ? tile.core.d.csr.small_28[L - 1] : UInt<40>(0x0)) | _s_tile$core$d$csr$_GEN_233[L - 1]) & _s_tile$core$d$csr$_GEN_234[L - 1])) : ((_s_tile$core$d$csr$_T_75[L - 1] ? ((((((_s_tile$core$d$csr$_w_T_3[L - 1] ? tile.core.d.csr.small_28[L - 1] : UInt<40>(0x0)) | _s_tile$core$d$csr$_GEN_233[L - 1]) & _s_tile$core$d$csr$_GEN_234[L - 1]).bits<7,0>()).cat(tile.core.d.csr.small_28[L - 1].bits<31,0>())).pad<41>()) : (tile.core.d.csr.small_28[L - 1].pad<41>())).pad<48>())) : ((tile.core.d.csr.small_28[L - 1].pad<41>()).pad<48>())).bits<39,0>();
     // [vec comb] 3 templates x 4 lanes [cold-guarded base: quiet drops 3, specializes 0]
     if (UNLIKELY(!_v2_quiet_base)) {
       _v2_cold_comb_full(73);
     }
-    // [serial scc=66] 1 templates (0 comb), regs=[small_29]
-    // [serial scc=66 chain-loop]
-    for (int L = 1; L < 4; L++) tile.core.d.csr.small_29[L] = (_s_tile$core$d$csr$wen[L - 1] ? (_s_tile$core$d$csr$_T_76[L - 1] ? ((tile.core.d.csr.small_29[L - 1].bits<39,32>()).cat(((_s_tile$core$d$csr$_w_T_3[L - 1] ? tile.core.d.csr.small_29[L - 1] : UInt<40>(0x0)) | _s_tile$core$d$csr$_GEN_233[L - 1]) & _s_tile$core$d$csr$_GEN_234[L - 1])) : ((_s_tile$core$d$csr$_T_77[L - 1] ? ((((((_s_tile$core$d$csr$_w_T_3[L - 1] ? tile.core.d.csr.small_29[L - 1] : UInt<40>(0x0)) | _s_tile$core$d$csr$_GEN_233[L - 1]) & _s_tile$core$d$csr$_GEN_234[L - 1]).bits<7,0>()).cat(tile.core.d.csr.small_29[L - 1].bits<31,0>())).pad<41>()) : (tile.core.d.csr.small_29[L - 1].pad<41>())).pad<48>())) : ((tile.core.d.csr.small_29[L - 1].pad<41>()).pad<48>())).bits<39,0>();
+    // [serial scc=64] 1 templates (0 comb), regs=[small_27]
+    // [serial scc=64 chain-loop]
+    if (UNLIKELY(!_v2_quiet_base)) {
+      {
+        uint64_t _gany = 0;
+        for (int L = 0; L < 3; L++) _gany |= essent_to_u64(_s_tile$core$d$csr$small_27$gwen[L]);
+        if (_gany == 0) {
+          const UInt<40> _gv = tile.core.d.csr.small_27[0];
+          ESSENT_LANE_LOOP
+          for (int L = 0; L < 4; L++) tile.core.d.csr.small_27[L] = _gv;
+        } else {
+          for (int L = 1; L < 4; L++) tile.core.d.csr.small_27[L] = (_s_tile$core$d$csr$wen[L - 1] ? (_s_tile$core$d$csr$_T_72[L - 1] ? ((tile.core.d.csr.small_27[L - 1].bits<39,32>()).cat(((_s_tile$core$d$csr$_w_T_3[L - 1] ? tile.core.d.csr.small_27[L - 1] : UInt<40>(0x0)) | _s_tile$core$d$csr$_GEN_233[L - 1]) & _s_tile$core$d$csr$_GEN_234[L - 1])) : ((_s_tile$core$d$csr$_T_73[L - 1] ? ((((((_s_tile$core$d$csr$_w_T_3[L - 1] ? tile.core.d.csr.small_27[L - 1] : UInt<40>(0x0)) | _s_tile$core$d$csr$_GEN_233[L - 1]) & _s_tile$core$d$csr$_GEN_234[L - 1]).bits<7,0>()).cat(tile.core.d.csr.small_27[L - 1].bits<31,0>())).pad<41>()) : (tile.core.d.csr.small_27[L - 1].pad<41>())).pad<48>())) : ((tile.core.d.csr.small_27[L - 1].pad<41>()).pad<48>())).bits<39,0>();
+        }
+      }
+    } else {
+      {
+        const UInt<40> _gv = tile.core.d.csr.small_27[0];
+        ESSENT_LANE_LOOP
+        for (int L = 0; L < 4; L++) tile.core.d.csr.small_27[L] = _gv;
+      }
+    }
     // [vec comb] 3 templates x 4 lanes [cold-guarded base: quiet drops 3, specializes 0]
     if (UNLIKELY(!_v2_quiet_base)) {
       _v2_cold_comb_full(74);
     }
-    // [serial scc=67] 1 templates (0 comb), regs=[small_30]
-    // [serial scc=67 chain-loop]
-    for (int L = 1; L < 4; L++) tile.core.d.csr.small_30[L] = (_s_tile$core$d$csr$wen[L - 1] ? (_s_tile$core$d$csr$_T_78[L - 1] ? ((tile.core.d.csr.small_30[L - 1].bits<39,32>()).cat(((_s_tile$core$d$csr$_w_T_3[L - 1] ? tile.core.d.csr.small_30[L - 1] : UInt<40>(0x0)) | _s_tile$core$d$csr$_GEN_233[L - 1]) & _s_tile$core$d$csr$_GEN_234[L - 1])) : ((_s_tile$core$d$csr$_T_79[L - 1] ? ((((((_s_tile$core$d$csr$_w_T_3[L - 1] ? tile.core.d.csr.small_30[L - 1] : UInt<40>(0x0)) | _s_tile$core$d$csr$_GEN_233[L - 1]) & _s_tile$core$d$csr$_GEN_234[L - 1]).bits<7,0>()).cat(tile.core.d.csr.small_30[L - 1].bits<31,0>())).pad<41>()) : (tile.core.d.csr.small_30[L - 1].pad<41>())).pad<48>())) : ((tile.core.d.csr.small_30[L - 1].pad<41>()).pad<48>())).bits<39,0>();
+    // [serial scc=65] 1 templates (0 comb), regs=[small_28]
+    // [serial scc=65 chain-loop]
+    if (UNLIKELY(!_v2_quiet_base)) {
+      {
+        uint64_t _gany = 0;
+        for (int L = 0; L < 3; L++) _gany |= essent_to_u64(_s_tile$core$d$csr$small_28$gwen[L]);
+        if (_gany == 0) {
+          const UInt<40> _gv = tile.core.d.csr.small_28[0];
+          ESSENT_LANE_LOOP
+          for (int L = 0; L < 4; L++) tile.core.d.csr.small_28[L] = _gv;
+        } else {
+          for (int L = 1; L < 4; L++) tile.core.d.csr.small_28[L] = (_s_tile$core$d$csr$wen[L - 1] ? (_s_tile$core$d$csr$_T_74[L - 1] ? ((tile.core.d.csr.small_28[L - 1].bits<39,32>()).cat(((_s_tile$core$d$csr$_w_T_3[L - 1] ? tile.core.d.csr.small_28[L - 1] : UInt<40>(0x0)) | _s_tile$core$d$csr$_GEN_233[L - 1]) & _s_tile$core$d$csr$_GEN_234[L - 1])) : ((_s_tile$core$d$csr$_T_75[L - 1] ? ((((((_s_tile$core$d$csr$_w_T_3[L - 1] ? tile.core.d.csr.small_28[L - 1] : UInt<40>(0x0)) | _s_tile$core$d$csr$_GEN_233[L - 1]) & _s_tile$core$d$csr$_GEN_234[L - 1]).bits<7,0>()).cat(tile.core.d.csr.small_28[L - 1].bits<31,0>())).pad<41>()) : (tile.core.d.csr.small_28[L - 1].pad<41>())).pad<48>())) : ((tile.core.d.csr.small_28[L - 1].pad<41>()).pad<48>())).bits<39,0>();
+        }
+      }
+    } else {
+      {
+        const UInt<40> _gv = tile.core.d.csr.small_28[0];
+        ESSENT_LANE_LOOP
+        for (int L = 0; L < 4; L++) tile.core.d.csr.small_28[L] = _gv;
+      }
+    }
     // [vec comb] 3 templates x 4 lanes [cold-guarded base: quiet drops 3, specializes 0]
     if (UNLIKELY(!_v2_quiet_base)) {
       _v2_cold_comb_full(75);
     }
-    // [serial scc=68] 1 templates (0 comb), regs=[small_31]
-    // [serial scc=68 chain-loop]
-    for (int L = 1; L < 4; L++) tile.core.d.csr.small_31[L] = (_s_tile$core$d$csr$wen[L - 1] ? (_s_tile$core$d$csr$_T_80[L - 1] ? ((tile.core.d.csr.small_31[L - 1].bits<39,32>()).cat(((_s_tile$core$d$csr$_w_T_3[L - 1] ? tile.core.d.csr.small_31[L - 1] : UInt<40>(0x0)) | _s_tile$core$d$csr$_GEN_233[L - 1]) & _s_tile$core$d$csr$_GEN_234[L - 1])) : ((_s_tile$core$d$csr$_T_81[L - 1] ? ((((((_s_tile$core$d$csr$_w_T_3[L - 1] ? tile.core.d.csr.small_31[L - 1] : UInt<40>(0x0)) | _s_tile$core$d$csr$_GEN_233[L - 1]) & _s_tile$core$d$csr$_GEN_234[L - 1]).bits<7,0>()).cat(tile.core.d.csr.small_31[L - 1].bits<31,0>())).pad<41>()) : (tile.core.d.csr.small_31[L - 1].pad<41>())).pad<48>())) : ((tile.core.d.csr.small_31[L - 1].pad<41>()).pad<48>())).bits<39,0>();
+    // [serial scc=66] 1 templates (0 comb), regs=[small_29]
+    // [serial scc=66 chain-loop]
+    if (UNLIKELY(!_v2_quiet_base)) {
+      {
+        uint64_t _gany = 0;
+        for (int L = 0; L < 3; L++) _gany |= essent_to_u64(_s_tile$core$d$csr$small_29$gwen[L]);
+        if (_gany == 0) {
+          const UInt<40> _gv = tile.core.d.csr.small_29[0];
+          ESSENT_LANE_LOOP
+          for (int L = 0; L < 4; L++) tile.core.d.csr.small_29[L] = _gv;
+        } else {
+          for (int L = 1; L < 4; L++) tile.core.d.csr.small_29[L] = (_s_tile$core$d$csr$wen[L - 1] ? (_s_tile$core$d$csr$_T_76[L - 1] ? ((tile.core.d.csr.small_29[L - 1].bits<39,32>()).cat(((_s_tile$core$d$csr$_w_T_3[L - 1] ? tile.core.d.csr.small_29[L - 1] : UInt<40>(0x0)) | _s_tile$core$d$csr$_GEN_233[L - 1]) & _s_tile$core$d$csr$_GEN_234[L - 1])) : ((_s_tile$core$d$csr$_T_77[L - 1] ? ((((((_s_tile$core$d$csr$_w_T_3[L - 1] ? tile.core.d.csr.small_29[L - 1] : UInt<40>(0x0)) | _s_tile$core$d$csr$_GEN_233[L - 1]) & _s_tile$core$d$csr$_GEN_234[L - 1]).bits<7,0>()).cat(tile.core.d.csr.small_29[L - 1].bits<31,0>())).pad<41>()) : (tile.core.d.csr.small_29[L - 1].pad<41>())).pad<48>())) : ((tile.core.d.csr.small_29[L - 1].pad<41>()).pad<48>())).bits<39,0>();
+        }
+      }
+    } else {
+      {
+        const UInt<40> _gv = tile.core.d.csr.small_29[0];
+        ESSENT_LANE_LOOP
+        for (int L = 0; L < 4; L++) tile.core.d.csr.small_29[L] = _gv;
+      }
+    }
     // [vec comb] 3 templates x 4 lanes [cold-guarded base: quiet drops 3, specializes 0]
     if (UNLIKELY(!_v2_quiet_base)) {
       _v2_cold_comb_full(76);
     }
-    // [serial scc=69] 1 templates (0 comb), regs=[small_32]
-    // [serial scc=69 chain-loop]
-    for (int L = 1; L < 4; L++) tile.core.d.csr.small_32[L] = (_s_tile$core$d$csr$wen[L - 1] ? (_s_tile$core$d$csr$_T_82[L - 1] ? ((tile.core.d.csr.small_32[L - 1].bits<39,32>()).cat(((_s_tile$core$d$csr$_w_T_3[L - 1] ? tile.core.d.csr.small_32[L - 1] : UInt<40>(0x0)) | _s_tile$core$d$csr$_GEN_233[L - 1]) & _s_tile$core$d$csr$_GEN_234[L - 1])) : ((_s_tile$core$d$csr$_T_83[L - 1] ? ((((((_s_tile$core$d$csr$_w_T_3[L - 1] ? tile.core.d.csr.small_32[L - 1] : UInt<40>(0x0)) | _s_tile$core$d$csr$_GEN_233[L - 1]) & _s_tile$core$d$csr$_GEN_234[L - 1]).bits<7,0>()).cat(tile.core.d.csr.small_32[L - 1].bits<31,0>())).pad<41>()) : (tile.core.d.csr.small_32[L - 1].pad<41>())).pad<48>())) : ((tile.core.d.csr.small_32[L - 1].pad<41>()).pad<48>())).bits<39,0>();
+    // [serial scc=67] 1 templates (0 comb), regs=[small_30]
+    // [serial scc=67 chain-loop]
+    if (UNLIKELY(!_v2_quiet_base)) {
+      {
+        uint64_t _gany = 0;
+        for (int L = 0; L < 3; L++) _gany |= essent_to_u64(_s_tile$core$d$csr$small_30$gwen[L]);
+        if (_gany == 0) {
+          const UInt<40> _gv = tile.core.d.csr.small_30[0];
+          ESSENT_LANE_LOOP
+          for (int L = 0; L < 4; L++) tile.core.d.csr.small_30[L] = _gv;
+        } else {
+          for (int L = 1; L < 4; L++) tile.core.d.csr.small_30[L] = (_s_tile$core$d$csr$wen[L - 1] ? (_s_tile$core$d$csr$_T_78[L - 1] ? ((tile.core.d.csr.small_30[L - 1].bits<39,32>()).cat(((_s_tile$core$d$csr$_w_T_3[L - 1] ? tile.core.d.csr.small_30[L - 1] : UInt<40>(0x0)) | _s_tile$core$d$csr$_GEN_233[L - 1]) & _s_tile$core$d$csr$_GEN_234[L - 1])) : ((_s_tile$core$d$csr$_T_79[L - 1] ? ((((((_s_tile$core$d$csr$_w_T_3[L - 1] ? tile.core.d.csr.small_30[L - 1] : UInt<40>(0x0)) | _s_tile$core$d$csr$_GEN_233[L - 1]) & _s_tile$core$d$csr$_GEN_234[L - 1]).bits<7,0>()).cat(tile.core.d.csr.small_30[L - 1].bits<31,0>())).pad<41>()) : (tile.core.d.csr.small_30[L - 1].pad<41>())).pad<48>())) : ((tile.core.d.csr.small_30[L - 1].pad<41>()).pad<48>())).bits<39,0>();
+        }
+      }
+    } else {
+      {
+        const UInt<40> _gv = tile.core.d.csr.small_30[0];
+        ESSENT_LANE_LOOP
+        for (int L = 0; L < 4; L++) tile.core.d.csr.small_30[L] = _gv;
+      }
+    }
     // [vec comb] 3 templates x 4 lanes [cold-guarded base: quiet drops 3, specializes 0]
     if (UNLIKELY(!_v2_quiet_base)) {
       _v2_cold_comb_full(77);
     }
-    // [serial scc=70] 1 templates (0 comb), regs=[small_33]
-    // [serial scc=70 chain-loop]
-    for (int L = 1; L < 4; L++) tile.core.d.csr.small_33[L] = (_s_tile$core$d$csr$wen[L - 1] ? (_s_tile$core$d$csr$_T_84[L - 1] ? ((tile.core.d.csr.small_33[L - 1].bits<39,32>()).cat(((_s_tile$core$d$csr$_w_T_3[L - 1] ? tile.core.d.csr.small_33[L - 1] : UInt<40>(0x0)) | _s_tile$core$d$csr$_GEN_233[L - 1]) & _s_tile$core$d$csr$_GEN_234[L - 1])) : ((_s_tile$core$d$csr$_T_85[L - 1] ? ((((((_s_tile$core$d$csr$_w_T_3[L - 1] ? tile.core.d.csr.small_33[L - 1] : UInt<40>(0x0)) | _s_tile$core$d$csr$_GEN_233[L - 1]) & _s_tile$core$d$csr$_GEN_234[L - 1]).bits<7,0>()).cat(tile.core.d.csr.small_33[L - 1].bits<31,0>())).pad<41>()) : (tile.core.d.csr.small_33[L - 1].pad<41>())).pad<48>())) : ((tile.core.d.csr.small_33[L - 1].pad<41>()).pad<48>())).bits<39,0>();
-    // [vec comb] 1 templates x 4 lanes [cold-guarded base: quiet drops 1, specializes 0]
+    // [serial scc=68] 1 templates (0 comb), regs=[small_31]
+    // [serial scc=68 chain-loop]
+    if (UNLIKELY(!_v2_quiet_base)) {
+      {
+        uint64_t _gany = 0;
+        for (int L = 0; L < 3; L++) _gany |= essent_to_u64(_s_tile$core$d$csr$small_31$gwen[L]);
+        if (_gany == 0) {
+          const UInt<40> _gv = tile.core.d.csr.small_31[0];
+          ESSENT_LANE_LOOP
+          for (int L = 0; L < 4; L++) tile.core.d.csr.small_31[L] = _gv;
+        } else {
+          for (int L = 1; L < 4; L++) tile.core.d.csr.small_31[L] = (_s_tile$core$d$csr$wen[L - 1] ? (_s_tile$core$d$csr$_T_80[L - 1] ? ((tile.core.d.csr.small_31[L - 1].bits<39,32>()).cat(((_s_tile$core$d$csr$_w_T_3[L - 1] ? tile.core.d.csr.small_31[L - 1] : UInt<40>(0x0)) | _s_tile$core$d$csr$_GEN_233[L - 1]) & _s_tile$core$d$csr$_GEN_234[L - 1])) : ((_s_tile$core$d$csr$_T_81[L - 1] ? ((((((_s_tile$core$d$csr$_w_T_3[L - 1] ? tile.core.d.csr.small_31[L - 1] : UInt<40>(0x0)) | _s_tile$core$d$csr$_GEN_233[L - 1]) & _s_tile$core$d$csr$_GEN_234[L - 1]).bits<7,0>()).cat(tile.core.d.csr.small_31[L - 1].bits<31,0>())).pad<41>()) : (tile.core.d.csr.small_31[L - 1].pad<41>())).pad<48>())) : ((tile.core.d.csr.small_31[L - 1].pad<41>()).pad<48>())).bits<39,0>();
+        }
+      }
+    } else {
+      {
+        const UInt<40> _gv = tile.core.d.csr.small_31[0];
+        ESSENT_LANE_LOOP
+        for (int L = 0; L < 4; L++) tile.core.d.csr.small_31[L] = _gv;
+      }
+    }
+    // [vec comb] 3 templates x 4 lanes [cold-guarded base: quiet drops 3, specializes 0]
     if (UNLIKELY(!_v2_quiet_base)) {
       _v2_cold_comb_full(78);
+    }
+    // [serial scc=69] 1 templates (0 comb), regs=[small_32]
+    // [serial scc=69 chain-loop]
+    if (UNLIKELY(!_v2_quiet_base)) {
+      {
+        uint64_t _gany = 0;
+        for (int L = 0; L < 3; L++) _gany |= essent_to_u64(_s_tile$core$d$csr$small_32$gwen[L]);
+        if (_gany == 0) {
+          const UInt<40> _gv = tile.core.d.csr.small_32[0];
+          ESSENT_LANE_LOOP
+          for (int L = 0; L < 4; L++) tile.core.d.csr.small_32[L] = _gv;
+        } else {
+          for (int L = 1; L < 4; L++) tile.core.d.csr.small_32[L] = (_s_tile$core$d$csr$wen[L - 1] ? (_s_tile$core$d$csr$_T_82[L - 1] ? ((tile.core.d.csr.small_32[L - 1].bits<39,32>()).cat(((_s_tile$core$d$csr$_w_T_3[L - 1] ? tile.core.d.csr.small_32[L - 1] : UInt<40>(0x0)) | _s_tile$core$d$csr$_GEN_233[L - 1]) & _s_tile$core$d$csr$_GEN_234[L - 1])) : ((_s_tile$core$d$csr$_T_83[L - 1] ? ((((((_s_tile$core$d$csr$_w_T_3[L - 1] ? tile.core.d.csr.small_32[L - 1] : UInt<40>(0x0)) | _s_tile$core$d$csr$_GEN_233[L - 1]) & _s_tile$core$d$csr$_GEN_234[L - 1]).bits<7,0>()).cat(tile.core.d.csr.small_32[L - 1].bits<31,0>())).pad<41>()) : (tile.core.d.csr.small_32[L - 1].pad<41>())).pad<48>())) : ((tile.core.d.csr.small_32[L - 1].pad<41>()).pad<48>())).bits<39,0>();
+        }
+      }
+    } else {
+      {
+        const UInt<40> _gv = tile.core.d.csr.small_32[0];
+        ESSENT_LANE_LOOP
+        for (int L = 0; L < 4; L++) tile.core.d.csr.small_32[L] = _gv;
+      }
+    }
+    // [vec comb] 3 templates x 4 lanes [cold-guarded base: quiet drops 3, specializes 0]
+    if (UNLIKELY(!_v2_quiet_base)) {
+      _v2_cold_comb_full(79);
+    }
+    // [serial scc=70] 1 templates (0 comb), regs=[small_33]
+    // [serial scc=70 chain-loop]
+    if (UNLIKELY(!_v2_quiet_base)) {
+      {
+        uint64_t _gany = 0;
+        for (int L = 0; L < 3; L++) _gany |= essent_to_u64(_s_tile$core$d$csr$small_33$gwen[L]);
+        if (_gany == 0) {
+          const UInt<40> _gv = tile.core.d.csr.small_33[0];
+          ESSENT_LANE_LOOP
+          for (int L = 0; L < 4; L++) tile.core.d.csr.small_33[L] = _gv;
+        } else {
+          for (int L = 1; L < 4; L++) tile.core.d.csr.small_33[L] = (_s_tile$core$d$csr$wen[L - 1] ? (_s_tile$core$d$csr$_T_84[L - 1] ? ((tile.core.d.csr.small_33[L - 1].bits<39,32>()).cat(((_s_tile$core$d$csr$_w_T_3[L - 1] ? tile.core.d.csr.small_33[L - 1] : UInt<40>(0x0)) | _s_tile$core$d$csr$_GEN_233[L - 1]) & _s_tile$core$d$csr$_GEN_234[L - 1])) : ((_s_tile$core$d$csr$_T_85[L - 1] ? ((((((_s_tile$core$d$csr$_w_T_3[L - 1] ? tile.core.d.csr.small_33[L - 1] : UInt<40>(0x0)) | _s_tile$core$d$csr$_GEN_233[L - 1]) & _s_tile$core$d$csr$_GEN_234[L - 1]).bits<7,0>()).cat(tile.core.d.csr.small_33[L - 1].bits<31,0>())).pad<41>()) : (tile.core.d.csr.small_33[L - 1].pad<41>())).pad<48>())) : ((tile.core.d.csr.small_33[L - 1].pad<41>()).pad<48>())).bits<39,0>();
+        }
+      }
+    } else {
+      {
+        const UInt<40> _gv = tile.core.d.csr.small_33[0];
+        ESSENT_LANE_LOOP
+        for (int L = 0; L < 4; L++) tile.core.d.csr.small_33[L] = _gv;
+      }
+    }
+    // [vec comb] 1 templates x 4 lanes [cold-guarded base: quiet drops 1, specializes 0]
+    if (UNLIKELY(!_v2_quiet_base)) {
+      _v2_cold_comb_full(80);
     }
     // [vec comb] 1 templates x 4 lanes
     ESSENT_LANE_LOOP
@@ -3582,7 +4257,7 @@ typedef struct SodorFullChip {
     }
     // [vec comb] 1 templates x 4 lanes [cold-guarded base: quiet drops 1, specializes 0]
     if (UNLIKELY(!_v2_quiet_base)) {
-      _v2_cold_comb_full(79);
+      _v2_cold_comb_full(81);
     }
     // [vec comb] 2 templates x 4 lanes
     ESSENT_LANE_LOOP
@@ -3594,15 +4269,15 @@ typedef struct SodorFullChip {
     }
     // [vec comb] 1 templates x 4 lanes [cold-guarded base: quiet drops 1, specializes 0]
     if (UNLIKELY(!_v2_quiet_base)) {
-      _v2_cold_comb_full(80);
+      _v2_cold_comb_full(82);
     }
     // [vec comb] 1 templates x 4 lanes
     ESSENT_LANE_LOOP
     for (int L = 0; L < 4; L++) {
       _s_tile$core$d$wb_reg_wbdata$wdata[L].val = static_cast<typename UInt<32>::scalar_t>((static_cast<uint32_t>(_s_tile$core$d$mem_wbdata[L].val) & 0xffffffffu));
     }
-    // [serial scc=5] 1 templates (0 comb), regs=[wb_reg_wbdata]
-    // [serial scc=5 chain-loop]
+    // [serial scc=3] 1 templates (0 comb), regs=[wb_reg_wbdata]
+    // [serial scc=3 chain-loop]
     essent_condhold_apply_fwd<4>(tile.core.d.wb_reg_wbdata, _v2_cond_idx_5, _s_tile$core$d$wb_reg_wbdata$wdata);
     // [vec state-read] 3 templates x 4 lanes
     #if ESSENT_ORACLE_VERIFY // [extern-read] verify-only recompute: regfile.regfile.io_rs1_data_MPORT$rtl
@@ -4024,7 +4699,7 @@ typedef struct SodorFullChip {
     int16_t _v2_cond_idx_3[4];
     int16_t _v2_cond_idx_4[4];
     int16_t _v2_cond_idx_5[4];
-    // [v2 schedule] 1125 units, 71 serial regions (71 templates x 4 lanes), 76 oracle streams
+    // [v2 schedule] 1161 units, 71 serial regions (71 templates x 4 lanes), 76 oracle streams
     bool _v2_quiet_base = false;
     // [boundary-verify] 17 register oracles: previous sweep's last-lane next-state vs this sweep's boundary injection (group 0)
     #if ESSENT_ORACLE_VERIFY
@@ -4557,20 +5232,37 @@ typedef struct SodorFullChip {
       _s_tile$core$c$exe_reg_is_csr$gwen[L].val = static_cast<typename UInt<1>::scalar_t>((static_cast<uint8_t>((static_cast<uint8_t>(0x1u) & 0x1u)) & 0x1u));
       _s_tile$core$d$csr$reg_mstatus_mie$gwen[L].val = static_cast<typename UInt<1>::scalar_t>((static_cast<uint8_t>((static_cast<uint8_t>(0x1u) & 0x1u)) & 0x1u));
     }
-    // [vec comb] 8 templates x 4 lanes [cold-guarded base: quiet drops 8, specializes 0]
+    // [vec comb] 5 templates x 4 lanes [cold-guarded base: quiet drops 5, specializes 0]
     if (UNLIKELY(!_v2_quiet_base)) {
       _v2_cold_comb_full(5);
     }
-    // [vec comb] 4 templates x 4 lanes
+    // [vec comb] 2 templates x 4 lanes
+    ESSENT_LANE_LOOP
+    for (int L = 0; L < 4; L++) {
+      _s_tile$core$d$csr$large$gwen[L].val = static_cast<typename UInt<1>::scalar_t>((static_cast<uint8_t>((static_cast<uint8_t>(0x1u) & 0x1u)) & 0x1u));
+      _s_tile$core$d$csr$large_1$gwen[L].val = static_cast<typename UInt<1>::scalar_t>((static_cast<uint8_t>((static_cast<uint8_t>(0x1u) & 0x1u)) & 0x1u));
+    }
+    // [vec comb] 5 templates x 4 lanes [cold-guarded base: quiet drops 5, specializes 0]
+    if (UNLIKELY(!_v2_quiet_base)) {
+      _v2_cold_comb_full(6);
+    }
+    // [vec comb] 30 templates x 4 lanes [cold-guarded base: quiet drops 30, specializes 0]
+    if (UNLIKELY(!_v2_quiet_base)) {
+      _v2_cold_comb_full(7);
+    }
+    // [vec comb] 2 templates x 4 lanes
     ESSENT_LANE_LOOP
     for (int L = 0; L < 4; L++) {
       _s_memory$bytes$__access_write_4_MPORT_4_enable$rtl[L].val = static_cast<typename UInt<1>::scalar_t>((static_cast<uint8_t>((static_cast<uint8_t>(((io_host_valid[L].val) & (io_host_write[L].val))) & 0x1u)) & 0x1u));
       _s_memory$bytes$__access_write_4_MPORT_4_address$rtl[L].val = static_cast<typename UInt<21>::scalar_t>((static_cast<uint64_t>((static_cast<uint64_t>(((((static_cast<uint64_t>(((static_cast<uint64_t>((static_cast<uint64_t>((static_cast<uint64_t>((static_cast<uint64_t>(io_host_addr[L].val) & 0x1ffffffffULL)) & 0xffffffffULL)) & 0xffffffffULL)) >> 0) & 0x1fffffULL)) & 0x1fffffULL)) & ((uint64_t)0 - (uint64_t)(((static_cast<uint64_t>(_s_memory$bytes$__access_write_4_MPORT_4_enable$rtl[L].val) & 0x1ULL)) != 0))) | (((static_cast<uint64_t>(0x0ULL) & 0x1fffffULL)) & ~((uint64_t)0 - (uint64_t)(((static_cast<uint64_t>(_s_memory$bytes$__access_write_4_MPORT_4_enable$rtl[L].val) & 0x1ULL)) != 0))))) & 0x1fffffULL)) & 0x1fffffULL));
-      _s_memory$bytes$__access_write_4_MPORT_4_data$rtl[L].val = static_cast<typename UInt<8>::scalar_t>((static_cast<uint32_t>((static_cast<uint32_t>(((((static_cast<uint32_t>(((static_cast<uint32_t>(io_host_wdata[L].val) >> 0) & 0xffu)) & 0xffu)) & ((uint32_t)0 - (uint32_t)(((static_cast<uint32_t>(_s_memory$bytes$__access_write_4_MPORT_4_enable$rtl[L].val) & 0x1u)) != 0))) | (((static_cast<uint32_t>(0x0u) & 0xffu)) & ~((uint32_t)0 - (uint32_t)(((static_cast<uint32_t>(_s_memory$bytes$__access_write_4_MPORT_4_enable$rtl[L].val) & 0x1u)) != 0))))) & 0xffu)) & 0xffu));
-      _s_memory$bytes$__access_write_5_MPORT_5_enable$rtl[L].val = static_cast<typename UInt<1>::scalar_t>((static_cast<uint8_t>(_s_memory$bytes$__access_write_4_MPORT_4_enable$rtl[L].val) & 0x1u));
     }
-    // [vec comb] 31 templates x 4 lanes
+    // [vec comb] 32 templates x 4 lanes
     _v2_cshare_2();
+    // [vec comb] 1 templates x 4 lanes
+    ESSENT_LANE_LOOP
+    for (int L = 0; L < 4; L++) {
+      _s_tile$core$d$exe_reg_ctrl_wb_sel$wdata[L].val = static_cast<typename UInt<2>::scalar_t>((static_cast<uint8_t>(_s_tile$core$c$io_ctl_wb_sel[L].val) & 0x3u));
+    }
     // [serial scc=24] 1 templates (0 comb), regs=[exe_inst_is_load]
     // [serial scc=24 chain-loop]
     essent_condhold_scan_rev<4>(tile.core.c.exe_inst_is_load, _s_tile$core$c$exe_inst_is_load$wen, _s_tile$core$c$exe_inst_is_load$wdata);
@@ -4581,7 +5273,7 @@ typedef struct SodorFullChip {
     }
     // [vec comb] 1 templates x 4 lanes [cold-guarded base: quiet drops 0, specializes 1]
     if (UNLIKELY(!_v2_quiet_base)) {
-      _v2_cold_comb_full(6);
+      _v2_cold_comb_full(8);
     } else {
       // [vec comb-quiet] 1 templates x 4 lanes
       ESSENT_LANE_LOOP
@@ -4615,7 +5307,7 @@ typedef struct SodorFullChip {
     }
     // [vec comb] 1 templates x 4 lanes [cold-guarded base: quiet drops 0, specializes 1]
     if (UNLIKELY(!_v2_quiet_base)) {
-      _v2_cold_comb_full(7);
+      _v2_cold_comb_full(9);
     } else {
       // [vec comb-quiet] 1 templates x 4 lanes
       ESSENT_LANE_LOOP
@@ -4636,7 +5328,7 @@ typedef struct SodorFullChip {
     }
     // [vec comb] 7 templates x 4 lanes [cold-guarded base: quiet drops 0, specializes 7]
     if (UNLIKELY(!_v2_quiet_base)) {
-      _v2_cold_comb_full(8);
+      _v2_cold_comb_full(10);
     } else {
       // [vec comb-quiet] 7 templates x 4 lanes
       ESSENT_LANE_LOOP
@@ -4657,7 +5349,7 @@ typedef struct SodorFullChip {
     }
     // [vec comb] 1 templates x 4 lanes [cold-guarded base: quiet drops 0, specializes 1]
     if (UNLIKELY(!_v2_quiet_base)) {
-      _v2_cold_comb_full(9);
+      _v2_cold_comb_full(11);
     } else {
       // [vec comb-quiet] 1 templates x 4 lanes
       ESSENT_LANE_LOOP
@@ -4679,7 +5371,7 @@ typedef struct SodorFullChip {
     }
     // [vec comb] 1 templates x 4 lanes [cold-guarded base: quiet drops 0, specializes 1]
     if (UNLIKELY(!_v2_quiet_base)) {
-      _v2_cold_comb_full(10);
+      _v2_cold_comb_full(12);
     } else {
       // [vec comb-quiet] 1 templates x 4 lanes
       ESSENT_LANE_LOOP
@@ -4692,14 +5384,29 @@ typedef struct SodorFullChip {
     for (int L = 0; L < 4; L++) {
       _s_tile$core$d$exe_reg_ctrl_mem_val$wen[L].val = static_cast<typename UInt<1>::scalar_t>((static_cast<uint8_t>(_s_tile$core$d$exe_reg_valid$wen[L].val) & 0x1u));
     }
+    // [vec comb] 1 templates x 4 lanes [cold-guarded base: quiet drops 0, specializes 1]
+    if (UNLIKELY(!_v2_quiet_base)) {
+      _v2_cold_comb_full(13);
+    } else {
+      // [vec comb-quiet] 1 templates x 4 lanes
+      ESSENT_LANE_LOOP
+      for (int L = 0; L < 4; L++) {
+        _s_tile$core$d$exe_reg_ctrl_mem_val$wdata[L].val = static_cast<typename UInt<1>::scalar_t>((static_cast<uint8_t>((static_cast<uint8_t>((((static_cast<uint8_t>((~static_cast<uint8_t>(_s_tile$core$d$_T_17[L].val))) & 0x1u)) & (_s_tile$core$d$_GEN_14[L].val))) & 0x1u)) & 0x1u));
+      }
+    }
+    // [vec comb] 1 templates x 4 lanes
+    ESSENT_LANE_LOOP
+    for (int L = 0; L < 4; L++) {
+      _s_tile$core$d$exe_reg_ctrl_mem_fcn$wen[L].val = static_cast<typename UInt<1>::scalar_t>((static_cast<uint8_t>(_s_tile$core$d$exe_reg_valid$wen[L].val) & 0x1u));
+    }
     // [vec comb] 2 templates x 4 lanes [cold-guarded base: quiet drops 0, specializes 2]
     if (UNLIKELY(!_v2_quiet_base)) {
-      _v2_cold_comb_full(11);
+      _v2_cold_comb_full(14);
     } else {
       // [vec comb-quiet] 2 templates x 4 lanes
       ESSENT_LANE_LOOP
       for (int L = 0; L < 4; L++) {
-        _s_tile$core$d$exe_reg_ctrl_mem_val$wdata[L].val = static_cast<typename UInt<1>::scalar_t>((static_cast<uint8_t>((static_cast<uint8_t>((((static_cast<uint8_t>((~static_cast<uint8_t>(_s_tile$core$d$_T_17[L].val))) & 0x1u)) & (_s_tile$core$d$_GEN_14[L].val))) & 0x1u)) & 0x1u));
+        _s_tile$core$d$exe_reg_ctrl_mem_fcn$wdata[L].val = static_cast<typename UInt<1>::scalar_t>((static_cast<uint8_t>((static_cast<uint8_t>((((static_cast<uint8_t>((~static_cast<uint8_t>(_s_tile$core$d$_T_17[L].val))) & 0x1u)) & ((static_cast<uint8_t>(((static_cast<uint8_t>(_s_tile$core$d$_GEN_15[L].val) >> 0) & 0x1u)) & 0x1u)))) & 0x1u)) & 0x1u));
         _s_tile$core$d$exe_reg_ctrl_mem_typ$wen[L].val = static_cast<typename UInt<1>::scalar_t>((static_cast<uint8_t>((static_cast<uint8_t>((((static_cast<uint8_t>((~static_cast<uint8_t>(_s_tile$core$d$_T_17[L].val))) & 0x1u)) & ((static_cast<uint8_t>(((_s_tile$core$d$_T_2[L].val) & ((static_cast<uint8_t>((~static_cast<uint8_t>(_s_tile$core$c$io_ctl_dec_kill[L].val))) & 0x1u)))) & 0x1u)))) & 0x1u)) & 0x1u));
       }
     }
@@ -4708,23 +5415,14 @@ typedef struct SodorFullChip {
     for (int L = 0; L < 4; L++) {
       _s_tile$core$d$exe_reg_ctrl_csr_cmd$wen[L].val = static_cast<typename UInt<1>::scalar_t>((static_cast<uint8_t>(_s_tile$core$d$exe_reg_valid$wen[L].val) & 0x1u));
     }
-    // [vec comb] 1 templates x 4 lanes [cold-guarded base: quiet drops 0, specializes 1]
+    // [vec comb] 2 templates x 4 lanes [cold-guarded base: quiet drops 0, specializes 2]
     if (UNLIKELY(!_v2_quiet_base)) {
-      _v2_cold_comb_full(12);
+      _v2_cold_comb_full(15);
     } else {
-      // [vec comb-quiet] 1 templates x 4 lanes
+      // [vec comb-quiet] 2 templates x 4 lanes
       ESSENT_LANE_LOOP
       for (int L = 0; L < 4; L++) {
         _s_tile$core$d$exe_reg_ctrl_csr_cmd$wdata[L].val = static_cast<typename UInt<3>::scalar_t>((static_cast<uint8_t>((static_cast<uint8_t>(((((static_cast<uint8_t>(0x0u) & 0x7u)) & ((uint8_t)0 - (uint8_t)(((static_cast<uint8_t>(_s_tile$core$d$_T_17[L].val) & 0x1u)) != 0))) | ((_s_tile$core$d$_GEN_16[L].val) & ~((uint8_t)0 - (uint8_t)(((static_cast<uint8_t>(_s_tile$core$d$_T_17[L].val) & 0x1u)) != 0))))) & 0x7u)) & 0x7u));
-      }
-    }
-    // [vec comb] 1 templates x 4 lanes [cold-guarded base: quiet drops 0, specializes 1]
-    if (UNLIKELY(!_v2_quiet_base)) {
-      _v2_cold_comb_full(13);
-    } else {
-      // [vec comb-quiet] 1 templates x 4 lanes
-      ESSENT_LANE_LOOP
-      for (int L = 0; L < 4; L++) {
         _s_tile$core$d$if_reg_pc$gwen[L].val = static_cast<typename UInt<1>::scalar_t>((static_cast<uint8_t>((static_cast<uint8_t>(((_s_tile$core$d$_T_3[L].val) & ((static_cast<uint8_t>((~static_cast<uint8_t>(_s_tile$core$d$_T_11[L].val))) & 0x1u)))) & 0x1u)) & 0x1u));
       }
     }
@@ -4733,7 +5431,7 @@ typedef struct SodorFullChip {
     essent_condhold_scan_rev<4>(tile.core.c.exe_reg_exception, _s_tile$core$c$exe_reg_exception$wen, _s_tile$core$c$exe_reg_exception$wdata);
     // [vec comb] 1 templates x 4 lanes [cold-guarded base: quiet drops 0, specializes 1]
     if (UNLIKELY(!_v2_quiet_base)) {
-      _v2_cold_comb_full(14);
+      _v2_cold_comb_full(16);
     } else {
       // [vec comb-quiet] 1 templates x 4 lanes
       ESSENT_LANE_LOOP
@@ -4746,45 +5444,8 @@ typedef struct SodorFullChip {
     for (int L = 0; L < 4; L++) {
       _s_tile$core$c$io_ctl_mem_exception_REG$next[L].val = static_cast<typename UInt<1>::scalar_t>((static_cast<uint8_t>(tile.core.c.exe_reg_exception[L].val) & 0x1u));
     }
-    // [serial scc=4] 1 templates (0 comb), regs=[exe_reg_ctrl_mem_fcn]
-    // [serial scc=4 lane=2]
-    tile.core.d.exe_reg_ctrl_mem_fcn[2] = (reset ? UInt<2>(0x0) : (_s_tile$core$d$_T_17[2 + 1] ? UInt<2>(0x0) : (_s_tile$core$d$_T_2[2 + 1] ? _s_tile$core$d$_GEN_15[2 + 1] : (tile.core.d.exe_reg_ctrl_mem_fcn[2 + 1].pad<2>())))).bits<0,0>();
-    // [serial scc=4 lane=1]
-    tile.core.d.exe_reg_ctrl_mem_fcn[1] = (reset ? UInt<2>(0x0) : (_s_tile$core$d$_T_17[1 + 1] ? UInt<2>(0x0) : (_s_tile$core$d$_T_2[1 + 1] ? _s_tile$core$d$_GEN_15[1 + 1] : (tile.core.d.exe_reg_ctrl_mem_fcn[1 + 1].pad<2>())))).bits<0,0>();
-    // [serial scc=4 lane=0]
-    tile.core.d.exe_reg_ctrl_mem_fcn[0] = (reset ? UInt<2>(0x0) : (_s_tile$core$d$_T_17[0 + 1] ? UInt<2>(0x0) : (_s_tile$core$d$_T_2[0 + 1] ? _s_tile$core$d$_GEN_15[0 + 1] : (tile.core.d.exe_reg_ctrl_mem_fcn[0 + 1].pad<2>())))).bits<0,0>();
-    // [vec comb] 2 templates x 4 lanes [cold-guarded base: quiet drops 0, specializes 2]
-    if (UNLIKELY(!_v2_quiet_base)) {
-      _v2_cold_comb_full(15);
-    } else {
-      // [vec comb-quiet] 2 templates x 4 lanes
-      ESSENT_LANE_LOOP
-      for (int L = 0; L < 4; L++) {
-        _s_tile$core$d$exe_reg_ctrl_mem_fcn$next[L].val = static_cast<typename UInt<1>::scalar_t>((static_cast<uint8_t>((static_cast<uint8_t>(((static_cast<uint8_t>((static_cast<uint8_t>(((((static_cast<uint8_t>(0x0u) & 0x3u)) & ((uint8_t)0 - (uint8_t)(((static_cast<uint8_t>(_s_tile$core$d$_T_17[L].val) & 0x1u)) != 0))) | (((static_cast<uint8_t>((((_s_tile$core$d$_GEN_15[L].val) & ((uint8_t)0 - (uint8_t)(((static_cast<uint8_t>(_s_tile$core$d$_T_2[L].val) & 0x1u)) != 0))) | (((static_cast<uint8_t>(tile.core.d.exe_reg_ctrl_mem_fcn[L].val) & 0x3u)) & ~((uint8_t)0 - (uint8_t)(((static_cast<uint8_t>(_s_tile$core$d$_T_2[L].val) & 0x1u)) != 0))))) & 0x3u)) & ~((uint8_t)0 - (uint8_t)(((static_cast<uint8_t>(_s_tile$core$d$_T_17[L].val) & 0x1u)) != 0))))) & 0x3u)) >> 0) & 0x1u)) & 0x1u)) & 0x1u));
-        _s_tile$core$d$mem_reg_ctrl_mem_fcn$wdata[L].val = static_cast<typename UInt<1>::scalar_t>((static_cast<uint8_t>(tile.core.d.exe_reg_ctrl_mem_fcn[L].val) & 0x1u));
-      }
-    }
-    // [serial scc=3] 1 templates (0 comb), regs=[mem_reg_ctrl_mem_fcn]
-    // [serial scc=3 chain-loop]
-    essent_condhold_index_rev<4>(_v2_cond_idx_4, _s_tile$core$d$mem_reg_ctrl_mem_fcn$wen);
-    essent_condhold_apply_rev<4>(tile.core.d.mem_reg_ctrl_mem_fcn, _v2_cond_idx_4, _s_tile$core$d$mem_reg_ctrl_mem_fcn$wdata);
-    // [vec comb] 1 templates x 4 lanes [cold-guarded base: quiet drops 0, specializes 1]
-    if (UNLIKELY(!_v2_quiet_base)) {
-      _v2_cold_comb_full(16);
-    } else {
-      // [vec comb-quiet] 1 templates x 4 lanes
-      ESSENT_LANE_LOOP
-      for (int L = 0; L < 4; L++) {
-        _s_tile$core$d$mem_reg_ctrl_mem_fcn$next[L].val = static_cast<typename UInt<1>::scalar_t>((static_cast<uint8_t>((static_cast<uint8_t>((((static_cast<uint8_t>(((_s_tile$core$c$io_ctl_pipeline_kill[L].val) & (tile.core.d.mem_reg_ctrl_mem_fcn[L].val))) & 0x1u)) | ((static_cast<uint8_t>((((static_cast<uint8_t>((~static_cast<uint8_t>(_s_tile$core$c$io_ctl_pipeline_kill[L].val))) & 0x1u)) & ((static_cast<uint8_t>((((static_cast<uint8_t>(((_s_tile$core$d$_T_1[L].val) & (tile.core.d.exe_reg_ctrl_mem_fcn[L].val))) & 0x1u)) | ((static_cast<uint8_t>((((static_cast<uint8_t>((~static_cast<uint8_t>(_s_tile$core$d$_T_1[L].val))) & 0x1u)) & (tile.core.d.mem_reg_ctrl_mem_fcn[L].val))) & 0x1u)))) & 0x1u)))) & 0x1u)))) & 0x1u)) & 0x1u));
-      }
-    }
-    // [vec comb] 1 templates x 4 lanes
-    ESSENT_LANE_LOOP
-    for (int L = 0; L < 4; L++) {
-      _s_memory$_T_3[L].val = static_cast<typename UInt<1>::scalar_t>((static_cast<uint8_t>((static_cast<uint8_t>(((tile.core.d.mem_reg_ctrl_mem_val[L].val) & ((static_cast<uint8_t>(((tile.core.d.mem_reg_ctrl_mem_fcn[L].val) & ((static_cast<uint8_t>((~static_cast<uint8_t>(io_host_valid[L].val))) & 0x1u)))) & 0x1u)))) & 0x1u)) & 0x1u));
-    }
-    // [serial scc=9] 1 templates (0 comb), regs=[dec_reg_valid]
-    // [serial scc=9 chain-loop]
+    // [serial scc=7] 1 templates (0 comb), regs=[dec_reg_valid]
+    // [serial scc=7 chain-loop]
     essent_condhold_scan_rev<4>(tile.core.d.dec_reg_valid, _s_tile$core$d$dec_reg_valid$wen, _s_tile$core$d$dec_reg_valid$wdata);
     // [vec comb] 1 templates x 4 lanes
     ESSENT_LANE_LOOP
@@ -4802,8 +5463,8 @@ typedef struct SodorFullChip {
         _s_tile$core$d$exe_reg_valid$wdata[L].val = static_cast<typename UInt<1>::scalar_t>((static_cast<uint8_t>((static_cast<uint8_t>((((static_cast<uint8_t>((~static_cast<uint8_t>(_s_tile$core$d$_T_17[L].val))) & 0x1u)) & (_s_tile$core$d$_GEN_10[L].val))) & 0x1u)) & 0x1u));
       }
     }
-    // [serial scc=8] 1 templates (0 comb), regs=[exe_reg_valid]
-    // [serial scc=8 chain-loop]
+    // [serial scc=6] 1 templates (0 comb), regs=[exe_reg_valid]
+    // [serial scc=6 chain-loop]
     essent_condhold_index_rev<4>(_v2_cond_idx_0, _s_tile$core$d$exe_reg_valid$wen);
     essent_condhold_apply_rev<4>(tile.core.d.exe_reg_valid, _v2_cond_idx_0, _s_tile$core$d$exe_reg_valid$wdata);
     // [vec comb] 2 templates x 4 lanes [cold-guarded base: quiet drops 0, specializes 2]
@@ -4817,8 +5478,8 @@ typedef struct SodorFullChip {
         _s_tile$core$d$mem_reg_valid$wdata[L].val = static_cast<typename UInt<1>::scalar_t>((static_cast<uint8_t>((static_cast<uint8_t>((((static_cast<uint8_t>((~static_cast<uint8_t>(_s_tile$core$c$io_ctl_pipeline_kill[L].val))) & 0x1u)) & (tile.core.d.exe_reg_valid[L].val))) & 0x1u)) & 0x1u));
       }
     }
-    // [serial scc=7] 1 templates (0 comb), regs=[mem_reg_valid]
-    // [serial scc=7 chain-loop]
+    // [serial scc=5] 1 templates (0 comb), regs=[mem_reg_valid]
+    // [serial scc=5 chain-loop]
     essent_condhold_index_rev<4>(_v2_cond_idx_2, _s_tile$core$d$mem_reg_valid$wen);
     essent_condhold_apply_rev<4>(tile.core.d.mem_reg_valid, _v2_cond_idx_2, _s_tile$core$d$mem_reg_valid$wdata);
     // [vec comb] 2 templates x 4 lanes [cold-guarded base: quiet drops 0, specializes 2]
@@ -4844,13 +5505,19 @@ typedef struct SodorFullChip {
       _s_tile$core$d$csr$nextSmall_1[L].val = static_cast<typename UInt<7>::scalar_t>((static_cast<uint8_t>((static_cast<uint8_t>((static_cast<uint8_t>(tile.core.d.csr.small_1[L].val) + static_cast<uint8_t>((static_cast<uint8_t>(tile.core.d.wb_reg_valid[L].val) & 0x3fu)))) & 0x7fu)) & 0x7fu));
       _s_tile$core$d$csr$_large_T_1[L].val = static_cast<typename UInt<1>::scalar_t>((static_cast<uint8_t>((static_cast<uint8_t>(((static_cast<uint8_t>(_s_tile$core$d$csr$nextSmall_1[L].val) >> 6) & 0x1u)) & 0x1u)) & 0x1u));
     }
-    // [serial scc=6] 1 templates (0 comb), regs=[large_1]
-    // [serial scc=6 lane=2]
-    tile.core.d.csr.large_1[2] = (reset ? UInt<90>(0x0) : (_s_tile$core$d$csr$wen[2 + 1] ? (_s_tile$core$d$csr$_T_4[2 + 1] ? ((((tile.core.d.csr.large_1[2 + 1].cat(tile.core.d.csr.small_1[2 + 1])).bits<63,32>()).cat(((_s_tile$core$d$csr$_w_T_3[2 + 1] ? (tile.core.d.csr.large_1[2 + 1].cat(tile.core.d.csr.small_1[2 + 1])) : UInt<64>(0x0)) | _s_tile$core$d$csr$_GEN_297[2 + 1]) & _s_tile$core$d$csr$_GEN_298[2 + 1])).shr<6>()) : ((_s_tile$core$d$csr$_T_87[2 + 1] ? ((((((_s_tile$core$d$csr$_w_T_3[2 + 1] ? (tile.core.d.csr.large_1[2 + 1].cat(tile.core.d.csr.small_1[2 + 1])) : UInt<64>(0x0)) | _s_tile$core$d$csr$_GEN_297[2 + 1]) & _s_tile$core$d$csr$_GEN_298[2 + 1]).bits<31,0>()).cat((tile.core.d.csr.large_1[2 + 1].cat(tile.core.d.csr.small_1[2 + 1])).bits<31,0>())).shr<6>()) : (_s_tile$core$d$csr$_large_T_1[2 + 1] ? ((tile.core.d.csr.large_1[2 + 1] + UInt<58>(0x1)).tail<1>()) : tile.core.d.csr.large_1[2 + 1])).pad<90>())) : ((_s_tile$core$d$csr$_large_T_1[2 + 1] ? ((tile.core.d.csr.large_1[2 + 1] + UInt<58>(0x1)).tail<1>()) : tile.core.d.csr.large_1[2 + 1]).pad<90>()))).bits<57,0>();
-    // [serial scc=6 lane=1]
-    tile.core.d.csr.large_1[1] = (reset ? UInt<90>(0x0) : (_s_tile$core$d$csr$wen[1 + 1] ? (_s_tile$core$d$csr$_T_4[1 + 1] ? ((((tile.core.d.csr.large_1[1 + 1].cat(tile.core.d.csr.small_1[1 + 1])).bits<63,32>()).cat(((_s_tile$core$d$csr$_w_T_3[1 + 1] ? (tile.core.d.csr.large_1[1 + 1].cat(tile.core.d.csr.small_1[1 + 1])) : UInt<64>(0x0)) | _s_tile$core$d$csr$_GEN_297[1 + 1]) & _s_tile$core$d$csr$_GEN_298[1 + 1])).shr<6>()) : ((_s_tile$core$d$csr$_T_87[1 + 1] ? ((((((_s_tile$core$d$csr$_w_T_3[1 + 1] ? (tile.core.d.csr.large_1[1 + 1].cat(tile.core.d.csr.small_1[1 + 1])) : UInt<64>(0x0)) | _s_tile$core$d$csr$_GEN_297[1 + 1]) & _s_tile$core$d$csr$_GEN_298[1 + 1]).bits<31,0>()).cat((tile.core.d.csr.large_1[1 + 1].cat(tile.core.d.csr.small_1[1 + 1])).bits<31,0>())).shr<6>()) : (_s_tile$core$d$csr$_large_T_1[1 + 1] ? ((tile.core.d.csr.large_1[1 + 1] + UInt<58>(0x1)).tail<1>()) : tile.core.d.csr.large_1[1 + 1])).pad<90>())) : ((_s_tile$core$d$csr$_large_T_1[1 + 1] ? ((tile.core.d.csr.large_1[1 + 1] + UInt<58>(0x1)).tail<1>()) : tile.core.d.csr.large_1[1 + 1]).pad<90>()))).bits<57,0>();
-    // [serial scc=6 lane=0]
-    tile.core.d.csr.large_1[0] = (reset ? UInt<90>(0x0) : (_s_tile$core$d$csr$wen[0 + 1] ? (_s_tile$core$d$csr$_T_4[0 + 1] ? ((((tile.core.d.csr.large_1[0 + 1].cat(tile.core.d.csr.small_1[0 + 1])).bits<63,32>()).cat(((_s_tile$core$d$csr$_w_T_3[0 + 1] ? (tile.core.d.csr.large_1[0 + 1].cat(tile.core.d.csr.small_1[0 + 1])) : UInt<64>(0x0)) | _s_tile$core$d$csr$_GEN_297[0 + 1]) & _s_tile$core$d$csr$_GEN_298[0 + 1])).shr<6>()) : ((_s_tile$core$d$csr$_T_87[0 + 1] ? ((((((_s_tile$core$d$csr$_w_T_3[0 + 1] ? (tile.core.d.csr.large_1[0 + 1].cat(tile.core.d.csr.small_1[0 + 1])) : UInt<64>(0x0)) | _s_tile$core$d$csr$_GEN_297[0 + 1]) & _s_tile$core$d$csr$_GEN_298[0 + 1]).bits<31,0>()).cat((tile.core.d.csr.large_1[0 + 1].cat(tile.core.d.csr.small_1[0 + 1])).bits<31,0>())).shr<6>()) : (_s_tile$core$d$csr$_large_T_1[0 + 1] ? ((tile.core.d.csr.large_1[0 + 1] + UInt<58>(0x1)).tail<1>()) : tile.core.d.csr.large_1[0 + 1])).pad<90>())) : ((_s_tile$core$d$csr$_large_T_1[0 + 1] ? ((tile.core.d.csr.large_1[0 + 1] + UInt<58>(0x1)).tail<1>()) : tile.core.d.csr.large_1[0 + 1]).pad<90>()))).bits<57,0>();
+    // [serial scc=4] 1 templates (0 comb), regs=[large_1]
+    // [serial scc=4 chain-loop]
+    {
+      uint64_t _gany = 0;
+      for (int L = 1; L < 4; L++) _gany |= essent_to_u64(_s_tile$core$d$csr$large_1$gwen[L]);
+      if (_gany == 0) {
+        const UInt<58> _gv = tile.core.d.csr.large_1[3];
+        ESSENT_LANE_LOOP
+        for (int L = 0; L < 4; L++) tile.core.d.csr.large_1[L] = _gv;
+      } else {
+        for (int L = 2; L >= 0; L--) tile.core.d.csr.large_1[L] = (reset ? UInt<90>(0x0) : (_s_tile$core$d$csr$wen[L + 1] ? (_s_tile$core$d$csr$_T_4[L + 1] ? ((((tile.core.d.csr.large_1[L + 1].cat(tile.core.d.csr.small_1[L + 1])).bits<63,32>()).cat(((_s_tile$core$d$csr$_w_T_3[L + 1] ? (tile.core.d.csr.large_1[L + 1].cat(tile.core.d.csr.small_1[L + 1])) : UInt<64>(0x0)) | _s_tile$core$d$csr$_GEN_297[L + 1]) & _s_tile$core$d$csr$_GEN_298[L + 1])).shr<6>()) : ((_s_tile$core$d$csr$_T_87[L + 1] ? ((((((_s_tile$core$d$csr$_w_T_3[L + 1] ? (tile.core.d.csr.large_1[L + 1].cat(tile.core.d.csr.small_1[L + 1])) : UInt<64>(0x0)) | _s_tile$core$d$csr$_GEN_297[L + 1]) & _s_tile$core$d$csr$_GEN_298[L + 1]).bits<31,0>()).cat((tile.core.d.csr.large_1[L + 1].cat(tile.core.d.csr.small_1[L + 1])).bits<31,0>())).shr<6>()) : (_s_tile$core$d$csr$_large_T_1[L + 1] ? ((tile.core.d.csr.large_1[L + 1] + UInt<58>(0x1)).tail<1>()) : tile.core.d.csr.large_1[L + 1])).pad<90>())) : ((_s_tile$core$d$csr$_large_T_1[L + 1] ? ((tile.core.d.csr.large_1[L + 1] + UInt<58>(0x1)).tail<1>()) : tile.core.d.csr.large_1[L + 1]).pad<90>()))).bits<57,0>();
+      }
+    }
     // [vec comb] 2 templates x 4 lanes
     ESSENT_LANE_LOOP
     for (int L = 0; L < 4; L++) {
@@ -4868,8 +5535,8 @@ typedef struct SodorFullChip {
         _s_tile$core$d$csr$large_1$next[L].val = static_cast<typename UInt<58>::scalar_t>((static_cast<uint64_t>((static_cast<uint64_t>((static_cast<uint64_t>((static_cast<uint64_t>(_s_tile$core$d$csr$_GEN_1[L].val) >> 0)) & 0x3ffffffffffffffULL)) & 0x3ffffffffffffffULL)) & 0x3ffffffffffffffULL));
       }
     }
-    // [serial scc=10] 1 templates (0 comb), regs=[exe_reg_inst]
-    // [serial scc=10 chain-loop]
+    // [serial scc=8] 1 templates (0 comb), regs=[exe_reg_inst]
+    // [serial scc=8 chain-loop]
     essent_condhold_apply_rev<4>(tile.core.d.exe_reg_inst, _v2_cond_idx_0, _s_tile$core$d$exe_reg_inst$wdata);
     // [vec comb] 1 templates x 4 lanes [cold-guarded base: quiet drops 0, specializes 1]
     if (UNLIKELY(!_v2_quiet_base)) {
@@ -4886,8 +5553,8 @@ typedef struct SodorFullChip {
     for (int L = 0; L < 4; L++) {
       _s_tile$core$d$mem_reg_inst$next[L].val = static_cast<typename UInt<32>::scalar_t>((static_cast<uint32_t>((static_cast<uint32_t>(((((static_cast<uint32_t>(0x4033u) & 0xffffffffu)) & ((uint32_t)0 - (uint32_t)(((static_cast<uint32_t>(_s_tile$core$c$io_ctl_pipeline_kill[L].val) & 0x1u)) != 0))) | (((static_cast<uint32_t>((((tile.core.d.exe_reg_inst[L].val) & ((uint32_t)0 - (uint32_t)(((static_cast<uint32_t>(_s_tile$core$d$_T_1[L].val) & 0x1u)) != 0))) | ((tile.core.d.mem_reg_inst[L].val) & ~((uint32_t)0 - (uint32_t)(((static_cast<uint32_t>(_s_tile$core$d$_T_1[L].val) & 0x1u)) != 0))))) & 0xffffffffu)) & ~((uint32_t)0 - (uint32_t)(((static_cast<uint32_t>(_s_tile$core$c$io_ctl_pipeline_kill[L].val) & 0x1u)) != 0))))) & 0xffffffffu)) & 0xffffffffu));
     }
-    // [serial scc=12] 1 templates (0 comb), regs=[exe_reg_ctrl_rf_wen]
-    // [serial scc=12 chain-loop]
+    // [serial scc=10] 1 templates (0 comb), regs=[exe_reg_ctrl_rf_wen]
+    // [serial scc=10 chain-loop]
     essent_condhold_apply_rev<4>(tile.core.d.exe_reg_ctrl_rf_wen, _v2_cond_idx_0, _s_tile$core$d$exe_reg_ctrl_rf_wen$wdata);
     // [vec comb] 2 templates x 4 lanes [cold-guarded base: quiet drops 0, specializes 2]
     if (UNLIKELY(!_v2_quiet_base)) {
@@ -4900,8 +5567,8 @@ typedef struct SodorFullChip {
         _s_tile$core$d$mem_reg_ctrl_rf_wen$wdata[L].val = static_cast<typename UInt<1>::scalar_t>((static_cast<uint8_t>((static_cast<uint8_t>((((static_cast<uint8_t>((~static_cast<uint8_t>(_s_tile$core$c$io_ctl_pipeline_kill[L].val))) & 0x1u)) & (tile.core.d.exe_reg_ctrl_rf_wen[L].val))) & 0x1u)) & 0x1u));
       }
     }
-    // [serial scc=11] 1 templates (0 comb), regs=[mem_reg_ctrl_rf_wen]
-    // [serial scc=11 chain-loop]
+    // [serial scc=9] 1 templates (0 comb), regs=[mem_reg_ctrl_rf_wen]
+    // [serial scc=9 chain-loop]
     essent_condhold_apply_rev<4>(tile.core.d.mem_reg_ctrl_rf_wen, _v2_cond_idx_2, _s_tile$core$d$mem_reg_ctrl_rf_wen$wdata);
     // [vec comb] 2 templates x 4 lanes [cold-guarded base: quiet drops 0, specializes 2]
     if (UNLIKELY(!_v2_quiet_base)) {
@@ -4920,8 +5587,8 @@ typedef struct SodorFullChip {
       memcpy(_v2s_0, &_s_tile$core$d$wb_reg_ctrl_rf_wen$next[0], sizeof(_v2s_0));
       memcpy(&tile.core.d.wb_reg_ctrl_rf_wen[0], &_v2s_0[1], sizeof(_v2s_0) - sizeof(_v2s_0[0]));
     }
-    // [serial scc=13] 1 templates (0 comb), regs=[exe_reg_ctrl_mem_val]
-    // [serial scc=13 chain-loop]
+    // [serial scc=11] 1 templates (0 comb), regs=[exe_reg_ctrl_mem_val]
+    // [serial scc=11 chain-loop]
     essent_condhold_apply_rev<4>(tile.core.d.exe_reg_ctrl_mem_val, _v2_cond_idx_0, _s_tile$core$d$exe_reg_ctrl_mem_val$wdata);
     // [vec comb] 2 templates x 4 lanes [cold-guarded base: quiet drops 0, specializes 2]
     if (UNLIKELY(!_v2_quiet_base)) {
@@ -4934,12 +5601,45 @@ typedef struct SodorFullChip {
         _s_tile$core$d$mem_reg_ctrl_mem_val$next[L].val = static_cast<typename UInt<1>::scalar_t>((static_cast<uint8_t>((static_cast<uint8_t>((((static_cast<uint8_t>((~static_cast<uint8_t>(_s_tile$core$c$io_ctl_pipeline_kill[L].val))) & 0x1u)) & ((static_cast<uint8_t>((((static_cast<uint8_t>(((_s_tile$core$d$_T_1[L].val) & (tile.core.d.exe_reg_ctrl_mem_val[L].val))) & 0x1u)) | ((static_cast<uint8_t>((((static_cast<uint8_t>((~static_cast<uint8_t>(_s_tile$core$d$_T_1[L].val))) & 0x1u)) & (tile.core.d.mem_reg_ctrl_mem_val[L].val))) & 0x1u)))) & 0x1u)))) & 0x1u)) & 0x1u));
       }
     }
+    // [serial scc=13] 1 templates (0 comb), regs=[exe_reg_ctrl_mem_fcn]
+    // [serial scc=13 chain-loop]
+    essent_condhold_apply_rev<4>(tile.core.d.exe_reg_ctrl_mem_fcn, _v2_cond_idx_0, _s_tile$core$d$exe_reg_ctrl_mem_fcn$wdata);
+    // [vec comb] 2 templates x 4 lanes [cold-guarded base: quiet drops 0, specializes 2]
+    if (UNLIKELY(!_v2_quiet_base)) {
+      _v2_cold_comb_full(25);
+    } else {
+      // [vec comb-quiet] 2 templates x 4 lanes
+      ESSENT_LANE_LOOP
+      for (int L = 0; L < 4; L++) {
+        _s_tile$core$d$exe_reg_ctrl_mem_fcn$next[L].val = static_cast<typename UInt<1>::scalar_t>((static_cast<uint8_t>((static_cast<uint8_t>(((static_cast<uint8_t>((static_cast<uint8_t>(((((static_cast<uint8_t>(0x0u) & 0x3u)) & ((uint8_t)0 - (uint8_t)(((static_cast<uint8_t>(_s_tile$core$d$_T_17[L].val) & 0x1u)) != 0))) | (((static_cast<uint8_t>((((_s_tile$core$d$_GEN_15[L].val) & ((uint8_t)0 - (uint8_t)(((static_cast<uint8_t>(_s_tile$core$d$_T_2[L].val) & 0x1u)) != 0))) | (((static_cast<uint8_t>(tile.core.d.exe_reg_ctrl_mem_fcn[L].val) & 0x3u)) & ~((uint8_t)0 - (uint8_t)(((static_cast<uint8_t>(_s_tile$core$d$_T_2[L].val) & 0x1u)) != 0))))) & 0x3u)) & ~((uint8_t)0 - (uint8_t)(((static_cast<uint8_t>(_s_tile$core$d$_T_17[L].val) & 0x1u)) != 0))))) & 0x3u)) >> 0) & 0x1u)) & 0x1u)) & 0x1u));
+        _s_tile$core$d$mem_reg_ctrl_mem_fcn$wdata[L].val = static_cast<typename UInt<1>::scalar_t>((static_cast<uint8_t>(tile.core.d.exe_reg_ctrl_mem_fcn[L].val) & 0x1u));
+      }
+    }
+    // [serial scc=12] 1 templates (0 comb), regs=[mem_reg_ctrl_mem_fcn]
+    // [serial scc=12 chain-loop]
+    essent_condhold_index_rev<4>(_v2_cond_idx_4, _s_tile$core$d$mem_reg_ctrl_mem_fcn$wen);
+    essent_condhold_apply_rev<4>(tile.core.d.mem_reg_ctrl_mem_fcn, _v2_cond_idx_4, _s_tile$core$d$mem_reg_ctrl_mem_fcn$wdata);
+    // [vec comb] 1 templates x 4 lanes [cold-guarded base: quiet drops 0, specializes 1]
+    if (UNLIKELY(!_v2_quiet_base)) {
+      _v2_cold_comb_full(26);
+    } else {
+      // [vec comb-quiet] 1 templates x 4 lanes
+      ESSENT_LANE_LOOP
+      for (int L = 0; L < 4; L++) {
+        _s_tile$core$d$mem_reg_ctrl_mem_fcn$next[L].val = static_cast<typename UInt<1>::scalar_t>((static_cast<uint8_t>((static_cast<uint8_t>((((static_cast<uint8_t>(((_s_tile$core$c$io_ctl_pipeline_kill[L].val) & (tile.core.d.mem_reg_ctrl_mem_fcn[L].val))) & 0x1u)) | ((static_cast<uint8_t>((((static_cast<uint8_t>((~static_cast<uint8_t>(_s_tile$core$c$io_ctl_pipeline_kill[L].val))) & 0x1u)) & ((static_cast<uint8_t>((((static_cast<uint8_t>(((_s_tile$core$d$_T_1[L].val) & (tile.core.d.exe_reg_ctrl_mem_fcn[L].val))) & 0x1u)) | ((static_cast<uint8_t>((((static_cast<uint8_t>((~static_cast<uint8_t>(_s_tile$core$d$_T_1[L].val))) & 0x1u)) & (tile.core.d.mem_reg_ctrl_mem_fcn[L].val))) & 0x1u)))) & 0x1u)))) & 0x1u)))) & 0x1u)) & 0x1u));
+      }
+    }
+    // [vec comb] 1 templates x 4 lanes
+    ESSENT_LANE_LOOP
+    for (int L = 0; L < 4; L++) {
+      _s_memory$_T_3[L].val = static_cast<typename UInt<1>::scalar_t>((static_cast<uint8_t>((static_cast<uint8_t>(((tile.core.d.mem_reg_ctrl_mem_val[L].val) & ((static_cast<uint8_t>(((tile.core.d.mem_reg_ctrl_mem_fcn[L].val) & ((static_cast<uint8_t>((~static_cast<uint8_t>(io_host_valid[L].val))) & 0x1u)))) & 0x1u)))) & 0x1u)) & 0x1u));
+    }
     // [serial scc=14] 1 templates (0 comb), regs=[exe_reg_ctrl_csr_cmd]
     // [serial scc=14 chain-loop]
     essent_condhold_apply_rev<4>(tile.core.d.exe_reg_ctrl_csr_cmd, _v2_cond_idx_0, _s_tile$core$d$exe_reg_ctrl_csr_cmd$wdata);
     // [vec comb] 2 templates x 4 lanes [cold-guarded base: quiet drops 0, specializes 2]
     if (UNLIKELY(!_v2_quiet_base)) {
-      _v2_cold_comb_full(25);
+      _v2_cold_comb_full(27);
     } else {
       // [vec comb-quiet] 2 templates x 4 lanes
       ESSENT_LANE_LOOP
@@ -5063,7 +5763,7 @@ typedef struct SodorFullChip {
     essent_condhold_scan_rev<4>(tile.core.d.exe_reg_ctrl_mem_typ, _s_tile$core$d$exe_reg_ctrl_mem_typ$wen, _s_tile$core$d$exe_reg_ctrl_mem_typ$wdata);
     // [vec comb] 2 templates x 4 lanes [cold-guarded base: quiet drops 0, specializes 2]
     if (UNLIKELY(!_v2_quiet_base)) {
-      _v2_cold_comb_full(26);
+      _v2_cold_comb_full(28);
     } else {
       // [vec comb-quiet] 2 templates x 4 lanes
       ESSENT_LANE_LOOP
@@ -5077,7 +5777,7 @@ typedef struct SodorFullChip {
     essent_condhold_apply_rev<4>(tile.core.d.mem_reg_ctrl_mem_typ, _v2_cond_idx_4, _s_tile$core$d$mem_reg_ctrl_mem_typ$wdata);
     // [vec comb] 1 templates x 4 lanes [cold-guarded base: quiet drops 0, specializes 1]
     if (UNLIKELY(!_v2_quiet_base)) {
-      _v2_cold_comb_full(27);
+      _v2_cold_comb_full(29);
     } else {
       // [vec comb-quiet] 1 templates x 4 lanes
       ESSENT_LANE_LOOP
@@ -5133,7 +5833,7 @@ typedef struct SodorFullChip {
     }
     // [vec comb] 1 templates x 4 lanes [cold-guarded base: quiet drops 0, specializes 1]
     if (UNLIKELY(!_v2_quiet_base)) {
-      _v2_cold_comb_full(28);
+      _v2_cold_comb_full(30);
     } else {
       // [vec comb-quiet] 1 templates x 4 lanes
       ESSENT_LANE_LOOP
@@ -5162,7 +5862,17 @@ typedef struct SodorFullChip {
     }
     // [serial scc=28] 1 templates (0 comb), regs=[large]
     // [serial scc=28 chain-loop]
-    for (int L = 2; L >= 0; L--) tile.core.d.csr.large[L] = (reset ? UInt<90>(0x0) : (_s_tile$core$d$csr$wen[L + 1] ? (_s_tile$core$d$csr$_T_3[L + 1] ? ((((tile.core.d.csr.large[L + 1].cat(tile.core.d.csr.small[L + 1])).bits<63,32>()).cat(((_s_tile$core$d$csr$_w_T_3[L + 1] ? (tile.core.d.csr.large[L + 1].cat(tile.core.d.csr.small[L + 1])) : UInt<64>(0x0)) | _s_tile$core$d$csr$_GEN_297[L + 1]) & _s_tile$core$d$csr$_GEN_298[L + 1])).shr<6>()) : ((_s_tile$core$d$csr$_T_86[L + 1] ? ((((((_s_tile$core$d$csr$_w_T_3[L + 1] ? (tile.core.d.csr.large[L + 1].cat(tile.core.d.csr.small[L + 1])) : UInt<64>(0x0)) | _s_tile$core$d$csr$_GEN_297[L + 1]) & _s_tile$core$d$csr$_GEN_298[L + 1]).bits<31,0>()).cat((tile.core.d.csr.large[L + 1].cat(tile.core.d.csr.small[L + 1])).bits<31,0>())).shr<6>()) : (_s_tile$core$d$csr$_large_T[L + 1] ? ((tile.core.d.csr.large[L + 1] + UInt<58>(0x1)).tail<1>()) : tile.core.d.csr.large[L + 1])).pad<90>())) : ((_s_tile$core$d$csr$_large_T[L + 1] ? ((tile.core.d.csr.large[L + 1] + UInt<58>(0x1)).tail<1>()) : tile.core.d.csr.large[L + 1]).pad<90>()))).bits<57,0>();
+    {
+      uint64_t _gany = 0;
+      for (int L = 1; L < 4; L++) _gany |= essent_to_u64(_s_tile$core$d$csr$large$gwen[L]);
+      if (_gany == 0) {
+        const UInt<58> _gv = tile.core.d.csr.large[3];
+        ESSENT_LANE_LOOP
+        for (int L = 0; L < 4; L++) tile.core.d.csr.large[L] = _gv;
+      } else {
+        for (int L = 2; L >= 0; L--) tile.core.d.csr.large[L] = (reset ? UInt<90>(0x0) : (_s_tile$core$d$csr$wen[L + 1] ? (_s_tile$core$d$csr$_T_3[L + 1] ? ((((tile.core.d.csr.large[L + 1].cat(tile.core.d.csr.small[L + 1])).bits<63,32>()).cat(((_s_tile$core$d$csr$_w_T_3[L + 1] ? (tile.core.d.csr.large[L + 1].cat(tile.core.d.csr.small[L + 1])) : UInt<64>(0x0)) | _s_tile$core$d$csr$_GEN_297[L + 1]) & _s_tile$core$d$csr$_GEN_298[L + 1])).shr<6>()) : ((_s_tile$core$d$csr$_T_86[L + 1] ? ((((((_s_tile$core$d$csr$_w_T_3[L + 1] ? (tile.core.d.csr.large[L + 1].cat(tile.core.d.csr.small[L + 1])) : UInt<64>(0x0)) | _s_tile$core$d$csr$_GEN_297[L + 1]) & _s_tile$core$d$csr$_GEN_298[L + 1]).bits<31,0>()).cat((tile.core.d.csr.large[L + 1].cat(tile.core.d.csr.small[L + 1])).bits<31,0>())).shr<6>()) : (_s_tile$core$d$csr$_large_T[L + 1] ? ((tile.core.d.csr.large[L + 1] + UInt<58>(0x1)).tail<1>()) : tile.core.d.csr.large[L + 1])).pad<90>())) : ((_s_tile$core$d$csr$_large_T[L + 1] ? ((tile.core.d.csr.large[L + 1] + UInt<58>(0x1)).tail<1>()) : tile.core.d.csr.large[L + 1]).pad<90>()))).bits<57,0>();
+      }
+    }
     // [vec comb] 2 templates x 4 lanes
     ESSENT_LANE_LOOP
     for (int L = 0; L < 4; L++) {
@@ -5171,7 +5881,7 @@ typedef struct SodorFullChip {
     }
     // [vec comb] 5 templates x 4 lanes [cold-guarded base: quiet drops 3, specializes 2]
     if (UNLIKELY(!_v2_quiet_base)) {
-      _v2_cold_comb_full(29);
+      _v2_cold_comb_full(31);
     } else {
       // [vec comb-quiet] 2 templates x 4 lanes
       ESSENT_LANE_LOOP
@@ -5195,7 +5905,7 @@ typedef struct SodorFullChip {
     }
     // [vec comb] 1 templates x 4 lanes [cold-guarded base: quiet drops 0, specializes 1]
     if (UNLIKELY(!_v2_quiet_base)) {
-      _v2_cold_comb_full(30);
+      _v2_cold_comb_full(32);
     } else {
       // [vec comb-quiet] 1 templates x 4 lanes
       ESSENT_LANE_LOOP
@@ -5210,7 +5920,7 @@ typedef struct SodorFullChip {
     }
     // [vec comb] 3 templates x 4 lanes [cold-guarded base: quiet drops 1, specializes 2]
     if (UNLIKELY(!_v2_quiet_base)) {
-      _v2_cold_comb_full(31);
+      _v2_cold_comb_full(33);
     } else {
       // [vec comb-quiet] 2 templates x 4 lanes
       ESSENT_LANE_LOOP
@@ -5247,7 +5957,7 @@ typedef struct SodorFullChip {
     }
     // [vec comb] 1 templates x 4 lanes [cold-guarded base: quiet drops 1, specializes 0]
     if (UNLIKELY(!_v2_quiet_base)) {
-      _v2_cold_comb_full(32);
+      _v2_cold_comb_full(34);
     }
     // [serial scc=31] 1 templates (0 comb), regs=[reg_mie_msip]
     // [serial scc=31 chain-loop]
@@ -5277,7 +5987,7 @@ typedef struct SodorFullChip {
     }
     // [vec comb] 3 templates x 4 lanes [cold-guarded base: quiet drops 3, specializes 0]
     if (UNLIKELY(!_v2_quiet_base)) {
-      _v2_cold_comb_full(33);
+      _v2_cold_comb_full(35);
     }
     // [serial scc=32] 1 templates (0 comb), regs=[reg_mscratch]
     // [serial scc=32 chain-loop]
@@ -5302,7 +6012,7 @@ typedef struct SodorFullChip {
     }
     // [vec comb] 1 templates x 4 lanes [cold-guarded base: quiet drops 1, specializes 0]
     if (UNLIKELY(!_v2_quiet_base)) {
-      _v2_cold_comb_full(34);
+      _v2_cold_comb_full(36);
     }
     // [serial scc=33] 1 templates (0 comb), regs=[reg_mtval]
     // [serial scc=33 chain-loop]
@@ -5327,7 +6037,7 @@ typedef struct SodorFullChip {
     }
     // [vec comb] 1 templates x 4 lanes [cold-guarded base: quiet drops 1, specializes 0]
     if (UNLIKELY(!_v2_quiet_base)) {
-      _v2_cold_comb_full(35);
+      _v2_cold_comb_full(37);
     }
     // [serial scc=34] 1 templates (0 comb), regs=[reg_mcause]
     // [serial scc=34 chain-loop]
@@ -5339,7 +6049,7 @@ typedef struct SodorFullChip {
     }
     // [vec comb] 1 templates x 4 lanes [cold-guarded base: quiet drops 0, specializes 1]
     if (UNLIKELY(!_v2_quiet_base)) {
-      _v2_cold_comb_full(36);
+      _v2_cold_comb_full(38);
     } else {
       // [vec comb-quiet] 1 templates x 4 lanes
       ESSENT_LANE_LOOP
@@ -5375,7 +6085,7 @@ typedef struct SodorFullChip {
     }
     // [vec comb] 3 templates x 4 lanes [cold-guarded base: quiet drops 3, specializes 0]
     if (UNLIKELY(!_v2_quiet_base)) {
-      _v2_cold_comb_full(37);
+      _v2_cold_comb_full(39);
     }
     // [serial scc=36] 1 templates (0 comb), regs=[reg_dpc]
     // [serial scc=36 chain-loop]
@@ -5408,7 +6118,7 @@ typedef struct SodorFullChip {
     }
     // [vec comb] 1 templates x 4 lanes [cold-guarded base: quiet drops 1, specializes 0]
     if (UNLIKELY(!_v2_quiet_base)) {
-      _v2_cold_comb_full(38);
+      _v2_cold_comb_full(40);
     }
     // [serial scc=2] 1 templates (0 comb), regs=[if_reg_pc]
     // [serial scc=2 chain-loop]
@@ -5425,7 +6135,7 @@ typedef struct SodorFullChip {
     }
     // [vec comb] 1 templates x 4 lanes [cold-guarded base: quiet drops 0, specializes 1]
     if (UNLIKELY(!_v2_quiet_base)) {
-      _v2_cold_comb_full(39);
+      _v2_cold_comb_full(41);
     } else {
       // [vec comb-quiet] 1 templates x 4 lanes
       ESSENT_LANE_LOOP
@@ -5455,7 +6165,7 @@ typedef struct SodorFullChip {
     }
     // [vec comb] 1 templates x 4 lanes [cold-guarded base: quiet drops 0, specializes 1]
     if (UNLIKELY(!_v2_quiet_base)) {
-      _v2_cold_comb_full(40);
+      _v2_cold_comb_full(42);
     } else {
       // [vec comb-quiet] 1 templates x 4 lanes
       ESSENT_LANE_LOOP
@@ -5469,7 +6179,7 @@ typedef struct SodorFullChip {
     essent_condhold_scan_rev<4>(tile.core.d.dec_reg_pc, _s_tile$core$d$dec_reg_pc$wen, _s_tile$core$d$dec_reg_pc$wdata);
     // [vec comb] 2 templates x 4 lanes [cold-guarded base: quiet drops 0, specializes 2]
     if (UNLIKELY(!_v2_quiet_base)) {
-      _v2_cold_comb_full(41);
+      _v2_cold_comb_full(43);
     } else {
       // [vec comb-quiet] 2 templates x 4 lanes
       ESSENT_LANE_LOOP
@@ -5501,7 +6211,7 @@ typedef struct SodorFullChip {
     }
     // [vec comb] 1 templates x 4 lanes [cold-guarded base: quiet drops 1, specializes 0]
     if (UNLIKELY(!_v2_quiet_base)) {
-      _v2_cold_comb_full(42);
+      _v2_cold_comb_full(44);
     }
     // [serial scc=38] 1 templates (0 comb), regs=[reg_medeleg]
     // [serial scc=38 chain-loop]
@@ -5531,63 +6241,207 @@ typedef struct SodorFullChip {
     }
     // [vec comb] 1 templates x 4 lanes [cold-guarded base: quiet drops 1, specializes 0]
     if (UNLIKELY(!_v2_quiet_base)) {
-      _v2_cold_comb_full(43);
+      _v2_cold_comb_full(45);
     }
     // [serial scc=39] 1 templates (0 comb), regs=[small_2]
     // [serial scc=39 chain-loop]
-    for (int L = 2; L >= 0; L--) tile.core.d.csr.small_2[L] = (_s_tile$core$d$csr$wen[L + 1] ? (_s_tile$core$d$csr$_T_22[L + 1] ? ((tile.core.d.csr.small_2[L + 1].bits<39,32>()).cat(((_s_tile$core$d$csr$_w_T_3[L + 1] ? tile.core.d.csr.small_2[L + 1] : UInt<40>(0x0)) | _s_tile$core$d$csr$_GEN_233[L + 1]) & _s_tile$core$d$csr$_GEN_234[L + 1])) : ((_s_tile$core$d$csr$_T_23[L + 1] ? ((((((_s_tile$core$d$csr$_w_T_3[L + 1] ? tile.core.d.csr.small_2[L + 1] : UInt<40>(0x0)) | _s_tile$core$d$csr$_GEN_233[L + 1]) & _s_tile$core$d$csr$_GEN_234[L + 1]).bits<7,0>()).cat(tile.core.d.csr.small_2[L + 1].bits<31,0>())).pad<41>()) : (tile.core.d.csr.small_2[L + 1].pad<41>())).pad<48>())) : ((tile.core.d.csr.small_2[L + 1].pad<41>()).pad<48>())).bits<39,0>();
-    // [vec comb] 3 templates x 4 lanes [cold-guarded base: quiet drops 3, specializes 0]
     if (UNLIKELY(!_v2_quiet_base)) {
-      _v2_cold_comb_full(44);
+      {
+        uint64_t _gany = 0;
+        for (int L = 1; L < 4; L++) _gany |= essent_to_u64(_s_tile$core$d$csr$small_2$gwen[L]);
+        if (_gany == 0) {
+          const UInt<40> _gv = tile.core.d.csr.small_2[3];
+          ESSENT_LANE_LOOP
+          for (int L = 0; L < 4; L++) tile.core.d.csr.small_2[L] = _gv;
+        } else {
+          for (int L = 2; L >= 0; L--) tile.core.d.csr.small_2[L] = (_s_tile$core$d$csr$wen[L + 1] ? (_s_tile$core$d$csr$_T_22[L + 1] ? ((tile.core.d.csr.small_2[L + 1].bits<39,32>()).cat(((_s_tile$core$d$csr$_w_T_3[L + 1] ? tile.core.d.csr.small_2[L + 1] : UInt<40>(0x0)) | _s_tile$core$d$csr$_GEN_233[L + 1]) & _s_tile$core$d$csr$_GEN_234[L + 1])) : ((_s_tile$core$d$csr$_T_23[L + 1] ? ((((((_s_tile$core$d$csr$_w_T_3[L + 1] ? tile.core.d.csr.small_2[L + 1] : UInt<40>(0x0)) | _s_tile$core$d$csr$_GEN_233[L + 1]) & _s_tile$core$d$csr$_GEN_234[L + 1]).bits<7,0>()).cat(tile.core.d.csr.small_2[L + 1].bits<31,0>())).pad<41>()) : (tile.core.d.csr.small_2[L + 1].pad<41>())).pad<48>())) : ((tile.core.d.csr.small_2[L + 1].pad<41>()).pad<48>())).bits<39,0>();
+        }
+      }
+    } else {
+      {
+        const UInt<40> _gv = tile.core.d.csr.small_2[3];
+        ESSENT_LANE_LOOP
+        for (int L = 0; L < 4; L++) tile.core.d.csr.small_2[L] = _gv;
+      }
     }
-    // [serial scc=40] 1 templates (0 comb), regs=[small_3]
-    // [serial scc=40 chain-loop]
-    for (int L = 2; L >= 0; L--) tile.core.d.csr.small_3[L] = (_s_tile$core$d$csr$wen[L + 1] ? (_s_tile$core$d$csr$_T_24[L + 1] ? ((tile.core.d.csr.small_3[L + 1].bits<39,32>()).cat(((_s_tile$core$d$csr$_w_T_3[L + 1] ? tile.core.d.csr.small_3[L + 1] : UInt<40>(0x0)) | _s_tile$core$d$csr$_GEN_233[L + 1]) & _s_tile$core$d$csr$_GEN_234[L + 1])) : ((_s_tile$core$d$csr$_T_25[L + 1] ? ((((((_s_tile$core$d$csr$_w_T_3[L + 1] ? tile.core.d.csr.small_3[L + 1] : UInt<40>(0x0)) | _s_tile$core$d$csr$_GEN_233[L + 1]) & _s_tile$core$d$csr$_GEN_234[L + 1]).bits<7,0>()).cat(tile.core.d.csr.small_3[L + 1].bits<31,0>())).pad<41>()) : (tile.core.d.csr.small_3[L + 1].pad<41>())).pad<48>())) : ((tile.core.d.csr.small_3[L + 1].pad<41>()).pad<48>())).bits<39,0>();
-    // [vec comb] 3 templates x 4 lanes [cold-guarded base: quiet drops 3, specializes 0]
-    if (UNLIKELY(!_v2_quiet_base)) {
-      _v2_cold_comb_full(45);
-    }
-    // [serial scc=41] 1 templates (0 comb), regs=[small_4]
-    // [serial scc=41 chain-loop]
-    for (int L = 2; L >= 0; L--) tile.core.d.csr.small_4[L] = (_s_tile$core$d$csr$wen[L + 1] ? (_s_tile$core$d$csr$_T_26[L + 1] ? ((tile.core.d.csr.small_4[L + 1].bits<39,32>()).cat(((_s_tile$core$d$csr$_w_T_3[L + 1] ? tile.core.d.csr.small_4[L + 1] : UInt<40>(0x0)) | _s_tile$core$d$csr$_GEN_233[L + 1]) & _s_tile$core$d$csr$_GEN_234[L + 1])) : ((_s_tile$core$d$csr$_T_27[L + 1] ? ((((((_s_tile$core$d$csr$_w_T_3[L + 1] ? tile.core.d.csr.small_4[L + 1] : UInt<40>(0x0)) | _s_tile$core$d$csr$_GEN_233[L + 1]) & _s_tile$core$d$csr$_GEN_234[L + 1]).bits<7,0>()).cat(tile.core.d.csr.small_4[L + 1].bits<31,0>())).pad<41>()) : (tile.core.d.csr.small_4[L + 1].pad<41>())).pad<48>())) : ((tile.core.d.csr.small_4[L + 1].pad<41>()).pad<48>())).bits<39,0>();
     // [vec comb] 3 templates x 4 lanes [cold-guarded base: quiet drops 3, specializes 0]
     if (UNLIKELY(!_v2_quiet_base)) {
       _v2_cold_comb_full(46);
     }
-    // [serial scc=42] 1 templates (0 comb), regs=[small_5]
-    // [serial scc=42 chain-loop]
-    for (int L = 2; L >= 0; L--) tile.core.d.csr.small_5[L] = (_s_tile$core$d$csr$wen[L + 1] ? (_s_tile$core$d$csr$_T_28[L + 1] ? ((tile.core.d.csr.small_5[L + 1].bits<39,32>()).cat(((_s_tile$core$d$csr$_w_T_3[L + 1] ? tile.core.d.csr.small_5[L + 1] : UInt<40>(0x0)) | _s_tile$core$d$csr$_GEN_233[L + 1]) & _s_tile$core$d$csr$_GEN_234[L + 1])) : ((_s_tile$core$d$csr$_T_29[L + 1] ? ((((((_s_tile$core$d$csr$_w_T_3[L + 1] ? tile.core.d.csr.small_5[L + 1] : UInt<40>(0x0)) | _s_tile$core$d$csr$_GEN_233[L + 1]) & _s_tile$core$d$csr$_GEN_234[L + 1]).bits<7,0>()).cat(tile.core.d.csr.small_5[L + 1].bits<31,0>())).pad<41>()) : (tile.core.d.csr.small_5[L + 1].pad<41>())).pad<48>())) : ((tile.core.d.csr.small_5[L + 1].pad<41>()).pad<48>())).bits<39,0>();
+    // [serial scc=40] 1 templates (0 comb), regs=[small_3]
+    // [serial scc=40 chain-loop]
+    if (UNLIKELY(!_v2_quiet_base)) {
+      {
+        uint64_t _gany = 0;
+        for (int L = 1; L < 4; L++) _gany |= essent_to_u64(_s_tile$core$d$csr$small_3$gwen[L]);
+        if (_gany == 0) {
+          const UInt<40> _gv = tile.core.d.csr.small_3[3];
+          ESSENT_LANE_LOOP
+          for (int L = 0; L < 4; L++) tile.core.d.csr.small_3[L] = _gv;
+        } else {
+          for (int L = 2; L >= 0; L--) tile.core.d.csr.small_3[L] = (_s_tile$core$d$csr$wen[L + 1] ? (_s_tile$core$d$csr$_T_24[L + 1] ? ((tile.core.d.csr.small_3[L + 1].bits<39,32>()).cat(((_s_tile$core$d$csr$_w_T_3[L + 1] ? tile.core.d.csr.small_3[L + 1] : UInt<40>(0x0)) | _s_tile$core$d$csr$_GEN_233[L + 1]) & _s_tile$core$d$csr$_GEN_234[L + 1])) : ((_s_tile$core$d$csr$_T_25[L + 1] ? ((((((_s_tile$core$d$csr$_w_T_3[L + 1] ? tile.core.d.csr.small_3[L + 1] : UInt<40>(0x0)) | _s_tile$core$d$csr$_GEN_233[L + 1]) & _s_tile$core$d$csr$_GEN_234[L + 1]).bits<7,0>()).cat(tile.core.d.csr.small_3[L + 1].bits<31,0>())).pad<41>()) : (tile.core.d.csr.small_3[L + 1].pad<41>())).pad<48>())) : ((tile.core.d.csr.small_3[L + 1].pad<41>()).pad<48>())).bits<39,0>();
+        }
+      }
+    } else {
+      {
+        const UInt<40> _gv = tile.core.d.csr.small_3[3];
+        ESSENT_LANE_LOOP
+        for (int L = 0; L < 4; L++) tile.core.d.csr.small_3[L] = _gv;
+      }
+    }
     // [vec comb] 3 templates x 4 lanes [cold-guarded base: quiet drops 3, specializes 0]
     if (UNLIKELY(!_v2_quiet_base)) {
       _v2_cold_comb_full(47);
     }
-    // [serial scc=43] 1 templates (0 comb), regs=[small_6]
-    // [serial scc=43 chain-loop]
-    for (int L = 2; L >= 0; L--) tile.core.d.csr.small_6[L] = (_s_tile$core$d$csr$wen[L + 1] ? (_s_tile$core$d$csr$_T_30[L + 1] ? ((tile.core.d.csr.small_6[L + 1].bits<39,32>()).cat(((_s_tile$core$d$csr$_w_T_3[L + 1] ? tile.core.d.csr.small_6[L + 1] : UInt<40>(0x0)) | _s_tile$core$d$csr$_GEN_233[L + 1]) & _s_tile$core$d$csr$_GEN_234[L + 1])) : ((_s_tile$core$d$csr$_T_31[L + 1] ? ((((((_s_tile$core$d$csr$_w_T_3[L + 1] ? tile.core.d.csr.small_6[L + 1] : UInt<40>(0x0)) | _s_tile$core$d$csr$_GEN_233[L + 1]) & _s_tile$core$d$csr$_GEN_234[L + 1]).bits<7,0>()).cat(tile.core.d.csr.small_6[L + 1].bits<31,0>())).pad<41>()) : (tile.core.d.csr.small_6[L + 1].pad<41>())).pad<48>())) : ((tile.core.d.csr.small_6[L + 1].pad<41>()).pad<48>())).bits<39,0>();
+    // [serial scc=41] 1 templates (0 comb), regs=[small_4]
+    // [serial scc=41 chain-loop]
+    if (UNLIKELY(!_v2_quiet_base)) {
+      {
+        uint64_t _gany = 0;
+        for (int L = 1; L < 4; L++) _gany |= essent_to_u64(_s_tile$core$d$csr$small_4$gwen[L]);
+        if (_gany == 0) {
+          const UInt<40> _gv = tile.core.d.csr.small_4[3];
+          ESSENT_LANE_LOOP
+          for (int L = 0; L < 4; L++) tile.core.d.csr.small_4[L] = _gv;
+        } else {
+          for (int L = 2; L >= 0; L--) tile.core.d.csr.small_4[L] = (_s_tile$core$d$csr$wen[L + 1] ? (_s_tile$core$d$csr$_T_26[L + 1] ? ((tile.core.d.csr.small_4[L + 1].bits<39,32>()).cat(((_s_tile$core$d$csr$_w_T_3[L + 1] ? tile.core.d.csr.small_4[L + 1] : UInt<40>(0x0)) | _s_tile$core$d$csr$_GEN_233[L + 1]) & _s_tile$core$d$csr$_GEN_234[L + 1])) : ((_s_tile$core$d$csr$_T_27[L + 1] ? ((((((_s_tile$core$d$csr$_w_T_3[L + 1] ? tile.core.d.csr.small_4[L + 1] : UInt<40>(0x0)) | _s_tile$core$d$csr$_GEN_233[L + 1]) & _s_tile$core$d$csr$_GEN_234[L + 1]).bits<7,0>()).cat(tile.core.d.csr.small_4[L + 1].bits<31,0>())).pad<41>()) : (tile.core.d.csr.small_4[L + 1].pad<41>())).pad<48>())) : ((tile.core.d.csr.small_4[L + 1].pad<41>()).pad<48>())).bits<39,0>();
+        }
+      }
+    } else {
+      {
+        const UInt<40> _gv = tile.core.d.csr.small_4[3];
+        ESSENT_LANE_LOOP
+        for (int L = 0; L < 4; L++) tile.core.d.csr.small_4[L] = _gv;
+      }
+    }
     // [vec comb] 3 templates x 4 lanes [cold-guarded base: quiet drops 3, specializes 0]
     if (UNLIKELY(!_v2_quiet_base)) {
       _v2_cold_comb_full(48);
     }
-    // [serial scc=44] 1 templates (0 comb), regs=[small_7]
-    // [serial scc=44 chain-loop]
-    for (int L = 2; L >= 0; L--) tile.core.d.csr.small_7[L] = (_s_tile$core$d$csr$wen[L + 1] ? (_s_tile$core$d$csr$_T_32[L + 1] ? ((tile.core.d.csr.small_7[L + 1].bits<39,32>()).cat(((_s_tile$core$d$csr$_w_T_3[L + 1] ? tile.core.d.csr.small_7[L + 1] : UInt<40>(0x0)) | _s_tile$core$d$csr$_GEN_233[L + 1]) & _s_tile$core$d$csr$_GEN_234[L + 1])) : ((_s_tile$core$d$csr$_T_33[L + 1] ? ((((((_s_tile$core$d$csr$_w_T_3[L + 1] ? tile.core.d.csr.small_7[L + 1] : UInt<40>(0x0)) | _s_tile$core$d$csr$_GEN_233[L + 1]) & _s_tile$core$d$csr$_GEN_234[L + 1]).bits<7,0>()).cat(tile.core.d.csr.small_7[L + 1].bits<31,0>())).pad<41>()) : (tile.core.d.csr.small_7[L + 1].pad<41>())).pad<48>())) : ((tile.core.d.csr.small_7[L + 1].pad<41>()).pad<48>())).bits<39,0>();
+    // [serial scc=42] 1 templates (0 comb), regs=[small_5]
+    // [serial scc=42 chain-loop]
+    if (UNLIKELY(!_v2_quiet_base)) {
+      {
+        uint64_t _gany = 0;
+        for (int L = 1; L < 4; L++) _gany |= essent_to_u64(_s_tile$core$d$csr$small_5$gwen[L]);
+        if (_gany == 0) {
+          const UInt<40> _gv = tile.core.d.csr.small_5[3];
+          ESSENT_LANE_LOOP
+          for (int L = 0; L < 4; L++) tile.core.d.csr.small_5[L] = _gv;
+        } else {
+          for (int L = 2; L >= 0; L--) tile.core.d.csr.small_5[L] = (_s_tile$core$d$csr$wen[L + 1] ? (_s_tile$core$d$csr$_T_28[L + 1] ? ((tile.core.d.csr.small_5[L + 1].bits<39,32>()).cat(((_s_tile$core$d$csr$_w_T_3[L + 1] ? tile.core.d.csr.small_5[L + 1] : UInt<40>(0x0)) | _s_tile$core$d$csr$_GEN_233[L + 1]) & _s_tile$core$d$csr$_GEN_234[L + 1])) : ((_s_tile$core$d$csr$_T_29[L + 1] ? ((((((_s_tile$core$d$csr$_w_T_3[L + 1] ? tile.core.d.csr.small_5[L + 1] : UInt<40>(0x0)) | _s_tile$core$d$csr$_GEN_233[L + 1]) & _s_tile$core$d$csr$_GEN_234[L + 1]).bits<7,0>()).cat(tile.core.d.csr.small_5[L + 1].bits<31,0>())).pad<41>()) : (tile.core.d.csr.small_5[L + 1].pad<41>())).pad<48>())) : ((tile.core.d.csr.small_5[L + 1].pad<41>()).pad<48>())).bits<39,0>();
+        }
+      }
+    } else {
+      {
+        const UInt<40> _gv = tile.core.d.csr.small_5[3];
+        ESSENT_LANE_LOOP
+        for (int L = 0; L < 4; L++) tile.core.d.csr.small_5[L] = _gv;
+      }
+    }
     // [vec comb] 3 templates x 4 lanes [cold-guarded base: quiet drops 3, specializes 0]
     if (UNLIKELY(!_v2_quiet_base)) {
       _v2_cold_comb_full(49);
     }
-    // [serial scc=45] 1 templates (0 comb), regs=[small_8]
-    // [serial scc=45 chain-loop]
-    for (int L = 2; L >= 0; L--) tile.core.d.csr.small_8[L] = (_s_tile$core$d$csr$wen[L + 1] ? (_s_tile$core$d$csr$_T_34[L + 1] ? ((tile.core.d.csr.small_8[L + 1].bits<39,32>()).cat(((_s_tile$core$d$csr$_w_T_3[L + 1] ? tile.core.d.csr.small_8[L + 1] : UInt<40>(0x0)) | _s_tile$core$d$csr$_GEN_233[L + 1]) & _s_tile$core$d$csr$_GEN_234[L + 1])) : ((_s_tile$core$d$csr$_T_35[L + 1] ? ((((((_s_tile$core$d$csr$_w_T_3[L + 1] ? tile.core.d.csr.small_8[L + 1] : UInt<40>(0x0)) | _s_tile$core$d$csr$_GEN_233[L + 1]) & _s_tile$core$d$csr$_GEN_234[L + 1]).bits<7,0>()).cat(tile.core.d.csr.small_8[L + 1].bits<31,0>())).pad<41>()) : (tile.core.d.csr.small_8[L + 1].pad<41>())).pad<48>())) : ((tile.core.d.csr.small_8[L + 1].pad<41>()).pad<48>())).bits<39,0>();
+    // [serial scc=43] 1 templates (0 comb), regs=[small_6]
+    // [serial scc=43 chain-loop]
+    if (UNLIKELY(!_v2_quiet_base)) {
+      {
+        uint64_t _gany = 0;
+        for (int L = 1; L < 4; L++) _gany |= essent_to_u64(_s_tile$core$d$csr$small_6$gwen[L]);
+        if (_gany == 0) {
+          const UInt<40> _gv = tile.core.d.csr.small_6[3];
+          ESSENT_LANE_LOOP
+          for (int L = 0; L < 4; L++) tile.core.d.csr.small_6[L] = _gv;
+        } else {
+          for (int L = 2; L >= 0; L--) tile.core.d.csr.small_6[L] = (_s_tile$core$d$csr$wen[L + 1] ? (_s_tile$core$d$csr$_T_30[L + 1] ? ((tile.core.d.csr.small_6[L + 1].bits<39,32>()).cat(((_s_tile$core$d$csr$_w_T_3[L + 1] ? tile.core.d.csr.small_6[L + 1] : UInt<40>(0x0)) | _s_tile$core$d$csr$_GEN_233[L + 1]) & _s_tile$core$d$csr$_GEN_234[L + 1])) : ((_s_tile$core$d$csr$_T_31[L + 1] ? ((((((_s_tile$core$d$csr$_w_T_3[L + 1] ? tile.core.d.csr.small_6[L + 1] : UInt<40>(0x0)) | _s_tile$core$d$csr$_GEN_233[L + 1]) & _s_tile$core$d$csr$_GEN_234[L + 1]).bits<7,0>()).cat(tile.core.d.csr.small_6[L + 1].bits<31,0>())).pad<41>()) : (tile.core.d.csr.small_6[L + 1].pad<41>())).pad<48>())) : ((tile.core.d.csr.small_6[L + 1].pad<41>()).pad<48>())).bits<39,0>();
+        }
+      }
+    } else {
+      {
+        const UInt<40> _gv = tile.core.d.csr.small_6[3];
+        ESSENT_LANE_LOOP
+        for (int L = 0; L < 4; L++) tile.core.d.csr.small_6[L] = _gv;
+      }
+    }
     // [vec comb] 3 templates x 4 lanes [cold-guarded base: quiet drops 3, specializes 0]
     if (UNLIKELY(!_v2_quiet_base)) {
       _v2_cold_comb_full(50);
     }
-    // [serial scc=46] 1 templates (0 comb), regs=[small_9]
-    // [serial scc=46 chain-loop]
-    for (int L = 2; L >= 0; L--) tile.core.d.csr.small_9[L] = (_s_tile$core$d$csr$wen[L + 1] ? (_s_tile$core$d$csr$_T_36[L + 1] ? ((tile.core.d.csr.small_9[L + 1].bits<39,32>()).cat(((_s_tile$core$d$csr$_w_T_3[L + 1] ? tile.core.d.csr.small_9[L + 1] : UInt<40>(0x0)) | _s_tile$core$d$csr$_GEN_233[L + 1]) & _s_tile$core$d$csr$_GEN_234[L + 1])) : ((_s_tile$core$d$csr$_T_37[L + 1] ? ((((((_s_tile$core$d$csr$_w_T_3[L + 1] ? tile.core.d.csr.small_9[L + 1] : UInt<40>(0x0)) | _s_tile$core$d$csr$_GEN_233[L + 1]) & _s_tile$core$d$csr$_GEN_234[L + 1]).bits<7,0>()).cat(tile.core.d.csr.small_9[L + 1].bits<31,0>())).pad<41>()) : (tile.core.d.csr.small_9[L + 1].pad<41>())).pad<48>())) : ((tile.core.d.csr.small_9[L + 1].pad<41>()).pad<48>())).bits<39,0>();
-    // [vec comb] 1 templates x 4 lanes [cold-guarded base: quiet drops 1, specializes 0]
+    // [serial scc=44] 1 templates (0 comb), regs=[small_7]
+    // [serial scc=44 chain-loop]
+    if (UNLIKELY(!_v2_quiet_base)) {
+      {
+        uint64_t _gany = 0;
+        for (int L = 1; L < 4; L++) _gany |= essent_to_u64(_s_tile$core$d$csr$small_7$gwen[L]);
+        if (_gany == 0) {
+          const UInt<40> _gv = tile.core.d.csr.small_7[3];
+          ESSENT_LANE_LOOP
+          for (int L = 0; L < 4; L++) tile.core.d.csr.small_7[L] = _gv;
+        } else {
+          for (int L = 2; L >= 0; L--) tile.core.d.csr.small_7[L] = (_s_tile$core$d$csr$wen[L + 1] ? (_s_tile$core$d$csr$_T_32[L + 1] ? ((tile.core.d.csr.small_7[L + 1].bits<39,32>()).cat(((_s_tile$core$d$csr$_w_T_3[L + 1] ? tile.core.d.csr.small_7[L + 1] : UInt<40>(0x0)) | _s_tile$core$d$csr$_GEN_233[L + 1]) & _s_tile$core$d$csr$_GEN_234[L + 1])) : ((_s_tile$core$d$csr$_T_33[L + 1] ? ((((((_s_tile$core$d$csr$_w_T_3[L + 1] ? tile.core.d.csr.small_7[L + 1] : UInt<40>(0x0)) | _s_tile$core$d$csr$_GEN_233[L + 1]) & _s_tile$core$d$csr$_GEN_234[L + 1]).bits<7,0>()).cat(tile.core.d.csr.small_7[L + 1].bits<31,0>())).pad<41>()) : (tile.core.d.csr.small_7[L + 1].pad<41>())).pad<48>())) : ((tile.core.d.csr.small_7[L + 1].pad<41>()).pad<48>())).bits<39,0>();
+        }
+      }
+    } else {
+      {
+        const UInt<40> _gv = tile.core.d.csr.small_7[3];
+        ESSENT_LANE_LOOP
+        for (int L = 0; L < 4; L++) tile.core.d.csr.small_7[L] = _gv;
+      }
+    }
+    // [vec comb] 3 templates x 4 lanes [cold-guarded base: quiet drops 3, specializes 0]
     if (UNLIKELY(!_v2_quiet_base)) {
       _v2_cold_comb_full(51);
+    }
+    // [serial scc=45] 1 templates (0 comb), regs=[small_8]
+    // [serial scc=45 chain-loop]
+    if (UNLIKELY(!_v2_quiet_base)) {
+      {
+        uint64_t _gany = 0;
+        for (int L = 1; L < 4; L++) _gany |= essent_to_u64(_s_tile$core$d$csr$small_8$gwen[L]);
+        if (_gany == 0) {
+          const UInt<40> _gv = tile.core.d.csr.small_8[3];
+          ESSENT_LANE_LOOP
+          for (int L = 0; L < 4; L++) tile.core.d.csr.small_8[L] = _gv;
+        } else {
+          for (int L = 2; L >= 0; L--) tile.core.d.csr.small_8[L] = (_s_tile$core$d$csr$wen[L + 1] ? (_s_tile$core$d$csr$_T_34[L + 1] ? ((tile.core.d.csr.small_8[L + 1].bits<39,32>()).cat(((_s_tile$core$d$csr$_w_T_3[L + 1] ? tile.core.d.csr.small_8[L + 1] : UInt<40>(0x0)) | _s_tile$core$d$csr$_GEN_233[L + 1]) & _s_tile$core$d$csr$_GEN_234[L + 1])) : ((_s_tile$core$d$csr$_T_35[L + 1] ? ((((((_s_tile$core$d$csr$_w_T_3[L + 1] ? tile.core.d.csr.small_8[L + 1] : UInt<40>(0x0)) | _s_tile$core$d$csr$_GEN_233[L + 1]) & _s_tile$core$d$csr$_GEN_234[L + 1]).bits<7,0>()).cat(tile.core.d.csr.small_8[L + 1].bits<31,0>())).pad<41>()) : (tile.core.d.csr.small_8[L + 1].pad<41>())).pad<48>())) : ((tile.core.d.csr.small_8[L + 1].pad<41>()).pad<48>())).bits<39,0>();
+        }
+      }
+    } else {
+      {
+        const UInt<40> _gv = tile.core.d.csr.small_8[3];
+        ESSENT_LANE_LOOP
+        for (int L = 0; L < 4; L++) tile.core.d.csr.small_8[L] = _gv;
+      }
+    }
+    // [vec comb] 3 templates x 4 lanes [cold-guarded base: quiet drops 3, specializes 0]
+    if (UNLIKELY(!_v2_quiet_base)) {
+      _v2_cold_comb_full(52);
+    }
+    // [serial scc=46] 1 templates (0 comb), regs=[small_9]
+    // [serial scc=46 chain-loop]
+    if (UNLIKELY(!_v2_quiet_base)) {
+      {
+        uint64_t _gany = 0;
+        for (int L = 1; L < 4; L++) _gany |= essent_to_u64(_s_tile$core$d$csr$small_9$gwen[L]);
+        if (_gany == 0) {
+          const UInt<40> _gv = tile.core.d.csr.small_9[3];
+          ESSENT_LANE_LOOP
+          for (int L = 0; L < 4; L++) tile.core.d.csr.small_9[L] = _gv;
+        } else {
+          for (int L = 2; L >= 0; L--) tile.core.d.csr.small_9[L] = (_s_tile$core$d$csr$wen[L + 1] ? (_s_tile$core$d$csr$_T_36[L + 1] ? ((tile.core.d.csr.small_9[L + 1].bits<39,32>()).cat(((_s_tile$core$d$csr$_w_T_3[L + 1] ? tile.core.d.csr.small_9[L + 1] : UInt<40>(0x0)) | _s_tile$core$d$csr$_GEN_233[L + 1]) & _s_tile$core$d$csr$_GEN_234[L + 1])) : ((_s_tile$core$d$csr$_T_37[L + 1] ? ((((((_s_tile$core$d$csr$_w_T_3[L + 1] ? tile.core.d.csr.small_9[L + 1] : UInt<40>(0x0)) | _s_tile$core$d$csr$_GEN_233[L + 1]) & _s_tile$core$d$csr$_GEN_234[L + 1]).bits<7,0>()).cat(tile.core.d.csr.small_9[L + 1].bits<31,0>())).pad<41>()) : (tile.core.d.csr.small_9[L + 1].pad<41>())).pad<48>())) : ((tile.core.d.csr.small_9[L + 1].pad<41>()).pad<48>())).bits<39,0>();
+        }
+      }
+    } else {
+      {
+        const UInt<40> _gv = tile.core.d.csr.small_9[3];
+        ESSENT_LANE_LOOP
+        for (int L = 0; L < 4; L++) tile.core.d.csr.small_9[L] = _gv;
+      }
+    }
+    // [vec comb] 1 templates x 4 lanes [cold-guarded base: quiet drops 1, specializes 0]
+    if (UNLIKELY(!_v2_quiet_base)) {
+      _v2_cold_comb_full(53);
     }
     // [vec comb] 1 templates x 4 lanes
     ESSENT_LANE_LOOP
@@ -5596,63 +6450,207 @@ typedef struct SodorFullChip {
     }
     // [vec comb] 2 templates x 4 lanes [cold-guarded base: quiet drops 2, specializes 0]
     if (UNLIKELY(!_v2_quiet_base)) {
-      _v2_cold_comb_full(52);
+      _v2_cold_comb_full(54);
     }
     // [serial scc=47] 1 templates (0 comb), regs=[small_10]
     // [serial scc=47 chain-loop]
-    for (int L = 2; L >= 0; L--) tile.core.d.csr.small_10[L] = (_s_tile$core$d$csr$wen[L + 1] ? (_s_tile$core$d$csr$_T_38[L + 1] ? ((tile.core.d.csr.small_10[L + 1].bits<39,32>()).cat(((_s_tile$core$d$csr$_w_T_3[L + 1] ? tile.core.d.csr.small_10[L + 1] : UInt<40>(0x0)) | _s_tile$core$d$csr$_GEN_233[L + 1]) & _s_tile$core$d$csr$_GEN_234[L + 1])) : ((_s_tile$core$d$csr$_T_39[L + 1] ? ((((((_s_tile$core$d$csr$_w_T_3[L + 1] ? tile.core.d.csr.small_10[L + 1] : UInt<40>(0x0)) | _s_tile$core$d$csr$_GEN_233[L + 1]) & _s_tile$core$d$csr$_GEN_234[L + 1]).bits<7,0>()).cat(tile.core.d.csr.small_10[L + 1].bits<31,0>())).pad<41>()) : (tile.core.d.csr.small_10[L + 1].pad<41>())).pad<48>())) : ((tile.core.d.csr.small_10[L + 1].pad<41>()).pad<48>())).bits<39,0>();
-    // [vec comb] 3 templates x 4 lanes [cold-guarded base: quiet drops 3, specializes 0]
     if (UNLIKELY(!_v2_quiet_base)) {
-      _v2_cold_comb_full(53);
+      {
+        uint64_t _gany = 0;
+        for (int L = 1; L < 4; L++) _gany |= essent_to_u64(_s_tile$core$d$csr$small_10$gwen[L]);
+        if (_gany == 0) {
+          const UInt<40> _gv = tile.core.d.csr.small_10[3];
+          ESSENT_LANE_LOOP
+          for (int L = 0; L < 4; L++) tile.core.d.csr.small_10[L] = _gv;
+        } else {
+          for (int L = 2; L >= 0; L--) tile.core.d.csr.small_10[L] = (_s_tile$core$d$csr$wen[L + 1] ? (_s_tile$core$d$csr$_T_38[L + 1] ? ((tile.core.d.csr.small_10[L + 1].bits<39,32>()).cat(((_s_tile$core$d$csr$_w_T_3[L + 1] ? tile.core.d.csr.small_10[L + 1] : UInt<40>(0x0)) | _s_tile$core$d$csr$_GEN_233[L + 1]) & _s_tile$core$d$csr$_GEN_234[L + 1])) : ((_s_tile$core$d$csr$_T_39[L + 1] ? ((((((_s_tile$core$d$csr$_w_T_3[L + 1] ? tile.core.d.csr.small_10[L + 1] : UInt<40>(0x0)) | _s_tile$core$d$csr$_GEN_233[L + 1]) & _s_tile$core$d$csr$_GEN_234[L + 1]).bits<7,0>()).cat(tile.core.d.csr.small_10[L + 1].bits<31,0>())).pad<41>()) : (tile.core.d.csr.small_10[L + 1].pad<41>())).pad<48>())) : ((tile.core.d.csr.small_10[L + 1].pad<41>()).pad<48>())).bits<39,0>();
+        }
+      }
+    } else {
+      {
+        const UInt<40> _gv = tile.core.d.csr.small_10[3];
+        ESSENT_LANE_LOOP
+        for (int L = 0; L < 4; L++) tile.core.d.csr.small_10[L] = _gv;
+      }
     }
-    // [serial scc=48] 1 templates (0 comb), regs=[small_11]
-    // [serial scc=48 chain-loop]
-    for (int L = 2; L >= 0; L--) tile.core.d.csr.small_11[L] = (_s_tile$core$d$csr$wen[L + 1] ? (_s_tile$core$d$csr$_T_40[L + 1] ? ((tile.core.d.csr.small_11[L + 1].bits<39,32>()).cat(((_s_tile$core$d$csr$_w_T_3[L + 1] ? tile.core.d.csr.small_11[L + 1] : UInt<40>(0x0)) | _s_tile$core$d$csr$_GEN_233[L + 1]) & _s_tile$core$d$csr$_GEN_234[L + 1])) : ((_s_tile$core$d$csr$_T_41[L + 1] ? ((((((_s_tile$core$d$csr$_w_T_3[L + 1] ? tile.core.d.csr.small_11[L + 1] : UInt<40>(0x0)) | _s_tile$core$d$csr$_GEN_233[L + 1]) & _s_tile$core$d$csr$_GEN_234[L + 1]).bits<7,0>()).cat(tile.core.d.csr.small_11[L + 1].bits<31,0>())).pad<41>()) : (tile.core.d.csr.small_11[L + 1].pad<41>())).pad<48>())) : ((tile.core.d.csr.small_11[L + 1].pad<41>()).pad<48>())).bits<39,0>();
-    // [vec comb] 3 templates x 4 lanes [cold-guarded base: quiet drops 3, specializes 0]
-    if (UNLIKELY(!_v2_quiet_base)) {
-      _v2_cold_comb_full(54);
-    }
-    // [serial scc=49] 1 templates (0 comb), regs=[small_12]
-    // [serial scc=49 chain-loop]
-    for (int L = 2; L >= 0; L--) tile.core.d.csr.small_12[L] = (_s_tile$core$d$csr$wen[L + 1] ? (_s_tile$core$d$csr$_T_42[L + 1] ? ((tile.core.d.csr.small_12[L + 1].bits<39,32>()).cat(((_s_tile$core$d$csr$_w_T_3[L + 1] ? tile.core.d.csr.small_12[L + 1] : UInt<40>(0x0)) | _s_tile$core$d$csr$_GEN_233[L + 1]) & _s_tile$core$d$csr$_GEN_234[L + 1])) : ((_s_tile$core$d$csr$_T_43[L + 1] ? ((((((_s_tile$core$d$csr$_w_T_3[L + 1] ? tile.core.d.csr.small_12[L + 1] : UInt<40>(0x0)) | _s_tile$core$d$csr$_GEN_233[L + 1]) & _s_tile$core$d$csr$_GEN_234[L + 1]).bits<7,0>()).cat(tile.core.d.csr.small_12[L + 1].bits<31,0>())).pad<41>()) : (tile.core.d.csr.small_12[L + 1].pad<41>())).pad<48>())) : ((tile.core.d.csr.small_12[L + 1].pad<41>()).pad<48>())).bits<39,0>();
     // [vec comb] 3 templates x 4 lanes [cold-guarded base: quiet drops 3, specializes 0]
     if (UNLIKELY(!_v2_quiet_base)) {
       _v2_cold_comb_full(55);
     }
-    // [serial scc=50] 1 templates (0 comb), regs=[small_13]
-    // [serial scc=50 chain-loop]
-    for (int L = 2; L >= 0; L--) tile.core.d.csr.small_13[L] = (_s_tile$core$d$csr$wen[L + 1] ? (_s_tile$core$d$csr$_T_44[L + 1] ? ((tile.core.d.csr.small_13[L + 1].bits<39,32>()).cat(((_s_tile$core$d$csr$_w_T_3[L + 1] ? tile.core.d.csr.small_13[L + 1] : UInt<40>(0x0)) | _s_tile$core$d$csr$_GEN_233[L + 1]) & _s_tile$core$d$csr$_GEN_234[L + 1])) : ((_s_tile$core$d$csr$_T_45[L + 1] ? ((((((_s_tile$core$d$csr$_w_T_3[L + 1] ? tile.core.d.csr.small_13[L + 1] : UInt<40>(0x0)) | _s_tile$core$d$csr$_GEN_233[L + 1]) & _s_tile$core$d$csr$_GEN_234[L + 1]).bits<7,0>()).cat(tile.core.d.csr.small_13[L + 1].bits<31,0>())).pad<41>()) : (tile.core.d.csr.small_13[L + 1].pad<41>())).pad<48>())) : ((tile.core.d.csr.small_13[L + 1].pad<41>()).pad<48>())).bits<39,0>();
+    // [serial scc=48] 1 templates (0 comb), regs=[small_11]
+    // [serial scc=48 chain-loop]
+    if (UNLIKELY(!_v2_quiet_base)) {
+      {
+        uint64_t _gany = 0;
+        for (int L = 1; L < 4; L++) _gany |= essent_to_u64(_s_tile$core$d$csr$small_11$gwen[L]);
+        if (_gany == 0) {
+          const UInt<40> _gv = tile.core.d.csr.small_11[3];
+          ESSENT_LANE_LOOP
+          for (int L = 0; L < 4; L++) tile.core.d.csr.small_11[L] = _gv;
+        } else {
+          for (int L = 2; L >= 0; L--) tile.core.d.csr.small_11[L] = (_s_tile$core$d$csr$wen[L + 1] ? (_s_tile$core$d$csr$_T_40[L + 1] ? ((tile.core.d.csr.small_11[L + 1].bits<39,32>()).cat(((_s_tile$core$d$csr$_w_T_3[L + 1] ? tile.core.d.csr.small_11[L + 1] : UInt<40>(0x0)) | _s_tile$core$d$csr$_GEN_233[L + 1]) & _s_tile$core$d$csr$_GEN_234[L + 1])) : ((_s_tile$core$d$csr$_T_41[L + 1] ? ((((((_s_tile$core$d$csr$_w_T_3[L + 1] ? tile.core.d.csr.small_11[L + 1] : UInt<40>(0x0)) | _s_tile$core$d$csr$_GEN_233[L + 1]) & _s_tile$core$d$csr$_GEN_234[L + 1]).bits<7,0>()).cat(tile.core.d.csr.small_11[L + 1].bits<31,0>())).pad<41>()) : (tile.core.d.csr.small_11[L + 1].pad<41>())).pad<48>())) : ((tile.core.d.csr.small_11[L + 1].pad<41>()).pad<48>())).bits<39,0>();
+        }
+      }
+    } else {
+      {
+        const UInt<40> _gv = tile.core.d.csr.small_11[3];
+        ESSENT_LANE_LOOP
+        for (int L = 0; L < 4; L++) tile.core.d.csr.small_11[L] = _gv;
+      }
+    }
     // [vec comb] 3 templates x 4 lanes [cold-guarded base: quiet drops 3, specializes 0]
     if (UNLIKELY(!_v2_quiet_base)) {
       _v2_cold_comb_full(56);
     }
-    // [serial scc=51] 1 templates (0 comb), regs=[small_14]
-    // [serial scc=51 chain-loop]
-    for (int L = 2; L >= 0; L--) tile.core.d.csr.small_14[L] = (_s_tile$core$d$csr$wen[L + 1] ? (_s_tile$core$d$csr$_T_46[L + 1] ? ((tile.core.d.csr.small_14[L + 1].bits<39,32>()).cat(((_s_tile$core$d$csr$_w_T_3[L + 1] ? tile.core.d.csr.small_14[L + 1] : UInt<40>(0x0)) | _s_tile$core$d$csr$_GEN_233[L + 1]) & _s_tile$core$d$csr$_GEN_234[L + 1])) : ((_s_tile$core$d$csr$_T_47[L + 1] ? ((((((_s_tile$core$d$csr$_w_T_3[L + 1] ? tile.core.d.csr.small_14[L + 1] : UInt<40>(0x0)) | _s_tile$core$d$csr$_GEN_233[L + 1]) & _s_tile$core$d$csr$_GEN_234[L + 1]).bits<7,0>()).cat(tile.core.d.csr.small_14[L + 1].bits<31,0>())).pad<41>()) : (tile.core.d.csr.small_14[L + 1].pad<41>())).pad<48>())) : ((tile.core.d.csr.small_14[L + 1].pad<41>()).pad<48>())).bits<39,0>();
+    // [serial scc=49] 1 templates (0 comb), regs=[small_12]
+    // [serial scc=49 chain-loop]
+    if (UNLIKELY(!_v2_quiet_base)) {
+      {
+        uint64_t _gany = 0;
+        for (int L = 1; L < 4; L++) _gany |= essent_to_u64(_s_tile$core$d$csr$small_12$gwen[L]);
+        if (_gany == 0) {
+          const UInt<40> _gv = tile.core.d.csr.small_12[3];
+          ESSENT_LANE_LOOP
+          for (int L = 0; L < 4; L++) tile.core.d.csr.small_12[L] = _gv;
+        } else {
+          for (int L = 2; L >= 0; L--) tile.core.d.csr.small_12[L] = (_s_tile$core$d$csr$wen[L + 1] ? (_s_tile$core$d$csr$_T_42[L + 1] ? ((tile.core.d.csr.small_12[L + 1].bits<39,32>()).cat(((_s_tile$core$d$csr$_w_T_3[L + 1] ? tile.core.d.csr.small_12[L + 1] : UInt<40>(0x0)) | _s_tile$core$d$csr$_GEN_233[L + 1]) & _s_tile$core$d$csr$_GEN_234[L + 1])) : ((_s_tile$core$d$csr$_T_43[L + 1] ? ((((((_s_tile$core$d$csr$_w_T_3[L + 1] ? tile.core.d.csr.small_12[L + 1] : UInt<40>(0x0)) | _s_tile$core$d$csr$_GEN_233[L + 1]) & _s_tile$core$d$csr$_GEN_234[L + 1]).bits<7,0>()).cat(tile.core.d.csr.small_12[L + 1].bits<31,0>())).pad<41>()) : (tile.core.d.csr.small_12[L + 1].pad<41>())).pad<48>())) : ((tile.core.d.csr.small_12[L + 1].pad<41>()).pad<48>())).bits<39,0>();
+        }
+      }
+    } else {
+      {
+        const UInt<40> _gv = tile.core.d.csr.small_12[3];
+        ESSENT_LANE_LOOP
+        for (int L = 0; L < 4; L++) tile.core.d.csr.small_12[L] = _gv;
+      }
+    }
     // [vec comb] 3 templates x 4 lanes [cold-guarded base: quiet drops 3, specializes 0]
     if (UNLIKELY(!_v2_quiet_base)) {
       _v2_cold_comb_full(57);
     }
-    // [serial scc=52] 1 templates (0 comb), regs=[small_15]
-    // [serial scc=52 chain-loop]
-    for (int L = 2; L >= 0; L--) tile.core.d.csr.small_15[L] = (_s_tile$core$d$csr$wen[L + 1] ? (_s_tile$core$d$csr$_T_48[L + 1] ? ((tile.core.d.csr.small_15[L + 1].bits<39,32>()).cat(((_s_tile$core$d$csr$_w_T_3[L + 1] ? tile.core.d.csr.small_15[L + 1] : UInt<40>(0x0)) | _s_tile$core$d$csr$_GEN_233[L + 1]) & _s_tile$core$d$csr$_GEN_234[L + 1])) : ((_s_tile$core$d$csr$_T_49[L + 1] ? ((((((_s_tile$core$d$csr$_w_T_3[L + 1] ? tile.core.d.csr.small_15[L + 1] : UInt<40>(0x0)) | _s_tile$core$d$csr$_GEN_233[L + 1]) & _s_tile$core$d$csr$_GEN_234[L + 1]).bits<7,0>()).cat(tile.core.d.csr.small_15[L + 1].bits<31,0>())).pad<41>()) : (tile.core.d.csr.small_15[L + 1].pad<41>())).pad<48>())) : ((tile.core.d.csr.small_15[L + 1].pad<41>()).pad<48>())).bits<39,0>();
+    // [serial scc=50] 1 templates (0 comb), regs=[small_13]
+    // [serial scc=50 chain-loop]
+    if (UNLIKELY(!_v2_quiet_base)) {
+      {
+        uint64_t _gany = 0;
+        for (int L = 1; L < 4; L++) _gany |= essent_to_u64(_s_tile$core$d$csr$small_13$gwen[L]);
+        if (_gany == 0) {
+          const UInt<40> _gv = tile.core.d.csr.small_13[3];
+          ESSENT_LANE_LOOP
+          for (int L = 0; L < 4; L++) tile.core.d.csr.small_13[L] = _gv;
+        } else {
+          for (int L = 2; L >= 0; L--) tile.core.d.csr.small_13[L] = (_s_tile$core$d$csr$wen[L + 1] ? (_s_tile$core$d$csr$_T_44[L + 1] ? ((tile.core.d.csr.small_13[L + 1].bits<39,32>()).cat(((_s_tile$core$d$csr$_w_T_3[L + 1] ? tile.core.d.csr.small_13[L + 1] : UInt<40>(0x0)) | _s_tile$core$d$csr$_GEN_233[L + 1]) & _s_tile$core$d$csr$_GEN_234[L + 1])) : ((_s_tile$core$d$csr$_T_45[L + 1] ? ((((((_s_tile$core$d$csr$_w_T_3[L + 1] ? tile.core.d.csr.small_13[L + 1] : UInt<40>(0x0)) | _s_tile$core$d$csr$_GEN_233[L + 1]) & _s_tile$core$d$csr$_GEN_234[L + 1]).bits<7,0>()).cat(tile.core.d.csr.small_13[L + 1].bits<31,0>())).pad<41>()) : (tile.core.d.csr.small_13[L + 1].pad<41>())).pad<48>())) : ((tile.core.d.csr.small_13[L + 1].pad<41>()).pad<48>())).bits<39,0>();
+        }
+      }
+    } else {
+      {
+        const UInt<40> _gv = tile.core.d.csr.small_13[3];
+        ESSENT_LANE_LOOP
+        for (int L = 0; L < 4; L++) tile.core.d.csr.small_13[L] = _gv;
+      }
+    }
     // [vec comb] 3 templates x 4 lanes [cold-guarded base: quiet drops 3, specializes 0]
     if (UNLIKELY(!_v2_quiet_base)) {
       _v2_cold_comb_full(58);
     }
-    // [serial scc=53] 1 templates (0 comb), regs=[small_16]
-    // [serial scc=53 chain-loop]
-    for (int L = 2; L >= 0; L--) tile.core.d.csr.small_16[L] = (_s_tile$core$d$csr$wen[L + 1] ? (_s_tile$core$d$csr$_T_50[L + 1] ? ((tile.core.d.csr.small_16[L + 1].bits<39,32>()).cat(((_s_tile$core$d$csr$_w_T_3[L + 1] ? tile.core.d.csr.small_16[L + 1] : UInt<40>(0x0)) | _s_tile$core$d$csr$_GEN_233[L + 1]) & _s_tile$core$d$csr$_GEN_234[L + 1])) : ((_s_tile$core$d$csr$_T_51[L + 1] ? ((((((_s_tile$core$d$csr$_w_T_3[L + 1] ? tile.core.d.csr.small_16[L + 1] : UInt<40>(0x0)) | _s_tile$core$d$csr$_GEN_233[L + 1]) & _s_tile$core$d$csr$_GEN_234[L + 1]).bits<7,0>()).cat(tile.core.d.csr.small_16[L + 1].bits<31,0>())).pad<41>()) : (tile.core.d.csr.small_16[L + 1].pad<41>())).pad<48>())) : ((tile.core.d.csr.small_16[L + 1].pad<41>()).pad<48>())).bits<39,0>();
+    // [serial scc=51] 1 templates (0 comb), regs=[small_14]
+    // [serial scc=51 chain-loop]
+    if (UNLIKELY(!_v2_quiet_base)) {
+      {
+        uint64_t _gany = 0;
+        for (int L = 1; L < 4; L++) _gany |= essent_to_u64(_s_tile$core$d$csr$small_14$gwen[L]);
+        if (_gany == 0) {
+          const UInt<40> _gv = tile.core.d.csr.small_14[3];
+          ESSENT_LANE_LOOP
+          for (int L = 0; L < 4; L++) tile.core.d.csr.small_14[L] = _gv;
+        } else {
+          for (int L = 2; L >= 0; L--) tile.core.d.csr.small_14[L] = (_s_tile$core$d$csr$wen[L + 1] ? (_s_tile$core$d$csr$_T_46[L + 1] ? ((tile.core.d.csr.small_14[L + 1].bits<39,32>()).cat(((_s_tile$core$d$csr$_w_T_3[L + 1] ? tile.core.d.csr.small_14[L + 1] : UInt<40>(0x0)) | _s_tile$core$d$csr$_GEN_233[L + 1]) & _s_tile$core$d$csr$_GEN_234[L + 1])) : ((_s_tile$core$d$csr$_T_47[L + 1] ? ((((((_s_tile$core$d$csr$_w_T_3[L + 1] ? tile.core.d.csr.small_14[L + 1] : UInt<40>(0x0)) | _s_tile$core$d$csr$_GEN_233[L + 1]) & _s_tile$core$d$csr$_GEN_234[L + 1]).bits<7,0>()).cat(tile.core.d.csr.small_14[L + 1].bits<31,0>())).pad<41>()) : (tile.core.d.csr.small_14[L + 1].pad<41>())).pad<48>())) : ((tile.core.d.csr.small_14[L + 1].pad<41>()).pad<48>())).bits<39,0>();
+        }
+      }
+    } else {
+      {
+        const UInt<40> _gv = tile.core.d.csr.small_14[3];
+        ESSENT_LANE_LOOP
+        for (int L = 0; L < 4; L++) tile.core.d.csr.small_14[L] = _gv;
+      }
+    }
     // [vec comb] 3 templates x 4 lanes [cold-guarded base: quiet drops 3, specializes 0]
     if (UNLIKELY(!_v2_quiet_base)) {
       _v2_cold_comb_full(59);
     }
-    // [serial scc=54] 1 templates (0 comb), regs=[small_17]
-    // [serial scc=54 chain-loop]
-    for (int L = 2; L >= 0; L--) tile.core.d.csr.small_17[L] = (_s_tile$core$d$csr$wen[L + 1] ? (_s_tile$core$d$csr$_T_52[L + 1] ? ((tile.core.d.csr.small_17[L + 1].bits<39,32>()).cat(((_s_tile$core$d$csr$_w_T_3[L + 1] ? tile.core.d.csr.small_17[L + 1] : UInt<40>(0x0)) | _s_tile$core$d$csr$_GEN_233[L + 1]) & _s_tile$core$d$csr$_GEN_234[L + 1])) : ((_s_tile$core$d$csr$_T_53[L + 1] ? ((((((_s_tile$core$d$csr$_w_T_3[L + 1] ? tile.core.d.csr.small_17[L + 1] : UInt<40>(0x0)) | _s_tile$core$d$csr$_GEN_233[L + 1]) & _s_tile$core$d$csr$_GEN_234[L + 1]).bits<7,0>()).cat(tile.core.d.csr.small_17[L + 1].bits<31,0>())).pad<41>()) : (tile.core.d.csr.small_17[L + 1].pad<41>())).pad<48>())) : ((tile.core.d.csr.small_17[L + 1].pad<41>()).pad<48>())).bits<39,0>();
-    // [vec comb] 1 templates x 4 lanes [cold-guarded base: quiet drops 1, specializes 0]
+    // [serial scc=52] 1 templates (0 comb), regs=[small_15]
+    // [serial scc=52 chain-loop]
+    if (UNLIKELY(!_v2_quiet_base)) {
+      {
+        uint64_t _gany = 0;
+        for (int L = 1; L < 4; L++) _gany |= essent_to_u64(_s_tile$core$d$csr$small_15$gwen[L]);
+        if (_gany == 0) {
+          const UInt<40> _gv = tile.core.d.csr.small_15[3];
+          ESSENT_LANE_LOOP
+          for (int L = 0; L < 4; L++) tile.core.d.csr.small_15[L] = _gv;
+        } else {
+          for (int L = 2; L >= 0; L--) tile.core.d.csr.small_15[L] = (_s_tile$core$d$csr$wen[L + 1] ? (_s_tile$core$d$csr$_T_48[L + 1] ? ((tile.core.d.csr.small_15[L + 1].bits<39,32>()).cat(((_s_tile$core$d$csr$_w_T_3[L + 1] ? tile.core.d.csr.small_15[L + 1] : UInt<40>(0x0)) | _s_tile$core$d$csr$_GEN_233[L + 1]) & _s_tile$core$d$csr$_GEN_234[L + 1])) : ((_s_tile$core$d$csr$_T_49[L + 1] ? ((((((_s_tile$core$d$csr$_w_T_3[L + 1] ? tile.core.d.csr.small_15[L + 1] : UInt<40>(0x0)) | _s_tile$core$d$csr$_GEN_233[L + 1]) & _s_tile$core$d$csr$_GEN_234[L + 1]).bits<7,0>()).cat(tile.core.d.csr.small_15[L + 1].bits<31,0>())).pad<41>()) : (tile.core.d.csr.small_15[L + 1].pad<41>())).pad<48>())) : ((tile.core.d.csr.small_15[L + 1].pad<41>()).pad<48>())).bits<39,0>();
+        }
+      }
+    } else {
+      {
+        const UInt<40> _gv = tile.core.d.csr.small_15[3];
+        ESSENT_LANE_LOOP
+        for (int L = 0; L < 4; L++) tile.core.d.csr.small_15[L] = _gv;
+      }
+    }
+    // [vec comb] 3 templates x 4 lanes [cold-guarded base: quiet drops 3, specializes 0]
     if (UNLIKELY(!_v2_quiet_base)) {
       _v2_cold_comb_full(60);
+    }
+    // [serial scc=53] 1 templates (0 comb), regs=[small_16]
+    // [serial scc=53 chain-loop]
+    if (UNLIKELY(!_v2_quiet_base)) {
+      {
+        uint64_t _gany = 0;
+        for (int L = 1; L < 4; L++) _gany |= essent_to_u64(_s_tile$core$d$csr$small_16$gwen[L]);
+        if (_gany == 0) {
+          const UInt<40> _gv = tile.core.d.csr.small_16[3];
+          ESSENT_LANE_LOOP
+          for (int L = 0; L < 4; L++) tile.core.d.csr.small_16[L] = _gv;
+        } else {
+          for (int L = 2; L >= 0; L--) tile.core.d.csr.small_16[L] = (_s_tile$core$d$csr$wen[L + 1] ? (_s_tile$core$d$csr$_T_50[L + 1] ? ((tile.core.d.csr.small_16[L + 1].bits<39,32>()).cat(((_s_tile$core$d$csr$_w_T_3[L + 1] ? tile.core.d.csr.small_16[L + 1] : UInt<40>(0x0)) | _s_tile$core$d$csr$_GEN_233[L + 1]) & _s_tile$core$d$csr$_GEN_234[L + 1])) : ((_s_tile$core$d$csr$_T_51[L + 1] ? ((((((_s_tile$core$d$csr$_w_T_3[L + 1] ? tile.core.d.csr.small_16[L + 1] : UInt<40>(0x0)) | _s_tile$core$d$csr$_GEN_233[L + 1]) & _s_tile$core$d$csr$_GEN_234[L + 1]).bits<7,0>()).cat(tile.core.d.csr.small_16[L + 1].bits<31,0>())).pad<41>()) : (tile.core.d.csr.small_16[L + 1].pad<41>())).pad<48>())) : ((tile.core.d.csr.small_16[L + 1].pad<41>()).pad<48>())).bits<39,0>();
+        }
+      }
+    } else {
+      {
+        const UInt<40> _gv = tile.core.d.csr.small_16[3];
+        ESSENT_LANE_LOOP
+        for (int L = 0; L < 4; L++) tile.core.d.csr.small_16[L] = _gv;
+      }
+    }
+    // [vec comb] 3 templates x 4 lanes [cold-guarded base: quiet drops 3, specializes 0]
+    if (UNLIKELY(!_v2_quiet_base)) {
+      _v2_cold_comb_full(61);
+    }
+    // [serial scc=54] 1 templates (0 comb), regs=[small_17]
+    // [serial scc=54 chain-loop]
+    if (UNLIKELY(!_v2_quiet_base)) {
+      {
+        uint64_t _gany = 0;
+        for (int L = 1; L < 4; L++) _gany |= essent_to_u64(_s_tile$core$d$csr$small_17$gwen[L]);
+        if (_gany == 0) {
+          const UInt<40> _gv = tile.core.d.csr.small_17[3];
+          ESSENT_LANE_LOOP
+          for (int L = 0; L < 4; L++) tile.core.d.csr.small_17[L] = _gv;
+        } else {
+          for (int L = 2; L >= 0; L--) tile.core.d.csr.small_17[L] = (_s_tile$core$d$csr$wen[L + 1] ? (_s_tile$core$d$csr$_T_52[L + 1] ? ((tile.core.d.csr.small_17[L + 1].bits<39,32>()).cat(((_s_tile$core$d$csr$_w_T_3[L + 1] ? tile.core.d.csr.small_17[L + 1] : UInt<40>(0x0)) | _s_tile$core$d$csr$_GEN_233[L + 1]) & _s_tile$core$d$csr$_GEN_234[L + 1])) : ((_s_tile$core$d$csr$_T_53[L + 1] ? ((((((_s_tile$core$d$csr$_w_T_3[L + 1] ? tile.core.d.csr.small_17[L + 1] : UInt<40>(0x0)) | _s_tile$core$d$csr$_GEN_233[L + 1]) & _s_tile$core$d$csr$_GEN_234[L + 1]).bits<7,0>()).cat(tile.core.d.csr.small_17[L + 1].bits<31,0>())).pad<41>()) : (tile.core.d.csr.small_17[L + 1].pad<41>())).pad<48>())) : ((tile.core.d.csr.small_17[L + 1].pad<41>()).pad<48>())).bits<39,0>();
+        }
+      }
+    } else {
+      {
+        const UInt<40> _gv = tile.core.d.csr.small_17[3];
+        ESSENT_LANE_LOOP
+        for (int L = 0; L < 4; L++) tile.core.d.csr.small_17[L] = _gv;
+      }
+    }
+    // [vec comb] 1 templates x 4 lanes [cold-guarded base: quiet drops 1, specializes 0]
+    if (UNLIKELY(!_v2_quiet_base)) {
+      _v2_cold_comb_full(62);
     }
     // [vec comb] 1 templates x 4 lanes
     ESSENT_LANE_LOOP
@@ -5661,63 +6659,207 @@ typedef struct SodorFullChip {
     }
     // [vec comb] 2 templates x 4 lanes [cold-guarded base: quiet drops 2, specializes 0]
     if (UNLIKELY(!_v2_quiet_base)) {
-      _v2_cold_comb_full(61);
+      _v2_cold_comb_full(63);
     }
     // [serial scc=55] 1 templates (0 comb), regs=[small_18]
     // [serial scc=55 chain-loop]
-    for (int L = 2; L >= 0; L--) tile.core.d.csr.small_18[L] = (_s_tile$core$d$csr$wen[L + 1] ? (_s_tile$core$d$csr$_T_54[L + 1] ? ((tile.core.d.csr.small_18[L + 1].bits<39,32>()).cat(((_s_tile$core$d$csr$_w_T_3[L + 1] ? tile.core.d.csr.small_18[L + 1] : UInt<40>(0x0)) | _s_tile$core$d$csr$_GEN_233[L + 1]) & _s_tile$core$d$csr$_GEN_234[L + 1])) : ((_s_tile$core$d$csr$_T_55[L + 1] ? ((((((_s_tile$core$d$csr$_w_T_3[L + 1] ? tile.core.d.csr.small_18[L + 1] : UInt<40>(0x0)) | _s_tile$core$d$csr$_GEN_233[L + 1]) & _s_tile$core$d$csr$_GEN_234[L + 1]).bits<7,0>()).cat(tile.core.d.csr.small_18[L + 1].bits<31,0>())).pad<41>()) : (tile.core.d.csr.small_18[L + 1].pad<41>())).pad<48>())) : ((tile.core.d.csr.small_18[L + 1].pad<41>()).pad<48>())).bits<39,0>();
-    // [vec comb] 3 templates x 4 lanes [cold-guarded base: quiet drops 3, specializes 0]
     if (UNLIKELY(!_v2_quiet_base)) {
-      _v2_cold_comb_full(62);
+      {
+        uint64_t _gany = 0;
+        for (int L = 1; L < 4; L++) _gany |= essent_to_u64(_s_tile$core$d$csr$small_18$gwen[L]);
+        if (_gany == 0) {
+          const UInt<40> _gv = tile.core.d.csr.small_18[3];
+          ESSENT_LANE_LOOP
+          for (int L = 0; L < 4; L++) tile.core.d.csr.small_18[L] = _gv;
+        } else {
+          for (int L = 2; L >= 0; L--) tile.core.d.csr.small_18[L] = (_s_tile$core$d$csr$wen[L + 1] ? (_s_tile$core$d$csr$_T_54[L + 1] ? ((tile.core.d.csr.small_18[L + 1].bits<39,32>()).cat(((_s_tile$core$d$csr$_w_T_3[L + 1] ? tile.core.d.csr.small_18[L + 1] : UInt<40>(0x0)) | _s_tile$core$d$csr$_GEN_233[L + 1]) & _s_tile$core$d$csr$_GEN_234[L + 1])) : ((_s_tile$core$d$csr$_T_55[L + 1] ? ((((((_s_tile$core$d$csr$_w_T_3[L + 1] ? tile.core.d.csr.small_18[L + 1] : UInt<40>(0x0)) | _s_tile$core$d$csr$_GEN_233[L + 1]) & _s_tile$core$d$csr$_GEN_234[L + 1]).bits<7,0>()).cat(tile.core.d.csr.small_18[L + 1].bits<31,0>())).pad<41>()) : (tile.core.d.csr.small_18[L + 1].pad<41>())).pad<48>())) : ((tile.core.d.csr.small_18[L + 1].pad<41>()).pad<48>())).bits<39,0>();
+        }
+      }
+    } else {
+      {
+        const UInt<40> _gv = tile.core.d.csr.small_18[3];
+        ESSENT_LANE_LOOP
+        for (int L = 0; L < 4; L++) tile.core.d.csr.small_18[L] = _gv;
+      }
     }
-    // [serial scc=56] 1 templates (0 comb), regs=[small_19]
-    // [serial scc=56 chain-loop]
-    for (int L = 2; L >= 0; L--) tile.core.d.csr.small_19[L] = (_s_tile$core$d$csr$wen[L + 1] ? (_s_tile$core$d$csr$_T_56[L + 1] ? ((tile.core.d.csr.small_19[L + 1].bits<39,32>()).cat(((_s_tile$core$d$csr$_w_T_3[L + 1] ? tile.core.d.csr.small_19[L + 1] : UInt<40>(0x0)) | _s_tile$core$d$csr$_GEN_233[L + 1]) & _s_tile$core$d$csr$_GEN_234[L + 1])) : ((_s_tile$core$d$csr$_T_57[L + 1] ? ((((((_s_tile$core$d$csr$_w_T_3[L + 1] ? tile.core.d.csr.small_19[L + 1] : UInt<40>(0x0)) | _s_tile$core$d$csr$_GEN_233[L + 1]) & _s_tile$core$d$csr$_GEN_234[L + 1]).bits<7,0>()).cat(tile.core.d.csr.small_19[L + 1].bits<31,0>())).pad<41>()) : (tile.core.d.csr.small_19[L + 1].pad<41>())).pad<48>())) : ((tile.core.d.csr.small_19[L + 1].pad<41>()).pad<48>())).bits<39,0>();
-    // [vec comb] 3 templates x 4 lanes [cold-guarded base: quiet drops 3, specializes 0]
-    if (UNLIKELY(!_v2_quiet_base)) {
-      _v2_cold_comb_full(63);
-    }
-    // [serial scc=57] 1 templates (0 comb), regs=[small_20]
-    // [serial scc=57 chain-loop]
-    for (int L = 2; L >= 0; L--) tile.core.d.csr.small_20[L] = (_s_tile$core$d$csr$wen[L + 1] ? (_s_tile$core$d$csr$_T_58[L + 1] ? ((tile.core.d.csr.small_20[L + 1].bits<39,32>()).cat(((_s_tile$core$d$csr$_w_T_3[L + 1] ? tile.core.d.csr.small_20[L + 1] : UInt<40>(0x0)) | _s_tile$core$d$csr$_GEN_233[L + 1]) & _s_tile$core$d$csr$_GEN_234[L + 1])) : ((_s_tile$core$d$csr$_T_59[L + 1] ? ((((((_s_tile$core$d$csr$_w_T_3[L + 1] ? tile.core.d.csr.small_20[L + 1] : UInt<40>(0x0)) | _s_tile$core$d$csr$_GEN_233[L + 1]) & _s_tile$core$d$csr$_GEN_234[L + 1]).bits<7,0>()).cat(tile.core.d.csr.small_20[L + 1].bits<31,0>())).pad<41>()) : (tile.core.d.csr.small_20[L + 1].pad<41>())).pad<48>())) : ((tile.core.d.csr.small_20[L + 1].pad<41>()).pad<48>())).bits<39,0>();
     // [vec comb] 3 templates x 4 lanes [cold-guarded base: quiet drops 3, specializes 0]
     if (UNLIKELY(!_v2_quiet_base)) {
       _v2_cold_comb_full(64);
     }
-    // [serial scc=58] 1 templates (0 comb), regs=[small_21]
-    // [serial scc=58 chain-loop]
-    for (int L = 2; L >= 0; L--) tile.core.d.csr.small_21[L] = (_s_tile$core$d$csr$wen[L + 1] ? (_s_tile$core$d$csr$_T_60[L + 1] ? ((tile.core.d.csr.small_21[L + 1].bits<39,32>()).cat(((_s_tile$core$d$csr$_w_T_3[L + 1] ? tile.core.d.csr.small_21[L + 1] : UInt<40>(0x0)) | _s_tile$core$d$csr$_GEN_233[L + 1]) & _s_tile$core$d$csr$_GEN_234[L + 1])) : ((_s_tile$core$d$csr$_T_61[L + 1] ? ((((((_s_tile$core$d$csr$_w_T_3[L + 1] ? tile.core.d.csr.small_21[L + 1] : UInt<40>(0x0)) | _s_tile$core$d$csr$_GEN_233[L + 1]) & _s_tile$core$d$csr$_GEN_234[L + 1]).bits<7,0>()).cat(tile.core.d.csr.small_21[L + 1].bits<31,0>())).pad<41>()) : (tile.core.d.csr.small_21[L + 1].pad<41>())).pad<48>())) : ((tile.core.d.csr.small_21[L + 1].pad<41>()).pad<48>())).bits<39,0>();
+    // [serial scc=56] 1 templates (0 comb), regs=[small_19]
+    // [serial scc=56 chain-loop]
+    if (UNLIKELY(!_v2_quiet_base)) {
+      {
+        uint64_t _gany = 0;
+        for (int L = 1; L < 4; L++) _gany |= essent_to_u64(_s_tile$core$d$csr$small_19$gwen[L]);
+        if (_gany == 0) {
+          const UInt<40> _gv = tile.core.d.csr.small_19[3];
+          ESSENT_LANE_LOOP
+          for (int L = 0; L < 4; L++) tile.core.d.csr.small_19[L] = _gv;
+        } else {
+          for (int L = 2; L >= 0; L--) tile.core.d.csr.small_19[L] = (_s_tile$core$d$csr$wen[L + 1] ? (_s_tile$core$d$csr$_T_56[L + 1] ? ((tile.core.d.csr.small_19[L + 1].bits<39,32>()).cat(((_s_tile$core$d$csr$_w_T_3[L + 1] ? tile.core.d.csr.small_19[L + 1] : UInt<40>(0x0)) | _s_tile$core$d$csr$_GEN_233[L + 1]) & _s_tile$core$d$csr$_GEN_234[L + 1])) : ((_s_tile$core$d$csr$_T_57[L + 1] ? ((((((_s_tile$core$d$csr$_w_T_3[L + 1] ? tile.core.d.csr.small_19[L + 1] : UInt<40>(0x0)) | _s_tile$core$d$csr$_GEN_233[L + 1]) & _s_tile$core$d$csr$_GEN_234[L + 1]).bits<7,0>()).cat(tile.core.d.csr.small_19[L + 1].bits<31,0>())).pad<41>()) : (tile.core.d.csr.small_19[L + 1].pad<41>())).pad<48>())) : ((tile.core.d.csr.small_19[L + 1].pad<41>()).pad<48>())).bits<39,0>();
+        }
+      }
+    } else {
+      {
+        const UInt<40> _gv = tile.core.d.csr.small_19[3];
+        ESSENT_LANE_LOOP
+        for (int L = 0; L < 4; L++) tile.core.d.csr.small_19[L] = _gv;
+      }
+    }
     // [vec comb] 3 templates x 4 lanes [cold-guarded base: quiet drops 3, specializes 0]
     if (UNLIKELY(!_v2_quiet_base)) {
       _v2_cold_comb_full(65);
     }
-    // [serial scc=59] 1 templates (0 comb), regs=[small_22]
-    // [serial scc=59 chain-loop]
-    for (int L = 2; L >= 0; L--) tile.core.d.csr.small_22[L] = (_s_tile$core$d$csr$wen[L + 1] ? (_s_tile$core$d$csr$_T_62[L + 1] ? ((tile.core.d.csr.small_22[L + 1].bits<39,32>()).cat(((_s_tile$core$d$csr$_w_T_3[L + 1] ? tile.core.d.csr.small_22[L + 1] : UInt<40>(0x0)) | _s_tile$core$d$csr$_GEN_233[L + 1]) & _s_tile$core$d$csr$_GEN_234[L + 1])) : ((_s_tile$core$d$csr$_T_63[L + 1] ? ((((((_s_tile$core$d$csr$_w_T_3[L + 1] ? tile.core.d.csr.small_22[L + 1] : UInt<40>(0x0)) | _s_tile$core$d$csr$_GEN_233[L + 1]) & _s_tile$core$d$csr$_GEN_234[L + 1]).bits<7,0>()).cat(tile.core.d.csr.small_22[L + 1].bits<31,0>())).pad<41>()) : (tile.core.d.csr.small_22[L + 1].pad<41>())).pad<48>())) : ((tile.core.d.csr.small_22[L + 1].pad<41>()).pad<48>())).bits<39,0>();
+    // [serial scc=57] 1 templates (0 comb), regs=[small_20]
+    // [serial scc=57 chain-loop]
+    if (UNLIKELY(!_v2_quiet_base)) {
+      {
+        uint64_t _gany = 0;
+        for (int L = 1; L < 4; L++) _gany |= essent_to_u64(_s_tile$core$d$csr$small_20$gwen[L]);
+        if (_gany == 0) {
+          const UInt<40> _gv = tile.core.d.csr.small_20[3];
+          ESSENT_LANE_LOOP
+          for (int L = 0; L < 4; L++) tile.core.d.csr.small_20[L] = _gv;
+        } else {
+          for (int L = 2; L >= 0; L--) tile.core.d.csr.small_20[L] = (_s_tile$core$d$csr$wen[L + 1] ? (_s_tile$core$d$csr$_T_58[L + 1] ? ((tile.core.d.csr.small_20[L + 1].bits<39,32>()).cat(((_s_tile$core$d$csr$_w_T_3[L + 1] ? tile.core.d.csr.small_20[L + 1] : UInt<40>(0x0)) | _s_tile$core$d$csr$_GEN_233[L + 1]) & _s_tile$core$d$csr$_GEN_234[L + 1])) : ((_s_tile$core$d$csr$_T_59[L + 1] ? ((((((_s_tile$core$d$csr$_w_T_3[L + 1] ? tile.core.d.csr.small_20[L + 1] : UInt<40>(0x0)) | _s_tile$core$d$csr$_GEN_233[L + 1]) & _s_tile$core$d$csr$_GEN_234[L + 1]).bits<7,0>()).cat(tile.core.d.csr.small_20[L + 1].bits<31,0>())).pad<41>()) : (tile.core.d.csr.small_20[L + 1].pad<41>())).pad<48>())) : ((tile.core.d.csr.small_20[L + 1].pad<41>()).pad<48>())).bits<39,0>();
+        }
+      }
+    } else {
+      {
+        const UInt<40> _gv = tile.core.d.csr.small_20[3];
+        ESSENT_LANE_LOOP
+        for (int L = 0; L < 4; L++) tile.core.d.csr.small_20[L] = _gv;
+      }
+    }
     // [vec comb] 3 templates x 4 lanes [cold-guarded base: quiet drops 3, specializes 0]
     if (UNLIKELY(!_v2_quiet_base)) {
       _v2_cold_comb_full(66);
     }
-    // [serial scc=60] 1 templates (0 comb), regs=[small_23]
-    // [serial scc=60 chain-loop]
-    for (int L = 2; L >= 0; L--) tile.core.d.csr.small_23[L] = (_s_tile$core$d$csr$wen[L + 1] ? (_s_tile$core$d$csr$_T_64[L + 1] ? ((tile.core.d.csr.small_23[L + 1].bits<39,32>()).cat(((_s_tile$core$d$csr$_w_T_3[L + 1] ? tile.core.d.csr.small_23[L + 1] : UInt<40>(0x0)) | _s_tile$core$d$csr$_GEN_233[L + 1]) & _s_tile$core$d$csr$_GEN_234[L + 1])) : ((_s_tile$core$d$csr$_T_65[L + 1] ? ((((((_s_tile$core$d$csr$_w_T_3[L + 1] ? tile.core.d.csr.small_23[L + 1] : UInt<40>(0x0)) | _s_tile$core$d$csr$_GEN_233[L + 1]) & _s_tile$core$d$csr$_GEN_234[L + 1]).bits<7,0>()).cat(tile.core.d.csr.small_23[L + 1].bits<31,0>())).pad<41>()) : (tile.core.d.csr.small_23[L + 1].pad<41>())).pad<48>())) : ((tile.core.d.csr.small_23[L + 1].pad<41>()).pad<48>())).bits<39,0>();
+    // [serial scc=58] 1 templates (0 comb), regs=[small_21]
+    // [serial scc=58 chain-loop]
+    if (UNLIKELY(!_v2_quiet_base)) {
+      {
+        uint64_t _gany = 0;
+        for (int L = 1; L < 4; L++) _gany |= essent_to_u64(_s_tile$core$d$csr$small_21$gwen[L]);
+        if (_gany == 0) {
+          const UInt<40> _gv = tile.core.d.csr.small_21[3];
+          ESSENT_LANE_LOOP
+          for (int L = 0; L < 4; L++) tile.core.d.csr.small_21[L] = _gv;
+        } else {
+          for (int L = 2; L >= 0; L--) tile.core.d.csr.small_21[L] = (_s_tile$core$d$csr$wen[L + 1] ? (_s_tile$core$d$csr$_T_60[L + 1] ? ((tile.core.d.csr.small_21[L + 1].bits<39,32>()).cat(((_s_tile$core$d$csr$_w_T_3[L + 1] ? tile.core.d.csr.small_21[L + 1] : UInt<40>(0x0)) | _s_tile$core$d$csr$_GEN_233[L + 1]) & _s_tile$core$d$csr$_GEN_234[L + 1])) : ((_s_tile$core$d$csr$_T_61[L + 1] ? ((((((_s_tile$core$d$csr$_w_T_3[L + 1] ? tile.core.d.csr.small_21[L + 1] : UInt<40>(0x0)) | _s_tile$core$d$csr$_GEN_233[L + 1]) & _s_tile$core$d$csr$_GEN_234[L + 1]).bits<7,0>()).cat(tile.core.d.csr.small_21[L + 1].bits<31,0>())).pad<41>()) : (tile.core.d.csr.small_21[L + 1].pad<41>())).pad<48>())) : ((tile.core.d.csr.small_21[L + 1].pad<41>()).pad<48>())).bits<39,0>();
+        }
+      }
+    } else {
+      {
+        const UInt<40> _gv = tile.core.d.csr.small_21[3];
+        ESSENT_LANE_LOOP
+        for (int L = 0; L < 4; L++) tile.core.d.csr.small_21[L] = _gv;
+      }
+    }
     // [vec comb] 3 templates x 4 lanes [cold-guarded base: quiet drops 3, specializes 0]
     if (UNLIKELY(!_v2_quiet_base)) {
       _v2_cold_comb_full(67);
     }
-    // [serial scc=61] 1 templates (0 comb), regs=[small_24]
-    // [serial scc=61 chain-loop]
-    for (int L = 2; L >= 0; L--) tile.core.d.csr.small_24[L] = (_s_tile$core$d$csr$wen[L + 1] ? (_s_tile$core$d$csr$_T_66[L + 1] ? ((tile.core.d.csr.small_24[L + 1].bits<39,32>()).cat(((_s_tile$core$d$csr$_w_T_3[L + 1] ? tile.core.d.csr.small_24[L + 1] : UInt<40>(0x0)) | _s_tile$core$d$csr$_GEN_233[L + 1]) & _s_tile$core$d$csr$_GEN_234[L + 1])) : ((_s_tile$core$d$csr$_T_67[L + 1] ? ((((((_s_tile$core$d$csr$_w_T_3[L + 1] ? tile.core.d.csr.small_24[L + 1] : UInt<40>(0x0)) | _s_tile$core$d$csr$_GEN_233[L + 1]) & _s_tile$core$d$csr$_GEN_234[L + 1]).bits<7,0>()).cat(tile.core.d.csr.small_24[L + 1].bits<31,0>())).pad<41>()) : (tile.core.d.csr.small_24[L + 1].pad<41>())).pad<48>())) : ((tile.core.d.csr.small_24[L + 1].pad<41>()).pad<48>())).bits<39,0>();
+    // [serial scc=59] 1 templates (0 comb), regs=[small_22]
+    // [serial scc=59 chain-loop]
+    if (UNLIKELY(!_v2_quiet_base)) {
+      {
+        uint64_t _gany = 0;
+        for (int L = 1; L < 4; L++) _gany |= essent_to_u64(_s_tile$core$d$csr$small_22$gwen[L]);
+        if (_gany == 0) {
+          const UInt<40> _gv = tile.core.d.csr.small_22[3];
+          ESSENT_LANE_LOOP
+          for (int L = 0; L < 4; L++) tile.core.d.csr.small_22[L] = _gv;
+        } else {
+          for (int L = 2; L >= 0; L--) tile.core.d.csr.small_22[L] = (_s_tile$core$d$csr$wen[L + 1] ? (_s_tile$core$d$csr$_T_62[L + 1] ? ((tile.core.d.csr.small_22[L + 1].bits<39,32>()).cat(((_s_tile$core$d$csr$_w_T_3[L + 1] ? tile.core.d.csr.small_22[L + 1] : UInt<40>(0x0)) | _s_tile$core$d$csr$_GEN_233[L + 1]) & _s_tile$core$d$csr$_GEN_234[L + 1])) : ((_s_tile$core$d$csr$_T_63[L + 1] ? ((((((_s_tile$core$d$csr$_w_T_3[L + 1] ? tile.core.d.csr.small_22[L + 1] : UInt<40>(0x0)) | _s_tile$core$d$csr$_GEN_233[L + 1]) & _s_tile$core$d$csr$_GEN_234[L + 1]).bits<7,0>()).cat(tile.core.d.csr.small_22[L + 1].bits<31,0>())).pad<41>()) : (tile.core.d.csr.small_22[L + 1].pad<41>())).pad<48>())) : ((tile.core.d.csr.small_22[L + 1].pad<41>()).pad<48>())).bits<39,0>();
+        }
+      }
+    } else {
+      {
+        const UInt<40> _gv = tile.core.d.csr.small_22[3];
+        ESSENT_LANE_LOOP
+        for (int L = 0; L < 4; L++) tile.core.d.csr.small_22[L] = _gv;
+      }
+    }
     // [vec comb] 3 templates x 4 lanes [cold-guarded base: quiet drops 3, specializes 0]
     if (UNLIKELY(!_v2_quiet_base)) {
       _v2_cold_comb_full(68);
     }
-    // [serial scc=62] 1 templates (0 comb), regs=[small_25]
-    // [serial scc=62 chain-loop]
-    for (int L = 2; L >= 0; L--) tile.core.d.csr.small_25[L] = (_s_tile$core$d$csr$wen[L + 1] ? (_s_tile$core$d$csr$_T_68[L + 1] ? ((tile.core.d.csr.small_25[L + 1].bits<39,32>()).cat(((_s_tile$core$d$csr$_w_T_3[L + 1] ? tile.core.d.csr.small_25[L + 1] : UInt<40>(0x0)) | _s_tile$core$d$csr$_GEN_233[L + 1]) & _s_tile$core$d$csr$_GEN_234[L + 1])) : ((_s_tile$core$d$csr$_T_69[L + 1] ? ((((((_s_tile$core$d$csr$_w_T_3[L + 1] ? tile.core.d.csr.small_25[L + 1] : UInt<40>(0x0)) | _s_tile$core$d$csr$_GEN_233[L + 1]) & _s_tile$core$d$csr$_GEN_234[L + 1]).bits<7,0>()).cat(tile.core.d.csr.small_25[L + 1].bits<31,0>())).pad<41>()) : (tile.core.d.csr.small_25[L + 1].pad<41>())).pad<48>())) : ((tile.core.d.csr.small_25[L + 1].pad<41>()).pad<48>())).bits<39,0>();
-    // [vec comb] 1 templates x 4 lanes [cold-guarded base: quiet drops 1, specializes 0]
+    // [serial scc=60] 1 templates (0 comb), regs=[small_23]
+    // [serial scc=60 chain-loop]
+    if (UNLIKELY(!_v2_quiet_base)) {
+      {
+        uint64_t _gany = 0;
+        for (int L = 1; L < 4; L++) _gany |= essent_to_u64(_s_tile$core$d$csr$small_23$gwen[L]);
+        if (_gany == 0) {
+          const UInt<40> _gv = tile.core.d.csr.small_23[3];
+          ESSENT_LANE_LOOP
+          for (int L = 0; L < 4; L++) tile.core.d.csr.small_23[L] = _gv;
+        } else {
+          for (int L = 2; L >= 0; L--) tile.core.d.csr.small_23[L] = (_s_tile$core$d$csr$wen[L + 1] ? (_s_tile$core$d$csr$_T_64[L + 1] ? ((tile.core.d.csr.small_23[L + 1].bits<39,32>()).cat(((_s_tile$core$d$csr$_w_T_3[L + 1] ? tile.core.d.csr.small_23[L + 1] : UInt<40>(0x0)) | _s_tile$core$d$csr$_GEN_233[L + 1]) & _s_tile$core$d$csr$_GEN_234[L + 1])) : ((_s_tile$core$d$csr$_T_65[L + 1] ? ((((((_s_tile$core$d$csr$_w_T_3[L + 1] ? tile.core.d.csr.small_23[L + 1] : UInt<40>(0x0)) | _s_tile$core$d$csr$_GEN_233[L + 1]) & _s_tile$core$d$csr$_GEN_234[L + 1]).bits<7,0>()).cat(tile.core.d.csr.small_23[L + 1].bits<31,0>())).pad<41>()) : (tile.core.d.csr.small_23[L + 1].pad<41>())).pad<48>())) : ((tile.core.d.csr.small_23[L + 1].pad<41>()).pad<48>())).bits<39,0>();
+        }
+      }
+    } else {
+      {
+        const UInt<40> _gv = tile.core.d.csr.small_23[3];
+        ESSENT_LANE_LOOP
+        for (int L = 0; L < 4; L++) tile.core.d.csr.small_23[L] = _gv;
+      }
+    }
+    // [vec comb] 3 templates x 4 lanes [cold-guarded base: quiet drops 3, specializes 0]
     if (UNLIKELY(!_v2_quiet_base)) {
       _v2_cold_comb_full(69);
+    }
+    // [serial scc=61] 1 templates (0 comb), regs=[small_24]
+    // [serial scc=61 chain-loop]
+    if (UNLIKELY(!_v2_quiet_base)) {
+      {
+        uint64_t _gany = 0;
+        for (int L = 1; L < 4; L++) _gany |= essent_to_u64(_s_tile$core$d$csr$small_24$gwen[L]);
+        if (_gany == 0) {
+          const UInt<40> _gv = tile.core.d.csr.small_24[3];
+          ESSENT_LANE_LOOP
+          for (int L = 0; L < 4; L++) tile.core.d.csr.small_24[L] = _gv;
+        } else {
+          for (int L = 2; L >= 0; L--) tile.core.d.csr.small_24[L] = (_s_tile$core$d$csr$wen[L + 1] ? (_s_tile$core$d$csr$_T_66[L + 1] ? ((tile.core.d.csr.small_24[L + 1].bits<39,32>()).cat(((_s_tile$core$d$csr$_w_T_3[L + 1] ? tile.core.d.csr.small_24[L + 1] : UInt<40>(0x0)) | _s_tile$core$d$csr$_GEN_233[L + 1]) & _s_tile$core$d$csr$_GEN_234[L + 1])) : ((_s_tile$core$d$csr$_T_67[L + 1] ? ((((((_s_tile$core$d$csr$_w_T_3[L + 1] ? tile.core.d.csr.small_24[L + 1] : UInt<40>(0x0)) | _s_tile$core$d$csr$_GEN_233[L + 1]) & _s_tile$core$d$csr$_GEN_234[L + 1]).bits<7,0>()).cat(tile.core.d.csr.small_24[L + 1].bits<31,0>())).pad<41>()) : (tile.core.d.csr.small_24[L + 1].pad<41>())).pad<48>())) : ((tile.core.d.csr.small_24[L + 1].pad<41>()).pad<48>())).bits<39,0>();
+        }
+      }
+    } else {
+      {
+        const UInt<40> _gv = tile.core.d.csr.small_24[3];
+        ESSENT_LANE_LOOP
+        for (int L = 0; L < 4; L++) tile.core.d.csr.small_24[L] = _gv;
+      }
+    }
+    // [vec comb] 3 templates x 4 lanes [cold-guarded base: quiet drops 3, specializes 0]
+    if (UNLIKELY(!_v2_quiet_base)) {
+      _v2_cold_comb_full(70);
+    }
+    // [serial scc=62] 1 templates (0 comb), regs=[small_25]
+    // [serial scc=62 chain-loop]
+    if (UNLIKELY(!_v2_quiet_base)) {
+      {
+        uint64_t _gany = 0;
+        for (int L = 1; L < 4; L++) _gany |= essent_to_u64(_s_tile$core$d$csr$small_25$gwen[L]);
+        if (_gany == 0) {
+          const UInt<40> _gv = tile.core.d.csr.small_25[3];
+          ESSENT_LANE_LOOP
+          for (int L = 0; L < 4; L++) tile.core.d.csr.small_25[L] = _gv;
+        } else {
+          for (int L = 2; L >= 0; L--) tile.core.d.csr.small_25[L] = (_s_tile$core$d$csr$wen[L + 1] ? (_s_tile$core$d$csr$_T_68[L + 1] ? ((tile.core.d.csr.small_25[L + 1].bits<39,32>()).cat(((_s_tile$core$d$csr$_w_T_3[L + 1] ? tile.core.d.csr.small_25[L + 1] : UInt<40>(0x0)) | _s_tile$core$d$csr$_GEN_233[L + 1]) & _s_tile$core$d$csr$_GEN_234[L + 1])) : ((_s_tile$core$d$csr$_T_69[L + 1] ? ((((((_s_tile$core$d$csr$_w_T_3[L + 1] ? tile.core.d.csr.small_25[L + 1] : UInt<40>(0x0)) | _s_tile$core$d$csr$_GEN_233[L + 1]) & _s_tile$core$d$csr$_GEN_234[L + 1]).bits<7,0>()).cat(tile.core.d.csr.small_25[L + 1].bits<31,0>())).pad<41>()) : (tile.core.d.csr.small_25[L + 1].pad<41>())).pad<48>())) : ((tile.core.d.csr.small_25[L + 1].pad<41>()).pad<48>())).bits<39,0>();
+        }
+      }
+    } else {
+      {
+        const UInt<40> _gv = tile.core.d.csr.small_25[3];
+        ESSENT_LANE_LOOP
+        for (int L = 0; L < 4; L++) tile.core.d.csr.small_25[L] = _gv;
+      }
+    }
+    // [vec comb] 1 templates x 4 lanes [cold-guarded base: quiet drops 1, specializes 0]
+    if (UNLIKELY(!_v2_quiet_base)) {
+      _v2_cold_comb_full(71);
     }
     // [vec comb] 1 templates x 4 lanes
     ESSENT_LANE_LOOP
@@ -5726,63 +6868,207 @@ typedef struct SodorFullChip {
     }
     // [vec comb] 2 templates x 4 lanes [cold-guarded base: quiet drops 2, specializes 0]
     if (UNLIKELY(!_v2_quiet_base)) {
-      _v2_cold_comb_full(70);
+      _v2_cold_comb_full(72);
     }
     // [serial scc=63] 1 templates (0 comb), regs=[small_26]
     // [serial scc=63 chain-loop]
-    for (int L = 2; L >= 0; L--) tile.core.d.csr.small_26[L] = (_s_tile$core$d$csr$wen[L + 1] ? (_s_tile$core$d$csr$_T_70[L + 1] ? ((tile.core.d.csr.small_26[L + 1].bits<39,32>()).cat(((_s_tile$core$d$csr$_w_T_3[L + 1] ? tile.core.d.csr.small_26[L + 1] : UInt<40>(0x0)) | _s_tile$core$d$csr$_GEN_233[L + 1]) & _s_tile$core$d$csr$_GEN_234[L + 1])) : ((_s_tile$core$d$csr$_T_71[L + 1] ? ((((((_s_tile$core$d$csr$_w_T_3[L + 1] ? tile.core.d.csr.small_26[L + 1] : UInt<40>(0x0)) | _s_tile$core$d$csr$_GEN_233[L + 1]) & _s_tile$core$d$csr$_GEN_234[L + 1]).bits<7,0>()).cat(tile.core.d.csr.small_26[L + 1].bits<31,0>())).pad<41>()) : (tile.core.d.csr.small_26[L + 1].pad<41>())).pad<48>())) : ((tile.core.d.csr.small_26[L + 1].pad<41>()).pad<48>())).bits<39,0>();
-    // [vec comb] 3 templates x 4 lanes [cold-guarded base: quiet drops 3, specializes 0]
     if (UNLIKELY(!_v2_quiet_base)) {
-      _v2_cold_comb_full(71);
+      {
+        uint64_t _gany = 0;
+        for (int L = 1; L < 4; L++) _gany |= essent_to_u64(_s_tile$core$d$csr$small_26$gwen[L]);
+        if (_gany == 0) {
+          const UInt<40> _gv = tile.core.d.csr.small_26[3];
+          ESSENT_LANE_LOOP
+          for (int L = 0; L < 4; L++) tile.core.d.csr.small_26[L] = _gv;
+        } else {
+          for (int L = 2; L >= 0; L--) tile.core.d.csr.small_26[L] = (_s_tile$core$d$csr$wen[L + 1] ? (_s_tile$core$d$csr$_T_70[L + 1] ? ((tile.core.d.csr.small_26[L + 1].bits<39,32>()).cat(((_s_tile$core$d$csr$_w_T_3[L + 1] ? tile.core.d.csr.small_26[L + 1] : UInt<40>(0x0)) | _s_tile$core$d$csr$_GEN_233[L + 1]) & _s_tile$core$d$csr$_GEN_234[L + 1])) : ((_s_tile$core$d$csr$_T_71[L + 1] ? ((((((_s_tile$core$d$csr$_w_T_3[L + 1] ? tile.core.d.csr.small_26[L + 1] : UInt<40>(0x0)) | _s_tile$core$d$csr$_GEN_233[L + 1]) & _s_tile$core$d$csr$_GEN_234[L + 1]).bits<7,0>()).cat(tile.core.d.csr.small_26[L + 1].bits<31,0>())).pad<41>()) : (tile.core.d.csr.small_26[L + 1].pad<41>())).pad<48>())) : ((tile.core.d.csr.small_26[L + 1].pad<41>()).pad<48>())).bits<39,0>();
+        }
+      }
+    } else {
+      {
+        const UInt<40> _gv = tile.core.d.csr.small_26[3];
+        ESSENT_LANE_LOOP
+        for (int L = 0; L < 4; L++) tile.core.d.csr.small_26[L] = _gv;
+      }
     }
-    // [serial scc=64] 1 templates (0 comb), regs=[small_27]
-    // [serial scc=64 chain-loop]
-    for (int L = 2; L >= 0; L--) tile.core.d.csr.small_27[L] = (_s_tile$core$d$csr$wen[L + 1] ? (_s_tile$core$d$csr$_T_72[L + 1] ? ((tile.core.d.csr.small_27[L + 1].bits<39,32>()).cat(((_s_tile$core$d$csr$_w_T_3[L + 1] ? tile.core.d.csr.small_27[L + 1] : UInt<40>(0x0)) | _s_tile$core$d$csr$_GEN_233[L + 1]) & _s_tile$core$d$csr$_GEN_234[L + 1])) : ((_s_tile$core$d$csr$_T_73[L + 1] ? ((((((_s_tile$core$d$csr$_w_T_3[L + 1] ? tile.core.d.csr.small_27[L + 1] : UInt<40>(0x0)) | _s_tile$core$d$csr$_GEN_233[L + 1]) & _s_tile$core$d$csr$_GEN_234[L + 1]).bits<7,0>()).cat(tile.core.d.csr.small_27[L + 1].bits<31,0>())).pad<41>()) : (tile.core.d.csr.small_27[L + 1].pad<41>())).pad<48>())) : ((tile.core.d.csr.small_27[L + 1].pad<41>()).pad<48>())).bits<39,0>();
-    // [vec comb] 3 templates x 4 lanes [cold-guarded base: quiet drops 3, specializes 0]
-    if (UNLIKELY(!_v2_quiet_base)) {
-      _v2_cold_comb_full(72);
-    }
-    // [serial scc=65] 1 templates (0 comb), regs=[small_28]
-    // [serial scc=65 chain-loop]
-    for (int L = 2; L >= 0; L--) tile.core.d.csr.small_28[L] = (_s_tile$core$d$csr$wen[L + 1] ? (_s_tile$core$d$csr$_T_74[L + 1] ? ((tile.core.d.csr.small_28[L + 1].bits<39,32>()).cat(((_s_tile$core$d$csr$_w_T_3[L + 1] ? tile.core.d.csr.small_28[L + 1] : UInt<40>(0x0)) | _s_tile$core$d$csr$_GEN_233[L + 1]) & _s_tile$core$d$csr$_GEN_234[L + 1])) : ((_s_tile$core$d$csr$_T_75[L + 1] ? ((((((_s_tile$core$d$csr$_w_T_3[L + 1] ? tile.core.d.csr.small_28[L + 1] : UInt<40>(0x0)) | _s_tile$core$d$csr$_GEN_233[L + 1]) & _s_tile$core$d$csr$_GEN_234[L + 1]).bits<7,0>()).cat(tile.core.d.csr.small_28[L + 1].bits<31,0>())).pad<41>()) : (tile.core.d.csr.small_28[L + 1].pad<41>())).pad<48>())) : ((tile.core.d.csr.small_28[L + 1].pad<41>()).pad<48>())).bits<39,0>();
     // [vec comb] 3 templates x 4 lanes [cold-guarded base: quiet drops 3, specializes 0]
     if (UNLIKELY(!_v2_quiet_base)) {
       _v2_cold_comb_full(73);
     }
-    // [serial scc=66] 1 templates (0 comb), regs=[small_29]
-    // [serial scc=66 chain-loop]
-    for (int L = 2; L >= 0; L--) tile.core.d.csr.small_29[L] = (_s_tile$core$d$csr$wen[L + 1] ? (_s_tile$core$d$csr$_T_76[L + 1] ? ((tile.core.d.csr.small_29[L + 1].bits<39,32>()).cat(((_s_tile$core$d$csr$_w_T_3[L + 1] ? tile.core.d.csr.small_29[L + 1] : UInt<40>(0x0)) | _s_tile$core$d$csr$_GEN_233[L + 1]) & _s_tile$core$d$csr$_GEN_234[L + 1])) : ((_s_tile$core$d$csr$_T_77[L + 1] ? ((((((_s_tile$core$d$csr$_w_T_3[L + 1] ? tile.core.d.csr.small_29[L + 1] : UInt<40>(0x0)) | _s_tile$core$d$csr$_GEN_233[L + 1]) & _s_tile$core$d$csr$_GEN_234[L + 1]).bits<7,0>()).cat(tile.core.d.csr.small_29[L + 1].bits<31,0>())).pad<41>()) : (tile.core.d.csr.small_29[L + 1].pad<41>())).pad<48>())) : ((tile.core.d.csr.small_29[L + 1].pad<41>()).pad<48>())).bits<39,0>();
+    // [serial scc=64] 1 templates (0 comb), regs=[small_27]
+    // [serial scc=64 chain-loop]
+    if (UNLIKELY(!_v2_quiet_base)) {
+      {
+        uint64_t _gany = 0;
+        for (int L = 1; L < 4; L++) _gany |= essent_to_u64(_s_tile$core$d$csr$small_27$gwen[L]);
+        if (_gany == 0) {
+          const UInt<40> _gv = tile.core.d.csr.small_27[3];
+          ESSENT_LANE_LOOP
+          for (int L = 0; L < 4; L++) tile.core.d.csr.small_27[L] = _gv;
+        } else {
+          for (int L = 2; L >= 0; L--) tile.core.d.csr.small_27[L] = (_s_tile$core$d$csr$wen[L + 1] ? (_s_tile$core$d$csr$_T_72[L + 1] ? ((tile.core.d.csr.small_27[L + 1].bits<39,32>()).cat(((_s_tile$core$d$csr$_w_T_3[L + 1] ? tile.core.d.csr.small_27[L + 1] : UInt<40>(0x0)) | _s_tile$core$d$csr$_GEN_233[L + 1]) & _s_tile$core$d$csr$_GEN_234[L + 1])) : ((_s_tile$core$d$csr$_T_73[L + 1] ? ((((((_s_tile$core$d$csr$_w_T_3[L + 1] ? tile.core.d.csr.small_27[L + 1] : UInt<40>(0x0)) | _s_tile$core$d$csr$_GEN_233[L + 1]) & _s_tile$core$d$csr$_GEN_234[L + 1]).bits<7,0>()).cat(tile.core.d.csr.small_27[L + 1].bits<31,0>())).pad<41>()) : (tile.core.d.csr.small_27[L + 1].pad<41>())).pad<48>())) : ((tile.core.d.csr.small_27[L + 1].pad<41>()).pad<48>())).bits<39,0>();
+        }
+      }
+    } else {
+      {
+        const UInt<40> _gv = tile.core.d.csr.small_27[3];
+        ESSENT_LANE_LOOP
+        for (int L = 0; L < 4; L++) tile.core.d.csr.small_27[L] = _gv;
+      }
+    }
     // [vec comb] 3 templates x 4 lanes [cold-guarded base: quiet drops 3, specializes 0]
     if (UNLIKELY(!_v2_quiet_base)) {
       _v2_cold_comb_full(74);
     }
-    // [serial scc=67] 1 templates (0 comb), regs=[small_30]
-    // [serial scc=67 chain-loop]
-    for (int L = 2; L >= 0; L--) tile.core.d.csr.small_30[L] = (_s_tile$core$d$csr$wen[L + 1] ? (_s_tile$core$d$csr$_T_78[L + 1] ? ((tile.core.d.csr.small_30[L + 1].bits<39,32>()).cat(((_s_tile$core$d$csr$_w_T_3[L + 1] ? tile.core.d.csr.small_30[L + 1] : UInt<40>(0x0)) | _s_tile$core$d$csr$_GEN_233[L + 1]) & _s_tile$core$d$csr$_GEN_234[L + 1])) : ((_s_tile$core$d$csr$_T_79[L + 1] ? ((((((_s_tile$core$d$csr$_w_T_3[L + 1] ? tile.core.d.csr.small_30[L + 1] : UInt<40>(0x0)) | _s_tile$core$d$csr$_GEN_233[L + 1]) & _s_tile$core$d$csr$_GEN_234[L + 1]).bits<7,0>()).cat(tile.core.d.csr.small_30[L + 1].bits<31,0>())).pad<41>()) : (tile.core.d.csr.small_30[L + 1].pad<41>())).pad<48>())) : ((tile.core.d.csr.small_30[L + 1].pad<41>()).pad<48>())).bits<39,0>();
+    // [serial scc=65] 1 templates (0 comb), regs=[small_28]
+    // [serial scc=65 chain-loop]
+    if (UNLIKELY(!_v2_quiet_base)) {
+      {
+        uint64_t _gany = 0;
+        for (int L = 1; L < 4; L++) _gany |= essent_to_u64(_s_tile$core$d$csr$small_28$gwen[L]);
+        if (_gany == 0) {
+          const UInt<40> _gv = tile.core.d.csr.small_28[3];
+          ESSENT_LANE_LOOP
+          for (int L = 0; L < 4; L++) tile.core.d.csr.small_28[L] = _gv;
+        } else {
+          for (int L = 2; L >= 0; L--) tile.core.d.csr.small_28[L] = (_s_tile$core$d$csr$wen[L + 1] ? (_s_tile$core$d$csr$_T_74[L + 1] ? ((tile.core.d.csr.small_28[L + 1].bits<39,32>()).cat(((_s_tile$core$d$csr$_w_T_3[L + 1] ? tile.core.d.csr.small_28[L + 1] : UInt<40>(0x0)) | _s_tile$core$d$csr$_GEN_233[L + 1]) & _s_tile$core$d$csr$_GEN_234[L + 1])) : ((_s_tile$core$d$csr$_T_75[L + 1] ? ((((((_s_tile$core$d$csr$_w_T_3[L + 1] ? tile.core.d.csr.small_28[L + 1] : UInt<40>(0x0)) | _s_tile$core$d$csr$_GEN_233[L + 1]) & _s_tile$core$d$csr$_GEN_234[L + 1]).bits<7,0>()).cat(tile.core.d.csr.small_28[L + 1].bits<31,0>())).pad<41>()) : (tile.core.d.csr.small_28[L + 1].pad<41>())).pad<48>())) : ((tile.core.d.csr.small_28[L + 1].pad<41>()).pad<48>())).bits<39,0>();
+        }
+      }
+    } else {
+      {
+        const UInt<40> _gv = tile.core.d.csr.small_28[3];
+        ESSENT_LANE_LOOP
+        for (int L = 0; L < 4; L++) tile.core.d.csr.small_28[L] = _gv;
+      }
+    }
     // [vec comb] 3 templates x 4 lanes [cold-guarded base: quiet drops 3, specializes 0]
     if (UNLIKELY(!_v2_quiet_base)) {
       _v2_cold_comb_full(75);
     }
-    // [serial scc=68] 1 templates (0 comb), regs=[small_31]
-    // [serial scc=68 chain-loop]
-    for (int L = 2; L >= 0; L--) tile.core.d.csr.small_31[L] = (_s_tile$core$d$csr$wen[L + 1] ? (_s_tile$core$d$csr$_T_80[L + 1] ? ((tile.core.d.csr.small_31[L + 1].bits<39,32>()).cat(((_s_tile$core$d$csr$_w_T_3[L + 1] ? tile.core.d.csr.small_31[L + 1] : UInt<40>(0x0)) | _s_tile$core$d$csr$_GEN_233[L + 1]) & _s_tile$core$d$csr$_GEN_234[L + 1])) : ((_s_tile$core$d$csr$_T_81[L + 1] ? ((((((_s_tile$core$d$csr$_w_T_3[L + 1] ? tile.core.d.csr.small_31[L + 1] : UInt<40>(0x0)) | _s_tile$core$d$csr$_GEN_233[L + 1]) & _s_tile$core$d$csr$_GEN_234[L + 1]).bits<7,0>()).cat(tile.core.d.csr.small_31[L + 1].bits<31,0>())).pad<41>()) : (tile.core.d.csr.small_31[L + 1].pad<41>())).pad<48>())) : ((tile.core.d.csr.small_31[L + 1].pad<41>()).pad<48>())).bits<39,0>();
+    // [serial scc=66] 1 templates (0 comb), regs=[small_29]
+    // [serial scc=66 chain-loop]
+    if (UNLIKELY(!_v2_quiet_base)) {
+      {
+        uint64_t _gany = 0;
+        for (int L = 1; L < 4; L++) _gany |= essent_to_u64(_s_tile$core$d$csr$small_29$gwen[L]);
+        if (_gany == 0) {
+          const UInt<40> _gv = tile.core.d.csr.small_29[3];
+          ESSENT_LANE_LOOP
+          for (int L = 0; L < 4; L++) tile.core.d.csr.small_29[L] = _gv;
+        } else {
+          for (int L = 2; L >= 0; L--) tile.core.d.csr.small_29[L] = (_s_tile$core$d$csr$wen[L + 1] ? (_s_tile$core$d$csr$_T_76[L + 1] ? ((tile.core.d.csr.small_29[L + 1].bits<39,32>()).cat(((_s_tile$core$d$csr$_w_T_3[L + 1] ? tile.core.d.csr.small_29[L + 1] : UInt<40>(0x0)) | _s_tile$core$d$csr$_GEN_233[L + 1]) & _s_tile$core$d$csr$_GEN_234[L + 1])) : ((_s_tile$core$d$csr$_T_77[L + 1] ? ((((((_s_tile$core$d$csr$_w_T_3[L + 1] ? tile.core.d.csr.small_29[L + 1] : UInt<40>(0x0)) | _s_tile$core$d$csr$_GEN_233[L + 1]) & _s_tile$core$d$csr$_GEN_234[L + 1]).bits<7,0>()).cat(tile.core.d.csr.small_29[L + 1].bits<31,0>())).pad<41>()) : (tile.core.d.csr.small_29[L + 1].pad<41>())).pad<48>())) : ((tile.core.d.csr.small_29[L + 1].pad<41>()).pad<48>())).bits<39,0>();
+        }
+      }
+    } else {
+      {
+        const UInt<40> _gv = tile.core.d.csr.small_29[3];
+        ESSENT_LANE_LOOP
+        for (int L = 0; L < 4; L++) tile.core.d.csr.small_29[L] = _gv;
+      }
+    }
     // [vec comb] 3 templates x 4 lanes [cold-guarded base: quiet drops 3, specializes 0]
     if (UNLIKELY(!_v2_quiet_base)) {
       _v2_cold_comb_full(76);
     }
-    // [serial scc=69] 1 templates (0 comb), regs=[small_32]
-    // [serial scc=69 chain-loop]
-    for (int L = 2; L >= 0; L--) tile.core.d.csr.small_32[L] = (_s_tile$core$d$csr$wen[L + 1] ? (_s_tile$core$d$csr$_T_82[L + 1] ? ((tile.core.d.csr.small_32[L + 1].bits<39,32>()).cat(((_s_tile$core$d$csr$_w_T_3[L + 1] ? tile.core.d.csr.small_32[L + 1] : UInt<40>(0x0)) | _s_tile$core$d$csr$_GEN_233[L + 1]) & _s_tile$core$d$csr$_GEN_234[L + 1])) : ((_s_tile$core$d$csr$_T_83[L + 1] ? ((((((_s_tile$core$d$csr$_w_T_3[L + 1] ? tile.core.d.csr.small_32[L + 1] : UInt<40>(0x0)) | _s_tile$core$d$csr$_GEN_233[L + 1]) & _s_tile$core$d$csr$_GEN_234[L + 1]).bits<7,0>()).cat(tile.core.d.csr.small_32[L + 1].bits<31,0>())).pad<41>()) : (tile.core.d.csr.small_32[L + 1].pad<41>())).pad<48>())) : ((tile.core.d.csr.small_32[L + 1].pad<41>()).pad<48>())).bits<39,0>();
+    // [serial scc=67] 1 templates (0 comb), regs=[small_30]
+    // [serial scc=67 chain-loop]
+    if (UNLIKELY(!_v2_quiet_base)) {
+      {
+        uint64_t _gany = 0;
+        for (int L = 1; L < 4; L++) _gany |= essent_to_u64(_s_tile$core$d$csr$small_30$gwen[L]);
+        if (_gany == 0) {
+          const UInt<40> _gv = tile.core.d.csr.small_30[3];
+          ESSENT_LANE_LOOP
+          for (int L = 0; L < 4; L++) tile.core.d.csr.small_30[L] = _gv;
+        } else {
+          for (int L = 2; L >= 0; L--) tile.core.d.csr.small_30[L] = (_s_tile$core$d$csr$wen[L + 1] ? (_s_tile$core$d$csr$_T_78[L + 1] ? ((tile.core.d.csr.small_30[L + 1].bits<39,32>()).cat(((_s_tile$core$d$csr$_w_T_3[L + 1] ? tile.core.d.csr.small_30[L + 1] : UInt<40>(0x0)) | _s_tile$core$d$csr$_GEN_233[L + 1]) & _s_tile$core$d$csr$_GEN_234[L + 1])) : ((_s_tile$core$d$csr$_T_79[L + 1] ? ((((((_s_tile$core$d$csr$_w_T_3[L + 1] ? tile.core.d.csr.small_30[L + 1] : UInt<40>(0x0)) | _s_tile$core$d$csr$_GEN_233[L + 1]) & _s_tile$core$d$csr$_GEN_234[L + 1]).bits<7,0>()).cat(tile.core.d.csr.small_30[L + 1].bits<31,0>())).pad<41>()) : (tile.core.d.csr.small_30[L + 1].pad<41>())).pad<48>())) : ((tile.core.d.csr.small_30[L + 1].pad<41>()).pad<48>())).bits<39,0>();
+        }
+      }
+    } else {
+      {
+        const UInt<40> _gv = tile.core.d.csr.small_30[3];
+        ESSENT_LANE_LOOP
+        for (int L = 0; L < 4; L++) tile.core.d.csr.small_30[L] = _gv;
+      }
+    }
     // [vec comb] 3 templates x 4 lanes [cold-guarded base: quiet drops 3, specializes 0]
     if (UNLIKELY(!_v2_quiet_base)) {
       _v2_cold_comb_full(77);
     }
-    // [serial scc=70] 1 templates (0 comb), regs=[small_33]
-    // [serial scc=70 chain-loop]
-    for (int L = 2; L >= 0; L--) tile.core.d.csr.small_33[L] = (_s_tile$core$d$csr$wen[L + 1] ? (_s_tile$core$d$csr$_T_84[L + 1] ? ((tile.core.d.csr.small_33[L + 1].bits<39,32>()).cat(((_s_tile$core$d$csr$_w_T_3[L + 1] ? tile.core.d.csr.small_33[L + 1] : UInt<40>(0x0)) | _s_tile$core$d$csr$_GEN_233[L + 1]) & _s_tile$core$d$csr$_GEN_234[L + 1])) : ((_s_tile$core$d$csr$_T_85[L + 1] ? ((((((_s_tile$core$d$csr$_w_T_3[L + 1] ? tile.core.d.csr.small_33[L + 1] : UInt<40>(0x0)) | _s_tile$core$d$csr$_GEN_233[L + 1]) & _s_tile$core$d$csr$_GEN_234[L + 1]).bits<7,0>()).cat(tile.core.d.csr.small_33[L + 1].bits<31,0>())).pad<41>()) : (tile.core.d.csr.small_33[L + 1].pad<41>())).pad<48>())) : ((tile.core.d.csr.small_33[L + 1].pad<41>()).pad<48>())).bits<39,0>();
-    // [vec comb] 1 templates x 4 lanes [cold-guarded base: quiet drops 1, specializes 0]
+    // [serial scc=68] 1 templates (0 comb), regs=[small_31]
+    // [serial scc=68 chain-loop]
+    if (UNLIKELY(!_v2_quiet_base)) {
+      {
+        uint64_t _gany = 0;
+        for (int L = 1; L < 4; L++) _gany |= essent_to_u64(_s_tile$core$d$csr$small_31$gwen[L]);
+        if (_gany == 0) {
+          const UInt<40> _gv = tile.core.d.csr.small_31[3];
+          ESSENT_LANE_LOOP
+          for (int L = 0; L < 4; L++) tile.core.d.csr.small_31[L] = _gv;
+        } else {
+          for (int L = 2; L >= 0; L--) tile.core.d.csr.small_31[L] = (_s_tile$core$d$csr$wen[L + 1] ? (_s_tile$core$d$csr$_T_80[L + 1] ? ((tile.core.d.csr.small_31[L + 1].bits<39,32>()).cat(((_s_tile$core$d$csr$_w_T_3[L + 1] ? tile.core.d.csr.small_31[L + 1] : UInt<40>(0x0)) | _s_tile$core$d$csr$_GEN_233[L + 1]) & _s_tile$core$d$csr$_GEN_234[L + 1])) : ((_s_tile$core$d$csr$_T_81[L + 1] ? ((((((_s_tile$core$d$csr$_w_T_3[L + 1] ? tile.core.d.csr.small_31[L + 1] : UInt<40>(0x0)) | _s_tile$core$d$csr$_GEN_233[L + 1]) & _s_tile$core$d$csr$_GEN_234[L + 1]).bits<7,0>()).cat(tile.core.d.csr.small_31[L + 1].bits<31,0>())).pad<41>()) : (tile.core.d.csr.small_31[L + 1].pad<41>())).pad<48>())) : ((tile.core.d.csr.small_31[L + 1].pad<41>()).pad<48>())).bits<39,0>();
+        }
+      }
+    } else {
+      {
+        const UInt<40> _gv = tile.core.d.csr.small_31[3];
+        ESSENT_LANE_LOOP
+        for (int L = 0; L < 4; L++) tile.core.d.csr.small_31[L] = _gv;
+      }
+    }
+    // [vec comb] 3 templates x 4 lanes [cold-guarded base: quiet drops 3, specializes 0]
     if (UNLIKELY(!_v2_quiet_base)) {
       _v2_cold_comb_full(78);
+    }
+    // [serial scc=69] 1 templates (0 comb), regs=[small_32]
+    // [serial scc=69 chain-loop]
+    if (UNLIKELY(!_v2_quiet_base)) {
+      {
+        uint64_t _gany = 0;
+        for (int L = 1; L < 4; L++) _gany |= essent_to_u64(_s_tile$core$d$csr$small_32$gwen[L]);
+        if (_gany == 0) {
+          const UInt<40> _gv = tile.core.d.csr.small_32[3];
+          ESSENT_LANE_LOOP
+          for (int L = 0; L < 4; L++) tile.core.d.csr.small_32[L] = _gv;
+        } else {
+          for (int L = 2; L >= 0; L--) tile.core.d.csr.small_32[L] = (_s_tile$core$d$csr$wen[L + 1] ? (_s_tile$core$d$csr$_T_82[L + 1] ? ((tile.core.d.csr.small_32[L + 1].bits<39,32>()).cat(((_s_tile$core$d$csr$_w_T_3[L + 1] ? tile.core.d.csr.small_32[L + 1] : UInt<40>(0x0)) | _s_tile$core$d$csr$_GEN_233[L + 1]) & _s_tile$core$d$csr$_GEN_234[L + 1])) : ((_s_tile$core$d$csr$_T_83[L + 1] ? ((((((_s_tile$core$d$csr$_w_T_3[L + 1] ? tile.core.d.csr.small_32[L + 1] : UInt<40>(0x0)) | _s_tile$core$d$csr$_GEN_233[L + 1]) & _s_tile$core$d$csr$_GEN_234[L + 1]).bits<7,0>()).cat(tile.core.d.csr.small_32[L + 1].bits<31,0>())).pad<41>()) : (tile.core.d.csr.small_32[L + 1].pad<41>())).pad<48>())) : ((tile.core.d.csr.small_32[L + 1].pad<41>()).pad<48>())).bits<39,0>();
+        }
+      }
+    } else {
+      {
+        const UInt<40> _gv = tile.core.d.csr.small_32[3];
+        ESSENT_LANE_LOOP
+        for (int L = 0; L < 4; L++) tile.core.d.csr.small_32[L] = _gv;
+      }
+    }
+    // [vec comb] 3 templates x 4 lanes [cold-guarded base: quiet drops 3, specializes 0]
+    if (UNLIKELY(!_v2_quiet_base)) {
+      _v2_cold_comb_full(79);
+    }
+    // [serial scc=70] 1 templates (0 comb), regs=[small_33]
+    // [serial scc=70 chain-loop]
+    if (UNLIKELY(!_v2_quiet_base)) {
+      {
+        uint64_t _gany = 0;
+        for (int L = 1; L < 4; L++) _gany |= essent_to_u64(_s_tile$core$d$csr$small_33$gwen[L]);
+        if (_gany == 0) {
+          const UInt<40> _gv = tile.core.d.csr.small_33[3];
+          ESSENT_LANE_LOOP
+          for (int L = 0; L < 4; L++) tile.core.d.csr.small_33[L] = _gv;
+        } else {
+          for (int L = 2; L >= 0; L--) tile.core.d.csr.small_33[L] = (_s_tile$core$d$csr$wen[L + 1] ? (_s_tile$core$d$csr$_T_84[L + 1] ? ((tile.core.d.csr.small_33[L + 1].bits<39,32>()).cat(((_s_tile$core$d$csr$_w_T_3[L + 1] ? tile.core.d.csr.small_33[L + 1] : UInt<40>(0x0)) | _s_tile$core$d$csr$_GEN_233[L + 1]) & _s_tile$core$d$csr$_GEN_234[L + 1])) : ((_s_tile$core$d$csr$_T_85[L + 1] ? ((((((_s_tile$core$d$csr$_w_T_3[L + 1] ? tile.core.d.csr.small_33[L + 1] : UInt<40>(0x0)) | _s_tile$core$d$csr$_GEN_233[L + 1]) & _s_tile$core$d$csr$_GEN_234[L + 1]).bits<7,0>()).cat(tile.core.d.csr.small_33[L + 1].bits<31,0>())).pad<41>()) : (tile.core.d.csr.small_33[L + 1].pad<41>())).pad<48>())) : ((tile.core.d.csr.small_33[L + 1].pad<41>()).pad<48>())).bits<39,0>();
+        }
+      }
+    } else {
+      {
+        const UInt<40> _gv = tile.core.d.csr.small_33[3];
+        ESSENT_LANE_LOOP
+        for (int L = 0; L < 4; L++) tile.core.d.csr.small_33[L] = _gv;
+      }
+    }
+    // [vec comb] 1 templates x 4 lanes [cold-guarded base: quiet drops 1, specializes 0]
+    if (UNLIKELY(!_v2_quiet_base)) {
+      _v2_cold_comb_full(80);
     }
     // [vec comb] 1 templates x 4 lanes
     ESSENT_LANE_LOOP
@@ -5791,7 +7077,7 @@ typedef struct SodorFullChip {
     }
     // [vec comb] 1 templates x 4 lanes [cold-guarded base: quiet drops 1, specializes 0]
     if (UNLIKELY(!_v2_quiet_base)) {
-      _v2_cold_comb_full(79);
+      _v2_cold_comb_full(81);
     }
     // [vec comb] 2 templates x 4 lanes
     ESSENT_LANE_LOOP
@@ -5803,15 +7089,15 @@ typedef struct SodorFullChip {
     }
     // [vec comb] 1 templates x 4 lanes [cold-guarded base: quiet drops 1, specializes 0]
     if (UNLIKELY(!_v2_quiet_base)) {
-      _v2_cold_comb_full(80);
+      _v2_cold_comb_full(82);
     }
     // [vec comb] 1 templates x 4 lanes
     ESSENT_LANE_LOOP
     for (int L = 0; L < 4; L++) {
       _s_tile$core$d$wb_reg_wbdata$wdata[L].val = static_cast<typename UInt<32>::scalar_t>((static_cast<uint32_t>(_s_tile$core$d$mem_wbdata[L].val) & 0xffffffffu));
     }
-    // [serial scc=5] 1 templates (0 comb), regs=[wb_reg_wbdata]
-    // [serial scc=5 chain-loop]
+    // [serial scc=3] 1 templates (0 comb), regs=[wb_reg_wbdata]
+    // [serial scc=3 chain-loop]
     essent_condhold_apply_rev<4>(tile.core.d.wb_reg_wbdata, _v2_cond_idx_5, _s_tile$core$d$wb_reg_wbdata$wdata);
     // [vec state-read] 3 templates x 4 lanes
     #if ESSENT_ORACLE_VERIFY // [extern-read] verify-only recompute: regfile.regfile.io_rs1_data_MPORT$rtl
@@ -6272,27 +7558,71 @@ typedef struct SodorFullChip {
           _s_tile$core$d$csr$reg_medeleg$gwen[L].val = static_cast<typename UInt<1>::scalar_t>((static_cast<uint8_t>((static_cast<uint8_t>(((_s_tile$core$d$csr$wen[L].val) & (_s_tile$core$d$csr$_T_21[L].val))) & 0x1u)) & 0x1u));
           _s_tile$core$d$csr$reg_mip_msip$gwen[L].val = static_cast<typename UInt<1>::scalar_t>((static_cast<uint8_t>((static_cast<uint8_t>(((reset.val) | ((static_cast<uint8_t>(((_s_tile$core$d$csr$wen[L].val) & (_s_tile$core$d$csr$_T_11[L].val))) & 0x1u)))) & 0x1u)) & 0x1u));
           _s_tile$core$d$csr$reg_mie_msip$gwen[L].val = static_cast<typename UInt<1>::scalar_t>((static_cast<uint8_t>((static_cast<uint8_t>(((reset.val) | ((static_cast<uint8_t>(((_s_tile$core$d$csr$wen[L].val) & (_s_tile$core$d$csr$_T_12[L].val))) & 0x1u)))) & 0x1u)) & 0x1u));
-          _s_tile$core$d$csr$reg_dpc$gwen[L].val = static_cast<typename UInt<1>::scalar_t>((static_cast<uint8_t>((static_cast<uint8_t>(((_s_tile$core$d$csr$wen[L].val) & (_s_tile$core$d$csr$_T_19[L].val))) & 0x1u)) & 0x1u));
-          _s_tile$core$d$csr$reg_dscratch$gwen[L].val = static_cast<typename UInt<1>::scalar_t>((static_cast<uint8_t>((static_cast<uint8_t>(((_s_tile$core$d$csr$wen[L].val) & (_s_tile$core$d$csr$_T_20[L].val))) & 0x1u)) & 0x1u));
-          _s_tile$core$d$csr$reg_dcsr_ebreakm$gwen[L].val = static_cast<typename UInt<1>::scalar_t>((static_cast<uint8_t>((static_cast<uint8_t>(((reset.val) | ((static_cast<uint8_t>(((_s_tile$core$d$csr$wen[L].val) & (_s_tile$core$d$csr$_T_18[L].val))) & 0x1u)))) & 0x1u)) & 0x1u));
         }
         break;
       }
       case 6: {
         ESSENT_LANE_LOOP
         for (int L = 0; L < 4; L++) {
-          _s_tile$core$c$exe_inst_is_load$next[L].val = static_cast<typename UInt<1>::scalar_t>((static_cast<uint8_t>((static_cast<uint8_t>((((static_cast<uint8_t>((~static_cast<uint8_t>(reset.val))) & 0x1u)) & ((static_cast<uint8_t>((((static_cast<uint8_t>(((_s_tile$core$c$_T_1[L].val) & (_s_tile$core$c$_exe_inst_is_load_T_1[L].val))) & 0x1u)) | ((static_cast<uint8_t>((((static_cast<uint8_t>((~static_cast<uint8_t>(_s_tile$core$c$_T_1[L].val))) & 0x1u)) & (tile.core.c.exe_inst_is_load[L].val))) & 0x1u)))) & 0x1u)))) & 0x1u)) & 0x1u));
+          _s_tile$core$d$csr$small_2$gwen[L].val = static_cast<typename UInt<1>::scalar_t>((static_cast<uint8_t>(_s_tile$core$d$csr$wen[L].val) & 0x1u));
+          _s_tile$core$d$csr$small_3$gwen[L].val = static_cast<typename UInt<1>::scalar_t>((static_cast<uint8_t>(_s_tile$core$d$csr$wen[L].val) & 0x1u));
+          _s_tile$core$d$csr$small_4$gwen[L].val = static_cast<typename UInt<1>::scalar_t>((static_cast<uint8_t>(_s_tile$core$d$csr$wen[L].val) & 0x1u));
+          _s_tile$core$d$csr$small_5$gwen[L].val = static_cast<typename UInt<1>::scalar_t>((static_cast<uint8_t>(_s_tile$core$d$csr$wen[L].val) & 0x1u));
+          _s_tile$core$d$csr$small_6$gwen[L].val = static_cast<typename UInt<1>::scalar_t>((static_cast<uint8_t>(_s_tile$core$d$csr$wen[L].val) & 0x1u));
         }
         break;
       }
       case 7: {
         ESSENT_LANE_LOOP
         for (int L = 0; L < 4; L++) {
-          _s_tile$core$c$exe_reg_is_csr$next[L].val = static_cast<typename UInt<1>::scalar_t>((static_cast<uint8_t>((static_cast<uint8_t>((((static_cast<uint8_t>((~static_cast<uint8_t>(reset.val))) & 0x1u)) & ((static_cast<uint8_t>((((static_cast<uint8_t>(((_s_tile$core$c$_T_2[L].val) & (_s_tile$core$c$_GEN_2[L].val))) & 0x1u)) | ((static_cast<uint8_t>((((static_cast<uint8_t>((~static_cast<uint8_t>(_s_tile$core$c$_T_2[L].val))) & 0x1u)) & ((static_cast<uint8_t>((((static_cast<uint8_t>((~static_cast<uint8_t>(_s_tile$core$c$_T_4[L].val))) & 0x1u)) & (tile.core.c.exe_reg_is_csr[L].val))) & 0x1u)))) & 0x1u)))) & 0x1u)))) & 0x1u)) & 0x1u));
+          _s_tile$core$d$csr$small_7$gwen[L].val = static_cast<typename UInt<1>::scalar_t>((static_cast<uint8_t>(_s_tile$core$d$csr$wen[L].val) & 0x1u));
+          _s_tile$core$d$csr$small_8$gwen[L].val = static_cast<typename UInt<1>::scalar_t>((static_cast<uint8_t>(_s_tile$core$d$csr$wen[L].val) & 0x1u));
+          _s_tile$core$d$csr$small_9$gwen[L].val = static_cast<typename UInt<1>::scalar_t>((static_cast<uint8_t>(_s_tile$core$d$csr$wen[L].val) & 0x1u));
+          _s_tile$core$d$csr$small_10$gwen[L].val = static_cast<typename UInt<1>::scalar_t>((static_cast<uint8_t>(_s_tile$core$d$csr$wen[L].val) & 0x1u));
+          _s_tile$core$d$csr$small_11$gwen[L].val = static_cast<typename UInt<1>::scalar_t>((static_cast<uint8_t>(_s_tile$core$d$csr$wen[L].val) & 0x1u));
+          _s_tile$core$d$csr$small_12$gwen[L].val = static_cast<typename UInt<1>::scalar_t>((static_cast<uint8_t>(_s_tile$core$d$csr$wen[L].val) & 0x1u));
+          _s_tile$core$d$csr$small_13$gwen[L].val = static_cast<typename UInt<1>::scalar_t>((static_cast<uint8_t>(_s_tile$core$d$csr$wen[L].val) & 0x1u));
+          _s_tile$core$d$csr$small_14$gwen[L].val = static_cast<typename UInt<1>::scalar_t>((static_cast<uint8_t>(_s_tile$core$d$csr$wen[L].val) & 0x1u));
+          _s_tile$core$d$csr$small_15$gwen[L].val = static_cast<typename UInt<1>::scalar_t>((static_cast<uint8_t>(_s_tile$core$d$csr$wen[L].val) & 0x1u));
+          _s_tile$core$d$csr$small_16$gwen[L].val = static_cast<typename UInt<1>::scalar_t>((static_cast<uint8_t>(_s_tile$core$d$csr$wen[L].val) & 0x1u));
+          _s_tile$core$d$csr$small_17$gwen[L].val = static_cast<typename UInt<1>::scalar_t>((static_cast<uint8_t>(_s_tile$core$d$csr$wen[L].val) & 0x1u));
+          _s_tile$core$d$csr$small_18$gwen[L].val = static_cast<typename UInt<1>::scalar_t>((static_cast<uint8_t>(_s_tile$core$d$csr$wen[L].val) & 0x1u));
+          _s_tile$core$d$csr$small_19$gwen[L].val = static_cast<typename UInt<1>::scalar_t>((static_cast<uint8_t>(_s_tile$core$d$csr$wen[L].val) & 0x1u));
+          _s_tile$core$d$csr$small_20$gwen[L].val = static_cast<typename UInt<1>::scalar_t>((static_cast<uint8_t>(_s_tile$core$d$csr$wen[L].val) & 0x1u));
+          _s_tile$core$d$csr$small_21$gwen[L].val = static_cast<typename UInt<1>::scalar_t>((static_cast<uint8_t>(_s_tile$core$d$csr$wen[L].val) & 0x1u));
+          _s_tile$core$d$csr$small_22$gwen[L].val = static_cast<typename UInt<1>::scalar_t>((static_cast<uint8_t>(_s_tile$core$d$csr$wen[L].val) & 0x1u));
+          _s_tile$core$d$csr$small_23$gwen[L].val = static_cast<typename UInt<1>::scalar_t>((static_cast<uint8_t>(_s_tile$core$d$csr$wen[L].val) & 0x1u));
+          _s_tile$core$d$csr$small_24$gwen[L].val = static_cast<typename UInt<1>::scalar_t>((static_cast<uint8_t>(_s_tile$core$d$csr$wen[L].val) & 0x1u));
+          _s_tile$core$d$csr$small_25$gwen[L].val = static_cast<typename UInt<1>::scalar_t>((static_cast<uint8_t>(_s_tile$core$d$csr$wen[L].val) & 0x1u));
+          _s_tile$core$d$csr$small_26$gwen[L].val = static_cast<typename UInt<1>::scalar_t>((static_cast<uint8_t>(_s_tile$core$d$csr$wen[L].val) & 0x1u));
+          _s_tile$core$d$csr$small_27$gwen[L].val = static_cast<typename UInt<1>::scalar_t>((static_cast<uint8_t>(_s_tile$core$d$csr$wen[L].val) & 0x1u));
+          _s_tile$core$d$csr$small_28$gwen[L].val = static_cast<typename UInt<1>::scalar_t>((static_cast<uint8_t>(_s_tile$core$d$csr$wen[L].val) & 0x1u));
+          _s_tile$core$d$csr$small_29$gwen[L].val = static_cast<typename UInt<1>::scalar_t>((static_cast<uint8_t>(_s_tile$core$d$csr$wen[L].val) & 0x1u));
+          _s_tile$core$d$csr$small_30$gwen[L].val = static_cast<typename UInt<1>::scalar_t>((static_cast<uint8_t>(_s_tile$core$d$csr$wen[L].val) & 0x1u));
+          _s_tile$core$d$csr$small_31$gwen[L].val = static_cast<typename UInt<1>::scalar_t>((static_cast<uint8_t>(_s_tile$core$d$csr$wen[L].val) & 0x1u));
+          _s_tile$core$d$csr$small_32$gwen[L].val = static_cast<typename UInt<1>::scalar_t>((static_cast<uint8_t>(_s_tile$core$d$csr$wen[L].val) & 0x1u));
+          _s_tile$core$d$csr$small_33$gwen[L].val = static_cast<typename UInt<1>::scalar_t>((static_cast<uint8_t>(_s_tile$core$d$csr$wen[L].val) & 0x1u));
+          _s_tile$core$d$csr$reg_dpc$gwen[L].val = static_cast<typename UInt<1>::scalar_t>((static_cast<uint8_t>((static_cast<uint8_t>(((_s_tile$core$d$csr$wen[L].val) & (_s_tile$core$d$csr$_T_19[L].val))) & 0x1u)) & 0x1u));
+          _s_tile$core$d$csr$reg_dscratch$gwen[L].val = static_cast<typename UInt<1>::scalar_t>((static_cast<uint8_t>((static_cast<uint8_t>(((_s_tile$core$d$csr$wen[L].val) & (_s_tile$core$d$csr$_T_20[L].val))) & 0x1u)) & 0x1u));
+          _s_tile$core$d$csr$reg_dcsr_ebreakm$gwen[L].val = static_cast<typename UInt<1>::scalar_t>((static_cast<uint8_t>((static_cast<uint8_t>(((reset.val) | ((static_cast<uint8_t>(((_s_tile$core$d$csr$wen[L].val) & (_s_tile$core$d$csr$_T_18[L].val))) & 0x1u)))) & 0x1u)) & 0x1u));
         }
         break;
       }
       case 8: {
+        ESSENT_LANE_LOOP
+        for (int L = 0; L < 4; L++) {
+          _s_tile$core$c$exe_inst_is_load$next[L].val = static_cast<typename UInt<1>::scalar_t>((static_cast<uint8_t>((static_cast<uint8_t>((((static_cast<uint8_t>((~static_cast<uint8_t>(reset.val))) & 0x1u)) & ((static_cast<uint8_t>((((static_cast<uint8_t>(((_s_tile$core$c$_T_1[L].val) & (_s_tile$core$c$_exe_inst_is_load_T_1[L].val))) & 0x1u)) | ((static_cast<uint8_t>((((static_cast<uint8_t>((~static_cast<uint8_t>(_s_tile$core$c$_T_1[L].val))) & 0x1u)) & (tile.core.c.exe_inst_is_load[L].val))) & 0x1u)))) & 0x1u)))) & 0x1u)) & 0x1u));
+        }
+        break;
+      }
+      case 9: {
+        ESSENT_LANE_LOOP
+        for (int L = 0; L < 4; L++) {
+          _s_tile$core$c$exe_reg_is_csr$next[L].val = static_cast<typename UInt<1>::scalar_t>((static_cast<uint8_t>((static_cast<uint8_t>((((static_cast<uint8_t>((~static_cast<uint8_t>(reset.val))) & 0x1u)) & ((static_cast<uint8_t>((((static_cast<uint8_t>(((_s_tile$core$c$_T_2[L].val) & (_s_tile$core$c$_GEN_2[L].val))) & 0x1u)) | ((static_cast<uint8_t>((((static_cast<uint8_t>((~static_cast<uint8_t>(_s_tile$core$c$_T_2[L].val))) & 0x1u)) & ((static_cast<uint8_t>((((static_cast<uint8_t>((~static_cast<uint8_t>(_s_tile$core$c$_T_4[L].val))) & 0x1u)) & (tile.core.c.exe_reg_is_csr[L].val))) & 0x1u)))) & 0x1u)))) & 0x1u)))) & 0x1u)) & 0x1u));
+        }
+        break;
+      }
+      case 10: {
         ESSENT_LANE_LOOP
         for (int L = 0; L < 4; L++) {
           _s_tile$core$d$dec_reg_inst$next[L].val = static_cast<typename UInt<32>::scalar_t>((static_cast<uint32_t>((static_cast<uint32_t>(((((static_cast<uint32_t>(0x4033u) & 0xffffffffu)) & ((uint32_t)0 - (uint32_t)(((static_cast<uint32_t>(reset.val) & 0x1u)) != 0))) | (((static_cast<uint32_t>(((((static_cast<uint32_t>(0x4033u) & 0xffffffffu)) & ((uint32_t)0 - (uint32_t)(((static_cast<uint32_t>(_s_tile$core$c$io_ctl_pipeline_kill[L].val) & 0x1u)) != 0))) | (((static_cast<uint32_t>(((((static_cast<uint32_t>(((((static_cast<uint32_t>(0x4033u) & 0xffffffffu)) & ((uint32_t)0 - (uint32_t)(((static_cast<uint32_t>(_s_tile$core$c$io_ctl_if_kill[L].val) & 0x1u)) != 0))) | ((_s_memory$io_core_1_resp_bits_data[L].val) & ~((uint32_t)0 - (uint32_t)(((static_cast<uint32_t>(_s_tile$core$c$io_ctl_if_kill[L].val) & 0x1u)) != 0))))) & 0xffffffffu)) & ((uint32_t)0 - (uint32_t)(((static_cast<uint32_t>(_s_tile$core$d$_T_2[L].val) & 0x1u)) != 0))) | ((tile.core.d.dec_reg_inst[L].val) & ~((uint32_t)0 - (uint32_t)(((static_cast<uint32_t>(_s_tile$core$d$_T_2[L].val) & 0x1u)) != 0))))) & 0xffffffffu)) & ~((uint32_t)0 - (uint32_t)(((static_cast<uint32_t>(_s_tile$core$c$io_ctl_pipeline_kill[L].val) & 0x1u)) != 0))))) & 0xffffffffu)) & ~((uint32_t)0 - (uint32_t)(((static_cast<uint32_t>(reset.val) & 0x1u)) != 0))))) & 0xffffffffu)) & 0xffffffffu));
@@ -6305,61 +7635,47 @@ typedef struct SodorFullChip {
         }
         break;
       }
-      case 9: {
+      case 11: {
         ESSENT_LANE_LOOP
         for (int L = 0; L < 4; L++) {
           _s_tile$core$d$exe_reg_inst$wdata[L].val = static_cast<typename UInt<32>::scalar_t>((static_cast<uint32_t>((static_cast<uint32_t>(((((static_cast<uint32_t>(0x4033u) & 0xffffffffu)) & ((uint32_t)0 - (uint32_t)(((static_cast<uint32_t>(reset.val) & 0x1u)) != 0))) | (((static_cast<uint32_t>(((((static_cast<uint32_t>(0x4033u) & 0xffffffffu)) & ((uint32_t)0 - (uint32_t)(((static_cast<uint32_t>(_s_tile$core$d$_T_17[L].val) & 0x1u)) != 0))) | ((_s_tile$core$d$_GEN_11[L].val) & ~((uint32_t)0 - (uint32_t)(((static_cast<uint32_t>(_s_tile$core$d$_T_17[L].val) & 0x1u)) != 0))))) & 0xffffffffu)) & ~((uint32_t)0 - (uint32_t)(((static_cast<uint32_t>(reset.val) & 0x1u)) != 0))))) & 0xffffffffu)) & 0xffffffffu));
         }
         break;
       }
-      case 10: {
+      case 12: {
         ESSENT_LANE_LOOP
         for (int L = 0; L < 4; L++) {
           _s_tile$core$d$exe_reg_ctrl_rf_wen$wdata[L].val = static_cast<typename UInt<1>::scalar_t>((static_cast<uint8_t>((static_cast<uint8_t>((((static_cast<uint8_t>((~static_cast<uint8_t>(reset.val))) & 0x1u)) & ((static_cast<uint8_t>((((static_cast<uint8_t>((~static_cast<uint8_t>(_s_tile$core$d$_T_17[L].val))) & 0x1u)) & (_s_tile$core$d$_GEN_13[L].val))) & 0x1u)))) & 0x1u)) & 0x1u));
         }
         break;
       }
-      case 11: {
-        ESSENT_LANE_LOOP
-        for (int L = 0; L < 4; L++) {
-          _s_tile$core$d$exe_reg_ctrl_mem_val$wdata[L].val = static_cast<typename UInt<1>::scalar_t>((static_cast<uint8_t>((static_cast<uint8_t>((((static_cast<uint8_t>((~static_cast<uint8_t>(reset.val))) & 0x1u)) & ((static_cast<uint8_t>((((static_cast<uint8_t>((~static_cast<uint8_t>(_s_tile$core$d$_T_17[L].val))) & 0x1u)) & (_s_tile$core$d$_GEN_14[L].val))) & 0x1u)))) & 0x1u)) & 0x1u));
-          _s_tile$core$d$exe_reg_ctrl_mem_typ$wen[L].val = static_cast<typename UInt<1>::scalar_t>((static_cast<uint8_t>((static_cast<uint8_t>(((reset.val) | ((static_cast<uint8_t>((((static_cast<uint8_t>((~static_cast<uint8_t>(_s_tile$core$d$_T_17[L].val))) & 0x1u)) & ((static_cast<uint8_t>(((_s_tile$core$d$_T_2[L].val) & ((static_cast<uint8_t>((~static_cast<uint8_t>(_s_tile$core$c$io_ctl_dec_kill[L].val))) & 0x1u)))) & 0x1u)))) & 0x1u)))) & 0x1u)) & 0x1u));
-        }
-        break;
-      }
-      case 12: {
-        ESSENT_LANE_LOOP
-        for (int L = 0; L < 4; L++) {
-          _s_tile$core$d$exe_reg_ctrl_csr_cmd$wdata[L].val = static_cast<typename UInt<3>::scalar_t>((static_cast<uint8_t>((static_cast<uint8_t>(((((static_cast<uint8_t>(0x0u) & 0x7u)) & ((uint8_t)0 - (uint8_t)(((static_cast<uint8_t>(reset.val) & 0x1u)) != 0))) | (((static_cast<uint8_t>(((((static_cast<uint8_t>(0x0u) & 0x7u)) & ((uint8_t)0 - (uint8_t)(((static_cast<uint8_t>(_s_tile$core$d$_T_17[L].val) & 0x1u)) != 0))) | ((_s_tile$core$d$_GEN_16[L].val) & ~((uint8_t)0 - (uint8_t)(((static_cast<uint8_t>(_s_tile$core$d$_T_17[L].val) & 0x1u)) != 0))))) & 0x7u)) & ~((uint8_t)0 - (uint8_t)(((static_cast<uint8_t>(reset.val) & 0x1u)) != 0))))) & 0x7u)) & 0x7u));
-        }
-        break;
-      }
       case 13: {
         ESSENT_LANE_LOOP
         for (int L = 0; L < 4; L++) {
-          _s_tile$core$d$if_reg_pc$gwen[L].val = static_cast<typename UInt<1>::scalar_t>((static_cast<uint8_t>((static_cast<uint8_t>(((reset.val) | ((static_cast<uint8_t>(((_s_tile$core$d$_T_3[L].val) & ((static_cast<uint8_t>((~static_cast<uint8_t>(_s_tile$core$d$_T_11[L].val))) & 0x1u)))) & 0x1u)))) & 0x1u)) & 0x1u));
+          _s_tile$core$d$exe_reg_ctrl_mem_val$wdata[L].val = static_cast<typename UInt<1>::scalar_t>((static_cast<uint8_t>((static_cast<uint8_t>((((static_cast<uint8_t>((~static_cast<uint8_t>(reset.val))) & 0x1u)) & ((static_cast<uint8_t>((((static_cast<uint8_t>((~static_cast<uint8_t>(_s_tile$core$d$_T_17[L].val))) & 0x1u)) & (_s_tile$core$d$_GEN_14[L].val))) & 0x1u)))) & 0x1u)) & 0x1u));
         }
         break;
       }
       case 14: {
         ESSENT_LANE_LOOP
         for (int L = 0; L < 4; L++) {
-          _s_tile$core$c$exe_reg_exception$next[L].val = static_cast<typename UInt<1>::scalar_t>((static_cast<uint8_t>((static_cast<uint8_t>((((static_cast<uint8_t>((~static_cast<uint8_t>(reset.val))) & 0x1u)) & ((static_cast<uint8_t>((((static_cast<uint8_t>(((_s_tile$core$c$_T_2[L].val) & (_s_tile$core$c$_GEN_3[L].val))) & 0x1u)) | ((static_cast<uint8_t>((((static_cast<uint8_t>((~static_cast<uint8_t>(_s_tile$core$c$_T_2[L].val))) & 0x1u)) & ((static_cast<uint8_t>((((static_cast<uint8_t>((~static_cast<uint8_t>(_s_tile$core$c$_T_4[L].val))) & 0x1u)) & (tile.core.c.exe_reg_exception[L].val))) & 0x1u)))) & 0x1u)))) & 0x1u)))) & 0x1u)) & 0x1u));
+          _s_tile$core$d$exe_reg_ctrl_mem_fcn$wdata[L].val = static_cast<typename UInt<1>::scalar_t>((static_cast<uint8_t>((static_cast<uint8_t>((((static_cast<uint8_t>(((reset.val) & ((static_cast<uint8_t>(((static_cast<uint8_t>((static_cast<uint8_t>(0x0u) & 0x3u)) >> 0) & 0x1u)) & 0x1u)))) & 0x1u)) | ((static_cast<uint8_t>((((static_cast<uint8_t>((~static_cast<uint8_t>(reset.val))) & 0x1u)) & ((static_cast<uint8_t>((((static_cast<uint8_t>(((_s_tile$core$d$_T_17[L].val) & ((static_cast<uint8_t>(((static_cast<uint8_t>((static_cast<uint8_t>(0x0u) & 0x3u)) >> 0) & 0x1u)) & 0x1u)))) & 0x1u)) | ((static_cast<uint8_t>((((static_cast<uint8_t>((~static_cast<uint8_t>(_s_tile$core$d$_T_17[L].val))) & 0x1u)) & ((static_cast<uint8_t>(((static_cast<uint8_t>(_s_tile$core$d$_GEN_15[L].val) >> 0) & 0x1u)) & 0x1u)))) & 0x1u)))) & 0x1u)))) & 0x1u)))) & 0x1u)) & 0x1u));
+          _s_tile$core$d$exe_reg_ctrl_mem_typ$wen[L].val = static_cast<typename UInt<1>::scalar_t>((static_cast<uint8_t>((static_cast<uint8_t>(((reset.val) | ((static_cast<uint8_t>((((static_cast<uint8_t>((~static_cast<uint8_t>(_s_tile$core$d$_T_17[L].val))) & 0x1u)) & ((static_cast<uint8_t>(((_s_tile$core$d$_T_2[L].val) & ((static_cast<uint8_t>((~static_cast<uint8_t>(_s_tile$core$c$io_ctl_dec_kill[L].val))) & 0x1u)))) & 0x1u)))) & 0x1u)))) & 0x1u)) & 0x1u));
         }
         break;
       }
       case 15: {
         ESSENT_LANE_LOOP
         for (int L = 0; L < 4; L++) {
-          _s_tile$core$d$exe_reg_ctrl_mem_fcn$next[L].val = static_cast<typename UInt<1>::scalar_t>((static_cast<uint8_t>((static_cast<uint8_t>(((static_cast<uint8_t>((static_cast<uint8_t>(((((static_cast<uint8_t>(0x0u) & 0x3u)) & ((uint8_t)0 - (uint8_t)(((static_cast<uint8_t>(reset.val) & 0x1u)) != 0))) | (((static_cast<uint8_t>(((((static_cast<uint8_t>(0x0u) & 0x3u)) & ((uint8_t)0 - (uint8_t)(((static_cast<uint8_t>(_s_tile$core$d$_T_17[L].val) & 0x1u)) != 0))) | (((static_cast<uint8_t>((((_s_tile$core$d$_GEN_15[L].val) & ((uint8_t)0 - (uint8_t)(((static_cast<uint8_t>(_s_tile$core$d$_T_2[L].val) & 0x1u)) != 0))) | (((static_cast<uint8_t>(tile.core.d.exe_reg_ctrl_mem_fcn[L].val) & 0x3u)) & ~((uint8_t)0 - (uint8_t)(((static_cast<uint8_t>(_s_tile$core$d$_T_2[L].val) & 0x1u)) != 0))))) & 0x3u)) & ~((uint8_t)0 - (uint8_t)(((static_cast<uint8_t>(_s_tile$core$d$_T_17[L].val) & 0x1u)) != 0))))) & 0x3u)) & ~((uint8_t)0 - (uint8_t)(((static_cast<uint8_t>(reset.val) & 0x1u)) != 0))))) & 0x3u)) >> 0) & 0x1u)) & 0x1u)) & 0x1u));
-          _s_tile$core$d$mem_reg_ctrl_mem_fcn$wdata[L].val = static_cast<typename UInt<1>::scalar_t>((static_cast<uint8_t>((static_cast<uint8_t>((((static_cast<uint8_t>((~static_cast<uint8_t>(reset.val))) & 0x1u)) & (tile.core.d.exe_reg_ctrl_mem_fcn[L].val))) & 0x1u)) & 0x1u));
+          _s_tile$core$d$exe_reg_ctrl_csr_cmd$wdata[L].val = static_cast<typename UInt<3>::scalar_t>((static_cast<uint8_t>((static_cast<uint8_t>(((((static_cast<uint8_t>(0x0u) & 0x7u)) & ((uint8_t)0 - (uint8_t)(((static_cast<uint8_t>(reset.val) & 0x1u)) != 0))) | (((static_cast<uint8_t>(((((static_cast<uint8_t>(0x0u) & 0x7u)) & ((uint8_t)0 - (uint8_t)(((static_cast<uint8_t>(_s_tile$core$d$_T_17[L].val) & 0x1u)) != 0))) | ((_s_tile$core$d$_GEN_16[L].val) & ~((uint8_t)0 - (uint8_t)(((static_cast<uint8_t>(_s_tile$core$d$_T_17[L].val) & 0x1u)) != 0))))) & 0x7u)) & ~((uint8_t)0 - (uint8_t)(((static_cast<uint8_t>(reset.val) & 0x1u)) != 0))))) & 0x7u)) & 0x7u));
+          _s_tile$core$d$if_reg_pc$gwen[L].val = static_cast<typename UInt<1>::scalar_t>((static_cast<uint8_t>((static_cast<uint8_t>(((reset.val) | ((static_cast<uint8_t>(((_s_tile$core$d$_T_3[L].val) & ((static_cast<uint8_t>((~static_cast<uint8_t>(_s_tile$core$d$_T_11[L].val))) & 0x1u)))) & 0x1u)))) & 0x1u)) & 0x1u));
         }
         break;
       }
       case 16: {
         ESSENT_LANE_LOOP
         for (int L = 0; L < 4; L++) {
-          _s_tile$core$d$mem_reg_ctrl_mem_fcn$next[L].val = static_cast<typename UInt<1>::scalar_t>((static_cast<uint8_t>((static_cast<uint8_t>((((static_cast<uint8_t>((~static_cast<uint8_t>(reset.val))) & 0x1u)) & ((static_cast<uint8_t>((((static_cast<uint8_t>(((_s_tile$core$c$io_ctl_pipeline_kill[L].val) & (tile.core.d.mem_reg_ctrl_mem_fcn[L].val))) & 0x1u)) | ((static_cast<uint8_t>((((static_cast<uint8_t>((~static_cast<uint8_t>(_s_tile$core$c$io_ctl_pipeline_kill[L].val))) & 0x1u)) & ((static_cast<uint8_t>((((static_cast<uint8_t>(((_s_tile$core$d$_T_1[L].val) & (tile.core.d.exe_reg_ctrl_mem_fcn[L].val))) & 0x1u)) | ((static_cast<uint8_t>((((static_cast<uint8_t>((~static_cast<uint8_t>(_s_tile$core$d$_T_1[L].val))) & 0x1u)) & (tile.core.d.mem_reg_ctrl_mem_fcn[L].val))) & 0x1u)))) & 0x1u)))) & 0x1u)))) & 0x1u)))) & 0x1u)) & 0x1u));
+          _s_tile$core$c$exe_reg_exception$next[L].val = static_cast<typename UInt<1>::scalar_t>((static_cast<uint8_t>((static_cast<uint8_t>((((static_cast<uint8_t>((~static_cast<uint8_t>(reset.val))) & 0x1u)) & ((static_cast<uint8_t>((((static_cast<uint8_t>(((_s_tile$core$c$_T_2[L].val) & (_s_tile$core$c$_GEN_3[L].val))) & 0x1u)) | ((static_cast<uint8_t>((((static_cast<uint8_t>((~static_cast<uint8_t>(_s_tile$core$c$_T_2[L].val))) & 0x1u)) & ((static_cast<uint8_t>((((static_cast<uint8_t>((~static_cast<uint8_t>(_s_tile$core$c$_T_4[L].val))) & 0x1u)) & (tile.core.c.exe_reg_exception[L].val))) & 0x1u)))) & 0x1u)))) & 0x1u)))) & 0x1u)) & 0x1u));
         }
         break;
       }
@@ -6432,12 +7748,27 @@ typedef struct SodorFullChip {
       case 25: {
         ESSENT_LANE_LOOP
         for (int L = 0; L < 4; L++) {
+          _s_tile$core$d$exe_reg_ctrl_mem_fcn$next[L].val = static_cast<typename UInt<1>::scalar_t>((static_cast<uint8_t>((static_cast<uint8_t>(((static_cast<uint8_t>((static_cast<uint8_t>(((((static_cast<uint8_t>(0x0u) & 0x3u)) & ((uint8_t)0 - (uint8_t)(((static_cast<uint8_t>(reset.val) & 0x1u)) != 0))) | (((static_cast<uint8_t>(((((static_cast<uint8_t>(0x0u) & 0x3u)) & ((uint8_t)0 - (uint8_t)(((static_cast<uint8_t>(_s_tile$core$d$_T_17[L].val) & 0x1u)) != 0))) | (((static_cast<uint8_t>((((_s_tile$core$d$_GEN_15[L].val) & ((uint8_t)0 - (uint8_t)(((static_cast<uint8_t>(_s_tile$core$d$_T_2[L].val) & 0x1u)) != 0))) | (((static_cast<uint8_t>(tile.core.d.exe_reg_ctrl_mem_fcn[L].val) & 0x3u)) & ~((uint8_t)0 - (uint8_t)(((static_cast<uint8_t>(_s_tile$core$d$_T_2[L].val) & 0x1u)) != 0))))) & 0x3u)) & ~((uint8_t)0 - (uint8_t)(((static_cast<uint8_t>(_s_tile$core$d$_T_17[L].val) & 0x1u)) != 0))))) & 0x3u)) & ~((uint8_t)0 - (uint8_t)(((static_cast<uint8_t>(reset.val) & 0x1u)) != 0))))) & 0x3u)) >> 0) & 0x1u)) & 0x1u)) & 0x1u));
+          _s_tile$core$d$mem_reg_ctrl_mem_fcn$wdata[L].val = static_cast<typename UInt<1>::scalar_t>((static_cast<uint8_t>((static_cast<uint8_t>((((static_cast<uint8_t>((~static_cast<uint8_t>(reset.val))) & 0x1u)) & (tile.core.d.exe_reg_ctrl_mem_fcn[L].val))) & 0x1u)) & 0x1u));
+        }
+        break;
+      }
+      case 26: {
+        ESSENT_LANE_LOOP
+        for (int L = 0; L < 4; L++) {
+          _s_tile$core$d$mem_reg_ctrl_mem_fcn$next[L].val = static_cast<typename UInt<1>::scalar_t>((static_cast<uint8_t>((static_cast<uint8_t>((((static_cast<uint8_t>((~static_cast<uint8_t>(reset.val))) & 0x1u)) & ((static_cast<uint8_t>((((static_cast<uint8_t>(((_s_tile$core$c$io_ctl_pipeline_kill[L].val) & (tile.core.d.mem_reg_ctrl_mem_fcn[L].val))) & 0x1u)) | ((static_cast<uint8_t>((((static_cast<uint8_t>((~static_cast<uint8_t>(_s_tile$core$c$io_ctl_pipeline_kill[L].val))) & 0x1u)) & ((static_cast<uint8_t>((((static_cast<uint8_t>(((_s_tile$core$d$_T_1[L].val) & (tile.core.d.exe_reg_ctrl_mem_fcn[L].val))) & 0x1u)) | ((static_cast<uint8_t>((((static_cast<uint8_t>((~static_cast<uint8_t>(_s_tile$core$d$_T_1[L].val))) & 0x1u)) & (tile.core.d.mem_reg_ctrl_mem_fcn[L].val))) & 0x1u)))) & 0x1u)))) & 0x1u)))) & 0x1u)))) & 0x1u)) & 0x1u));
+        }
+        break;
+      }
+      case 27: {
+        ESSENT_LANE_LOOP
+        for (int L = 0; L < 4; L++) {
           _s_tile$core$d$exe_reg_ctrl_csr_cmd$next[L].val = static_cast<typename UInt<3>::scalar_t>((static_cast<uint8_t>((static_cast<uint8_t>(((((static_cast<uint8_t>(0x0u) & 0x7u)) & ((uint8_t)0 - (uint8_t)(((static_cast<uint8_t>(reset.val) & 0x1u)) != 0))) | (((static_cast<uint8_t>(((((static_cast<uint8_t>(0x0u) & 0x7u)) & ((uint8_t)0 - (uint8_t)(((static_cast<uint8_t>(_s_tile$core$d$_T_17[L].val) & 0x1u)) != 0))) | (((static_cast<uint8_t>((((_s_tile$core$d$_GEN_16[L].val) & ((uint8_t)0 - (uint8_t)(((static_cast<uint8_t>(_s_tile$core$d$_T_2[L].val) & 0x1u)) != 0))) | ((tile.core.d.exe_reg_ctrl_csr_cmd[L].val) & ~((uint8_t)0 - (uint8_t)(((static_cast<uint8_t>(_s_tile$core$d$_T_2[L].val) & 0x1u)) != 0))))) & 0x7u)) & ~((uint8_t)0 - (uint8_t)(((static_cast<uint8_t>(_s_tile$core$d$_T_17[L].val) & 0x1u)) != 0))))) & 0x7u)) & ~((uint8_t)0 - (uint8_t)(((static_cast<uint8_t>(reset.val) & 0x1u)) != 0))))) & 0x7u)) & 0x7u));
           _s_tile$core$d$mem_reg_ctrl_csr_cmd$next[L].val = static_cast<typename UInt<3>::scalar_t>((static_cast<uint8_t>((static_cast<uint8_t>(((((static_cast<uint8_t>(0x0u) & 0x7u)) & ((uint8_t)0 - (uint8_t)(((static_cast<uint8_t>(reset.val) & 0x1u)) != 0))) | (((static_cast<uint8_t>(((((static_cast<uint8_t>(0x0u) & 0x7u)) & ((uint8_t)0 - (uint8_t)(((static_cast<uint8_t>(_s_tile$core$c$io_ctl_pipeline_kill[L].val) & 0x1u)) != 0))) | (((static_cast<uint8_t>((((tile.core.d.exe_reg_ctrl_csr_cmd[L].val) & ((uint8_t)0 - (uint8_t)(((static_cast<uint8_t>(_s_tile$core$d$_T_1[L].val) & 0x1u)) != 0))) | ((tile.core.d.mem_reg_ctrl_csr_cmd[L].val) & ~((uint8_t)0 - (uint8_t)(((static_cast<uint8_t>(_s_tile$core$d$_T_1[L].val) & 0x1u)) != 0))))) & 0x7u)) & ~((uint8_t)0 - (uint8_t)(((static_cast<uint8_t>(_s_tile$core$c$io_ctl_pipeline_kill[L].val) & 0x1u)) != 0))))) & 0x7u)) & ~((uint8_t)0 - (uint8_t)(((static_cast<uint8_t>(reset.val) & 0x1u)) != 0))))) & 0x7u)) & 0x7u));
         }
         break;
       }
-      case 26: {
+      case 28: {
         ESSENT_LANE_LOOP
         for (int L = 0; L < 4; L++) {
           _s_tile$core$d$exe_reg_ctrl_mem_typ$next[L].val = static_cast<typename UInt<3>::scalar_t>((static_cast<uint8_t>((static_cast<uint8_t>(((((static_cast<uint8_t>(0x0u) & 0x7u)) & ((uint8_t)0 - (uint8_t)(((static_cast<uint8_t>(reset.val) & 0x1u)) != 0))) | (((static_cast<uint8_t>((((tile.core.d.exe_reg_ctrl_mem_typ[L].val) & ((uint8_t)0 - (uint8_t)(((static_cast<uint8_t>(_s_tile$core$d$_T_17[L].val) & 0x1u)) != 0))) | (((static_cast<uint8_t>(((((static_cast<uint8_t>((((tile.core.d.exe_reg_ctrl_mem_typ[L].val) & ((uint8_t)0 - (uint8_t)(((static_cast<uint8_t>(_s_tile$core$c$io_ctl_dec_kill[L].val) & 0x1u)) != 0))) | ((_s_tile$core$c$io_ctl_mem_typ[L].val) & ~((uint8_t)0 - (uint8_t)(((static_cast<uint8_t>(_s_tile$core$c$io_ctl_dec_kill[L].val) & 0x1u)) != 0))))) & 0x7u)) & ((uint8_t)0 - (uint8_t)(((static_cast<uint8_t>(_s_tile$core$d$_T_2[L].val) & 0x1u)) != 0))) | ((tile.core.d.exe_reg_ctrl_mem_typ[L].val) & ~((uint8_t)0 - (uint8_t)(((static_cast<uint8_t>(_s_tile$core$d$_T_2[L].val) & 0x1u)) != 0))))) & 0x7u)) & ~((uint8_t)0 - (uint8_t)(((static_cast<uint8_t>(_s_tile$core$d$_T_17[L].val) & 0x1u)) != 0))))) & 0x7u)) & ~((uint8_t)0 - (uint8_t)(((static_cast<uint8_t>(reset.val) & 0x1u)) != 0))))) & 0x7u)) & 0x7u));
@@ -6445,21 +7776,21 @@ typedef struct SodorFullChip {
         }
         break;
       }
-      case 27: {
+      case 29: {
         ESSENT_LANE_LOOP
         for (int L = 0; L < 4; L++) {
           _s_tile$core$d$mem_reg_ctrl_mem_typ$next[L].val = static_cast<typename UInt<3>::scalar_t>((static_cast<uint8_t>((static_cast<uint8_t>(((((static_cast<uint8_t>(0x0u) & 0x7u)) & ((uint8_t)0 - (uint8_t)(((static_cast<uint8_t>(reset.val) & 0x1u)) != 0))) | (((static_cast<uint8_t>((((tile.core.d.mem_reg_ctrl_mem_typ[L].val) & ((uint8_t)0 - (uint8_t)(((static_cast<uint8_t>(_s_tile$core$c$io_ctl_pipeline_kill[L].val) & 0x1u)) != 0))) | (((static_cast<uint8_t>((((tile.core.d.exe_reg_ctrl_mem_typ[L].val) & ((uint8_t)0 - (uint8_t)(((static_cast<uint8_t>(_s_tile$core$d$_T_1[L].val) & 0x1u)) != 0))) | ((tile.core.d.mem_reg_ctrl_mem_typ[L].val) & ~((uint8_t)0 - (uint8_t)(((static_cast<uint8_t>(_s_tile$core$d$_T_1[L].val) & 0x1u)) != 0))))) & 0x7u)) & ~((uint8_t)0 - (uint8_t)(((static_cast<uint8_t>(_s_tile$core$c$io_ctl_pipeline_kill[L].val) & 0x1u)) != 0))))) & 0x7u)) & ~((uint8_t)0 - (uint8_t)(((static_cast<uint8_t>(reset.val) & 0x1u)) != 0))))) & 0x7u)) & 0x7u));
         }
         break;
       }
-      case 28: {
+      case 30: {
         ESSENT_LANE_LOOP
         for (int L = 0; L < 4; L++) {
           _s_tile$core$d$csr$reg_mepc$next[L].val = static_cast<typename UInt<32>::scalar_t>((static_cast<uint64_t>((static_cast<uint64_t>(((static_cast<uint64_t>((static_cast<uint64_t>(((((static_cast<uint64_t>(((((static_cast<uint64_t>((static_cast<uint64_t>((static_cast<uint64_t>((static_cast<uint64_t>((static_cast<uint64_t>((static_cast<uint64_t>((static_cast<uint64_t>((((static_cast<uint64_t>((((static_cast<uint64_t>((((tile.core.d.csr.reg_mepc[L].val) & ((uint64_t)0 - (uint64_t)(((static_cast<uint64_t>(_s_tile$core$d$csr$_w_T_3[L].val) & 0x1ULL)) != 0))) | (((static_cast<uint64_t>(0x0ULL) & 0xffffffffULL)) & ~((uint64_t)0 - (uint64_t)(((static_cast<uint64_t>(_s_tile$core$d$csr$_w_T_3[L].val) & 0x1ULL)) != 0))))) & 0xffffffffULL)) | (tile.core.d.mem_reg_alu_out[L].val))) & 0xffffffffULL)) & (_s_tile$core$d$csr$_w_T_8[L].val))) & 0xffffffffULL)) >> 2)) & 0x3fffffffULL)) & 0xffffffffULL)) << 2)) & 0x3ffffffffULL)) & 0x7ffffffffULL)) & ((uint64_t)0 - (uint64_t)(((static_cast<uint64_t>(_s_tile$core$d$csr$_T_14[L].val) & 0x1ULL)) != 0))) | (((static_cast<uint64_t>(_s_tile$core$d$csr$_GEN_13[L].val) & 0x7ffffffffULL)) & ~((uint64_t)0 - (uint64_t)(((static_cast<uint64_t>(_s_tile$core$d$csr$_T_14[L].val) & 0x1ULL)) != 0))))) & 0x7ffffffffULL)) & ((uint64_t)0 - (uint64_t)(((static_cast<uint64_t>(_s_tile$core$d$csr$wen[L].val) & 0x1ULL)) != 0))) | (((static_cast<uint64_t>(_s_tile$core$d$csr$_GEN_13[L].val) & 0x7ffffffffULL)) & ~((uint64_t)0 - (uint64_t)(((static_cast<uint64_t>(_s_tile$core$d$csr$wen[L].val) & 0x1ULL)) != 0))))) & 0x7ffffffffULL)) >> 0) & 0xffffffffULL)) & 0xffffffffULL)) & 0xffffffffULL));
         }
         break;
       }
-      case 29: {
+      case 31: {
         ESSENT_LANE_LOOP
         for (int L = 0; L < 4; L++) {
           _s_tile$core$d$csr$w_33[L].val = static_cast<typename UInt<64>::scalar_t>(static_cast<uint64_t>(static_cast<uint64_t>(((static_cast<uint64_t>(((static_cast<uint64_t>((((_s_tile$core$d$csr$value[L].val) & ((uint64_t)0 - (uint64_t)(((static_cast<uint64_t>(_s_tile$core$d$csr$_w_T_3[L].val) & 0x1ULL)) != 0))) | ((static_cast<uint64_t>(0x0ULL)) & ~((uint64_t)0 - (uint64_t)(((static_cast<uint64_t>(_s_tile$core$d$csr$_w_T_3[L].val) & 0x1ULL)) != 0)))))) | (_s_tile$core$d$csr$_GEN_297[L].val)))) & (_s_tile$core$d$csr$_GEN_298[L].val)))));
@@ -6470,14 +7801,14 @@ typedef struct SodorFullChip {
         }
         break;
       }
-      case 30: {
+      case 32: {
         ESSENT_LANE_LOOP
         for (int L = 0; L < 4; L++) {
           _s_tile$core$d$csr$read_mstatus[L].val = static_cast<typename UInt<35>::scalar_t>((static_cast<uint64_t>((static_cast<uint64_t>(((static_cast<uint64_t>(_s_tile$core$d$csr$read_mstatus_hi[L].val) << 13) | (static_cast<uint64_t>((static_cast<uint64_t>(((static_cast<uint64_t>(_s_tile$core$d$csr$read_mstatus_lo_hi[L].val) << 5) | (static_cast<uint64_t>((static_cast<uint64_t>(((static_cast<uint64_t>((static_cast<uint64_t>(((static_cast<uint64_t>((static_cast<uint64_t>(((static_cast<uint64_t>(_s_tile$core$d$csr$io_status_upie[L].val) << 1) | (static_cast<uint64_t>(tile.core.d.csr.reg_mstatus_mie[L].val) & 0x1ULL))) & 0x3ULL)) << 1) | (static_cast<uint64_t>(_s_tile$core$d$csr$io_status_hie[L].val) & 0x1ULL))) & 0x7ULL)) << 2) | (static_cast<uint64_t>(_s_tile$core$d$csr$read_mstatus_lo_lo_lo[L].val) & 0x3ULL))) & 0x1fULL)) & 0x1fULL))) & 0x1fffULL)) & 0x1fffULL))) & 0x7ffffffffULL)) & 0x7ffffffffULL));
         }
         break;
       }
-      case 31: {
+      case 33: {
         ESSENT_LANE_LOOP
         for (int L = 0; L < 4; L++) {
           _s_tile$core$d$csr$_new_mstatus_T_8[L].val = static_cast<typename UInt<35>::scalar_t>((static_cast<uint64_t>((static_cast<uint64_t>((((static_cast<uint64_t>((((static_cast<uint64_t>((((_s_tile$core$d$csr$read_mstatus[L].val) & ((uint64_t)0 - (uint64_t)(((static_cast<uint64_t>(_s_tile$core$d$csr$_w_T_3[L].val) & 0x1ULL)) != 0))) | (((static_cast<uint64_t>(0x0ULL) & 0x7ffffffffULL)) & ~((uint64_t)0 - (uint64_t)(((static_cast<uint64_t>(_s_tile$core$d$csr$_w_T_3[L].val) & 0x1ULL)) != 0))))) & 0x7ffffffffULL)) | (_s_tile$core$d$csr$_GEN_229[L].val))) & 0x7ffffffffULL)) & (_s_tile$core$d$csr$_GEN_230[L].val))) & 0x7ffffffffULL)) & 0x7ffffffffULL));
@@ -6486,14 +7817,14 @@ typedef struct SodorFullChip {
         }
         break;
       }
-      case 32: {
+      case 34: {
         ESSENT_LANE_LOOP
         for (int L = 0; L < 4; L++) {
           _s_tile$core$d$csr$reg_mip_msip$next[L].val = static_cast<typename UInt<1>::scalar_t>((static_cast<uint32_t>((static_cast<uint32_t>((((static_cast<uint32_t>((~static_cast<uint32_t>(reset.val))) & 0x1u)) & ((static_cast<uint32_t>((((static_cast<uint32_t>(((_s_tile$core$d$csr$wen[L].val) & ((static_cast<uint32_t>((((static_cast<uint32_t>(((_s_tile$core$d$csr$_T_11[L].val) & ((static_cast<uint32_t>(((static_cast<uint32_t>((static_cast<uint32_t>(((static_cast<uint32_t>((static_cast<uint32_t>((((static_cast<uint32_t>((((static_cast<uint32_t>((static_cast<uint32_t>((((_s_tile$core$d$csr$_T[L].val) & ((uint32_t)0 - (uint32_t)(((static_cast<uint32_t>(_s_tile$core$d$csr$_w_T_3[L].val) & 0x1u)) != 0))) | (((static_cast<uint32_t>(0x0u) & 0xffffu)) & ~((uint32_t)0 - (uint32_t)(((static_cast<uint32_t>(_s_tile$core$d$csr$_w_T_3[L].val) & 0x1u)) != 0))))) & 0xffffu)) & 0xffffffffu)) | (tile.core.d.mem_reg_alu_out[L].val))) & 0xffffffffu)) & (_s_tile$core$d$csr$_w_T_8[L].val))) & 0xffffffffu)) >> 0) & 0xffffu)) & 0xffffu)) >> 3) & 0x1u)) & 0x1u)))) & 0x1u)) | ((static_cast<uint32_t>((((static_cast<uint32_t>((~static_cast<uint32_t>(_s_tile$core$d$csr$_T_11[L].val))) & 0x1u)) & (tile.core.d.csr.reg_mip_msip[L].val))) & 0x1u)))) & 0x1u)))) & 0x1u)) | ((static_cast<uint32_t>((((static_cast<uint32_t>((~static_cast<uint32_t>(_s_tile$core$d$csr$wen[L].val))) & 0x1u)) & (tile.core.d.csr.reg_mip_msip[L].val))) & 0x1u)))) & 0x1u)))) & 0x1u)) & 0x1u));
         }
         break;
       }
-      case 33: {
+      case 35: {
         ESSENT_LANE_LOOP
         for (int L = 0; L < 4; L++) {
           _s_tile$core$d$csr$_new_mie_WIRE[L].val = static_cast<typename UInt<16>::scalar_t>((static_cast<uint32_t>((static_cast<uint32_t>(((static_cast<uint32_t>((static_cast<uint32_t>((((static_cast<uint32_t>((((static_cast<uint32_t>((static_cast<uint32_t>((((_s_tile$core$d$csr$_T_1[L].val) & ((uint32_t)0 - (uint32_t)(((static_cast<uint32_t>(_s_tile$core$d$csr$_w_T_3[L].val) & 0x1u)) != 0))) | (((static_cast<uint32_t>(0x0u) & 0xffffu)) & ~((uint32_t)0 - (uint32_t)(((static_cast<uint32_t>(_s_tile$core$d$csr$_w_T_3[L].val) & 0x1u)) != 0))))) & 0xffffu)) & 0xffffffffu)) | (tile.core.d.mem_reg_alu_out[L].val))) & 0xffffffffu)) & (_s_tile$core$d$csr$_w_T_8[L].val))) & 0xffffffffu)) >> 0) & 0xffffu)) & 0xffffu)) & 0xffffu));
@@ -6502,28 +7833,28 @@ typedef struct SodorFullChip {
         }
         break;
       }
-      case 34: {
+      case 36: {
         ESSENT_LANE_LOOP
         for (int L = 0; L < 4; L++) {
           _s_tile$core$d$csr$reg_mscratch$next[L].val = static_cast<typename UInt<32>::scalar_t>((static_cast<uint32_t>((static_cast<uint32_t>(((((static_cast<uint32_t>(((((static_cast<uint32_t>((((static_cast<uint32_t>((((static_cast<uint32_t>((((tile.core.d.csr.reg_mscratch[L].val) & ((uint32_t)0 - (uint32_t)(((static_cast<uint32_t>(_s_tile$core$d$csr$_w_T_3[L].val) & 0x1u)) != 0))) | (((static_cast<uint32_t>(0x0u) & 0xffffffffu)) & ~((uint32_t)0 - (uint32_t)(((static_cast<uint32_t>(_s_tile$core$d$csr$_w_T_3[L].val) & 0x1u)) != 0))))) & 0xffffffffu)) | (tile.core.d.mem_reg_alu_out[L].val))) & 0xffffffffu)) & (_s_tile$core$d$csr$_w_T_8[L].val))) & 0xffffffffu)) & ((uint32_t)0 - (uint32_t)(((static_cast<uint32_t>(_s_tile$core$d$csr$_T_13[L].val) & 0x1u)) != 0))) | ((tile.core.d.csr.reg_mscratch[L].val) & ~((uint32_t)0 - (uint32_t)(((static_cast<uint32_t>(_s_tile$core$d$csr$_T_13[L].val) & 0x1u)) != 0))))) & 0xffffffffu)) & ((uint32_t)0 - (uint32_t)(((static_cast<uint32_t>(_s_tile$core$d$csr$wen[L].val) & 0x1u)) != 0))) | ((tile.core.d.csr.reg_mscratch[L].val) & ~((uint32_t)0 - (uint32_t)(((static_cast<uint32_t>(_s_tile$core$d$csr$wen[L].val) & 0x1u)) != 0))))) & 0xffffffffu)) & 0xffffffffu));
         }
         break;
       }
-      case 35: {
+      case 37: {
         ESSENT_LANE_LOOP
         for (int L = 0; L < 4; L++) {
           _s_tile$core$d$csr$reg_mtval$next[L].val = static_cast<typename UInt<32>::scalar_t>((static_cast<uint32_t>((static_cast<uint32_t>(((((static_cast<uint32_t>(((((static_cast<uint32_t>((((static_cast<uint32_t>((((static_cast<uint32_t>((((tile.core.d.csr.reg_mtval[L].val) & ((uint32_t)0 - (uint32_t)(((static_cast<uint32_t>(_s_tile$core$d$csr$_w_T_3[L].val) & 0x1u)) != 0))) | (((static_cast<uint32_t>(0x0u) & 0xffffffffu)) & ~((uint32_t)0 - (uint32_t)(((static_cast<uint32_t>(_s_tile$core$d$csr$_w_T_3[L].val) & 0x1u)) != 0))))) & 0xffffffffu)) | (tile.core.d.mem_reg_alu_out[L].val))) & 0xffffffffu)) & (_s_tile$core$d$csr$_w_T_8[L].val))) & 0xffffffffu)) & ((uint32_t)0 - (uint32_t)(((static_cast<uint32_t>(_s_tile$core$d$csr$_T_15[L].val) & 0x1u)) != 0))) | ((tile.core.d.csr.reg_mtval[L].val) & ~((uint32_t)0 - (uint32_t)(((static_cast<uint32_t>(_s_tile$core$d$csr$_T_15[L].val) & 0x1u)) != 0))))) & 0xffffffffu)) & ((uint32_t)0 - (uint32_t)(((static_cast<uint32_t>(_s_tile$core$d$csr$wen[L].val) & 0x1u)) != 0))) | ((tile.core.d.csr.reg_mtval[L].val) & ~((uint32_t)0 - (uint32_t)(((static_cast<uint32_t>(_s_tile$core$d$csr$wen[L].val) & 0x1u)) != 0))))) & 0xffffffffu)) & 0xffffffffu));
         }
         break;
       }
-      case 36: {
+      case 38: {
         ESSENT_LANE_LOOP
         for (int L = 0; L < 4; L++) {
           _s_tile$core$d$csr$reg_mcause$next[L].val = static_cast<typename UInt<32>::scalar_t>((static_cast<uint32_t>((static_cast<uint32_t>(((((static_cast<uint32_t>(((((static_cast<uint32_t>((((static_cast<uint32_t>((((static_cast<uint32_t>((((tile.core.d.csr.reg_mcause[L].val) & ((uint32_t)0 - (uint32_t)(((static_cast<uint32_t>(_s_tile$core$d$csr$_w_T_3[L].val) & 0x1u)) != 0))) | (((static_cast<uint32_t>(0x0u) & 0xffffffffu)) & ~((uint32_t)0 - (uint32_t)(((static_cast<uint32_t>(_s_tile$core$d$csr$_w_T_3[L].val) & 0x1u)) != 0))))) & 0xffffffffu)) | (tile.core.d.mem_reg_alu_out[L].val))) & 0xffffffffu)) & ((static_cast<uint32_t>(((_s_tile$core$d$csr$_w_T_8[L].val) & ((static_cast<uint32_t>(0x8000001fu) & 0xffffffffu)))) & 0xffffffffu)))) & 0xffffffffu)) & ((uint32_t)0 - (uint32_t)(((static_cast<uint32_t>(_s_tile$core$d$csr$_T_16[L].val) & 0x1u)) != 0))) | ((_s_tile$core$d$csr$_GEN_12[L].val) & ~((uint32_t)0 - (uint32_t)(((static_cast<uint32_t>(_s_tile$core$d$csr$_T_16[L].val) & 0x1u)) != 0))))) & 0xffffffffu)) & ((uint32_t)0 - (uint32_t)(((static_cast<uint32_t>(_s_tile$core$d$csr$wen[L].val) & 0x1u)) != 0))) | ((_s_tile$core$d$csr$_GEN_12[L].val) & ~((uint32_t)0 - (uint32_t)(((static_cast<uint32_t>(_s_tile$core$d$csr$wen[L].val) & 0x1u)) != 0))))) & 0xffffffffu)) & 0xffffffffu));
         }
         break;
       }
-      case 37: {
+      case 39: {
         ESSENT_LANE_LOOP
         for (int L = 0; L < 4; L++) {
           _s_tile$core$d$csr$w[L].val = static_cast<typename UInt<32>::scalar_t>((static_cast<uint32_t>((static_cast<uint32_t>((((static_cast<uint32_t>((((static_cast<uint32_t>((((_s_tile$core$d$csr$_T_2[L].val) & ((uint32_t)0 - (uint32_t)(((static_cast<uint32_t>(_s_tile$core$d$csr$_w_T_3[L].val) & 0x1u)) != 0))) | (((static_cast<uint32_t>(0x0u) & 0xffffffffu)) & ~((uint32_t)0 - (uint32_t)(((static_cast<uint32_t>(_s_tile$core$d$csr$_w_T_3[L].val) & 0x1u)) != 0))))) & 0xffffffffu)) | (tile.core.d.mem_reg_alu_out[L].val))) & 0xffffffffu)) & (_s_tile$core$d$csr$_w_T_8[L].val))) & 0xffffffffu)) & 0xffffffffu));
@@ -6532,28 +7863,28 @@ typedef struct SodorFullChip {
         }
         break;
       }
-      case 38: {
+      case 40: {
         ESSENT_LANE_LOOP
         for (int L = 0; L < 4; L++) {
           _s_tile$core$d$csr$reg_dpc$next[L].val = static_cast<typename UInt<32>::scalar_t>((static_cast<uint32_t>((static_cast<uint32_t>(((((static_cast<uint32_t>(((((static_cast<uint32_t>((((static_cast<uint32_t>((((static_cast<uint32_t>((((tile.core.d.csr.reg_dpc[L].val) & ((uint32_t)0 - (uint32_t)(((static_cast<uint32_t>(_s_tile$core$d$csr$_w_T_3[L].val) & 0x1u)) != 0))) | (((static_cast<uint32_t>(0x0u) & 0xffffffffu)) & ~((uint32_t)0 - (uint32_t)(((static_cast<uint32_t>(_s_tile$core$d$csr$_w_T_3[L].val) & 0x1u)) != 0))))) & 0xffffffffu)) | (tile.core.d.mem_reg_alu_out[L].val))) & 0xffffffffu)) & (_s_tile$core$d$csr$_w_T_8[L].val))) & 0xffffffffu)) & ((uint32_t)0 - (uint32_t)(((static_cast<uint32_t>(_s_tile$core$d$csr$_T_19[L].val) & 0x1u)) != 0))) | ((tile.core.d.csr.reg_dpc[L].val) & ~((uint32_t)0 - (uint32_t)(((static_cast<uint32_t>(_s_tile$core$d$csr$_T_19[L].val) & 0x1u)) != 0))))) & 0xffffffffu)) & ((uint32_t)0 - (uint32_t)(((static_cast<uint32_t>(_s_tile$core$d$csr$wen[L].val) & 0x1u)) != 0))) | ((tile.core.d.csr.reg_dpc[L].val) & ~((uint32_t)0 - (uint32_t)(((static_cast<uint32_t>(_s_tile$core$d$csr$wen[L].val) & 0x1u)) != 0))))) & 0xffffffffu)) & 0xffffffffu));
         }
         break;
       }
-      case 39: {
+      case 41: {
         ESSENT_LANE_LOOP
         for (int L = 0; L < 4; L++) {
           _s_tile$core$d$if_reg_pc$next[L].val = static_cast<typename UInt<32>::scalar_t>((static_cast<uint64_t>((static_cast<uint64_t>(((((static_cast<uint64_t>(0x80000000ULL) & 0xffffffffULL)) & ((uint64_t)0 - (uint64_t)(((static_cast<uint64_t>(reset.val) & 0x1ULL)) != 0))) | (((static_cast<uint64_t>(((((static_cast<uint64_t>((((tile.core.d.if_reg_pc[L].val) & ((uint64_t)0 - (uint64_t)(((static_cast<uint64_t>(_s_tile$core$d$_T_11[L].val) & 0x1ULL)) != 0))) | (((static_cast<uint64_t>(((((static_cast<uint64_t>((static_cast<uint64_t>((static_cast<uint64_t>((static_cast<uint64_t>(tile.core.d.if_reg_pc[L].val) + static_cast<uint64_t>((static_cast<uint64_t>(0x4ULL) & 0xffffffffULL)))) & 0x1ffffffffULL)) & 0xffffffffULL)) & 0xffffffffULL)) & ((uint64_t)0 - (uint64_t)(((static_cast<uint64_t>(_s_tile$core$d$_T_4[L].val) & 0x1ULL)) != 0))) | ((_s_tile$core$d$_if_pc_next_T_4[L].val) & ~((uint64_t)0 - (uint64_t)(((static_cast<uint64_t>(_s_tile$core$d$_T_4[L].val) & 0x1ULL)) != 0))))) & 0xffffffffULL)) & ~((uint64_t)0 - (uint64_t)(((static_cast<uint64_t>(_s_tile$core$d$_T_11[L].val) & 0x1ULL)) != 0))))) & 0xffffffffULL)) & ((uint64_t)0 - (uint64_t)(((static_cast<uint64_t>(_s_tile$core$d$_T_3[L].val) & 0x1ULL)) != 0))) | ((tile.core.d.if_reg_pc[L].val) & ~((uint64_t)0 - (uint64_t)(((static_cast<uint64_t>(_s_tile$core$d$_T_3[L].val) & 0x1ULL)) != 0))))) & 0xffffffffULL)) & ~((uint64_t)0 - (uint64_t)(((static_cast<uint64_t>(reset.val) & 0x1ULL)) != 0))))) & 0xffffffffULL)) & 0xffffffffULL));
         }
         break;
       }
-      case 40: {
+      case 42: {
         ESSENT_LANE_LOOP
         for (int L = 0; L < 4; L++) {
           _s_tile$core$d$dec_reg_pc$wdata[L].val = static_cast<typename UInt<32>::scalar_t>((static_cast<uint32_t>((static_cast<uint32_t>(((((static_cast<uint32_t>(0x0u) & 0xffffffffu)) & ((uint32_t)0 - (uint32_t)(((static_cast<uint32_t>(reset.val) & 0x1u)) != 0))) | ((tile.core.d.if_reg_pc[L].val) & ~((uint32_t)0 - (uint32_t)(((static_cast<uint32_t>(reset.val) & 0x1u)) != 0))))) & 0xffffffffu)) & 0xffffffffu));
         }
         break;
       }
-      case 41: {
+      case 43: {
         ESSENT_LANE_LOOP
         for (int L = 0; L < 4; L++) {
           _s_tile$core$d$dec_reg_pc$next[L].val = static_cast<typename UInt<32>::scalar_t>((static_cast<uint32_t>((static_cast<uint32_t>(((((static_cast<uint32_t>(0x0u) & 0xffffffffu)) & ((uint32_t)0 - (uint32_t)(((static_cast<uint32_t>(reset.val) & 0x1u)) != 0))) | (((static_cast<uint32_t>((((tile.core.d.dec_reg_pc[L].val) & ((uint32_t)0 - (uint32_t)(((static_cast<uint32_t>(_s_tile$core$c$io_ctl_pipeline_kill[L].val) & 0x1u)) != 0))) | (((static_cast<uint32_t>((((tile.core.d.if_reg_pc[L].val) & ((uint32_t)0 - (uint32_t)(((static_cast<uint32_t>(_s_tile$core$d$_T_2[L].val) & 0x1u)) != 0))) | ((tile.core.d.dec_reg_pc[L].val) & ~((uint32_t)0 - (uint32_t)(((static_cast<uint32_t>(_s_tile$core$d$_T_2[L].val) & 0x1u)) != 0))))) & 0xffffffffu)) & ~((uint32_t)0 - (uint32_t)(((static_cast<uint32_t>(_s_tile$core$c$io_ctl_pipeline_kill[L].val) & 0x1u)) != 0))))) & 0xffffffffu)) & ~((uint32_t)0 - (uint32_t)(((static_cast<uint32_t>(reset.val) & 0x1u)) != 0))))) & 0xffffffffu)) & 0xffffffffu));
@@ -6561,21 +7892,21 @@ typedef struct SodorFullChip {
         }
         break;
       }
-      case 42: {
+      case 44: {
         ESSENT_LANE_LOOP
         for (int L = 0; L < 4; L++) {
           _s_tile$core$d$csr$reg_dscratch$next[L].val = static_cast<typename UInt<32>::scalar_t>((static_cast<uint32_t>((static_cast<uint32_t>(((((static_cast<uint32_t>(((((static_cast<uint32_t>((((static_cast<uint32_t>((((static_cast<uint32_t>((((tile.core.d.csr.reg_dscratch[L].val) & ((uint32_t)0 - (uint32_t)(((static_cast<uint32_t>(_s_tile$core$d$csr$_w_T_3[L].val) & 0x1u)) != 0))) | (((static_cast<uint32_t>(0x0u) & 0xffffffffu)) & ~((uint32_t)0 - (uint32_t)(((static_cast<uint32_t>(_s_tile$core$d$csr$_w_T_3[L].val) & 0x1u)) != 0))))) & 0xffffffffu)) | (tile.core.d.mem_reg_alu_out[L].val))) & 0xffffffffu)) & (_s_tile$core$d$csr$_w_T_8[L].val))) & 0xffffffffu)) & ((uint32_t)0 - (uint32_t)(((static_cast<uint32_t>(_s_tile$core$d$csr$_T_20[L].val) & 0x1u)) != 0))) | ((tile.core.d.csr.reg_dscratch[L].val) & ~((uint32_t)0 - (uint32_t)(((static_cast<uint32_t>(_s_tile$core$d$csr$_T_20[L].val) & 0x1u)) != 0))))) & 0xffffffffu)) & ((uint32_t)0 - (uint32_t)(((static_cast<uint32_t>(_s_tile$core$d$csr$wen[L].val) & 0x1u)) != 0))) | ((tile.core.d.csr.reg_dscratch[L].val) & ~((uint32_t)0 - (uint32_t)(((static_cast<uint32_t>(_s_tile$core$d$csr$wen[L].val) & 0x1u)) != 0))))) & 0xffffffffu)) & 0xffffffffu));
         }
         break;
       }
-      case 43: {
+      case 45: {
         ESSENT_LANE_LOOP
         for (int L = 0; L < 4; L++) {
           _s_tile$core$d$csr$reg_medeleg$next[L].val = static_cast<typename UInt<32>::scalar_t>((static_cast<uint32_t>((static_cast<uint32_t>(((((static_cast<uint32_t>(((((static_cast<uint32_t>((((static_cast<uint32_t>((((static_cast<uint32_t>((((tile.core.d.csr.reg_medeleg[L].val) & ((uint32_t)0 - (uint32_t)(((static_cast<uint32_t>(_s_tile$core$d$csr$_w_T_3[L].val) & 0x1u)) != 0))) | (((static_cast<uint32_t>(0x0u) & 0xffffffffu)) & ~((uint32_t)0 - (uint32_t)(((static_cast<uint32_t>(_s_tile$core$d$csr$_w_T_3[L].val) & 0x1u)) != 0))))) & 0xffffffffu)) | (tile.core.d.mem_reg_alu_out[L].val))) & 0xffffffffu)) & (_s_tile$core$d$csr$_w_T_8[L].val))) & 0xffffffffu)) & ((uint32_t)0 - (uint32_t)(((static_cast<uint32_t>(_s_tile$core$d$csr$_T_21[L].val) & 0x1u)) != 0))) | ((tile.core.d.csr.reg_medeleg[L].val) & ~((uint32_t)0 - (uint32_t)(((static_cast<uint32_t>(_s_tile$core$d$csr$_T_21[L].val) & 0x1u)) != 0))))) & 0xffffffffu)) & ((uint32_t)0 - (uint32_t)(((static_cast<uint32_t>(_s_tile$core$d$csr$wen[L].val) & 0x1u)) != 0))) | ((tile.core.d.csr.reg_medeleg[L].val) & ~((uint32_t)0 - (uint32_t)(((static_cast<uint32_t>(_s_tile$core$d$csr$wen[L].val) & 0x1u)) != 0))))) & 0xffffffffu)) & 0xffffffffu));
         }
         break;
       }
-      case 44: {
+      case 46: {
         ESSENT_LANE_LOOP
         for (int L = 0; L < 4; L++) {
           _s_tile$core$d$csr$nextSmall_2[L].val = static_cast<typename UInt<41>::scalar_t>((static_cast<uint64_t>((static_cast<uint64_t>(tile.core.d.csr.small_2[L].val) & 0x1ffffffffffULL)) & 0x1ffffffffffULL));
@@ -6584,7 +7915,7 @@ typedef struct SodorFullChip {
         }
         break;
       }
-      case 45: {
+      case 47: {
         ESSENT_LANE_LOOP
         for (int L = 0; L < 4; L++) {
           _s_tile$core$d$csr$nextSmall_3[L].val = static_cast<typename UInt<41>::scalar_t>((static_cast<uint64_t>((static_cast<uint64_t>(tile.core.d.csr.small_3[L].val) & 0x1ffffffffffULL)) & 0x1ffffffffffULL));
@@ -6593,7 +7924,7 @@ typedef struct SodorFullChip {
         }
         break;
       }
-      case 46: {
+      case 48: {
         ESSENT_LANE_LOOP
         for (int L = 0; L < 4; L++) {
           _s_tile$core$d$csr$nextSmall_4[L].val = static_cast<typename UInt<41>::scalar_t>((static_cast<uint64_t>((static_cast<uint64_t>(tile.core.d.csr.small_4[L].val) & 0x1ffffffffffULL)) & 0x1ffffffffffULL));
@@ -6602,7 +7933,7 @@ typedef struct SodorFullChip {
         }
         break;
       }
-      case 47: {
+      case 49: {
         ESSENT_LANE_LOOP
         for (int L = 0; L < 4; L++) {
           _s_tile$core$d$csr$nextSmall_5[L].val = static_cast<typename UInt<41>::scalar_t>((static_cast<uint64_t>((static_cast<uint64_t>(tile.core.d.csr.small_5[L].val) & 0x1ffffffffffULL)) & 0x1ffffffffffULL));
@@ -6611,7 +7942,7 @@ typedef struct SodorFullChip {
         }
         break;
       }
-      case 48: {
+      case 50: {
         ESSENT_LANE_LOOP
         for (int L = 0; L < 4; L++) {
           _s_tile$core$d$csr$nextSmall_6[L].val = static_cast<typename UInt<41>::scalar_t>((static_cast<uint64_t>((static_cast<uint64_t>(tile.core.d.csr.small_6[L].val) & 0x1ffffffffffULL)) & 0x1ffffffffffULL));
@@ -6620,7 +7951,7 @@ typedef struct SodorFullChip {
         }
         break;
       }
-      case 49: {
+      case 51: {
         ESSENT_LANE_LOOP
         for (int L = 0; L < 4; L++) {
           _s_tile$core$d$csr$nextSmall_7[L].val = static_cast<typename UInt<41>::scalar_t>((static_cast<uint64_t>((static_cast<uint64_t>(tile.core.d.csr.small_7[L].val) & 0x1ffffffffffULL)) & 0x1ffffffffffULL));
@@ -6629,7 +7960,7 @@ typedef struct SodorFullChip {
         }
         break;
       }
-      case 50: {
+      case 52: {
         ESSENT_LANE_LOOP
         for (int L = 0; L < 4; L++) {
           _s_tile$core$d$csr$nextSmall_8[L].val = static_cast<typename UInt<41>::scalar_t>((static_cast<uint64_t>((static_cast<uint64_t>(tile.core.d.csr.small_8[L].val) & 0x1ffffffffffULL)) & 0x1ffffffffffULL));
@@ -6638,14 +7969,14 @@ typedef struct SodorFullChip {
         }
         break;
       }
-      case 51: {
+      case 53: {
         ESSENT_LANE_LOOP
         for (int L = 0; L < 4; L++) {
           _s_tile$core$d$csr$nextSmall_9[L].val = static_cast<typename UInt<41>::scalar_t>((static_cast<uint64_t>((static_cast<uint64_t>(tile.core.d.csr.small_9[L].val) & 0x1ffffffffffULL)) & 0x1ffffffffffULL));
         }
         break;
       }
-      case 52: {
+      case 54: {
         ESSENT_LANE_LOOP
         for (int L = 0; L < 4; L++) {
           _s_tile$core$d$csr$w_8[L].val = static_cast<typename UInt<40>::scalar_t>((static_cast<uint64_t>((static_cast<uint64_t>((((static_cast<uint64_t>((((static_cast<uint64_t>((((tile.core.d.csr.small_9[L].val) & ((uint64_t)0 - (uint64_t)(((static_cast<uint64_t>(_s_tile$core$d$csr$_w_T_3[L].val) & 0x1ULL)) != 0))) | (((static_cast<uint64_t>(0x0ULL) & 0xffffffffffULL)) & ~((uint64_t)0 - (uint64_t)(((static_cast<uint64_t>(_s_tile$core$d$csr$_w_T_3[L].val) & 0x1ULL)) != 0))))) & 0xffffffffffULL)) | (_s_tile$core$d$csr$_GEN_233[L].val))) & 0xffffffffffULL)) & (_s_tile$core$d$csr$_GEN_234[L].val))) & 0xffffffffffULL)) & 0xffffffffffULL));
@@ -6653,7 +7984,7 @@ typedef struct SodorFullChip {
         }
         break;
       }
-      case 53: {
+      case 55: {
         ESSENT_LANE_LOOP
         for (int L = 0; L < 4; L++) {
           _s_tile$core$d$csr$nextSmall_10[L].val = static_cast<typename UInt<41>::scalar_t>((static_cast<uint64_t>((static_cast<uint64_t>(tile.core.d.csr.small_10[L].val) & 0x1ffffffffffULL)) & 0x1ffffffffffULL));
@@ -6662,7 +7993,7 @@ typedef struct SodorFullChip {
         }
         break;
       }
-      case 54: {
+      case 56: {
         ESSENT_LANE_LOOP
         for (int L = 0; L < 4; L++) {
           _s_tile$core$d$csr$nextSmall_11[L].val = static_cast<typename UInt<41>::scalar_t>((static_cast<uint64_t>((static_cast<uint64_t>(tile.core.d.csr.small_11[L].val) & 0x1ffffffffffULL)) & 0x1ffffffffffULL));
@@ -6671,7 +8002,7 @@ typedef struct SodorFullChip {
         }
         break;
       }
-      case 55: {
+      case 57: {
         ESSENT_LANE_LOOP
         for (int L = 0; L < 4; L++) {
           _s_tile$core$d$csr$nextSmall_12[L].val = static_cast<typename UInt<41>::scalar_t>((static_cast<uint64_t>((static_cast<uint64_t>(tile.core.d.csr.small_12[L].val) & 0x1ffffffffffULL)) & 0x1ffffffffffULL));
@@ -6680,7 +8011,7 @@ typedef struct SodorFullChip {
         }
         break;
       }
-      case 56: {
+      case 58: {
         ESSENT_LANE_LOOP
         for (int L = 0; L < 4; L++) {
           _s_tile$core$d$csr$nextSmall_13[L].val = static_cast<typename UInt<41>::scalar_t>((static_cast<uint64_t>((static_cast<uint64_t>(tile.core.d.csr.small_13[L].val) & 0x1ffffffffffULL)) & 0x1ffffffffffULL));
@@ -6689,7 +8020,7 @@ typedef struct SodorFullChip {
         }
         break;
       }
-      case 57: {
+      case 59: {
         ESSENT_LANE_LOOP
         for (int L = 0; L < 4; L++) {
           _s_tile$core$d$csr$nextSmall_14[L].val = static_cast<typename UInt<41>::scalar_t>((static_cast<uint64_t>((static_cast<uint64_t>(tile.core.d.csr.small_14[L].val) & 0x1ffffffffffULL)) & 0x1ffffffffffULL));
@@ -6698,7 +8029,7 @@ typedef struct SodorFullChip {
         }
         break;
       }
-      case 58: {
+      case 60: {
         ESSENT_LANE_LOOP
         for (int L = 0; L < 4; L++) {
           _s_tile$core$d$csr$nextSmall_15[L].val = static_cast<typename UInt<41>::scalar_t>((static_cast<uint64_t>((static_cast<uint64_t>(tile.core.d.csr.small_15[L].val) & 0x1ffffffffffULL)) & 0x1ffffffffffULL));
@@ -6707,7 +8038,7 @@ typedef struct SodorFullChip {
         }
         break;
       }
-      case 59: {
+      case 61: {
         ESSENT_LANE_LOOP
         for (int L = 0; L < 4; L++) {
           _s_tile$core$d$csr$nextSmall_16[L].val = static_cast<typename UInt<41>::scalar_t>((static_cast<uint64_t>((static_cast<uint64_t>(tile.core.d.csr.small_16[L].val) & 0x1ffffffffffULL)) & 0x1ffffffffffULL));
@@ -6716,14 +8047,14 @@ typedef struct SodorFullChip {
         }
         break;
       }
-      case 60: {
+      case 62: {
         ESSENT_LANE_LOOP
         for (int L = 0; L < 4; L++) {
           _s_tile$core$d$csr$nextSmall_17[L].val = static_cast<typename UInt<41>::scalar_t>((static_cast<uint64_t>((static_cast<uint64_t>(tile.core.d.csr.small_17[L].val) & 0x1ffffffffffULL)) & 0x1ffffffffffULL));
         }
         break;
       }
-      case 61: {
+      case 63: {
         ESSENT_LANE_LOOP
         for (int L = 0; L < 4; L++) {
           _s_tile$core$d$csr$w_16[L].val = static_cast<typename UInt<40>::scalar_t>((static_cast<uint64_t>((static_cast<uint64_t>((((static_cast<uint64_t>((((static_cast<uint64_t>((((tile.core.d.csr.small_17[L].val) & ((uint64_t)0 - (uint64_t)(((static_cast<uint64_t>(_s_tile$core$d$csr$_w_T_3[L].val) & 0x1ULL)) != 0))) | (((static_cast<uint64_t>(0x0ULL) & 0xffffffffffULL)) & ~((uint64_t)0 - (uint64_t)(((static_cast<uint64_t>(_s_tile$core$d$csr$_w_T_3[L].val) & 0x1ULL)) != 0))))) & 0xffffffffffULL)) | (_s_tile$core$d$csr$_GEN_233[L].val))) & 0xffffffffffULL)) & (_s_tile$core$d$csr$_GEN_234[L].val))) & 0xffffffffffULL)) & 0xffffffffffULL));
@@ -6731,7 +8062,7 @@ typedef struct SodorFullChip {
         }
         break;
       }
-      case 62: {
+      case 64: {
         ESSENT_LANE_LOOP
         for (int L = 0; L < 4; L++) {
           _s_tile$core$d$csr$nextSmall_18[L].val = static_cast<typename UInt<41>::scalar_t>((static_cast<uint64_t>((static_cast<uint64_t>(tile.core.d.csr.small_18[L].val) & 0x1ffffffffffULL)) & 0x1ffffffffffULL));
@@ -6740,7 +8071,7 @@ typedef struct SodorFullChip {
         }
         break;
       }
-      case 63: {
+      case 65: {
         ESSENT_LANE_LOOP
         for (int L = 0; L < 4; L++) {
           _s_tile$core$d$csr$nextSmall_19[L].val = static_cast<typename UInt<41>::scalar_t>((static_cast<uint64_t>((static_cast<uint64_t>(tile.core.d.csr.small_19[L].val) & 0x1ffffffffffULL)) & 0x1ffffffffffULL));
@@ -6749,7 +8080,7 @@ typedef struct SodorFullChip {
         }
         break;
       }
-      case 64: {
+      case 66: {
         ESSENT_LANE_LOOP
         for (int L = 0; L < 4; L++) {
           _s_tile$core$d$csr$nextSmall_20[L].val = static_cast<typename UInt<41>::scalar_t>((static_cast<uint64_t>((static_cast<uint64_t>(tile.core.d.csr.small_20[L].val) & 0x1ffffffffffULL)) & 0x1ffffffffffULL));
@@ -6758,7 +8089,7 @@ typedef struct SodorFullChip {
         }
         break;
       }
-      case 65: {
+      case 67: {
         ESSENT_LANE_LOOP
         for (int L = 0; L < 4; L++) {
           _s_tile$core$d$csr$nextSmall_21[L].val = static_cast<typename UInt<41>::scalar_t>((static_cast<uint64_t>((static_cast<uint64_t>(tile.core.d.csr.small_21[L].val) & 0x1ffffffffffULL)) & 0x1ffffffffffULL));
@@ -6767,7 +8098,7 @@ typedef struct SodorFullChip {
         }
         break;
       }
-      case 66: {
+      case 68: {
         ESSENT_LANE_LOOP
         for (int L = 0; L < 4; L++) {
           _s_tile$core$d$csr$nextSmall_22[L].val = static_cast<typename UInt<41>::scalar_t>((static_cast<uint64_t>((static_cast<uint64_t>(tile.core.d.csr.small_22[L].val) & 0x1ffffffffffULL)) & 0x1ffffffffffULL));
@@ -6776,7 +8107,7 @@ typedef struct SodorFullChip {
         }
         break;
       }
-      case 67: {
+      case 69: {
         ESSENT_LANE_LOOP
         for (int L = 0; L < 4; L++) {
           _s_tile$core$d$csr$nextSmall_23[L].val = static_cast<typename UInt<41>::scalar_t>((static_cast<uint64_t>((static_cast<uint64_t>(tile.core.d.csr.small_23[L].val) & 0x1ffffffffffULL)) & 0x1ffffffffffULL));
@@ -6785,7 +8116,7 @@ typedef struct SodorFullChip {
         }
         break;
       }
-      case 68: {
+      case 70: {
         ESSENT_LANE_LOOP
         for (int L = 0; L < 4; L++) {
           _s_tile$core$d$csr$nextSmall_24[L].val = static_cast<typename UInt<41>::scalar_t>((static_cast<uint64_t>((static_cast<uint64_t>(tile.core.d.csr.small_24[L].val) & 0x1ffffffffffULL)) & 0x1ffffffffffULL));
@@ -6794,14 +8125,14 @@ typedef struct SodorFullChip {
         }
         break;
       }
-      case 69: {
+      case 71: {
         ESSENT_LANE_LOOP
         for (int L = 0; L < 4; L++) {
           _s_tile$core$d$csr$nextSmall_25[L].val = static_cast<typename UInt<41>::scalar_t>((static_cast<uint64_t>((static_cast<uint64_t>(tile.core.d.csr.small_25[L].val) & 0x1ffffffffffULL)) & 0x1ffffffffffULL));
         }
         break;
       }
-      case 70: {
+      case 72: {
         ESSENT_LANE_LOOP
         for (int L = 0; L < 4; L++) {
           _s_tile$core$d$csr$w_24[L].val = static_cast<typename UInt<40>::scalar_t>((static_cast<uint64_t>((static_cast<uint64_t>((((static_cast<uint64_t>((((static_cast<uint64_t>((((tile.core.d.csr.small_25[L].val) & ((uint64_t)0 - (uint64_t)(((static_cast<uint64_t>(_s_tile$core$d$csr$_w_T_3[L].val) & 0x1ULL)) != 0))) | (((static_cast<uint64_t>(0x0ULL) & 0xffffffffffULL)) & ~((uint64_t)0 - (uint64_t)(((static_cast<uint64_t>(_s_tile$core$d$csr$_w_T_3[L].val) & 0x1ULL)) != 0))))) & 0xffffffffffULL)) | (_s_tile$core$d$csr$_GEN_233[L].val))) & 0xffffffffffULL)) & (_s_tile$core$d$csr$_GEN_234[L].val))) & 0xffffffffffULL)) & 0xffffffffffULL));
@@ -6809,7 +8140,7 @@ typedef struct SodorFullChip {
         }
         break;
       }
-      case 71: {
+      case 73: {
         ESSENT_LANE_LOOP
         for (int L = 0; L < 4; L++) {
           _s_tile$core$d$csr$nextSmall_26[L].val = static_cast<typename UInt<41>::scalar_t>((static_cast<uint64_t>((static_cast<uint64_t>(tile.core.d.csr.small_26[L].val) & 0x1ffffffffffULL)) & 0x1ffffffffffULL));
@@ -6818,7 +8149,7 @@ typedef struct SodorFullChip {
         }
         break;
       }
-      case 72: {
+      case 74: {
         ESSENT_LANE_LOOP
         for (int L = 0; L < 4; L++) {
           _s_tile$core$d$csr$nextSmall_27[L].val = static_cast<typename UInt<41>::scalar_t>((static_cast<uint64_t>((static_cast<uint64_t>(tile.core.d.csr.small_27[L].val) & 0x1ffffffffffULL)) & 0x1ffffffffffULL));
@@ -6827,7 +8158,7 @@ typedef struct SodorFullChip {
         }
         break;
       }
-      case 73: {
+      case 75: {
         ESSENT_LANE_LOOP
         for (int L = 0; L < 4; L++) {
           _s_tile$core$d$csr$nextSmall_28[L].val = static_cast<typename UInt<41>::scalar_t>((static_cast<uint64_t>((static_cast<uint64_t>(tile.core.d.csr.small_28[L].val) & 0x1ffffffffffULL)) & 0x1ffffffffffULL));
@@ -6836,7 +8167,7 @@ typedef struct SodorFullChip {
         }
         break;
       }
-      case 74: {
+      case 76: {
         ESSENT_LANE_LOOP
         for (int L = 0; L < 4; L++) {
           _s_tile$core$d$csr$nextSmall_29[L].val = static_cast<typename UInt<41>::scalar_t>((static_cast<uint64_t>((static_cast<uint64_t>(tile.core.d.csr.small_29[L].val) & 0x1ffffffffffULL)) & 0x1ffffffffffULL));
@@ -6845,7 +8176,7 @@ typedef struct SodorFullChip {
         }
         break;
       }
-      case 75: {
+      case 77: {
         ESSENT_LANE_LOOP
         for (int L = 0; L < 4; L++) {
           _s_tile$core$d$csr$nextSmall_30[L].val = static_cast<typename UInt<41>::scalar_t>((static_cast<uint64_t>((static_cast<uint64_t>(tile.core.d.csr.small_30[L].val) & 0x1ffffffffffULL)) & 0x1ffffffffffULL));
@@ -6854,7 +8185,7 @@ typedef struct SodorFullChip {
         }
         break;
       }
-      case 76: {
+      case 78: {
         ESSENT_LANE_LOOP
         for (int L = 0; L < 4; L++) {
           _s_tile$core$d$csr$nextSmall_31[L].val = static_cast<typename UInt<41>::scalar_t>((static_cast<uint64_t>((static_cast<uint64_t>(tile.core.d.csr.small_31[L].val) & 0x1ffffffffffULL)) & 0x1ffffffffffULL));
@@ -6863,7 +8194,7 @@ typedef struct SodorFullChip {
         }
         break;
       }
-      case 77: {
+      case 79: {
         ESSENT_LANE_LOOP
         for (int L = 0; L < 4; L++) {
           _s_tile$core$d$csr$nextSmall_32[L].val = static_cast<typename UInt<41>::scalar_t>((static_cast<uint64_t>((static_cast<uint64_t>(tile.core.d.csr.small_32[L].val) & 0x1ffffffffffULL)) & 0x1ffffffffffULL));
@@ -6872,21 +8203,21 @@ typedef struct SodorFullChip {
         }
         break;
       }
-      case 78: {
+      case 80: {
         ESSENT_LANE_LOOP
         for (int L = 0; L < 4; L++) {
           _s_tile$core$d$csr$nextSmall_33[L].val = static_cast<typename UInt<41>::scalar_t>((static_cast<uint64_t>((static_cast<uint64_t>(tile.core.d.csr.small_33[L].val) & 0x1ffffffffffULL)) & 0x1ffffffffffULL));
         }
         break;
       }
-      case 79: {
+      case 81: {
         ESSENT_LANE_LOOP
         for (int L = 0; L < 4; L++) {
           _s_tile$core$d$csr$w_32[L].val = static_cast<typename UInt<40>::scalar_t>((static_cast<uint64_t>((static_cast<uint64_t>((((static_cast<uint64_t>((((static_cast<uint64_t>((((tile.core.d.csr.small_33[L].val) & ((uint64_t)0 - (uint64_t)(((static_cast<uint64_t>(_s_tile$core$d$csr$_w_T_3[L].val) & 0x1ULL)) != 0))) | (((static_cast<uint64_t>(0x0ULL) & 0xffffffffffULL)) & ~((uint64_t)0 - (uint64_t)(((static_cast<uint64_t>(_s_tile$core$d$csr$_w_T_3[L].val) & 0x1ULL)) != 0))))) & 0xffffffffffULL)) | (_s_tile$core$d$csr$_GEN_233[L].val))) & 0xffffffffffULL)) & (_s_tile$core$d$csr$_GEN_234[L].val))) & 0xffffffffffULL)) & 0xffffffffffULL));
         }
         break;
       }
-      case 80: {
+      case 82: {
         ESSENT_LANE_LOOP
         for (int L = 0; L < 4; L++) {
           _s_tile$core$d$csr$small_33$next[L].val = static_cast<typename UInt<40>::scalar_t>((static_cast<uint64_t>((static_cast<uint64_t>(((static_cast<uint64_t>((static_cast<uint64_t>(((((static_cast<uint64_t>(((((static_cast<uint64_t>(((static_cast<uint64_t>((static_cast<uint64_t>(((static_cast<uint64_t>(tile.core.d.csr.small_33[L].val) >> 32) & 0xffULL)) & 0xffULL)) << 40) | (static_cast<uint64_t>(_s_tile$core$d$csr$w_32[L].val) & 0xffffffffffULL))) & 0xffffffffffffULL)) & ((uint64_t)0 - (uint64_t)(((static_cast<uint64_t>(_s_tile$core$d$csr$_T_84[L].val) & 0x1ULL)) != 0))) | (((static_cast<uint64_t>((static_cast<uint64_t>(((((static_cast<uint64_t>((static_cast<uint64_t>(((static_cast<uint64_t>((static_cast<uint64_t>(((static_cast<uint64_t>(_s_tile$core$d$csr$w_32[L].val) >> 0) & 0xffULL)) & 0xffULL)) << 32) | (static_cast<uint64_t>((static_cast<uint64_t>(((static_cast<uint64_t>(tile.core.d.csr.small_33[L].val) >> 0) & 0xffffffffULL)) & 0xffffffffULL)) & 0xffffffffULL))) & 0xffffffffffULL)) & 0x1ffffffffffULL)) & ((uint64_t)0 - (uint64_t)(((static_cast<uint64_t>(_s_tile$core$d$csr$_T_85[L].val) & 0x1ULL)) != 0))) | ((_s_tile$core$d$csr$nextSmall_33[L].val) & ~((uint64_t)0 - (uint64_t)(((static_cast<uint64_t>(_s_tile$core$d$csr$_T_85[L].val) & 0x1ULL)) != 0))))) & 0x1ffffffffffULL)) & 0xffffffffffffULL)) & ~((uint64_t)0 - (uint64_t)(((static_cast<uint64_t>(_s_tile$core$d$csr$_T_84[L].val) & 0x1ULL)) != 0))))) & 0xffffffffffffULL)) & ((uint64_t)0 - (uint64_t)(((static_cast<uint64_t>(_s_tile$core$d$csr$wen[L].val) & 0x1ULL)) != 0))) | (((static_cast<uint64_t>(_s_tile$core$d$csr$nextSmall_33[L].val) & 0xffffffffffffULL)) & ~((uint64_t)0 - (uint64_t)(((static_cast<uint64_t>(_s_tile$core$d$csr$wen[L].val) & 0x1ULL)) != 0))))) & 0xffffffffffffULL)) >> 0) & 0xffffffffffULL)) & 0xffffffffffULL)) & 0xffffffffffULL));
@@ -7025,27 +8356,63 @@ typedef struct SodorFullChip {
         const int64_t _begin = _min > _lo ? _min : _lo;
         const int64_t _end = _max < _hi ? _max : _hi;
         uint64_t _count = 0;
+        uint64_t _chronoshear_signals = 0;
         ESSENT_LANE_LOOP
         for (int64_t L = _begin; L < _end; ++L) {
           const int64_t _other = L + (_forward ? 1 : -1);
-          _count += (uint64_t)(!(_s_tile$core$d$exe_alu_op1$next[L] == tile.core.d.exe_alu_op1[_other]));
-          _count += (uint64_t)(!(_s_tile$core$d$exe_reg_rs2_data$next[L] == tile.core.d.exe_reg_rs2_data[_other]));
-          _count += (uint64_t)(!(_s_tile$core$d$mem_reg_alu_out$next[L] == tile.core.d.mem_reg_alu_out[_other]));
-          _count += (uint64_t)(!(_s_tile$core$d$mem_reg_inst$next[L] == tile.core.d.mem_reg_inst[_other]));
-          _count += (uint64_t)(!(_s_tile$core$d$mem_reg_ctrl_csr_cmd$next[L] == tile.core.d.mem_reg_ctrl_csr_cmd[_other]));
-          _count += (uint64_t)(!(_s_tile$core$d$dec_reg_inst$next[L] == tile.core.d.dec_reg_inst[_other]));
-          _count += (uint64_t)(!(_s_tile$core$d$exe_reg_ctrl_br_type$next[L] == tile.core.d.exe_reg_ctrl_br_type[_other]));
-          _count += (uint64_t)(!(_s_tile$core$c$exe_reg_wbaddr$next[L] == tile.core.c.exe_reg_wbaddr[_other]));
-          _count += (uint64_t)(!(_s_tile$core$d$mem_reg_ctrl_mem_val$next[L] == tile.core.d.mem_reg_ctrl_mem_val[_other]));
-          _count += (uint64_t)(!(_s_tile$core$c$io_ctl_mem_exception_REG$next[L] == tile.core.c.io_ctl_mem_exception_REG[_other]));
-          _count += (uint64_t)(!(_s_tile$core$d$brjmp_offset$next[L] == tile.core.d.brjmp_offset[_other]));
-          _count += (uint64_t)(!(_s_tile$core$d$exe_reg_pc$next[L] == tile.core.d.exe_reg_pc[_other]));
-          _count += (uint64_t)(!(_s_tile$core$d$csr$small_1$next[L] == tile.core.d.csr.small_1[_other]));
-          _count += (uint64_t)(!(_s_tile$core$d$csr$small$next[L] == tile.core.d.csr.small[_other]));
-          _count += (uint64_t)(!(_s_tile$core$d$csr$reg_mstatus_mpie$next[L] == tile.core.d.csr.reg_mstatus_mpie[_other]));
-          _count += (uint64_t)(!(_s_tile$core$d$csr$reg_mie_mtip$next[L] == tile.core.d.csr.reg_mie_mtip[_other]));
-          _count += (uint64_t)(!(_s_tile$core$d$csr$reg_dcsr_step$next[L] == tile.core.d.csr.reg_dcsr_step[_other]));
+          const uint64_t _chronoshear_mismatch_0 = (uint64_t)(!(_s_tile$core$d$exe_alu_op1$next[L] == tile.core.d.exe_alu_op1[_other]));
+          _count += _chronoshear_mismatch_0;
+          _chronoshear_signals |= _chronoshear_mismatch_0 << 0;
+          const uint64_t _chronoshear_mismatch_1 = (uint64_t)(!(_s_tile$core$d$exe_reg_rs2_data$next[L] == tile.core.d.exe_reg_rs2_data[_other]));
+          _count += _chronoshear_mismatch_1;
+          _chronoshear_signals |= _chronoshear_mismatch_1 << 1;
+          const uint64_t _chronoshear_mismatch_2 = (uint64_t)(!(_s_tile$core$d$mem_reg_alu_out$next[L] == tile.core.d.mem_reg_alu_out[_other]));
+          _count += _chronoshear_mismatch_2;
+          _chronoshear_signals |= _chronoshear_mismatch_2 << 2;
+          const uint64_t _chronoshear_mismatch_3 = (uint64_t)(!(_s_tile$core$d$mem_reg_inst$next[L] == tile.core.d.mem_reg_inst[_other]));
+          _count += _chronoshear_mismatch_3;
+          _chronoshear_signals |= _chronoshear_mismatch_3 << 3;
+          const uint64_t _chronoshear_mismatch_4 = (uint64_t)(!(_s_tile$core$d$mem_reg_ctrl_csr_cmd$next[L] == tile.core.d.mem_reg_ctrl_csr_cmd[_other]));
+          _count += _chronoshear_mismatch_4;
+          _chronoshear_signals |= _chronoshear_mismatch_4 << 4;
+          const uint64_t _chronoshear_mismatch_5 = (uint64_t)(!(_s_tile$core$d$dec_reg_inst$next[L] == tile.core.d.dec_reg_inst[_other]));
+          _count += _chronoshear_mismatch_5;
+          _chronoshear_signals |= _chronoshear_mismatch_5 << 5;
+          const uint64_t _chronoshear_mismatch_6 = (uint64_t)(!(_s_tile$core$d$exe_reg_ctrl_br_type$next[L] == tile.core.d.exe_reg_ctrl_br_type[_other]));
+          _count += _chronoshear_mismatch_6;
+          _chronoshear_signals |= _chronoshear_mismatch_6 << 6;
+          const uint64_t _chronoshear_mismatch_7 = (uint64_t)(!(_s_tile$core$c$exe_reg_wbaddr$next[L] == tile.core.c.exe_reg_wbaddr[_other]));
+          _count += _chronoshear_mismatch_7;
+          _chronoshear_signals |= _chronoshear_mismatch_7 << 7;
+          const uint64_t _chronoshear_mismatch_8 = (uint64_t)(!(_s_tile$core$d$mem_reg_ctrl_mem_val$next[L] == tile.core.d.mem_reg_ctrl_mem_val[_other]));
+          _count += _chronoshear_mismatch_8;
+          _chronoshear_signals |= _chronoshear_mismatch_8 << 8;
+          const uint64_t _chronoshear_mismatch_9 = (uint64_t)(!(_s_tile$core$c$io_ctl_mem_exception_REG$next[L] == tile.core.c.io_ctl_mem_exception_REG[_other]));
+          _count += _chronoshear_mismatch_9;
+          _chronoshear_signals |= _chronoshear_mismatch_9 << 9;
+          const uint64_t _chronoshear_mismatch_10 = (uint64_t)(!(_s_tile$core$d$brjmp_offset$next[L] == tile.core.d.brjmp_offset[_other]));
+          _count += _chronoshear_mismatch_10;
+          _chronoshear_signals |= _chronoshear_mismatch_10 << 10;
+          const uint64_t _chronoshear_mismatch_11 = (uint64_t)(!(_s_tile$core$d$exe_reg_pc$next[L] == tile.core.d.exe_reg_pc[_other]));
+          _count += _chronoshear_mismatch_11;
+          _chronoshear_signals |= _chronoshear_mismatch_11 << 11;
+          const uint64_t _chronoshear_mismatch_12 = (uint64_t)(!(_s_tile$core$d$csr$small_1$next[L] == tile.core.d.csr.small_1[_other]));
+          _count += _chronoshear_mismatch_12;
+          _chronoshear_signals |= _chronoshear_mismatch_12 << 12;
+          const uint64_t _chronoshear_mismatch_13 = (uint64_t)(!(_s_tile$core$d$csr$small$next[L] == tile.core.d.csr.small[_other]));
+          _count += _chronoshear_mismatch_13;
+          _chronoshear_signals |= _chronoshear_mismatch_13 << 13;
+          const uint64_t _chronoshear_mismatch_14 = (uint64_t)(!(_s_tile$core$d$csr$reg_mstatus_mpie$next[L] == tile.core.d.csr.reg_mstatus_mpie[_other]));
+          _count += _chronoshear_mismatch_14;
+          _chronoshear_signals |= _chronoshear_mismatch_14 << 14;
+          const uint64_t _chronoshear_mismatch_15 = (uint64_t)(!(_s_tile$core$d$csr$reg_mie_mtip$next[L] == tile.core.d.csr.reg_mie_mtip[_other]));
+          _count += _chronoshear_mismatch_15;
+          _chronoshear_signals |= _chronoshear_mismatch_15 << 15;
+          const uint64_t _chronoshear_mismatch_16 = (uint64_t)(!(_s_tile$core$d$csr$reg_dcsr_step$next[L] == tile.core.d.csr.reg_dcsr_step[_other]));
+          _count += _chronoshear_mismatch_16;
+          _chronoshear_signals |= _chronoshear_mismatch_16 << 16;
         }
+        _chronoshear_mark_oracle_mask(0, _chronoshear_signals);
         return _count;
       }
       case 1: {
@@ -7055,25 +8422,57 @@ typedef struct SodorFullChip {
         const int64_t _begin = _min > _lo ? _min : _lo;
         const int64_t _end = _max < _hi ? _max : _hi;
         uint64_t _count = 0;
+        uint64_t _chronoshear_signals = 0;
         ESSENT_LANE_LOOP
         for (int64_t L = _begin; L < _end; ++L) {
           const int64_t _other = L + (_forward ? 1 : -1);
-          _count += (uint64_t)(!(_s_tile$core$d$exe_alu_op1$next[L] == tile.core.d.exe_alu_op1[_other]));
-          _count += (uint64_t)(!(_s_tile$core$d$exe_reg_rs2_data$next[L] == tile.core.d.exe_reg_rs2_data[_other]));
-          _count += (uint64_t)(!(_s_tile$core$d$mem_reg_alu_out$next[L] == tile.core.d.mem_reg_alu_out[_other]));
-          _count += (uint64_t)(!(_s_tile$core$d$mem_reg_inst$next[L] == tile.core.d.mem_reg_inst[_other]));
-          _count += (uint64_t)(!(_s_tile$core$d$mem_reg_ctrl_csr_cmd$next[L] == tile.core.d.mem_reg_ctrl_csr_cmd[_other]));
-          _count += (uint64_t)(!(_s_tile$core$d$dec_reg_inst$next[L] == tile.core.d.dec_reg_inst[_other]));
-          _count += (uint64_t)(!(_s_tile$core$d$exe_reg_ctrl_br_type$next[L] == tile.core.d.exe_reg_ctrl_br_type[_other]));
-          _count += (uint64_t)(!(_s_tile$core$c$exe_reg_wbaddr$next[L] == tile.core.c.exe_reg_wbaddr[_other]));
-          _count += (uint64_t)(!(_s_tile$core$d$mem_reg_ctrl_mem_val$next[L] == tile.core.d.mem_reg_ctrl_mem_val[_other]));
-          _count += (uint64_t)(!(_s_tile$core$c$io_ctl_mem_exception_REG$next[L] == tile.core.c.io_ctl_mem_exception_REG[_other]));
-          _count += (uint64_t)(!(_s_tile$core$d$brjmp_offset$next[L] == tile.core.d.brjmp_offset[_other]));
-          _count += (uint64_t)(!(_s_tile$core$d$exe_reg_pc$next[L] == tile.core.d.exe_reg_pc[_other]));
-          _count += (uint64_t)(!(_s_tile$core$d$csr$small_1$next[L] == tile.core.d.csr.small_1[_other]));
-          _count += (uint64_t)(!(_s_tile$core$d$csr$small$next[L] == tile.core.d.csr.small[_other]));
-          _count += (uint64_t)(!(_s_tile$core$d$csr$reg_mstatus_mpie$next[L] == tile.core.d.csr.reg_mstatus_mpie[_other]));
+          const uint64_t _chronoshear_mismatch_0 = (uint64_t)(!(_s_tile$core$d$exe_alu_op1$next[L] == tile.core.d.exe_alu_op1[_other]));
+          _count += _chronoshear_mismatch_0;
+          _chronoshear_signals |= _chronoshear_mismatch_0 << 0;
+          const uint64_t _chronoshear_mismatch_1 = (uint64_t)(!(_s_tile$core$d$exe_reg_rs2_data$next[L] == tile.core.d.exe_reg_rs2_data[_other]));
+          _count += _chronoshear_mismatch_1;
+          _chronoshear_signals |= _chronoshear_mismatch_1 << 1;
+          const uint64_t _chronoshear_mismatch_2 = (uint64_t)(!(_s_tile$core$d$mem_reg_alu_out$next[L] == tile.core.d.mem_reg_alu_out[_other]));
+          _count += _chronoshear_mismatch_2;
+          _chronoshear_signals |= _chronoshear_mismatch_2 << 2;
+          const uint64_t _chronoshear_mismatch_3 = (uint64_t)(!(_s_tile$core$d$mem_reg_inst$next[L] == tile.core.d.mem_reg_inst[_other]));
+          _count += _chronoshear_mismatch_3;
+          _chronoshear_signals |= _chronoshear_mismatch_3 << 3;
+          const uint64_t _chronoshear_mismatch_4 = (uint64_t)(!(_s_tile$core$d$mem_reg_ctrl_csr_cmd$next[L] == tile.core.d.mem_reg_ctrl_csr_cmd[_other]));
+          _count += _chronoshear_mismatch_4;
+          _chronoshear_signals |= _chronoshear_mismatch_4 << 4;
+          const uint64_t _chronoshear_mismatch_5 = (uint64_t)(!(_s_tile$core$d$dec_reg_inst$next[L] == tile.core.d.dec_reg_inst[_other]));
+          _count += _chronoshear_mismatch_5;
+          _chronoshear_signals |= _chronoshear_mismatch_5 << 5;
+          const uint64_t _chronoshear_mismatch_6 = (uint64_t)(!(_s_tile$core$d$exe_reg_ctrl_br_type$next[L] == tile.core.d.exe_reg_ctrl_br_type[_other]));
+          _count += _chronoshear_mismatch_6;
+          _chronoshear_signals |= _chronoshear_mismatch_6 << 6;
+          const uint64_t _chronoshear_mismatch_7 = (uint64_t)(!(_s_tile$core$c$exe_reg_wbaddr$next[L] == tile.core.c.exe_reg_wbaddr[_other]));
+          _count += _chronoshear_mismatch_7;
+          _chronoshear_signals |= _chronoshear_mismatch_7 << 7;
+          const uint64_t _chronoshear_mismatch_8 = (uint64_t)(!(_s_tile$core$d$mem_reg_ctrl_mem_val$next[L] == tile.core.d.mem_reg_ctrl_mem_val[_other]));
+          _count += _chronoshear_mismatch_8;
+          _chronoshear_signals |= _chronoshear_mismatch_8 << 8;
+          const uint64_t _chronoshear_mismatch_9 = (uint64_t)(!(_s_tile$core$c$io_ctl_mem_exception_REG$next[L] == tile.core.c.io_ctl_mem_exception_REG[_other]));
+          _count += _chronoshear_mismatch_9;
+          _chronoshear_signals |= _chronoshear_mismatch_9 << 9;
+          const uint64_t _chronoshear_mismatch_10 = (uint64_t)(!(_s_tile$core$d$brjmp_offset$next[L] == tile.core.d.brjmp_offset[_other]));
+          _count += _chronoshear_mismatch_10;
+          _chronoshear_signals |= _chronoshear_mismatch_10 << 10;
+          const uint64_t _chronoshear_mismatch_11 = (uint64_t)(!(_s_tile$core$d$exe_reg_pc$next[L] == tile.core.d.exe_reg_pc[_other]));
+          _count += _chronoshear_mismatch_11;
+          _chronoshear_signals |= _chronoshear_mismatch_11 << 11;
+          const uint64_t _chronoshear_mismatch_12 = (uint64_t)(!(_s_tile$core$d$csr$small_1$next[L] == tile.core.d.csr.small_1[_other]));
+          _count += _chronoshear_mismatch_12;
+          _chronoshear_signals |= _chronoshear_mismatch_12 << 12;
+          const uint64_t _chronoshear_mismatch_13 = (uint64_t)(!(_s_tile$core$d$csr$small$next[L] == tile.core.d.csr.small[_other]));
+          _count += _chronoshear_mismatch_13;
+          _chronoshear_signals |= _chronoshear_mismatch_13 << 13;
+          const uint64_t _chronoshear_mismatch_14 = (uint64_t)(!(_s_tile$core$d$csr$reg_mstatus_mpie$next[L] == tile.core.d.csr.reg_mstatus_mpie[_other]));
+          _count += _chronoshear_mismatch_14;
+          _chronoshear_signals |= _chronoshear_mismatch_14 << 14;
         }
+        _chronoshear_mark_oracle_mask(1, _chronoshear_signals);
         return _count;
       }
       case 2: {
@@ -7083,12 +8482,18 @@ typedef struct SodorFullChip {
         const int64_t _begin = _min > _lo ? _min : _lo;
         const int64_t _end = _max < _hi ? _max : _hi;
         uint64_t _count = 0;
+        uint64_t _chronoshear_signals = 0;
         ESSENT_LANE_LOOP
         for (int64_t L = _begin; L < _end; ++L) {
           const int64_t _other = L + (_forward ? 1 : -1);
-          _count += (uint64_t)(!(tile.core.d.csr.reg_mie_mtip[L] == tile.core.d.csr.reg_mie_mtip[_other]));
-          _count += (uint64_t)(!(tile.core.d.csr.reg_dcsr_step[L] == tile.core.d.csr.reg_dcsr_step[_other]));
+          const uint64_t _chronoshear_mismatch_0 = (uint64_t)(!(tile.core.d.csr.reg_mie_mtip[L] == tile.core.d.csr.reg_mie_mtip[_other]));
+          _count += _chronoshear_mismatch_0;
+          _chronoshear_signals |= _chronoshear_mismatch_0 << 0;
+          const uint64_t _chronoshear_mismatch_1 = (uint64_t)(!(tile.core.d.csr.reg_dcsr_step[L] == tile.core.d.csr.reg_dcsr_step[_other]));
+          _count += _chronoshear_mismatch_1;
+          _chronoshear_signals |= _chronoshear_mismatch_1 << 1;
         }
+        _chronoshear_mark_oracle_mask(2, _chronoshear_signals);
         return _count;
       }
       case 3: {
@@ -7098,41 +8503,107 @@ typedef struct SodorFullChip {
         const int64_t _begin = _min > _lo ? _min : _lo;
         const int64_t _end = _max < _hi ? _max : _hi;
         uint64_t _count = 0;
+        uint64_t _chronoshear_signals = 0;
         ESSENT_LANE_LOOP
         for (int64_t L = _begin; L < _end; ++L) {
-          _count += (uint64_t)(!(_s_memory$bytes$draw_MPORT__access_address$rtl[L] == _zc_memory_bytes_draw_MPORT__access_address[L]));
-          _count += (uint64_t)(!(_s_memory$bytes$draw_MPORT_1__access_address$rtl[L] == _zc_memory_bytes_draw_MPORT_1__access_address[L]));
-          _count += (uint64_t)(!(_s_memory$bytes$draw_MPORT_2__access_address$rtl[L] == _zc_memory_bytes_draw_MPORT_2__access_address[L]));
-          _count += (uint64_t)(!(_s_memory$bytes$draw_MPORT_3__access_address$rtl[L] == _zc_memory_bytes_draw_MPORT_3__access_address[L]));
-          _count += (uint64_t)(!(_s_memory$bytes$io_core_1_resp_bits_data_MPORT__access_address$rtl[L] == _zc_memory_bytes_io_core_1_resp_bits_data_MPORT__access_address[L]));
-          _count += (uint64_t)(!(_s_memory$bytes$io_core_1_resp_bits_data_MPORT_1__access_address$rtl[L] == _zc_memory_bytes_io_core_1_resp_bits_data_MPORT_1__access_address[L]));
-          _count += (uint64_t)(!(_s_memory$bytes$io_core_1_resp_bits_data_MPORT_2__access_address$rtl[L] == _zc_memory_bytes_io_core_1_resp_bits_data_MPORT_2__access_address[L]));
-          _count += (uint64_t)(!(_s_memory$bytes$io_core_1_resp_bits_data_MPORT_3__access_address$rtl[L] == _zc_memory_bytes_io_core_1_resp_bits_data_MPORT_3__access_address[L]));
-          _count += (uint64_t)(!(_s_memory$bytes$io_host_rdata_MPORT__access_address$rtl[L] == _zc_memory_bytes_io_host_rdata_MPORT__access_address[L]));
-          _count += (uint64_t)(!(_s_memory$bytes$io_host_rdata_MPORT_1__access_address$rtl[L] == _zc_memory_bytes_io_host_rdata_MPORT_1__access_address[L]));
-          _count += (uint64_t)(!(_s_memory$bytes$io_host_rdata_MPORT_2__access_address$rtl[L] == _zc_memory_bytes_io_host_rdata_MPORT_2__access_address[L]));
-          _count += (uint64_t)(!(_s_memory$bytes$io_host_rdata_MPORT_3__access_address$rtl[L] == _zc_memory_bytes_io_host_rdata_MPORT_3__access_address[L]));
-          _count += (uint64_t)(!(_s_memory$bytes$io_tohost_MPORT__access_address$rtl[L] == _zc_memory_bytes_io_tohost_MPORT__access_address[L]));
-          _count += (uint64_t)(!(_s_memory$bytes$io_tohost_MPORT_1__access_address$rtl[L] == _zc_memory_bytes_io_tohost_MPORT_1__access_address[L]));
-          _count += (uint64_t)(!(_s_memory$bytes$io_tohost_MPORT_2__access_address$rtl[L] == _zc_memory_bytes_io_tohost_MPORT_2__access_address[L]));
-          _count += (uint64_t)(!(_s_memory$bytes$io_tohost_MPORT_3__access_address$rtl[L] == _zc_memory_bytes_io_tohost_MPORT_3__access_address[L]));
-          _count += (uint64_t)(!(_s_memory$bytes$__access_write_0_MPORT_enable$rtl[L] == _zc_memory_bytes___access_write_0_MPORT_enable[L]));
-          _count += (uint64_t)(!(_s_memory$bytes$__access_write_0_MPORT_address$rtl[L] == _zc_memory_bytes___access_write_0_MPORT_address[L]));
-          _count += (uint64_t)(!(_s_memory$bytes$__access_write_0_MPORT_data$rtl[L] == _zc_memory_bytes___access_write_0_MPORT_data[L]));
-          _count += (uint64_t)(!(_s_memory$bytes$__access_write_1_MPORT_1_enable$rtl[L] == _zc_memory_bytes___access_write_1_MPORT_1_enable[L]));
-          _count += (uint64_t)(!(_s_memory$bytes$__access_write_1_MPORT_1_address$rtl[L] == _zc_memory_bytes___access_write_1_MPORT_1_address[L]));
-          _count += (uint64_t)(!(_s_memory$bytes$__access_write_1_MPORT_1_data$rtl[L] == _zc_memory_bytes___access_write_1_MPORT_1_data[L]));
-          _count += (uint64_t)(!(_s_memory$bytes$__access_write_2_MPORT_2_enable$rtl[L] == _zc_memory_bytes___access_write_2_MPORT_2_enable[L]));
-          _count += (uint64_t)(!(_s_memory$bytes$__access_write_2_MPORT_2_address$rtl[L] == _zc_memory_bytes___access_write_2_MPORT_2_address[L]));
-          _count += (uint64_t)(!(_s_memory$bytes$__access_write_2_MPORT_2_data$rtl[L] == _zc_memory_bytes___access_write_2_MPORT_2_data[L]));
-          _count += (uint64_t)(!(_s_memory$bytes$__access_write_3_MPORT_3_enable$rtl[L] == _zc_memory_bytes___access_write_3_MPORT_3_enable[L]));
-          _count += (uint64_t)(!(_s_memory$bytes$__access_write_3_MPORT_3_address$rtl[L] == _zc_memory_bytes___access_write_3_MPORT_3_address[L]));
-          _count += (uint64_t)(!(_s_memory$bytes$__access_write_3_MPORT_3_data$rtl[L] == _zc_memory_bytes___access_write_3_MPORT_3_data[L]));
-          _count += (uint64_t)(!(_s_memory$bytes$__access_write_4_MPORT_4_enable$rtl[L] == _zc_memory_bytes___access_write_4_MPORT_4_enable[L]));
-          _count += (uint64_t)(!(_s_memory$bytes$__access_write_4_MPORT_4_address$rtl[L] == _zc_memory_bytes___access_write_4_MPORT_4_address[L]));
-          _count += (uint64_t)(!(_s_memory$bytes$__access_write_4_MPORT_4_data$rtl[L] == _zc_memory_bytes___access_write_4_MPORT_4_data[L]));
-          _count += (uint64_t)(!(_s_memory$bytes$__access_write_5_MPORT_5_enable$rtl[L] == _zc_memory_bytes___access_write_5_MPORT_5_enable[L]));
+          const uint64_t _chronoshear_mismatch_0 = (uint64_t)(!(_s_memory$bytes$draw_MPORT__access_address$rtl[L] == _zc_memory_bytes_draw_MPORT__access_address[L]));
+          _count += _chronoshear_mismatch_0;
+          _chronoshear_signals |= _chronoshear_mismatch_0 << 0;
+          const uint64_t _chronoshear_mismatch_1 = (uint64_t)(!(_s_memory$bytes$draw_MPORT_1__access_address$rtl[L] == _zc_memory_bytes_draw_MPORT_1__access_address[L]));
+          _count += _chronoshear_mismatch_1;
+          _chronoshear_signals |= _chronoshear_mismatch_1 << 1;
+          const uint64_t _chronoshear_mismatch_2 = (uint64_t)(!(_s_memory$bytes$draw_MPORT_2__access_address$rtl[L] == _zc_memory_bytes_draw_MPORT_2__access_address[L]));
+          _count += _chronoshear_mismatch_2;
+          _chronoshear_signals |= _chronoshear_mismatch_2 << 2;
+          const uint64_t _chronoshear_mismatch_3 = (uint64_t)(!(_s_memory$bytes$draw_MPORT_3__access_address$rtl[L] == _zc_memory_bytes_draw_MPORT_3__access_address[L]));
+          _count += _chronoshear_mismatch_3;
+          _chronoshear_signals |= _chronoshear_mismatch_3 << 3;
+          const uint64_t _chronoshear_mismatch_4 = (uint64_t)(!(_s_memory$bytes$io_core_1_resp_bits_data_MPORT__access_address$rtl[L] == _zc_memory_bytes_io_core_1_resp_bits_data_MPORT__access_address[L]));
+          _count += _chronoshear_mismatch_4;
+          _chronoshear_signals |= _chronoshear_mismatch_4 << 4;
+          const uint64_t _chronoshear_mismatch_5 = (uint64_t)(!(_s_memory$bytes$io_core_1_resp_bits_data_MPORT_1__access_address$rtl[L] == _zc_memory_bytes_io_core_1_resp_bits_data_MPORT_1__access_address[L]));
+          _count += _chronoshear_mismatch_5;
+          _chronoshear_signals |= _chronoshear_mismatch_5 << 5;
+          const uint64_t _chronoshear_mismatch_6 = (uint64_t)(!(_s_memory$bytes$io_core_1_resp_bits_data_MPORT_2__access_address$rtl[L] == _zc_memory_bytes_io_core_1_resp_bits_data_MPORT_2__access_address[L]));
+          _count += _chronoshear_mismatch_6;
+          _chronoshear_signals |= _chronoshear_mismatch_6 << 6;
+          const uint64_t _chronoshear_mismatch_7 = (uint64_t)(!(_s_memory$bytes$io_core_1_resp_bits_data_MPORT_3__access_address$rtl[L] == _zc_memory_bytes_io_core_1_resp_bits_data_MPORT_3__access_address[L]));
+          _count += _chronoshear_mismatch_7;
+          _chronoshear_signals |= _chronoshear_mismatch_7 << 7;
+          const uint64_t _chronoshear_mismatch_8 = (uint64_t)(!(_s_memory$bytes$io_host_rdata_MPORT__access_address$rtl[L] == _zc_memory_bytes_io_host_rdata_MPORT__access_address[L]));
+          _count += _chronoshear_mismatch_8;
+          _chronoshear_signals |= _chronoshear_mismatch_8 << 8;
+          const uint64_t _chronoshear_mismatch_9 = (uint64_t)(!(_s_memory$bytes$io_host_rdata_MPORT_1__access_address$rtl[L] == _zc_memory_bytes_io_host_rdata_MPORT_1__access_address[L]));
+          _count += _chronoshear_mismatch_9;
+          _chronoshear_signals |= _chronoshear_mismatch_9 << 9;
+          const uint64_t _chronoshear_mismatch_10 = (uint64_t)(!(_s_memory$bytes$io_host_rdata_MPORT_2__access_address$rtl[L] == _zc_memory_bytes_io_host_rdata_MPORT_2__access_address[L]));
+          _count += _chronoshear_mismatch_10;
+          _chronoshear_signals |= _chronoshear_mismatch_10 << 10;
+          const uint64_t _chronoshear_mismatch_11 = (uint64_t)(!(_s_memory$bytes$io_host_rdata_MPORT_3__access_address$rtl[L] == _zc_memory_bytes_io_host_rdata_MPORT_3__access_address[L]));
+          _count += _chronoshear_mismatch_11;
+          _chronoshear_signals |= _chronoshear_mismatch_11 << 11;
+          const uint64_t _chronoshear_mismatch_12 = (uint64_t)(!(_s_memory$bytes$io_tohost_MPORT__access_address$rtl[L] == _zc_memory_bytes_io_tohost_MPORT__access_address[L]));
+          _count += _chronoshear_mismatch_12;
+          _chronoshear_signals |= _chronoshear_mismatch_12 << 12;
+          const uint64_t _chronoshear_mismatch_13 = (uint64_t)(!(_s_memory$bytes$io_tohost_MPORT_1__access_address$rtl[L] == _zc_memory_bytes_io_tohost_MPORT_1__access_address[L]));
+          _count += _chronoshear_mismatch_13;
+          _chronoshear_signals |= _chronoshear_mismatch_13 << 13;
+          const uint64_t _chronoshear_mismatch_14 = (uint64_t)(!(_s_memory$bytes$io_tohost_MPORT_2__access_address$rtl[L] == _zc_memory_bytes_io_tohost_MPORT_2__access_address[L]));
+          _count += _chronoshear_mismatch_14;
+          _chronoshear_signals |= _chronoshear_mismatch_14 << 14;
+          const uint64_t _chronoshear_mismatch_15 = (uint64_t)(!(_s_memory$bytes$io_tohost_MPORT_3__access_address$rtl[L] == _zc_memory_bytes_io_tohost_MPORT_3__access_address[L]));
+          _count += _chronoshear_mismatch_15;
+          _chronoshear_signals |= _chronoshear_mismatch_15 << 15;
+          const uint64_t _chronoshear_mismatch_16 = (uint64_t)(!(_s_memory$bytes$__access_write_0_MPORT_enable$rtl[L] == _zc_memory_bytes___access_write_0_MPORT_enable[L]));
+          _count += _chronoshear_mismatch_16;
+          _chronoshear_signals |= _chronoshear_mismatch_16 << 16;
+          const uint64_t _chronoshear_mismatch_17 = (uint64_t)(!(_s_memory$bytes$__access_write_0_MPORT_address$rtl[L] == _zc_memory_bytes___access_write_0_MPORT_address[L]));
+          _count += _chronoshear_mismatch_17;
+          _chronoshear_signals |= _chronoshear_mismatch_17 << 17;
+          const uint64_t _chronoshear_mismatch_18 = (uint64_t)(!(_s_memory$bytes$__access_write_0_MPORT_data$rtl[L] == _zc_memory_bytes___access_write_0_MPORT_data[L]));
+          _count += _chronoshear_mismatch_18;
+          _chronoshear_signals |= _chronoshear_mismatch_18 << 18;
+          const uint64_t _chronoshear_mismatch_19 = (uint64_t)(!(_s_memory$bytes$__access_write_1_MPORT_1_enable$rtl[L] == _zc_memory_bytes___access_write_1_MPORT_1_enable[L]));
+          _count += _chronoshear_mismatch_19;
+          _chronoshear_signals |= _chronoshear_mismatch_19 << 19;
+          const uint64_t _chronoshear_mismatch_20 = (uint64_t)(!(_s_memory$bytes$__access_write_1_MPORT_1_address$rtl[L] == _zc_memory_bytes___access_write_1_MPORT_1_address[L]));
+          _count += _chronoshear_mismatch_20;
+          _chronoshear_signals |= _chronoshear_mismatch_20 << 20;
+          const uint64_t _chronoshear_mismatch_21 = (uint64_t)(!(_s_memory$bytes$__access_write_1_MPORT_1_data$rtl[L] == _zc_memory_bytes___access_write_1_MPORT_1_data[L]));
+          _count += _chronoshear_mismatch_21;
+          _chronoshear_signals |= _chronoshear_mismatch_21 << 21;
+          const uint64_t _chronoshear_mismatch_22 = (uint64_t)(!(_s_memory$bytes$__access_write_2_MPORT_2_enable$rtl[L] == _zc_memory_bytes___access_write_2_MPORT_2_enable[L]));
+          _count += _chronoshear_mismatch_22;
+          _chronoshear_signals |= _chronoshear_mismatch_22 << 22;
+          const uint64_t _chronoshear_mismatch_23 = (uint64_t)(!(_s_memory$bytes$__access_write_2_MPORT_2_address$rtl[L] == _zc_memory_bytes___access_write_2_MPORT_2_address[L]));
+          _count += _chronoshear_mismatch_23;
+          _chronoshear_signals |= _chronoshear_mismatch_23 << 23;
+          const uint64_t _chronoshear_mismatch_24 = (uint64_t)(!(_s_memory$bytes$__access_write_2_MPORT_2_data$rtl[L] == _zc_memory_bytes___access_write_2_MPORT_2_data[L]));
+          _count += _chronoshear_mismatch_24;
+          _chronoshear_signals |= _chronoshear_mismatch_24 << 24;
+          const uint64_t _chronoshear_mismatch_25 = (uint64_t)(!(_s_memory$bytes$__access_write_3_MPORT_3_enable$rtl[L] == _zc_memory_bytes___access_write_3_MPORT_3_enable[L]));
+          _count += _chronoshear_mismatch_25;
+          _chronoshear_signals |= _chronoshear_mismatch_25 << 25;
+          const uint64_t _chronoshear_mismatch_26 = (uint64_t)(!(_s_memory$bytes$__access_write_3_MPORT_3_address$rtl[L] == _zc_memory_bytes___access_write_3_MPORT_3_address[L]));
+          _count += _chronoshear_mismatch_26;
+          _chronoshear_signals |= _chronoshear_mismatch_26 << 26;
+          const uint64_t _chronoshear_mismatch_27 = (uint64_t)(!(_s_memory$bytes$__access_write_3_MPORT_3_data$rtl[L] == _zc_memory_bytes___access_write_3_MPORT_3_data[L]));
+          _count += _chronoshear_mismatch_27;
+          _chronoshear_signals |= _chronoshear_mismatch_27 << 27;
+          const uint64_t _chronoshear_mismatch_28 = (uint64_t)(!(_s_memory$bytes$__access_write_4_MPORT_4_enable$rtl[L] == _zc_memory_bytes___access_write_4_MPORT_4_enable[L]));
+          _count += _chronoshear_mismatch_28;
+          _chronoshear_signals |= _chronoshear_mismatch_28 << 28;
+          const uint64_t _chronoshear_mismatch_29 = (uint64_t)(!(_s_memory$bytes$__access_write_4_MPORT_4_address$rtl[L] == _zc_memory_bytes___access_write_4_MPORT_4_address[L]));
+          _count += _chronoshear_mismatch_29;
+          _chronoshear_signals |= _chronoshear_mismatch_29 << 29;
+          const uint64_t _chronoshear_mismatch_30 = (uint64_t)(!(_s_memory$bytes$__access_write_4_MPORT_4_data$rtl[L] == _zc_memory_bytes___access_write_4_MPORT_4_data[L]));
+          _count += _chronoshear_mismatch_30;
+          _chronoshear_signals |= _chronoshear_mismatch_30 << 30;
+          const uint64_t _chronoshear_mismatch_31 = (uint64_t)(!(_s_memory$bytes$__access_write_5_MPORT_5_enable$rtl[L] == _zc_memory_bytes___access_write_5_MPORT_5_enable[L]));
+          _count += _chronoshear_mismatch_31;
+          _chronoshear_signals |= _chronoshear_mismatch_31 << 31;
         }
+        _chronoshear_mark_oracle_mask(3, _chronoshear_signals);
         return _count;
       }
       case 4: {
@@ -7142,20 +8613,44 @@ typedef struct SodorFullChip {
         const int64_t _begin = _min > _lo ? _min : _lo;
         const int64_t _end = _max < _hi ? _max : _hi;
         uint64_t _count = 0;
+        uint64_t _chronoshear_signals = 0;
         ESSENT_LANE_LOOP
         for (int64_t L = _begin; L < _end; ++L) {
-          _count += (uint64_t)(!(_s_memory$bytes$__access_write_5_MPORT_5_address$rtl[L] == _zc_memory_bytes___access_write_5_MPORT_5_address[L]));
-          _count += (uint64_t)(!(_s_memory$bytes$__access_write_5_MPORT_5_data$rtl[L] == _zc_memory_bytes___access_write_5_MPORT_5_data[L]));
-          _count += (uint64_t)(!(_s_memory$bytes$__access_write_6_MPORT_6_enable$rtl[L] == _zc_memory_bytes___access_write_6_MPORT_6_enable[L]));
-          _count += (uint64_t)(!(_s_memory$bytes$__access_write_6_MPORT_6_address$rtl[L] == _zc_memory_bytes___access_write_6_MPORT_6_address[L]));
-          _count += (uint64_t)(!(_s_memory$bytes$__access_write_6_MPORT_6_data$rtl[L] == _zc_memory_bytes___access_write_6_MPORT_6_data[L]));
-          _count += (uint64_t)(!(_s_memory$bytes$__access_write_7_MPORT_7_enable$rtl[L] == _zc_memory_bytes___access_write_7_MPORT_7_enable[L]));
-          _count += (uint64_t)(!(_s_memory$bytes$__access_write_7_MPORT_7_address$rtl[L] == _zc_memory_bytes___access_write_7_MPORT_7_address[L]));
-          _count += (uint64_t)(!(_s_memory$bytes$__access_write_7_MPORT_7_data$rtl[L] == _zc_memory_bytes___access_write_7_MPORT_7_data[L]));
-          _count += (uint64_t)(!(_s_regfile$regfile$io_rs1_data_MPORT$rtl[L] == _s_regfile$regfile$io_rs1_data_MPORT[L]));
-          _count += (uint64_t)(!(_s_regfile$regfile$io_rs2_data_MPORT$rtl[L] == _s_regfile$regfile$io_rs2_data_MPORT[L]));
-          _count += (uint64_t)(!(_s_regfile$regfile$io_dm_rdata_MPORT$rtl[L] == _s_regfile$regfile$io_dm_rdata_MPORT[L]));
+          const uint64_t _chronoshear_mismatch_0 = (uint64_t)(!(_s_memory$bytes$__access_write_5_MPORT_5_address$rtl[L] == _zc_memory_bytes___access_write_5_MPORT_5_address[L]));
+          _count += _chronoshear_mismatch_0;
+          _chronoshear_signals |= _chronoshear_mismatch_0 << 0;
+          const uint64_t _chronoshear_mismatch_1 = (uint64_t)(!(_s_memory$bytes$__access_write_5_MPORT_5_data$rtl[L] == _zc_memory_bytes___access_write_5_MPORT_5_data[L]));
+          _count += _chronoshear_mismatch_1;
+          _chronoshear_signals |= _chronoshear_mismatch_1 << 1;
+          const uint64_t _chronoshear_mismatch_2 = (uint64_t)(!(_s_memory$bytes$__access_write_6_MPORT_6_enable$rtl[L] == _zc_memory_bytes___access_write_6_MPORT_6_enable[L]));
+          _count += _chronoshear_mismatch_2;
+          _chronoshear_signals |= _chronoshear_mismatch_2 << 2;
+          const uint64_t _chronoshear_mismatch_3 = (uint64_t)(!(_s_memory$bytes$__access_write_6_MPORT_6_address$rtl[L] == _zc_memory_bytes___access_write_6_MPORT_6_address[L]));
+          _count += _chronoshear_mismatch_3;
+          _chronoshear_signals |= _chronoshear_mismatch_3 << 3;
+          const uint64_t _chronoshear_mismatch_4 = (uint64_t)(!(_s_memory$bytes$__access_write_6_MPORT_6_data$rtl[L] == _zc_memory_bytes___access_write_6_MPORT_6_data[L]));
+          _count += _chronoshear_mismatch_4;
+          _chronoshear_signals |= _chronoshear_mismatch_4 << 4;
+          const uint64_t _chronoshear_mismatch_5 = (uint64_t)(!(_s_memory$bytes$__access_write_7_MPORT_7_enable$rtl[L] == _zc_memory_bytes___access_write_7_MPORT_7_enable[L]));
+          _count += _chronoshear_mismatch_5;
+          _chronoshear_signals |= _chronoshear_mismatch_5 << 5;
+          const uint64_t _chronoshear_mismatch_6 = (uint64_t)(!(_s_memory$bytes$__access_write_7_MPORT_7_address$rtl[L] == _zc_memory_bytes___access_write_7_MPORT_7_address[L]));
+          _count += _chronoshear_mismatch_6;
+          _chronoshear_signals |= _chronoshear_mismatch_6 << 6;
+          const uint64_t _chronoshear_mismatch_7 = (uint64_t)(!(_s_memory$bytes$__access_write_7_MPORT_7_data$rtl[L] == _zc_memory_bytes___access_write_7_MPORT_7_data[L]));
+          _count += _chronoshear_mismatch_7;
+          _chronoshear_signals |= _chronoshear_mismatch_7 << 7;
+          const uint64_t _chronoshear_mismatch_8 = (uint64_t)(!(_s_regfile$regfile$io_rs1_data_MPORT$rtl[L] == _s_regfile$regfile$io_rs1_data_MPORT[L]));
+          _count += _chronoshear_mismatch_8;
+          _chronoshear_signals |= _chronoshear_mismatch_8 << 8;
+          const uint64_t _chronoshear_mismatch_9 = (uint64_t)(!(_s_regfile$regfile$io_rs2_data_MPORT$rtl[L] == _s_regfile$regfile$io_rs2_data_MPORT[L]));
+          _count += _chronoshear_mismatch_9;
+          _chronoshear_signals |= _chronoshear_mismatch_9 << 9;
+          const uint64_t _chronoshear_mismatch_10 = (uint64_t)(!(_s_regfile$regfile$io_dm_rdata_MPORT$rtl[L] == _s_regfile$regfile$io_dm_rdata_MPORT[L]));
+          _count += _chronoshear_mismatch_10;
+          _chronoshear_signals |= _chronoshear_mismatch_10 << 10;
         }
+        _chronoshear_mark_oracle_mask(4, _chronoshear_signals);
         return _count;
       }
       default: return 0;
@@ -7217,70 +8712,87 @@ typedef struct SodorFullChip {
           const int _v2_cycle_idx = oracle_cycle + (_forward ? L + 1 : 8 - L);
           if ((_v2_self_idx) >= 1 && (_v2_cycle_idx) < ORACLE_NUM_CYCLES && (!(_s_tile$core$d$exe_alu_op1$next[L] == tile.core.d.exe_alu_op1[_v2_other]))) {
             if (oracle_mismatch_should_log()) fprintf(stderr, "ORACLE MISMATCH reg=tile.core.d.exe_alu_op1 lane=%d cyc=%d rtl=0x%" PRIx64 " oracle=0x%" PRIx64 "\n", (int)(L), (int)(_v2_cycle_idx), essent_to_u64(_s_tile$core$d$exe_alu_op1$next[L]), essent_to_u64(tile.core.d.exe_alu_op1[_v2_other]));
+            _chronoshear_mark_oracle_mask(0, UINT64_C(1) << 0);
             record_oracle_mismatch();
           }
           if ((_v2_self_idx) >= 1 && (_v2_cycle_idx) < ORACLE_NUM_CYCLES && (!(_s_tile$core$d$exe_reg_rs2_data$next[L] == tile.core.d.exe_reg_rs2_data[_v2_other]))) {
             if (oracle_mismatch_should_log()) fprintf(stderr, "ORACLE MISMATCH reg=tile.core.d.exe_reg_rs2_data lane=%d cyc=%d rtl=0x%" PRIx64 " oracle=0x%" PRIx64 "\n", (int)(L), (int)(_v2_cycle_idx), essent_to_u64(_s_tile$core$d$exe_reg_rs2_data$next[L]), essent_to_u64(tile.core.d.exe_reg_rs2_data[_v2_other]));
+            _chronoshear_mark_oracle_mask(0, UINT64_C(1) << 1);
             record_oracle_mismatch();
           }
           if ((_v2_self_idx) >= 1 && (_v2_cycle_idx) < ORACLE_NUM_CYCLES && (!(_s_tile$core$d$mem_reg_alu_out$next[L] == tile.core.d.mem_reg_alu_out[_v2_other]))) {
             if (oracle_mismatch_should_log()) fprintf(stderr, "ORACLE MISMATCH reg=tile.core.d.mem_reg_alu_out lane=%d cyc=%d rtl=0x%" PRIx64 " oracle=0x%" PRIx64 "\n", (int)(L), (int)(_v2_cycle_idx), essent_to_u64(_s_tile$core$d$mem_reg_alu_out$next[L]), essent_to_u64(tile.core.d.mem_reg_alu_out[_v2_other]));
+            _chronoshear_mark_oracle_mask(0, UINT64_C(1) << 2);
             record_oracle_mismatch();
           }
           if ((_v2_self_idx) >= 1 && (_v2_cycle_idx) < ORACLE_NUM_CYCLES && (!(_s_tile$core$d$mem_reg_inst$next[L] == tile.core.d.mem_reg_inst[_v2_other]))) {
             if (oracle_mismatch_should_log()) fprintf(stderr, "ORACLE MISMATCH reg=tile.core.d.mem_reg_inst lane=%d cyc=%d rtl=0x%" PRIx64 " oracle=0x%" PRIx64 "\n", (int)(L), (int)(_v2_cycle_idx), essent_to_u64(_s_tile$core$d$mem_reg_inst$next[L]), essent_to_u64(tile.core.d.mem_reg_inst[_v2_other]));
+            _chronoshear_mark_oracle_mask(0, UINT64_C(1) << 3);
             record_oracle_mismatch();
           }
           if ((_v2_self_idx) >= 1 && (_v2_cycle_idx) < ORACLE_NUM_CYCLES && (!(_s_tile$core$d$mem_reg_ctrl_csr_cmd$next[L] == tile.core.d.mem_reg_ctrl_csr_cmd[_v2_other]))) {
             if (oracle_mismatch_should_log()) fprintf(stderr, "ORACLE MISMATCH reg=tile.core.d.mem_reg_ctrl_csr_cmd lane=%d cyc=%d rtl=0x%" PRIx64 " oracle=0x%" PRIx64 "\n", (int)(L), (int)(_v2_cycle_idx), essent_to_u64(_s_tile$core$d$mem_reg_ctrl_csr_cmd$next[L]), essent_to_u64(tile.core.d.mem_reg_ctrl_csr_cmd[_v2_other]));
+            _chronoshear_mark_oracle_mask(0, UINT64_C(1) << 4);
             record_oracle_mismatch();
           }
           if ((_v2_self_idx) >= 1 && (_v2_cycle_idx) < ORACLE_NUM_CYCLES && (!(_s_tile$core$d$dec_reg_inst$next[L] == tile.core.d.dec_reg_inst[_v2_other]))) {
             if (oracle_mismatch_should_log()) fprintf(stderr, "ORACLE MISMATCH reg=tile.core.d.dec_reg_inst lane=%d cyc=%d rtl=0x%" PRIx64 " oracle=0x%" PRIx64 "\n", (int)(L), (int)(_v2_cycle_idx), essent_to_u64(_s_tile$core$d$dec_reg_inst$next[L]), essent_to_u64(tile.core.d.dec_reg_inst[_v2_other]));
+            _chronoshear_mark_oracle_mask(0, UINT64_C(1) << 5);
             record_oracle_mismatch();
           }
           if ((_v2_self_idx) >= 1 && (_v2_cycle_idx) < ORACLE_NUM_CYCLES && (!(_s_tile$core$d$exe_reg_ctrl_br_type$next[L] == tile.core.d.exe_reg_ctrl_br_type[_v2_other]))) {
             if (oracle_mismatch_should_log()) fprintf(stderr, "ORACLE MISMATCH reg=tile.core.d.exe_reg_ctrl_br_type lane=%d cyc=%d rtl=0x%" PRIx64 " oracle=0x%" PRIx64 "\n", (int)(L), (int)(_v2_cycle_idx), essent_to_u64(_s_tile$core$d$exe_reg_ctrl_br_type$next[L]), essent_to_u64(tile.core.d.exe_reg_ctrl_br_type[_v2_other]));
+            _chronoshear_mark_oracle_mask(0, UINT64_C(1) << 6);
             record_oracle_mismatch();
           }
           if ((_v2_self_idx) >= 1 && (_v2_cycle_idx) < ORACLE_NUM_CYCLES && (!(_s_tile$core$c$exe_reg_wbaddr$next[L] == tile.core.c.exe_reg_wbaddr[_v2_other]))) {
             if (oracle_mismatch_should_log()) fprintf(stderr, "ORACLE MISMATCH reg=tile.core.c.exe_reg_wbaddr lane=%d cyc=%d rtl=0x%" PRIx64 " oracle=0x%" PRIx64 "\n", (int)(L), (int)(_v2_cycle_idx), essent_to_u64(_s_tile$core$c$exe_reg_wbaddr$next[L]), essent_to_u64(tile.core.c.exe_reg_wbaddr[_v2_other]));
+            _chronoshear_mark_oracle_mask(0, UINT64_C(1) << 7);
             record_oracle_mismatch();
           }
           if ((_v2_self_idx) >= 1 && (_v2_cycle_idx) < ORACLE_NUM_CYCLES && (!(_s_tile$core$d$mem_reg_ctrl_mem_val$next[L] == tile.core.d.mem_reg_ctrl_mem_val[_v2_other]))) {
             if (oracle_mismatch_should_log()) fprintf(stderr, "ORACLE MISMATCH reg=tile.core.d.mem_reg_ctrl_mem_val lane=%d cyc=%d rtl=0x%" PRIx64 " oracle=0x%" PRIx64 "\n", (int)(L), (int)(_v2_cycle_idx), essent_to_u64(_s_tile$core$d$mem_reg_ctrl_mem_val$next[L]), essent_to_u64(tile.core.d.mem_reg_ctrl_mem_val[_v2_other]));
+            _chronoshear_mark_oracle_mask(0, UINT64_C(1) << 8);
             record_oracle_mismatch();
           }
           if ((_v2_self_idx) >= 1 && (_v2_cycle_idx) < ORACLE_NUM_CYCLES && (!(_s_tile$core$c$io_ctl_mem_exception_REG$next[L] == tile.core.c.io_ctl_mem_exception_REG[_v2_other]))) {
             if (oracle_mismatch_should_log()) fprintf(stderr, "ORACLE MISMATCH reg=tile.core.c.io_ctl_mem_exception_REG lane=%d cyc=%d rtl=0x%" PRIx64 " oracle=0x%" PRIx64 "\n", (int)(L), (int)(_v2_cycle_idx), essent_to_u64(_s_tile$core$c$io_ctl_mem_exception_REG$next[L]), essent_to_u64(tile.core.c.io_ctl_mem_exception_REG[_v2_other]));
+            _chronoshear_mark_oracle_mask(0, UINT64_C(1) << 9);
             record_oracle_mismatch();
           }
           if ((_v2_self_idx) >= 1 && (_v2_cycle_idx) < ORACLE_NUM_CYCLES && (!(_s_tile$core$d$brjmp_offset$next[L] == tile.core.d.brjmp_offset[_v2_other]))) {
             if (oracle_mismatch_should_log()) fprintf(stderr, "ORACLE MISMATCH reg=tile.core.d.brjmp_offset lane=%d cyc=%d rtl=0x%" PRIx64 " oracle=0x%" PRIx64 "\n", (int)(L), (int)(_v2_cycle_idx), essent_to_u64(_s_tile$core$d$brjmp_offset$next[L]), essent_to_u64(tile.core.d.brjmp_offset[_v2_other]));
+            _chronoshear_mark_oracle_mask(0, UINT64_C(1) << 10);
             record_oracle_mismatch();
           }
           if ((_v2_self_idx) >= 1 && (_v2_cycle_idx) < ORACLE_NUM_CYCLES && (!(_s_tile$core$d$exe_reg_pc$next[L] == tile.core.d.exe_reg_pc[_v2_other]))) {
             if (oracle_mismatch_should_log()) fprintf(stderr, "ORACLE MISMATCH reg=tile.core.d.exe_reg_pc lane=%d cyc=%d rtl=0x%" PRIx64 " oracle=0x%" PRIx64 "\n", (int)(L), (int)(_v2_cycle_idx), essent_to_u64(_s_tile$core$d$exe_reg_pc$next[L]), essent_to_u64(tile.core.d.exe_reg_pc[_v2_other]));
+            _chronoshear_mark_oracle_mask(0, UINT64_C(1) << 11);
             record_oracle_mismatch();
           }
           if ((_v2_self_idx) >= 1 && (_v2_cycle_idx) < ORACLE_NUM_CYCLES && (!(_s_tile$core$d$csr$small_1$next[L] == tile.core.d.csr.small_1[_v2_other]))) {
             if (oracle_mismatch_should_log()) fprintf(stderr, "ORACLE MISMATCH reg=tile.core.d.csr.small_1 lane=%d cyc=%d rtl=0x%" PRIx64 " oracle=0x%" PRIx64 "\n", (int)(L), (int)(_v2_cycle_idx), essent_to_u64(_s_tile$core$d$csr$small_1$next[L]), essent_to_u64(tile.core.d.csr.small_1[_v2_other]));
+            _chronoshear_mark_oracle_mask(0, UINT64_C(1) << 12);
             record_oracle_mismatch();
           }
           if ((_v2_self_idx) >= 1 && (_v2_cycle_idx) < ORACLE_NUM_CYCLES && (!(_s_tile$core$d$csr$small$next[L] == tile.core.d.csr.small[_v2_other]))) {
             if (oracle_mismatch_should_log()) fprintf(stderr, "ORACLE MISMATCH reg=tile.core.d.csr.small lane=%d cyc=%d rtl=0x%" PRIx64 " oracle=0x%" PRIx64 "\n", (int)(L), (int)(_v2_cycle_idx), essent_to_u64(_s_tile$core$d$csr$small$next[L]), essent_to_u64(tile.core.d.csr.small[_v2_other]));
+            _chronoshear_mark_oracle_mask(0, UINT64_C(1) << 13);
             record_oracle_mismatch();
           }
           if ((_v2_self_idx) >= 1 && (_v2_cycle_idx) < ORACLE_NUM_CYCLES && (!(_s_tile$core$d$csr$reg_mstatus_mpie$next[L] == tile.core.d.csr.reg_mstatus_mpie[_v2_other]))) {
             if (oracle_mismatch_should_log()) fprintf(stderr, "ORACLE MISMATCH reg=tile.core.d.csr.reg_mstatus_mpie lane=%d cyc=%d rtl=0x%" PRIx64 " oracle=0x%" PRIx64 "\n", (int)(L), (int)(_v2_cycle_idx), essent_to_u64(_s_tile$core$d$csr$reg_mstatus_mpie$next[L]), essent_to_u64(tile.core.d.csr.reg_mstatus_mpie[_v2_other]));
+            _chronoshear_mark_oracle_mask(0, UINT64_C(1) << 14);
             record_oracle_mismatch();
           }
           if ((_v2_self_idx) >= 1 && (_v2_cycle_idx) < ORACLE_NUM_CYCLES && (!(_s_tile$core$d$csr$reg_mie_mtip$next[L] == tile.core.d.csr.reg_mie_mtip[_v2_other]))) {
             if (oracle_mismatch_should_log()) fprintf(stderr, "ORACLE MISMATCH reg=tile.core.d.csr.reg_mie_mtip lane=%d cyc=%d rtl=0x%" PRIx64 " oracle=0x%" PRIx64 "\n", (int)(L), (int)(_v2_cycle_idx), essent_to_u64(_s_tile$core$d$csr$reg_mie_mtip$next[L]), essent_to_u64(tile.core.d.csr.reg_mie_mtip[_v2_other]));
+            _chronoshear_mark_oracle_mask(0, UINT64_C(1) << 15);
             record_oracle_mismatch();
           }
           if ((_v2_self_idx) >= 1 && (_v2_cycle_idx) < ORACLE_NUM_CYCLES && (!(_s_tile$core$d$csr$reg_dcsr_step$next[L] == tile.core.d.csr.reg_dcsr_step[_v2_other]))) {
             if (oracle_mismatch_should_log()) fprintf(stderr, "ORACLE MISMATCH reg=tile.core.d.csr.reg_dcsr_step lane=%d cyc=%d rtl=0x%" PRIx64 " oracle=0x%" PRIx64 "\n", (int)(L), (int)(_v2_cycle_idx), essent_to_u64(_s_tile$core$d$csr$reg_dcsr_step$next[L]), essent_to_u64(tile.core.d.csr.reg_dcsr_step[_v2_other]));
+            _chronoshear_mark_oracle_mask(0, UINT64_C(1) << 16);
             record_oracle_mismatch();
           }
         }
@@ -7293,62 +8805,77 @@ typedef struct SodorFullChip {
           const int _v2_cycle_idx = oracle_cycle + (_forward ? L + 1 : 8 - L);
           if ((_v2_self_idx) >= 1 && (_v2_cycle_idx) < ORACLE_NUM_CYCLES && (!(_s_tile$core$d$exe_alu_op1$next[L] == tile.core.d.exe_alu_op1[_v2_other]))) {
             if (oracle_mismatch_should_log()) fprintf(stderr, "ORACLE MISMATCH reg=tile.core.d.exe_alu_op1 lane=%d cyc=%d rtl=0x%" PRIx64 " oracle=0x%" PRIx64 "\n", (int)(L), (int)(_v2_cycle_idx), essent_to_u64(_s_tile$core$d$exe_alu_op1$next[L]), essent_to_u64(tile.core.d.exe_alu_op1[_v2_other]));
+            _chronoshear_mark_oracle_mask(0, UINT64_C(1) << 0);
             record_oracle_mismatch();
           }
           if ((_v2_self_idx) >= 1 && (_v2_cycle_idx) < ORACLE_NUM_CYCLES && (!(_s_tile$core$d$exe_reg_rs2_data$next[L] == tile.core.d.exe_reg_rs2_data[_v2_other]))) {
             if (oracle_mismatch_should_log()) fprintf(stderr, "ORACLE MISMATCH reg=tile.core.d.exe_reg_rs2_data lane=%d cyc=%d rtl=0x%" PRIx64 " oracle=0x%" PRIx64 "\n", (int)(L), (int)(_v2_cycle_idx), essent_to_u64(_s_tile$core$d$exe_reg_rs2_data$next[L]), essent_to_u64(tile.core.d.exe_reg_rs2_data[_v2_other]));
+            _chronoshear_mark_oracle_mask(0, UINT64_C(1) << 1);
             record_oracle_mismatch();
           }
           if ((_v2_self_idx) >= 1 && (_v2_cycle_idx) < ORACLE_NUM_CYCLES && (!(_s_tile$core$d$mem_reg_alu_out$next[L] == tile.core.d.mem_reg_alu_out[_v2_other]))) {
             if (oracle_mismatch_should_log()) fprintf(stderr, "ORACLE MISMATCH reg=tile.core.d.mem_reg_alu_out lane=%d cyc=%d rtl=0x%" PRIx64 " oracle=0x%" PRIx64 "\n", (int)(L), (int)(_v2_cycle_idx), essent_to_u64(_s_tile$core$d$mem_reg_alu_out$next[L]), essent_to_u64(tile.core.d.mem_reg_alu_out[_v2_other]));
+            _chronoshear_mark_oracle_mask(0, UINT64_C(1) << 2);
             record_oracle_mismatch();
           }
           if ((_v2_self_idx) >= 1 && (_v2_cycle_idx) < ORACLE_NUM_CYCLES && (!(_s_tile$core$d$mem_reg_inst$next[L] == tile.core.d.mem_reg_inst[_v2_other]))) {
             if (oracle_mismatch_should_log()) fprintf(stderr, "ORACLE MISMATCH reg=tile.core.d.mem_reg_inst lane=%d cyc=%d rtl=0x%" PRIx64 " oracle=0x%" PRIx64 "\n", (int)(L), (int)(_v2_cycle_idx), essent_to_u64(_s_tile$core$d$mem_reg_inst$next[L]), essent_to_u64(tile.core.d.mem_reg_inst[_v2_other]));
+            _chronoshear_mark_oracle_mask(0, UINT64_C(1) << 3);
             record_oracle_mismatch();
           }
           if ((_v2_self_idx) >= 1 && (_v2_cycle_idx) < ORACLE_NUM_CYCLES && (!(_s_tile$core$d$mem_reg_ctrl_csr_cmd$next[L] == tile.core.d.mem_reg_ctrl_csr_cmd[_v2_other]))) {
             if (oracle_mismatch_should_log()) fprintf(stderr, "ORACLE MISMATCH reg=tile.core.d.mem_reg_ctrl_csr_cmd lane=%d cyc=%d rtl=0x%" PRIx64 " oracle=0x%" PRIx64 "\n", (int)(L), (int)(_v2_cycle_idx), essent_to_u64(_s_tile$core$d$mem_reg_ctrl_csr_cmd$next[L]), essent_to_u64(tile.core.d.mem_reg_ctrl_csr_cmd[_v2_other]));
+            _chronoshear_mark_oracle_mask(0, UINT64_C(1) << 4);
             record_oracle_mismatch();
           }
           if ((_v2_self_idx) >= 1 && (_v2_cycle_idx) < ORACLE_NUM_CYCLES && (!(_s_tile$core$d$dec_reg_inst$next[L] == tile.core.d.dec_reg_inst[_v2_other]))) {
             if (oracle_mismatch_should_log()) fprintf(stderr, "ORACLE MISMATCH reg=tile.core.d.dec_reg_inst lane=%d cyc=%d rtl=0x%" PRIx64 " oracle=0x%" PRIx64 "\n", (int)(L), (int)(_v2_cycle_idx), essent_to_u64(_s_tile$core$d$dec_reg_inst$next[L]), essent_to_u64(tile.core.d.dec_reg_inst[_v2_other]));
+            _chronoshear_mark_oracle_mask(0, UINT64_C(1) << 5);
             record_oracle_mismatch();
           }
           if ((_v2_self_idx) >= 1 && (_v2_cycle_idx) < ORACLE_NUM_CYCLES && (!(_s_tile$core$d$exe_reg_ctrl_br_type$next[L] == tile.core.d.exe_reg_ctrl_br_type[_v2_other]))) {
             if (oracle_mismatch_should_log()) fprintf(stderr, "ORACLE MISMATCH reg=tile.core.d.exe_reg_ctrl_br_type lane=%d cyc=%d rtl=0x%" PRIx64 " oracle=0x%" PRIx64 "\n", (int)(L), (int)(_v2_cycle_idx), essent_to_u64(_s_tile$core$d$exe_reg_ctrl_br_type$next[L]), essent_to_u64(tile.core.d.exe_reg_ctrl_br_type[_v2_other]));
+            _chronoshear_mark_oracle_mask(0, UINT64_C(1) << 6);
             record_oracle_mismatch();
           }
           if ((_v2_self_idx) >= 1 && (_v2_cycle_idx) < ORACLE_NUM_CYCLES && (!(_s_tile$core$c$exe_reg_wbaddr$next[L] == tile.core.c.exe_reg_wbaddr[_v2_other]))) {
             if (oracle_mismatch_should_log()) fprintf(stderr, "ORACLE MISMATCH reg=tile.core.c.exe_reg_wbaddr lane=%d cyc=%d rtl=0x%" PRIx64 " oracle=0x%" PRIx64 "\n", (int)(L), (int)(_v2_cycle_idx), essent_to_u64(_s_tile$core$c$exe_reg_wbaddr$next[L]), essent_to_u64(tile.core.c.exe_reg_wbaddr[_v2_other]));
+            _chronoshear_mark_oracle_mask(0, UINT64_C(1) << 7);
             record_oracle_mismatch();
           }
           if ((_v2_self_idx) >= 1 && (_v2_cycle_idx) < ORACLE_NUM_CYCLES && (!(_s_tile$core$d$mem_reg_ctrl_mem_val$next[L] == tile.core.d.mem_reg_ctrl_mem_val[_v2_other]))) {
             if (oracle_mismatch_should_log()) fprintf(stderr, "ORACLE MISMATCH reg=tile.core.d.mem_reg_ctrl_mem_val lane=%d cyc=%d rtl=0x%" PRIx64 " oracle=0x%" PRIx64 "\n", (int)(L), (int)(_v2_cycle_idx), essent_to_u64(_s_tile$core$d$mem_reg_ctrl_mem_val$next[L]), essent_to_u64(tile.core.d.mem_reg_ctrl_mem_val[_v2_other]));
+            _chronoshear_mark_oracle_mask(0, UINT64_C(1) << 8);
             record_oracle_mismatch();
           }
           if ((_v2_self_idx) >= 1 && (_v2_cycle_idx) < ORACLE_NUM_CYCLES && (!(_s_tile$core$c$io_ctl_mem_exception_REG$next[L] == tile.core.c.io_ctl_mem_exception_REG[_v2_other]))) {
             if (oracle_mismatch_should_log()) fprintf(stderr, "ORACLE MISMATCH reg=tile.core.c.io_ctl_mem_exception_REG lane=%d cyc=%d rtl=0x%" PRIx64 " oracle=0x%" PRIx64 "\n", (int)(L), (int)(_v2_cycle_idx), essent_to_u64(_s_tile$core$c$io_ctl_mem_exception_REG$next[L]), essent_to_u64(tile.core.c.io_ctl_mem_exception_REG[_v2_other]));
+            _chronoshear_mark_oracle_mask(0, UINT64_C(1) << 9);
             record_oracle_mismatch();
           }
           if ((_v2_self_idx) >= 1 && (_v2_cycle_idx) < ORACLE_NUM_CYCLES && (!(_s_tile$core$d$brjmp_offset$next[L] == tile.core.d.brjmp_offset[_v2_other]))) {
             if (oracle_mismatch_should_log()) fprintf(stderr, "ORACLE MISMATCH reg=tile.core.d.brjmp_offset lane=%d cyc=%d rtl=0x%" PRIx64 " oracle=0x%" PRIx64 "\n", (int)(L), (int)(_v2_cycle_idx), essent_to_u64(_s_tile$core$d$brjmp_offset$next[L]), essent_to_u64(tile.core.d.brjmp_offset[_v2_other]));
+            _chronoshear_mark_oracle_mask(0, UINT64_C(1) << 10);
             record_oracle_mismatch();
           }
           if ((_v2_self_idx) >= 1 && (_v2_cycle_idx) < ORACLE_NUM_CYCLES && (!(_s_tile$core$d$exe_reg_pc$next[L] == tile.core.d.exe_reg_pc[_v2_other]))) {
             if (oracle_mismatch_should_log()) fprintf(stderr, "ORACLE MISMATCH reg=tile.core.d.exe_reg_pc lane=%d cyc=%d rtl=0x%" PRIx64 " oracle=0x%" PRIx64 "\n", (int)(L), (int)(_v2_cycle_idx), essent_to_u64(_s_tile$core$d$exe_reg_pc$next[L]), essent_to_u64(tile.core.d.exe_reg_pc[_v2_other]));
+            _chronoshear_mark_oracle_mask(0, UINT64_C(1) << 11);
             record_oracle_mismatch();
           }
           if ((_v2_self_idx) >= 1 && (_v2_cycle_idx) < ORACLE_NUM_CYCLES && (!(_s_tile$core$d$csr$small_1$next[L] == tile.core.d.csr.small_1[_v2_other]))) {
             if (oracle_mismatch_should_log()) fprintf(stderr, "ORACLE MISMATCH reg=tile.core.d.csr.small_1 lane=%d cyc=%d rtl=0x%" PRIx64 " oracle=0x%" PRIx64 "\n", (int)(L), (int)(_v2_cycle_idx), essent_to_u64(_s_tile$core$d$csr$small_1$next[L]), essent_to_u64(tile.core.d.csr.small_1[_v2_other]));
+            _chronoshear_mark_oracle_mask(0, UINT64_C(1) << 12);
             record_oracle_mismatch();
           }
           if ((_v2_self_idx) >= 1 && (_v2_cycle_idx) < ORACLE_NUM_CYCLES && (!(_s_tile$core$d$csr$small$next[L] == tile.core.d.csr.small[_v2_other]))) {
             if (oracle_mismatch_should_log()) fprintf(stderr, "ORACLE MISMATCH reg=tile.core.d.csr.small lane=%d cyc=%d rtl=0x%" PRIx64 " oracle=0x%" PRIx64 "\n", (int)(L), (int)(_v2_cycle_idx), essent_to_u64(_s_tile$core$d$csr$small$next[L]), essent_to_u64(tile.core.d.csr.small[_v2_other]));
+            _chronoshear_mark_oracle_mask(0, UINT64_C(1) << 13);
             record_oracle_mismatch();
           }
           if ((_v2_self_idx) >= 1 && (_v2_cycle_idx) < ORACLE_NUM_CYCLES && (!(_s_tile$core$d$csr$reg_mstatus_mpie$next[L] == tile.core.d.csr.reg_mstatus_mpie[_v2_other]))) {
             if (oracle_mismatch_should_log()) fprintf(stderr, "ORACLE MISMATCH reg=tile.core.d.csr.reg_mstatus_mpie lane=%d cyc=%d rtl=0x%" PRIx64 " oracle=0x%" PRIx64 "\n", (int)(L), (int)(_v2_cycle_idx), essent_to_u64(_s_tile$core$d$csr$reg_mstatus_mpie$next[L]), essent_to_u64(tile.core.d.csr.reg_mstatus_mpie[_v2_other]));
+            _chronoshear_mark_oracle_mask(0, UINT64_C(1) << 14);
             record_oracle_mismatch();
           }
         }
@@ -7361,10 +8888,12 @@ typedef struct SodorFullChip {
           const int _v2_cycle_idx = oracle_cycle + (_forward ? L + 1 : 8 - L);
           if ((_v2_self_idx) >= 1 && (_v2_cycle_idx) < ORACLE_NUM_CYCLES && (!(tile.core.d.csr.reg_mie_mtip[L] == tile.core.d.csr.reg_mie_mtip[_v2_other]))) {
             if (oracle_mismatch_should_log()) fprintf(stderr, "ORACLE MISMATCH reg=tile.core.d.csr.reg_mie_mtip lane=%d cyc=%d rtl=0x%" PRIx64 " oracle=0x%" PRIx64 " [quiet-hold]\n", (int)(L), (int)(_v2_cycle_idx), essent_to_u64(tile.core.d.csr.reg_mie_mtip[L]), essent_to_u64(tile.core.d.csr.reg_mie_mtip[_v2_other]));
+            _chronoshear_mark_oracle_mask(0, UINT64_C(1) << 15);
             record_oracle_mismatch();
           }
           if ((_v2_self_idx) >= 1 && (_v2_cycle_idx) < ORACLE_NUM_CYCLES && (!(tile.core.d.csr.reg_dcsr_step[L] == tile.core.d.csr.reg_dcsr_step[_v2_other]))) {
             if (oracle_mismatch_should_log()) fprintf(stderr, "ORACLE MISMATCH reg=tile.core.d.csr.reg_dcsr_step lane=%d cyc=%d rtl=0x%" PRIx64 " oracle=0x%" PRIx64 " [quiet-hold]\n", (int)(L), (int)(_v2_cycle_idx), essent_to_u64(tile.core.d.csr.reg_dcsr_step[L]), essent_to_u64(tile.core.d.csr.reg_dcsr_step[_v2_other]));
+            _chronoshear_mark_oracle_mask(0, UINT64_C(1) << 16);
             record_oracle_mismatch();
           }
         }
@@ -7375,130 +8904,162 @@ typedef struct SodorFullChip {
           const int _v2_self_idx = oracle_cycle + (_forward ? L : 7 - L);
           if ((_v2_self_idx) >= 1 && (_v2_self_idx) < ORACLE_NUM_CYCLES && (!(_s_memory$bytes$draw_MPORT__access_address$rtl[L] == _zc_memory_bytes_draw_MPORT__access_address[L]))) {
             if (oracle_mismatch_should_log()) fprintf(stderr, "ORACLE MISMATCH comb=memory.bytes.draw_MPORT__access_address lane=%d cyc=%d rtl=0x%" PRIx64 " oracle=0x%" PRIx64 "\n", (int)(L), (int)(_v2_self_idx), essent_to_u64(_s_memory$bytes$draw_MPORT__access_address$rtl[L]), essent_to_u64(_zc_memory_bytes_draw_MPORT__access_address[L]));
+            _chronoshear_mark_oracle_mask(3, UINT64_C(1) << 0);
             record_oracle_mismatch();
           }
           if ((_v2_self_idx) >= 1 && (_v2_self_idx) < ORACLE_NUM_CYCLES && (!(_s_memory$bytes$draw_MPORT_1__access_address$rtl[L] == _zc_memory_bytes_draw_MPORT_1__access_address[L]))) {
             if (oracle_mismatch_should_log()) fprintf(stderr, "ORACLE MISMATCH comb=memory.bytes.draw_MPORT_1__access_address lane=%d cyc=%d rtl=0x%" PRIx64 " oracle=0x%" PRIx64 "\n", (int)(L), (int)(_v2_self_idx), essent_to_u64(_s_memory$bytes$draw_MPORT_1__access_address$rtl[L]), essent_to_u64(_zc_memory_bytes_draw_MPORT_1__access_address[L]));
+            _chronoshear_mark_oracle_mask(3, UINT64_C(1) << 1);
             record_oracle_mismatch();
           }
           if ((_v2_self_idx) >= 1 && (_v2_self_idx) < ORACLE_NUM_CYCLES && (!(_s_memory$bytes$draw_MPORT_2__access_address$rtl[L] == _zc_memory_bytes_draw_MPORT_2__access_address[L]))) {
             if (oracle_mismatch_should_log()) fprintf(stderr, "ORACLE MISMATCH comb=memory.bytes.draw_MPORT_2__access_address lane=%d cyc=%d rtl=0x%" PRIx64 " oracle=0x%" PRIx64 "\n", (int)(L), (int)(_v2_self_idx), essent_to_u64(_s_memory$bytes$draw_MPORT_2__access_address$rtl[L]), essent_to_u64(_zc_memory_bytes_draw_MPORT_2__access_address[L]));
+            _chronoshear_mark_oracle_mask(3, UINT64_C(1) << 2);
             record_oracle_mismatch();
           }
           if ((_v2_self_idx) >= 1 && (_v2_self_idx) < ORACLE_NUM_CYCLES && (!(_s_memory$bytes$draw_MPORT_3__access_address$rtl[L] == _zc_memory_bytes_draw_MPORT_3__access_address[L]))) {
             if (oracle_mismatch_should_log()) fprintf(stderr, "ORACLE MISMATCH comb=memory.bytes.draw_MPORT_3__access_address lane=%d cyc=%d rtl=0x%" PRIx64 " oracle=0x%" PRIx64 "\n", (int)(L), (int)(_v2_self_idx), essent_to_u64(_s_memory$bytes$draw_MPORT_3__access_address$rtl[L]), essent_to_u64(_zc_memory_bytes_draw_MPORT_3__access_address[L]));
+            _chronoshear_mark_oracle_mask(3, UINT64_C(1) << 3);
             record_oracle_mismatch();
           }
           if ((_v2_self_idx) >= 1 && (_v2_self_idx) < ORACLE_NUM_CYCLES && (!(_s_memory$bytes$io_core_1_resp_bits_data_MPORT__access_address$rtl[L] == _zc_memory_bytes_io_core_1_resp_bits_data_MPORT__access_address[L]))) {
             if (oracle_mismatch_should_log()) fprintf(stderr, "ORACLE MISMATCH comb=memory.bytes.io_core_1_resp_bits_data_MPORT__access_address lane=%d cyc=%d rtl=0x%" PRIx64 " oracle=0x%" PRIx64 "\n", (int)(L), (int)(_v2_self_idx), essent_to_u64(_s_memory$bytes$io_core_1_resp_bits_data_MPORT__access_address$rtl[L]), essent_to_u64(_zc_memory_bytes_io_core_1_resp_bits_data_MPORT__access_address[L]));
+            _chronoshear_mark_oracle_mask(3, UINT64_C(1) << 4);
             record_oracle_mismatch();
           }
           if ((_v2_self_idx) >= 1 && (_v2_self_idx) < ORACLE_NUM_CYCLES && (!(_s_memory$bytes$io_core_1_resp_bits_data_MPORT_1__access_address$rtl[L] == _zc_memory_bytes_io_core_1_resp_bits_data_MPORT_1__access_address[L]))) {
             if (oracle_mismatch_should_log()) fprintf(stderr, "ORACLE MISMATCH comb=memory.bytes.io_core_1_resp_bits_data_MPORT_1__access_address lane=%d cyc=%d rtl=0x%" PRIx64 " oracle=0x%" PRIx64 "\n", (int)(L), (int)(_v2_self_idx), essent_to_u64(_s_memory$bytes$io_core_1_resp_bits_data_MPORT_1__access_address$rtl[L]), essent_to_u64(_zc_memory_bytes_io_core_1_resp_bits_data_MPORT_1__access_address[L]));
+            _chronoshear_mark_oracle_mask(3, UINT64_C(1) << 5);
             record_oracle_mismatch();
           }
           if ((_v2_self_idx) >= 1 && (_v2_self_idx) < ORACLE_NUM_CYCLES && (!(_s_memory$bytes$io_core_1_resp_bits_data_MPORT_2__access_address$rtl[L] == _zc_memory_bytes_io_core_1_resp_bits_data_MPORT_2__access_address[L]))) {
             if (oracle_mismatch_should_log()) fprintf(stderr, "ORACLE MISMATCH comb=memory.bytes.io_core_1_resp_bits_data_MPORT_2__access_address lane=%d cyc=%d rtl=0x%" PRIx64 " oracle=0x%" PRIx64 "\n", (int)(L), (int)(_v2_self_idx), essent_to_u64(_s_memory$bytes$io_core_1_resp_bits_data_MPORT_2__access_address$rtl[L]), essent_to_u64(_zc_memory_bytes_io_core_1_resp_bits_data_MPORT_2__access_address[L]));
+            _chronoshear_mark_oracle_mask(3, UINT64_C(1) << 6);
             record_oracle_mismatch();
           }
           if ((_v2_self_idx) >= 1 && (_v2_self_idx) < ORACLE_NUM_CYCLES && (!(_s_memory$bytes$io_core_1_resp_bits_data_MPORT_3__access_address$rtl[L] == _zc_memory_bytes_io_core_1_resp_bits_data_MPORT_3__access_address[L]))) {
             if (oracle_mismatch_should_log()) fprintf(stderr, "ORACLE MISMATCH comb=memory.bytes.io_core_1_resp_bits_data_MPORT_3__access_address lane=%d cyc=%d rtl=0x%" PRIx64 " oracle=0x%" PRIx64 "\n", (int)(L), (int)(_v2_self_idx), essent_to_u64(_s_memory$bytes$io_core_1_resp_bits_data_MPORT_3__access_address$rtl[L]), essent_to_u64(_zc_memory_bytes_io_core_1_resp_bits_data_MPORT_3__access_address[L]));
+            _chronoshear_mark_oracle_mask(3, UINT64_C(1) << 7);
             record_oracle_mismatch();
           }
           if ((_v2_self_idx) >= 1 && (_v2_self_idx) < ORACLE_NUM_CYCLES && (!(_s_memory$bytes$io_host_rdata_MPORT__access_address$rtl[L] == _zc_memory_bytes_io_host_rdata_MPORT__access_address[L]))) {
             if (oracle_mismatch_should_log()) fprintf(stderr, "ORACLE MISMATCH comb=memory.bytes.io_host_rdata_MPORT__access_address lane=%d cyc=%d rtl=0x%" PRIx64 " oracle=0x%" PRIx64 "\n", (int)(L), (int)(_v2_self_idx), essent_to_u64(_s_memory$bytes$io_host_rdata_MPORT__access_address$rtl[L]), essent_to_u64(_zc_memory_bytes_io_host_rdata_MPORT__access_address[L]));
+            _chronoshear_mark_oracle_mask(3, UINT64_C(1) << 8);
             record_oracle_mismatch();
           }
           if ((_v2_self_idx) >= 1 && (_v2_self_idx) < ORACLE_NUM_CYCLES && (!(_s_memory$bytes$io_host_rdata_MPORT_1__access_address$rtl[L] == _zc_memory_bytes_io_host_rdata_MPORT_1__access_address[L]))) {
             if (oracle_mismatch_should_log()) fprintf(stderr, "ORACLE MISMATCH comb=memory.bytes.io_host_rdata_MPORT_1__access_address lane=%d cyc=%d rtl=0x%" PRIx64 " oracle=0x%" PRIx64 "\n", (int)(L), (int)(_v2_self_idx), essent_to_u64(_s_memory$bytes$io_host_rdata_MPORT_1__access_address$rtl[L]), essent_to_u64(_zc_memory_bytes_io_host_rdata_MPORT_1__access_address[L]));
+            _chronoshear_mark_oracle_mask(3, UINT64_C(1) << 9);
             record_oracle_mismatch();
           }
           if ((_v2_self_idx) >= 1 && (_v2_self_idx) < ORACLE_NUM_CYCLES && (!(_s_memory$bytes$io_host_rdata_MPORT_2__access_address$rtl[L] == _zc_memory_bytes_io_host_rdata_MPORT_2__access_address[L]))) {
             if (oracle_mismatch_should_log()) fprintf(stderr, "ORACLE MISMATCH comb=memory.bytes.io_host_rdata_MPORT_2__access_address lane=%d cyc=%d rtl=0x%" PRIx64 " oracle=0x%" PRIx64 "\n", (int)(L), (int)(_v2_self_idx), essent_to_u64(_s_memory$bytes$io_host_rdata_MPORT_2__access_address$rtl[L]), essent_to_u64(_zc_memory_bytes_io_host_rdata_MPORT_2__access_address[L]));
+            _chronoshear_mark_oracle_mask(3, UINT64_C(1) << 10);
             record_oracle_mismatch();
           }
           if ((_v2_self_idx) >= 1 && (_v2_self_idx) < ORACLE_NUM_CYCLES && (!(_s_memory$bytes$io_host_rdata_MPORT_3__access_address$rtl[L] == _zc_memory_bytes_io_host_rdata_MPORT_3__access_address[L]))) {
             if (oracle_mismatch_should_log()) fprintf(stderr, "ORACLE MISMATCH comb=memory.bytes.io_host_rdata_MPORT_3__access_address lane=%d cyc=%d rtl=0x%" PRIx64 " oracle=0x%" PRIx64 "\n", (int)(L), (int)(_v2_self_idx), essent_to_u64(_s_memory$bytes$io_host_rdata_MPORT_3__access_address$rtl[L]), essent_to_u64(_zc_memory_bytes_io_host_rdata_MPORT_3__access_address[L]));
+            _chronoshear_mark_oracle_mask(3, UINT64_C(1) << 11);
             record_oracle_mismatch();
           }
           if ((_v2_self_idx) >= 1 && (_v2_self_idx) < ORACLE_NUM_CYCLES && (!(_s_memory$bytes$io_tohost_MPORT__access_address$rtl[L] == _zc_memory_bytes_io_tohost_MPORT__access_address[L]))) {
             if (oracle_mismatch_should_log()) fprintf(stderr, "ORACLE MISMATCH comb=memory.bytes.io_tohost_MPORT__access_address lane=%d cyc=%d rtl=0x%" PRIx64 " oracle=0x%" PRIx64 "\n", (int)(L), (int)(_v2_self_idx), essent_to_u64(_s_memory$bytes$io_tohost_MPORT__access_address$rtl[L]), essent_to_u64(_zc_memory_bytes_io_tohost_MPORT__access_address[L]));
+            _chronoshear_mark_oracle_mask(3, UINT64_C(1) << 12);
             record_oracle_mismatch();
           }
           if ((_v2_self_idx) >= 1 && (_v2_self_idx) < ORACLE_NUM_CYCLES && (!(_s_memory$bytes$io_tohost_MPORT_1__access_address$rtl[L] == _zc_memory_bytes_io_tohost_MPORT_1__access_address[L]))) {
             if (oracle_mismatch_should_log()) fprintf(stderr, "ORACLE MISMATCH comb=memory.bytes.io_tohost_MPORT_1__access_address lane=%d cyc=%d rtl=0x%" PRIx64 " oracle=0x%" PRIx64 "\n", (int)(L), (int)(_v2_self_idx), essent_to_u64(_s_memory$bytes$io_tohost_MPORT_1__access_address$rtl[L]), essent_to_u64(_zc_memory_bytes_io_tohost_MPORT_1__access_address[L]));
+            _chronoshear_mark_oracle_mask(3, UINT64_C(1) << 13);
             record_oracle_mismatch();
           }
           if ((_v2_self_idx) >= 1 && (_v2_self_idx) < ORACLE_NUM_CYCLES && (!(_s_memory$bytes$io_tohost_MPORT_2__access_address$rtl[L] == _zc_memory_bytes_io_tohost_MPORT_2__access_address[L]))) {
             if (oracle_mismatch_should_log()) fprintf(stderr, "ORACLE MISMATCH comb=memory.bytes.io_tohost_MPORT_2__access_address lane=%d cyc=%d rtl=0x%" PRIx64 " oracle=0x%" PRIx64 "\n", (int)(L), (int)(_v2_self_idx), essent_to_u64(_s_memory$bytes$io_tohost_MPORT_2__access_address$rtl[L]), essent_to_u64(_zc_memory_bytes_io_tohost_MPORT_2__access_address[L]));
+            _chronoshear_mark_oracle_mask(3, UINT64_C(1) << 14);
             record_oracle_mismatch();
           }
           if ((_v2_self_idx) >= 1 && (_v2_self_idx) < ORACLE_NUM_CYCLES && (!(_s_memory$bytes$io_tohost_MPORT_3__access_address$rtl[L] == _zc_memory_bytes_io_tohost_MPORT_3__access_address[L]))) {
             if (oracle_mismatch_should_log()) fprintf(stderr, "ORACLE MISMATCH comb=memory.bytes.io_tohost_MPORT_3__access_address lane=%d cyc=%d rtl=0x%" PRIx64 " oracle=0x%" PRIx64 "\n", (int)(L), (int)(_v2_self_idx), essent_to_u64(_s_memory$bytes$io_tohost_MPORT_3__access_address$rtl[L]), essent_to_u64(_zc_memory_bytes_io_tohost_MPORT_3__access_address[L]));
+            _chronoshear_mark_oracle_mask(3, UINT64_C(1) << 15);
             record_oracle_mismatch();
           }
           if ((_v2_self_idx) >= 1 && (_v2_self_idx) < ORACLE_NUM_CYCLES && (!(_s_memory$bytes$__access_write_0_MPORT_enable$rtl[L] == _zc_memory_bytes___access_write_0_MPORT_enable[L]))) {
             if (oracle_mismatch_should_log()) fprintf(stderr, "ORACLE MISMATCH comb=memory.bytes.__access_write_0_MPORT_enable lane=%d cyc=%d rtl=0x%" PRIx64 " oracle=0x%" PRIx64 "\n", (int)(L), (int)(_v2_self_idx), essent_to_u64(_s_memory$bytes$__access_write_0_MPORT_enable$rtl[L]), essent_to_u64(_zc_memory_bytes___access_write_0_MPORT_enable[L]));
+            _chronoshear_mark_oracle_mask(3, UINT64_C(1) << 16);
             record_oracle_mismatch();
           }
           if ((_v2_self_idx) >= 1 && (_v2_self_idx) < ORACLE_NUM_CYCLES && (!(_s_memory$bytes$__access_write_0_MPORT_address$rtl[L] == _zc_memory_bytes___access_write_0_MPORT_address[L]))) {
             if (oracle_mismatch_should_log()) fprintf(stderr, "ORACLE MISMATCH comb=memory.bytes.__access_write_0_MPORT_address lane=%d cyc=%d rtl=0x%" PRIx64 " oracle=0x%" PRIx64 "\n", (int)(L), (int)(_v2_self_idx), essent_to_u64(_s_memory$bytes$__access_write_0_MPORT_address$rtl[L]), essent_to_u64(_zc_memory_bytes___access_write_0_MPORT_address[L]));
+            _chronoshear_mark_oracle_mask(3, UINT64_C(1) << 17);
             record_oracle_mismatch();
           }
           if ((_v2_self_idx) >= 1 && (_v2_self_idx) < ORACLE_NUM_CYCLES && (!(_s_memory$bytes$__access_write_0_MPORT_data$rtl[L] == _zc_memory_bytes___access_write_0_MPORT_data[L]))) {
             if (oracle_mismatch_should_log()) fprintf(stderr, "ORACLE MISMATCH comb=memory.bytes.__access_write_0_MPORT_data lane=%d cyc=%d rtl=0x%" PRIx64 " oracle=0x%" PRIx64 "\n", (int)(L), (int)(_v2_self_idx), essent_to_u64(_s_memory$bytes$__access_write_0_MPORT_data$rtl[L]), essent_to_u64(_zc_memory_bytes___access_write_0_MPORT_data[L]));
+            _chronoshear_mark_oracle_mask(3, UINT64_C(1) << 18);
             record_oracle_mismatch();
           }
           if ((_v2_self_idx) >= 1 && (_v2_self_idx) < ORACLE_NUM_CYCLES && (!(_s_memory$bytes$__access_write_1_MPORT_1_enable$rtl[L] == _zc_memory_bytes___access_write_1_MPORT_1_enable[L]))) {
             if (oracle_mismatch_should_log()) fprintf(stderr, "ORACLE MISMATCH comb=memory.bytes.__access_write_1_MPORT_1_enable lane=%d cyc=%d rtl=0x%" PRIx64 " oracle=0x%" PRIx64 "\n", (int)(L), (int)(_v2_self_idx), essent_to_u64(_s_memory$bytes$__access_write_1_MPORT_1_enable$rtl[L]), essent_to_u64(_zc_memory_bytes___access_write_1_MPORT_1_enable[L]));
+            _chronoshear_mark_oracle_mask(3, UINT64_C(1) << 19);
             record_oracle_mismatch();
           }
           if ((_v2_self_idx) >= 1 && (_v2_self_idx) < ORACLE_NUM_CYCLES && (!(_s_memory$bytes$__access_write_1_MPORT_1_address$rtl[L] == _zc_memory_bytes___access_write_1_MPORT_1_address[L]))) {
             if (oracle_mismatch_should_log()) fprintf(stderr, "ORACLE MISMATCH comb=memory.bytes.__access_write_1_MPORT_1_address lane=%d cyc=%d rtl=0x%" PRIx64 " oracle=0x%" PRIx64 "\n", (int)(L), (int)(_v2_self_idx), essent_to_u64(_s_memory$bytes$__access_write_1_MPORT_1_address$rtl[L]), essent_to_u64(_zc_memory_bytes___access_write_1_MPORT_1_address[L]));
+            _chronoshear_mark_oracle_mask(3, UINT64_C(1) << 20);
             record_oracle_mismatch();
           }
           if ((_v2_self_idx) >= 1 && (_v2_self_idx) < ORACLE_NUM_CYCLES && (!(_s_memory$bytes$__access_write_1_MPORT_1_data$rtl[L] == _zc_memory_bytes___access_write_1_MPORT_1_data[L]))) {
             if (oracle_mismatch_should_log()) fprintf(stderr, "ORACLE MISMATCH comb=memory.bytes.__access_write_1_MPORT_1_data lane=%d cyc=%d rtl=0x%" PRIx64 " oracle=0x%" PRIx64 "\n", (int)(L), (int)(_v2_self_idx), essent_to_u64(_s_memory$bytes$__access_write_1_MPORT_1_data$rtl[L]), essent_to_u64(_zc_memory_bytes___access_write_1_MPORT_1_data[L]));
+            _chronoshear_mark_oracle_mask(3, UINT64_C(1) << 21);
             record_oracle_mismatch();
           }
           if ((_v2_self_idx) >= 1 && (_v2_self_idx) < ORACLE_NUM_CYCLES && (!(_s_memory$bytes$__access_write_2_MPORT_2_enable$rtl[L] == _zc_memory_bytes___access_write_2_MPORT_2_enable[L]))) {
             if (oracle_mismatch_should_log()) fprintf(stderr, "ORACLE MISMATCH comb=memory.bytes.__access_write_2_MPORT_2_enable lane=%d cyc=%d rtl=0x%" PRIx64 " oracle=0x%" PRIx64 "\n", (int)(L), (int)(_v2_self_idx), essent_to_u64(_s_memory$bytes$__access_write_2_MPORT_2_enable$rtl[L]), essent_to_u64(_zc_memory_bytes___access_write_2_MPORT_2_enable[L]));
+            _chronoshear_mark_oracle_mask(3, UINT64_C(1) << 22);
             record_oracle_mismatch();
           }
           if ((_v2_self_idx) >= 1 && (_v2_self_idx) < ORACLE_NUM_CYCLES && (!(_s_memory$bytes$__access_write_2_MPORT_2_address$rtl[L] == _zc_memory_bytes___access_write_2_MPORT_2_address[L]))) {
             if (oracle_mismatch_should_log()) fprintf(stderr, "ORACLE MISMATCH comb=memory.bytes.__access_write_2_MPORT_2_address lane=%d cyc=%d rtl=0x%" PRIx64 " oracle=0x%" PRIx64 "\n", (int)(L), (int)(_v2_self_idx), essent_to_u64(_s_memory$bytes$__access_write_2_MPORT_2_address$rtl[L]), essent_to_u64(_zc_memory_bytes___access_write_2_MPORT_2_address[L]));
+            _chronoshear_mark_oracle_mask(3, UINT64_C(1) << 23);
             record_oracle_mismatch();
           }
           if ((_v2_self_idx) >= 1 && (_v2_self_idx) < ORACLE_NUM_CYCLES && (!(_s_memory$bytes$__access_write_2_MPORT_2_data$rtl[L] == _zc_memory_bytes___access_write_2_MPORT_2_data[L]))) {
             if (oracle_mismatch_should_log()) fprintf(stderr, "ORACLE MISMATCH comb=memory.bytes.__access_write_2_MPORT_2_data lane=%d cyc=%d rtl=0x%" PRIx64 " oracle=0x%" PRIx64 "\n", (int)(L), (int)(_v2_self_idx), essent_to_u64(_s_memory$bytes$__access_write_2_MPORT_2_data$rtl[L]), essent_to_u64(_zc_memory_bytes___access_write_2_MPORT_2_data[L]));
+            _chronoshear_mark_oracle_mask(3, UINT64_C(1) << 24);
             record_oracle_mismatch();
           }
           if ((_v2_self_idx) >= 1 && (_v2_self_idx) < ORACLE_NUM_CYCLES && (!(_s_memory$bytes$__access_write_3_MPORT_3_enable$rtl[L] == _zc_memory_bytes___access_write_3_MPORT_3_enable[L]))) {
             if (oracle_mismatch_should_log()) fprintf(stderr, "ORACLE MISMATCH comb=memory.bytes.__access_write_3_MPORT_3_enable lane=%d cyc=%d rtl=0x%" PRIx64 " oracle=0x%" PRIx64 "\n", (int)(L), (int)(_v2_self_idx), essent_to_u64(_s_memory$bytes$__access_write_3_MPORT_3_enable$rtl[L]), essent_to_u64(_zc_memory_bytes___access_write_3_MPORT_3_enable[L]));
+            _chronoshear_mark_oracle_mask(3, UINT64_C(1) << 25);
             record_oracle_mismatch();
           }
           if ((_v2_self_idx) >= 1 && (_v2_self_idx) < ORACLE_NUM_CYCLES && (!(_s_memory$bytes$__access_write_3_MPORT_3_address$rtl[L] == _zc_memory_bytes___access_write_3_MPORT_3_address[L]))) {
             if (oracle_mismatch_should_log()) fprintf(stderr, "ORACLE MISMATCH comb=memory.bytes.__access_write_3_MPORT_3_address lane=%d cyc=%d rtl=0x%" PRIx64 " oracle=0x%" PRIx64 "\n", (int)(L), (int)(_v2_self_idx), essent_to_u64(_s_memory$bytes$__access_write_3_MPORT_3_address$rtl[L]), essent_to_u64(_zc_memory_bytes___access_write_3_MPORT_3_address[L]));
+            _chronoshear_mark_oracle_mask(3, UINT64_C(1) << 26);
             record_oracle_mismatch();
           }
           if ((_v2_self_idx) >= 1 && (_v2_self_idx) < ORACLE_NUM_CYCLES && (!(_s_memory$bytes$__access_write_3_MPORT_3_data$rtl[L] == _zc_memory_bytes___access_write_3_MPORT_3_data[L]))) {
             if (oracle_mismatch_should_log()) fprintf(stderr, "ORACLE MISMATCH comb=memory.bytes.__access_write_3_MPORT_3_data lane=%d cyc=%d rtl=0x%" PRIx64 " oracle=0x%" PRIx64 "\n", (int)(L), (int)(_v2_self_idx), essent_to_u64(_s_memory$bytes$__access_write_3_MPORT_3_data$rtl[L]), essent_to_u64(_zc_memory_bytes___access_write_3_MPORT_3_data[L]));
+            _chronoshear_mark_oracle_mask(3, UINT64_C(1) << 27);
             record_oracle_mismatch();
           }
           if ((_v2_self_idx) >= 1 && (_v2_self_idx) < ORACLE_NUM_CYCLES && (!(_s_memory$bytes$__access_write_4_MPORT_4_enable$rtl[L] == _zc_memory_bytes___access_write_4_MPORT_4_enable[L]))) {
             if (oracle_mismatch_should_log()) fprintf(stderr, "ORACLE MISMATCH comb=memory.bytes.__access_write_4_MPORT_4_enable lane=%d cyc=%d rtl=0x%" PRIx64 " oracle=0x%" PRIx64 "\n", (int)(L), (int)(_v2_self_idx), essent_to_u64(_s_memory$bytes$__access_write_4_MPORT_4_enable$rtl[L]), essent_to_u64(_zc_memory_bytes___access_write_4_MPORT_4_enable[L]));
+            _chronoshear_mark_oracle_mask(3, UINT64_C(1) << 28);
             record_oracle_mismatch();
           }
           if ((_v2_self_idx) >= 1 && (_v2_self_idx) < ORACLE_NUM_CYCLES && (!(_s_memory$bytes$__access_write_4_MPORT_4_address$rtl[L] == _zc_memory_bytes___access_write_4_MPORT_4_address[L]))) {
             if (oracle_mismatch_should_log()) fprintf(stderr, "ORACLE MISMATCH comb=memory.bytes.__access_write_4_MPORT_4_address lane=%d cyc=%d rtl=0x%" PRIx64 " oracle=0x%" PRIx64 "\n", (int)(L), (int)(_v2_self_idx), essent_to_u64(_s_memory$bytes$__access_write_4_MPORT_4_address$rtl[L]), essent_to_u64(_zc_memory_bytes___access_write_4_MPORT_4_address[L]));
+            _chronoshear_mark_oracle_mask(3, UINT64_C(1) << 29);
             record_oracle_mismatch();
           }
           if ((_v2_self_idx) >= 1 && (_v2_self_idx) < ORACLE_NUM_CYCLES && (!(_s_memory$bytes$__access_write_4_MPORT_4_data$rtl[L] == _zc_memory_bytes___access_write_4_MPORT_4_data[L]))) {
             if (oracle_mismatch_should_log()) fprintf(stderr, "ORACLE MISMATCH comb=memory.bytes.__access_write_4_MPORT_4_data lane=%d cyc=%d rtl=0x%" PRIx64 " oracle=0x%" PRIx64 "\n", (int)(L), (int)(_v2_self_idx), essent_to_u64(_s_memory$bytes$__access_write_4_MPORT_4_data$rtl[L]), essent_to_u64(_zc_memory_bytes___access_write_4_MPORT_4_data[L]));
+            _chronoshear_mark_oracle_mask(3, UINT64_C(1) << 30);
             record_oracle_mismatch();
           }
           if ((_v2_self_idx) >= 1 && (_v2_self_idx) < ORACLE_NUM_CYCLES && (!(_s_memory$bytes$__access_write_5_MPORT_5_enable$rtl[L] == _zc_memory_bytes___access_write_5_MPORT_5_enable[L]))) {
             if (oracle_mismatch_should_log()) fprintf(stderr, "ORACLE MISMATCH comb=memory.bytes.__access_write_5_MPORT_5_enable lane=%d cyc=%d rtl=0x%" PRIx64 " oracle=0x%" PRIx64 "\n", (int)(L), (int)(_v2_self_idx), essent_to_u64(_s_memory$bytes$__access_write_5_MPORT_5_enable$rtl[L]), essent_to_u64(_zc_memory_bytes___access_write_5_MPORT_5_enable[L]));
+            _chronoshear_mark_oracle_mask(3, UINT64_C(1) << 31);
             record_oracle_mismatch();
           }
         }
@@ -7509,46 +9070,57 @@ typedef struct SodorFullChip {
           const int _v2_self_idx = oracle_cycle + (_forward ? L : 7 - L);
           if ((_v2_self_idx) >= 1 && (_v2_self_idx) < ORACLE_NUM_CYCLES && (!(_s_memory$bytes$__access_write_5_MPORT_5_address$rtl[L] == _zc_memory_bytes___access_write_5_MPORT_5_address[L]))) {
             if (oracle_mismatch_should_log()) fprintf(stderr, "ORACLE MISMATCH comb=memory.bytes.__access_write_5_MPORT_5_address lane=%d cyc=%d rtl=0x%" PRIx64 " oracle=0x%" PRIx64 "\n", (int)(L), (int)(_v2_self_idx), essent_to_u64(_s_memory$bytes$__access_write_5_MPORT_5_address$rtl[L]), essent_to_u64(_zc_memory_bytes___access_write_5_MPORT_5_address[L]));
+            _chronoshear_mark_oracle_mask(4, UINT64_C(1) << 0);
             record_oracle_mismatch();
           }
           if ((_v2_self_idx) >= 1 && (_v2_self_idx) < ORACLE_NUM_CYCLES && (!(_s_memory$bytes$__access_write_5_MPORT_5_data$rtl[L] == _zc_memory_bytes___access_write_5_MPORT_5_data[L]))) {
             if (oracle_mismatch_should_log()) fprintf(stderr, "ORACLE MISMATCH comb=memory.bytes.__access_write_5_MPORT_5_data lane=%d cyc=%d rtl=0x%" PRIx64 " oracle=0x%" PRIx64 "\n", (int)(L), (int)(_v2_self_idx), essent_to_u64(_s_memory$bytes$__access_write_5_MPORT_5_data$rtl[L]), essent_to_u64(_zc_memory_bytes___access_write_5_MPORT_5_data[L]));
+            _chronoshear_mark_oracle_mask(4, UINT64_C(1) << 1);
             record_oracle_mismatch();
           }
           if ((_v2_self_idx) >= 1 && (_v2_self_idx) < ORACLE_NUM_CYCLES && (!(_s_memory$bytes$__access_write_6_MPORT_6_enable$rtl[L] == _zc_memory_bytes___access_write_6_MPORT_6_enable[L]))) {
             if (oracle_mismatch_should_log()) fprintf(stderr, "ORACLE MISMATCH comb=memory.bytes.__access_write_6_MPORT_6_enable lane=%d cyc=%d rtl=0x%" PRIx64 " oracle=0x%" PRIx64 "\n", (int)(L), (int)(_v2_self_idx), essent_to_u64(_s_memory$bytes$__access_write_6_MPORT_6_enable$rtl[L]), essent_to_u64(_zc_memory_bytes___access_write_6_MPORT_6_enable[L]));
+            _chronoshear_mark_oracle_mask(4, UINT64_C(1) << 2);
             record_oracle_mismatch();
           }
           if ((_v2_self_idx) >= 1 && (_v2_self_idx) < ORACLE_NUM_CYCLES && (!(_s_memory$bytes$__access_write_6_MPORT_6_address$rtl[L] == _zc_memory_bytes___access_write_6_MPORT_6_address[L]))) {
             if (oracle_mismatch_should_log()) fprintf(stderr, "ORACLE MISMATCH comb=memory.bytes.__access_write_6_MPORT_6_address lane=%d cyc=%d rtl=0x%" PRIx64 " oracle=0x%" PRIx64 "\n", (int)(L), (int)(_v2_self_idx), essent_to_u64(_s_memory$bytes$__access_write_6_MPORT_6_address$rtl[L]), essent_to_u64(_zc_memory_bytes___access_write_6_MPORT_6_address[L]));
+            _chronoshear_mark_oracle_mask(4, UINT64_C(1) << 3);
             record_oracle_mismatch();
           }
           if ((_v2_self_idx) >= 1 && (_v2_self_idx) < ORACLE_NUM_CYCLES && (!(_s_memory$bytes$__access_write_6_MPORT_6_data$rtl[L] == _zc_memory_bytes___access_write_6_MPORT_6_data[L]))) {
             if (oracle_mismatch_should_log()) fprintf(stderr, "ORACLE MISMATCH comb=memory.bytes.__access_write_6_MPORT_6_data lane=%d cyc=%d rtl=0x%" PRIx64 " oracle=0x%" PRIx64 "\n", (int)(L), (int)(_v2_self_idx), essent_to_u64(_s_memory$bytes$__access_write_6_MPORT_6_data$rtl[L]), essent_to_u64(_zc_memory_bytes___access_write_6_MPORT_6_data[L]));
+            _chronoshear_mark_oracle_mask(4, UINT64_C(1) << 4);
             record_oracle_mismatch();
           }
           if ((_v2_self_idx) >= 1 && (_v2_self_idx) < ORACLE_NUM_CYCLES && (!(_s_memory$bytes$__access_write_7_MPORT_7_enable$rtl[L] == _zc_memory_bytes___access_write_7_MPORT_7_enable[L]))) {
             if (oracle_mismatch_should_log()) fprintf(stderr, "ORACLE MISMATCH comb=memory.bytes.__access_write_7_MPORT_7_enable lane=%d cyc=%d rtl=0x%" PRIx64 " oracle=0x%" PRIx64 "\n", (int)(L), (int)(_v2_self_idx), essent_to_u64(_s_memory$bytes$__access_write_7_MPORT_7_enable$rtl[L]), essent_to_u64(_zc_memory_bytes___access_write_7_MPORT_7_enable[L]));
+            _chronoshear_mark_oracle_mask(4, UINT64_C(1) << 5);
             record_oracle_mismatch();
           }
           if ((_v2_self_idx) >= 1 && (_v2_self_idx) < ORACLE_NUM_CYCLES && (!(_s_memory$bytes$__access_write_7_MPORT_7_address$rtl[L] == _zc_memory_bytes___access_write_7_MPORT_7_address[L]))) {
             if (oracle_mismatch_should_log()) fprintf(stderr, "ORACLE MISMATCH comb=memory.bytes.__access_write_7_MPORT_7_address lane=%d cyc=%d rtl=0x%" PRIx64 " oracle=0x%" PRIx64 "\n", (int)(L), (int)(_v2_self_idx), essent_to_u64(_s_memory$bytes$__access_write_7_MPORT_7_address$rtl[L]), essent_to_u64(_zc_memory_bytes___access_write_7_MPORT_7_address[L]));
+            _chronoshear_mark_oracle_mask(4, UINT64_C(1) << 6);
             record_oracle_mismatch();
           }
           if ((_v2_self_idx) >= 1 && (_v2_self_idx) < ORACLE_NUM_CYCLES && (!(_s_memory$bytes$__access_write_7_MPORT_7_data$rtl[L] == _zc_memory_bytes___access_write_7_MPORT_7_data[L]))) {
             if (oracle_mismatch_should_log()) fprintf(stderr, "ORACLE MISMATCH comb=memory.bytes.__access_write_7_MPORT_7_data lane=%d cyc=%d rtl=0x%" PRIx64 " oracle=0x%" PRIx64 "\n", (int)(L), (int)(_v2_self_idx), essent_to_u64(_s_memory$bytes$__access_write_7_MPORT_7_data$rtl[L]), essent_to_u64(_zc_memory_bytes___access_write_7_MPORT_7_data[L]));
+            _chronoshear_mark_oracle_mask(4, UINT64_C(1) << 7);
             record_oracle_mismatch();
           }
           if ((_v2_self_idx) >= 1 && (_v2_self_idx) < ORACLE_NUM_CYCLES && (!(_s_regfile$regfile$io_rs1_data_MPORT$rtl[L] == _s_regfile$regfile$io_rs1_data_MPORT[L]))) {
             if (oracle_mismatch_should_log()) fprintf(stderr, "ORACLE MISMATCH comb=regfile.regfile.io_rs1_data_MPORT lane=%d cyc=%d rtl=0x%" PRIx64 " oracle=0x%" PRIx64 "\n", (int)(L), (int)(_v2_self_idx), essent_to_u64(_s_regfile$regfile$io_rs1_data_MPORT$rtl[L]), essent_to_u64(_s_regfile$regfile$io_rs1_data_MPORT[L]));
+            _chronoshear_mark_oracle_mask(4, UINT64_C(1) << 8);
             record_oracle_mismatch();
           }
           if ((_v2_self_idx) >= 1 && (_v2_self_idx) < ORACLE_NUM_CYCLES && (!(_s_regfile$regfile$io_rs2_data_MPORT$rtl[L] == _s_regfile$regfile$io_rs2_data_MPORT[L]))) {
             if (oracle_mismatch_should_log()) fprintf(stderr, "ORACLE MISMATCH comb=regfile.regfile.io_rs2_data_MPORT lane=%d cyc=%d rtl=0x%" PRIx64 " oracle=0x%" PRIx64 "\n", (int)(L), (int)(_v2_self_idx), essent_to_u64(_s_regfile$regfile$io_rs2_data_MPORT$rtl[L]), essent_to_u64(_s_regfile$regfile$io_rs2_data_MPORT[L]));
+            _chronoshear_mark_oracle_mask(4, UINT64_C(1) << 9);
             record_oracle_mismatch();
           }
           if ((_v2_self_idx) >= 1 && (_v2_self_idx) < ORACLE_NUM_CYCLES && (!(_s_regfile$regfile$io_dm_rdata_MPORT$rtl[L] == _s_regfile$regfile$io_dm_rdata_MPORT[L]))) {
             if (oracle_mismatch_should_log()) fprintf(stderr, "ORACLE MISMATCH comb=regfile.regfile.io_dm_rdata_MPORT lane=%d cyc=%d rtl=0x%" PRIx64 " oracle=0x%" PRIx64 "\n", (int)(L), (int)(_v2_self_idx), essent_to_u64(_s_regfile$regfile$io_dm_rdata_MPORT$rtl[L]), essent_to_u64(_s_regfile$regfile$io_dm_rdata_MPORT[L]));
+            _chronoshear_mark_oracle_mask(4, UINT64_C(1) << 10);
             record_oracle_mismatch();
           }
         }
@@ -7570,86 +9142,103 @@ typedef struct SodorFullChip {
         { const UInt<32> _v2_oracle = UInt<32>(ESSENT_ORACLE_LOAD(((const uint32_t*)(oracle_win_base + 64L) /* trace_tile_core_d_exe_alu_op1 */), _v2_idx));
         if (!(_v2_bcarry_tile_core_d_exe_alu_op1 == _v2_oracle)) {
           if (oracle_mismatch_should_log()) fprintf(stderr, "ORACLE MISMATCH reg=tile.core.d.exe_alu_op1 lane=%d cyc=%d rtl=0x%" PRIx64 " oracle=0x%" PRIx64 " [window-boundary]\n", _v2_lane, _v2_cycle_idx, essent_to_u64(_v2_bcarry_tile_core_d_exe_alu_op1), essent_to_u64(_v2_oracle));
+          _chronoshear_mark_oracle_mask(0, UINT64_C(1) << 0);
           record_oracle_mismatch();
         } }
         { const UInt<32> _v2_oracle = UInt<32>(ESSENT_ORACLE_LOAD(((const uint32_t*)(oracle_win_base + 128L) /* trace_tile_core_d_exe_reg_rs2_data */), _v2_idx));
         if (!(_v2_bcarry_tile_core_d_exe_reg_rs2_data == _v2_oracle)) {
           if (oracle_mismatch_should_log()) fprintf(stderr, "ORACLE MISMATCH reg=tile.core.d.exe_reg_rs2_data lane=%d cyc=%d rtl=0x%" PRIx64 " oracle=0x%" PRIx64 " [window-boundary]\n", _v2_lane, _v2_cycle_idx, essent_to_u64(_v2_bcarry_tile_core_d_exe_reg_rs2_data), essent_to_u64(_v2_oracle));
+          _chronoshear_mark_oracle_mask(0, UINT64_C(1) << 1);
           record_oracle_mismatch();
         } }
         { const UInt<32> _v2_oracle = UInt<32>(ESSENT_ORACLE_LOAD(((const uint32_t*)(oracle_win_base + 192L) /* trace_tile_core_d_mem_reg_alu_out */), _v2_idx));
         if (!(_v2_bcarry_tile_core_d_mem_reg_alu_out == _v2_oracle)) {
           if (oracle_mismatch_should_log()) fprintf(stderr, "ORACLE MISMATCH reg=tile.core.d.mem_reg_alu_out lane=%d cyc=%d rtl=0x%" PRIx64 " oracle=0x%" PRIx64 " [window-boundary]\n", _v2_lane, _v2_cycle_idx, essent_to_u64(_v2_bcarry_tile_core_d_mem_reg_alu_out), essent_to_u64(_v2_oracle));
+          _chronoshear_mark_oracle_mask(0, UINT64_C(1) << 2);
           record_oracle_mismatch();
         } }
         { const UInt<32> _v2_oracle = UInt<32>(ESSENT_ORACLE_LOAD(((const uint32_t*)(oracle_win_base + 160L) /* trace_tile_core_d_mem_reg_inst */), _v2_idx));
         if (!(_v2_bcarry_tile_core_d_mem_reg_inst == _v2_oracle)) {
           if (oracle_mismatch_should_log()) fprintf(stderr, "ORACLE MISMATCH reg=tile.core.d.mem_reg_inst lane=%d cyc=%d rtl=0x%" PRIx64 " oracle=0x%" PRIx64 " [window-boundary]\n", _v2_lane, _v2_cycle_idx, essent_to_u64(_v2_bcarry_tile_core_d_mem_reg_inst), essent_to_u64(_v2_oracle));
+          _chronoshear_mark_oracle_mask(0, UINT64_C(1) << 3);
           record_oracle_mismatch();
         } }
         { const UInt<3> _v2_oracle = UInt<3>(ESSENT_ORACLE_LOAD(((const uint8_t*)(oracle_win_base + 1120L) /* trace_tile_core_d_mem_reg_ctrl_csr_cmd */), _v2_idx));
         if (!(_v2_bcarry_tile_core_d_mem_reg_ctrl_csr_cmd == _v2_oracle)) {
           if (oracle_mismatch_should_log()) fprintf(stderr, "ORACLE MISMATCH reg=tile.core.d.mem_reg_ctrl_csr_cmd lane=%d cyc=%d rtl=0x%" PRIx64 " oracle=0x%" PRIx64 " [window-boundary]\n", _v2_lane, _v2_cycle_idx, essent_to_u64(_v2_bcarry_tile_core_d_mem_reg_ctrl_csr_cmd), essent_to_u64(_v2_oracle));
+          _chronoshear_mark_oracle_mask(0, UINT64_C(1) << 4);
           record_oracle_mismatch();
         } }
         { const UInt<32> _v2_oracle = UInt<32>(ESSENT_ORACLE_LOAD(((const uint32_t*)(oracle_win_base + 0L) /* trace_tile_core_d_dec_reg_inst */), _v2_idx));
         if (!(_v2_bcarry_tile_core_d_dec_reg_inst == _v2_oracle)) {
           if (oracle_mismatch_should_log()) fprintf(stderr, "ORACLE MISMATCH reg=tile.core.d.dec_reg_inst lane=%d cyc=%d rtl=0x%" PRIx64 " oracle=0x%" PRIx64 " [window-boundary]\n", _v2_lane, _v2_cycle_idx, essent_to_u64(_v2_bcarry_tile_core_d_dec_reg_inst), essent_to_u64(_v2_oracle));
+          _chronoshear_mark_oracle_mask(0, UINT64_C(1) << 5);
           record_oracle_mismatch();
         } }
         { const UInt<4> _v2_oracle = UInt<4>(ESSENT_ORACLE_LOAD(((const uint8_t*)(oracle_win_base + 1104L) /* trace_tile_core_d_exe_reg_ctrl_br_type */), _v2_idx));
         if (!(_v2_bcarry_tile_core_d_exe_reg_ctrl_br_type == _v2_oracle)) {
           if (oracle_mismatch_should_log()) fprintf(stderr, "ORACLE MISMATCH reg=tile.core.d.exe_reg_ctrl_br_type lane=%d cyc=%d rtl=0x%" PRIx64 " oracle=0x%" PRIx64 " [window-boundary]\n", _v2_lane, _v2_cycle_idx, essent_to_u64(_v2_bcarry_tile_core_d_exe_reg_ctrl_br_type), essent_to_u64(_v2_oracle));
+          _chronoshear_mark_oracle_mask(0, UINT64_C(1) << 6);
           record_oracle_mismatch();
         } }
         { const UInt<5> _v2_oracle = UInt<5>(ESSENT_ORACLE_LOAD(((const uint8_t*)(oracle_win_base + 1088L) /* trace_tile_core_c_exe_reg_wbaddr */), _v2_idx));
         if (!(_v2_bcarry_tile_core_c_exe_reg_wbaddr == _v2_oracle)) {
           if (oracle_mismatch_should_log()) fprintf(stderr, "ORACLE MISMATCH reg=tile.core.c.exe_reg_wbaddr lane=%d cyc=%d rtl=0x%" PRIx64 " oracle=0x%" PRIx64 " [window-boundary]\n", _v2_lane, _v2_cycle_idx, essent_to_u64(_v2_bcarry_tile_core_c_exe_reg_wbaddr), essent_to_u64(_v2_oracle));
+          _chronoshear_mark_oracle_mask(0, UINT64_C(1) << 7);
           record_oracle_mismatch();
         } }
         { const UInt<1> _v2_oracle = UInt<1>(ESSENT_ORACLE_LOAD(((const uint8_t*)(oracle_win_base + 1112L) /* trace_tile_core_d_mem_reg_ctrl_mem_val */), _v2_idx));
         if (!(_v2_bcarry_tile_core_d_mem_reg_ctrl_mem_val == _v2_oracle)) {
           if (oracle_mismatch_should_log()) fprintf(stderr, "ORACLE MISMATCH reg=tile.core.d.mem_reg_ctrl_mem_val lane=%d cyc=%d rtl=0x%" PRIx64 " oracle=0x%" PRIx64 " [window-boundary]\n", _v2_lane, _v2_cycle_idx, essent_to_u64(_v2_bcarry_tile_core_d_mem_reg_ctrl_mem_val), essent_to_u64(_v2_oracle));
+          _chronoshear_mark_oracle_mask(0, UINT64_C(1) << 8);
           record_oracle_mismatch();
         } }
         { const UInt<1> _v2_oracle = UInt<1>(ESSENT_ORACLE_LOAD(((const uint8_t*)(oracle_win_base + 1096L) /* trace_tile_core_c_io_ctl_mem_exception_REG */), _v2_idx));
         if (!(_v2_bcarry_tile_core_c_io_ctl_mem_exception_REG == _v2_oracle)) {
           if (oracle_mismatch_should_log()) fprintf(stderr, "ORACLE MISMATCH reg=tile.core.c.io_ctl_mem_exception_REG lane=%d cyc=%d rtl=0x%" PRIx64 " oracle=0x%" PRIx64 " [window-boundary]\n", _v2_lane, _v2_cycle_idx, essent_to_u64(_v2_bcarry_tile_core_c_io_ctl_mem_exception_REG), essent_to_u64(_v2_oracle));
+          _chronoshear_mark_oracle_mask(0, UINT64_C(1) << 9);
           record_oracle_mismatch();
         } }
         { const UInt<32> _v2_oracle = UInt<32>(ESSENT_ORACLE_LOAD(((const uint32_t*)(oracle_win_base + 96L) /* trace_tile_core_d_brjmp_offset */), _v2_idx));
         if (!(_v2_bcarry_tile_core_d_brjmp_offset == _v2_oracle)) {
           if (oracle_mismatch_should_log()) fprintf(stderr, "ORACLE MISMATCH reg=tile.core.d.brjmp_offset lane=%d cyc=%d rtl=0x%" PRIx64 " oracle=0x%" PRIx64 " [window-boundary]\n", _v2_lane, _v2_cycle_idx, essent_to_u64(_v2_bcarry_tile_core_d_brjmp_offset), essent_to_u64(_v2_oracle));
+          _chronoshear_mark_oracle_mask(0, UINT64_C(1) << 10);
           record_oracle_mismatch();
         } }
         { const UInt<32> _v2_oracle = UInt<32>(ESSENT_ORACLE_LOAD(((const uint32_t*)(oracle_win_base + 32L) /* trace_tile_core_d_exe_reg_pc */), _v2_idx));
         if (!(_v2_bcarry_tile_core_d_exe_reg_pc == _v2_oracle)) {
           if (oracle_mismatch_should_log()) fprintf(stderr, "ORACLE MISMATCH reg=tile.core.d.exe_reg_pc lane=%d cyc=%d rtl=0x%" PRIx64 " oracle=0x%" PRIx64 " [window-boundary]\n", _v2_lane, _v2_cycle_idx, essent_to_u64(_v2_bcarry_tile_core_d_exe_reg_pc), essent_to_u64(_v2_oracle));
+          _chronoshear_mark_oracle_mask(0, UINT64_C(1) << 11);
           record_oracle_mismatch();
         } }
         { const UInt<6> _v2_oracle = UInt<6>(ESSENT_ORACLE_LOAD(((const uint8_t*)(oracle_win_base + 1152L) /* trace_tile_core_d_csr_small_1 */), _v2_idx));
         if (!(_v2_bcarry_tile_core_d_csr_small_1 == _v2_oracle)) {
           if (oracle_mismatch_should_log()) fprintf(stderr, "ORACLE MISMATCH reg=tile.core.d.csr.small_1 lane=%d cyc=%d rtl=0x%" PRIx64 " oracle=0x%" PRIx64 " [window-boundary]\n", _v2_lane, _v2_cycle_idx, essent_to_u64(_v2_bcarry_tile_core_d_csr_small_1), essent_to_u64(_v2_oracle));
+          _chronoshear_mark_oracle_mask(0, UINT64_C(1) << 12);
           record_oracle_mismatch();
         } }
         { const UInt<6> _v2_oracle = UInt<6>(ESSENT_ORACLE_LOAD(((const uint8_t*)(oracle_win_base + 1144L) /* trace_tile_core_d_csr_small */), _v2_idx));
         if (!(_v2_bcarry_tile_core_d_csr_small == _v2_oracle)) {
           if (oracle_mismatch_should_log()) fprintf(stderr, "ORACLE MISMATCH reg=tile.core.d.csr.small lane=%d cyc=%d rtl=0x%" PRIx64 " oracle=0x%" PRIx64 " [window-boundary]\n", _v2_lane, _v2_cycle_idx, essent_to_u64(_v2_bcarry_tile_core_d_csr_small), essent_to_u64(_v2_oracle));
+          _chronoshear_mark_oracle_mask(0, UINT64_C(1) << 13);
           record_oracle_mismatch();
         } }
         { const UInt<1> _v2_oracle = UInt<1>(ESSENT_ORACLE_LOAD(((const uint8_t*)(oracle_win_base + 1128L) /* trace_tile_core_d_csr_reg_mstatus_mpie */), _v2_idx));
         if (!(_v2_bcarry_tile_core_d_csr_reg_mstatus_mpie == _v2_oracle)) {
           if (oracle_mismatch_should_log()) fprintf(stderr, "ORACLE MISMATCH reg=tile.core.d.csr.reg_mstatus_mpie lane=%d cyc=%d rtl=0x%" PRIx64 " oracle=0x%" PRIx64 " [window-boundary]\n", _v2_lane, _v2_cycle_idx, essent_to_u64(_v2_bcarry_tile_core_d_csr_reg_mstatus_mpie), essent_to_u64(_v2_oracle));
+          _chronoshear_mark_oracle_mask(0, UINT64_C(1) << 14);
           record_oracle_mismatch();
         } }
         { const UInt<1> _v2_oracle = UInt<1>(ESSENT_ORACLE_LOAD(((const uint8_t*)(oracle_win_base + 1136L) /* trace_tile_core_d_csr_reg_mie_mtip */), _v2_idx));
         if (!(_v2_bcarry_tile_core_d_csr_reg_mie_mtip == _v2_oracle)) {
           if (oracle_mismatch_should_log()) fprintf(stderr, "ORACLE MISMATCH reg=tile.core.d.csr.reg_mie_mtip lane=%d cyc=%d rtl=0x%" PRIx64 " oracle=0x%" PRIx64 " [window-boundary]\n", _v2_lane, _v2_cycle_idx, essent_to_u64(_v2_bcarry_tile_core_d_csr_reg_mie_mtip), essent_to_u64(_v2_oracle));
+          _chronoshear_mark_oracle_mask(0, UINT64_C(1) << 15);
           record_oracle_mismatch();
         } }
         { const UInt<1> _v2_oracle = UInt<1>(ESSENT_ORACLE_LOAD(((const uint8_t*)(oracle_win_base + 1160L) /* trace_tile_core_d_csr_reg_dcsr_step */), _v2_idx));
         if (!(_v2_bcarry_tile_core_d_csr_reg_dcsr_step == _v2_oracle)) {
           if (oracle_mismatch_should_log()) fprintf(stderr, "ORACLE MISMATCH reg=tile.core.d.csr.reg_dcsr_step lane=%d cyc=%d rtl=0x%" PRIx64 " oracle=0x%" PRIx64 " [window-boundary]\n", _v2_lane, _v2_cycle_idx, essent_to_u64(_v2_bcarry_tile_core_d_csr_reg_dcsr_step), essent_to_u64(_v2_oracle));
+          _chronoshear_mark_oracle_mask(0, UINT64_C(1) << 16);
           record_oracle_mismatch();
         } }
         break;
@@ -7765,74 +9354,71 @@ typedef struct SodorFullChip {
   ESSENT_NOINLINE void _v2_cshare_2() {
     ESSENT_LANE_LOOP
     for (int L = 0; L < 4; L++) {
+      _s_memory$bytes$__access_write_4_MPORT_4_data$rtl[L].val = static_cast<typename UInt<8>::scalar_t>((static_cast<uint32_t>((static_cast<uint32_t>(((((static_cast<uint32_t>(((static_cast<uint32_t>(io_host_wdata[L].val) >> 0) & 0xffu)) & 0xffu)) & ((uint32_t)0 - (uint32_t)(((static_cast<uint32_t>(_s_memory$bytes$__access_write_4_MPORT_4_enable$rtl[L].val) & 0x1u)) != 0))) | (((static_cast<uint32_t>(0x0u) & 0xffu)) & ~((uint32_t)0 - (uint32_t)(((static_cast<uint32_t>(_s_memory$bytes$__access_write_4_MPORT_4_enable$rtl[L].val) & 0x1u)) != 0))))) & 0xffu)) & 0xffu));
+      _s_memory$bytes$__access_write_5_MPORT_5_enable$rtl[L].val = static_cast<typename UInt<1>::scalar_t>((static_cast<uint8_t>(_s_memory$bytes$__access_write_4_MPORT_4_enable$rtl[L].val) & 0x1u));
       _s_memory$bytes$__access_write_5_MPORT_5_address$rtl[L].val = static_cast<typename UInt<21>::scalar_t>((static_cast<uint64_t>((static_cast<uint64_t>(((((static_cast<uint64_t>(((static_cast<uint64_t>((static_cast<uint64_t>((static_cast<uint64_t>((static_cast<uint64_t>((static_cast<uint64_t>(io_host_addr[L].val) + static_cast<uint64_t>((static_cast<uint64_t>(0x1ULL) & 0xffffffffULL)))) & 0x1ffffffffULL)) & 0xffffffffULL)) & 0xffffffffULL)) >> 0) & 0x1fffffULL)) & 0x1fffffULL)) & ((uint64_t)0 - (uint64_t)(((static_cast<uint64_t>(_s_memory$bytes$__access_write_4_MPORT_4_enable$rtl[L].val) & 0x1ULL)) != 0))) | (((static_cast<uint64_t>(0x0ULL) & 0x1fffffULL)) & ~((uint64_t)0 - (uint64_t)(((static_cast<uint64_t>(_s_memory$bytes$__access_write_4_MPORT_4_enable$rtl[L].val) & 0x1ULL)) != 0))))) & 0x1fffffULL)) & 0x1fffffULL));
       _s_memory$bytes$__access_write_5_MPORT_5_data$rtl[L].val = static_cast<typename UInt<8>::scalar_t>((static_cast<uint32_t>((static_cast<uint32_t>(((((static_cast<uint32_t>(((static_cast<uint32_t>(io_host_wdata[L].val) >> 8) & 0xffu)) & 0xffu)) & ((uint32_t)0 - (uint32_t)(((static_cast<uint32_t>(_s_memory$bytes$__access_write_4_MPORT_4_enable$rtl[L].val) & 0x1u)) != 0))) | (((static_cast<uint32_t>(0x0u) & 0xffu)) & ~((uint32_t)0 - (uint32_t)(((static_cast<uint32_t>(_s_memory$bytes$__access_write_4_MPORT_4_enable$rtl[L].val) & 0x1u)) != 0))))) & 0xffu)) & 0xffu));
       _s_memory$bytes$__access_write_6_MPORT_6_enable$rtl[L].val = static_cast<typename UInt<1>::scalar_t>((static_cast<uint8_t>(_s_memory$bytes$__access_write_4_MPORT_4_enable$rtl[L].val) & 0x1u));
       _s_memory$bytes$__access_write_6_MPORT_6_address$rtl[L].val = static_cast<typename UInt<21>::scalar_t>((static_cast<uint64_t>((static_cast<uint64_t>(((((static_cast<uint64_t>(((static_cast<uint64_t>((static_cast<uint64_t>((static_cast<uint64_t>((static_cast<uint64_t>((static_cast<uint64_t>(io_host_addr[L].val) + static_cast<uint64_t>((static_cast<uint64_t>(0x2ULL) & 0xffffffffULL)))) & 0x1ffffffffULL)) & 0xffffffffULL)) & 0xffffffffULL)) >> 0) & 0x1fffffULL)) & 0x1fffffULL)) & ((uint64_t)0 - (uint64_t)(((static_cast<uint64_t>(_s_memory$bytes$__access_write_4_MPORT_4_enable$rtl[L].val) & 0x1ULL)) != 0))) | (((static_cast<uint64_t>(0x0ULL) & 0x1fffffULL)) & ~((uint64_t)0 - (uint64_t)(((static_cast<uint64_t>(_s_memory$bytes$__access_write_4_MPORT_4_enable$rtl[L].val) & 0x1ULL)) != 0))))) & 0x1fffffULL)) & 0x1fffffULL));
+    }
+    ESSENT_LANE_LOOP
+    for (int L = 0; L < 4; L++) {
       _s_memory$bytes$__access_write_6_MPORT_6_data$rtl[L].val = static_cast<typename UInt<8>::scalar_t>((static_cast<uint32_t>((static_cast<uint32_t>(((((static_cast<uint32_t>(((static_cast<uint32_t>(io_host_wdata[L].val) >> 16) & 0xffu)) & 0xffu)) & ((uint32_t)0 - (uint32_t)(((static_cast<uint32_t>(_s_memory$bytes$__access_write_4_MPORT_4_enable$rtl[L].val) & 0x1u)) != 0))) | (((static_cast<uint32_t>(0x0u) & 0xffu)) & ~((uint32_t)0 - (uint32_t)(((static_cast<uint32_t>(_s_memory$bytes$__access_write_4_MPORT_4_enable$rtl[L].val) & 0x1u)) != 0))))) & 0xffu)) & 0xffu));
       _s_memory$bytes$__access_write_7_MPORT_7_enable$rtl[L].val = static_cast<typename UInt<1>::scalar_t>((static_cast<uint8_t>(_s_memory$bytes$__access_write_4_MPORT_4_enable$rtl[L].val) & 0x1u));
+      _s_memory$bytes$__access_write_7_MPORT_7_address$rtl[L].val = static_cast<typename UInt<21>::scalar_t>((static_cast<uint64_t>((static_cast<uint64_t>(((((static_cast<uint64_t>(((static_cast<uint64_t>((static_cast<uint64_t>((static_cast<uint64_t>((static_cast<uint64_t>((static_cast<uint64_t>(io_host_addr[L].val) + static_cast<uint64_t>((static_cast<uint64_t>(0x3ULL) & 0xffffffffULL)))) & 0x1ffffffffULL)) & 0xffffffffULL)) & 0xffffffffULL)) >> 0) & 0x1fffffULL)) & 0x1fffffULL)) & ((uint64_t)0 - (uint64_t)(((static_cast<uint64_t>(_s_memory$bytes$__access_write_4_MPORT_4_enable$rtl[L].val) & 0x1ULL)) != 0))) | (((static_cast<uint64_t>(0x0ULL) & 0x1fffffULL)) & ~((uint64_t)0 - (uint64_t)(((static_cast<uint64_t>(_s_memory$bytes$__access_write_4_MPORT_4_enable$rtl[L].val) & 0x1ULL)) != 0))))) & 0x1fffffULL)) & 0x1fffffULL));
+      _s_memory$bytes$__access_write_7_MPORT_7_data$rtl[L].val = static_cast<typename UInt<8>::scalar_t>((static_cast<uint32_t>((static_cast<uint32_t>(((((static_cast<uint32_t>(((static_cast<uint32_t>(io_host_wdata[L].val) >> 24) & 0xffu)) & 0xffu)) & ((uint32_t)0 - (uint32_t)(((static_cast<uint32_t>(_s_memory$bytes$__access_write_4_MPORT_4_enable$rtl[L].val) & 0x1u)) != 0))) | (((static_cast<uint32_t>(0x0u) & 0xffu)) & ~((uint32_t)0 - (uint32_t)(((static_cast<uint32_t>(_s_memory$bytes$__access_write_4_MPORT_4_enable$rtl[L].val) & 0x1u)) != 0))))) & 0xffu)) & 0xffu));
+      _s_lut$idx_0[L].val = static_cast<typename UInt<8>::scalar_t>((static_cast<uint8_t>((static_cast<uint8_t>(((((static_cast<uint8_t>(0x0u) & 0xffu)) & ((uint8_t)0 - (uint8_t)(((static_cast<uint8_t>(_s_tile$core$c$_csignals_T_35[L].val) & 0x1u)) != 0))) | (((static_cast<uint8_t>(((((static_cast<uint8_t>(0x1u) & 0xffu)) & ((uint8_t)0 - (uint8_t)(((static_cast<uint8_t>(_s_tile$core$c$_csignals_T_37[L].val) & 0x1u)) != 0))) | (((static_cast<uint8_t>(((((static_cast<uint8_t>(0x2u) & 0xffu)) & ((uint8_t)0 - (uint8_t)(((static_cast<uint8_t>(_s_tile$core$c$_csignals_T_39[L].val) & 0x1u)) != 0))) | (((static_cast<uint8_t>(((((static_cast<uint8_t>(0x3u) & 0xffu)) & ((uint8_t)0 - (uint8_t)(((static_cast<uint8_t>(_s_tile$core$c$_csignals_T_41[L].val) & 0x1u)) != 0))) | (((static_cast<uint8_t>(((((static_cast<uint8_t>(0x4u) & 0xffu)) & ((uint8_t)0 - (uint8_t)(((static_cast<uint8_t>(_s_tile$core$c$_csignals_T_43[L].val) & 0x1u)) != 0))) | (((static_cast<uint8_t>(((((static_cast<uint8_t>(0x5u) & 0xffu)) & ((uint8_t)0 - (uint8_t)(((static_cast<uint8_t>(_s_tile$core$c$_csignals_T_45[L].val) & 0x1u)) != 0))) | (((static_cast<uint8_t>(((((static_cast<uint8_t>(0x6u) & 0xffu)) & ((uint8_t)0 - (uint8_t)(((static_cast<uint8_t>(_s_tile$core$c$_csignals_T_47[L].val) & 0x1u)) != 0))) | (((static_cast<uint8_t>(((((static_cast<uint8_t>(0x7u) & 0xffu)) & ((uint8_t)0 - (uint8_t)(((static_cast<uint8_t>(_s_tile$core$c$_csignals_T_49[L].val) & 0x1u)) != 0))) | (((static_cast<uint8_t>(((((static_cast<uint8_t>(0x8u) & 0xffu)) & ((uint8_t)0 - (uint8_t)(((static_cast<uint8_t>(_s_tile$core$c$_csignals_T_51[L].val) & 0x1u)) != 0))) | (((static_cast<uint8_t>(((((static_cast<uint8_t>(0x9u) & 0xffu)) & ((uint8_t)0 - (uint8_t)(((static_cast<uint8_t>(_s_tile$core$c$_csignals_T_53[L].val) & 0x1u)) != 0))) | (((static_cast<uint8_t>(((((static_cast<uint8_t>(0xau) & 0xffu)) & ((uint8_t)0 - (uint8_t)(((static_cast<uint8_t>(_s_tile$core$c$_csignals_T_55[L].val) & 0x1u)) != 0))) | (((static_cast<uint8_t>(((((static_cast<uint8_t>(0xbu) & 0xffu)) & ((uint8_t)0 - (uint8_t)(((static_cast<uint8_t>(_s_tile$core$c$_csignals_T_57[L].val) & 0x1u)) != 0))) | (((static_cast<uint8_t>(((((static_cast<uint8_t>(0xcu) & 0xffu)) & ((uint8_t)0 - (uint8_t)(((static_cast<uint8_t>(_s_tile$core$c$_csignals_T_59[L].val) & 0x1u)) != 0))) | (((static_cast<uint8_t>(((((static_cast<uint8_t>(0xdu) & 0xffu)) & ((uint8_t)0 - (uint8_t)(((static_cast<uint8_t>(_s_tile$core$c$_csignals_T_61[L].val) & 0x1u)) != 0))) | (((static_cast<uint8_t>(((((static_cast<uint8_t>(0xeu) & 0xffu)) & ((uint8_t)0 - (uint8_t)(((static_cast<uint8_t>(_s_tile$core$c$_csignals_T_63[L].val) & 0x1u)) != 0))) | (((static_cast<uint8_t>(((((static_cast<uint8_t>(0xfu) & 0xffu)) & ((uint8_t)0 - (uint8_t)(((static_cast<uint8_t>(_s_tile$core$c$_csignals_T_65[L].val) & 0x1u)) != 0))) | (((static_cast<uint8_t>(((((static_cast<uint8_t>(0x10u) & 0xffu)) & ((uint8_t)0 - (uint8_t)(((static_cast<uint8_t>(_s_tile$core$c$_csignals_T_67[L].val) & 0x1u)) != 0))) | (((static_cast<uint8_t>(((((static_cast<uint8_t>(0x11u) & 0xffu)) & ((uint8_t)0 - (uint8_t)(((static_cast<uint8_t>(_s_tile$core$c$_csignals_T_69[L].val) & 0x1u)) != 0))) | (((static_cast<uint8_t>(((((static_cast<uint8_t>(0x12u) & 0xffu)) & ((uint8_t)0 - (uint8_t)(((static_cast<uint8_t>(_s_tile$core$c$_csignals_T_71[L].val) & 0x1u)) != 0))) | (((static_cast<uint8_t>(((((static_cast<uint8_t>(0x13u) & 0xffu)) & ((uint8_t)0 - (uint8_t)(((static_cast<uint8_t>(_s_tile$core$c$_csignals_T_73[L].val) & 0x1u)) != 0))) | (((static_cast<uint8_t>(0x14u) & 0xffu)) & ~((uint8_t)0 - (uint8_t)(((static_cast<uint8_t>(_s_tile$core$c$_csignals_T_73[L].val) & 0x1u)) != 0))))) & 0xffu)) & ~((uint8_t)0 - (uint8_t)(((static_cast<uint8_t>(_s_tile$core$c$_csignals_T_71[L].val) & 0x1u)) != 0))))) & 0xffu)) & ~((uint8_t)0 - (uint8_t)(((static_cast<uint8_t>(_s_tile$core$c$_csignals_T_69[L].val) & 0x1u)) != 0))))) & 0xffu)) & ~((uint8_t)0 - (uint8_t)(((static_cast<uint8_t>(_s_tile$core$c$_csignals_T_67[L].val) & 0x1u)) != 0))))) & 0xffu)) & ~((uint8_t)0 - (uint8_t)(((static_cast<uint8_t>(_s_tile$core$c$_csignals_T_65[L].val) & 0x1u)) != 0))))) & 0xffu)) & ~((uint8_t)0 - (uint8_t)(((static_cast<uint8_t>(_s_tile$core$c$_csignals_T_63[L].val) & 0x1u)) != 0))))) & 0xffu)) & ~((uint8_t)0 - (uint8_t)(((static_cast<uint8_t>(_s_tile$core$c$_csignals_T_61[L].val) & 0x1u)) != 0))))) & 0xffu)) & ~((uint8_t)0 - (uint8_t)(((static_cast<uint8_t>(_s_tile$core$c$_csignals_T_59[L].val) & 0x1u)) != 0))))) & 0xffu)) & ~((uint8_t)0 - (uint8_t)(((static_cast<uint8_t>(_s_tile$core$c$_csignals_T_57[L].val) & 0x1u)) != 0))))) & 0xffu)) & ~((uint8_t)0 - (uint8_t)(((static_cast<uint8_t>(_s_tile$core$c$_csignals_T_55[L].val) & 0x1u)) != 0))))) & 0xffu)) & ~((uint8_t)0 - (uint8_t)(((static_cast<uint8_t>(_s_tile$core$c$_csignals_T_53[L].val) & 0x1u)) != 0))))) & 0xffu)) & ~((uint8_t)0 - (uint8_t)(((static_cast<uint8_t>(_s_tile$core$c$_csignals_T_51[L].val) & 0x1u)) != 0))))) & 0xffu)) & ~((uint8_t)0 - (uint8_t)(((static_cast<uint8_t>(_s_tile$core$c$_csignals_T_49[L].val) & 0x1u)) != 0))))) & 0xffu)) & ~((uint8_t)0 - (uint8_t)(((static_cast<uint8_t>(_s_tile$core$c$_csignals_T_47[L].val) & 0x1u)) != 0))))) & 0xffu)) & ~((uint8_t)0 - (uint8_t)(((static_cast<uint8_t>(_s_tile$core$c$_csignals_T_45[L].val) & 0x1u)) != 0))))) & 0xffu)) & ~((uint8_t)0 - (uint8_t)(((static_cast<uint8_t>(_s_tile$core$c$_csignals_T_43[L].val) & 0x1u)) != 0))))) & 0xffu)) & ~((uint8_t)0 - (uint8_t)(((static_cast<uint8_t>(_s_tile$core$c$_csignals_T_41[L].val) & 0x1u)) != 0))))) & 0xffu)) & ~((uint8_t)0 - (uint8_t)(((static_cast<uint8_t>(_s_tile$core$c$_csignals_T_39[L].val) & 0x1u)) != 0))))) & 0xffu)) & ~((uint8_t)0 - (uint8_t)(((static_cast<uint8_t>(_s_tile$core$c$_csignals_T_37[L].val) & 0x1u)) != 0))))) & 0xffu)) & ~((uint8_t)0 - (uint8_t)(((static_cast<uint8_t>(_s_tile$core$c$_csignals_T_35[L].val) & 0x1u)) != 0))))) & 0xffu)) & 0xffu));
+      _s_lut$v_0[L] = UInt<4>(_lut_lut$v_0[essent_to_u64(_s_lut$idx_0[L])]);
     }
     ESSENT_LANE_LOOP
     for (int L = 0; L < 4; L++) {
       // [v2 lane-local] tile.core.c._csignals_T_181 _v2_local_126_0
       UInt<4> _v2_local_126_0;
-      // [v2 lane-local] lut$v_0 _v2_local_2422_0
-      UInt<4> _v2_local_2422_0;
-      _s_memory$bytes$__access_write_7_MPORT_7_address$rtl[L].val = static_cast<typename UInt<21>::scalar_t>((static_cast<uint64_t>((static_cast<uint64_t>(((((static_cast<uint64_t>(((static_cast<uint64_t>((static_cast<uint64_t>((static_cast<uint64_t>((static_cast<uint64_t>((static_cast<uint64_t>(io_host_addr[L].val) + static_cast<uint64_t>((static_cast<uint64_t>(0x3ULL) & 0xffffffffULL)))) & 0x1ffffffffULL)) & 0xffffffffULL)) & 0xffffffffULL)) >> 0) & 0x1fffffULL)) & 0x1fffffULL)) & ((uint64_t)0 - (uint64_t)(((static_cast<uint64_t>(_s_memory$bytes$__access_write_4_MPORT_4_enable$rtl[L].val) & 0x1ULL)) != 0))) | (((static_cast<uint64_t>(0x0ULL) & 0x1fffffULL)) & ~((uint64_t)0 - (uint64_t)(((static_cast<uint64_t>(_s_memory$bytes$__access_write_4_MPORT_4_enable$rtl[L].val) & 0x1ULL)) != 0))))) & 0x1fffffULL)) & 0x1fffffULL));
-      _s_memory$bytes$__access_write_7_MPORT_7_data$rtl[L].val = static_cast<typename UInt<8>::scalar_t>((static_cast<uint32_t>((static_cast<uint32_t>(((((static_cast<uint32_t>(((static_cast<uint32_t>(io_host_wdata[L].val) >> 24) & 0xffu)) & 0xffu)) & ((uint32_t)0 - (uint32_t)(((static_cast<uint32_t>(_s_memory$bytes$__access_write_4_MPORT_4_enable$rtl[L].val) & 0x1u)) != 0))) | (((static_cast<uint32_t>(0x0u) & 0xffu)) & ~((uint32_t)0 - (uint32_t)(((static_cast<uint32_t>(_s_memory$bytes$__access_write_4_MPORT_4_enable$rtl[L].val) & 0x1u)) != 0))))) & 0xffu)) & 0xffu));
-      _s_lut$idx_0[L].val = static_cast<typename UInt<8>::scalar_t>((static_cast<uint8_t>((static_cast<uint8_t>(((((static_cast<uint8_t>(0x0u) & 0xffu)) & ((uint8_t)0 - (uint8_t)(((static_cast<uint8_t>(_s_tile$core$c$_csignals_T_35[L].val) & 0x1u)) != 0))) | (((static_cast<uint8_t>(((((static_cast<uint8_t>(0x1u) & 0xffu)) & ((uint8_t)0 - (uint8_t)(((static_cast<uint8_t>(_s_tile$core$c$_csignals_T_37[L].val) & 0x1u)) != 0))) | (((static_cast<uint8_t>(((((static_cast<uint8_t>(0x2u) & 0xffu)) & ((uint8_t)0 - (uint8_t)(((static_cast<uint8_t>(_s_tile$core$c$_csignals_T_39[L].val) & 0x1u)) != 0))) | (((static_cast<uint8_t>(((((static_cast<uint8_t>(0x3u) & 0xffu)) & ((uint8_t)0 - (uint8_t)(((static_cast<uint8_t>(_s_tile$core$c$_csignals_T_41[L].val) & 0x1u)) != 0))) | (((static_cast<uint8_t>(((((static_cast<uint8_t>(0x4u) & 0xffu)) & ((uint8_t)0 - (uint8_t)(((static_cast<uint8_t>(_s_tile$core$c$_csignals_T_43[L].val) & 0x1u)) != 0))) | (((static_cast<uint8_t>(((((static_cast<uint8_t>(0x5u) & 0xffu)) & ((uint8_t)0 - (uint8_t)(((static_cast<uint8_t>(_s_tile$core$c$_csignals_T_45[L].val) & 0x1u)) != 0))) | (((static_cast<uint8_t>(((((static_cast<uint8_t>(0x6u) & 0xffu)) & ((uint8_t)0 - (uint8_t)(((static_cast<uint8_t>(_s_tile$core$c$_csignals_T_47[L].val) & 0x1u)) != 0))) | (((static_cast<uint8_t>(((((static_cast<uint8_t>(0x7u) & 0xffu)) & ((uint8_t)0 - (uint8_t)(((static_cast<uint8_t>(_s_tile$core$c$_csignals_T_49[L].val) & 0x1u)) != 0))) | (((static_cast<uint8_t>(((((static_cast<uint8_t>(0x8u) & 0xffu)) & ((uint8_t)0 - (uint8_t)(((static_cast<uint8_t>(_s_tile$core$c$_csignals_T_51[L].val) & 0x1u)) != 0))) | (((static_cast<uint8_t>(((((static_cast<uint8_t>(0x9u) & 0xffu)) & ((uint8_t)0 - (uint8_t)(((static_cast<uint8_t>(_s_tile$core$c$_csignals_T_53[L].val) & 0x1u)) != 0))) | (((static_cast<uint8_t>(((((static_cast<uint8_t>(0xau) & 0xffu)) & ((uint8_t)0 - (uint8_t)(((static_cast<uint8_t>(_s_tile$core$c$_csignals_T_55[L].val) & 0x1u)) != 0))) | (((static_cast<uint8_t>(((((static_cast<uint8_t>(0xbu) & 0xffu)) & ((uint8_t)0 - (uint8_t)(((static_cast<uint8_t>(_s_tile$core$c$_csignals_T_57[L].val) & 0x1u)) != 0))) | (((static_cast<uint8_t>(((((static_cast<uint8_t>(0xcu) & 0xffu)) & ((uint8_t)0 - (uint8_t)(((static_cast<uint8_t>(_s_tile$core$c$_csignals_T_59[L].val) & 0x1u)) != 0))) | (((static_cast<uint8_t>(((((static_cast<uint8_t>(0xdu) & 0xffu)) & ((uint8_t)0 - (uint8_t)(((static_cast<uint8_t>(_s_tile$core$c$_csignals_T_61[L].val) & 0x1u)) != 0))) | (((static_cast<uint8_t>(((((static_cast<uint8_t>(0xeu) & 0xffu)) & ((uint8_t)0 - (uint8_t)(((static_cast<uint8_t>(_s_tile$core$c$_csignals_T_63[L].val) & 0x1u)) != 0))) | (((static_cast<uint8_t>(((((static_cast<uint8_t>(0xfu) & 0xffu)) & ((uint8_t)0 - (uint8_t)(((static_cast<uint8_t>(_s_tile$core$c$_csignals_T_65[L].val) & 0x1u)) != 0))) | (((static_cast<uint8_t>(((((static_cast<uint8_t>(0x10u) & 0xffu)) & ((uint8_t)0 - (uint8_t)(((static_cast<uint8_t>(_s_tile$core$c$_csignals_T_67[L].val) & 0x1u)) != 0))) | (((static_cast<uint8_t>(((((static_cast<uint8_t>(0x11u) & 0xffu)) & ((uint8_t)0 - (uint8_t)(((static_cast<uint8_t>(_s_tile$core$c$_csignals_T_69[L].val) & 0x1u)) != 0))) | (((static_cast<uint8_t>(((((static_cast<uint8_t>(0x12u) & 0xffu)) & ((uint8_t)0 - (uint8_t)(((static_cast<uint8_t>(_s_tile$core$c$_csignals_T_71[L].val) & 0x1u)) != 0))) | (((static_cast<uint8_t>(((((static_cast<uint8_t>(0x13u) & 0xffu)) & ((uint8_t)0 - (uint8_t)(((static_cast<uint8_t>(_s_tile$core$c$_csignals_T_73[L].val) & 0x1u)) != 0))) | (((static_cast<uint8_t>(0x14u) & 0xffu)) & ~((uint8_t)0 - (uint8_t)(((static_cast<uint8_t>(_s_tile$core$c$_csignals_T_73[L].val) & 0x1u)) != 0))))) & 0xffu)) & ~((uint8_t)0 - (uint8_t)(((static_cast<uint8_t>(_s_tile$core$c$_csignals_T_71[L].val) & 0x1u)) != 0))))) & 0xffu)) & ~((uint8_t)0 - (uint8_t)(((static_cast<uint8_t>(_s_tile$core$c$_csignals_T_69[L].val) & 0x1u)) != 0))))) & 0xffu)) & ~((uint8_t)0 - (uint8_t)(((static_cast<uint8_t>(_s_tile$core$c$_csignals_T_67[L].val) & 0x1u)) != 0))))) & 0xffu)) & ~((uint8_t)0 - (uint8_t)(((static_cast<uint8_t>(_s_tile$core$c$_csignals_T_65[L].val) & 0x1u)) != 0))))) & 0xffu)) & ~((uint8_t)0 - (uint8_t)(((static_cast<uint8_t>(_s_tile$core$c$_csignals_T_63[L].val) & 0x1u)) != 0))))) & 0xffu)) & ~((uint8_t)0 - (uint8_t)(((static_cast<uint8_t>(_s_tile$core$c$_csignals_T_61[L].val) & 0x1u)) != 0))))) & 0xffu)) & ~((uint8_t)0 - (uint8_t)(((static_cast<uint8_t>(_s_tile$core$c$_csignals_T_59[L].val) & 0x1u)) != 0))))) & 0xffu)) & ~((uint8_t)0 - (uint8_t)(((static_cast<uint8_t>(_s_tile$core$c$_csignals_T_57[L].val) & 0x1u)) != 0))))) & 0xffu)) & ~((uint8_t)0 - (uint8_t)(((static_cast<uint8_t>(_s_tile$core$c$_csignals_T_55[L].val) & 0x1u)) != 0))))) & 0xffu)) & ~((uint8_t)0 - (uint8_t)(((static_cast<uint8_t>(_s_tile$core$c$_csignals_T_53[L].val) & 0x1u)) != 0))))) & 0xffu)) & ~((uint8_t)0 - (uint8_t)(((static_cast<uint8_t>(_s_tile$core$c$_csignals_T_51[L].val) & 0x1u)) != 0))))) & 0xffu)) & ~((uint8_t)0 - (uint8_t)(((static_cast<uint8_t>(_s_tile$core$c$_csignals_T_49[L].val) & 0x1u)) != 0))))) & 0xffu)) & ~((uint8_t)0 - (uint8_t)(((static_cast<uint8_t>(_s_tile$core$c$_csignals_T_47[L].val) & 0x1u)) != 0))))) & 0xffu)) & ~((uint8_t)0 - (uint8_t)(((static_cast<uint8_t>(_s_tile$core$c$_csignals_T_45[L].val) & 0x1u)) != 0))))) & 0xffu)) & ~((uint8_t)0 - (uint8_t)(((static_cast<uint8_t>(_s_tile$core$c$_csignals_T_43[L].val) & 0x1u)) != 0))))) & 0xffu)) & ~((uint8_t)0 - (uint8_t)(((static_cast<uint8_t>(_s_tile$core$c$_csignals_T_41[L].val) & 0x1u)) != 0))))) & 0xffu)) & ~((uint8_t)0 - (uint8_t)(((static_cast<uint8_t>(_s_tile$core$c$_csignals_T_39[L].val) & 0x1u)) != 0))))) & 0xffu)) & ~((uint8_t)0 - (uint8_t)(((static_cast<uint8_t>(_s_tile$core$c$_csignals_T_37[L].val) & 0x1u)) != 0))))) & 0xffu)) & ~((uint8_t)0 - (uint8_t)(((static_cast<uint8_t>(_s_tile$core$c$_csignals_T_35[L].val) & 0x1u)) != 0))))) & 0xffu)) & 0xffu));
-      _v2_local_2422_0 = UInt<4>(_lut_lut$v_0[essent_to_u64(_s_lut$idx_0[L])]);
-      _v2_local_126_0.val = static_cast<typename UInt<4>::scalar_t>((static_cast<uint8_t>(_v2_local_2422_0.val) & 0xfu));
-      _s_tile$core$c$io_ctl_br_type[L].val = static_cast<typename UInt<4>::scalar_t>((static_cast<uint8_t>((static_cast<uint8_t>(((((static_cast<uint8_t>(0x0u) & 0xfu)) & ((uint8_t)0 - (uint8_t)(((static_cast<uint8_t>(_s_tile$core$c$_csignals_T_1[L].val) & 0x1u)) != 0))) | (((static_cast<uint8_t>(((((static_cast<uint8_t>(0x0u) & 0xfu)) & ((uint8_t)0 - (uint8_t)(((static_cast<uint8_t>(_s_tile$core$c$_csignals_T_3[L].val) & 0x1u)) != 0))) | (((static_cast<uint8_t>(((((static_cast<uint8_t>(0x0u) & 0xfu)) & ((uint8_t)0 - (uint8_t)(((static_cast<uint8_t>(_s_tile$core$c$_csignals_T_5[L].val) & 0x1u)) != 0))) | (((static_cast<uint8_t>(((((static_cast<uint8_t>(0x0u) & 0xfu)) & ((uint8_t)0 - (uint8_t)(((static_cast<uint8_t>(_s_tile$core$c$_csignals_T_7[L].val) & 0x1u)) != 0))) | (((static_cast<uint8_t>(((((static_cast<uint8_t>(0x0u) & 0xfu)) & ((uint8_t)0 - (uint8_t)(((static_cast<uint8_t>(_s_tile$core$c$_csignals_T_9[L].val) & 0x1u)) != 0))) | (((static_cast<uint8_t>(((((static_cast<uint8_t>(0x0u) & 0xfu)) & ((uint8_t)0 - (uint8_t)(((static_cast<uint8_t>(_s_tile$core$c$_csignals_T_11[L].val) & 0x1u)) != 0))) | (((static_cast<uint8_t>(((((static_cast<uint8_t>(0x0u) & 0xfu)) & ((uint8_t)0 - (uint8_t)(((static_cast<uint8_t>(_s_tile$core$c$_csignals_T_13[L].val) & 0x1u)) != 0))) | (((static_cast<uint8_t>(((((static_cast<uint8_t>(0x0u) & 0xfu)) & ((uint8_t)0 - (uint8_t)(((static_cast<uint8_t>(_s_tile$core$c$_csignals_T_15[L].val) & 0x1u)) != 0))) | (((static_cast<uint8_t>(((((static_cast<uint8_t>(0x0u) & 0xfu)) & ((uint8_t)0 - (uint8_t)(((static_cast<uint8_t>(_s_tile$core$c$_csignals_T_17[L].val) & 0x1u)) != 0))) | (((static_cast<uint8_t>(((((static_cast<uint8_t>(0x0u) & 0xfu)) & ((uint8_t)0 - (uint8_t)(((static_cast<uint8_t>(_s_tile$core$c$_csignals_T_19[L].val) & 0x1u)) != 0))) | (((static_cast<uint8_t>(((((static_cast<uint8_t>(0x0u) & 0xfu)) & ((uint8_t)0 - (uint8_t)(((static_cast<uint8_t>(_s_tile$core$c$_csignals_T_21[L].val) & 0x1u)) != 0))) | (((static_cast<uint8_t>(((((static_cast<uint8_t>(0x0u) & 0xfu)) & ((uint8_t)0 - (uint8_t)(((static_cast<uint8_t>(_s_tile$core$c$_csignals_T_23[L].val) & 0x1u)) != 0))) | (((static_cast<uint8_t>(((((static_cast<uint8_t>(0x0u) & 0xfu)) & ((uint8_t)0 - (uint8_t)(((static_cast<uint8_t>(_s_tile$core$c$_csignals_T_25[L].val) & 0x1u)) != 0))) | (((static_cast<uint8_t>(((((static_cast<uint8_t>(0x0u) & 0xfu)) & ((uint8_t)0 - (uint8_t)(((static_cast<uint8_t>(_s_tile$core$c$_csignals_T_27[L].val) & 0x1u)) != 0))) | (((static_cast<uint8_t>(((((static_cast<uint8_t>(0x0u) & 0xfu)) & ((uint8_t)0 - (uint8_t)(((static_cast<uint8_t>(_s_tile$core$c$_csignals_T_29[L].val) & 0x1u)) != 0))) | (((static_cast<uint8_t>(((((static_cast<uint8_t>(0x0u) & 0xfu)) & ((uint8_t)0 - (uint8_t)(((static_cast<uint8_t>(_s_tile$core$c$_csignals_T_31[L].val) & 0x1u)) != 0))) | (((static_cast<uint8_t>(((((static_cast<uint8_t>(0x0u) & 0xfu)) & ((uint8_t)0 - (uint8_t)(((static_cast<uint8_t>(_s_tile$core$c$_csignals_T_33[L].val) & 0x1u)) != 0))) | ((_v2_local_126_0.val) & ~((uint8_t)0 - (uint8_t)(((static_cast<uint8_t>(_s_tile$core$c$_csignals_T_33[L].val) & 0x1u)) != 0))))) & 0xfu)) & ~((uint8_t)0 - (uint8_t)(((static_cast<uint8_t>(_s_tile$core$c$_csignals_T_31[L].val) & 0x1u)) != 0))))) & 0xfu)) & ~((uint8_t)0 - (uint8_t)(((static_cast<uint8_t>(_s_tile$core$c$_csignals_T_29[L].val) & 0x1u)) != 0))))) & 0xfu)) & ~((uint8_t)0 - (uint8_t)(((static_cast<uint8_t>(_s_tile$core$c$_csignals_T_27[L].val) & 0x1u)) != 0))))) & 0xfu)) & ~((uint8_t)0 - (uint8_t)(((static_cast<uint8_t>(_s_tile$core$c$_csignals_T_25[L].val) & 0x1u)) != 0))))) & 0xfu)) & ~((uint8_t)0 - (uint8_t)(((static_cast<uint8_t>(_s_tile$core$c$_csignals_T_23[L].val) & 0x1u)) != 0))))) & 0xfu)) & ~((uint8_t)0 - (uint8_t)(((static_cast<uint8_t>(_s_tile$core$c$_csignals_T_21[L].val) & 0x1u)) != 0))))) & 0xfu)) & ~((uint8_t)0 - (uint8_t)(((static_cast<uint8_t>(_s_tile$core$c$_csignals_T_19[L].val) & 0x1u)) != 0))))) & 0xfu)) & ~((uint8_t)0 - (uint8_t)(((static_cast<uint8_t>(_s_tile$core$c$_csignals_T_17[L].val) & 0x1u)) != 0))))) & 0xfu)) & ~((uint8_t)0 - (uint8_t)(((static_cast<uint8_t>(_s_tile$core$c$_csignals_T_15[L].val) & 0x1u)) != 0))))) & 0xfu)) & ~((uint8_t)0 - (uint8_t)(((static_cast<uint8_t>(_s_tile$core$c$_csignals_T_13[L].val) & 0x1u)) != 0))))) & 0xfu)) & ~((uint8_t)0 - (uint8_t)(((static_cast<uint8_t>(_s_tile$core$c$_csignals_T_11[L].val) & 0x1u)) != 0))))) & 0xfu)) & ~((uint8_t)0 - (uint8_t)(((static_cast<uint8_t>(_s_tile$core$c$_csignals_T_9[L].val) & 0x1u)) != 0))))) & 0xfu)) & ~((uint8_t)0 - (uint8_t)(((static_cast<uint8_t>(_s_tile$core$c$_csignals_T_7[L].val) & 0x1u)) != 0))))) & 0xfu)) & ~((uint8_t)0 - (uint8_t)(((static_cast<uint8_t>(_s_tile$core$c$_csignals_T_5[L].val) & 0x1u)) != 0))))) & 0xfu)) & ~((uint8_t)0 - (uint8_t)(((static_cast<uint8_t>(_s_tile$core$c$_csignals_T_3[L].val) & 0x1u)) != 0))))) & 0xfu)) & ~((uint8_t)0 - (uint8_t)(((static_cast<uint8_t>(_s_tile$core$c$_csignals_T_1[L].val) & 0x1u)) != 0))))) & 0xfu)) & 0xfu));
-    }
-    ESSENT_LANE_LOOP
-    for (int L = 0; L < 4; L++) {
       // [v2 lane-local] tile.core.c._csignals_T_224 _v2_local_162_0
       UInt<2> _v2_local_162_0;
-      // [v2 lane-local] tile.core.c._csignals_T_244 _v2_local_182_0
-      UInt<2> _v2_local_182_0;
-      // [v2 lane-local] lut$v_1 _v2_local_2424_0
-      UInt<2> _v2_local_2424_0;
+      // [v2 lane-local] lut$v_1 _v2_local_2462_0
+      UInt<2> _v2_local_2462_0;
+      _v2_local_126_0.val = static_cast<typename UInt<4>::scalar_t>((static_cast<uint8_t>(_s_lut$v_0[L].val) & 0xfu));
+      _s_tile$core$c$io_ctl_br_type[L].val = static_cast<typename UInt<4>::scalar_t>((static_cast<uint8_t>((static_cast<uint8_t>(((((static_cast<uint8_t>(0x0u) & 0xfu)) & ((uint8_t)0 - (uint8_t)(((static_cast<uint8_t>(_s_tile$core$c$_csignals_T_1[L].val) & 0x1u)) != 0))) | (((static_cast<uint8_t>(((((static_cast<uint8_t>(0x0u) & 0xfu)) & ((uint8_t)0 - (uint8_t)(((static_cast<uint8_t>(_s_tile$core$c$_csignals_T_3[L].val) & 0x1u)) != 0))) | (((static_cast<uint8_t>(((((static_cast<uint8_t>(0x0u) & 0xfu)) & ((uint8_t)0 - (uint8_t)(((static_cast<uint8_t>(_s_tile$core$c$_csignals_T_5[L].val) & 0x1u)) != 0))) | (((static_cast<uint8_t>(((((static_cast<uint8_t>(0x0u) & 0xfu)) & ((uint8_t)0 - (uint8_t)(((static_cast<uint8_t>(_s_tile$core$c$_csignals_T_7[L].val) & 0x1u)) != 0))) | (((static_cast<uint8_t>(((((static_cast<uint8_t>(0x0u) & 0xfu)) & ((uint8_t)0 - (uint8_t)(((static_cast<uint8_t>(_s_tile$core$c$_csignals_T_9[L].val) & 0x1u)) != 0))) | (((static_cast<uint8_t>(((((static_cast<uint8_t>(0x0u) & 0xfu)) & ((uint8_t)0 - (uint8_t)(((static_cast<uint8_t>(_s_tile$core$c$_csignals_T_11[L].val) & 0x1u)) != 0))) | (((static_cast<uint8_t>(((((static_cast<uint8_t>(0x0u) & 0xfu)) & ((uint8_t)0 - (uint8_t)(((static_cast<uint8_t>(_s_tile$core$c$_csignals_T_13[L].val) & 0x1u)) != 0))) | (((static_cast<uint8_t>(((((static_cast<uint8_t>(0x0u) & 0xfu)) & ((uint8_t)0 - (uint8_t)(((static_cast<uint8_t>(_s_tile$core$c$_csignals_T_15[L].val) & 0x1u)) != 0))) | (((static_cast<uint8_t>(((((static_cast<uint8_t>(0x0u) & 0xfu)) & ((uint8_t)0 - (uint8_t)(((static_cast<uint8_t>(_s_tile$core$c$_csignals_T_17[L].val) & 0x1u)) != 0))) | (((static_cast<uint8_t>(((((static_cast<uint8_t>(0x0u) & 0xfu)) & ((uint8_t)0 - (uint8_t)(((static_cast<uint8_t>(_s_tile$core$c$_csignals_T_19[L].val) & 0x1u)) != 0))) | (((static_cast<uint8_t>(((((static_cast<uint8_t>(0x0u) & 0xfu)) & ((uint8_t)0 - (uint8_t)(((static_cast<uint8_t>(_s_tile$core$c$_csignals_T_21[L].val) & 0x1u)) != 0))) | (((static_cast<uint8_t>(((((static_cast<uint8_t>(0x0u) & 0xfu)) & ((uint8_t)0 - (uint8_t)(((static_cast<uint8_t>(_s_tile$core$c$_csignals_T_23[L].val) & 0x1u)) != 0))) | (((static_cast<uint8_t>(((((static_cast<uint8_t>(0x0u) & 0xfu)) & ((uint8_t)0 - (uint8_t)(((static_cast<uint8_t>(_s_tile$core$c$_csignals_T_25[L].val) & 0x1u)) != 0))) | (((static_cast<uint8_t>(((((static_cast<uint8_t>(0x0u) & 0xfu)) & ((uint8_t)0 - (uint8_t)(((static_cast<uint8_t>(_s_tile$core$c$_csignals_T_27[L].val) & 0x1u)) != 0))) | (((static_cast<uint8_t>(((((static_cast<uint8_t>(0x0u) & 0xfu)) & ((uint8_t)0 - (uint8_t)(((static_cast<uint8_t>(_s_tile$core$c$_csignals_T_29[L].val) & 0x1u)) != 0))) | (((static_cast<uint8_t>(((((static_cast<uint8_t>(0x0u) & 0xfu)) & ((uint8_t)0 - (uint8_t)(((static_cast<uint8_t>(_s_tile$core$c$_csignals_T_31[L].val) & 0x1u)) != 0))) | (((static_cast<uint8_t>(((((static_cast<uint8_t>(0x0u) & 0xfu)) & ((uint8_t)0 - (uint8_t)(((static_cast<uint8_t>(_s_tile$core$c$_csignals_T_33[L].val) & 0x1u)) != 0))) | ((_v2_local_126_0.val) & ~((uint8_t)0 - (uint8_t)(((static_cast<uint8_t>(_s_tile$core$c$_csignals_T_33[L].val) & 0x1u)) != 0))))) & 0xfu)) & ~((uint8_t)0 - (uint8_t)(((static_cast<uint8_t>(_s_tile$core$c$_csignals_T_31[L].val) & 0x1u)) != 0))))) & 0xfu)) & ~((uint8_t)0 - (uint8_t)(((static_cast<uint8_t>(_s_tile$core$c$_csignals_T_29[L].val) & 0x1u)) != 0))))) & 0xfu)) & ~((uint8_t)0 - (uint8_t)(((static_cast<uint8_t>(_s_tile$core$c$_csignals_T_27[L].val) & 0x1u)) != 0))))) & 0xfu)) & ~((uint8_t)0 - (uint8_t)(((static_cast<uint8_t>(_s_tile$core$c$_csignals_T_25[L].val) & 0x1u)) != 0))))) & 0xfu)) & ~((uint8_t)0 - (uint8_t)(((static_cast<uint8_t>(_s_tile$core$c$_csignals_T_23[L].val) & 0x1u)) != 0))))) & 0xfu)) & ~((uint8_t)0 - (uint8_t)(((static_cast<uint8_t>(_s_tile$core$c$_csignals_T_21[L].val) & 0x1u)) != 0))))) & 0xfu)) & ~((uint8_t)0 - (uint8_t)(((static_cast<uint8_t>(_s_tile$core$c$_csignals_T_19[L].val) & 0x1u)) != 0))))) & 0xfu)) & ~((uint8_t)0 - (uint8_t)(((static_cast<uint8_t>(_s_tile$core$c$_csignals_T_17[L].val) & 0x1u)) != 0))))) & 0xfu)) & ~((uint8_t)0 - (uint8_t)(((static_cast<uint8_t>(_s_tile$core$c$_csignals_T_15[L].val) & 0x1u)) != 0))))) & 0xfu)) & ~((uint8_t)0 - (uint8_t)(((static_cast<uint8_t>(_s_tile$core$c$_csignals_T_13[L].val) & 0x1u)) != 0))))) & 0xfu)) & ~((uint8_t)0 - (uint8_t)(((static_cast<uint8_t>(_s_tile$core$c$_csignals_T_11[L].val) & 0x1u)) != 0))))) & 0xfu)) & ~((uint8_t)0 - (uint8_t)(((static_cast<uint8_t>(_s_tile$core$c$_csignals_T_9[L].val) & 0x1u)) != 0))))) & 0xfu)) & ~((uint8_t)0 - (uint8_t)(((static_cast<uint8_t>(_s_tile$core$c$_csignals_T_7[L].val) & 0x1u)) != 0))))) & 0xfu)) & ~((uint8_t)0 - (uint8_t)(((static_cast<uint8_t>(_s_tile$core$c$_csignals_T_5[L].val) & 0x1u)) != 0))))) & 0xfu)) & ~((uint8_t)0 - (uint8_t)(((static_cast<uint8_t>(_s_tile$core$c$_csignals_T_3[L].val) & 0x1u)) != 0))))) & 0xfu)) & ~((uint8_t)0 - (uint8_t)(((static_cast<uint8_t>(_s_tile$core$c$_csignals_T_1[L].val) & 0x1u)) != 0))))) & 0xfu)) & 0xfu));
       _s_lut$idx_1[L].val = static_cast<typename UInt<8>::scalar_t>((static_cast<uint8_t>((static_cast<uint8_t>(((((static_cast<uint8_t>(0x0u) & 0xffu)) & ((uint8_t)0 - (uint8_t)(((static_cast<uint8_t>(_s_tile$core$c$_csignals_T_47[L].val) & 0x1u)) != 0))) | (((static_cast<uint8_t>(((((static_cast<uint8_t>(0x1u) & 0xffu)) & ((uint8_t)0 - (uint8_t)(((static_cast<uint8_t>(_s_tile$core$c$_csignals_T_49[L].val) & 0x1u)) != 0))) | (((static_cast<uint8_t>(((((static_cast<uint8_t>(0x2u) & 0xffu)) & ((uint8_t)0 - (uint8_t)(((static_cast<uint8_t>(_s_tile$core$c$_csignals_T_51[L].val) & 0x1u)) != 0))) | (((static_cast<uint8_t>(((((static_cast<uint8_t>(0x3u) & 0xffu)) & ((uint8_t)0 - (uint8_t)(((static_cast<uint8_t>(_s_tile$core$c$_csignals_T_53[L].val) & 0x1u)) != 0))) | (((static_cast<uint8_t>(((((static_cast<uint8_t>(0x4u) & 0xffu)) & ((uint8_t)0 - (uint8_t)(((static_cast<uint8_t>(_s_tile$core$c$_csignals_T_55[L].val) & 0x1u)) != 0))) | (((static_cast<uint8_t>(((((static_cast<uint8_t>(0x5u) & 0xffu)) & ((uint8_t)0 - (uint8_t)(((static_cast<uint8_t>(_s_tile$core$c$_csignals_T_57[L].val) & 0x1u)) != 0))) | (((static_cast<uint8_t>(((((static_cast<uint8_t>(0x6u) & 0xffu)) & ((uint8_t)0 - (uint8_t)(((static_cast<uint8_t>(_s_tile$core$c$_csignals_T_59[L].val) & 0x1u)) != 0))) | (((static_cast<uint8_t>(((((static_cast<uint8_t>(0x7u) & 0xffu)) & ((uint8_t)0 - (uint8_t)(((static_cast<uint8_t>(_s_tile$core$c$_csignals_T_61[L].val) & 0x1u)) != 0))) | (((static_cast<uint8_t>(((((static_cast<uint8_t>(0x8u) & 0xffu)) & ((uint8_t)0 - (uint8_t)(((static_cast<uint8_t>(_s_tile$core$c$_csignals_T_63[L].val) & 0x1u)) != 0))) | (((static_cast<uint8_t>(((((static_cast<uint8_t>(0x9u) & 0xffu)) & ((uint8_t)0 - (uint8_t)(((static_cast<uint8_t>(_s_tile$core$c$_csignals_T_65[L].val) & 0x1u)) != 0))) | (((static_cast<uint8_t>(((((static_cast<uint8_t>(0xau) & 0xffu)) & ((uint8_t)0 - (uint8_t)(((static_cast<uint8_t>(_s_tile$core$c$_csignals_T_67[L].val) & 0x1u)) != 0))) | (((static_cast<uint8_t>(((((static_cast<uint8_t>(0xbu) & 0xffu)) & ((uint8_t)0 - (uint8_t)(((static_cast<uint8_t>(_s_tile$core$c$_csignals_T_69[L].val) & 0x1u)) != 0))) | (((static_cast<uint8_t>(((((static_cast<uint8_t>(0xcu) & 0xffu)) & ((uint8_t)0 - (uint8_t)(((static_cast<uint8_t>(_s_tile$core$c$_csignals_T_71[L].val) & 0x1u)) != 0))) | (((static_cast<uint8_t>(((((static_cast<uint8_t>(0xdu) & 0xffu)) & ((uint8_t)0 - (uint8_t)(((static_cast<uint8_t>(_s_tile$core$c$_csignals_T_73[L].val) & 0x1u)) != 0))) | (((static_cast<uint8_t>(((((static_cast<uint8_t>(0xeu) & 0xffu)) & ((uint8_t)0 - (uint8_t)(((static_cast<uint8_t>(_s_tile$core$c$_csignals_T_75[L].val) & 0x1u)) != 0))) | (((static_cast<uint8_t>(((((static_cast<uint8_t>(0xfu) & 0xffu)) & ((uint8_t)0 - (uint8_t)(((static_cast<uint8_t>(_s_tile$core$c$_csignals_T_77[L].val) & 0x1u)) != 0))) | (((static_cast<uint8_t>(((((static_cast<uint8_t>(0x10u) & 0xffu)) & ((uint8_t)0 - (uint8_t)(((static_cast<uint8_t>(_s_tile$core$c$_csignals_T_79[L].val) & 0x1u)) != 0))) | (((static_cast<uint8_t>(((((static_cast<uint8_t>(0x11u) & 0xffu)) & ((uint8_t)0 - (uint8_t)(((static_cast<uint8_t>(_s_tile$core$c$_csignals_T_81[L].val) & 0x1u)) != 0))) | (((static_cast<uint8_t>(((((static_cast<uint8_t>(0x12u) & 0xffu)) & ((uint8_t)0 - (uint8_t)(((static_cast<uint8_t>(_s_tile$core$c$_csignals_T_83[L].val) & 0x1u)) != 0))) | (((static_cast<uint8_t>(((((static_cast<uint8_t>(0x13u) & 0xffu)) & ((uint8_t)0 - (uint8_t)(((static_cast<uint8_t>(_s_tile$core$c$_csignals_T_85[L].val) & 0x1u)) != 0))) | (((static_cast<uint8_t>(0x14u) & 0xffu)) & ~((uint8_t)0 - (uint8_t)(((static_cast<uint8_t>(_s_tile$core$c$_csignals_T_85[L].val) & 0x1u)) != 0))))) & 0xffu)) & ~((uint8_t)0 - (uint8_t)(((static_cast<uint8_t>(_s_tile$core$c$_csignals_T_83[L].val) & 0x1u)) != 0))))) & 0xffu)) & ~((uint8_t)0 - (uint8_t)(((static_cast<uint8_t>(_s_tile$core$c$_csignals_T_81[L].val) & 0x1u)) != 0))))) & 0xffu)) & ~((uint8_t)0 - (uint8_t)(((static_cast<uint8_t>(_s_tile$core$c$_csignals_T_79[L].val) & 0x1u)) != 0))))) & 0xffu)) & ~((uint8_t)0 - (uint8_t)(((static_cast<uint8_t>(_s_tile$core$c$_csignals_T_77[L].val) & 0x1u)) != 0))))) & 0xffu)) & ~((uint8_t)0 - (uint8_t)(((static_cast<uint8_t>(_s_tile$core$c$_csignals_T_75[L].val) & 0x1u)) != 0))))) & 0xffu)) & ~((uint8_t)0 - (uint8_t)(((static_cast<uint8_t>(_s_tile$core$c$_csignals_T_73[L].val) & 0x1u)) != 0))))) & 0xffu)) & ~((uint8_t)0 - (uint8_t)(((static_cast<uint8_t>(_s_tile$core$c$_csignals_T_71[L].val) & 0x1u)) != 0))))) & 0xffu)) & ~((uint8_t)0 - (uint8_t)(((static_cast<uint8_t>(_s_tile$core$c$_csignals_T_69[L].val) & 0x1u)) != 0))))) & 0xffu)) & ~((uint8_t)0 - (uint8_t)(((static_cast<uint8_t>(_s_tile$core$c$_csignals_T_67[L].val) & 0x1u)) != 0))))) & 0xffu)) & ~((uint8_t)0 - (uint8_t)(((static_cast<uint8_t>(_s_tile$core$c$_csignals_T_65[L].val) & 0x1u)) != 0))))) & 0xffu)) & ~((uint8_t)0 - (uint8_t)(((static_cast<uint8_t>(_s_tile$core$c$_csignals_T_63[L].val) & 0x1u)) != 0))))) & 0xffu)) & ~((uint8_t)0 - (uint8_t)(((static_cast<uint8_t>(_s_tile$core$c$_csignals_T_61[L].val) & 0x1u)) != 0))))) & 0xffu)) & ~((uint8_t)0 - (uint8_t)(((static_cast<uint8_t>(_s_tile$core$c$_csignals_T_59[L].val) & 0x1u)) != 0))))) & 0xffu)) & ~((uint8_t)0 - (uint8_t)(((static_cast<uint8_t>(_s_tile$core$c$_csignals_T_57[L].val) & 0x1u)) != 0))))) & 0xffu)) & ~((uint8_t)0 - (uint8_t)(((static_cast<uint8_t>(_s_tile$core$c$_csignals_T_55[L].val) & 0x1u)) != 0))))) & 0xffu)) & ~((uint8_t)0 - (uint8_t)(((static_cast<uint8_t>(_s_tile$core$c$_csignals_T_53[L].val) & 0x1u)) != 0))))) & 0xffu)) & ~((uint8_t)0 - (uint8_t)(((static_cast<uint8_t>(_s_tile$core$c$_csignals_T_51[L].val) & 0x1u)) != 0))))) & 0xffu)) & ~((uint8_t)0 - (uint8_t)(((static_cast<uint8_t>(_s_tile$core$c$_csignals_T_49[L].val) & 0x1u)) != 0))))) & 0xffu)) & ~((uint8_t)0 - (uint8_t)(((static_cast<uint8_t>(_s_tile$core$c$_csignals_T_47[L].val) & 0x1u)) != 0))))) & 0xffu)) & 0xffu));
-      _v2_local_2424_0 = UInt<2>(_lut_lut$v_1[essent_to_u64(_s_lut$idx_1[L])]);
-      _v2_local_162_0.val = static_cast<typename UInt<2>::scalar_t>((static_cast<uint8_t>(_v2_local_2424_0.val) & 0x3u));
-      _v2_local_182_0.val = static_cast<typename UInt<2>::scalar_t>((static_cast<uint8_t>((static_cast<uint8_t>(((((static_cast<uint8_t>(0x0u) & 0x3u)) & ((uint8_t)0 - (uint8_t)(((static_cast<uint8_t>(_s_tile$core$c$_csignals_T_7[L].val) & 0x1u)) != 0))) | (((static_cast<uint8_t>(((((static_cast<uint8_t>(0x0u) & 0x3u)) & ((uint8_t)0 - (uint8_t)(((static_cast<uint8_t>(_s_tile$core$c$_csignals_T_9[L].val) & 0x1u)) != 0))) | (((static_cast<uint8_t>(((((static_cast<uint8_t>(0x0u) & 0x3u)) & ((uint8_t)0 - (uint8_t)(((static_cast<uint8_t>(_s_tile$core$c$_csignals_T_11[L].val) & 0x1u)) != 0))) | (((static_cast<uint8_t>(((((static_cast<uint8_t>(0x0u) & 0x3u)) & ((uint8_t)0 - (uint8_t)(((static_cast<uint8_t>(_s_tile$core$c$_csignals_T_13[L].val) & 0x1u)) != 0))) | (((static_cast<uint8_t>(((((static_cast<uint8_t>(0x0u) & 0x3u)) & ((uint8_t)0 - (uint8_t)(((static_cast<uint8_t>(_s_tile$core$c$_csignals_T_15[L].val) & 0x1u)) != 0))) | (((static_cast<uint8_t>(((((static_cast<uint8_t>(0x1u) & 0x3u)) & ((uint8_t)0 - (uint8_t)(((static_cast<uint8_t>(_s_tile$core$c$_csignals_T_17[L].val) & 0x1u)) != 0))) | (((static_cast<uint8_t>(((((static_cast<uint8_t>(0x0u) & 0x3u)) & ((uint8_t)0 - (uint8_t)(((static_cast<uint8_t>(_s_tile$core$c$_csignals_T_19[L].val) & 0x1u)) != 0))) | (((static_cast<uint8_t>(((((static_cast<uint8_t>(0x0u) & 0x3u)) & ((uint8_t)0 - (uint8_t)(((static_cast<uint8_t>(_s_tile$core$c$_csignals_T_21[L].val) & 0x1u)) != 0))) | (((static_cast<uint8_t>(((((static_cast<uint8_t>(0x0u) & 0x3u)) & ((uint8_t)0 - (uint8_t)(((static_cast<uint8_t>(_s_tile$core$c$_csignals_T_23[L].val) & 0x1u)) != 0))) | (((static_cast<uint8_t>(((((static_cast<uint8_t>(0x0u) & 0x3u)) & ((uint8_t)0 - (uint8_t)(((static_cast<uint8_t>(_s_tile$core$c$_csignals_T_25[L].val) & 0x1u)) != 0))) | (((static_cast<uint8_t>(((((static_cast<uint8_t>(0x0u) & 0x3u)) & ((uint8_t)0 - (uint8_t)(((static_cast<uint8_t>(_s_tile$core$c$_csignals_T_27[L].val) & 0x1u)) != 0))) | (((static_cast<uint8_t>(((((static_cast<uint8_t>(0x0u) & 0x3u)) & ((uint8_t)0 - (uint8_t)(((static_cast<uint8_t>(_s_tile$core$c$_csignals_T_29[L].val) & 0x1u)) != 0))) | (((static_cast<uint8_t>(((((static_cast<uint8_t>(0x0u) & 0x3u)) & ((uint8_t)0 - (uint8_t)(((static_cast<uint8_t>(_s_tile$core$c$_csignals_T_31[L].val) & 0x1u)) != 0))) | (((static_cast<uint8_t>(((((static_cast<uint8_t>(0x0u) & 0x3u)) & ((uint8_t)0 - (uint8_t)(((static_cast<uint8_t>(_s_tile$core$c$_csignals_T_33[L].val) & 0x1u)) != 0))) | (((static_cast<uint8_t>(((((static_cast<uint8_t>(0x0u) & 0x3u)) & ((uint8_t)0 - (uint8_t)(((static_cast<uint8_t>(_s_tile$core$c$_csignals_T_35[L].val) & 0x1u)) != 0))) | (((static_cast<uint8_t>(((((static_cast<uint8_t>(0x0u) & 0x3u)) & ((uint8_t)0 - (uint8_t)(((static_cast<uint8_t>(_s_tile$core$c$_csignals_T_37[L].val) & 0x1u)) != 0))) | (((static_cast<uint8_t>(((((static_cast<uint8_t>(0x0u) & 0x3u)) & ((uint8_t)0 - (uint8_t)(((static_cast<uint8_t>(_s_tile$core$c$_csignals_T_39[L].val) & 0x1u)) != 0))) | (((static_cast<uint8_t>(((((static_cast<uint8_t>(0x0u) & 0x3u)) & ((uint8_t)0 - (uint8_t)(((static_cast<uint8_t>(_s_tile$core$c$_csignals_T_41[L].val) & 0x1u)) != 0))) | (((static_cast<uint8_t>(((((static_cast<uint8_t>(0x0u) & 0x3u)) & ((uint8_t)0 - (uint8_t)(((static_cast<uint8_t>(_s_tile$core$c$_csignals_T_43[L].val) & 0x1u)) != 0))) | (((static_cast<uint8_t>(((((static_cast<uint8_t>(0x0u) & 0x3u)) & ((uint8_t)0 - (uint8_t)(((static_cast<uint8_t>(_s_tile$core$c$_csignals_T_45[L].val) & 0x1u)) != 0))) | ((_v2_local_162_0.val) & ~((uint8_t)0 - (uint8_t)(((static_cast<uint8_t>(_s_tile$core$c$_csignals_T_45[L].val) & 0x1u)) != 0))))) & 0x3u)) & ~((uint8_t)0 - (uint8_t)(((static_cast<uint8_t>(_s_tile$core$c$_csignals_T_43[L].val) & 0x1u)) != 0))))) & 0x3u)) & ~((uint8_t)0 - (uint8_t)(((static_cast<uint8_t>(_s_tile$core$c$_csignals_T_41[L].val) & 0x1u)) != 0))))) & 0x3u)) & ~((uint8_t)0 - (uint8_t)(((static_cast<uint8_t>(_s_tile$core$c$_csignals_T_39[L].val) & 0x1u)) != 0))))) & 0x3u)) & ~((uint8_t)0 - (uint8_t)(((static_cast<uint8_t>(_s_tile$core$c$_csignals_T_37[L].val) & 0x1u)) != 0))))) & 0x3u)) & ~((uint8_t)0 - (uint8_t)(((static_cast<uint8_t>(_s_tile$core$c$_csignals_T_35[L].val) & 0x1u)) != 0))))) & 0x3u)) & ~((uint8_t)0 - (uint8_t)(((static_cast<uint8_t>(_s_tile$core$c$_csignals_T_33[L].val) & 0x1u)) != 0))))) & 0x3u)) & ~((uint8_t)0 - (uint8_t)(((static_cast<uint8_t>(_s_tile$core$c$_csignals_T_31[L].val) & 0x1u)) != 0))))) & 0x3u)) & ~((uint8_t)0 - (uint8_t)(((static_cast<uint8_t>(_s_tile$core$c$_csignals_T_29[L].val) & 0x1u)) != 0))))) & 0x3u)) & ~((uint8_t)0 - (uint8_t)(((static_cast<uint8_t>(_s_tile$core$c$_csignals_T_27[L].val) & 0x1u)) != 0))))) & 0x3u)) & ~((uint8_t)0 - (uint8_t)(((static_cast<uint8_t>(_s_tile$core$c$_csignals_T_25[L].val) & 0x1u)) != 0))))) & 0x3u)) & ~((uint8_t)0 - (uint8_t)(((static_cast<uint8_t>(_s_tile$core$c$_csignals_T_23[L].val) & 0x1u)) != 0))))) & 0x3u)) & ~((uint8_t)0 - (uint8_t)(((static_cast<uint8_t>(_s_tile$core$c$_csignals_T_21[L].val) & 0x1u)) != 0))))) & 0x3u)) & ~((uint8_t)0 - (uint8_t)(((static_cast<uint8_t>(_s_tile$core$c$_csignals_T_19[L].val) & 0x1u)) != 0))))) & 0x3u)) & ~((uint8_t)0 - (uint8_t)(((static_cast<uint8_t>(_s_tile$core$c$_csignals_T_17[L].val) & 0x1u)) != 0))))) & 0x3u)) & ~((uint8_t)0 - (uint8_t)(((static_cast<uint8_t>(_s_tile$core$c$_csignals_T_15[L].val) & 0x1u)) != 0))))) & 0x3u)) & ~((uint8_t)0 - (uint8_t)(((static_cast<uint8_t>(_s_tile$core$c$_csignals_T_13[L].val) & 0x1u)) != 0))))) & 0x3u)) & ~((uint8_t)0 - (uint8_t)(((static_cast<uint8_t>(_s_tile$core$c$_csignals_T_11[L].val) & 0x1u)) != 0))))) & 0x3u)) & ~((uint8_t)0 - (uint8_t)(((static_cast<uint8_t>(_s_tile$core$c$_csignals_T_9[L].val) & 0x1u)) != 0))))) & 0x3u)) & ~((uint8_t)0 - (uint8_t)(((static_cast<uint8_t>(_s_tile$core$c$_csignals_T_7[L].val) & 0x1u)) != 0))))) & 0x3u)) & 0x3u));
-      _s_tile$core$c$io_ctl_op1_sel[L].val = static_cast<typename UInt<2>::scalar_t>((static_cast<uint8_t>((static_cast<uint8_t>(((((static_cast<uint8_t>(0x0u) & 0x3u)) & ((uint8_t)0 - (uint8_t)(((static_cast<uint8_t>(_s_tile$core$c$_csignals_T_1[L].val) & 0x1u)) != 0))) | (((static_cast<uint8_t>(((((static_cast<uint8_t>(0x0u) & 0x3u)) & ((uint8_t)0 - (uint8_t)(((static_cast<uint8_t>(_s_tile$core$c$_csignals_T_3[L].val) & 0x1u)) != 0))) | (((static_cast<uint8_t>(((((static_cast<uint8_t>(0x0u) & 0x3u)) & ((uint8_t)0 - (uint8_t)(((static_cast<uint8_t>(_s_tile$core$c$_csignals_T_5[L].val) & 0x1u)) != 0))) | ((_v2_local_182_0.val) & ~((uint8_t)0 - (uint8_t)(((static_cast<uint8_t>(_s_tile$core$c$_csignals_T_5[L].val) & 0x1u)) != 0))))) & 0x3u)) & ~((uint8_t)0 - (uint8_t)(((static_cast<uint8_t>(_s_tile$core$c$_csignals_T_3[L].val) & 0x1u)) != 0))))) & 0x3u)) & ~((uint8_t)0 - (uint8_t)(((static_cast<uint8_t>(_s_tile$core$c$_csignals_T_1[L].val) & 0x1u)) != 0))))) & 0x3u)) & 0x3u));
-      _s_lut$v_2[L] = UInt<3>(_lut_lut$v_2[essent_to_u64(_s_lut$idx_0[L])]);
+      _v2_local_2462_0 = UInt<2>(_lut_lut$v_1[essent_to_u64(_s_lut$idx_1[L])]);
+      _v2_local_162_0.val = static_cast<typename UInt<2>::scalar_t>((static_cast<uint8_t>(_v2_local_2462_0.val) & 0x3u));
+      _s_tile$core$c$_csignals_T_244[L].val = static_cast<typename UInt<2>::scalar_t>((static_cast<uint8_t>((static_cast<uint8_t>(((((static_cast<uint8_t>(0x0u) & 0x3u)) & ((uint8_t)0 - (uint8_t)(((static_cast<uint8_t>(_s_tile$core$c$_csignals_T_7[L].val) & 0x1u)) != 0))) | (((static_cast<uint8_t>(((((static_cast<uint8_t>(0x0u) & 0x3u)) & ((uint8_t)0 - (uint8_t)(((static_cast<uint8_t>(_s_tile$core$c$_csignals_T_9[L].val) & 0x1u)) != 0))) | (((static_cast<uint8_t>(((((static_cast<uint8_t>(0x0u) & 0x3u)) & ((uint8_t)0 - (uint8_t)(((static_cast<uint8_t>(_s_tile$core$c$_csignals_T_11[L].val) & 0x1u)) != 0))) | (((static_cast<uint8_t>(((((static_cast<uint8_t>(0x0u) & 0x3u)) & ((uint8_t)0 - (uint8_t)(((static_cast<uint8_t>(_s_tile$core$c$_csignals_T_13[L].val) & 0x1u)) != 0))) | (((static_cast<uint8_t>(((((static_cast<uint8_t>(0x0u) & 0x3u)) & ((uint8_t)0 - (uint8_t)(((static_cast<uint8_t>(_s_tile$core$c$_csignals_T_15[L].val) & 0x1u)) != 0))) | (((static_cast<uint8_t>(((((static_cast<uint8_t>(0x1u) & 0x3u)) & ((uint8_t)0 - (uint8_t)(((static_cast<uint8_t>(_s_tile$core$c$_csignals_T_17[L].val) & 0x1u)) != 0))) | (((static_cast<uint8_t>(((((static_cast<uint8_t>(0x0u) & 0x3u)) & ((uint8_t)0 - (uint8_t)(((static_cast<uint8_t>(_s_tile$core$c$_csignals_T_19[L].val) & 0x1u)) != 0))) | (((static_cast<uint8_t>(((((static_cast<uint8_t>(0x0u) & 0x3u)) & ((uint8_t)0 - (uint8_t)(((static_cast<uint8_t>(_s_tile$core$c$_csignals_T_21[L].val) & 0x1u)) != 0))) | (((static_cast<uint8_t>(((((static_cast<uint8_t>(0x0u) & 0x3u)) & ((uint8_t)0 - (uint8_t)(((static_cast<uint8_t>(_s_tile$core$c$_csignals_T_23[L].val) & 0x1u)) != 0))) | (((static_cast<uint8_t>(((((static_cast<uint8_t>(0x0u) & 0x3u)) & ((uint8_t)0 - (uint8_t)(((static_cast<uint8_t>(_s_tile$core$c$_csignals_T_25[L].val) & 0x1u)) != 0))) | (((static_cast<uint8_t>(((((static_cast<uint8_t>(0x0u) & 0x3u)) & ((uint8_t)0 - (uint8_t)(((static_cast<uint8_t>(_s_tile$core$c$_csignals_T_27[L].val) & 0x1u)) != 0))) | (((static_cast<uint8_t>(((((static_cast<uint8_t>(0x0u) & 0x3u)) & ((uint8_t)0 - (uint8_t)(((static_cast<uint8_t>(_s_tile$core$c$_csignals_T_29[L].val) & 0x1u)) != 0))) | (((static_cast<uint8_t>(((((static_cast<uint8_t>(0x0u) & 0x3u)) & ((uint8_t)0 - (uint8_t)(((static_cast<uint8_t>(_s_tile$core$c$_csignals_T_31[L].val) & 0x1u)) != 0))) | (((static_cast<uint8_t>(((((static_cast<uint8_t>(0x0u) & 0x3u)) & ((uint8_t)0 - (uint8_t)(((static_cast<uint8_t>(_s_tile$core$c$_csignals_T_33[L].val) & 0x1u)) != 0))) | (((static_cast<uint8_t>(((((static_cast<uint8_t>(0x0u) & 0x3u)) & ((uint8_t)0 - (uint8_t)(((static_cast<uint8_t>(_s_tile$core$c$_csignals_T_35[L].val) & 0x1u)) != 0))) | (((static_cast<uint8_t>(((((static_cast<uint8_t>(0x0u) & 0x3u)) & ((uint8_t)0 - (uint8_t)(((static_cast<uint8_t>(_s_tile$core$c$_csignals_T_37[L].val) & 0x1u)) != 0))) | (((static_cast<uint8_t>(((((static_cast<uint8_t>(0x0u) & 0x3u)) & ((uint8_t)0 - (uint8_t)(((static_cast<uint8_t>(_s_tile$core$c$_csignals_T_39[L].val) & 0x1u)) != 0))) | (((static_cast<uint8_t>(((((static_cast<uint8_t>(0x0u) & 0x3u)) & ((uint8_t)0 - (uint8_t)(((static_cast<uint8_t>(_s_tile$core$c$_csignals_T_41[L].val) & 0x1u)) != 0))) | (((static_cast<uint8_t>(((((static_cast<uint8_t>(0x0u) & 0x3u)) & ((uint8_t)0 - (uint8_t)(((static_cast<uint8_t>(_s_tile$core$c$_csignals_T_43[L].val) & 0x1u)) != 0))) | (((static_cast<uint8_t>(((((static_cast<uint8_t>(0x0u) & 0x3u)) & ((uint8_t)0 - (uint8_t)(((static_cast<uint8_t>(_s_tile$core$c$_csignals_T_45[L].val) & 0x1u)) != 0))) | ((_v2_local_162_0.val) & ~((uint8_t)0 - (uint8_t)(((static_cast<uint8_t>(_s_tile$core$c$_csignals_T_45[L].val) & 0x1u)) != 0))))) & 0x3u)) & ~((uint8_t)0 - (uint8_t)(((static_cast<uint8_t>(_s_tile$core$c$_csignals_T_43[L].val) & 0x1u)) != 0))))) & 0x3u)) & ~((uint8_t)0 - (uint8_t)(((static_cast<uint8_t>(_s_tile$core$c$_csignals_T_41[L].val) & 0x1u)) != 0))))) & 0x3u)) & ~((uint8_t)0 - (uint8_t)(((static_cast<uint8_t>(_s_tile$core$c$_csignals_T_39[L].val) & 0x1u)) != 0))))) & 0x3u)) & ~((uint8_t)0 - (uint8_t)(((static_cast<uint8_t>(_s_tile$core$c$_csignals_T_37[L].val) & 0x1u)) != 0))))) & 0x3u)) & ~((uint8_t)0 - (uint8_t)(((static_cast<uint8_t>(_s_tile$core$c$_csignals_T_35[L].val) & 0x1u)) != 0))))) & 0x3u)) & ~((uint8_t)0 - (uint8_t)(((static_cast<uint8_t>(_s_tile$core$c$_csignals_T_33[L].val) & 0x1u)) != 0))))) & 0x3u)) & ~((uint8_t)0 - (uint8_t)(((static_cast<uint8_t>(_s_tile$core$c$_csignals_T_31[L].val) & 0x1u)) != 0))))) & 0x3u)) & ~((uint8_t)0 - (uint8_t)(((static_cast<uint8_t>(_s_tile$core$c$_csignals_T_29[L].val) & 0x1u)) != 0))))) & 0x3u)) & ~((uint8_t)0 - (uint8_t)(((static_cast<uint8_t>(_s_tile$core$c$_csignals_T_27[L].val) & 0x1u)) != 0))))) & 0x3u)) & ~((uint8_t)0 - (uint8_t)(((static_cast<uint8_t>(_s_tile$core$c$_csignals_T_25[L].val) & 0x1u)) != 0))))) & 0x3u)) & ~((uint8_t)0 - (uint8_t)(((static_cast<uint8_t>(_s_tile$core$c$_csignals_T_23[L].val) & 0x1u)) != 0))))) & 0x3u)) & ~((uint8_t)0 - (uint8_t)(((static_cast<uint8_t>(_s_tile$core$c$_csignals_T_21[L].val) & 0x1u)) != 0))))) & 0x3u)) & ~((uint8_t)0 - (uint8_t)(((static_cast<uint8_t>(_s_tile$core$c$_csignals_T_19[L].val) & 0x1u)) != 0))))) & 0x3u)) & ~((uint8_t)0 - (uint8_t)(((static_cast<uint8_t>(_s_tile$core$c$_csignals_T_17[L].val) & 0x1u)) != 0))))) & 0x3u)) & ~((uint8_t)0 - (uint8_t)(((static_cast<uint8_t>(_s_tile$core$c$_csignals_T_15[L].val) & 0x1u)) != 0))))) & 0x3u)) & ~((uint8_t)0 - (uint8_t)(((static_cast<uint8_t>(_s_tile$core$c$_csignals_T_13[L].val) & 0x1u)) != 0))))) & 0x3u)) & ~((uint8_t)0 - (uint8_t)(((static_cast<uint8_t>(_s_tile$core$c$_csignals_T_11[L].val) & 0x1u)) != 0))))) & 0x3u)) & ~((uint8_t)0 - (uint8_t)(((static_cast<uint8_t>(_s_tile$core$c$_csignals_T_9[L].val) & 0x1u)) != 0))))) & 0x3u)) & ~((uint8_t)0 - (uint8_t)(((static_cast<uint8_t>(_s_tile$core$c$_csignals_T_7[L].val) & 0x1u)) != 0))))) & 0x3u)) & 0x3u));
     }
     ESSENT_LANE_LOOP
     for (int L = 0; L < 4; L++) {
       // [v2 lane-local] tile.core.c._csignals_T_279 _v2_local_204_0
       UInt<3> _v2_local_204_0;
-      // [v2 lane-local] lut$v_3 _v2_local_2426_0
-      UInt<4> _v2_local_2426_0;
-      // [v2 lane-local] tile.core.c._csignals_T_420 _v2_local_313_0
-      UInt<4> _v2_local_313_0;
-      _v2_local_204_0.val = static_cast<typename UInt<3>::scalar_t>((static_cast<uint8_t>(_s_lut$v_2[L].val) & 0x7u));
+      // [v2 lane-local] lut$v_2 _v2_local_2463_0
+      UInt<3> _v2_local_2463_0;
+      _s_tile$core$c$io_ctl_op1_sel[L].val = static_cast<typename UInt<2>::scalar_t>((static_cast<uint8_t>((static_cast<uint8_t>(((((static_cast<uint8_t>(0x0u) & 0x3u)) & ((uint8_t)0 - (uint8_t)(((static_cast<uint8_t>(_s_tile$core$c$_csignals_T_1[L].val) & 0x1u)) != 0))) | (((static_cast<uint8_t>(((((static_cast<uint8_t>(0x0u) & 0x3u)) & ((uint8_t)0 - (uint8_t)(((static_cast<uint8_t>(_s_tile$core$c$_csignals_T_3[L].val) & 0x1u)) != 0))) | (((static_cast<uint8_t>(((((static_cast<uint8_t>(0x0u) & 0x3u)) & ((uint8_t)0 - (uint8_t)(((static_cast<uint8_t>(_s_tile$core$c$_csignals_T_5[L].val) & 0x1u)) != 0))) | ((_s_tile$core$c$_csignals_T_244[L].val) & ~((uint8_t)0 - (uint8_t)(((static_cast<uint8_t>(_s_tile$core$c$_csignals_T_5[L].val) & 0x1u)) != 0))))) & 0x3u)) & ~((uint8_t)0 - (uint8_t)(((static_cast<uint8_t>(_s_tile$core$c$_csignals_T_3[L].val) & 0x1u)) != 0))))) & 0x3u)) & ~((uint8_t)0 - (uint8_t)(((static_cast<uint8_t>(_s_tile$core$c$_csignals_T_1[L].val) & 0x1u)) != 0))))) & 0x3u)) & 0x3u));
+      _v2_local_2463_0 = UInt<3>(_lut_lut$v_2[essent_to_u64(_s_lut$idx_0[L])]);
+      _v2_local_204_0.val = static_cast<typename UInt<3>::scalar_t>((static_cast<uint8_t>(_v2_local_2463_0.val) & 0x7u));
       _s_tile$core$c$io_ctl_op2_sel[L].val = static_cast<typename UInt<3>::scalar_t>((static_cast<uint8_t>((static_cast<uint8_t>(((((static_cast<uint8_t>(0x1u) & 0x7u)) & ((uint8_t)0 - (uint8_t)(((static_cast<uint8_t>(_s_tile$core$c$_csignals_T_1[L].val) & 0x1u)) != 0))) | (((static_cast<uint8_t>(((((static_cast<uint8_t>(0x1u) & 0x7u)) & ((uint8_t)0 - (uint8_t)(((static_cast<uint8_t>(_s_tile$core$c$_csignals_T_3[L].val) & 0x1u)) != 0))) | (((static_cast<uint8_t>(((((static_cast<uint8_t>(0x1u) & 0x7u)) & ((uint8_t)0 - (uint8_t)(((static_cast<uint8_t>(_s_tile$core$c$_csignals_T_5[L].val) & 0x1u)) != 0))) | (((static_cast<uint8_t>(((((static_cast<uint8_t>(0x1u) & 0x7u)) & ((uint8_t)0 - (uint8_t)(((static_cast<uint8_t>(_s_tile$core$c$_csignals_T_7[L].val) & 0x1u)) != 0))) | (((static_cast<uint8_t>(((((static_cast<uint8_t>(0x1u) & 0x7u)) & ((uint8_t)0 - (uint8_t)(((static_cast<uint8_t>(_s_tile$core$c$_csignals_T_9[L].val) & 0x1u)) != 0))) | (((static_cast<uint8_t>(((((static_cast<uint8_t>(0x2u) & 0x7u)) & ((uint8_t)0 - (uint8_t)(((static_cast<uint8_t>(_s_tile$core$c$_csignals_T_11[L].val) & 0x1u)) != 0))) | (((static_cast<uint8_t>(((((static_cast<uint8_t>(0x2u) & 0x7u)) & ((uint8_t)0 - (uint8_t)(((static_cast<uint8_t>(_s_tile$core$c$_csignals_T_13[L].val) & 0x1u)) != 0))) | (((static_cast<uint8_t>(((((static_cast<uint8_t>(0x2u) & 0x7u)) & ((uint8_t)0 - (uint8_t)(((static_cast<uint8_t>(_s_tile$core$c$_csignals_T_15[L].val) & 0x1u)) != 0))) | (((static_cast<uint8_t>(((((static_cast<uint8_t>(0x4u) & 0x7u)) & ((uint8_t)0 - (uint8_t)(((static_cast<uint8_t>(_s_tile$core$c$_csignals_T_17[L].val) & 0x1u)) != 0))) | (((static_cast<uint8_t>(((((static_cast<uint8_t>(0x4u) & 0x7u)) & ((uint8_t)0 - (uint8_t)(((static_cast<uint8_t>(_s_tile$core$c$_csignals_T_19[L].val) & 0x1u)) != 0))) | (((static_cast<uint8_t>(((((static_cast<uint8_t>(0x1u) & 0x7u)) & ((uint8_t)0 - (uint8_t)(((static_cast<uint8_t>(_s_tile$core$c$_csignals_T_21[L].val) & 0x1u)) != 0))) | (((static_cast<uint8_t>(((((static_cast<uint8_t>(0x1u) & 0x7u)) & ((uint8_t)0 - (uint8_t)(((static_cast<uint8_t>(_s_tile$core$c$_csignals_T_23[L].val) & 0x1u)) != 0))) | (((static_cast<uint8_t>(((((static_cast<uint8_t>(0x1u) & 0x7u)) & ((uint8_t)0 - (uint8_t)(((static_cast<uint8_t>(_s_tile$core$c$_csignals_T_25[L].val) & 0x1u)) != 0))) | (((static_cast<uint8_t>(((((static_cast<uint8_t>(0x1u) & 0x7u)) & ((uint8_t)0 - (uint8_t)(((static_cast<uint8_t>(_s_tile$core$c$_csignals_T_27[L].val) & 0x1u)) != 0))) | (((static_cast<uint8_t>(((((static_cast<uint8_t>(0x1u) & 0x7u)) & ((uint8_t)0 - (uint8_t)(((static_cast<uint8_t>(_s_tile$core$c$_csignals_T_29[L].val) & 0x1u)) != 0))) | (((static_cast<uint8_t>(((((static_cast<uint8_t>(0x1u) & 0x7u)) & ((uint8_t)0 - (uint8_t)(((static_cast<uint8_t>(_s_tile$core$c$_csignals_T_31[L].val) & 0x1u)) != 0))) | (((static_cast<uint8_t>(((((static_cast<uint8_t>(0x1u) & 0x7u)) & ((uint8_t)0 - (uint8_t)(((static_cast<uint8_t>(_s_tile$core$c$_csignals_T_33[L].val) & 0x1u)) != 0))) | ((_v2_local_204_0.val) & ~((uint8_t)0 - (uint8_t)(((static_cast<uint8_t>(_s_tile$core$c$_csignals_T_33[L].val) & 0x1u)) != 0))))) & 0x7u)) & ~((uint8_t)0 - (uint8_t)(((static_cast<uint8_t>(_s_tile$core$c$_csignals_T_31[L].val) & 0x1u)) != 0))))) & 0x7u)) & ~((uint8_t)0 - (uint8_t)(((static_cast<uint8_t>(_s_tile$core$c$_csignals_T_29[L].val) & 0x1u)) != 0))))) & 0x7u)) & ~((uint8_t)0 - (uint8_t)(((static_cast<uint8_t>(_s_tile$core$c$_csignals_T_27[L].val) & 0x1u)) != 0))))) & 0x7u)) & ~((uint8_t)0 - (uint8_t)(((static_cast<uint8_t>(_s_tile$core$c$_csignals_T_25[L].val) & 0x1u)) != 0))))) & 0x7u)) & ~((uint8_t)0 - (uint8_t)(((static_cast<uint8_t>(_s_tile$core$c$_csignals_T_23[L].val) & 0x1u)) != 0))))) & 0x7u)) & ~((uint8_t)0 - (uint8_t)(((static_cast<uint8_t>(_s_tile$core$c$_csignals_T_21[L].val) & 0x1u)) != 0))))) & 0x7u)) & ~((uint8_t)0 - (uint8_t)(((static_cast<uint8_t>(_s_tile$core$c$_csignals_T_19[L].val) & 0x1u)) != 0))))) & 0x7u)) & ~((uint8_t)0 - (uint8_t)(((static_cast<uint8_t>(_s_tile$core$c$_csignals_T_17[L].val) & 0x1u)) != 0))))) & 0x7u)) & ~((uint8_t)0 - (uint8_t)(((static_cast<uint8_t>(_s_tile$core$c$_csignals_T_15[L].val) & 0x1u)) != 0))))) & 0x7u)) & ~((uint8_t)0 - (uint8_t)(((static_cast<uint8_t>(_s_tile$core$c$_csignals_T_13[L].val) & 0x1u)) != 0))))) & 0x7u)) & ~((uint8_t)0 - (uint8_t)(((static_cast<uint8_t>(_s_tile$core$c$_csignals_T_11[L].val) & 0x1u)) != 0))))) & 0x7u)) & ~((uint8_t)0 - (uint8_t)(((static_cast<uint8_t>(_s_tile$core$c$_csignals_T_9[L].val) & 0x1u)) != 0))))) & 0x7u)) & ~((uint8_t)0 - (uint8_t)(((static_cast<uint8_t>(_s_tile$core$c$_csignals_T_7[L].val) & 0x1u)) != 0))))) & 0x7u)) & ~((uint8_t)0 - (uint8_t)(((static_cast<uint8_t>(_s_tile$core$c$_csignals_T_5[L].val) & 0x1u)) != 0))))) & 0x7u)) & ~((uint8_t)0 - (uint8_t)(((static_cast<uint8_t>(_s_tile$core$c$_csignals_T_3[L].val) & 0x1u)) != 0))))) & 0x7u)) & ~((uint8_t)0 - (uint8_t)(((static_cast<uint8_t>(_s_tile$core$c$_csignals_T_1[L].val) & 0x1u)) != 0))))) & 0x7u)) & 0x7u));
       _s_tile$core$d$_dec_alu_op2_T[L].val = static_cast<typename UInt<1>::scalar_t>((static_cast<uint8_t>((static_cast<uint8_t>(((_s_tile$core$c$io_ctl_op2_sel[L].val) == ((static_cast<uint8_t>(0x0u) & 0x7u)))) & 0x1u)) & 0x1u));
-      _v2_local_2426_0 = UInt<4>(_lut_lut$v_3[essent_to_u64(_s_lut$idx_1[L])]);
-      _v2_local_313_0.val = static_cast<typename UInt<4>::scalar_t>((static_cast<uint8_t>(_v2_local_2426_0.val) & 0xfu));
-      _s_tile$core$c$_csignals_T_440[L].val = static_cast<typename UInt<4>::scalar_t>((static_cast<uint8_t>((static_cast<uint8_t>(((((static_cast<uint8_t>(0x0u) & 0xfu)) & ((uint8_t)0 - (uint8_t)(((static_cast<uint8_t>(_s_tile$core$c$_csignals_T_7[L].val) & 0x1u)) != 0))) | (((static_cast<uint8_t>(((((static_cast<uint8_t>(0x0u) & 0xfu)) & ((uint8_t)0 - (uint8_t)(((static_cast<uint8_t>(_s_tile$core$c$_csignals_T_9[L].val) & 0x1u)) != 0))) | (((static_cast<uint8_t>(((((static_cast<uint8_t>(0x0u) & 0xfu)) & ((uint8_t)0 - (uint8_t)(((static_cast<uint8_t>(_s_tile$core$c$_csignals_T_11[L].val) & 0x1u)) != 0))) | (((static_cast<uint8_t>(((((static_cast<uint8_t>(0x0u) & 0xfu)) & ((uint8_t)0 - (uint8_t)(((static_cast<uint8_t>(_s_tile$core$c$_csignals_T_13[L].val) & 0x1u)) != 0))) | (((static_cast<uint8_t>(((((static_cast<uint8_t>(0x0u) & 0xfu)) & ((uint8_t)0 - (uint8_t)(((static_cast<uint8_t>(_s_tile$core$c$_csignals_T_15[L].val) & 0x1u)) != 0))) | (((static_cast<uint8_t>(((((static_cast<uint8_t>(0x0u) & 0xfu)) & ((uint8_t)0 - (uint8_t)(((static_cast<uint8_t>(_s_tile$core$c$_csignals_T_17[L].val) & 0x1u)) != 0))) | (((static_cast<uint8_t>(((((static_cast<uint8_t>(0xbu) & 0xfu)) & ((uint8_t)0 - (uint8_t)(((static_cast<uint8_t>(_s_tile$core$c$_csignals_T_19[L].val) & 0x1u)) != 0))) | (((static_cast<uint8_t>(((((static_cast<uint8_t>(0x0u) & 0xfu)) & ((uint8_t)0 - (uint8_t)(((static_cast<uint8_t>(_s_tile$core$c$_csignals_T_21[L].val) & 0x1u)) != 0))) | (((static_cast<uint8_t>(((((static_cast<uint8_t>(0x5u) & 0xfu)) & ((uint8_t)0 - (uint8_t)(((static_cast<uint8_t>(_s_tile$core$c$_csignals_T_23[L].val) & 0x1u)) != 0))) | (((static_cast<uint8_t>(((((static_cast<uint8_t>(0x6u) & 0xfu)) & ((uint8_t)0 - (uint8_t)(((static_cast<uint8_t>(_s_tile$core$c$_csignals_T_25[L].val) & 0x1u)) != 0))) | (((static_cast<uint8_t>(((((static_cast<uint8_t>(0x7u) & 0xfu)) & ((uint8_t)0 - (uint8_t)(((static_cast<uint8_t>(_s_tile$core$c$_csignals_T_27[L].val) & 0x1u)) != 0))) | (((static_cast<uint8_t>(((((static_cast<uint8_t>(0x8u) & 0xfu)) & ((uint8_t)0 - (uint8_t)(((static_cast<uint8_t>(_s_tile$core$c$_csignals_T_29[L].val) & 0x1u)) != 0))) | (((static_cast<uint8_t>(((((static_cast<uint8_t>(0x9u) & 0xfu)) & ((uint8_t)0 - (uint8_t)(((static_cast<uint8_t>(_s_tile$core$c$_csignals_T_31[L].val) & 0x1u)) != 0))) | (((static_cast<uint8_t>(((((static_cast<uint8_t>(0x2u) & 0xfu)) & ((uint8_t)0 - (uint8_t)(((static_cast<uint8_t>(_s_tile$core$c$_csignals_T_33[L].val) & 0x1u)) != 0))) | (((static_cast<uint8_t>(((((static_cast<uint8_t>(0x4u) & 0xfu)) & ((uint8_t)0 - (uint8_t)(((static_cast<uint8_t>(_s_tile$core$c$_csignals_T_35[L].val) & 0x1u)) != 0))) | (((static_cast<uint8_t>(((((static_cast<uint8_t>(0x3u) & 0xfu)) & ((uint8_t)0 - (uint8_t)(((static_cast<uint8_t>(_s_tile$core$c$_csignals_T_37[L].val) & 0x1u)) != 0))) | (((static_cast<uint8_t>(((((static_cast<uint8_t>(0x2u) & 0xfu)) & ((uint8_t)0 - (uint8_t)(((static_cast<uint8_t>(_s_tile$core$c$_csignals_T_39[L].val) & 0x1u)) != 0))) | (((static_cast<uint8_t>(((((static_cast<uint8_t>(0x0u) & 0xfu)) & ((uint8_t)0 - (uint8_t)(((static_cast<uint8_t>(_s_tile$core$c$_csignals_T_41[L].val) & 0x1u)) != 0))) | (((static_cast<uint8_t>(((((static_cast<uint8_t>(0x1u) & 0xfu)) & ((uint8_t)0 - (uint8_t)(((static_cast<uint8_t>(_s_tile$core$c$_csignals_T_43[L].val) & 0x1u)) != 0))) | (((static_cast<uint8_t>(((((static_cast<uint8_t>(0x8u) & 0xfu)) & ((uint8_t)0 - (uint8_t)(((static_cast<uint8_t>(_s_tile$core$c$_csignals_T_45[L].val) & 0x1u)) != 0))) | ((_v2_local_313_0.val) & ~((uint8_t)0 - (uint8_t)(((static_cast<uint8_t>(_s_tile$core$c$_csignals_T_45[L].val) & 0x1u)) != 0))))) & 0xfu)) & ~((uint8_t)0 - (uint8_t)(((static_cast<uint8_t>(_s_tile$core$c$_csignals_T_43[L].val) & 0x1u)) != 0))))) & 0xfu)) & ~((uint8_t)0 - (uint8_t)(((static_cast<uint8_t>(_s_tile$core$c$_csignals_T_41[L].val) & 0x1u)) != 0))))) & 0xfu)) & ~((uint8_t)0 - (uint8_t)(((static_cast<uint8_t>(_s_tile$core$c$_csignals_T_39[L].val) & 0x1u)) != 0))))) & 0xfu)) & ~((uint8_t)0 - (uint8_t)(((static_cast<uint8_t>(_s_tile$core$c$_csignals_T_37[L].val) & 0x1u)) != 0))))) & 0xfu)) & ~((uint8_t)0 - (uint8_t)(((static_cast<uint8_t>(_s_tile$core$c$_csignals_T_35[L].val) & 0x1u)) != 0))))) & 0xfu)) & ~((uint8_t)0 - (uint8_t)(((static_cast<uint8_t>(_s_tile$core$c$_csignals_T_33[L].val) & 0x1u)) != 0))))) & 0xfu)) & ~((uint8_t)0 - (uint8_t)(((static_cast<uint8_t>(_s_tile$core$c$_csignals_T_31[L].val) & 0x1u)) != 0))))) & 0xfu)) & ~((uint8_t)0 - (uint8_t)(((static_cast<uint8_t>(_s_tile$core$c$_csignals_T_29[L].val) & 0x1u)) != 0))))) & 0xfu)) & ~((uint8_t)0 - (uint8_t)(((static_cast<uint8_t>(_s_tile$core$c$_csignals_T_27[L].val) & 0x1u)) != 0))))) & 0xfu)) & ~((uint8_t)0 - (uint8_t)(((static_cast<uint8_t>(_s_tile$core$c$_csignals_T_25[L].val) & 0x1u)) != 0))))) & 0xfu)) & ~((uint8_t)0 - (uint8_t)(((static_cast<uint8_t>(_s_tile$core$c$_csignals_T_23[L].val) & 0x1u)) != 0))))) & 0xfu)) & ~((uint8_t)0 - (uint8_t)(((static_cast<uint8_t>(_s_tile$core$c$_csignals_T_21[L].val) & 0x1u)) != 0))))) & 0xfu)) & ~((uint8_t)0 - (uint8_t)(((static_cast<uint8_t>(_s_tile$core$c$_csignals_T_19[L].val) & 0x1u)) != 0))))) & 0xfu)) & ~((uint8_t)0 - (uint8_t)(((static_cast<uint8_t>(_s_tile$core$c$_csignals_T_17[L].val) & 0x1u)) != 0))))) & 0xfu)) & ~((uint8_t)0 - (uint8_t)(((static_cast<uint8_t>(_s_tile$core$c$_csignals_T_15[L].val) & 0x1u)) != 0))))) & 0xfu)) & ~((uint8_t)0 - (uint8_t)(((static_cast<uint8_t>(_s_tile$core$c$_csignals_T_13[L].val) & 0x1u)) != 0))))) & 0xfu)) & ~((uint8_t)0 - (uint8_t)(((static_cast<uint8_t>(_s_tile$core$c$_csignals_T_11[L].val) & 0x1u)) != 0))))) & 0xfu)) & ~((uint8_t)0 - (uint8_t)(((static_cast<uint8_t>(_s_tile$core$c$_csignals_T_9[L].val) & 0x1u)) != 0))))) & 0xfu)) & ~((uint8_t)0 - (uint8_t)(((static_cast<uint8_t>(_s_tile$core$c$_csignals_T_7[L].val) & 0x1u)) != 0))))) & 0xfu)) & 0xfu));
+      _s_lut$v_3[L] = UInt<4>(_lut_lut$v_3[essent_to_u64(_s_lut$idx_1[L])]);
     }
     ESSENT_LANE_LOOP
     for (int L = 0; L < 4; L++) {
-      // [v2 lane-local] lut$v_4 _v2_local_2427_0
-      UInt<2> _v2_local_2427_0;
-      // [v2 lane-local] tile.core.c._csignals_T_469 _v2_local_355_0
-      UInt<2> _v2_local_355_0;
+      // [v2 lane-local] lut$v_4 _v2_local_2465_0
+      UInt<2> _v2_local_2465_0;
+      // [v2 lane-local] tile.core.c._csignals_T_420 _v2_local_313_0
+      UInt<4> _v2_local_313_0;
+      // [v2 lane-local] tile.core.c._csignals_T_440 _v2_local_333_0
+      UInt<4> _v2_local_333_0;
+      _v2_local_313_0.val = static_cast<typename UInt<4>::scalar_t>((static_cast<uint8_t>(_s_lut$v_3[L].val) & 0xfu));
+      _v2_local_333_0.val = static_cast<typename UInt<4>::scalar_t>((static_cast<uint8_t>((static_cast<uint8_t>(((((static_cast<uint8_t>(0x0u) & 0xfu)) & ((uint8_t)0 - (uint8_t)(((static_cast<uint8_t>(_s_tile$core$c$_csignals_T_7[L].val) & 0x1u)) != 0))) | (((static_cast<uint8_t>(((((static_cast<uint8_t>(0x0u) & 0xfu)) & ((uint8_t)0 - (uint8_t)(((static_cast<uint8_t>(_s_tile$core$c$_csignals_T_9[L].val) & 0x1u)) != 0))) | (((static_cast<uint8_t>(((((static_cast<uint8_t>(0x0u) & 0xfu)) & ((uint8_t)0 - (uint8_t)(((static_cast<uint8_t>(_s_tile$core$c$_csignals_T_11[L].val) & 0x1u)) != 0))) | (((static_cast<uint8_t>(((((static_cast<uint8_t>(0x0u) & 0xfu)) & ((uint8_t)0 - (uint8_t)(((static_cast<uint8_t>(_s_tile$core$c$_csignals_T_13[L].val) & 0x1u)) != 0))) | (((static_cast<uint8_t>(((((static_cast<uint8_t>(0x0u) & 0xfu)) & ((uint8_t)0 - (uint8_t)(((static_cast<uint8_t>(_s_tile$core$c$_csignals_T_15[L].val) & 0x1u)) != 0))) | (((static_cast<uint8_t>(((((static_cast<uint8_t>(0x0u) & 0xfu)) & ((uint8_t)0 - (uint8_t)(((static_cast<uint8_t>(_s_tile$core$c$_csignals_T_17[L].val) & 0x1u)) != 0))) | (((static_cast<uint8_t>(((((static_cast<uint8_t>(0xbu) & 0xfu)) & ((uint8_t)0 - (uint8_t)(((static_cast<uint8_t>(_s_tile$core$c$_csignals_T_19[L].val) & 0x1u)) != 0))) | (((static_cast<uint8_t>(((((static_cast<uint8_t>(0x0u) & 0xfu)) & ((uint8_t)0 - (uint8_t)(((static_cast<uint8_t>(_s_tile$core$c$_csignals_T_21[L].val) & 0x1u)) != 0))) | (((static_cast<uint8_t>(((((static_cast<uint8_t>(0x5u) & 0xfu)) & ((uint8_t)0 - (uint8_t)(((static_cast<uint8_t>(_s_tile$core$c$_csignals_T_23[L].val) & 0x1u)) != 0))) | (((static_cast<uint8_t>(((((static_cast<uint8_t>(0x6u) & 0xfu)) & ((uint8_t)0 - (uint8_t)(((static_cast<uint8_t>(_s_tile$core$c$_csignals_T_25[L].val) & 0x1u)) != 0))) | (((static_cast<uint8_t>(((((static_cast<uint8_t>(0x7u) & 0xfu)) & ((uint8_t)0 - (uint8_t)(((static_cast<uint8_t>(_s_tile$core$c$_csignals_T_27[L].val) & 0x1u)) != 0))) | (((static_cast<uint8_t>(((((static_cast<uint8_t>(0x8u) & 0xfu)) & ((uint8_t)0 - (uint8_t)(((static_cast<uint8_t>(_s_tile$core$c$_csignals_T_29[L].val) & 0x1u)) != 0))) | (((static_cast<uint8_t>(((((static_cast<uint8_t>(0x9u) & 0xfu)) & ((uint8_t)0 - (uint8_t)(((static_cast<uint8_t>(_s_tile$core$c$_csignals_T_31[L].val) & 0x1u)) != 0))) | (((static_cast<uint8_t>(((((static_cast<uint8_t>(0x2u) & 0xfu)) & ((uint8_t)0 - (uint8_t)(((static_cast<uint8_t>(_s_tile$core$c$_csignals_T_33[L].val) & 0x1u)) != 0))) | (((static_cast<uint8_t>(((((static_cast<uint8_t>(0x4u) & 0xfu)) & ((uint8_t)0 - (uint8_t)(((static_cast<uint8_t>(_s_tile$core$c$_csignals_T_35[L].val) & 0x1u)) != 0))) | (((static_cast<uint8_t>(((((static_cast<uint8_t>(0x3u) & 0xfu)) & ((uint8_t)0 - (uint8_t)(((static_cast<uint8_t>(_s_tile$core$c$_csignals_T_37[L].val) & 0x1u)) != 0))) | (((static_cast<uint8_t>(((((static_cast<uint8_t>(0x2u) & 0xfu)) & ((uint8_t)0 - (uint8_t)(((static_cast<uint8_t>(_s_tile$core$c$_csignals_T_39[L].val) & 0x1u)) != 0))) | (((static_cast<uint8_t>(((((static_cast<uint8_t>(0x0u) & 0xfu)) & ((uint8_t)0 - (uint8_t)(((static_cast<uint8_t>(_s_tile$core$c$_csignals_T_41[L].val) & 0x1u)) != 0))) | (((static_cast<uint8_t>(((((static_cast<uint8_t>(0x1u) & 0xfu)) & ((uint8_t)0 - (uint8_t)(((static_cast<uint8_t>(_s_tile$core$c$_csignals_T_43[L].val) & 0x1u)) != 0))) | (((static_cast<uint8_t>(((((static_cast<uint8_t>(0x8u) & 0xfu)) & ((uint8_t)0 - (uint8_t)(((static_cast<uint8_t>(_s_tile$core$c$_csignals_T_45[L].val) & 0x1u)) != 0))) | ((_v2_local_313_0.val) & ~((uint8_t)0 - (uint8_t)(((static_cast<uint8_t>(_s_tile$core$c$_csignals_T_45[L].val) & 0x1u)) != 0))))) & 0xfu)) & ~((uint8_t)0 - (uint8_t)(((static_cast<uint8_t>(_s_tile$core$c$_csignals_T_43[L].val) & 0x1u)) != 0))))) & 0xfu)) & ~((uint8_t)0 - (uint8_t)(((static_cast<uint8_t>(_s_tile$core$c$_csignals_T_41[L].val) & 0x1u)) != 0))))) & 0xfu)) & ~((uint8_t)0 - (uint8_t)(((static_cast<uint8_t>(_s_tile$core$c$_csignals_T_39[L].val) & 0x1u)) != 0))))) & 0xfu)) & ~((uint8_t)0 - (uint8_t)(((static_cast<uint8_t>(_s_tile$core$c$_csignals_T_37[L].val) & 0x1u)) != 0))))) & 0xfu)) & ~((uint8_t)0 - (uint8_t)(((static_cast<uint8_t>(_s_tile$core$c$_csignals_T_35[L].val) & 0x1u)) != 0))))) & 0xfu)) & ~((uint8_t)0 - (uint8_t)(((static_cast<uint8_t>(_s_tile$core$c$_csignals_T_33[L].val) & 0x1u)) != 0))))) & 0xfu)) & ~((uint8_t)0 - (uint8_t)(((static_cast<uint8_t>(_s_tile$core$c$_csignals_T_31[L].val) & 0x1u)) != 0))))) & 0xfu)) & ~((uint8_t)0 - (uint8_t)(((static_cast<uint8_t>(_s_tile$core$c$_csignals_T_29[L].val) & 0x1u)) != 0))))) & 0xfu)) & ~((uint8_t)0 - (uint8_t)(((static_cast<uint8_t>(_s_tile$core$c$_csignals_T_27[L].val) & 0x1u)) != 0))))) & 0xfu)) & ~((uint8_t)0 - (uint8_t)(((static_cast<uint8_t>(_s_tile$core$c$_csignals_T_25[L].val) & 0x1u)) != 0))))) & 0xfu)) & ~((uint8_t)0 - (uint8_t)(((static_cast<uint8_t>(_s_tile$core$c$_csignals_T_23[L].val) & 0x1u)) != 0))))) & 0xfu)) & ~((uint8_t)0 - (uint8_t)(((static_cast<uint8_t>(_s_tile$core$c$_csignals_T_21[L].val) & 0x1u)) != 0))))) & 0xfu)) & ~((uint8_t)0 - (uint8_t)(((static_cast<uint8_t>(_s_tile$core$c$_csignals_T_19[L].val) & 0x1u)) != 0))))) & 0xfu)) & ~((uint8_t)0 - (uint8_t)(((static_cast<uint8_t>(_s_tile$core$c$_csignals_T_17[L].val) & 0x1u)) != 0))))) & 0xfu)) & ~((uint8_t)0 - (uint8_t)(((static_cast<uint8_t>(_s_tile$core$c$_csignals_T_15[L].val) & 0x1u)) != 0))))) & 0xfu)) & ~((uint8_t)0 - (uint8_t)(((static_cast<uint8_t>(_s_tile$core$c$_csignals_T_13[L].val) & 0x1u)) != 0))))) & 0xfu)) & ~((uint8_t)0 - (uint8_t)(((static_cast<uint8_t>(_s_tile$core$c$_csignals_T_11[L].val) & 0x1u)) != 0))))) & 0xfu)) & ~((uint8_t)0 - (uint8_t)(((static_cast<uint8_t>(_s_tile$core$c$_csignals_T_9[L].val) & 0x1u)) != 0))))) & 0xfu)) & ~((uint8_t)0 - (uint8_t)(((static_cast<uint8_t>(_s_tile$core$c$_csignals_T_7[L].val) & 0x1u)) != 0))))) & 0xfu)) & 0xfu));
+      _s_tile$core$c$io_ctl_alu_fun[L].val = static_cast<typename UInt<4>::scalar_t>((static_cast<uint8_t>((static_cast<uint8_t>(((((static_cast<uint8_t>(0x0u) & 0xfu)) & ((uint8_t)0 - (uint8_t)(((static_cast<uint8_t>(_s_tile$core$c$_csignals_T_1[L].val) & 0x1u)) != 0))) | (((static_cast<uint8_t>(((((static_cast<uint8_t>(0x0u) & 0xfu)) & ((uint8_t)0 - (uint8_t)(((static_cast<uint8_t>(_s_tile$core$c$_csignals_T_3[L].val) & 0x1u)) != 0))) | (((static_cast<uint8_t>(((((static_cast<uint8_t>(0x0u) & 0xfu)) & ((uint8_t)0 - (uint8_t)(((static_cast<uint8_t>(_s_tile$core$c$_csignals_T_5[L].val) & 0x1u)) != 0))) | ((_v2_local_333_0.val) & ~((uint8_t)0 - (uint8_t)(((static_cast<uint8_t>(_s_tile$core$c$_csignals_T_5[L].val) & 0x1u)) != 0))))) & 0xfu)) & ~((uint8_t)0 - (uint8_t)(((static_cast<uint8_t>(_s_tile$core$c$_csignals_T_3[L].val) & 0x1u)) != 0))))) & 0xfu)) & ~((uint8_t)0 - (uint8_t)(((static_cast<uint8_t>(_s_tile$core$c$_csignals_T_1[L].val) & 0x1u)) != 0))))) & 0xfu)) & 0xfu));
+      _s_tile$core$d$exe_reg_ctrl_alu_fun$wdata[L].val = static_cast<typename UInt<4>::scalar_t>((static_cast<uint8_t>(_s_tile$core$c$io_ctl_alu_fun[L].val) & 0xfu));
+      _v2_local_2465_0 = UInt<2>(_lut_lut$v_4[essent_to_u64(_s_lut$idx_1[L])]);
+      _s_tile$core$c$_csignals_T_469[L].val = static_cast<typename UInt<2>::scalar_t>((static_cast<uint8_t>(_v2_local_2465_0.val) & 0x3u));
+    }
+    ESSENT_LANE_LOOP
+    for (int L = 0; L < 4; L++) {
       // [v2 lane-local] tile.core.c._csignals_T_489 _v2_local_375_0
       UInt<2> _v2_local_375_0;
-      _s_tile$core$c$io_ctl_alu_fun[L].val = static_cast<typename UInt<4>::scalar_t>((static_cast<uint8_t>((static_cast<uint8_t>(((((static_cast<uint8_t>(0x0u) & 0xfu)) & ((uint8_t)0 - (uint8_t)(((static_cast<uint8_t>(_s_tile$core$c$_csignals_T_1[L].val) & 0x1u)) != 0))) | (((static_cast<uint8_t>(((((static_cast<uint8_t>(0x0u) & 0xfu)) & ((uint8_t)0 - (uint8_t)(((static_cast<uint8_t>(_s_tile$core$c$_csignals_T_3[L].val) & 0x1u)) != 0))) | (((static_cast<uint8_t>(((((static_cast<uint8_t>(0x0u) & 0xfu)) & ((uint8_t)0 - (uint8_t)(((static_cast<uint8_t>(_s_tile$core$c$_csignals_T_5[L].val) & 0x1u)) != 0))) | ((_s_tile$core$c$_csignals_T_440[L].val) & ~((uint8_t)0 - (uint8_t)(((static_cast<uint8_t>(_s_tile$core$c$_csignals_T_5[L].val) & 0x1u)) != 0))))) & 0xfu)) & ~((uint8_t)0 - (uint8_t)(((static_cast<uint8_t>(_s_tile$core$c$_csignals_T_3[L].val) & 0x1u)) != 0))))) & 0xfu)) & ~((uint8_t)0 - (uint8_t)(((static_cast<uint8_t>(_s_tile$core$c$_csignals_T_1[L].val) & 0x1u)) != 0))))) & 0xfu)) & 0xfu));
-      _s_tile$core$d$exe_reg_ctrl_alu_fun$wdata[L].val = static_cast<typename UInt<4>::scalar_t>((static_cast<uint8_t>(_s_tile$core$c$io_ctl_alu_fun[L].val) & 0xfu));
-      _v2_local_2427_0 = UInt<2>(_lut_lut$v_4[essent_to_u64(_s_lut$idx_1[L])]);
-      _v2_local_355_0.val = static_cast<typename UInt<2>::scalar_t>((static_cast<uint8_t>(_v2_local_2427_0.val) & 0x3u));
-      _v2_local_375_0.val = static_cast<typename UInt<2>::scalar_t>((static_cast<uint8_t>((static_cast<uint8_t>(((((static_cast<uint8_t>(0x1u) & 0x3u)) & ((uint8_t)0 - (uint8_t)(((static_cast<uint8_t>(_s_tile$core$c$_csignals_T_7[L].val) & 0x1u)) != 0))) | (((static_cast<uint8_t>(((((static_cast<uint8_t>(0x1u) & 0x3u)) & ((uint8_t)0 - (uint8_t)(((static_cast<uint8_t>(_s_tile$core$c$_csignals_T_9[L].val) & 0x1u)) != 0))) | (((static_cast<uint8_t>(((((static_cast<uint8_t>(0x0u) & 0x3u)) & ((uint8_t)0 - (uint8_t)(((static_cast<uint8_t>(_s_tile$core$c$_csignals_T_11[L].val) & 0x1u)) != 0))) | (((static_cast<uint8_t>(((((static_cast<uint8_t>(0x0u) & 0x3u)) & ((uint8_t)0 - (uint8_t)(((static_cast<uint8_t>(_s_tile$core$c$_csignals_T_13[L].val) & 0x1u)) != 0))) | (((static_cast<uint8_t>(((((static_cast<uint8_t>(0x0u) & 0x3u)) & ((uint8_t)0 - (uint8_t)(((static_cast<uint8_t>(_s_tile$core$c$_csignals_T_15[L].val) & 0x1u)) != 0))) | (((static_cast<uint8_t>(((((static_cast<uint8_t>(0x0u) & 0x3u)) & ((uint8_t)0 - (uint8_t)(((static_cast<uint8_t>(_s_tile$core$c$_csignals_T_17[L].val) & 0x1u)) != 0))) | (((static_cast<uint8_t>(((((static_cast<uint8_t>(0x0u) & 0x3u)) & ((uint8_t)0 - (uint8_t)(((static_cast<uint8_t>(_s_tile$core$c$_csignals_T_19[L].val) & 0x1u)) != 0))) | (((static_cast<uint8_t>(((((static_cast<uint8_t>(0x0u) & 0x3u)) & ((uint8_t)0 - (uint8_t)(((static_cast<uint8_t>(_s_tile$core$c$_csignals_T_21[L].val) & 0x1u)) != 0))) | (((static_cast<uint8_t>(((((static_cast<uint8_t>(0x0u) & 0x3u)) & ((uint8_t)0 - (uint8_t)(((static_cast<uint8_t>(_s_tile$core$c$_csignals_T_23[L].val) & 0x1u)) != 0))) | (((static_cast<uint8_t>(((((static_cast<uint8_t>(0x0u) & 0x3u)) & ((uint8_t)0 - (uint8_t)(((static_cast<uint8_t>(_s_tile$core$c$_csignals_T_25[L].val) & 0x1u)) != 0))) | (((static_cast<uint8_t>(((((static_cast<uint8_t>(0x0u) & 0x3u)) & ((uint8_t)0 - (uint8_t)(((static_cast<uint8_t>(_s_tile$core$c$_csignals_T_27[L].val) & 0x1u)) != 0))) | (((static_cast<uint8_t>(((((static_cast<uint8_t>(0x0u) & 0x3u)) & ((uint8_t)0 - (uint8_t)(((static_cast<uint8_t>(_s_tile$core$c$_csignals_T_29[L].val) & 0x1u)) != 0))) | (((static_cast<uint8_t>(((((static_cast<uint8_t>(0x0u) & 0x3u)) & ((uint8_t)0 - (uint8_t)(((static_cast<uint8_t>(_s_tile$core$c$_csignals_T_31[L].val) & 0x1u)) != 0))) | (((static_cast<uint8_t>(((((static_cast<uint8_t>(0x0u) & 0x3u)) & ((uint8_t)0 - (uint8_t)(((static_cast<uint8_t>(_s_tile$core$c$_csignals_T_33[L].val) & 0x1u)) != 0))) | (((static_cast<uint8_t>(((((static_cast<uint8_t>(0x0u) & 0x3u)) & ((uint8_t)0 - (uint8_t)(((static_cast<uint8_t>(_s_tile$core$c$_csignals_T_35[L].val) & 0x1u)) != 0))) | (((static_cast<uint8_t>(((((static_cast<uint8_t>(0x0u) & 0x3u)) & ((uint8_t)0 - (uint8_t)(((static_cast<uint8_t>(_s_tile$core$c$_csignals_T_37[L].val) & 0x1u)) != 0))) | (((static_cast<uint8_t>(((((static_cast<uint8_t>(0x0u) & 0x3u)) & ((uint8_t)0 - (uint8_t)(((static_cast<uint8_t>(_s_tile$core$c$_csignals_T_39[L].val) & 0x1u)) != 0))) | (((static_cast<uint8_t>(((((static_cast<uint8_t>(0x0u) & 0x3u)) & ((uint8_t)0 - (uint8_t)(((static_cast<uint8_t>(_s_tile$core$c$_csignals_T_41[L].val) & 0x1u)) != 0))) | (((static_cast<uint8_t>(((((static_cast<uint8_t>(0x0u) & 0x3u)) & ((uint8_t)0 - (uint8_t)(((static_cast<uint8_t>(_s_tile$core$c$_csignals_T_43[L].val) & 0x1u)) != 0))) | (((static_cast<uint8_t>(((((static_cast<uint8_t>(0x0u) & 0x3u)) & ((uint8_t)0 - (uint8_t)(((static_cast<uint8_t>(_s_tile$core$c$_csignals_T_45[L].val) & 0x1u)) != 0))) | ((_v2_local_355_0.val) & ~((uint8_t)0 - (uint8_t)(((static_cast<uint8_t>(_s_tile$core$c$_csignals_T_45[L].val) & 0x1u)) != 0))))) & 0x3u)) & ~((uint8_t)0 - (uint8_t)(((static_cast<uint8_t>(_s_tile$core$c$_csignals_T_43[L].val) & 0x1u)) != 0))))) & 0x3u)) & ~((uint8_t)0 - (uint8_t)(((static_cast<uint8_t>(_s_tile$core$c$_csignals_T_41[L].val) & 0x1u)) != 0))))) & 0x3u)) & ~((uint8_t)0 - (uint8_t)(((static_cast<uint8_t>(_s_tile$core$c$_csignals_T_39[L].val) & 0x1u)) != 0))))) & 0x3u)) & ~((uint8_t)0 - (uint8_t)(((static_cast<uint8_t>(_s_tile$core$c$_csignals_T_37[L].val) & 0x1u)) != 0))))) & 0x3u)) & ~((uint8_t)0 - (uint8_t)(((static_cast<uint8_t>(_s_tile$core$c$_csignals_T_35[L].val) & 0x1u)) != 0))))) & 0x3u)) & ~((uint8_t)0 - (uint8_t)(((static_cast<uint8_t>(_s_tile$core$c$_csignals_T_33[L].val) & 0x1u)) != 0))))) & 0x3u)) & ~((uint8_t)0 - (uint8_t)(((static_cast<uint8_t>(_s_tile$core$c$_csignals_T_31[L].val) & 0x1u)) != 0))))) & 0x3u)) & ~((uint8_t)0 - (uint8_t)(((static_cast<uint8_t>(_s_tile$core$c$_csignals_T_29[L].val) & 0x1u)) != 0))))) & 0x3u)) & ~((uint8_t)0 - (uint8_t)(((static_cast<uint8_t>(_s_tile$core$c$_csignals_T_27[L].val) & 0x1u)) != 0))))) & 0x3u)) & ~((uint8_t)0 - (uint8_t)(((static_cast<uint8_t>(_s_tile$core$c$_csignals_T_25[L].val) & 0x1u)) != 0))))) & 0x3u)) & ~((uint8_t)0 - (uint8_t)(((static_cast<uint8_t>(_s_tile$core$c$_csignals_T_23[L].val) & 0x1u)) != 0))))) & 0x3u)) & ~((uint8_t)0 - (uint8_t)(((static_cast<uint8_t>(_s_tile$core$c$_csignals_T_21[L].val) & 0x1u)) != 0))))) & 0x3u)) & ~((uint8_t)0 - (uint8_t)(((static_cast<uint8_t>(_s_tile$core$c$_csignals_T_19[L].val) & 0x1u)) != 0))))) & 0x3u)) & ~((uint8_t)0 - (uint8_t)(((static_cast<uint8_t>(_s_tile$core$c$_csignals_T_17[L].val) & 0x1u)) != 0))))) & 0x3u)) & ~((uint8_t)0 - (uint8_t)(((static_cast<uint8_t>(_s_tile$core$c$_csignals_T_15[L].val) & 0x1u)) != 0))))) & 0x3u)) & ~((uint8_t)0 - (uint8_t)(((static_cast<uint8_t>(_s_tile$core$c$_csignals_T_13[L].val) & 0x1u)) != 0))))) & 0x3u)) & ~((uint8_t)0 - (uint8_t)(((static_cast<uint8_t>(_s_tile$core$c$_csignals_T_11[L].val) & 0x1u)) != 0))))) & 0x3u)) & ~((uint8_t)0 - (uint8_t)(((static_cast<uint8_t>(_s_tile$core$c$_csignals_T_9[L].val) & 0x1u)) != 0))))) & 0x3u)) & ~((uint8_t)0 - (uint8_t)(((static_cast<uint8_t>(_s_tile$core$c$_csignals_T_7[L].val) & 0x1u)) != 0))))) & 0x3u)) & 0x3u));
+      _v2_local_375_0.val = static_cast<typename UInt<2>::scalar_t>((static_cast<uint8_t>((static_cast<uint8_t>(((((static_cast<uint8_t>(0x1u) & 0x3u)) & ((uint8_t)0 - (uint8_t)(((static_cast<uint8_t>(_s_tile$core$c$_csignals_T_7[L].val) & 0x1u)) != 0))) | (((static_cast<uint8_t>(((((static_cast<uint8_t>(0x1u) & 0x3u)) & ((uint8_t)0 - (uint8_t)(((static_cast<uint8_t>(_s_tile$core$c$_csignals_T_9[L].val) & 0x1u)) != 0))) | (((static_cast<uint8_t>(((((static_cast<uint8_t>(0x0u) & 0x3u)) & ((uint8_t)0 - (uint8_t)(((static_cast<uint8_t>(_s_tile$core$c$_csignals_T_11[L].val) & 0x1u)) != 0))) | (((static_cast<uint8_t>(((((static_cast<uint8_t>(0x0u) & 0x3u)) & ((uint8_t)0 - (uint8_t)(((static_cast<uint8_t>(_s_tile$core$c$_csignals_T_13[L].val) & 0x1u)) != 0))) | (((static_cast<uint8_t>(((((static_cast<uint8_t>(0x0u) & 0x3u)) & ((uint8_t)0 - (uint8_t)(((static_cast<uint8_t>(_s_tile$core$c$_csignals_T_15[L].val) & 0x1u)) != 0))) | (((static_cast<uint8_t>(((((static_cast<uint8_t>(0x0u) & 0x3u)) & ((uint8_t)0 - (uint8_t)(((static_cast<uint8_t>(_s_tile$core$c$_csignals_T_17[L].val) & 0x1u)) != 0))) | (((static_cast<uint8_t>(((((static_cast<uint8_t>(0x0u) & 0x3u)) & ((uint8_t)0 - (uint8_t)(((static_cast<uint8_t>(_s_tile$core$c$_csignals_T_19[L].val) & 0x1u)) != 0))) | (((static_cast<uint8_t>(((((static_cast<uint8_t>(0x0u) & 0x3u)) & ((uint8_t)0 - (uint8_t)(((static_cast<uint8_t>(_s_tile$core$c$_csignals_T_21[L].val) & 0x1u)) != 0))) | (((static_cast<uint8_t>(((((static_cast<uint8_t>(0x0u) & 0x3u)) & ((uint8_t)0 - (uint8_t)(((static_cast<uint8_t>(_s_tile$core$c$_csignals_T_23[L].val) & 0x1u)) != 0))) | (((static_cast<uint8_t>(((((static_cast<uint8_t>(0x0u) & 0x3u)) & ((uint8_t)0 - (uint8_t)(((static_cast<uint8_t>(_s_tile$core$c$_csignals_T_25[L].val) & 0x1u)) != 0))) | (((static_cast<uint8_t>(((((static_cast<uint8_t>(0x0u) & 0x3u)) & ((uint8_t)0 - (uint8_t)(((static_cast<uint8_t>(_s_tile$core$c$_csignals_T_27[L].val) & 0x1u)) != 0))) | (((static_cast<uint8_t>(((((static_cast<uint8_t>(0x0u) & 0x3u)) & ((uint8_t)0 - (uint8_t)(((static_cast<uint8_t>(_s_tile$core$c$_csignals_T_29[L].val) & 0x1u)) != 0))) | (((static_cast<uint8_t>(((((static_cast<uint8_t>(0x0u) & 0x3u)) & ((uint8_t)0 - (uint8_t)(((static_cast<uint8_t>(_s_tile$core$c$_csignals_T_31[L].val) & 0x1u)) != 0))) | (((static_cast<uint8_t>(((((static_cast<uint8_t>(0x0u) & 0x3u)) & ((uint8_t)0 - (uint8_t)(((static_cast<uint8_t>(_s_tile$core$c$_csignals_T_33[L].val) & 0x1u)) != 0))) | (((static_cast<uint8_t>(((((static_cast<uint8_t>(0x0u) & 0x3u)) & ((uint8_t)0 - (uint8_t)(((static_cast<uint8_t>(_s_tile$core$c$_csignals_T_35[L].val) & 0x1u)) != 0))) | (((static_cast<uint8_t>(((((static_cast<uint8_t>(0x0u) & 0x3u)) & ((uint8_t)0 - (uint8_t)(((static_cast<uint8_t>(_s_tile$core$c$_csignals_T_37[L].val) & 0x1u)) != 0))) | (((static_cast<uint8_t>(((((static_cast<uint8_t>(0x0u) & 0x3u)) & ((uint8_t)0 - (uint8_t)(((static_cast<uint8_t>(_s_tile$core$c$_csignals_T_39[L].val) & 0x1u)) != 0))) | (((static_cast<uint8_t>(((((static_cast<uint8_t>(0x0u) & 0x3u)) & ((uint8_t)0 - (uint8_t)(((static_cast<uint8_t>(_s_tile$core$c$_csignals_T_41[L].val) & 0x1u)) != 0))) | (((static_cast<uint8_t>(((((static_cast<uint8_t>(0x0u) & 0x3u)) & ((uint8_t)0 - (uint8_t)(((static_cast<uint8_t>(_s_tile$core$c$_csignals_T_43[L].val) & 0x1u)) != 0))) | (((static_cast<uint8_t>(((((static_cast<uint8_t>(0x0u) & 0x3u)) & ((uint8_t)0 - (uint8_t)(((static_cast<uint8_t>(_s_tile$core$c$_csignals_T_45[L].val) & 0x1u)) != 0))) | ((_s_tile$core$c$_csignals_T_469[L].val) & ~((uint8_t)0 - (uint8_t)(((static_cast<uint8_t>(_s_tile$core$c$_csignals_T_45[L].val) & 0x1u)) != 0))))) & 0x3u)) & ~((uint8_t)0 - (uint8_t)(((static_cast<uint8_t>(_s_tile$core$c$_csignals_T_43[L].val) & 0x1u)) != 0))))) & 0x3u)) & ~((uint8_t)0 - (uint8_t)(((static_cast<uint8_t>(_s_tile$core$c$_csignals_T_41[L].val) & 0x1u)) != 0))))) & 0x3u)) & ~((uint8_t)0 - (uint8_t)(((static_cast<uint8_t>(_s_tile$core$c$_csignals_T_39[L].val) & 0x1u)) != 0))))) & 0x3u)) & ~((uint8_t)0 - (uint8_t)(((static_cast<uint8_t>(_s_tile$core$c$_csignals_T_37[L].val) & 0x1u)) != 0))))) & 0x3u)) & ~((uint8_t)0 - (uint8_t)(((static_cast<uint8_t>(_s_tile$core$c$_csignals_T_35[L].val) & 0x1u)) != 0))))) & 0x3u)) & ~((uint8_t)0 - (uint8_t)(((static_cast<uint8_t>(_s_tile$core$c$_csignals_T_33[L].val) & 0x1u)) != 0))))) & 0x3u)) & ~((uint8_t)0 - (uint8_t)(((static_cast<uint8_t>(_s_tile$core$c$_csignals_T_31[L].val) & 0x1u)) != 0))))) & 0x3u)) & ~((uint8_t)0 - (uint8_t)(((static_cast<uint8_t>(_s_tile$core$c$_csignals_T_29[L].val) & 0x1u)) != 0))))) & 0x3u)) & ~((uint8_t)0 - (uint8_t)(((static_cast<uint8_t>(_s_tile$core$c$_csignals_T_27[L].val) & 0x1u)) != 0))))) & 0x3u)) & ~((uint8_t)0 - (uint8_t)(((static_cast<uint8_t>(_s_tile$core$c$_csignals_T_25[L].val) & 0x1u)) != 0))))) & 0x3u)) & ~((uint8_t)0 - (uint8_t)(((static_cast<uint8_t>(_s_tile$core$c$_csignals_T_23[L].val) & 0x1u)) != 0))))) & 0x3u)) & ~((uint8_t)0 - (uint8_t)(((static_cast<uint8_t>(_s_tile$core$c$_csignals_T_21[L].val) & 0x1u)) != 0))))) & 0x3u)) & ~((uint8_t)0 - (uint8_t)(((static_cast<uint8_t>(_s_tile$core$c$_csignals_T_19[L].val) & 0x1u)) != 0))))) & 0x3u)) & ~((uint8_t)0 - (uint8_t)(((static_cast<uint8_t>(_s_tile$core$c$_csignals_T_17[L].val) & 0x1u)) != 0))))) & 0x3u)) & ~((uint8_t)0 - (uint8_t)(((static_cast<uint8_t>(_s_tile$core$c$_csignals_T_15[L].val) & 0x1u)) != 0))))) & 0x3u)) & ~((uint8_t)0 - (uint8_t)(((static_cast<uint8_t>(_s_tile$core$c$_csignals_T_13[L].val) & 0x1u)) != 0))))) & 0x3u)) & ~((uint8_t)0 - (uint8_t)(((static_cast<uint8_t>(_s_tile$core$c$_csignals_T_11[L].val) & 0x1u)) != 0))))) & 0x3u)) & ~((uint8_t)0 - (uint8_t)(((static_cast<uint8_t>(_s_tile$core$c$_csignals_T_9[L].val) & 0x1u)) != 0))))) & 0x3u)) & ~((uint8_t)0 - (uint8_t)(((static_cast<uint8_t>(_s_tile$core$c$_csignals_T_7[L].val) & 0x1u)) != 0))))) & 0x3u)) & 0x3u));
       _s_tile$core$c$io_ctl_wb_sel[L].val = static_cast<typename UInt<2>::scalar_t>((static_cast<uint8_t>((static_cast<uint8_t>(((((static_cast<uint8_t>(0x1u) & 0x3u)) & ((uint8_t)0 - (uint8_t)(((static_cast<uint8_t>(_s_tile$core$c$_csignals_T_1[L].val) & 0x1u)) != 0))) | (((static_cast<uint8_t>(((((static_cast<uint8_t>(0x1u) & 0x3u)) & ((uint8_t)0 - (uint8_t)(((static_cast<uint8_t>(_s_tile$core$c$_csignals_T_3[L].val) & 0x1u)) != 0))) | (((static_cast<uint8_t>(((((static_cast<uint8_t>(0x1u) & 0x3u)) & ((uint8_t)0 - (uint8_t)(((static_cast<uint8_t>(_s_tile$core$c$_csignals_T_5[L].val) & 0x1u)) != 0))) | ((_v2_local_375_0.val) & ~((uint8_t)0 - (uint8_t)(((static_cast<uint8_t>(_s_tile$core$c$_csignals_T_5[L].val) & 0x1u)) != 0))))) & 0x3u)) & ~((uint8_t)0 - (uint8_t)(((static_cast<uint8_t>(_s_tile$core$c$_csignals_T_3[L].val) & 0x1u)) != 0))))) & 0x3u)) & ~((uint8_t)0 - (uint8_t)(((static_cast<uint8_t>(_s_tile$core$c$_csignals_T_1[L].val) & 0x1u)) != 0))))) & 0x3u)) & 0x3u));
-    }
-    ESSENT_LANE_LOOP
-    for (int L = 0; L < 4; L++) {
-      _s_tile$core$d$exe_reg_ctrl_wb_sel$wdata[L].val = static_cast<typename UInt<2>::scalar_t>((static_cast<uint8_t>(_s_tile$core$c$io_ctl_wb_sel[L].val) & 0x3u));
     }
   }
 } SodorFullChip;

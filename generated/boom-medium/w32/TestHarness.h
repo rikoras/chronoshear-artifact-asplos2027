@@ -832,7 +832,7 @@ static inline void essent_affine_scan_rev(UInt<BW>* __restrict r, const UInt<1>*
   for (int L = W - 2; L >= 0; L--) r[L].val = static_cast<S>((keep[L + 1].val ? static_cast<S>(r[L + 1].val + add[L + 1].val) : add[L + 1].val) & M);
 }
 
-// v2 produced-local scratch, file-scope static (29489 arrays).
+// v2 produced-local scratch, file-scope static (29491 arrays).
 // Not per-Top-instance; eval overwrites scratch before use.
 alignas(32) extern UInt<1> _s___chisa_clock_enable_0[32];
 alignas(32) extern UInt<1> _s_debug_reset_syncd[32];
@@ -29742,6 +29742,8 @@ alignas(32) extern UInt<1> _s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$
 alignas(32) extern UInt<1> _s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$core$fp_pipeline$fpiu_unit$fdivsqrt$r_divsqrt_uop_br_mask$gwen[32];
 alignas(32) extern UInt<1> _s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$core$fp_pipeline$fpiu_unit$fdivsqrt$divsqrt$ds$divSqrtRecF64ToRaw$cycleNum_A$gwen[32];
 alignas(32) extern UInt<1> _s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$core$fp_pipeline$fpiu_unit$fdivsqrt$divsqrt$ds$divSqrtRecF64ToRaw$cycleNum_E$gwen[32];
+alignas(32) extern UInt<1> _s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$core$rename_stage$busytable$busy_table$gwen[32];
+alignas(32) extern UInt<1> _s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$core$fp_rename_stage$busytable$busy_table$gwen[32];
 alignas(32) extern UInt<1> _s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$core$rob$r_xcpt_uop_rob_idx$gwen[32];
 alignas(32) extern UInt<1> _s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$core$rob$r_xcpt_badvaddr$gwen[32];
 alignas(32) extern UInt<1> _s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$core$rob$pnr_maybe_at_tail$gwen[32];

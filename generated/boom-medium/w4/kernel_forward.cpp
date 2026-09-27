@@ -68,7 +68,7 @@ void TestHarness::eval_forward(bool update_registers, bool verbose, bool done_re
     int16_t _v2_cond_idx_63[4];
     int16_t _v2_cond_idx_64[4];
     int16_t _v2_cond_idx_65[4];
-    // [v2 schedule] 46214 units, 936 serial regions (1642 templates x 4 lanes), 2838 oracle streams
+    // [v2 schedule] 46216 units, 936 serial regions (1642 templates x 4 lanes), 2838 oracle streams
     bool _v2_quiet_base = false;
     // [v2 eval chunk 0]
     [&]() ESSENT_NOINLINE {
@@ -30458,27 +30458,29 @@ void TestHarness::eval_forward(bool update_registers, bool verbose, bool done_re
       _s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$core$fp_pipeline$fpiu_unit$fdivsqrt$r_divsqrt_uop_br_mask$gwen[L].val = static_cast<typename UInt<1>::scalar_t>((static_cast<uint8_t>((static_cast<uint8_t>(0x1u) & 0x1u)) & 0x1u));
       _s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$core$fp_pipeline$fpiu_unit$fdivsqrt$divsqrt$ds$divSqrtRecF64ToRaw$cycleNum_A$gwen[L].val = static_cast<typename UInt<1>::scalar_t>((static_cast<uint8_t>((static_cast<uint8_t>(0x1u) & 0x1u)) & 0x1u));
       _s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$core$fp_pipeline$fpiu_unit$fdivsqrt$divsqrt$ds$divSqrtRecF64ToRaw$cycleNum_E$gwen[L].val = static_cast<typename UInt<1>::scalar_t>((static_cast<uint8_t>((static_cast<uint8_t>(0x1u) & 0x1u)) & 0x1u));
+      _s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$core$rename_stage$busytable$busy_table$gwen[L].val = static_cast<typename UInt<1>::scalar_t>((static_cast<uint8_t>((static_cast<uint8_t>(0x1u) & 0x1u)) & 0x1u));
+      _s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$core$fp_rename_stage$busytable$busy_table$gwen[L].val = static_cast<typename UInt<1>::scalar_t>((static_cast<uint8_t>((static_cast<uint8_t>(0x1u) & 0x1u)) & 0x1u));
       _s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$core$rob$pnr_maybe_at_tail$gwen[L].val = static_cast<typename UInt<1>::scalar_t>((static_cast<uint8_t>((static_cast<uint8_t>(0x1u) & 0x1u)) & 0x1u));
+    }
+    ESSENT_LANE_LOOP
+    for (int L = 0; L < 4; L++) {
       _s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$core$csr$reg_singleStepped$gwen[L].val = static_cast<typename UInt<1>::scalar_t>((static_cast<uint8_t>((static_cast<uint8_t>(0x1u) & 0x1u)) & 0x1u));
       _s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$core$csr$reg_mip_seip$gwen[L].val = static_cast<typename UInt<1>::scalar_t>((static_cast<uint8_t>((static_cast<uint8_t>(((_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$core$csr$csr_wen[L].val) & (_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$core$csr$_T_64[L].val))) & 0x1u)) & 0x1u));
     }
+    // [vec comb] 10 templates x 4 lanes
     ESSENT_LANE_LOOP
     for (int L = 0; L < 4; L++) {
       _s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$lsu$live_store_mask$gwen[L].val = static_cast<typename UInt<1>::scalar_t>((static_cast<uint8_t>((static_cast<uint8_t>(0x1u) & 0x1u)) & 0x1u));
       _s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$lsu$dtlb$state$gwen[L].val = static_cast<typename UInt<1>::scalar_t>((static_cast<uint8_t>((static_cast<uint8_t>(0x1u) & 0x1u)) & 0x1u));
-    }
-    // [vec comb] 8 templates x 4 lanes
-    ESSENT_LANE_LOOP
-    for (int L = 0; L < 4; L++) {
       _s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$ptw$valid_1_0$gwen[L].val = static_cast<typename UInt<1>::scalar_t>((static_cast<uint8_t>((static_cast<uint8_t>(0x1u) & 0x1u)) & 0x1u));
       _s_ldut$plicDomainWrapper$plic$gateways_gateway$inFlight$gwen[L].val = static_cast<typename UInt<1>::scalar_t>((static_cast<uint8_t>((static_cast<uint8_t>(0x1u) & 0x1u)) & 0x1u));
       _s_ldut$plicDomainWrapper$plic$gateways_gateway_1$inFlight$gwen[L].val = static_cast<typename UInt<1>::scalar_t>((static_cast<uint8_t>((static_cast<uint8_t>(0x1u) & 0x1u)) & 0x1u));
       _s_ldut$clint$time$gwen[L].val = static_cast<typename UInt<1>::scalar_t>((static_cast<uint8_t>((static_cast<uint8_t>(0x1u) & 0x1u)) & 0x1u));
-      _s_ldut$debug_1$dmOuter$dmOuter$hrmaskReg_0$gwen[L].val = static_cast<typename UInt<1>::scalar_t>((static_cast<uint8_t>((static_cast<uint8_t>(0x1u) & 0x1u)) & 0x1u));
-      _s_ldut$debug_1$dmOuter$dmiBypass$bar$flight$gwen[L].val = static_cast<typename UInt<1>::scalar_t>((static_cast<uint8_t>((static_cast<uint8_t>(0x1u) & 0x1u)) & 0x1u));
     }
     ESSENT_LANE_LOOP
     for (int L = 0; L < 4; L++) {
+      _s_ldut$debug_1$dmOuter$dmOuter$hrmaskReg_0$gwen[L].val = static_cast<typename UInt<1>::scalar_t>((static_cast<uint8_t>((static_cast<uint8_t>(0x1u) & 0x1u)) & 0x1u));
+      _s_ldut$debug_1$dmOuter$dmiBypass$bar$flight$gwen[L].val = static_cast<typename UInt<1>::scalar_t>((static_cast<uint8_t>((static_cast<uint8_t>(0x1u) & 0x1u)) & 0x1u));
       _s_ldut$debug_1$dmOuter$asource$bundleIn_0_d_sink$ridx_ridx_bin$gwen[L].val = static_cast<typename UInt<1>::scalar_t>((static_cast<uint8_t>((static_cast<uint8_t>(0x1u) & 0x1u)) & 0x1u));
       _s_ldut$debug_1$dmOuter$io_innerCtrl_source$widx_widx_bin$gwen[L].val = static_cast<typename UInt<1>::scalar_t>((static_cast<uint8_t>((static_cast<uint8_t>(0x1u) & 0x1u)) & 0x1u));
     }
@@ -30486,158 +30488,159 @@ void TestHarness::eval_forward(bool update_registers, bool verbose, bool done_re
     if (UNLIKELY(!_v2_quiet_base)) {
       _v2_cold_comb_full(21);
     }
-    // [vec comb] 15 templates x 4 lanes
+    // [vec comb] 13 templates x 4 lanes
     ESSENT_LANE_LOOP
     for (int L = 0; L < 4; L++) {
-      // [v2 lane-local] lut$idx_0 _v2_local_133707_0
-      UInt<8> _v2_local_133707_0;
-      // [v2 lane-local] lut$v_0 _v2_local_133708_0
-      UInt<16> _v2_local_133708_0;
-      // [v2 lane-local] lut$v_1 _v2_local_133709_0
-      UInt<4> _v2_local_133709_0;
+      // [v2 lane-local] lut$idx_0 _v2_local_133756_0
+      UInt<8> _v2_local_133756_0;
+      // [v2 lane-local] lut$v_0 _v2_local_133757_0
+      UInt<16> _v2_local_133757_0;
+      // [v2 lane-local] lut$v_1 _v2_local_133758_0
+      UInt<4> _v2_local_133758_0;
       _s_mem$axi4frag$in_w_deq$maybe_full$gwen[L].val = static_cast<typename UInt<1>::scalar_t>((static_cast<uint8_t>((static_cast<uint8_t>(0x1u) & 0x1u)) & 0x1u));
-      _v2_local_133707_0.val = static_cast<typename UInt<8>::scalar_t>((static_cast<uint8_t>((static_cast<uint8_t>(((((static_cast<uint8_t>(0x0u) & 0xffu)) & ((uint8_t)0 - (uint8_t)(((static_cast<uint8_t>(_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$core$dec_brmask_logic$_T_37[L].val) & 0x1u)) != 0))) | (((static_cast<uint8_t>(((((static_cast<uint8_t>(0x1u) & 0xffu)) & ((uint8_t)0 - (uint8_t)(((static_cast<uint8_t>(_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$core$dec_brmask_logic$_T_34[L].val) & 0x1u)) != 0))) | (((static_cast<uint8_t>(((((static_cast<uint8_t>(0x2u) & 0xffu)) & ((uint8_t)0 - (uint8_t)(((static_cast<uint8_t>(_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$core$dec_brmask_logic$_T_31[L].val) & 0x1u)) != 0))) | (((static_cast<uint8_t>(((((static_cast<uint8_t>(0x3u) & 0xffu)) & ((uint8_t)0 - (uint8_t)(((static_cast<uint8_t>(_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$core$dec_brmask_logic$_T_28[L].val) & 0x1u)) != 0))) | (((static_cast<uint8_t>(((((static_cast<uint8_t>(0x4u) & 0xffu)) & ((uint8_t)0 - (uint8_t)(((static_cast<uint8_t>(_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$core$dec_brmask_logic$_T_25[L].val) & 0x1u)) != 0))) | (((static_cast<uint8_t>(((((static_cast<uint8_t>(0x5u) & 0xffu)) & ((uint8_t)0 - (uint8_t)(((static_cast<uint8_t>(_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$core$dec_brmask_logic$_T_22[L].val) & 0x1u)) != 0))) | (((static_cast<uint8_t>(((((static_cast<uint8_t>(0x6u) & 0xffu)) & ((uint8_t)0 - (uint8_t)(((static_cast<uint8_t>(_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$core$dec_brmask_logic$_T_19[L].val) & 0x1u)) != 0))) | (((static_cast<uint8_t>(((((static_cast<uint8_t>(0x7u) & 0xffu)) & ((uint8_t)0 - (uint8_t)(((static_cast<uint8_t>(_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$core$dec_brmask_logic$_T_16[L].val) & 0x1u)) != 0))) | (((static_cast<uint8_t>(((((static_cast<uint8_t>(0x8u) & 0xffu)) & ((uint8_t)0 - (uint8_t)(((static_cast<uint8_t>(_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$core$dec_brmask_logic$_T_13[L].val) & 0x1u)) != 0))) | (((static_cast<uint8_t>(((((static_cast<uint8_t>(0x9u) & 0xffu)) & ((uint8_t)0 - (uint8_t)(((static_cast<uint8_t>(_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$core$dec_brmask_logic$_T_10[L].val) & 0x1u)) != 0))) | (((static_cast<uint8_t>(((((static_cast<uint8_t>(0xau) & 0xffu)) & ((uint8_t)0 - (uint8_t)(((static_cast<uint8_t>(_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$core$dec_brmask_logic$_T_7[L].val) & 0x1u)) != 0))) | (((static_cast<uint8_t>(((((static_cast<uint8_t>(0xbu) & 0xffu)) & ((uint8_t)0 - (uint8_t)(((static_cast<uint8_t>(_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$core$dec_brmask_logic$_T_4[L].val) & 0x1u)) != 0))) | (((static_cast<uint8_t>(0xcu) & 0xffu)) & ~((uint8_t)0 - (uint8_t)(((static_cast<uint8_t>(_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$core$dec_brmask_logic$_T_4[L].val) & 0x1u)) != 0))))) & 0xffu)) & ~((uint8_t)0 - (uint8_t)(((static_cast<uint8_t>(_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$core$dec_brmask_logic$_T_7[L].val) & 0x1u)) != 0))))) & 0xffu)) & ~((uint8_t)0 - (uint8_t)(((static_cast<uint8_t>(_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$core$dec_brmask_logic$_T_10[L].val) & 0x1u)) != 0))))) & 0xffu)) & ~((uint8_t)0 - (uint8_t)(((static_cast<uint8_t>(_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$core$dec_brmask_logic$_T_13[L].val) & 0x1u)) != 0))))) & 0xffu)) & ~((uint8_t)0 - (uint8_t)(((static_cast<uint8_t>(_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$core$dec_brmask_logic$_T_16[L].val) & 0x1u)) != 0))))) & 0xffu)) & ~((uint8_t)0 - (uint8_t)(((static_cast<uint8_t>(_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$core$dec_brmask_logic$_T_19[L].val) & 0x1u)) != 0))))) & 0xffu)) & ~((uint8_t)0 - (uint8_t)(((static_cast<uint8_t>(_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$core$dec_brmask_logic$_T_22[L].val) & 0x1u)) != 0))))) & 0xffu)) & ~((uint8_t)0 - (uint8_t)(((static_cast<uint8_t>(_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$core$dec_brmask_logic$_T_25[L].val) & 0x1u)) != 0))))) & 0xffu)) & ~((uint8_t)0 - (uint8_t)(((static_cast<uint8_t>(_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$core$dec_brmask_logic$_T_28[L].val) & 0x1u)) != 0))))) & 0xffu)) & ~((uint8_t)0 - (uint8_t)(((static_cast<uint8_t>(_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$core$dec_brmask_logic$_T_31[L].val) & 0x1u)) != 0))))) & 0xffu)) & ~((uint8_t)0 - (uint8_t)(((static_cast<uint8_t>(_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$core$dec_brmask_logic$_T_34[L].val) & 0x1u)) != 0))))) & 0xffu)) & ~((uint8_t)0 - (uint8_t)(((static_cast<uint8_t>(_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$core$dec_brmask_logic$_T_37[L].val) & 0x1u)) != 0))))) & 0xffu)) & 0xffu));
-      _v2_local_133708_0 = UInt<16>(_lut_lut$v_0[essent_to_u64(_v2_local_133707_0)]);
-      _s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$core$dec_brmask_logic$_T_39[L].val = static_cast<typename UInt<12>::scalar_t>((static_cast<uint16_t>((static_cast<uint16_t>((((static_cast<uint16_t>(((static_cast<uint16_t>(_v2_local_133708_0.val) >> 0) & 0xfffu)) & 0xfffu)) | (ldut.tile_prci_domain.tile_reset_domain.boom_tile.core.dec_brmask_logic.branch_mask[L].val))) & 0xfffu)) & 0xfffu));
-      _v2_local_133709_0 = UInt<4>(_lut_lut$v_1[essent_to_u64(_v2_local_133707_0)]);
-      _s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$core$dec_brmask_logic$io_br_tag_0[L].val = static_cast<typename UInt<4>::scalar_t>((static_cast<uint8_t>(_v2_local_133709_0.val) & 0xfu));
+      _v2_local_133756_0.val = static_cast<typename UInt<8>::scalar_t>((static_cast<uint8_t>((static_cast<uint8_t>(((((static_cast<uint8_t>(0x0u) & 0xffu)) & ((uint8_t)0 - (uint8_t)(((static_cast<uint8_t>(_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$core$dec_brmask_logic$_T_37[L].val) & 0x1u)) != 0))) | (((static_cast<uint8_t>(((((static_cast<uint8_t>(0x1u) & 0xffu)) & ((uint8_t)0 - (uint8_t)(((static_cast<uint8_t>(_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$core$dec_brmask_logic$_T_34[L].val) & 0x1u)) != 0))) | (((static_cast<uint8_t>(((((static_cast<uint8_t>(0x2u) & 0xffu)) & ((uint8_t)0 - (uint8_t)(((static_cast<uint8_t>(_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$core$dec_brmask_logic$_T_31[L].val) & 0x1u)) != 0))) | (((static_cast<uint8_t>(((((static_cast<uint8_t>(0x3u) & 0xffu)) & ((uint8_t)0 - (uint8_t)(((static_cast<uint8_t>(_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$core$dec_brmask_logic$_T_28[L].val) & 0x1u)) != 0))) | (((static_cast<uint8_t>(((((static_cast<uint8_t>(0x4u) & 0xffu)) & ((uint8_t)0 - (uint8_t)(((static_cast<uint8_t>(_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$core$dec_brmask_logic$_T_25[L].val) & 0x1u)) != 0))) | (((static_cast<uint8_t>(((((static_cast<uint8_t>(0x5u) & 0xffu)) & ((uint8_t)0 - (uint8_t)(((static_cast<uint8_t>(_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$core$dec_brmask_logic$_T_22[L].val) & 0x1u)) != 0))) | (((static_cast<uint8_t>(((((static_cast<uint8_t>(0x6u) & 0xffu)) & ((uint8_t)0 - (uint8_t)(((static_cast<uint8_t>(_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$core$dec_brmask_logic$_T_19[L].val) & 0x1u)) != 0))) | (((static_cast<uint8_t>(((((static_cast<uint8_t>(0x7u) & 0xffu)) & ((uint8_t)0 - (uint8_t)(((static_cast<uint8_t>(_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$core$dec_brmask_logic$_T_16[L].val) & 0x1u)) != 0))) | (((static_cast<uint8_t>(((((static_cast<uint8_t>(0x8u) & 0xffu)) & ((uint8_t)0 - (uint8_t)(((static_cast<uint8_t>(_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$core$dec_brmask_logic$_T_13[L].val) & 0x1u)) != 0))) | (((static_cast<uint8_t>(((((static_cast<uint8_t>(0x9u) & 0xffu)) & ((uint8_t)0 - (uint8_t)(((static_cast<uint8_t>(_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$core$dec_brmask_logic$_T_10[L].val) & 0x1u)) != 0))) | (((static_cast<uint8_t>(((((static_cast<uint8_t>(0xau) & 0xffu)) & ((uint8_t)0 - (uint8_t)(((static_cast<uint8_t>(_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$core$dec_brmask_logic$_T_7[L].val) & 0x1u)) != 0))) | (((static_cast<uint8_t>(((((static_cast<uint8_t>(0xbu) & 0xffu)) & ((uint8_t)0 - (uint8_t)(((static_cast<uint8_t>(_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$core$dec_brmask_logic$_T_4[L].val) & 0x1u)) != 0))) | (((static_cast<uint8_t>(0xcu) & 0xffu)) & ~((uint8_t)0 - (uint8_t)(((static_cast<uint8_t>(_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$core$dec_brmask_logic$_T_4[L].val) & 0x1u)) != 0))))) & 0xffu)) & ~((uint8_t)0 - (uint8_t)(((static_cast<uint8_t>(_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$core$dec_brmask_logic$_T_7[L].val) & 0x1u)) != 0))))) & 0xffu)) & ~((uint8_t)0 - (uint8_t)(((static_cast<uint8_t>(_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$core$dec_brmask_logic$_T_10[L].val) & 0x1u)) != 0))))) & 0xffu)) & ~((uint8_t)0 - (uint8_t)(((static_cast<uint8_t>(_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$core$dec_brmask_logic$_T_13[L].val) & 0x1u)) != 0))))) & 0xffu)) & ~((uint8_t)0 - (uint8_t)(((static_cast<uint8_t>(_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$core$dec_brmask_logic$_T_16[L].val) & 0x1u)) != 0))))) & 0xffu)) & ~((uint8_t)0 - (uint8_t)(((static_cast<uint8_t>(_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$core$dec_brmask_logic$_T_19[L].val) & 0x1u)) != 0))))) & 0xffu)) & ~((uint8_t)0 - (uint8_t)(((static_cast<uint8_t>(_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$core$dec_brmask_logic$_T_22[L].val) & 0x1u)) != 0))))) & 0xffu)) & ~((uint8_t)0 - (uint8_t)(((static_cast<uint8_t>(_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$core$dec_brmask_logic$_T_25[L].val) & 0x1u)) != 0))))) & 0xffu)) & ~((uint8_t)0 - (uint8_t)(((static_cast<uint8_t>(_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$core$dec_brmask_logic$_T_28[L].val) & 0x1u)) != 0))))) & 0xffu)) & ~((uint8_t)0 - (uint8_t)(((static_cast<uint8_t>(_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$core$dec_brmask_logic$_T_31[L].val) & 0x1u)) != 0))))) & 0xffu)) & ~((uint8_t)0 - (uint8_t)(((static_cast<uint8_t>(_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$core$dec_brmask_logic$_T_34[L].val) & 0x1u)) != 0))))) & 0xffu)) & ~((uint8_t)0 - (uint8_t)(((static_cast<uint8_t>(_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$core$dec_brmask_logic$_T_37[L].val) & 0x1u)) != 0))))) & 0xffu)) & 0xffu));
+      _v2_local_133757_0 = UInt<16>(_lut_lut$v_0[essent_to_u64(_v2_local_133756_0)]);
+      _s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$core$dec_brmask_logic$_T_39[L].val = static_cast<typename UInt<12>::scalar_t>((static_cast<uint16_t>((static_cast<uint16_t>((((static_cast<uint16_t>(((static_cast<uint16_t>(_v2_local_133757_0.val) >> 0) & 0xfffu)) & 0xfffu)) | (ldut.tile_prci_domain.tile_reset_domain.boom_tile.core.dec_brmask_logic.branch_mask[L].val))) & 0xfffu)) & 0xfffu));
+      _v2_local_133758_0 = UInt<4>(_lut_lut$v_1[essent_to_u64(_v2_local_133756_0)]);
+      _s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$core$dec_brmask_logic$io_br_tag_0[L].val = static_cast<typename UInt<4>::scalar_t>((static_cast<uint8_t>(_v2_local_133758_0.val) & 0xfu));
     }
     ESSENT_LANE_LOOP
     for (int L = 0; L < 4; L++) {
-      // [v2 lane-local] lut$bm_0 _v2_local_133713_0
-      UInt<1> _v2_local_133713_0;
-      // [v2 lane-local] lut$bm_1 _v2_local_133714_0
-      UInt<1> _v2_local_133714_0;
-      // [v2 lane-local] lut$bm_2 _v2_local_133715_0
-      UInt<1> _v2_local_133715_0;
+      // [v2 lane-local] lut$bm_0 _v2_local_133762_0
+      UInt<1> _v2_local_133762_0;
+      // [v2 lane-local] lut$bm_1 _v2_local_133763_0
+      UInt<1> _v2_local_133763_0;
+      // [v2 lane-local] lut$bm_2 _v2_local_133764_0
+      UInt<1> _v2_local_133764_0;
       // [v2 lane-local] ldut.tile_prci_domain.tile_reset_domain.boom_tile.core.csr._io_decode_0_read_illegal_T_167 _v2_local_84986_0
       UInt<1> _v2_local_84986_0;
       // [v2 lane-local] ldut.tile_prci_domain.tile_reset_domain.boom_tile.core.csr._io_decode_0_read_illegal_T_186 _v2_local_85005_0
       UInt<1> _v2_local_85005_0;
       {
       const uint64_t _bmi_lut$bm_0 = essent_to_u64(_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$core$decode_units_0$io_csr_decode_csr[L]);
-      _v2_local_133713_0 = UInt<1>((_lut_lut$bm_0[_bmi_lut$bm_0 >> 6] >> (_bmi_lut$bm_0 & 63)) & 1);
+      _v2_local_133762_0 = UInt<1>((_lut_lut$bm_0[_bmi_lut$bm_0 >> 6] >> (_bmi_lut$bm_0 & 63)) & 1);
       }
-      _v2_local_84986_0.val = static_cast<typename UInt<1>::scalar_t>((static_cast<uint8_t>(_v2_local_133713_0.val) & 0x1u));
+      _v2_local_84986_0.val = static_cast<typename UInt<1>::scalar_t>((static_cast<uint8_t>(_v2_local_133762_0.val) & 0x1u));
       {
       const uint64_t _bmi_lut$bm_1 = essent_to_u64(_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$core$decode_units_0$io_csr_decode_csr[L]);
-      _v2_local_133714_0 = UInt<1>((_lut_lut$bm_1[_bmi_lut$bm_1 >> 6] >> (_bmi_lut$bm_1 & 63)) & 1);
+      _v2_local_133763_0 = UInt<1>((_lut_lut$bm_1[_bmi_lut$bm_1 >> 6] >> (_bmi_lut$bm_1 & 63)) & 1);
       }
-      _v2_local_85005_0.val = static_cast<typename UInt<1>::scalar_t>((static_cast<uint8_t>((static_cast<uint8_t>(((_v2_local_84986_0.val) | (_v2_local_133714_0.val))) & 0x1u)) & 0x1u));
+      _v2_local_85005_0.val = static_cast<typename UInt<1>::scalar_t>((static_cast<uint8_t>((static_cast<uint8_t>(((_v2_local_84986_0.val) | (_v2_local_133763_0.val))) & 0x1u)) & 0x1u));
       {
       const uint64_t _bmi_lut$bm_2 = essent_to_u64(_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$core$decode_units_0$io_csr_decode_csr[L]);
-      _v2_local_133715_0 = UInt<1>((_lut_lut$bm_2[_bmi_lut$bm_2 >> 6] >> (_bmi_lut$bm_2 & 63)) & 1);
+      _v2_local_133764_0 = UInt<1>((_lut_lut$bm_2[_bmi_lut$bm_2 >> 6] >> (_bmi_lut$bm_2 & 63)) & 1);
       }
-      _s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$core$csr$_io_decode_0_read_illegal_T_205[L].val = static_cast<typename UInt<1>::scalar_t>((static_cast<uint8_t>((static_cast<uint8_t>(((_v2_local_85005_0.val) | (_v2_local_133715_0.val))) & 0x1u)) & 0x1u));
+      _s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$core$csr$_io_decode_0_read_illegal_T_205[L].val = static_cast<typename UInt<1>::scalar_t>((static_cast<uint8_t>((static_cast<uint8_t>(((_v2_local_85005_0.val) | (_v2_local_133764_0.val))) & 0x1u)) & 0x1u));
     }
     ESSENT_LANE_LOOP
     for (int L = 0; L < 4; L++) {
-      // [v2 lane-local] lut$bm_3 _v2_local_133716_0
-      UInt<1> _v2_local_133716_0;
       {
       const uint64_t _bmi_lut$bm_3 = essent_to_u64(_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$core$decode_units_0$io_csr_decode_csr[L]);
-      _v2_local_133716_0 = UInt<1>((_lut_lut$bm_3[_bmi_lut$bm_3 >> 6] >> (_bmi_lut$bm_3 & 63)) & 1);
-      }
-      _s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$core$csr$_io_decode_0_read_illegal_T_224[L].val = static_cast<typename UInt<1>::scalar_t>((static_cast<uint8_t>((static_cast<uint8_t>(((_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$core$csr$_io_decode_0_read_illegal_T_205[L].val) | (_v2_local_133716_0.val))) & 0x1u)) & 0x1u));
-      {
-      const uint64_t _bmi_lut$bm_4 = essent_to_u64(_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$core$decode_units_0$io_csr_decode_csr[L]);
-      _s_lut$bm_4[L] = UInt<1>((_lut_lut$bm_4[_bmi_lut$bm_4 >> 6] >> (_bmi_lut$bm_4 & 63)) & 1);
+      _s_lut$bm_3[L] = UInt<1>((_lut_lut$bm_3[_bmi_lut$bm_3 >> 6] >> (_bmi_lut$bm_3 & 63)) & 1);
       }
     }
-    // [vec comb] 23 templates x 4 lanes
+    // [vec comb] 25 templates x 4 lanes
     ESSENT_LANE_LOOP
     for (int L = 0; L < 4; L++) {
-      // [v2 lane-local] lut$bm_5 _v2_local_133718_0
-      UInt<1> _v2_local_133718_0;
-      // [v2 lane-local] lut$bm_6 _v2_local_133719_0
-      UInt<1> _v2_local_133719_0;
+      // [v2 lane-local] lut$bm_4 _v2_local_133766_0
+      UInt<1> _v2_local_133766_0;
+      // [v2 lane-local] lut$bm_5 _v2_local_133767_0
+      UInt<1> _v2_local_133767_0;
+      // [v2 lane-local] ldut.tile_prci_domain.tile_reset_domain.boom_tile.core.csr._io_decode_0_read_illegal_T_224 _v2_local_85043_0
+      UInt<1> _v2_local_85043_0;
       // [v2 lane-local] ldut.tile_prci_domain.tile_reset_domain.boom_tile.core.csr._io_decode_0_read_illegal_T_243 _v2_local_85062_0
       UInt<1> _v2_local_85062_0;
-      // [v2 lane-local] ldut.tile_prci_domain.tile_reset_domain.boom_tile.core.csr._io_decode_0_read_illegal_T_262 _v2_local_85081_0
-      UInt<1> _v2_local_85081_0;
-      // [v2 lane-local] ldut.tile_prci_domain.tile_reset_domain.boom_tile.core.csr._io_decode_0_read_illegal_T_281 _v2_local_85100_0
-      UInt<1> _v2_local_85100_0;
-      _v2_local_85062_0.val = static_cast<typename UInt<1>::scalar_t>((static_cast<uint8_t>((static_cast<uint8_t>(((_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$core$csr$_io_decode_0_read_illegal_T_224[L].val) | (_s_lut$bm_4[L].val))) & 0x1u)) & 0x1u));
+      _v2_local_85043_0.val = static_cast<typename UInt<1>::scalar_t>((static_cast<uint8_t>((static_cast<uint8_t>(((_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$core$csr$_io_decode_0_read_illegal_T_205[L].val) | (_s_lut$bm_3[L].val))) & 0x1u)) & 0x1u));
+      {
+      const uint64_t _bmi_lut$bm_4 = essent_to_u64(_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$core$decode_units_0$io_csr_decode_csr[L]);
+      _v2_local_133766_0 = UInt<1>((_lut_lut$bm_4[_bmi_lut$bm_4 >> 6] >> (_bmi_lut$bm_4 & 63)) & 1);
+      }
+      _v2_local_85062_0.val = static_cast<typename UInt<1>::scalar_t>((static_cast<uint8_t>((static_cast<uint8_t>(((_v2_local_85043_0.val) | (_v2_local_133766_0.val))) & 0x1u)) & 0x1u));
       {
       const uint64_t _bmi_lut$bm_5 = essent_to_u64(_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$core$decode_units_0$io_csr_decode_csr[L]);
-      _v2_local_133718_0 = UInt<1>((_lut_lut$bm_5[_bmi_lut$bm_5 >> 6] >> (_bmi_lut$bm_5 & 63)) & 1);
+      _v2_local_133767_0 = UInt<1>((_lut_lut$bm_5[_bmi_lut$bm_5 >> 6] >> (_bmi_lut$bm_5 & 63)) & 1);
       }
-      _v2_local_85081_0.val = static_cast<typename UInt<1>::scalar_t>((static_cast<uint8_t>((static_cast<uint8_t>(((_v2_local_85062_0.val) | (_v2_local_133718_0.val))) & 0x1u)) & 0x1u));
+      _s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$core$csr$_io_decode_0_read_illegal_T_262[L].val = static_cast<typename UInt<1>::scalar_t>((static_cast<uint8_t>((static_cast<uint8_t>(((_v2_local_85062_0.val) | (_v2_local_133767_0.val))) & 0x1u)) & 0x1u));
       {
       const uint64_t _bmi_lut$bm_6 = essent_to_u64(_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$core$decode_units_0$io_csr_decode_csr[L]);
-      _v2_local_133719_0 = UInt<1>((_lut_lut$bm_6[_bmi_lut$bm_6 >> 6] >> (_bmi_lut$bm_6 & 63)) & 1);
+      _s_lut$bm_6[L] = UInt<1>((_lut_lut$bm_6[_bmi_lut$bm_6 >> 6] >> (_bmi_lut$bm_6 & 63)) & 1);
       }
-      _v2_local_85100_0.val = static_cast<typename UInt<1>::scalar_t>((static_cast<uint8_t>((static_cast<uint8_t>(((_v2_local_85081_0.val) | ((static_cast<uint8_t>(((_v2_local_133719_0.val) | (_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$core$csr$_io_decode_0_read_illegal_T_121[L].val))) & 0x1u)))) & 0x1u)) & 0x1u));
-      _s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$core$csr$_io_decode_0_read_illegal_T_317[L].val = static_cast<typename UInt<1>::scalar_t>((static_cast<uint32_t>((static_cast<uint32_t>((((static_cast<uint32_t>(((_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$core$csr$_io_decode_0_read_illegal_T_1[L].val) | ((static_cast<uint32_t>((~static_cast<uint32_t>((static_cast<uint32_t>((((static_cast<uint32_t>((((static_cast<uint32_t>(((_v2_local_85100_0.val) | ((static_cast<uint32_t>((((static_cast<uint32_t>(((_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$core$decode_units_0$io_csr_decode_csr[L].val) == ((static_cast<uint32_t>(0x3b7u) & 0xfffu)))) & 0x1u)) | ((static_cast<uint32_t>(((_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$core$decode_units_0$io_csr_decode_csr[L].val) == ((static_cast<uint32_t>(0x3b8u) & 0xfffu)))) & 0x1u)))) & 0x1u)))) & 0x1u)) | ((static_cast<uint32_t>((((static_cast<uint32_t>((((static_cast<uint32_t>(((_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$core$decode_units_0$io_csr_decode_csr[L].val) == ((static_cast<uint32_t>(0x3b9u) & 0xfffu)))) & 0x1u)) | ((static_cast<uint32_t>(((_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$core$decode_units_0$io_csr_decode_csr[L].val) == ((static_cast<uint32_t>(0x3bau) & 0xfffu)))) & 0x1u)))) & 0x1u)) | ((static_cast<uint32_t>((((static_cast<uint32_t>(((_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$core$decode_units_0$io_csr_decode_csr[L].val) == ((static_cast<uint32_t>(0x3bbu) & 0xfffu)))) & 0x1u)) | ((static_cast<uint32_t>(((_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$core$decode_units_0$io_csr_decode_csr[L].val) == ((static_cast<uint32_t>(0x3bcu) & 0xfffu)))) & 0x1u)))) & 0x1u)))) & 0x1u)))) & 0x1u)) | ((static_cast<uint32_t>((((static_cast<uint32_t>((((static_cast<uint32_t>(((_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$core$decode_units_0$io_csr_decode_csr[L].val) == ((static_cast<uint32_t>(0x3bdu) & 0xfffu)))) & 0x1u)) | ((static_cast<uint32_t>((((static_cast<uint32_t>(((_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$core$decode_units_0$io_csr_decode_csr[L].val) == ((static_cast<uint32_t>(0x3beu) & 0xfffu)))) & 0x1u)) | ((static_cast<uint32_t>(((_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$core$decode_units_0$io_csr_decode_csr[L].val) == ((static_cast<uint32_t>(0x3bfu) & 0xfffu)))) & 0x1u)))) & 0x1u)))) & 0x1u)) | ((static_cast<uint32_t>((((static_cast<uint32_t>((((static_cast<uint32_t>(((_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$core$decode_units_0$io_csr_decode_csr[L].val) == ((static_cast<uint32_t>(0x7c1u) & 0xfffu)))) & 0x1u)) | ((static_cast<uint32_t>(((_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$core$decode_units_0$io_csr_decode_csr[L].val) == ((static_cast<uint32_t>(0xf13u) & 0xfffu)))) & 0x1u)))) & 0x1u)) | ((static_cast<uint32_t>((((static_cast<uint32_t>(((_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$core$decode_units_0$io_csr_decode_csr[L].val) == ((static_cast<uint32_t>(0xf12u) & 0xfffu)))) & 0x1u)) | ((static_cast<uint32_t>(((_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$core$decode_units_0$io_csr_decode_csr[L].val) == ((static_cast<uint32_t>(0xf11u) & 0xfffu)))) & 0x1u)))) & 0x1u)))) & 0x1u)))) & 0x1u)))) & 0x1u)))) & 0x1u)))) & 0x1u)) | ((static_cast<uint32_t>((((static_cast<uint32_t>(((_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$core$csr$_io_decode_0_read_illegal_T_121[L].val) & (_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$core$csr$_io_decode_0_read_illegal_T_298[L].val))) & 0x1u)) | ((static_cast<uint32_t>((((static_cast<uint32_t>((((static_cast<uint32_t>((((static_cast<uint32_t>((((static_cast<uint32_t>(((_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$core$decode_units_0$io_csr_decode_csr[L].val) >= ((static_cast<uint32_t>(0xc00u) & 0xfffu)))) & 0x1u)) & ((static_cast<uint32_t>(((_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$core$decode_units_0$io_csr_decode_csr[L].val) < ((static_cast<uint32_t>(0xc20u) & 0xfffu)))) & 0x1u)))) & 0x1u)) | ((static_cast<uint32_t>((((static_cast<uint32_t>(((_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$core$decode_units_0$io_csr_decode_csr[L].val) >= ((static_cast<uint32_t>(0xc80u) & 0xfffu)))) & 0x1u)) & ((static_cast<uint32_t>(((_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$core$decode_units_0$io_csr_decode_csr[L].val) < ((static_cast<uint32_t>(0xca0u) & 0xfffu)))) & 0x1u)))) & 0x1u)))) & 0x1u)) & ((static_cast<uint32_t>((~static_cast<uint32_t>((static_cast<uint32_t>((((static_cast<uint32_t>(((_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$core$csr$_allow_wfi_T[L].val) | ((static_cast<uint32_t>(((static_cast<uint32_t>((static_cast<uint32_t>(((((_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$core$csr$counter_addr[L].val)) >= 32) ? static_cast<uint32_t>(0) : (static_cast<uint32_t>(_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$core$csr$read_mcounteren[L].val) >> (_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$core$csr$counter_addr[L].val)))) & 0xffffffffu)) >> 0) & 0x1u)) & 0x1u)))) & 0x1u)) & ((static_cast<uint32_t>(((_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$core$csr$_allow_counter_T_4[L].val) | ((static_cast<uint32_t>(((static_cast<uint32_t>((static_cast<uint32_t>(((((_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$core$csr$counter_addr[L].val)) >= 32) ? static_cast<uint32_t>(0) : (static_cast<uint32_t>(_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$core$csr$read_scounteren[L].val) >> (_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$core$csr$counter_addr[L].val)))) & 0xffffffffu)) >> 0) & 0x1u)) & 0x1u)))) & 0x1u)))) & 0x1u)))) & 0x1u)))) & 0x1u)) | ((static_cast<uint32_t>((((static_cast<uint32_t>((((static_cast<uint32_t>(((_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$core$decode_units_0$io_csr_decode_csr[L].val) & ((static_cast<uint32_t>(0xc10u) & 0xfffu)))) & 0xfffu)) == ((static_cast<uint32_t>(0x410u) & 0xfffu)))) & 0x1u)) & (_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$core$csr$_T_312[L].val))) & 0x1u)))) & 0x1u)))) & 0x1u)))) & 0x1u)) & 0x1u));
     }
     ESSENT_LANE_LOOP
     for (int L = 0; L < 4; L++) {
-      // [v2 lane-local] lut$bm_7 _v2_local_133720_0
-      UInt<1> _v2_local_133720_0;
-      // [v2 lane-local] lut$bm_8 _v2_local_133721_0
-      UInt<1> _v2_local_133721_0;
-      // [v2 lane-local] ldut.tile_prci_domain.tile_reset_domain.boom_tile.core.csr._io_decode_1_read_illegal_T_167 _v2_local_85341_0
-      UInt<1> _v2_local_85341_0;
-      _s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$core$csr$io_decode_0_read_illegal[L].val = static_cast<typename UInt<1>::scalar_t>((static_cast<uint8_t>((static_cast<uint8_t>(((_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$core$csr$_io_decode_0_read_illegal_T_317[L].val) | ((static_cast<uint8_t>(((_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$core$csr$io_decode_0_fp_csr[L].val) & (_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$core$csr$io_decode_0_fp_illegal[L].val))) & 0x1u)))) & 0x1u)) & 0x1u));
+      // [v2 lane-local] lut$bm_7 _v2_local_133769_0
+      UInt<1> _v2_local_133769_0;
+      // [v2 lane-local] ldut.tile_prci_domain.tile_reset_domain.boom_tile.core.csr._io_decode_0_read_illegal_T_281 _v2_local_85100_0
+      UInt<1> _v2_local_85100_0;
+      // [v2 lane-local] ldut.tile_prci_domain.tile_reset_domain.boom_tile.core.csr._io_decode_0_read_illegal_T_317 _v2_local_85132_0
+      UInt<1> _v2_local_85132_0;
+      _v2_local_85100_0.val = static_cast<typename UInt<1>::scalar_t>((static_cast<uint8_t>((static_cast<uint8_t>(((_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$core$csr$_io_decode_0_read_illegal_T_262[L].val) | ((static_cast<uint8_t>(((_s_lut$bm_6[L].val) | (_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$core$csr$_io_decode_0_read_illegal_T_121[L].val))) & 0x1u)))) & 0x1u)) & 0x1u));
+      _v2_local_85132_0.val = static_cast<typename UInt<1>::scalar_t>((static_cast<uint32_t>((static_cast<uint32_t>((((static_cast<uint32_t>(((_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$core$csr$_io_decode_0_read_illegal_T_1[L].val) | ((static_cast<uint32_t>((~static_cast<uint32_t>((static_cast<uint32_t>((((static_cast<uint32_t>((((static_cast<uint32_t>(((_v2_local_85100_0.val) | ((static_cast<uint32_t>((((static_cast<uint32_t>(((_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$core$decode_units_0$io_csr_decode_csr[L].val) == ((static_cast<uint32_t>(0x3b7u) & 0xfffu)))) & 0x1u)) | ((static_cast<uint32_t>(((_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$core$decode_units_0$io_csr_decode_csr[L].val) == ((static_cast<uint32_t>(0x3b8u) & 0xfffu)))) & 0x1u)))) & 0x1u)))) & 0x1u)) | ((static_cast<uint32_t>((((static_cast<uint32_t>((((static_cast<uint32_t>(((_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$core$decode_units_0$io_csr_decode_csr[L].val) == ((static_cast<uint32_t>(0x3b9u) & 0xfffu)))) & 0x1u)) | ((static_cast<uint32_t>(((_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$core$decode_units_0$io_csr_decode_csr[L].val) == ((static_cast<uint32_t>(0x3bau) & 0xfffu)))) & 0x1u)))) & 0x1u)) | ((static_cast<uint32_t>((((static_cast<uint32_t>(((_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$core$decode_units_0$io_csr_decode_csr[L].val) == ((static_cast<uint32_t>(0x3bbu) & 0xfffu)))) & 0x1u)) | ((static_cast<uint32_t>(((_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$core$decode_units_0$io_csr_decode_csr[L].val) == ((static_cast<uint32_t>(0x3bcu) & 0xfffu)))) & 0x1u)))) & 0x1u)))) & 0x1u)))) & 0x1u)) | ((static_cast<uint32_t>((((static_cast<uint32_t>((((static_cast<uint32_t>(((_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$core$decode_units_0$io_csr_decode_csr[L].val) == ((static_cast<uint32_t>(0x3bdu) & 0xfffu)))) & 0x1u)) | ((static_cast<uint32_t>((((static_cast<uint32_t>(((_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$core$decode_units_0$io_csr_decode_csr[L].val) == ((static_cast<uint32_t>(0x3beu) & 0xfffu)))) & 0x1u)) | ((static_cast<uint32_t>(((_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$core$decode_units_0$io_csr_decode_csr[L].val) == ((static_cast<uint32_t>(0x3bfu) & 0xfffu)))) & 0x1u)))) & 0x1u)))) & 0x1u)) | ((static_cast<uint32_t>((((static_cast<uint32_t>((((static_cast<uint32_t>(((_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$core$decode_units_0$io_csr_decode_csr[L].val) == ((static_cast<uint32_t>(0x7c1u) & 0xfffu)))) & 0x1u)) | ((static_cast<uint32_t>(((_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$core$decode_units_0$io_csr_decode_csr[L].val) == ((static_cast<uint32_t>(0xf13u) & 0xfffu)))) & 0x1u)))) & 0x1u)) | ((static_cast<uint32_t>((((static_cast<uint32_t>(((_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$core$decode_units_0$io_csr_decode_csr[L].val) == ((static_cast<uint32_t>(0xf12u) & 0xfffu)))) & 0x1u)) | ((static_cast<uint32_t>(((_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$core$decode_units_0$io_csr_decode_csr[L].val) == ((static_cast<uint32_t>(0xf11u) & 0xfffu)))) & 0x1u)))) & 0x1u)))) & 0x1u)))) & 0x1u)))) & 0x1u)))) & 0x1u)))) & 0x1u)) | ((static_cast<uint32_t>((((static_cast<uint32_t>(((_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$core$csr$_io_decode_0_read_illegal_T_121[L].val) & (_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$core$csr$_io_decode_0_read_illegal_T_298[L].val))) & 0x1u)) | ((static_cast<uint32_t>((((static_cast<uint32_t>((((static_cast<uint32_t>((((static_cast<uint32_t>((((static_cast<uint32_t>(((_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$core$decode_units_0$io_csr_decode_csr[L].val) >= ((static_cast<uint32_t>(0xc00u) & 0xfffu)))) & 0x1u)) & ((static_cast<uint32_t>(((_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$core$decode_units_0$io_csr_decode_csr[L].val) < ((static_cast<uint32_t>(0xc20u) & 0xfffu)))) & 0x1u)))) & 0x1u)) | ((static_cast<uint32_t>((((static_cast<uint32_t>(((_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$core$decode_units_0$io_csr_decode_csr[L].val) >= ((static_cast<uint32_t>(0xc80u) & 0xfffu)))) & 0x1u)) & ((static_cast<uint32_t>(((_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$core$decode_units_0$io_csr_decode_csr[L].val) < ((static_cast<uint32_t>(0xca0u) & 0xfffu)))) & 0x1u)))) & 0x1u)))) & 0x1u)) & ((static_cast<uint32_t>((~static_cast<uint32_t>((static_cast<uint32_t>((((static_cast<uint32_t>(((_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$core$csr$_allow_wfi_T[L].val) | ((static_cast<uint32_t>(((static_cast<uint32_t>((static_cast<uint32_t>(((((_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$core$csr$counter_addr[L].val)) >= 32) ? static_cast<uint32_t>(0) : (static_cast<uint32_t>(_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$core$csr$read_mcounteren[L].val) >> (_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$core$csr$counter_addr[L].val)))) & 0xffffffffu)) >> 0) & 0x1u)) & 0x1u)))) & 0x1u)) & ((static_cast<uint32_t>(((_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$core$csr$_allow_counter_T_4[L].val) | ((static_cast<uint32_t>(((static_cast<uint32_t>((static_cast<uint32_t>(((((_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$core$csr$counter_addr[L].val)) >= 32) ? static_cast<uint32_t>(0) : (static_cast<uint32_t>(_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$core$csr$read_scounteren[L].val) >> (_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$core$csr$counter_addr[L].val)))) & 0xffffffffu)) >> 0) & 0x1u)) & 0x1u)))) & 0x1u)))) & 0x1u)))) & 0x1u)))) & 0x1u)) | ((static_cast<uint32_t>((((static_cast<uint32_t>((((static_cast<uint32_t>(((_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$core$decode_units_0$io_csr_decode_csr[L].val) & ((static_cast<uint32_t>(0xc10u) & 0xfffu)))) & 0xfffu)) == ((static_cast<uint32_t>(0x410u) & 0xfffu)))) & 0x1u)) & (_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$core$csr$_T_312[L].val))) & 0x1u)))) & 0x1u)))) & 0x1u)))) & 0x1u)) & 0x1u));
+      _s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$core$csr$io_decode_0_read_illegal[L].val = static_cast<typename UInt<1>::scalar_t>((static_cast<uint8_t>((static_cast<uint8_t>(((_v2_local_85132_0.val) | ((static_cast<uint8_t>(((_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$core$csr$io_decode_0_fp_csr[L].val) & (_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$core$csr$io_decode_0_fp_illegal[L].val))) & 0x1u)))) & 0x1u)) & 0x1u));
       {
       const uint64_t _bmi_lut$bm_7 = essent_to_u64(_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$core$decode_units_1$io_csr_decode_csr[L]);
-      _v2_local_133720_0 = UInt<1>((_lut_lut$bm_7[_bmi_lut$bm_7 >> 6] >> (_bmi_lut$bm_7 & 63)) & 1);
+      _v2_local_133769_0 = UInt<1>((_lut_lut$bm_7[_bmi_lut$bm_7 >> 6] >> (_bmi_lut$bm_7 & 63)) & 1);
       }
-      _v2_local_85341_0.val = static_cast<typename UInt<1>::scalar_t>((static_cast<uint8_t>(_v2_local_133720_0.val) & 0x1u));
+      _s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$core$csr$_io_decode_1_read_illegal_T_167[L].val = static_cast<typename UInt<1>::scalar_t>((static_cast<uint8_t>(_v2_local_133769_0.val) & 0x1u));
       {
       const uint64_t _bmi_lut$bm_8 = essent_to_u64(_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$core$decode_units_1$io_csr_decode_csr[L]);
-      _v2_local_133721_0 = UInt<1>((_lut_lut$bm_8[_bmi_lut$bm_8 >> 6] >> (_bmi_lut$bm_8 & 63)) & 1);
-      }
-      _s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$core$csr$_io_decode_1_read_illegal_T_186[L].val = static_cast<typename UInt<1>::scalar_t>((static_cast<uint8_t>((static_cast<uint8_t>(((_v2_local_85341_0.val) | (_v2_local_133721_0.val))) & 0x1u)) & 0x1u));
-      {
-      const uint64_t _bmi_lut$bm_9 = essent_to_u64(_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$core$decode_units_1$io_csr_decode_csr[L]);
-      _s_lut$bm_9[L] = UInt<1>((_lut_lut$bm_9[_bmi_lut$bm_9 >> 6] >> (_bmi_lut$bm_9 & 63)) & 1);
+      _s_lut$bm_8[L] = UInt<1>((_lut_lut$bm_8[_bmi_lut$bm_8 >> 6] >> (_bmi_lut$bm_8 & 63)) & 1);
       }
     }
     ESSENT_LANE_LOOP
     for (int L = 0; L < 4; L++) {
-      // [v2 lane-local] lut$bm_10 _v2_local_133723_0
-      UInt<1> _v2_local_133723_0;
-      // [v2 lane-local] lut$bm_11 _v2_local_133724_0
-      UInt<1> _v2_local_133724_0;
+      // [v2 lane-local] lut$bm_9 _v2_local_133771_0
+      UInt<1> _v2_local_133771_0;
+      // [v2 lane-local] lut$bm_10 _v2_local_133772_0
+      UInt<1> _v2_local_133772_0;
+      // [v2 lane-local] ldut.tile_prci_domain.tile_reset_domain.boom_tile.core.csr._io_decode_1_read_illegal_T_186 _v2_local_85360_0
+      UInt<1> _v2_local_85360_0;
       // [v2 lane-local] ldut.tile_prci_domain.tile_reset_domain.boom_tile.core.csr._io_decode_1_read_illegal_T_205 _v2_local_85379_0
       UInt<1> _v2_local_85379_0;
-      // [v2 lane-local] ldut.tile_prci_domain.tile_reset_domain.boom_tile.core.csr._io_decode_1_read_illegal_T_224 _v2_local_85398_0
-      UInt<1> _v2_local_85398_0;
-      _v2_local_85379_0.val = static_cast<typename UInt<1>::scalar_t>((static_cast<uint8_t>((static_cast<uint8_t>(((_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$core$csr$_io_decode_1_read_illegal_T_186[L].val) | (_s_lut$bm_9[L].val))) & 0x1u)) & 0x1u));
+      _v2_local_85360_0.val = static_cast<typename UInt<1>::scalar_t>((static_cast<uint8_t>((static_cast<uint8_t>(((_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$core$csr$_io_decode_1_read_illegal_T_167[L].val) | (_s_lut$bm_8[L].val))) & 0x1u)) & 0x1u));
+      {
+      const uint64_t _bmi_lut$bm_9 = essent_to_u64(_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$core$decode_units_1$io_csr_decode_csr[L]);
+      _v2_local_133771_0 = UInt<1>((_lut_lut$bm_9[_bmi_lut$bm_9 >> 6] >> (_bmi_lut$bm_9 & 63)) & 1);
+      }
+      _v2_local_85379_0.val = static_cast<typename UInt<1>::scalar_t>((static_cast<uint8_t>((static_cast<uint8_t>(((_v2_local_85360_0.val) | (_v2_local_133771_0.val))) & 0x1u)) & 0x1u));
       {
       const uint64_t _bmi_lut$bm_10 = essent_to_u64(_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$core$decode_units_1$io_csr_decode_csr[L]);
-      _v2_local_133723_0 = UInt<1>((_lut_lut$bm_10[_bmi_lut$bm_10 >> 6] >> (_bmi_lut$bm_10 & 63)) & 1);
+      _v2_local_133772_0 = UInt<1>((_lut_lut$bm_10[_bmi_lut$bm_10 >> 6] >> (_bmi_lut$bm_10 & 63)) & 1);
       }
-      _v2_local_85398_0.val = static_cast<typename UInt<1>::scalar_t>((static_cast<uint8_t>((static_cast<uint8_t>(((_v2_local_85379_0.val) | (_v2_local_133723_0.val))) & 0x1u)) & 0x1u));
+      _s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$core$csr$_io_decode_1_read_illegal_T_224[L].val = static_cast<typename UInt<1>::scalar_t>((static_cast<uint8_t>((static_cast<uint8_t>(((_v2_local_85379_0.val) | (_v2_local_133772_0.val))) & 0x1u)) & 0x1u));
       {
       const uint64_t _bmi_lut$bm_11 = essent_to_u64(_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$core$decode_units_1$io_csr_decode_csr[L]);
-      _v2_local_133724_0 = UInt<1>((_lut_lut$bm_11[_bmi_lut$bm_11 >> 6] >> (_bmi_lut$bm_11 & 63)) & 1);
-      }
-      _s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$core$csr$_io_decode_1_read_illegal_T_243[L].val = static_cast<typename UInt<1>::scalar_t>((static_cast<uint8_t>((static_cast<uint8_t>(((_v2_local_85398_0.val) | (_v2_local_133724_0.val))) & 0x1u)) & 0x1u));
-      {
-      const uint64_t _bmi_lut$bm_12 = essent_to_u64(_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$core$decode_units_1$io_csr_decode_csr[L]);
-      _s_lut$bm_12[L] = UInt<1>((_lut_lut$bm_12[_bmi_lut$bm_12 >> 6] >> (_bmi_lut$bm_12 & 63)) & 1);
+      _s_lut$bm_11[L] = UInt<1>((_lut_lut$bm_11[_bmi_lut$bm_11 >> 6] >> (_bmi_lut$bm_11 & 63)) & 1);
       }
     }
     ESSENT_LANE_LOOP
     for (int L = 0; L < 4; L++) {
-      // [v2 lane-local] lut$bm_13 _v2_local_133726_0
-      UInt<1> _v2_local_133726_0;
+      // [v2 lane-local] lut$bm_12 _v2_local_133774_0
+      UInt<1> _v2_local_133774_0;
+      // [v2 lane-local] lut$bm_13 _v2_local_133775_0
+      UInt<1> _v2_local_133775_0;
+      // [v2 lane-local] ldut.tile_prci_domain.tile_reset_domain.boom_tile.core.csr._io_decode_1_read_illegal_T_243 _v2_local_85417_0
+      UInt<1> _v2_local_85417_0;
       // [v2 lane-local] ldut.tile_prci_domain.tile_reset_domain.boom_tile.core.csr._io_decode_1_read_illegal_T_262 _v2_local_85436_0
       UInt<1> _v2_local_85436_0;
       // [v2 lane-local] ldut.tile_prci_domain.tile_reset_domain.boom_tile.core.csr._io_decode_1_read_illegal_T_281 _v2_local_85455_0
       UInt<1> _v2_local_85455_0;
-      // [v2 lane-local] ldut.tile_prci_domain.tile_reset_domain.boom_tile.core.csr._io_decode_1_read_illegal_T_317 _v2_local_85486_0
-      UInt<1> _v2_local_85486_0;
-      _v2_local_85436_0.val = static_cast<typename UInt<1>::scalar_t>((static_cast<uint8_t>((static_cast<uint8_t>(((_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$core$csr$_io_decode_1_read_illegal_T_243[L].val) | (_s_lut$bm_12[L].val))) & 0x1u)) & 0x1u));
+      _v2_local_85417_0.val = static_cast<typename UInt<1>::scalar_t>((static_cast<uint8_t>((static_cast<uint8_t>(((_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$core$csr$_io_decode_1_read_illegal_T_224[L].val) | (_s_lut$bm_11[L].val))) & 0x1u)) & 0x1u));
+      {
+      const uint64_t _bmi_lut$bm_12 = essent_to_u64(_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$core$decode_units_1$io_csr_decode_csr[L]);
+      _v2_local_133774_0 = UInt<1>((_lut_lut$bm_12[_bmi_lut$bm_12 >> 6] >> (_bmi_lut$bm_12 & 63)) & 1);
+      }
+      _v2_local_85436_0.val = static_cast<typename UInt<1>::scalar_t>((static_cast<uint8_t>((static_cast<uint8_t>(((_v2_local_85417_0.val) | (_v2_local_133774_0.val))) & 0x1u)) & 0x1u));
       {
       const uint64_t _bmi_lut$bm_13 = essent_to_u64(_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$core$decode_units_1$io_csr_decode_csr[L]);
-      _v2_local_133726_0 = UInt<1>((_lut_lut$bm_13[_bmi_lut$bm_13 >> 6] >> (_bmi_lut$bm_13 & 63)) & 1);
+      _v2_local_133775_0 = UInt<1>((_lut_lut$bm_13[_bmi_lut$bm_13 >> 6] >> (_bmi_lut$bm_13 & 63)) & 1);
       }
-      _v2_local_85455_0.val = static_cast<typename UInt<1>::scalar_t>((static_cast<uint8_t>((static_cast<uint8_t>(((_v2_local_85436_0.val) | ((static_cast<uint8_t>(((_v2_local_133726_0.val) | (_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$core$csr$_io_decode_1_read_illegal_T_121[L].val))) & 0x1u)))) & 0x1u)) & 0x1u));
-      _v2_local_85486_0.val = static_cast<typename UInt<1>::scalar_t>((static_cast<uint32_t>((static_cast<uint32_t>((((static_cast<uint32_t>(((_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$core$csr$_io_decode_1_read_illegal_T_1[L].val) | ((static_cast<uint32_t>((~static_cast<uint32_t>((static_cast<uint32_t>((((static_cast<uint32_t>((((static_cast<uint32_t>(((_v2_local_85455_0.val) | ((static_cast<uint32_t>((((static_cast<uint32_t>(((_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$core$decode_units_1$io_csr_decode_csr[L].val) == ((static_cast<uint32_t>(0x3b7u) & 0xfffu)))) & 0x1u)) | ((static_cast<uint32_t>(((_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$core$decode_units_1$io_csr_decode_csr[L].val) == ((static_cast<uint32_t>(0x3b8u) & 0xfffu)))) & 0x1u)))) & 0x1u)))) & 0x1u)) | ((static_cast<uint32_t>((((static_cast<uint32_t>((((static_cast<uint32_t>(((_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$core$decode_units_1$io_csr_decode_csr[L].val) == ((static_cast<uint32_t>(0x3b9u) & 0xfffu)))) & 0x1u)) | ((static_cast<uint32_t>(((_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$core$decode_units_1$io_csr_decode_csr[L].val) == ((static_cast<uint32_t>(0x3bau) & 0xfffu)))) & 0x1u)))) & 0x1u)) | ((static_cast<uint32_t>((((static_cast<uint32_t>(((_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$core$decode_units_1$io_csr_decode_csr[L].val) == ((static_cast<uint32_t>(0x3bbu) & 0xfffu)))) & 0x1u)) | ((static_cast<uint32_t>(((_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$core$decode_units_1$io_csr_decode_csr[L].val) == ((static_cast<uint32_t>(0x3bcu) & 0xfffu)))) & 0x1u)))) & 0x1u)))) & 0x1u)))) & 0x1u)) | ((static_cast<uint32_t>((((static_cast<uint32_t>((((static_cast<uint32_t>(((_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$core$decode_units_1$io_csr_decode_csr[L].val) == ((static_cast<uint32_t>(0x3bdu) & 0xfffu)))) & 0x1u)) | ((static_cast<uint32_t>((((static_cast<uint32_t>(((_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$core$decode_units_1$io_csr_decode_csr[L].val) == ((static_cast<uint32_t>(0x3beu) & 0xfffu)))) & 0x1u)) | ((static_cast<uint32_t>(((_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$core$decode_units_1$io_csr_decode_csr[L].val) == ((static_cast<uint32_t>(0x3bfu) & 0xfffu)))) & 0x1u)))) & 0x1u)))) & 0x1u)) | ((static_cast<uint32_t>((((static_cast<uint32_t>((((static_cast<uint32_t>(((_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$core$decode_units_1$io_csr_decode_csr[L].val) == ((static_cast<uint32_t>(0x7c1u) & 0xfffu)))) & 0x1u)) | ((static_cast<uint32_t>(((_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$core$decode_units_1$io_csr_decode_csr[L].val) == ((static_cast<uint32_t>(0xf13u) & 0xfffu)))) & 0x1u)))) & 0x1u)) | ((static_cast<uint32_t>((((static_cast<uint32_t>(((_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$core$decode_units_1$io_csr_decode_csr[L].val) == ((static_cast<uint32_t>(0xf12u) & 0xfffu)))) & 0x1u)) | ((static_cast<uint32_t>(((_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$core$decode_units_1$io_csr_decode_csr[L].val) == ((static_cast<uint32_t>(0xf11u) & 0xfffu)))) & 0x1u)))) & 0x1u)))) & 0x1u)))) & 0x1u)))) & 0x1u)))) & 0x1u)))) & 0x1u)) | ((static_cast<uint32_t>((((static_cast<uint32_t>(((_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$core$csr$_io_decode_1_read_illegal_T_121[L].val) & (_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$core$csr$_io_decode_0_read_illegal_T_298[L].val))) & 0x1u)) | ((static_cast<uint32_t>((((static_cast<uint32_t>((((static_cast<uint32_t>((((static_cast<uint32_t>((((static_cast<uint32_t>(((_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$core$decode_units_1$io_csr_decode_csr[L].val) >= ((static_cast<uint32_t>(0xc00u) & 0xfffu)))) & 0x1u)) & ((static_cast<uint32_t>(((_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$core$decode_units_1$io_csr_decode_csr[L].val) < ((static_cast<uint32_t>(0xc20u) & 0xfffu)))) & 0x1u)))) & 0x1u)) | ((static_cast<uint32_t>((((static_cast<uint32_t>(((_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$core$decode_units_1$io_csr_decode_csr[L].val) >= ((static_cast<uint32_t>(0xc80u) & 0xfffu)))) & 0x1u)) & ((static_cast<uint32_t>(((_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$core$decode_units_1$io_csr_decode_csr[L].val) < ((static_cast<uint32_t>(0xca0u) & 0xfffu)))) & 0x1u)))) & 0x1u)))) & 0x1u)) & ((static_cast<uint32_t>((~static_cast<uint32_t>((static_cast<uint32_t>((((static_cast<uint32_t>(((_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$core$csr$_allow_wfi_T[L].val) | ((static_cast<uint32_t>(((static_cast<uint32_t>((static_cast<uint32_t>(((((_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$core$csr$counter_addr_1[L].val)) >= 32) ? static_cast<uint32_t>(0) : (static_cast<uint32_t>(_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$core$csr$read_mcounteren[L].val) >> (_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$core$csr$counter_addr_1[L].val)))) & 0xffffffffu)) >> 0) & 0x1u)) & 0x1u)))) & 0x1u)) & ((static_cast<uint32_t>(((_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$core$csr$_allow_counter_T_4[L].val) | ((static_cast<uint32_t>(((static_cast<uint32_t>((static_cast<uint32_t>(((((_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$core$csr$counter_addr_1[L].val)) >= 32) ? static_cast<uint32_t>(0) : (static_cast<uint32_t>(_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$core$csr$read_scounteren[L].val) >> (_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$core$csr$counter_addr_1[L].val)))) & 0xffffffffu)) >> 0) & 0x1u)) & 0x1u)))) & 0x1u)))) & 0x1u)))) & 0x1u)))) & 0x1u)) | ((static_cast<uint32_t>((((static_cast<uint32_t>((((static_cast<uint32_t>(((_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$core$decode_units_1$io_csr_decode_csr[L].val) & ((static_cast<uint32_t>(0xc10u) & 0xfffu)))) & 0xfffu)) == ((static_cast<uint32_t>(0x410u) & 0xfffu)))) & 0x1u)) & (_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$core$csr$_T_312[L].val))) & 0x1u)))) & 0x1u)))) & 0x1u)))) & 0x1u)) & 0x1u));
-      _s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$core$csr$io_decode_1_read_illegal[L].val = static_cast<typename UInt<1>::scalar_t>((static_cast<uint8_t>((static_cast<uint8_t>(((_v2_local_85486_0.val) | ((static_cast<uint8_t>(((_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$core$csr$io_decode_1_fp_csr[L].val) & (_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$core$csr$io_decode_1_fp_illegal[L].val))) & 0x1u)))) & 0x1u)) & 0x1u));
+      _v2_local_85455_0.val = static_cast<typename UInt<1>::scalar_t>((static_cast<uint8_t>((static_cast<uint8_t>(((_v2_local_85436_0.val) | ((static_cast<uint8_t>(((_v2_local_133775_0.val) | (_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$core$csr$_io_decode_1_read_illegal_T_121[L].val))) & 0x1u)))) & 0x1u)) & 0x1u));
+      _s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$core$csr$_io_decode_1_read_illegal_T_317[L].val = static_cast<typename UInt<1>::scalar_t>((static_cast<uint32_t>((static_cast<uint32_t>((((static_cast<uint32_t>(((_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$core$csr$_io_decode_1_read_illegal_T_1[L].val) | ((static_cast<uint32_t>((~static_cast<uint32_t>((static_cast<uint32_t>((((static_cast<uint32_t>((((static_cast<uint32_t>(((_v2_local_85455_0.val) | ((static_cast<uint32_t>((((static_cast<uint32_t>(((_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$core$decode_units_1$io_csr_decode_csr[L].val) == ((static_cast<uint32_t>(0x3b7u) & 0xfffu)))) & 0x1u)) | ((static_cast<uint32_t>(((_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$core$decode_units_1$io_csr_decode_csr[L].val) == ((static_cast<uint32_t>(0x3b8u) & 0xfffu)))) & 0x1u)))) & 0x1u)))) & 0x1u)) | ((static_cast<uint32_t>((((static_cast<uint32_t>((((static_cast<uint32_t>(((_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$core$decode_units_1$io_csr_decode_csr[L].val) == ((static_cast<uint32_t>(0x3b9u) & 0xfffu)))) & 0x1u)) | ((static_cast<uint32_t>(((_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$core$decode_units_1$io_csr_decode_csr[L].val) == ((static_cast<uint32_t>(0x3bau) & 0xfffu)))) & 0x1u)))) & 0x1u)) | ((static_cast<uint32_t>((((static_cast<uint32_t>(((_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$core$decode_units_1$io_csr_decode_csr[L].val) == ((static_cast<uint32_t>(0x3bbu) & 0xfffu)))) & 0x1u)) | ((static_cast<uint32_t>(((_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$core$decode_units_1$io_csr_decode_csr[L].val) == ((static_cast<uint32_t>(0x3bcu) & 0xfffu)))) & 0x1u)))) & 0x1u)))) & 0x1u)))) & 0x1u)) | ((static_cast<uint32_t>((((static_cast<uint32_t>((((static_cast<uint32_t>(((_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$core$decode_units_1$io_csr_decode_csr[L].val) == ((static_cast<uint32_t>(0x3bdu) & 0xfffu)))) & 0x1u)) | ((static_cast<uint32_t>((((static_cast<uint32_t>(((_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$core$decode_units_1$io_csr_decode_csr[L].val) == ((static_cast<uint32_t>(0x3beu) & 0xfffu)))) & 0x1u)) | ((static_cast<uint32_t>(((_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$core$decode_units_1$io_csr_decode_csr[L].val) == ((static_cast<uint32_t>(0x3bfu) & 0xfffu)))) & 0x1u)))) & 0x1u)))) & 0x1u)) | ((static_cast<uint32_t>((((static_cast<uint32_t>((((static_cast<uint32_t>(((_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$core$decode_units_1$io_csr_decode_csr[L].val) == ((static_cast<uint32_t>(0x7c1u) & 0xfffu)))) & 0x1u)) | ((static_cast<uint32_t>(((_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$core$decode_units_1$io_csr_decode_csr[L].val) == ((static_cast<uint32_t>(0xf13u) & 0xfffu)))) & 0x1u)))) & 0x1u)) | ((static_cast<uint32_t>((((static_cast<uint32_t>(((_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$core$decode_units_1$io_csr_decode_csr[L].val) == ((static_cast<uint32_t>(0xf12u) & 0xfffu)))) & 0x1u)) | ((static_cast<uint32_t>(((_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$core$decode_units_1$io_csr_decode_csr[L].val) == ((static_cast<uint32_t>(0xf11u) & 0xfffu)))) & 0x1u)))) & 0x1u)))) & 0x1u)))) & 0x1u)))) & 0x1u)))) & 0x1u)))) & 0x1u)) | ((static_cast<uint32_t>((((static_cast<uint32_t>(((_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$core$csr$_io_decode_1_read_illegal_T_121[L].val) & (_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$core$csr$_io_decode_0_read_illegal_T_298[L].val))) & 0x1u)) | ((static_cast<uint32_t>((((static_cast<uint32_t>((((static_cast<uint32_t>((((static_cast<uint32_t>((((static_cast<uint32_t>(((_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$core$decode_units_1$io_csr_decode_csr[L].val) >= ((static_cast<uint32_t>(0xc00u) & 0xfffu)))) & 0x1u)) & ((static_cast<uint32_t>(((_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$core$decode_units_1$io_csr_decode_csr[L].val) < ((static_cast<uint32_t>(0xc20u) & 0xfffu)))) & 0x1u)))) & 0x1u)) | ((static_cast<uint32_t>((((static_cast<uint32_t>(((_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$core$decode_units_1$io_csr_decode_csr[L].val) >= ((static_cast<uint32_t>(0xc80u) & 0xfffu)))) & 0x1u)) & ((static_cast<uint32_t>(((_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$core$decode_units_1$io_csr_decode_csr[L].val) < ((static_cast<uint32_t>(0xca0u) & 0xfffu)))) & 0x1u)))) & 0x1u)))) & 0x1u)) & ((static_cast<uint32_t>((~static_cast<uint32_t>((static_cast<uint32_t>((((static_cast<uint32_t>(((_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$core$csr$_allow_wfi_T[L].val) | ((static_cast<uint32_t>(((static_cast<uint32_t>((static_cast<uint32_t>(((((_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$core$csr$counter_addr_1[L].val)) >= 32) ? static_cast<uint32_t>(0) : (static_cast<uint32_t>(_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$core$csr$read_mcounteren[L].val) >> (_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$core$csr$counter_addr_1[L].val)))) & 0xffffffffu)) >> 0) & 0x1u)) & 0x1u)))) & 0x1u)) & ((static_cast<uint32_t>(((_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$core$csr$_allow_counter_T_4[L].val) | ((static_cast<uint32_t>(((static_cast<uint32_t>((static_cast<uint32_t>(((((_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$core$csr$counter_addr_1[L].val)) >= 32) ? static_cast<uint32_t>(0) : (static_cast<uint32_t>(_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$core$csr$read_scounteren[L].val) >> (_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$core$csr$counter_addr_1[L].val)))) & 0xffffffffu)) >> 0) & 0x1u)) & 0x1u)))) & 0x1u)))) & 0x1u)))) & 0x1u)))) & 0x1u)) | ((static_cast<uint32_t>((((static_cast<uint32_t>((((static_cast<uint32_t>(((_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$core$decode_units_1$io_csr_decode_csr[L].val) & ((static_cast<uint32_t>(0xc10u) & 0xfffu)))) & 0xfffu)) == ((static_cast<uint32_t>(0x410u) & 0xfffu)))) & 0x1u)) & (_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$core$csr$_T_312[L].val))) & 0x1u)))) & 0x1u)))) & 0x1u)))) & 0x1u)) & 0x1u));
+    }
+    ESSENT_LANE_LOOP
+    for (int L = 0; L < 4; L++) {
+      _s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$core$csr$io_decode_1_read_illegal[L].val = static_cast<typename UInt<1>::scalar_t>((static_cast<uint8_t>((static_cast<uint8_t>(((_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$core$csr$_io_decode_1_read_illegal_T_317[L].val) | ((static_cast<uint8_t>(((_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$core$csr$io_decode_1_fp_csr[L].val) & (_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$core$csr$io_decode_1_fp_illegal[L].val))) & 0x1u)))) & 0x1u)) & 0x1u));
     }
     // [vec state-commit] 32 templates x 4 lanes
     #if ESSENT_ORACLE_VERIFY // [extern-read] commits of fully-externalized arrays
@@ -46866,11 +46869,11 @@ void TestHarness::eval_forward(bool update_registers, bool verbose, bool done_re
       UInt<9> _v2_local_110882_0;
       // [v2 lane-local] ldut.bootROMDomainWrapper.bootrom.auto_in_d_bits_data _v2_local_111396_0
       UInt<64> _v2_local_111396_0;
-      // [v2 lane-local] lut$eq_0 _v2_local_133705_0
-      UInt<64> _v2_local_133705_0;
+      // [v2 lane-local] lut$eq_0 _v2_local_133754_0
+      UInt<64> _v2_local_133754_0;
       _v2_local_110882_0.val = static_cast<typename UInt<9>::scalar_t>((static_cast<uint32_t>((static_cast<uint32_t>(((static_cast<uint32_t>(_s_ldut$subsystem_cbus$coupler_to_bootrom$fragmenter$auto_out_a_bits_address[L].val) >> 3) & 0x1ffu)) & 0x1ffu)) & 0x1ffu));
-      _v2_local_133705_0 = UInt<64>(_lut_lut$eq_0[essent_to_u64(_v2_local_110882_0)]);
-      _v2_local_111396_0.val = static_cast<typename UInt<64>::scalar_t>(static_cast<uint64_t>(static_cast<uint64_t>((((static_cast<uint64_t>(0x0ULL)) & ((uint64_t)0 - (uint64_t)(((static_cast<uint64_t>((static_cast<uint64_t>(((static_cast<uint64_t>((static_cast<uint64_t>(((static_cast<uint64_t>(_s_ldut$subsystem_cbus$coupler_to_bootrom$fragmenter$auto_out_a_bits_address[L].val) >> 12) & 0xfULL)) & 0xfULL)) & 0xfULL) != 0)) & 0x1ULL)) & 0x1ULL)) != 0))) | ((_v2_local_133705_0.val) & ~((uint64_t)0 - (uint64_t)(((static_cast<uint64_t>((static_cast<uint64_t>(((static_cast<uint64_t>((static_cast<uint64_t>(((static_cast<uint64_t>(_s_ldut$subsystem_cbus$coupler_to_bootrom$fragmenter$auto_out_a_bits_address[L].val) >> 12) & 0xfULL)) & 0xfULL)) & 0xfULL) != 0)) & 0x1ULL)) & 0x1ULL)) != 0)))))));
+      _v2_local_133754_0 = UInt<64>(_lut_lut$eq_0[essent_to_u64(_v2_local_110882_0)]);
+      _v2_local_111396_0.val = static_cast<typename UInt<64>::scalar_t>(static_cast<uint64_t>(static_cast<uint64_t>((((static_cast<uint64_t>(0x0ULL)) & ((uint64_t)0 - (uint64_t)(((static_cast<uint64_t>((static_cast<uint64_t>(((static_cast<uint64_t>((static_cast<uint64_t>(((static_cast<uint64_t>(_s_ldut$subsystem_cbus$coupler_to_bootrom$fragmenter$auto_out_a_bits_address[L].val) >> 12) & 0xfULL)) & 0xfULL)) & 0xfULL) != 0)) & 0x1ULL)) & 0x1ULL)) != 0))) | ((_v2_local_133754_0.val) & ~((uint64_t)0 - (uint64_t)(((static_cast<uint64_t>((static_cast<uint64_t>(((static_cast<uint64_t>((static_cast<uint64_t>(((static_cast<uint64_t>(_s_ldut$subsystem_cbus$coupler_to_bootrom$fragmenter$auto_out_a_bits_address[L].val) >> 12) & 0xfULL)) & 0xfULL)) & 0xfULL) != 0)) & 0x1ULL)) & 0x1ULL)) != 0)))))));
       _s_ldut$subsystem_cbus$out_xbar$auto_in_d_bits_data[L].val = static_cast<typename UInt<64>::scalar_t>(static_cast<uint64_t>(static_cast<uint64_t>(((static_cast<uint64_t>(((static_cast<uint64_t>((((_s_ldut$subsystem_cbus$wrapped_error_device$buffer$bundleIn_0_d_q$ram_data$io_deq_bits_MPORT[L].val) & ((uint64_t)0 - (uint64_t)(((static_cast<uint64_t>(_s_ldut$subsystem_cbus$out_xbar$muxStateEarly_0[L].val) & 0x1ULL)) != 0))) | ((static_cast<uint64_t>(0x0ULL)) & ~((uint64_t)0 - (uint64_t)(((static_cast<uint64_t>(_s_ldut$subsystem_cbus$out_xbar$muxStateEarly_0[L].val) & 0x1ULL)) != 0)))))) | (static_cast<uint64_t>((((_s_ldut$plicDomainWrapper$plic$auto_in_d_bits_data[L].val) & ((uint64_t)0 - (uint64_t)(((static_cast<uint64_t>(_s_ldut$subsystem_cbus$out_xbar$muxStateEarly_1[L].val) & 0x1ULL)) != 0))) | ((static_cast<uint64_t>(0x0ULL)) & ~((uint64_t)0 - (uint64_t)(((static_cast<uint64_t>(_s_ldut$subsystem_cbus$out_xbar$muxStateEarly_1[L].val) & 0x1ULL)) != 0))))))))) | (static_cast<uint64_t>(((static_cast<uint64_t>((((_s_ldut$clint$auto_in_d_bits_data[L].val) & ((uint64_t)0 - (uint64_t)(((static_cast<uint64_t>(_s_ldut$subsystem_cbus$out_xbar$muxStateEarly_2[L].val) & 0x1ULL)) != 0))) | ((static_cast<uint64_t>(0x0ULL)) & ~((uint64_t)0 - (uint64_t)(((static_cast<uint64_t>(_s_ldut$subsystem_cbus$out_xbar$muxStateEarly_2[L].val) & 0x1ULL)) != 0)))))) | (static_cast<uint64_t>(((static_cast<uint64_t>((((_s_ldut$debug_1$dmInner$dmInner$auto_tl_in_d_bits_data[L].val) & ((uint64_t)0 - (uint64_t)(((static_cast<uint64_t>(_s_ldut$subsystem_cbus$out_xbar$muxStateEarly_3[L].val) & 0x1ULL)) != 0))) | ((static_cast<uint64_t>(0x0ULL)) & ~((uint64_t)0 - (uint64_t)(((static_cast<uint64_t>(_s_ldut$subsystem_cbus$out_xbar$muxStateEarly_3[L].val) & 0x1ULL)) != 0)))))) | (static_cast<uint64_t>((((_v2_local_111396_0.val) & ((uint64_t)0 - (uint64_t)(((static_cast<uint64_t>(_s_ldut$subsystem_cbus$out_xbar$muxStateEarly_4[L].val) & 0x1ULL)) != 0))) | ((static_cast<uint64_t>(0x0ULL)) & ~((uint64_t)0 - (uint64_t)(((static_cast<uint64_t>(_s_ldut$subsystem_cbus$out_xbar$muxStateEarly_4[L].val) & 0x1ULL)) != 0))))))))))))))));
     }
     // [vec state-read] 1 templates x 4 lanes
@@ -62619,7 +62622,17 @@ void TestHarness::eval_forward(bool update_registers, bool verbose, bool done_re
       memcpy(_v2s_0, &_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$lsu$REG_100$next[0], sizeof(_v2s_0));
       memcpy(&ldut.tile_prci_domain.tile_reset_domain.boom_tile.lsu.REG_100[1], &_v2s_0[0], sizeof(_v2s_0) - sizeof(_v2s_0[0]));
     }
-    // [vec comb] 29 templates x 4 lanes
+    // [vec comb] 1 templates x 4 lanes [cold-guarded base: quiet drops 0, specializes 1]
+    if (UNLIKELY(!_v2_quiet_base)) {
+      _v2_cold_comb_full(127);
+    } else {
+      // [vec comb-quiet] 1 templates x 4 lanes
+      ESSENT_LANE_LOOP
+      for (int L = 0; L < 4; L++) {
+        _s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$lsu$stq__v2_bank_0_16$next[L].val = static_cast<typename UInt<8>::scalar_t>((static_cast<uint8_t>((static_cast<uint8_t>(((static_cast<uint8_t>((static_cast<uint8_t>(((((static_cast<uint8_t>(((((static_cast<uint8_t>(0x0u) & 0xfu)) & ((uint8_t)0 - (uint8_t)(((static_cast<uint8_t>(_s_ldut$reset[L].val) & 0x1u)) != 0))) | ((_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$lsu$_GEN_35827[L].val) & ~((uint8_t)0 - (uint8_t)(((static_cast<uint8_t>(_s_ldut$reset[L].val) & 0x1u)) != 0))))) & 0xfu)) & ((uint8_t)0 - (uint8_t)(((static_cast<uint8_t>(_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$lsu$_T_3953[L].val) & 0x1u)) != 0))) | ((_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$lsu$_GEN_35827[L].val) & ~((uint8_t)0 - (uint8_t)(((static_cast<uint8_t>(_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$lsu$_T_3953[L].val) & 0x1u)) != 0))))) & 0xfu)) << 4) | (static_cast<uint8_t>((static_cast<uint8_t>(((((static_cast<uint8_t>(0x0u) & 0xfu)) & ((uint8_t)0 - (uint8_t)(((static_cast<uint8_t>((static_cast<uint8_t>(((_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$lsu$_T_307[L].val) & ((static_cast<uint8_t>((((static_cast<uint8_t>(0x0u) & 0xfu)) >= (_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$lsu$stq_commit_head[L].val))) & 0x1u)))) & 0x1u)) & 0x1u)) != 0))) | (((static_cast<uint8_t>(((static_cast<uint8_t>((static_cast<uint8_t>(((((static_cast<uint8_t>(0x1u) & 0x1fu)) & ((uint8_t)0 - (uint8_t)(((static_cast<uint8_t>((static_cast<uint8_t>(((_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$lsu$_T_308[L].val) & ((static_cast<uint8_t>((((static_cast<uint8_t>(0x1u) & 0xfu)) >= (_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$lsu$stq_commit_head[L].val))) & 0x1u)))) & 0x1u)) & 0x1u)) != 0))) | (((static_cast<uint8_t>(((((static_cast<uint8_t>(0x2u) & 0x1fu)) & ((uint8_t)0 - (uint8_t)(((static_cast<uint8_t>((static_cast<uint8_t>(((_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$lsu$_T_309[L].val) & ((static_cast<uint8_t>((((static_cast<uint8_t>(0x2u) & 0xfu)) >= (_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$lsu$stq_commit_head[L].val))) & 0x1u)))) & 0x1u)) & 0x1u)) != 0))) | (((static_cast<uint8_t>(((((static_cast<uint8_t>(0x3u) & 0x1fu)) & ((uint8_t)0 - (uint8_t)(((static_cast<uint8_t>((static_cast<uint8_t>(((_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$lsu$_T_310[L].val) & ((static_cast<uint8_t>((((static_cast<uint8_t>(0x3u) & 0xfu)) >= (_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$lsu$stq_commit_head[L].val))) & 0x1u)))) & 0x1u)) & 0x1u)) != 0))) | (((static_cast<uint8_t>(((((static_cast<uint8_t>(0x4u) & 0x1fu)) & ((uint8_t)0 - (uint8_t)(((static_cast<uint8_t>((static_cast<uint8_t>(((_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$lsu$_T_311[L].val) & ((static_cast<uint8_t>((((static_cast<uint8_t>(0x4u) & 0xfu)) >= (_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$lsu$stq_commit_head[L].val))) & 0x1u)))) & 0x1u)) & 0x1u)) != 0))) | (((static_cast<uint8_t>(((((static_cast<uint8_t>(0x5u) & 0x1fu)) & ((uint8_t)0 - (uint8_t)(((static_cast<uint8_t>((static_cast<uint8_t>(((_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$lsu$_T_312[L].val) & ((static_cast<uint8_t>((((static_cast<uint8_t>(0x5u) & 0xfu)) >= (_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$lsu$stq_commit_head[L].val))) & 0x1u)))) & 0x1u)) & 0x1u)) != 0))) | (((static_cast<uint8_t>(((((static_cast<uint8_t>(0x6u) & 0x1fu)) & ((uint8_t)0 - (uint8_t)(((static_cast<uint8_t>((static_cast<uint8_t>(((_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$lsu$_T_313[L].val) & ((static_cast<uint8_t>((((static_cast<uint8_t>(0x6u) & 0xfu)) >= (_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$lsu$stq_commit_head[L].val))) & 0x1u)))) & 0x1u)) & 0x1u)) != 0))) | (((static_cast<uint8_t>(((((static_cast<uint8_t>(0x7u) & 0x1fu)) & ((uint8_t)0 - (uint8_t)(((static_cast<uint8_t>((static_cast<uint8_t>(((_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$lsu$_T_314[L].val) & ((static_cast<uint8_t>((((static_cast<uint8_t>(0x7u) & 0xfu)) >= (_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$lsu$stq_commit_head[L].val))) & 0x1u)))) & 0x1u)) & 0x1u)) != 0))) | (((static_cast<uint8_t>(((((static_cast<uint8_t>(0x8u) & 0x1fu)) & ((uint8_t)0 - (uint8_t)(((static_cast<uint8_t>((static_cast<uint8_t>(((_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$lsu$_T_315[L].val) & ((static_cast<uint8_t>((((static_cast<uint8_t>(0x8u) & 0xfu)) >= (_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$lsu$stq_commit_head[L].val))) & 0x1u)))) & 0x1u)) & 0x1u)) != 0))) | (((static_cast<uint8_t>(((((static_cast<uint8_t>(0x9u) & 0x1fu)) & ((uint8_t)0 - (uint8_t)(((static_cast<uint8_t>((static_cast<uint8_t>(((_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$lsu$_T_316[L].val) & ((static_cast<uint8_t>((((static_cast<uint8_t>(0x9u) & 0xfu)) >= (_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$lsu$stq_commit_head[L].val))) & 0x1u)))) & 0x1u)) & 0x1u)) != 0))) | (((static_cast<uint8_t>(((((static_cast<uint8_t>(0xau) & 0x1fu)) & ((uint8_t)0 - (uint8_t)(((static_cast<uint8_t>((static_cast<uint8_t>(((_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$lsu$_T_317[L].val) & ((static_cast<uint8_t>((((static_cast<uint8_t>(0xau) & 0xfu)) >= (_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$lsu$stq_commit_head[L].val))) & 0x1u)))) & 0x1u)) & 0x1u)) != 0))) | ((_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$lsu$_T_374[L].val) & ~((uint8_t)0 - (uint8_t)(((static_cast<uint8_t>((static_cast<uint8_t>(((_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$lsu$_T_317[L].val) & ((static_cast<uint8_t>((((static_cast<uint8_t>(0xau) & 0xfu)) >= (_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$lsu$stq_commit_head[L].val))) & 0x1u)))) & 0x1u)) & 0x1u)) != 0))))) & 0x1fu)) & ~((uint8_t)0 - (uint8_t)(((static_cast<uint8_t>((static_cast<uint8_t>(((_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$lsu$_T_316[L].val) & ((static_cast<uint8_t>((((static_cast<uint8_t>(0x9u) & 0xfu)) >= (_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$lsu$stq_commit_head[L].val))) & 0x1u)))) & 0x1u)) & 0x1u)) != 0))))) & 0x1fu)) & ~((uint8_t)0 - (uint8_t)(((static_cast<uint8_t>((static_cast<uint8_t>(((_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$lsu$_T_315[L].val) & ((static_cast<uint8_t>((((static_cast<uint8_t>(0x8u) & 0xfu)) >= (_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$lsu$stq_commit_head[L].val))) & 0x1u)))) & 0x1u)) & 0x1u)) != 0))))) & 0x1fu)) & ~((uint8_t)0 - (uint8_t)(((static_cast<uint8_t>((static_cast<uint8_t>(((_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$lsu$_T_314[L].val) & ((static_cast<uint8_t>((((static_cast<uint8_t>(0x7u) & 0xfu)) >= (_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$lsu$stq_commit_head[L].val))) & 0x1u)))) & 0x1u)) & 0x1u)) != 0))))) & 0x1fu)) & ~((uint8_t)0 - (uint8_t)(((static_cast<uint8_t>((static_cast<uint8_t>(((_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$lsu$_T_313[L].val) & ((static_cast<uint8_t>((((static_cast<uint8_t>(0x6u) & 0xfu)) >= (_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$lsu$stq_commit_head[L].val))) & 0x1u)))) & 0x1u)) & 0x1u)) != 0))))) & 0x1fu)) & ~((uint8_t)0 - (uint8_t)(((static_cast<uint8_t>((static_cast<uint8_t>(((_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$lsu$_T_312[L].val) & ((static_cast<uint8_t>((((static_cast<uint8_t>(0x5u) & 0xfu)) >= (_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$lsu$stq_commit_head[L].val))) & 0x1u)))) & 0x1u)) & 0x1u)) != 0))))) & 0x1fu)) & ~((uint8_t)0 - (uint8_t)(((static_cast<uint8_t>((static_cast<uint8_t>(((_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$lsu$_T_311[L].val) & ((static_cast<uint8_t>((((static_cast<uint8_t>(0x4u) & 0xfu)) >= (_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$lsu$stq_commit_head[L].val))) & 0x1u)))) & 0x1u)) & 0x1u)) != 0))))) & 0x1fu)) & ~((uint8_t)0 - (uint8_t)(((static_cast<uint8_t>((static_cast<uint8_t>(((_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$lsu$_T_310[L].val) & ((static_cast<uint8_t>((((static_cast<uint8_t>(0x3u) & 0xfu)) >= (_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$lsu$stq_commit_head[L].val))) & 0x1u)))) & 0x1u)) & 0x1u)) != 0))))) & 0x1fu)) & ~((uint8_t)0 - (uint8_t)(((static_cast<uint8_t>((static_cast<uint8_t>(((_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$lsu$_T_309[L].val) & ((static_cast<uint8_t>((((static_cast<uint8_t>(0x2u) & 0xfu)) >= (_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$lsu$stq_commit_head[L].val))) & 0x1u)))) & 0x1u)) & 0x1u)) != 0))))) & 0x1fu)) & ~((uint8_t)0 - (uint8_t)(((static_cast<uint8_t>((static_cast<uint8_t>(((_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$lsu$_T_308[L].val) & ((static_cast<uint8_t>((((static_cast<uint8_t>(0x1u) & 0xfu)) >= (_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$lsu$stq_commit_head[L].val))) & 0x1u)))) & 0x1u)) & 0x1u)) != 0))))) & 0x1fu)) >> 0) & 0xfu)) & 0xfu)) & ~((uint8_t)0 - (uint8_t)(((static_cast<uint8_t>((static_cast<uint8_t>(((_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$lsu$_T_307[L].val) & ((static_cast<uint8_t>((((static_cast<uint8_t>(0x0u) & 0xfu)) >= (_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$lsu$stq_commit_head[L].val))) & 0x1u)))) & 0x1u)) & 0x1u)) != 0))))) & 0xfu)) & 0xfu))) & 0xffu)) & 0xffu));
+      }
+    }
+    // [vec comb] 28 templates x 4 lanes
     _v2_cshare_344();
     // [serial scc=675] 1 templates (0 comb), regs=[hella_paddr]
     // [serial scc=675 chain-loop]
@@ -63165,7 +63178,7 @@ void TestHarness::eval_forward(bool update_registers, bool verbose, bool done_re
     }
     // [vec comb] 1 templates x 4 lanes [cold-guarded base: quiet drops 0, specializes 1]
     if (UNLIKELY(!_v2_quiet_base)) {
-      _v2_cold_comb_full(127);
+      _v2_cold_comb_full(128);
     } else {
       // [vec comb-quiet] 1 templates x 4 lanes
       ESSENT_LANE_LOOP
@@ -63430,6 +63443,9 @@ void TestHarness::eval_forward(bool update_registers, bool verbose, bool done_re
     }
     // [serial scc=483 lane=3]
     _s_ldut$tile_prci_domain$buffer_1$monitor$b_first_done[3].val = static_cast<typename UInt<1>::scalar_t>((static_cast<uint8_t>((static_cast<uint8_t>(((_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$tlMasterXbar$auto_out_b_ready[3].val) & (_s_ldut$tile_prci_domain$buffer_1$bundleIn_0_b_q$io_deq_valid[3].val))) & 0x1u)) & 0x1u));
+    }();
+    // [v2 eval chunk 50]
+    [&]() ESSENT_NOINLINE {
     // [vec comb] 1 templates x 4 lanes
     ESSENT_LANE_LOOP
     for (int L = 0; L < 4; L++) {
@@ -63437,9 +63453,6 @@ void TestHarness::eval_forward(bool update_registers, bool verbose, bool done_re
     }
     // [serial scc=483 lane=3]
     _s_ldut$tile_prci_domain$buffer_1$bundleIn_0_b_q$_T[3].val = static_cast<typename UInt<1>::scalar_t>((static_cast<uint8_t>((static_cast<uint8_t>(((_s_ldut$subsystem_sbus$system_bus_xbar$monitor_1$b_first_done[3].val) != (_s_ldut$tile_prci_domain$buffer_1$monitor$b_first_done[3].val))) & 0x1u)) & 0x1u));
-    }();
-    // [v2 eval chunk 50]
-    [&]() ESSENT_NOINLINE {
     // [vec boundary-next] 1 templates x 4 lanes
     // [boundary next] 1 templates, two retained lanes
     { const int L = 0;
@@ -63936,7 +63949,7 @@ void TestHarness::eval_forward(bool update_registers, bool verbose, bool done_re
     #endif
     // [vec comb] 2 templates x 4 lanes [cold-guarded base: quiet drops 0, specializes 2]
     if (UNLIKELY(!_v2_quiet_base)) {
-      _v2_cold_comb_full(128);
+      _v2_cold_comb_full(129);
     } else {
       // [vec comb-quiet] 2 templates x 4 lanes
       ESSENT_LANE_LOOP
@@ -63970,7 +63983,7 @@ void TestHarness::eval_forward(bool update_registers, bool verbose, bool done_re
     _s_mem$axi4frag$in_w_deq$_do_deq_T[3].val = static_cast<typename UInt<1>::scalar_t>((static_cast<uint8_t>((static_cast<uint8_t>(((_s_mem$axi4frag$in_w_deq$io_deq_ready[3].val) & (_s_mem$axi4frag$in_w_deq$io_deq_valid[3].val))) & 0x1u)) & 0x1u));
     // [vec comb] 1 templates x 4 lanes [cold-guarded base: quiet drops 0, specializes 1]
     if (UNLIKELY(!_v2_quiet_base)) {
-      _v2_cold_comb_full(129);
+      _v2_cold_comb_full(130);
     } else {
       // [vec comb-quiet] 1 templates x 4 lanes
       ESSENT_LANE_LOOP
@@ -63993,7 +64006,7 @@ void TestHarness::eval_forward(bool update_registers, bool verbose, bool done_re
     }
     // [vec comb] 2 templates x 4 lanes [cold-guarded base: quiet drops 0, specializes 2]
     if (UNLIKELY(!_v2_quiet_base)) {
-      _v2_cold_comb_full(130);
+      _v2_cold_comb_full(131);
     } else {
       // [vec comb-quiet] 2 templates x 4 lanes
       ESSENT_LANE_LOOP
@@ -64075,7 +64088,7 @@ void TestHarness::eval_forward(bool update_registers, bool verbose, bool done_re
     _s_mem$axi4buf$bundleOut_0_w_deq$do_deq[3].val = static_cast<typename UInt<1>::scalar_t>((static_cast<uint8_t>((static_cast<uint8_t>(((_s_mem$srams$auto_in_w_ready[3].val) & (_s_mem$axi4buf$bundleOut_0_w_deq$io_deq_valid[3].val))) & 0x1u)) & 0x1u));
     // [vec comb] 2 templates x 4 lanes [cold-guarded base: quiet drops 0, specializes 2]
     if (UNLIKELY(!_v2_quiet_base)) {
-      _v2_cold_comb_full(131);
+      _v2_cold_comb_full(132);
     } else {
       // [vec comb-quiet] 2 templates x 4 lanes
       ESSENT_LANE_LOOP
@@ -64090,7 +64103,7 @@ void TestHarness::eval_forward(bool update_registers, bool verbose, bool done_re
     _s_mem$srams$_T[3].val = static_cast<typename UInt<1>::scalar_t>((static_cast<uint8_t>((static_cast<uint8_t>(((_s_mem$axi4buf$bundleIn_0_b_deq$io_enq_ready[3].val) & (mem.srams.w_full[3].val))) & 0x1u)) & 0x1u));
     // [vec comb] 2 templates x 4 lanes [cold-guarded base: quiet drops 0, specializes 2]
     if (UNLIKELY(!_v2_quiet_base)) {
-      _v2_cold_comb_full(132);
+      _v2_cold_comb_full(133);
     } else {
       // [vec comb-quiet] 2 templates x 4 lanes
       ESSENT_LANE_LOOP
@@ -64221,7 +64234,7 @@ void TestHarness::eval_forward(bool update_registers, bool verbose, bool done_re
     }
     // [vec comb] 1 templates x 4 lanes [cold-guarded base: quiet drops 0, specializes 1]
     if (UNLIKELY(!_v2_quiet_base)) {
-      _v2_cold_comb_full(133);
+      _v2_cold_comb_full(134);
     } else {
       // [vec comb-quiet] 1 templates x 4 lanes
       ESSENT_LANE_LOOP
@@ -64377,7 +64390,7 @@ void TestHarness::eval_forward(bool update_registers, bool verbose, bool done_re
     }
     // [vec comb] 1 templates x 4 lanes [cold-guarded base: quiet drops 0, specializes 1]
     if (UNLIKELY(!_v2_quiet_base)) {
-      _v2_cold_comb_full(134);
+      _v2_cold_comb_full(135);
     } else {
       // [vec comb-quiet] 1 templates x 4 lanes
       ESSENT_LANE_LOOP
@@ -64519,7 +64532,7 @@ void TestHarness::eval_forward(bool update_registers, bool verbose, bool done_re
     }
     // [vec comb] 1 templates x 4 lanes [cold-guarded base: quiet drops 0, specializes 1]
     if (UNLIKELY(!_v2_quiet_base)) {
-      _v2_cold_comb_full(135);
+      _v2_cold_comb_full(136);
     } else {
       // [vec comb-quiet] 1 templates x 4 lanes
       ESSENT_LANE_LOOP
@@ -64535,7 +64548,7 @@ void TestHarness::eval_forward(bool update_registers, bool verbose, bool done_re
     }
     // [vec comb] 1 templates x 4 lanes [cold-guarded base: quiet drops 0, specializes 1]
     if (UNLIKELY(!_v2_quiet_base)) {
-      _v2_cold_comb_full(136);
+      _v2_cold_comb_full(137);
     } else {
       // [vec comb-quiet] 1 templates x 4 lanes
       ESSENT_LANE_LOOP
@@ -64569,7 +64582,7 @@ void TestHarness::eval_forward(bool update_registers, bool verbose, bool done_re
     }
     // [vec comb] 1 templates x 4 lanes [cold-guarded base: quiet drops 0, specializes 1]
     if (UNLIKELY(!_v2_quiet_base)) {
-      _v2_cold_comb_full(137);
+      _v2_cold_comb_full(138);
     } else {
       // [vec comb-quiet] 1 templates x 4 lanes
       ESSENT_LANE_LOOP
@@ -64615,7 +64628,7 @@ void TestHarness::eval_forward(bool update_registers, bool verbose, bool done_re
     }
     // [vec comb] 1 templates x 4 lanes [cold-guarded base: quiet drops 1, specializes 0]
     if (UNLIKELY(!_v2_quiet_base)) {
-      _v2_cold_comb_full(138);
+      _v2_cold_comb_full(139);
     }
     // [vec comb] 21 templates x 4 lanes
     _v2_cshare_346();
@@ -64663,7 +64676,7 @@ void TestHarness::eval_forward(bool update_registers, bool verbose, bool done_re
     }
     // [vec comb] 1 templates x 4 lanes [cold-guarded base: quiet drops 0, specializes 1]
     if (UNLIKELY(!_v2_quiet_base)) {
-      _v2_cold_comb_full(139);
+      _v2_cold_comb_full(140);
     } else {
       // [vec comb-quiet] 1 templates x 4 lanes
       ESSENT_LANE_LOOP
@@ -64684,7 +64697,7 @@ void TestHarness::eval_forward(bool update_registers, bool verbose, bool done_re
     }
     // [vec comb] 1 templates x 4 lanes [cold-guarded base: quiet drops 0, specializes 1]
     if (UNLIKELY(!_v2_quiet_base)) {
-      _v2_cold_comb_full(140);
+      _v2_cold_comb_full(141);
     } else {
       // [vec comb-quiet] 1 templates x 4 lanes
       ESSENT_LANE_LOOP
@@ -64960,6 +64973,9 @@ void TestHarness::eval_forward(bool update_registers, bool verbose, bool done_re
     for (int L = 0; L < 4; L++) {
       _s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$dcache$dataWriteArb$io_out_bits_addr[L].val = static_cast<typename UInt<12>::scalar_t>((static_cast<uint16_t>((static_cast<uint16_t>((((_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$dcache$dataWriteArb$io_in_0_bits_addr[L].val) & ((uint16_t)0 - (uint16_t)(((static_cast<uint16_t>(ldut.tile_prci_domain.tile_reset_domain.boom_tile.dcache.s3_valid[L].val) & 0x1u)) != 0))) | ((_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$dcache$mshrs$refill_arb$io_out_bits_addr[L].val) & ~((uint16_t)0 - (uint16_t)(((static_cast<uint16_t>(ldut.tile_prci_domain.tile_reset_domain.boom_tile.dcache.s3_valid[L].val) & 0x1u)) != 0))))) & 0xfffu)) & 0xfffu));
     }
+    }();
+    // [v2 eval chunk 51]
+    [&]() ESSENT_NOINLINE {
     // [vec state-read] 4 templates x 4 lanes
     #if ESSENT_ORACLE_VERIFY // [extern-read] verify-only recompute: ldut.tile_prci_domain.tile_reset_domain.boom_tile.dcache.data.array_0_0_0.MPORT_1$rtl
     {
@@ -65061,9 +65077,6 @@ void TestHarness::eval_forward(bool update_registers, bool verbose, bool done_re
       }
     }
     #endif
-    }();
-    // [v2 eval chunk 51]
-    [&]() ESSENT_NOINLINE {
     // [vec state-commit] 4 templates x 4 lanes
     #if ESSENT_ORACLE_VERIFY // [extern-read] commits of fully-externalized arrays
     if (update_registers) {
@@ -65575,7 +65588,7 @@ void TestHarness::eval_forward(bool update_registers, bool verbose, bool done_re
     }
     // [vec comb] 1 templates x 4 lanes [cold-guarded base: quiet drops 0, specializes 1]
     if (UNLIKELY(!_v2_quiet_base)) {
-      _v2_cold_comb_full(141);
+      _v2_cold_comb_full(142);
     } else {
       // [vec comb-quiet] 1 templates x 4 lanes
       ESSENT_LANE_LOOP
@@ -65617,7 +65630,7 @@ void TestHarness::eval_forward(bool update_registers, bool verbose, bool done_re
     }
     // [vec comb] 2 templates x 4 lanes [cold-guarded base: quiet drops 0, specializes 2]
     if (UNLIKELY(!_v2_quiet_base)) {
-      _v2_cold_comb_full(142);
+      _v2_cold_comb_full(143);
     } else {
       // [vec comb-quiet] 2 templates x 4 lanes
       ESSENT_LANE_LOOP
@@ -65633,7 +65646,7 @@ void TestHarness::eval_forward(bool update_registers, bool verbose, bool done_re
     }
     // [vec comb] 6 templates x 4 lanes [cold-guarded base: quiet drops 0, specializes 6]
     if (UNLIKELY(!_v2_quiet_base)) {
-      _v2_cold_comb_full(143);
+      _v2_cold_comb_full(144);
     } else {
       // [vec comb-quiet] 6 templates x 4 lanes
       ESSENT_LANE_LOOP
@@ -65648,7 +65661,7 @@ void TestHarness::eval_forward(bool update_registers, bool verbose, bool done_re
     }
     // [vec comb] 10 templates x 4 lanes [cold-guarded base: quiet drops 0, specializes 10]
     if (UNLIKELY(!_v2_quiet_base)) {
-      _v2_cold_comb_full(144);
+      _v2_cold_comb_full(145);
     } else {
       // [vec comb-quiet] 10 templates x 4 lanes
       ESSENT_LANE_LOOP
@@ -65950,7 +65963,7 @@ void TestHarness::eval_forward(bool update_registers, bool verbose, bool done_re
     }
     // [vec comb] 1 templates x 4 lanes [cold-guarded base: quiet drops 0, specializes 1]
     if (UNLIKELY(!_v2_quiet_base)) {
-      _v2_cold_comb_full(145);
+      _v2_cold_comb_full(146);
     } else {
       // [vec comb-quiet] 1 templates x 4 lanes
       ESSENT_LANE_LOOP
@@ -65973,7 +65986,7 @@ void TestHarness::eval_forward(bool update_registers, bool verbose, bool done_re
     }
     // [vec comb] 1 templates x 4 lanes [cold-guarded base: quiet drops 0, specializes 1]
     if (UNLIKELY(!_v2_quiet_base)) {
-      _v2_cold_comb_full(146);
+      _v2_cold_comb_full(147);
     } else {
       // [vec comb-quiet] 1 templates x 4 lanes
       ESSENT_LANE_LOOP
@@ -65996,7 +66009,7 @@ void TestHarness::eval_forward(bool update_registers, bool verbose, bool done_re
     }
     // [vec comb] 1 templates x 4 lanes [cold-guarded base: quiet drops 0, specializes 1]
     if (UNLIKELY(!_v2_quiet_base)) {
-      _v2_cold_comb_full(147);
+      _v2_cold_comb_full(148);
     } else {
       // [vec comb-quiet] 1 templates x 4 lanes
       ESSENT_LANE_LOOP
@@ -66019,7 +66032,7 @@ void TestHarness::eval_forward(bool update_registers, bool verbose, bool done_re
     }
     // [vec comb] 1 templates x 4 lanes [cold-guarded base: quiet drops 0, specializes 1]
     if (UNLIKELY(!_v2_quiet_base)) {
-      _v2_cold_comb_full(148);
+      _v2_cold_comb_full(149);
     } else {
       // [vec comb-quiet] 1 templates x 4 lanes
       ESSENT_LANE_LOOP
@@ -66042,7 +66055,7 @@ void TestHarness::eval_forward(bool update_registers, bool verbose, bool done_re
     }
     // [vec comb] 1 templates x 4 lanes [cold-guarded base: quiet drops 0, specializes 1]
     if (UNLIKELY(!_v2_quiet_base)) {
-      _v2_cold_comb_full(149);
+      _v2_cold_comb_full(150);
     } else {
       // [vec comb-quiet] 1 templates x 4 lanes
       ESSENT_LANE_LOOP
@@ -66065,7 +66078,7 @@ void TestHarness::eval_forward(bool update_registers, bool verbose, bool done_re
     }
     // [vec comb] 1 templates x 4 lanes [cold-guarded base: quiet drops 0, specializes 1]
     if (UNLIKELY(!_v2_quiet_base)) {
-      _v2_cold_comb_full(150);
+      _v2_cold_comb_full(151);
     } else {
       // [vec comb-quiet] 1 templates x 4 lanes
       ESSENT_LANE_LOOP
@@ -66088,7 +66101,7 @@ void TestHarness::eval_forward(bool update_registers, bool verbose, bool done_re
     }
     // [vec comb] 1 templates x 4 lanes [cold-guarded base: quiet drops 0, specializes 1]
     if (UNLIKELY(!_v2_quiet_base)) {
-      _v2_cold_comb_full(151);
+      _v2_cold_comb_full(152);
     } else {
       // [vec comb-quiet] 1 templates x 4 lanes
       ESSENT_LANE_LOOP
@@ -66111,7 +66124,7 @@ void TestHarness::eval_forward(bool update_registers, bool verbose, bool done_re
     }
     // [vec comb] 1 templates x 4 lanes [cold-guarded base: quiet drops 0, specializes 1]
     if (UNLIKELY(!_v2_quiet_base)) {
-      _v2_cold_comb_full(152);
+      _v2_cold_comb_full(153);
     } else {
       // [vec comb-quiet] 1 templates x 4 lanes
       ESSENT_LANE_LOOP
@@ -66134,7 +66147,7 @@ void TestHarness::eval_forward(bool update_registers, bool verbose, bool done_re
     }
     // [vec comb] 1 templates x 4 lanes [cold-guarded base: quiet drops 0, specializes 1]
     if (UNLIKELY(!_v2_quiet_base)) {
-      _v2_cold_comb_full(153);
+      _v2_cold_comb_full(154);
     } else {
       // [vec comb-quiet] 1 templates x 4 lanes
       ESSENT_LANE_LOOP
@@ -66157,7 +66170,7 @@ void TestHarness::eval_forward(bool update_registers, bool verbose, bool done_re
     }
     // [vec comb] 1 templates x 4 lanes [cold-guarded base: quiet drops 0, specializes 1]
     if (UNLIKELY(!_v2_quiet_base)) {
-      _v2_cold_comb_full(154);
+      _v2_cold_comb_full(155);
     } else {
       // [vec comb-quiet] 1 templates x 4 lanes
       ESSENT_LANE_LOOP
@@ -66180,7 +66193,7 @@ void TestHarness::eval_forward(bool update_registers, bool verbose, bool done_re
     }
     // [vec comb] 1 templates x 4 lanes [cold-guarded base: quiet drops 0, specializes 1]
     if (UNLIKELY(!_v2_quiet_base)) {
-      _v2_cold_comb_full(155);
+      _v2_cold_comb_full(156);
     } else {
       // [vec comb-quiet] 1 templates x 4 lanes
       ESSENT_LANE_LOOP
@@ -66203,7 +66216,7 @@ void TestHarness::eval_forward(bool update_registers, bool verbose, bool done_re
     }
     // [vec comb] 1 templates x 4 lanes [cold-guarded base: quiet drops 0, specializes 1]
     if (UNLIKELY(!_v2_quiet_base)) {
-      _v2_cold_comb_full(156);
+      _v2_cold_comb_full(157);
     } else {
       // [vec comb-quiet] 1 templates x 4 lanes
       ESSENT_LANE_LOOP
@@ -66226,7 +66239,7 @@ void TestHarness::eval_forward(bool update_registers, bool verbose, bool done_re
     }
     // [vec comb] 1 templates x 4 lanes [cold-guarded base: quiet drops 0, specializes 1]
     if (UNLIKELY(!_v2_quiet_base)) {
-      _v2_cold_comb_full(157);
+      _v2_cold_comb_full(158);
     } else {
       // [vec comb-quiet] 1 templates x 4 lanes
       ESSENT_LANE_LOOP
@@ -66249,7 +66262,7 @@ void TestHarness::eval_forward(bool update_registers, bool verbose, bool done_re
     }
     // [vec comb] 1 templates x 4 lanes [cold-guarded base: quiet drops 0, specializes 1]
     if (UNLIKELY(!_v2_quiet_base)) {
-      _v2_cold_comb_full(158);
+      _v2_cold_comb_full(159);
     } else {
       // [vec comb-quiet] 1 templates x 4 lanes
       ESSENT_LANE_LOOP
@@ -66272,7 +66285,7 @@ void TestHarness::eval_forward(bool update_registers, bool verbose, bool done_re
     }
     // [vec comb] 1 templates x 4 lanes [cold-guarded base: quiet drops 0, specializes 1]
     if (UNLIKELY(!_v2_quiet_base)) {
-      _v2_cold_comb_full(159);
+      _v2_cold_comb_full(160);
     } else {
       // [vec comb-quiet] 1 templates x 4 lanes
       ESSENT_LANE_LOOP
@@ -66306,7 +66319,7 @@ void TestHarness::eval_forward(bool update_registers, bool verbose, bool done_re
     }
     // [vec comb] 1 templates x 4 lanes [cold-guarded base: quiet drops 0, specializes 1]
     if (UNLIKELY(!_v2_quiet_base)) {
-      _v2_cold_comb_full(160);
+      _v2_cold_comb_full(161);
     } else {
       // [vec comb-quiet] 1 templates x 4 lanes
       ESSENT_LANE_LOOP
@@ -66329,6 +66342,9 @@ void TestHarness::eval_forward(bool update_registers, bool verbose, bool done_re
     }
     // [vec comb] 3 templates x 4 lanes
     _v2_cshare_353();
+    }();
+    // [v2 eval chunk 52]
+    [&]() ESSENT_NOINLINE {
     // [vec boundary-next] 1 templates x 4 lanes
     // [boundary next] 1 templates, two retained lanes
     { const int L = 0;
@@ -66339,9 +66355,6 @@ void TestHarness::eval_forward(bool update_registers, bool verbose, bool done_re
     }
     // [serial scc=434] 1 templates (0 comb), regs=[__v2_indexed_count_bank_1]
     // [serial scc=434 chain-loop]
-    }();
-    // [v2 eval chunk 52]
-    [&]() ESSENT_NOINLINE {
     {
       uint64_t _gany = 0;
       for (int L = 0; L < 3; L++) _gany |= essent_to_u64(_s_ldut$subsystem_mbus$coupler_to_memory_controller_port_named_axi4$tl2axi4$__v2_indexed_count_bank_1$gwen[L]);
@@ -67400,7 +67413,7 @@ void TestHarness::eval_forward(bool update_registers, bool verbose, bool done_re
     _v2_cshare_360();
     // [vec comb] 1 templates x 4 lanes [cold-guarded base: quiet drops 0, specializes 1]
     if (UNLIKELY(!_v2_quiet_base)) {
-      _v2_cold_comb_full(161);
+      _v2_cold_comb_full(162);
     } else {
       // [vec comb-quiet] 1 templates x 4 lanes
       ESSENT_LANE_LOOP
@@ -67508,7 +67521,7 @@ void TestHarness::eval_forward(bool update_registers, bool verbose, bool done_re
     }
     // [vec comb] 2 templates x 4 lanes [cold-guarded base: quiet drops 0, specializes 2]
     if (UNLIKELY(!_v2_quiet_base)) {
-      _v2_cold_comb_full(162);
+      _v2_cold_comb_full(163);
     } else {
       // [vec comb-quiet] 2 templates x 4 lanes
       ESSENT_LANE_LOOP
@@ -67566,7 +67579,7 @@ void TestHarness::eval_forward(bool update_registers, bool verbose, bool done_re
     }
     // [vec comb] 1 templates x 4 lanes [cold-guarded base: quiet drops 0, specializes 1]
     if (UNLIKELY(!_v2_quiet_base)) {
-      _v2_cold_comb_full(163);
+      _v2_cold_comb_full(164);
     } else {
       // [vec comb-quiet] 1 templates x 4 lanes
       ESSENT_LANE_LOOP
@@ -67635,7 +67648,7 @@ void TestHarness::eval_forward(bool update_registers, bool verbose, bool done_re
     _v2_cshare_375();
     // [vec comb] 1 templates x 4 lanes [cold-guarded base: quiet drops 0, specializes 1]
     if (UNLIKELY(!_v2_quiet_base)) {
-      _v2_cold_comb_full(164);
+      _v2_cold_comb_full(165);
     } else {
       // [vec comb-quiet] 1 templates x 4 lanes
       ESSENT_LANE_LOOP
@@ -68020,7 +68033,7 @@ void TestHarness::eval_forward(bool update_registers, bool verbose, bool done_re
     }
     // [vec comb] 1 templates x 4 lanes [cold-guarded base: quiet drops 0, specializes 1]
     if (UNLIKELY(!_v2_quiet_base)) {
-      _v2_cold_comb_full(165);
+      _v2_cold_comb_full(166);
     } else {
       // [vec comb-quiet] 1 templates x 4 lanes
       ESSENT_LANE_LOOP
@@ -68292,7 +68305,7 @@ void TestHarness::eval_forward(bool update_registers, bool verbose, bool done_re
     }
     // [vec comb] 1 templates x 4 lanes [cold-guarded base: quiet drops 0, specializes 1]
     if (UNLIKELY(!_v2_quiet_base)) {
-      _v2_cold_comb_full(166);
+      _v2_cold_comb_full(167);
     } else {
       // [vec comb-quiet] 1 templates x 4 lanes
       ESSENT_LANE_LOOP
@@ -68782,7 +68795,7 @@ void TestHarness::eval_forward(bool update_registers, bool verbose, bool done_re
     _v2_cshare_400();
     // [vec comb] 1 templates x 4 lanes [cold-guarded base: quiet drops 0, specializes 1]
     if (UNLIKELY(!_v2_quiet_base)) {
-      _v2_cold_comb_full(167);
+      _v2_cold_comb_full(168);
     } else {
       // [vec comb-quiet] 1 templates x 4 lanes
       ESSENT_LANE_LOOP
@@ -68801,7 +68814,7 @@ void TestHarness::eval_forward(bool update_registers, bool verbose, bool done_re
     _v2_cshare_402();
     // [vec comb] 1 templates x 4 lanes [cold-guarded base: quiet drops 0, specializes 1]
     if (UNLIKELY(!_v2_quiet_base)) {
-      _v2_cold_comb_full(168);
+      _v2_cold_comb_full(169);
     } else {
       // [vec comb-quiet] 1 templates x 4 lanes
       ESSENT_LANE_LOOP
@@ -69370,12 +69383,18 @@ void TestHarness::eval_forward(bool update_registers, bool verbose, bool done_re
       }
     }
     // [serial scc=235] 1 templates (0 comb), regs=[busy_table]
-    // [serial scc=235 lane=1]
-    ldut.tile_prci_domain.tile_reset_domain.boom_tile.core.rename_stage.busytable.busy_table[1] = (_s_ldut$reset[1 - 1] ? UInt<128>(0x0) : (((ldut.tile_prci_domain.tile_reset_domain.boom_tile.core.rename_stage.busytable.busy_table[1 - 1].pad<128>()) & _s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$core$rename_stage$busytable$_T_24[1 - 1]) | _s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$core$rename_stage$busytable$_T_33[1 - 1])).bits<79,0>();
-    // [serial scc=235 lane=2]
-    ldut.tile_prci_domain.tile_reset_domain.boom_tile.core.rename_stage.busytable.busy_table[2] = (_s_ldut$reset[2 - 1] ? UInt<128>(0x0) : (((ldut.tile_prci_domain.tile_reset_domain.boom_tile.core.rename_stage.busytable.busy_table[2 - 1].pad<128>()) & _s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$core$rename_stage$busytable$_T_24[2 - 1]) | _s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$core$rename_stage$busytable$_T_33[2 - 1])).bits<79,0>();
-    // [serial scc=235 lane=3]
-    ldut.tile_prci_domain.tile_reset_domain.boom_tile.core.rename_stage.busytable.busy_table[3] = (_s_ldut$reset[3 - 1] ? UInt<128>(0x0) : (((ldut.tile_prci_domain.tile_reset_domain.boom_tile.core.rename_stage.busytable.busy_table[3 - 1].pad<128>()) & _s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$core$rename_stage$busytable$_T_24[3 - 1]) | _s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$core$rename_stage$busytable$_T_33[3 - 1])).bits<79,0>();
+    // [serial scc=235 chain-loop]
+    {
+      uint64_t _gany = 0;
+      for (int L = 0; L < 3; L++) _gany |= essent_to_u64(_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$core$rename_stage$busytable$busy_table$gwen[L]);
+      if (_gany == 0) {
+        const UInt<80> _gv = ldut.tile_prci_domain.tile_reset_domain.boom_tile.core.rename_stage.busytable.busy_table[0];
+        ESSENT_LANE_LOOP
+        for (int L = 0; L < 4; L++) ldut.tile_prci_domain.tile_reset_domain.boom_tile.core.rename_stage.busytable.busy_table[L] = _gv;
+      } else {
+        for (int L = 1; L < 4; L++) ldut.tile_prci_domain.tile_reset_domain.boom_tile.core.rename_stage.busytable.busy_table[L] = (_s_ldut$reset[L - 1] ? UInt<128>(0x0) : (((ldut.tile_prci_domain.tile_reset_domain.boom_tile.core.rename_stage.busytable.busy_table[L - 1].pad<128>()) & _s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$core$rename_stage$busytable$_T_24[L - 1]) | _s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$core$rename_stage$busytable$_T_33[L - 1])).bits<79,0>();
+      }
+    }
     // [vec comb] 8 templates x 4 lanes
     // [vec comb-wide] 1 templates (compiler-selected vector width)
     for (int L = 0; L < 4; L++) {
@@ -69766,7 +69785,7 @@ void TestHarness::eval_forward(bool update_registers, bool verbose, bool done_re
     }
     // [vec comb] 1 templates x 4 lanes [cold-guarded base: quiet drops 0, specializes 1]
     if (UNLIKELY(!_v2_quiet_base)) {
-      _v2_cold_comb_full(169);
+      _v2_cold_comb_full(170);
     } else {
       // [vec comb-quiet] 1 templates x 4 lanes
       ESSENT_LANE_LOOP
@@ -69774,8 +69793,37 @@ void TestHarness::eval_forward(bool update_registers, bool verbose, bool done_re
         _s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$lsu$forwarding_age_logic_0$_T_16[L].val = static_cast<typename UInt<16>::scalar_t>((static_cast<uint16_t>((static_cast<uint16_t>(((static_cast<uint16_t>((static_cast<uint16_t>(((static_cast<uint16_t>((static_cast<uint16_t>(((static_cast<uint16_t>((static_cast<uint16_t>(((static_cast<uint16_t>((static_cast<uint16_t>(0x0u) & 0x1u)) << 1) | (static_cast<uint16_t>((static_cast<uint16_t>((~static_cast<uint16_t>((static_cast<uint16_t>((((static_cast<uint16_t>(0xeu) & 0xfu)) >= (_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$lsu$forwarding_age_logic_0$io_youngest_st_idx[L].val))) & 0x1u)))) & 0x1u)) & 0x1u))) & 0x3u)) << 2) | (static_cast<uint16_t>((static_cast<uint16_t>(((static_cast<uint16_t>((static_cast<uint16_t>((~static_cast<uint16_t>((static_cast<uint16_t>((((static_cast<uint16_t>(0xdu) & 0xfu)) >= (_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$lsu$forwarding_age_logic_0$io_youngest_st_idx[L].val))) & 0x1u)))) & 0x1u)) << 1) | (static_cast<uint16_t>((static_cast<uint16_t>((~static_cast<uint16_t>((static_cast<uint16_t>((((static_cast<uint16_t>(0xcu) & 0xfu)) >= (_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$lsu$forwarding_age_logic_0$io_youngest_st_idx[L].val))) & 0x1u)))) & 0x1u)) & 0x1u))) & 0x3u)) & 0x3u))) & 0xfu)) << 4) | (static_cast<uint16_t>((static_cast<uint16_t>(((static_cast<uint16_t>((static_cast<uint16_t>(((static_cast<uint16_t>((static_cast<uint16_t>((~static_cast<uint16_t>((static_cast<uint16_t>((((static_cast<uint16_t>(0xbu) & 0xfu)) >= (_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$lsu$forwarding_age_logic_0$io_youngest_st_idx[L].val))) & 0x1u)))) & 0x1u)) << 1) | (static_cast<uint16_t>((static_cast<uint16_t>((~static_cast<uint16_t>((static_cast<uint16_t>((((static_cast<uint16_t>(0xau) & 0xfu)) >= (_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$lsu$forwarding_age_logic_0$io_youngest_st_idx[L].val))) & 0x1u)))) & 0x1u)) & 0x1u))) & 0x3u)) << 2) | (static_cast<uint16_t>((static_cast<uint16_t>(((static_cast<uint16_t>((static_cast<uint16_t>((~static_cast<uint16_t>((static_cast<uint16_t>((((static_cast<uint16_t>(0x9u) & 0xfu)) >= (_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$lsu$forwarding_age_logic_0$io_youngest_st_idx[L].val))) & 0x1u)))) & 0x1u)) << 1) | (static_cast<uint16_t>((static_cast<uint16_t>((~static_cast<uint16_t>((static_cast<uint16_t>((((static_cast<uint16_t>(0x8u) & 0xfu)) >= (_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$lsu$forwarding_age_logic_0$io_youngest_st_idx[L].val))) & 0x1u)))) & 0x1u)) & 0x1u))) & 0x3u)) & 0x3u))) & 0xfu)) & 0xfu))) & 0xffu)) << 8) | (static_cast<uint16_t>((static_cast<uint16_t>(((static_cast<uint16_t>((static_cast<uint16_t>(((static_cast<uint16_t>((static_cast<uint16_t>(((static_cast<uint16_t>((static_cast<uint16_t>((~static_cast<uint16_t>((static_cast<uint16_t>((((static_cast<uint16_t>(0x7u) & 0xfu)) >= (_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$lsu$forwarding_age_logic_0$io_youngest_st_idx[L].val))) & 0x1u)))) & 0x1u)) << 1) | (static_cast<uint16_t>((static_cast<uint16_t>((~static_cast<uint16_t>((static_cast<uint16_t>((((static_cast<uint16_t>(0x6u) & 0xfu)) >= (_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$lsu$forwarding_age_logic_0$io_youngest_st_idx[L].val))) & 0x1u)))) & 0x1u)) & 0x1u))) & 0x3u)) << 2) | (static_cast<uint16_t>((static_cast<uint16_t>(((static_cast<uint16_t>((static_cast<uint16_t>((~static_cast<uint16_t>((static_cast<uint16_t>((((static_cast<uint16_t>(0x5u) & 0xfu)) >= (_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$lsu$forwarding_age_logic_0$io_youngest_st_idx[L].val))) & 0x1u)))) & 0x1u)) << 1) | (static_cast<uint16_t>((static_cast<uint16_t>((~static_cast<uint16_t>((static_cast<uint16_t>((((static_cast<uint16_t>(0x4u) & 0xfu)) >= (_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$lsu$forwarding_age_logic_0$io_youngest_st_idx[L].val))) & 0x1u)))) & 0x1u)) & 0x1u))) & 0x3u)) & 0x3u))) & 0xfu)) << 4) | (static_cast<uint16_t>((static_cast<uint16_t>(((static_cast<uint16_t>((static_cast<uint16_t>(((static_cast<uint16_t>((static_cast<uint16_t>((~static_cast<uint16_t>((static_cast<uint16_t>((((static_cast<uint16_t>(0x3u) & 0xfu)) >= (_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$lsu$forwarding_age_logic_0$io_youngest_st_idx[L].val))) & 0x1u)))) & 0x1u)) << 1) | (static_cast<uint16_t>((static_cast<uint16_t>((~static_cast<uint16_t>((static_cast<uint16_t>((((static_cast<uint16_t>(0x2u) & 0xfu)) >= (_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$lsu$forwarding_age_logic_0$io_youngest_st_idx[L].val))) & 0x1u)))) & 0x1u)) & 0x1u))) & 0x3u)) << 2) | (static_cast<uint16_t>((static_cast<uint16_t>(((static_cast<uint16_t>((static_cast<uint16_t>((~static_cast<uint16_t>((static_cast<uint16_t>((((static_cast<uint16_t>(0x1u) & 0xfu)) >= (_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$lsu$forwarding_age_logic_0$io_youngest_st_idx[L].val))) & 0x1u)))) & 0x1u)) << 1) | (static_cast<uint16_t>((static_cast<uint16_t>((~static_cast<uint16_t>((static_cast<uint16_t>((((static_cast<uint16_t>(0x0u) & 0xfu)) >= (_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$lsu$forwarding_age_logic_0$io_youngest_st_idx[L].val))) & 0x1u)))) & 0x1u)) & 0x1u))) & 0x3u)) & 0x3u))) & 0xfu)) & 0xfu))) & 0xffu)) & 0xffu))) & 0xffffu)) & 0xffffu));
       }
     }
-    // [vec comb] 31 templates x 4 lanes
+    // [vec comb] 22 templates x 4 lanes
     _v2_cshare_443();
+    // [vec comb] 1 templates x 4 lanes [cold-guarded base: quiet drops 0, specializes 1]
+    if (UNLIKELY(!_v2_quiet_base)) {
+      _v2_cold_comb_full(171);
+    } else {
+      // [vec comb-quiet] 1 templates x 4 lanes
+      ESSENT_LANE_LOOP
+      for (int L = 0; L < 4; L++) {
+        _s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$lsu$ldq__v2_bank_1_18$next[L].val = static_cast<typename UInt<52>::scalar_t>((static_cast<uint64_t>((static_cast<uint64_t>(((static_cast<uint64_t>((static_cast<uint64_t>(((static_cast<uint64_t>((static_cast<uint64_t>(((static_cast<uint64_t>((static_cast<uint64_t>(((static_cast<uint64_t>((static_cast<uint64_t>(((static_cast<uint64_t>((static_cast<uint64_t>(((static_cast<uint64_t>((static_cast<uint64_t>(((static_cast<uint64_t>((static_cast<uint64_t>(((static_cast<uint64_t>((static_cast<uint64_t>(((static_cast<uint64_t>((static_cast<uint64_t>(((static_cast<uint64_t>((static_cast<uint64_t>(((static_cast<uint64_t>((static_cast<uint64_t>(((static_cast<uint64_t>((static_cast<uint64_t>(((static_cast<uint64_t>((static_cast<uint64_t>(((static_cast<uint64_t>((static_cast<uint64_t>(((static_cast<uint64_t>((static_cast<uint64_t>(((((static_cast<uint64_t>((((_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$lsu$exe_tlb_uop_0_pdst[L].val) & ((uint64_t)0 - (uint64_t)(((static_cast<uint64_t>((static_cast<uint64_t>((((static_cast<uint64_t>(0xfULL) & 0xfULL)) == (_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$lsu$_T_1220[L].val))) & 0x1ULL)) & 0x1ULL)) != 0))) | ((_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$lsu$_GEN_11743[L].val) & ~((uint64_t)0 - (uint64_t)(((static_cast<uint64_t>((static_cast<uint64_t>((((static_cast<uint64_t>(0xfULL) & 0xfULL)) == (_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$lsu$_T_1220[L].val))) & 0x1ULL)) & 0x1ULL)) != 0))))) & 0x7fULL)) & ((uint64_t)0 - (uint64_t)(((static_cast<uint64_t>(_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$lsu$_T_1219[L].val) & 0x1ULL)) != 0))) | ((_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$lsu$_GEN_11743[L].val) & ~((uint64_t)0 - (uint64_t)(((static_cast<uint64_t>(_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$lsu$_T_1219[L].val) & 0x1ULL)) != 0))))) & 0x7fULL)) << 5) | (static_cast<uint64_t>((static_cast<uint64_t>(((((static_cast<uint64_t>((((ldut.tile_prci_domain.tile_reset_domain.boom_tile.core.rename_stage.REG_3_mem_cmd[L].val) & ((uint64_t)0 - (uint64_t)(((static_cast<uint64_t>((static_cast<uint64_t>((((static_cast<uint64_t>(0xfULL) & 0xfULL)) == (_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$lsu$_T_109[L].val))) & 0x1ULL)) & 0x1ULL)) != 0))) | ((_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$lsu$_GEN_4655[L].val) & ~((uint64_t)0 - (uint64_t)(((static_cast<uint64_t>((static_cast<uint64_t>((((static_cast<uint64_t>(0xfULL) & 0xfULL)) == (_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$lsu$_T_109[L].val))) & 0x1ULL)) & 0x1ULL)) != 0))))) & 0x1fULL)) & ((uint64_t)0 - (uint64_t)(((static_cast<uint64_t>(_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$lsu$_T_130[L].val) & 0x1ULL)) != 0))) | ((_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$lsu$_GEN_4655[L].val) & ~((uint64_t)0 - (uint64_t)(((static_cast<uint64_t>(_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$lsu$_T_130[L].val) & 0x1ULL)) != 0))))) & 0x1fULL)) & 0x1fULL))) & 0xfffULL)) << 2) | (static_cast<uint64_t>((static_cast<uint64_t>(((((static_cast<uint64_t>((((ldut.tile_prci_domain.tile_reset_domain.boom_tile.core.rename_stage.REG_3_mem_size[L].val) & ((uint64_t)0 - (uint64_t)(((static_cast<uint64_t>((static_cast<uint64_t>((((static_cast<uint64_t>(0xfULL) & 0xfULL)) == (_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$lsu$_T_109[L].val))) & 0x1ULL)) & 0x1ULL)) != 0))) | ((_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$lsu$_GEN_4639[L].val) & ~((uint64_t)0 - (uint64_t)(((static_cast<uint64_t>((static_cast<uint64_t>((((static_cast<uint64_t>(0xfULL) & 0xfULL)) == (_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$lsu$_T_109[L].val))) & 0x1ULL)) & 0x1ULL)) != 0))))) & 0x3ULL)) & ((uint64_t)0 - (uint64_t)(((static_cast<uint64_t>(_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$lsu$_T_130[L].val) & 0x1ULL)) != 0))) | ((_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$lsu$_GEN_4639[L].val) & ~((uint64_t)0 - (uint64_t)(((static_cast<uint64_t>(_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$lsu$_T_130[L].val) & 0x1ULL)) != 0))))) & 0x3ULL)) & 0x3ULL))) & 0x3fffULL)) << 1) | (static_cast<uint64_t>((static_cast<uint64_t>((((static_cast<uint64_t>(((_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$lsu$_T_130[L].val) & ((static_cast<uint64_t>((((static_cast<uint64_t>((((static_cast<uint64_t>((((static_cast<uint64_t>(0xfULL) & 0xfULL)) == (_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$lsu$_T_109[L].val))) & 0x1ULL)) & (ldut.tile_prci_domain.tile_reset_domain.boom_tile.core.rename_stage.REG_3_mem_signed[L].val))) & 0x1ULL)) | ((static_cast<uint64_t>((((static_cast<uint64_t>((~static_cast<uint64_t>((static_cast<uint64_t>((((static_cast<uint64_t>(0xfULL) & 0xfULL)) == (_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$lsu$_T_109[L].val))) & 0x1ULL)))) & 0x1ULL)) & (_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$lsu$_GEN_4623[L].val))) & 0x1ULL)))) & 0x1ULL)))) & 0x1ULL)) | ((static_cast<uint64_t>((((static_cast<uint64_t>((~static_cast<uint64_t>(_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$lsu$_T_130[L].val))) & 0x1ULL)) & (_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$lsu$_GEN_4623[L].val))) & 0x1ULL)))) & 0x1ULL)) & 0x1ULL))) & 0x7fffULL)) << 1) | (static_cast<uint64_t>((static_cast<uint64_t>((((static_cast<uint64_t>(((_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$lsu$_T_130[L].val) & ((static_cast<uint64_t>((((static_cast<uint64_t>((((static_cast<uint64_t>((((static_cast<uint64_t>(0xfULL) & 0xfULL)) == (_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$lsu$_T_109[L].val))) & 0x1ULL)) & (ldut.tile_prci_domain.tile_reset_domain.boom_tile.core.rename_stage.REG_3_is_amo[L].val))) & 0x1ULL)) | ((static_cast<uint64_t>((((static_cast<uint64_t>((~static_cast<uint64_t>((static_cast<uint64_t>((((static_cast<uint64_t>(0xfULL) & 0xfULL)) == (_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$lsu$_T_109[L].val))) & 0x1ULL)))) & 0x1ULL)) & (_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$lsu$_GEN_4575[L].val))) & 0x1ULL)))) & 0x1ULL)))) & 0x1ULL)) | ((static_cast<uint64_t>((((static_cast<uint64_t>((~static_cast<uint64_t>(_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$lsu$_T_130[L].val))) & 0x1ULL)) & (_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$lsu$_GEN_4575[L].val))) & 0x1ULL)))) & 0x1ULL)) & 0x1ULL))) & 0xffffULL)) << 1) | (static_cast<uint64_t>((static_cast<uint64_t>((((static_cast<uint64_t>(((_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$lsu$_T_130[L].val) & ((static_cast<uint64_t>((((static_cast<uint64_t>((((static_cast<uint64_t>((((static_cast<uint64_t>(0xfULL) & 0xfULL)) == (_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$lsu$_T_109[L].val))) & 0x1ULL)) & (ldut.tile_prci_domain.tile_reset_domain.boom_tile.core.rename_stage.REG_3_uses_ldq[L].val))) & 0x1ULL)) | ((static_cast<uint64_t>((((static_cast<uint64_t>((~static_cast<uint64_t>((static_cast<uint64_t>((((static_cast<uint64_t>(0xfULL) & 0xfULL)) == (_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$lsu$_T_109[L].val))) & 0x1ULL)))) & 0x1ULL)) & (_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$lsu$_GEN_4559[L].val))) & 0x1ULL)))) & 0x1ULL)))) & 0x1ULL)) | ((static_cast<uint64_t>((((static_cast<uint64_t>((~static_cast<uint64_t>(_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$lsu$_T_130[L].val))) & 0x1ULL)) & (_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$lsu$_GEN_4559[L].val))) & 0x1ULL)))) & 0x1ULL)) & 0x1ULL))) & 0x1ffffULL)) << 1) | (static_cast<uint64_t>((static_cast<uint64_t>((((static_cast<uint64_t>(((_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$lsu$_T_130[L].val) & ((static_cast<uint64_t>((((static_cast<uint64_t>((((static_cast<uint64_t>((((static_cast<uint64_t>(0xfULL) & 0xfULL)) == (_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$lsu$_T_109[L].val))) & 0x1ULL)) & (ldut.tile_prci_domain.tile_reset_domain.boom_tile.core.rename_stage.REG_3_uses_stq[L].val))) & 0x1ULL)) | ((static_cast<uint64_t>((((static_cast<uint64_t>((~static_cast<uint64_t>((static_cast<uint64_t>((((static_cast<uint64_t>(0xfULL) & 0xfULL)) == (_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$lsu$_T_109[L].val))) & 0x1ULL)))) & 0x1ULL)) & (_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$lsu$_GEN_4543[L].val))) & 0x1ULL)))) & 0x1ULL)))) & 0x1ULL)) | ((static_cast<uint64_t>((((static_cast<uint64_t>((~static_cast<uint64_t>(_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$lsu$_T_130[L].val))) & 0x1ULL)) & (_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$lsu$_GEN_4543[L].val))) & 0x1ULL)))) & 0x1ULL)) & 0x1ULL))) & 0x3ffffULL)) << 2) | (static_cast<uint64_t>((static_cast<uint64_t>(((((static_cast<uint64_t>((((ldut.tile_prci_domain.tile_reset_domain.boom_tile.core.rename_stage.REG_3_dst_rtype[L].val) & ((uint64_t)0 - (uint64_t)(((static_cast<uint64_t>((static_cast<uint64_t>((((static_cast<uint64_t>(0xfULL) & 0xfULL)) == (_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$lsu$_T_109[L].val))) & 0x1ULL)) & 0x1ULL)) != 0))) | ((_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$lsu$_GEN_4383[L].val) & ~((uint64_t)0 - (uint64_t)(((static_cast<uint64_t>((static_cast<uint64_t>((((static_cast<uint64_t>(0xfULL) & 0xfULL)) == (_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$lsu$_T_109[L].val))) & 0x1ULL)) & 0x1ULL)) != 0))))) & 0x3ULL)) & ((uint64_t)0 - (uint64_t)(((static_cast<uint64_t>(_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$lsu$_T_130[L].val) & 0x1ULL)) != 0))) | ((_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$lsu$_GEN_4383[L].val) & ~((uint64_t)0 - (uint64_t)(((static_cast<uint64_t>(_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$lsu$_T_130[L].val) & 0x1ULL)) != 0))))) & 0x3ULL)) & 0x3ULL))) & 0xfffffULL)) << 1) | (static_cast<uint64_t>((static_cast<uint64_t>((((static_cast<uint64_t>(((_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$lsu$_T_3908[L].val) & (_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$lsu$_GEN_35179[L].val))) & 0x1ULL)) | ((static_cast<uint64_t>((((static_cast<uint64_t>((~static_cast<uint64_t>(_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$lsu$_T_3908[L].val))) & 0x1ULL)) & ((static_cast<uint64_t>((((static_cast<uint64_t>(((_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$lsu$_T_3909[L].val) & ((static_cast<uint64_t>((((static_cast<uint64_t>((~static_cast<uint64_t>((static_cast<uint64_t>((((static_cast<uint64_t>(0xfULL) & 0xfULL)) == (_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$lsu$_T_3910[L].val))) & 0x1ULL)))) & 0x1ULL)) & (_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$lsu$_GEN_35179[L].val))) & 0x1ULL)))) & 0x1ULL)) | ((static_cast<uint64_t>((((static_cast<uint64_t>((~static_cast<uint64_t>(_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$lsu$_T_3909[L].val))) & 0x1ULL)) & (_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$lsu$_GEN_35179[L].val))) & 0x1ULL)))) & 0x1ULL)))) & 0x1ULL)))) & 0x1ULL)) & 0x1ULL))) & 0x1fffffULL)) << 1) | (static_cast<uint64_t>((static_cast<uint64_t>((((static_cast<uint64_t>(((_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$lsu$_T_3908[L].val) & (_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$lsu$_GEN_35195[L].val))) & 0x1ULL)) | ((static_cast<uint64_t>((((static_cast<uint64_t>((~static_cast<uint64_t>(_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$lsu$_T_3908[L].val))) & 0x1ULL)) & ((static_cast<uint64_t>((((static_cast<uint64_t>(((_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$lsu$_T_3909[L].val) & ((static_cast<uint64_t>((((static_cast<uint64_t>((~static_cast<uint64_t>((static_cast<uint64_t>((((static_cast<uint64_t>(0xfULL) & 0xfULL)) == (_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$lsu$_T_3910[L].val))) & 0x1ULL)))) & 0x1ULL)) & (_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$lsu$_GEN_35195[L].val))) & 0x1ULL)))) & 0x1ULL)) | ((static_cast<uint64_t>((((static_cast<uint64_t>((~static_cast<uint64_t>(_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$lsu$_T_3909[L].val))) & 0x1ULL)) & (_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$lsu$_GEN_35195[L].val))) & 0x1ULL)))) & 0x1ULL)))) & 0x1ULL)))) & 0x1ULL)) & 0x1ULL))) & 0x3fffffULL)) << 1) | (static_cast<uint64_t>((static_cast<uint64_t>(((_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$lsu$_T_2626[L].val) | ((static_cast<uint64_t>((((static_cast<uint64_t>(((_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$lsu$_T_130[L].val) & ((static_cast<uint64_t>((((static_cast<uint64_t>((~static_cast<uint64_t>((static_cast<uint64_t>((((static_cast<uint64_t>(0xfULL) & 0xfULL)) == (_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$lsu$_T_109[L].val))) & 0x1ULL)))) & 0x1ULL)) & (_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$lsu$_GEN_5551[L].val))) & 0x1ULL)))) & 0x1ULL)) | ((static_cast<uint64_t>((((static_cast<uint64_t>((~static_cast<uint64_t>(_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$lsu$_T_130[L].val))) & 0x1ULL)) & (_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$lsu$_GEN_5551[L].val))) & 0x1ULL)))) & 0x1ULL)))) & 0x1ULL)) & 0x1ULL))) & 0x7fffffULL)) << 16) | (static_cast<uint64_t>((static_cast<uint64_t>(((((static_cast<uint64_t>((((_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$lsu$_T_112[L].val) & ((uint64_t)0 - (uint64_t)(((static_cast<uint64_t>((static_cast<uint64_t>((((static_cast<uint64_t>(0xfULL) & 0xfULL)) == (_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$lsu$_T_109[L].val))) & 0x1ULL)) & 0x1ULL)) != 0))) | ((_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$lsu$_GEN_5471[L].val) & ~((uint64_t)0 - (uint64_t)(((static_cast<uint64_t>((static_cast<uint64_t>((((static_cast<uint64_t>(0xfULL) & 0xfULL)) == (_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$lsu$_T_109[L].val))) & 0x1ULL)) & 0x1ULL)) != 0))))) & 0xffffULL)) & ((uint64_t)0 - (uint64_t)(((static_cast<uint64_t>(_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$lsu$_T_130[L].val) & 0x1ULL)) != 0))) | ((_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$lsu$_GEN_5471[L].val) & ~((uint64_t)0 - (uint64_t)(((static_cast<uint64_t>(_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$lsu$_T_130[L].val) & 0x1ULL)) != 0))))) & 0xffffULL)) & 0xffffULL))) & 0x7fffffffffULL)) << 4) | (static_cast<uint64_t>((static_cast<uint64_t>(((((static_cast<uint64_t>((((_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$lsu$_T_116[L].val) & ((uint64_t)0 - (uint64_t)(((static_cast<uint64_t>((static_cast<uint64_t>((((static_cast<uint64_t>(0xfULL) & 0xfULL)) == (_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$lsu$_T_109[L].val))) & 0x1ULL)) & 0x1ULL)) != 0))) | ((_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$lsu$_GEN_5455[L].val) & ~((uint64_t)0 - (uint64_t)(((static_cast<uint64_t>((static_cast<uint64_t>((((static_cast<uint64_t>(0xfULL) & 0xfULL)) == (_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$lsu$_T_109[L].val))) & 0x1ULL)) & 0x1ULL)) != 0))))) & 0xfULL)) & ((uint64_t)0 - (uint64_t)(((static_cast<uint64_t>(_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$lsu$_T_130[L].val) & 0x1ULL)) != 0))) | ((_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$lsu$_GEN_5455[L].val) & ~((uint64_t)0 - (uint64_t)(((static_cast<uint64_t>(_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$lsu$_T_130[L].val) & 0x1ULL)) != 0))))) & 0xfULL)) & 0xfULL))) & 0x7ffffffffffULL)) << 1) | (static_cast<uint64_t>((static_cast<uint64_t>((((static_cast<uint64_t>(((_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$lsu$_T_3908[L].val) & (_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$lsu$_GEN_35211[L].val))) & 0x1ULL)) | ((static_cast<uint64_t>((((static_cast<uint64_t>((~static_cast<uint64_t>(_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$lsu$_T_3908[L].val))) & 0x1ULL)) & ((static_cast<uint64_t>((((static_cast<uint64_t>(((_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$lsu$_T_3909[L].val) & ((static_cast<uint64_t>((((static_cast<uint64_t>((~static_cast<uint64_t>((static_cast<uint64_t>((((static_cast<uint64_t>(0xfULL) & 0xfULL)) == (_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$lsu$_T_3910[L].val))) & 0x1ULL)))) & 0x1ULL)) & (_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$lsu$_GEN_35211[L].val))) & 0x1ULL)))) & 0x1ULL)) | ((static_cast<uint64_t>((((static_cast<uint64_t>((~static_cast<uint64_t>(_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$lsu$_T_3909[L].val))) & 0x1ULL)) & (_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$lsu$_GEN_35211[L].val))) & 0x1ULL)))) & 0x1ULL)))) & 0x1ULL)))) & 0x1ULL)) & 0x1ULL))) & 0xfffffffffffULL)) << 4) | (static_cast<uint64_t>((static_cast<uint64_t>(((((static_cast<uint64_t>(0x0ULL) & 0xfULL)) & ((uint64_t)0 - (uint64_t)(((static_cast<uint64_t>((static_cast<uint64_t>(((_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$lsu$_T_397[L].val) & (_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$lsu$_T_241[L].val))) & 0x1ULL)) & 0x1ULL)) != 0))) | (((static_cast<uint64_t>(((static_cast<uint64_t>((static_cast<uint64_t>(((((static_cast<uint64_t>(0x1ULL) & 0x1fULL)) & ((uint64_t)0 - (uint64_t)(((static_cast<uint64_t>((static_cast<uint64_t>(((_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$lsu$_T_406[L].val) & (_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$lsu$_T_243[L].val))) & 0x1ULL)) & 0x1ULL)) != 0))) | (((static_cast<uint64_t>(((((static_cast<uint64_t>(0x2ULL) & 0x1fULL)) & ((uint64_t)0 - (uint64_t)(((static_cast<uint64_t>((static_cast<uint64_t>(((_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$lsu$_T_415[L].val) & (_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$lsu$_T_245[L].val))) & 0x1ULL)) & 0x1ULL)) != 0))) | (((static_cast<uint64_t>(((((static_cast<uint64_t>(0x3ULL) & 0x1fULL)) & ((uint64_t)0 - (uint64_t)(((static_cast<uint64_t>((static_cast<uint64_t>(((_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$lsu$_T_424[L].val) & (_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$lsu$_T_247[L].val))) & 0x1ULL)) & 0x1ULL)) != 0))) | (((static_cast<uint64_t>(((((static_cast<uint64_t>(0x4ULL) & 0x1fULL)) & ((uint64_t)0 - (uint64_t)(((static_cast<uint64_t>((static_cast<uint64_t>(((_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$lsu$_T_433[L].val) & (_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$lsu$_T_249[L].val))) & 0x1ULL)) & 0x1ULL)) != 0))) | (((static_cast<uint64_t>(((((static_cast<uint64_t>(0x5ULL) & 0x1fULL)) & ((uint64_t)0 - (uint64_t)(((static_cast<uint64_t>((static_cast<uint64_t>(((_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$lsu$_T_442[L].val) & (_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$lsu$_T_251[L].val))) & 0x1ULL)) & 0x1ULL)) != 0))) | (((static_cast<uint64_t>(((((static_cast<uint64_t>(0x6ULL) & 0x1fULL)) & ((uint64_t)0 - (uint64_t)(((static_cast<uint64_t>((static_cast<uint64_t>(((_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$lsu$_T_451[L].val) & (_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$lsu$_T_253[L].val))) & 0x1ULL)) & 0x1ULL)) != 0))) | (((static_cast<uint64_t>(((((static_cast<uint64_t>(0x7ULL) & 0x1fULL)) & ((uint64_t)0 - (uint64_t)(((static_cast<uint64_t>((static_cast<uint64_t>(((_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$lsu$_T_460[L].val) & (_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$lsu$_T_255[L].val))) & 0x1ULL)) & 0x1ULL)) != 0))) | (((static_cast<uint64_t>(((((static_cast<uint64_t>(0x8ULL) & 0x1fULL)) & ((uint64_t)0 - (uint64_t)(((static_cast<uint64_t>((static_cast<uint64_t>(((_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$lsu$_T_469[L].val) & (_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$lsu$_T_257[L].val))) & 0x1ULL)) & 0x1ULL)) != 0))) | (((static_cast<uint64_t>(((((static_cast<uint64_t>(0x9ULL) & 0x1fULL)) & ((uint64_t)0 - (uint64_t)(((static_cast<uint64_t>((static_cast<uint64_t>(((_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$lsu$_T_478[L].val) & (_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$lsu$_T_259[L].val))) & 0x1ULL)) & 0x1ULL)) != 0))) | (((static_cast<uint64_t>(((((static_cast<uint64_t>(0xaULL) & 0x1fULL)) & ((uint64_t)0 - (uint64_t)(((static_cast<uint64_t>((static_cast<uint64_t>(((_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$lsu$_T_487[L].val) & (_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$lsu$_T_261[L].val))) & 0x1ULL)) & 0x1ULL)) != 0))) | ((_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$lsu$_T_584[L].val) & ~((uint64_t)0 - (uint64_t)(((static_cast<uint64_t>((static_cast<uint64_t>(((_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$lsu$_T_487[L].val) & (_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$lsu$_T_261[L].val))) & 0x1ULL)) & 0x1ULL)) != 0))))) & 0x1fULL)) & ~((uint64_t)0 - (uint64_t)(((static_cast<uint64_t>((static_cast<uint64_t>(((_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$lsu$_T_478[L].val) & (_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$lsu$_T_259[L].val))) & 0x1ULL)) & 0x1ULL)) != 0))))) & 0x1fULL)) & ~((uint64_t)0 - (uint64_t)(((static_cast<uint64_t>((static_cast<uint64_t>(((_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$lsu$_T_469[L].val) & (_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$lsu$_T_257[L].val))) & 0x1ULL)) & 0x1ULL)) != 0))))) & 0x1fULL)) & ~((uint64_t)0 - (uint64_t)(((static_cast<uint64_t>((static_cast<uint64_t>(((_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$lsu$_T_460[L].val) & (_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$lsu$_T_255[L].val))) & 0x1ULL)) & 0x1ULL)) != 0))))) & 0x1fULL)) & ~((uint64_t)0 - (uint64_t)(((static_cast<uint64_t>((static_cast<uint64_t>(((_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$lsu$_T_451[L].val) & (_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$lsu$_T_253[L].val))) & 0x1ULL)) & 0x1ULL)) != 0))))) & 0x1fULL)) & ~((uint64_t)0 - (uint64_t)(((static_cast<uint64_t>((static_cast<uint64_t>(((_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$lsu$_T_442[L].val) & (_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$lsu$_T_251[L].val))) & 0x1ULL)) & 0x1ULL)) != 0))))) & 0x1fULL)) & ~((uint64_t)0 - (uint64_t)(((static_cast<uint64_t>((static_cast<uint64_t>(((_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$lsu$_T_433[L].val) & (_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$lsu$_T_249[L].val))) & 0x1ULL)) & 0x1ULL)) != 0))))) & 0x1fULL)) & ~((uint64_t)0 - (uint64_t)(((static_cast<uint64_t>((static_cast<uint64_t>(((_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$lsu$_T_424[L].val) & (_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$lsu$_T_247[L].val))) & 0x1ULL)) & 0x1ULL)) != 0))))) & 0x1fULL)) & ~((uint64_t)0 - (uint64_t)(((static_cast<uint64_t>((static_cast<uint64_t>(((_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$lsu$_T_415[L].val) & (_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$lsu$_T_245[L].val))) & 0x1ULL)) & 0x1ULL)) != 0))))) & 0x1fULL)) & ~((uint64_t)0 - (uint64_t)(((static_cast<uint64_t>((static_cast<uint64_t>(((_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$lsu$_T_406[L].val) & (_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$lsu$_T_243[L].val))) & 0x1ULL)) & 0x1ULL)) != 0))))) & 0x1fULL)) >> 0) & 0xfULL)) & 0xfULL)) & ~((uint64_t)0 - (uint64_t)(((static_cast<uint64_t>((static_cast<uint64_t>(((_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$lsu$_T_397[L].val) & (_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$lsu$_T_241[L].val))) & 0x1ULL)) & 0x1ULL)) != 0))))) & 0xfULL)) & 0xfULL))) & 0xffffffffffffULL)) << 4) | (static_cast<uint64_t>((static_cast<uint64_t>(((((static_cast<uint64_t>(0x0ULL) & 0xfULL)) & ((uint64_t)0 - (uint64_t)(((static_cast<uint64_t>((static_cast<uint64_t>(((_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$lsu$_T_180[L].val) & (_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$lsu$_T_241[L].val))) & 0x1ULL)) & 0x1ULL)) != 0))) | (((static_cast<uint64_t>(((static_cast<uint64_t>((static_cast<uint64_t>(((((static_cast<uint64_t>(0x1ULL) & 0x1fULL)) & ((uint64_t)0 - (uint64_t)(((static_cast<uint64_t>((static_cast<uint64_t>(((_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$lsu$_T_184[L].val) & (_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$lsu$_T_243[L].val))) & 0x1ULL)) & 0x1ULL)) != 0))) | (((static_cast<uint64_t>(((((static_cast<uint64_t>(0x2ULL) & 0x1fULL)) & ((uint64_t)0 - (uint64_t)(((static_cast<uint64_t>((static_cast<uint64_t>(((_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$lsu$_T_188[L].val) & (_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$lsu$_T_245[L].val))) & 0x1ULL)) & 0x1ULL)) != 0))) | (((static_cast<uint64_t>(((((static_cast<uint64_t>(0x3ULL) & 0x1fULL)) & ((uint64_t)0 - (uint64_t)(((static_cast<uint64_t>((static_cast<uint64_t>(((_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$lsu$_T_192[L].val) & (_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$lsu$_T_247[L].val))) & 0x1ULL)) & 0x1ULL)) != 0))) | (((static_cast<uint64_t>(((((static_cast<uint64_t>(0x4ULL) & 0x1fULL)) & ((uint64_t)0 - (uint64_t)(((static_cast<uint64_t>((static_cast<uint64_t>(((_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$lsu$_T_196[L].val) & (_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$lsu$_T_249[L].val))) & 0x1ULL)) & 0x1ULL)) != 0))) | (((static_cast<uint64_t>(((((static_cast<uint64_t>(0x5ULL) & 0x1fULL)) & ((uint64_t)0 - (uint64_t)(((static_cast<uint64_t>((static_cast<uint64_t>(((_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$lsu$_T_200[L].val) & (_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$lsu$_T_251[L].val))) & 0x1ULL)) & 0x1ULL)) != 0))) | (((static_cast<uint64_t>(((((static_cast<uint64_t>(0x6ULL) & 0x1fULL)) & ((uint64_t)0 - (uint64_t)(((static_cast<uint64_t>((static_cast<uint64_t>(((_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$lsu$_T_204[L].val) & (_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$lsu$_T_253[L].val))) & 0x1ULL)) & 0x1ULL)) != 0))) | (((static_cast<uint64_t>(((((static_cast<uint64_t>(0x7ULL) & 0x1fULL)) & ((uint64_t)0 - (uint64_t)(((static_cast<uint64_t>((static_cast<uint64_t>(((_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$lsu$_T_208[L].val) & (_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$lsu$_T_255[L].val))) & 0x1ULL)) & 0x1ULL)) != 0))) | (((static_cast<uint64_t>(((((static_cast<uint64_t>(0x8ULL) & 0x1fULL)) & ((uint64_t)0 - (uint64_t)(((static_cast<uint64_t>((static_cast<uint64_t>(((_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$lsu$_T_212[L].val) & (_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$lsu$_T_257[L].val))) & 0x1ULL)) & 0x1ULL)) != 0))) | (((static_cast<uint64_t>(((((static_cast<uint64_t>(0x9ULL) & 0x1fULL)) & ((uint64_t)0 - (uint64_t)(((static_cast<uint64_t>((static_cast<uint64_t>(((_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$lsu$_T_216[L].val) & (_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$lsu$_T_259[L].val))) & 0x1ULL)) & 0x1ULL)) != 0))) | (((static_cast<uint64_t>(((((static_cast<uint64_t>(0xaULL) & 0x1fULL)) & ((uint64_t)0 - (uint64_t)(((static_cast<uint64_t>((static_cast<uint64_t>(((_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$lsu$_T_220[L].val) & (_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$lsu$_T_261[L].val))) & 0x1ULL)) & 0x1ULL)) != 0))) | ((_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$lsu$_T_292[L].val) & ~((uint64_t)0 - (uint64_t)(((static_cast<uint64_t>((static_cast<uint64_t>(((_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$lsu$_T_220[L].val) & (_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$lsu$_T_261[L].val))) & 0x1ULL)) & 0x1ULL)) != 0))))) & 0x1fULL)) & ~((uint64_t)0 - (uint64_t)(((static_cast<uint64_t>((static_cast<uint64_t>(((_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$lsu$_T_216[L].val) & (_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$lsu$_T_259[L].val))) & 0x1ULL)) & 0x1ULL)) != 0))))) & 0x1fULL)) & ~((uint64_t)0 - (uint64_t)(((static_cast<uint64_t>((static_cast<uint64_t>(((_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$lsu$_T_212[L].val) & (_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$lsu$_T_257[L].val))) & 0x1ULL)) & 0x1ULL)) != 0))))) & 0x1fULL)) & ~((uint64_t)0 - (uint64_t)(((static_cast<uint64_t>((static_cast<uint64_t>(((_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$lsu$_T_208[L].val) & (_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$lsu$_T_255[L].val))) & 0x1ULL)) & 0x1ULL)) != 0))))) & 0x1fULL)) & ~((uint64_t)0 - (uint64_t)(((static_cast<uint64_t>((static_cast<uint64_t>(((_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$lsu$_T_204[L].val) & (_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$lsu$_T_253[L].val))) & 0x1ULL)) & 0x1ULL)) != 0))))) & 0x1fULL)) & ~((uint64_t)0 - (uint64_t)(((static_cast<uint64_t>((static_cast<uint64_t>(((_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$lsu$_T_200[L].val) & (_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$lsu$_T_251[L].val))) & 0x1ULL)) & 0x1ULL)) != 0))))) & 0x1fULL)) & ~((uint64_t)0 - (uint64_t)(((static_cast<uint64_t>((static_cast<uint64_t>(((_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$lsu$_T_196[L].val) & (_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$lsu$_T_249[L].val))) & 0x1ULL)) & 0x1ULL)) != 0))))) & 0x1fULL)) & ~((uint64_t)0 - (uint64_t)(((static_cast<uint64_t>((static_cast<uint64_t>(((_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$lsu$_T_192[L].val) & (_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$lsu$_T_247[L].val))) & 0x1ULL)) & 0x1ULL)) != 0))))) & 0x1fULL)) & ~((uint64_t)0 - (uint64_t)(((static_cast<uint64_t>((static_cast<uint64_t>(((_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$lsu$_T_188[L].val) & (_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$lsu$_T_245[L].val))) & 0x1ULL)) & 0x1ULL)) != 0))))) & 0x1fULL)) & ~((uint64_t)0 - (uint64_t)(((static_cast<uint64_t>((static_cast<uint64_t>(((_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$lsu$_T_184[L].val) & (_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$lsu$_T_243[L].val))) & 0x1ULL)) & 0x1ULL)) != 0))))) & 0x1fULL)) >> 0) & 0xfULL)) & 0xfULL)) & ~((uint64_t)0 - (uint64_t)(((static_cast<uint64_t>((static_cast<uint64_t>(((_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$lsu$_T_180[L].val) & (_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$lsu$_T_241[L].val))) & 0x1ULL)) & 0x1ULL)) != 0))))) & 0xfULL)) & 0xfULL))) & 0xfffffffffffffULL)) & 0xfffffffffffffULL));
+      }
+    }
+    // [vec comb] 8 templates x 4 lanes
+    ESSENT_LANE_LOOP
+    for (int L = 0; L < 4; L++) {
+      // [v2 lane-local] ldut.tile_prci_domain.tile_reset_domain.boom_tile.lsu.mem_stq_retry_e_bits_uop_br_mask _v2_local_117474_0
+      UInt<12> _v2_local_117474_0;
+      // [v2 lane-local] ldut.tile_prci_domain.tile_reset_domain.boom_tile.lsu.mem_forward_valid_0 _v2_local_97920_0
+      UInt<1> _v2_local_97920_0;
+      _v2_local_117474_0.val = static_cast<typename UInt<12>::scalar_t>((static_cast<uint64_t>((static_cast<uint64_t>(((static_cast<uint64_t>(_v2_bank_ldut$tile_prci_domain$tile_reset_domain$boom_tile$lsu$mem__v2_bank_0_5[L].val) >> 38) & 0xfffULL)) & 0xfffULL)) & 0xfffULL));
+      _v2_local_97920_0.val = static_cast<typename UInt<1>::scalar_t>((static_cast<uint64_t>((static_cast<uint64_t>((((static_cast<uint64_t>((((static_cast<uint64_t>((((static_cast<uint64_t>((((static_cast<uint64_t>((((static_cast<uint64_t>(0xfULL) & 0xfULL)) == (_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$lsu$forwarding_idx_0[L].val))) & 0x1ULL)) & ((static_cast<uint64_t>(((_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$lsu$_T_3294[L].val) & (_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$lsu$_T_3300[L].val))) & 0x1ULL)))) & 0x1ULL)) | ((static_cast<uint64_t>((((static_cast<uint64_t>((~static_cast<uint64_t>((static_cast<uint64_t>((((static_cast<uint64_t>(0xfULL) & 0xfULL)) == (_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$lsu$forwarding_idx_0[L].val))) & 0x1ULL)))) & 0x1ULL)) & (_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$lsu$_GEN_28033[L].val))) & 0x1ULL)))) & 0x1ULL)) & ((static_cast<uint64_t>((~static_cast<uint64_t>((static_cast<uint64_t>((((static_cast<uint64_t>(((_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$core$io_lsu_brupdate_b1_mispredict_mask[L].val) & ((static_cast<uint64_t>(((((static_cast<uint64_t>((((_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$lsu$mem_stq_incoming_e_0_bits_uop_br_mask[L].val) & ((uint64_t)0 - (uint64_t)(((static_cast<uint64_t>(_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$lsu$_T_1333[L].val) & 0x1ULL)) != 0))) | (((static_cast<uint64_t>((((_v2_local_117474_0.val) & ((uint64_t)0 - (uint64_t)(((static_cast<uint64_t>(ldut.tile_prci_domain.tile_reset_domain.boom_tile.lsu.REG_8[L].val) & 0x1ULL)) != 0))) | (((static_cast<uint64_t>(0x0ULL) & 0xfffULL)) & ~((uint64_t)0 - (uint64_t)(((static_cast<uint64_t>(ldut.tile_prci_domain.tile_reset_domain.boom_tile.lsu.REG_8[L].val) & 0x1ULL)) != 0))))) & 0xfffULL)) & ~((uint64_t)0 - (uint64_t)(((static_cast<uint64_t>(_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$lsu$_T_1333[L].val) & 0x1ULL)) != 0))))) & 0xfffULL)) & ((uint64_t)0 - (uint64_t)(((static_cast<uint64_t>(_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$lsu$do_st_search_0[L].val) & 0x1ULL)) != 0))) | (((static_cast<uint64_t>(((((static_cast<uint64_t>(((((static_cast<uint64_t>(((static_cast<uint64_t>(_v2_bank_ldut$tile_prci_domain$tile_reset_domain$boom_tile$lsu$mem__v2_bank_0_2[L].val) >> 29) & 0xfffULL)) & 0xfffULL)) & ((uint64_t)0 - (uint64_t)(((static_cast<uint64_t>(ldut.tile_prci_domain.tile_reset_domain.boom_tile.lsu.REG_3[L].val) & 0x1ULL)) != 0))) | (((static_cast<uint64_t>(((((static_cast<uint64_t>(((static_cast<uint64_t>(_v2_bank_ldut$tile_prci_domain$tile_reset_domain$boom_tile$lsu$mem__v2_bank_0_4[L].val) >> 29) & 0xfffULL)) & 0xfffULL)) & ((uint64_t)0 - (uint64_t)(((static_cast<uint64_t>(ldut.tile_prci_domain.tile_reset_domain.boom_tile.lsu.REG_7[L].val) & 0x1ULL)) != 0))) | (((static_cast<uint64_t>(((((static_cast<uint64_t>(((static_cast<uint64_t>(_v2_bank_ldut$tile_prci_domain$tile_reset_domain$boom_tile$lsu$mem__v2_bank_0_3[L].val) >> 12) & 0xfffULL)) & 0xfffULL)) & ((uint64_t)0 - (uint64_t)(((static_cast<uint64_t>(ldut.tile_prci_domain.tile_reset_domain.boom_tile.lsu.REG_9[L].val) & 0x1ULL)) != 0))) | (((static_cast<uint64_t>(0x0ULL) & 0xfffULL)) & ~((uint64_t)0 - (uint64_t)(((static_cast<uint64_t>(ldut.tile_prci_domain.tile_reset_domain.boom_tile.lsu.REG_9[L].val) & 0x1ULL)) != 0))))) & 0xfffULL)) & ~((uint64_t)0 - (uint64_t)(((static_cast<uint64_t>(ldut.tile_prci_domain.tile_reset_domain.boom_tile.lsu.REG_7[L].val) & 0x1ULL)) != 0))))) & 0xfffULL)) & ~((uint64_t)0 - (uint64_t)(((static_cast<uint64_t>(ldut.tile_prci_domain.tile_reset_domain.boom_tile.lsu.REG_3[L].val) & 0x1ULL)) != 0))))) & 0xfffULL)) & ((uint64_t)0 - (uint64_t)(((static_cast<uint64_t>(_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$lsu$do_ld_search_0[L].val) & 0x1ULL)) != 0))) | (((static_cast<uint64_t>(0x0ULL) & 0xfffULL)) & ~((uint64_t)0 - (uint64_t)(((static_cast<uint64_t>(_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$lsu$do_ld_search_0[L].val) & 0x1ULL)) != 0))))) & 0xfffULL)) & ~((uint64_t)0 - (uint64_t)(((static_cast<uint64_t>(_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$lsu$do_st_search_0[L].val) & 0x1ULL)) != 0))))) & 0xfffULL)))) & 0xfffULL)) != ((static_cast<uint64_t>(0x0ULL) & 0xfffULL)))) & 0x1ULL)))) & 0x1ULL)))) & 0x1ULL)) & ((static_cast<uint64_t>(((_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$lsu$_T_1100[L].val) & ((static_cast<uint64_t>((~static_cast<uint64_t>(ldut.tile_prci_domain.tile_reset_domain.boom_tile.lsu.REG_101[L].val))) & 0x1ULL)))) & 0x1ULL)))) & 0x1ULL)) & 0x1ULL));
+      _s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$lsu$REG_102$next[L].val = static_cast<typename UInt<1>::scalar_t>((static_cast<uint8_t>((static_cast<uint8_t>((((static_cast<uint8_t>((((static_cast<uint8_t>((((static_cast<uint8_t>((((static_cast<uint8_t>(((_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$lsu$ldst_addr_matches_0_0[L].val) | (_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$lsu$ldst_addr_matches_0_1[L].val))) & 0x1u)) | ((static_cast<uint8_t>(((_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$lsu$ldst_addr_matches_0_2[L].val) | (_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$lsu$ldst_addr_matches_0_3[L].val))) & 0x1u)))) & 0x1u)) | ((static_cast<uint8_t>((((static_cast<uint8_t>(((_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$lsu$ldst_addr_matches_0_4[L].val) | (_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$lsu$ldst_addr_matches_0_5[L].val))) & 0x1u)) | ((static_cast<uint8_t>(((_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$lsu$ldst_addr_matches_0_6[L].val) | (_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$lsu$ldst_addr_matches_0_7[L].val))) & 0x1u)))) & 0x1u)))) & 0x1u)) | ((static_cast<uint8_t>((((static_cast<uint8_t>((((static_cast<uint8_t>(((_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$lsu$ldst_addr_matches_0_8[L].val) | (_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$lsu$ldst_addr_matches_0_9[L].val))) & 0x1u)) | ((static_cast<uint8_t>(((_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$lsu$ldst_addr_matches_0_10[L].val) | (_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$lsu$ldst_addr_matches_0_11[L].val))) & 0x1u)))) & 0x1u)) | ((static_cast<uint8_t>((((static_cast<uint8_t>(((_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$lsu$ldst_addr_matches_0_12[L].val) | (_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$lsu$ldst_addr_matches_0_13[L].val))) & 0x1u)) | ((static_cast<uint8_t>(((_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$lsu$ldst_addr_matches_0_14[L].val) | (_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$lsu$ldst_addr_matches_0_15[L].val))) & 0x1u)))) & 0x1u)))) & 0x1u)))) & 0x1u)) & ((static_cast<uint8_t>((~static_cast<uint8_t>(_v2_local_97920_0.val))) & 0x1u)))) & 0x1u)) & 0x1u));
+      _s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$lsu$clr_bsy_valid_0$next[L].val = static_cast<typename UInt<1>::scalar_t>((static_cast<uint64_t>((static_cast<uint64_t>((((static_cast<uint64_t>((~static_cast<uint64_t>(_s_ldut$reset[L].val))) & 0x1ULL)) & ((static_cast<uint64_t>((((static_cast<uint64_t>((((static_cast<uint64_t>(((ldut.tile_prci_domain.tile_reset_domain.boom_tile.lsu.REG_4[L].val) & (_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$lsu$mem_stq_incoming_e_0_valid[L].val))) & 0x1ULL)) & ((static_cast<uint64_t>(((_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$lsu$_T_1338[L].val) & ((static_cast<uint64_t>(((_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$lsu$_T_1340[L].val) & (_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$lsu$_T_1344[L].val))) & 0x1ULL)))) & 0x1ULL)))) & 0x1ULL)) | ((static_cast<uint64_t>((((static_cast<uint64_t>((~static_cast<uint64_t>(ldut.tile_prci_domain.tile_reset_domain.boom_tile.lsu.REG_4[L].val))) & 0x1ULL)) & ((static_cast<uint64_t>((((static_cast<uint64_t>((((static_cast<uint64_t>(((ldut.tile_prci_domain.tile_reset_domain.boom_tile.lsu.REG_5[L].val) & ((static_cast<uint64_t>(((_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$lsu$mem_stq_incoming_e_0_valid[L].val) & ((static_cast<uint64_t>(((static_cast<uint64_t>(_v2_bank_ldut$tile_prci_domain$tile_reset_domain$boom_tile$lsu$mem__v2_bank_0_3[L].val) >> 24) & 0x1ULL)) & 0x1ULL)))) & 0x1ULL)))) & 0x1ULL)) & ((static_cast<uint64_t>(((_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$lsu$_T_1338[L].val) & ((static_cast<uint64_t>(((_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$lsu$_T_1340[L].val) & (_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$lsu$_T_1344[L].val))) & 0x1ULL)))) & 0x1ULL)))) & 0x1ULL)) | ((static_cast<uint64_t>((((static_cast<uint64_t>((~static_cast<uint64_t>(ldut.tile_prci_domain.tile_reset_domain.boom_tile.lsu.REG_5[L].val))) & 0x1ULL)) & ((static_cast<uint64_t>((((static_cast<uint64_t>((((static_cast<uint64_t>(((ldut.tile_prci_domain.tile_reset_domain.boom_tile.lsu.REG_6[L].val) & ((static_cast<uint64_t>(((_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$lsu$mem_stq_incoming_e_0_valid[L].val) & ((static_cast<uint64_t>(((static_cast<uint64_t>(_v2_bank_ldut$tile_prci_domain$tile_reset_domain$boom_tile$lsu$mem__v2_bank_0_3[L].val) >> 26) & 0x1ULL)) & 0x1ULL)))) & 0x1ULL)))) & 0x1ULL)) & ((static_cast<uint64_t>((((static_cast<uint64_t>((~static_cast<uint64_t>((static_cast<uint64_t>(((static_cast<uint64_t>(_v2_bank_ldut$tile_prci_domain$tile_reset_domain$boom_tile$lsu$mem__v2_bank_0_3[L].val) >> 25) & 0x1ULL)) & 0x1ULL)))) & 0x1ULL)) & ((static_cast<uint64_t>(((_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$lsu$_T_1340[L].val) & (_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$lsu$_T_1344[L].val))) & 0x1ULL)))) & 0x1ULL)))) & 0x1ULL)) | ((static_cast<uint64_t>((((static_cast<uint64_t>((~static_cast<uint64_t>(ldut.tile_prci_domain.tile_reset_domain.boom_tile.lsu.REG_6[L].val))) & 0x1ULL)) & ((static_cast<uint64_t>(((ldut.tile_prci_domain.tile_reset_domain.boom_tile.lsu.fired_sfence_0[L].val) | ((static_cast<uint64_t>((((static_cast<uint64_t>(((ldut.tile_prci_domain.tile_reset_domain.boom_tile.lsu.REG_8[L].val) & ((static_cast<uint64_t>((((static_cast<uint64_t>(((static_cast<uint64_t>(_v2_bank_ldut$tile_prci_domain$tile_reset_domain$boom_tile$lsu$mem__v2_bank_0_4[L].val) >> 0) & 0x1ULL)) & 0x1ULL)) & ((static_cast<uint64_t>(((static_cast<uint64_t>(_v2_bank_ldut$tile_prci_domain$tile_reset_domain$boom_tile$lsu$mem__v2_bank_0_5[L].val) >> 24) & 0x1ULL)) & 0x1ULL)))) & 0x1ULL)))) & 0x1ULL)) & ((static_cast<uint64_t>(((_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$lsu$_T_1338[L].val) & ((static_cast<uint64_t>((((static_cast<uint64_t>((~static_cast<uint64_t>((static_cast<uint64_t>(((static_cast<uint64_t>(_v2_bank_ldut$tile_prci_domain$tile_reset_domain$boom_tile$lsu$mem__v2_bank_0_5[L].val) >> 25) & 0x1ULL)) & 0x1ULL)))) & 0x1ULL)) & ((static_cast<uint64_t>((~static_cast<uint64_t>((static_cast<uint64_t>((((static_cast<uint64_t>(((_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$core$io_lsu_brupdate_b1_mispredict_mask[L].val) & (_v2_local_117474_0.val))) & 0xfffULL)) != ((static_cast<uint64_t>(0x0ULL) & 0xfffULL)))) & 0x1ULL)))) & 0x1ULL)))) & 0x1ULL)))) & 0x1ULL)))) & 0x1ULL)))) & 0x1ULL)))) & 0x1ULL)))) & 0x1ULL)))) & 0x1ULL)))) & 0x1ULL)))) & 0x1ULL)))) & 0x1ULL)))) & 0x1ULL)) & 0x1ULL));
+      _s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$lsu$clr_bsy_brmask_0$next[L].val = static_cast<typename UInt<12>::scalar_t>((static_cast<uint64_t>((static_cast<uint64_t>((((_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$lsu$_T_1347[L].val) & ((uint64_t)0 - (uint64_t)(((static_cast<uint64_t>(ldut.tile_prci_domain.tile_reset_domain.boom_tile.lsu.REG_4[L].val) & 0x1ULL)) != 0))) | (((static_cast<uint64_t>((((_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$lsu$_T_1347[L].val) & ((uint64_t)0 - (uint64_t)(((static_cast<uint64_t>(ldut.tile_prci_domain.tile_reset_domain.boom_tile.lsu.REG_5[L].val) & 0x1ULL)) != 0))) | (((static_cast<uint64_t>((((_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$lsu$_T_1347[L].val) & ((uint64_t)0 - (uint64_t)(((static_cast<uint64_t>(ldut.tile_prci_domain.tile_reset_domain.boom_tile.lsu.REG_6[L].val) & 0x1ULL)) != 0))) | (((static_cast<uint64_t>(((((static_cast<uint64_t>((((static_cast<uint64_t>(((static_cast<uint64_t>(_v2_bank_ldut$tile_prci_domain$tile_reset_domain$boom_tile$lsu$mem__v2_bank_0_1[L].val) >> 10) & 0xfffULL)) & 0xfffULL)) & (_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$dcache$_T_73[L].val))) & 0xfffULL)) & ((uint64_t)0 - (uint64_t)(((static_cast<uint64_t>(ldut.tile_prci_domain.tile_reset_domain.boom_tile.lsu.fired_sfence_0[L].val) & 0x1ULL)) != 0))) | (((static_cast<uint64_t>(((((static_cast<uint64_t>(((_v2_local_117474_0.val) & (_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$dcache$_T_73[L].val))) & 0xfffULL)) & ((uint64_t)0 - (uint64_t)(((static_cast<uint64_t>(ldut.tile_prci_domain.tile_reset_domain.boom_tile.lsu.REG_8[L].val) & 0x1ULL)) != 0))) | (((static_cast<uint64_t>(0x0ULL) & 0xfffULL)) & ~((uint64_t)0 - (uint64_t)(((static_cast<uint64_t>(ldut.tile_prci_domain.tile_reset_domain.boom_tile.lsu.REG_8[L].val) & 0x1ULL)) != 0))))) & 0xfffULL)) & ~((uint64_t)0 - (uint64_t)(((static_cast<uint64_t>(ldut.tile_prci_domain.tile_reset_domain.boom_tile.lsu.fired_sfence_0[L].val) & 0x1ULL)) != 0))))) & 0xfffULL)) & ~((uint64_t)0 - (uint64_t)(((static_cast<uint64_t>(ldut.tile_prci_domain.tile_reset_domain.boom_tile.lsu.REG_6[L].val) & 0x1ULL)) != 0))))) & 0xfffULL)) & ~((uint64_t)0 - (uint64_t)(((static_cast<uint64_t>(ldut.tile_prci_domain.tile_reset_domain.boom_tile.lsu.REG_5[L].val) & 0x1ULL)) != 0))))) & 0xfffULL)) & ~((uint64_t)0 - (uint64_t)(((static_cast<uint64_t>(ldut.tile_prci_domain.tile_reset_domain.boom_tile.lsu.REG_4[L].val) & 0x1ULL)) != 0))))) & 0xfffULL)) & 0xfffULL));
+      _s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$lsu$wb_forward_valid_0$next[L].val = static_cast<typename UInt<1>::scalar_t>((static_cast<uint8_t>(_v2_local_97920_0.val) & 0x1u));
+    }
+    ESSENT_LANE_LOOP
+    for (int L = 0; L < 4; L++) {
+      _s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$lsu$mem_stdf_uop_br_mask[L].val = static_cast<typename UInt<12>::scalar_t>((static_cast<uint64_t>((static_cast<uint64_t>(((static_cast<uint64_t>(_v2_bank_ldut$tile_prci_domain$tile_reset_domain$boom_tile$lsu$mem__v2_bank_0_5[L].val) >> 12) & 0xfffULL)) & 0xfffULL)) & 0xfffULL));
+      _s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$lsu$stdf_clr_bsy_brmask$next[L].val = static_cast<typename UInt<12>::scalar_t>((static_cast<uint16_t>((static_cast<uint16_t>(((((static_cast<uint16_t>(((_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$lsu$mem_stdf_uop_br_mask[L].val) & (_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$dcache$_T_73[L].val))) & 0xfffu)) & ((uint16_t)0 - (uint16_t)(((static_cast<uint16_t>(ldut.tile_prci_domain.tile_reset_domain.boom_tile.lsu.fired_stdf_incoming[L].val) & 0x1u)) != 0))) | (((static_cast<uint16_t>(0x0u) & 0xfffu)) & ~((uint16_t)0 - (uint16_t)(((static_cast<uint16_t>(ldut.tile_prci_domain.tile_reset_domain.boom_tile.lsu.fired_stdf_incoming[L].val) & 0x1u)) != 0))))) & 0xfffu)) & 0xfffu));
+    }
     // [vec comb] 4 templates x 4 lanes
     _v2_cshare_444();
     // [serial scc=449] 1 templates (0 comb), regs=[uops__v2_bank_1_0]
@@ -69894,6 +69942,9 @@ void TestHarness::eval_forward(bool update_registers, bool verbose, bool done_re
       memcpy(_v2s_0, &_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$core$fp_pipeline$fregister_read$exe_reg_rs1_data_0$next[0], sizeof(_v2s_0));
       memcpy(&ldut.tile_prci_domain.tile_reset_domain.boom_tile.core.fp_pipeline.fregister_read.exe_reg_rs1_data_0[1], &_v2s_0[0], sizeof(_v2s_0) - sizeof(_v2s_0[0]));
     }
+    }();
+    // [v2 eval chunk 56]
+    [&]() ESSENT_NOINLINE {
     // [vec comb] 32 templates x 4 lanes
     _v2_cshare_447();
     // [vec comb] 2 templates x 4 lanes
@@ -69902,9 +69953,6 @@ void TestHarness::eval_forward(bool update_registers, bool verbose, bool done_re
       { const uint64_t _v2_word_0 = static_cast<uint64_t>((((static_cast<uint64_t>(0x0ULL)) & ((uint64_t)0 - (uint64_t)(((static_cast<uint64_t>(ldut.tile_prci_domain.tile_reset_domain.boom_tile.core.fp_pipeline.fregister_read.REG_3[L].val) & 0x1ULL)) != 0))) | ((static_cast<uint64_t>((_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$core$fp_pipeline$fregfile$regfile$MPORT_1[L].val[0] >> 0))) & ~((uint64_t)0 - (uint64_t)(((static_cast<uint64_t>(ldut.tile_prci_domain.tile_reset_domain.boom_tile.core.fp_pipeline.fregister_read.REG_3[L].val) & 0x1ULL)) != 0))))); const uint64_t _v2_word_1 = (static_cast<uint64_t>(((((static_cast<uint64_t>(0x0ULL) & 0x1ULL)) & ((uint64_t)0 - (uint64_t)(((static_cast<uint64_t>(ldut.tile_prci_domain.tile_reset_domain.boom_tile.core.fp_pipeline.fregister_read.REG_3[L].val) & 0x1ULL)) != 0))) | (((static_cast<uint64_t>((_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$core$fp_pipeline$fregfile$regfile$MPORT_1[L].val[1] >> 0)) & 0x1ULL)) & ~((uint64_t)0 - (uint64_t)(((static_cast<uint64_t>(ldut.tile_prci_domain.tile_reset_domain.boom_tile.core.fp_pipeline.fregister_read.REG_3[L].val) & 0x1ULL)) != 0))))) & 0x1ULL); _s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$core$fp_pipeline$fregister_read$exe_reg_rs2_data_0$next[L].val[0] = _v2_word_0; _s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$core$fp_pipeline$fregister_read$exe_reg_rs2_data_0$next[L].val[1] = _v2_word_1; }
       { const uint64_t _v2_word_0 = static_cast<uint64_t>((((static_cast<uint64_t>(0x0ULL)) & ((uint64_t)0 - (uint64_t)(((static_cast<uint64_t>(ldut.tile_prci_domain.tile_reset_domain.boom_tile.core.fp_pipeline.fregister_read.REG_4[L].val) & 0x1ULL)) != 0))) | ((static_cast<uint64_t>((_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$core$fp_pipeline$fregfile$regfile$MPORT_2[L].val[0] >> 0))) & ~((uint64_t)0 - (uint64_t)(((static_cast<uint64_t>(ldut.tile_prci_domain.tile_reset_domain.boom_tile.core.fp_pipeline.fregister_read.REG_4[L].val) & 0x1ULL)) != 0))))); const uint64_t _v2_word_1 = (static_cast<uint64_t>(((((static_cast<uint64_t>(0x0ULL) & 0x1ULL)) & ((uint64_t)0 - (uint64_t)(((static_cast<uint64_t>(ldut.tile_prci_domain.tile_reset_domain.boom_tile.core.fp_pipeline.fregister_read.REG_4[L].val) & 0x1ULL)) != 0))) | (((static_cast<uint64_t>((_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$core$fp_pipeline$fregfile$regfile$MPORT_2[L].val[1] >> 0)) & 0x1ULL)) & ~((uint64_t)0 - (uint64_t)(((static_cast<uint64_t>(ldut.tile_prci_domain.tile_reset_domain.boom_tile.core.fp_pipeline.fregister_read.REG_4[L].val) & 0x1ULL)) != 0))))) & 0x1ULL); _s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$core$fp_pipeline$fregister_read$exe_reg_rs3_data_0$next[L].val[0] = _v2_word_0; _s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$core$fp_pipeline$fregister_read$exe_reg_rs3_data_0$next[L].val[1] = _v2_word_1; }
     }
-    }();
-    // [v2 eval chunk 56]
-    [&]() ESSENT_NOINLINE {
     // [vec reg-source] 1 templates x 4 lanes
     {
       alignas(64) UInt<65> _v2s_0[4];
@@ -70306,12 +70354,18 @@ void TestHarness::eval_forward(bool update_registers, bool verbose, bool done_re
     }
     #endif
     // [serial scc=249] 1 templates (0 comb), regs=[busy_table]
-    // [serial scc=249 lane=1]
-    ldut.tile_prci_domain.tile_reset_domain.boom_tile.core.fp_rename_stage.busytable.busy_table[1] = (_s_ldut$reset[1 - 1] ? UInt<128>(0x0) : (((ldut.tile_prci_domain.tile_reset_domain.boom_tile.core.fp_rename_stage.busytable.busy_table[1 - 1] & _s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$core$fp_rename_stage$busytable$_T_9[1 - 1]).pad<128>()) | _s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$core$fp_rename_stage$busytable$_T_18[1 - 1])).bits<63,0>();
-    // [serial scc=249 lane=2]
-    ldut.tile_prci_domain.tile_reset_domain.boom_tile.core.fp_rename_stage.busytable.busy_table[2] = (_s_ldut$reset[2 - 1] ? UInt<128>(0x0) : (((ldut.tile_prci_domain.tile_reset_domain.boom_tile.core.fp_rename_stage.busytable.busy_table[2 - 1] & _s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$core$fp_rename_stage$busytable$_T_9[2 - 1]).pad<128>()) | _s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$core$fp_rename_stage$busytable$_T_18[2 - 1])).bits<63,0>();
-    // [serial scc=249 lane=3]
-    ldut.tile_prci_domain.tile_reset_domain.boom_tile.core.fp_rename_stage.busytable.busy_table[3] = (_s_ldut$reset[3 - 1] ? UInt<128>(0x0) : (((ldut.tile_prci_domain.tile_reset_domain.boom_tile.core.fp_rename_stage.busytable.busy_table[3 - 1] & _s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$core$fp_rename_stage$busytable$_T_9[3 - 1]).pad<128>()) | _s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$core$fp_rename_stage$busytable$_T_18[3 - 1])).bits<63,0>();
+    // [serial scc=249 chain-loop]
+    {
+      uint64_t _gany = 0;
+      for (int L = 0; L < 3; L++) _gany |= essent_to_u64(_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$core$fp_rename_stage$busytable$busy_table$gwen[L]);
+      if (_gany == 0) {
+        const UInt<64> _gv = ldut.tile_prci_domain.tile_reset_domain.boom_tile.core.fp_rename_stage.busytable.busy_table[0];
+        ESSENT_LANE_LOOP
+        for (int L = 0; L < 4; L++) ldut.tile_prci_domain.tile_reset_domain.boom_tile.core.fp_rename_stage.busytable.busy_table[L] = _gv;
+      } else {
+        for (int L = 1; L < 4; L++) ldut.tile_prci_domain.tile_reset_domain.boom_tile.core.fp_rename_stage.busytable.busy_table[L] = (_s_ldut$reset[L - 1] ? UInt<128>(0x0) : (((ldut.tile_prci_domain.tile_reset_domain.boom_tile.core.fp_rename_stage.busytable.busy_table[L - 1] & _s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$core$fp_rename_stage$busytable$_T_9[L - 1]).pad<128>()) | _s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$core$fp_rename_stage$busytable$_T_18[L - 1])).bits<63,0>();
+      }
+    }
     // [vec comb] 31 templates x 4 lanes
     _v2_cshare_452();
     // [vec boundary-next] 1 templates x 4 lanes
@@ -70342,7 +70396,7 @@ void TestHarness::eval_forward(bool update_registers, bool verbose, bool done_re
     }
     // [vec comb] 2 templates x 4 lanes [cold-guarded base: quiet drops 0, specializes 2]
     if (UNLIKELY(!_v2_quiet_base)) {
-      _v2_cold_comb_full(170);
+      _v2_cold_comb_full(172);
     } else {
       // [vec comb-quiet] 2 templates x 4 lanes
       ESSENT_LANE_LOOP
@@ -70371,7 +70425,7 @@ void TestHarness::eval_forward(bool update_registers, bool verbose, bool done_re
     }
     // [vec comb] 2 templates x 4 lanes [cold-guarded base: quiet drops 0, specializes 2]
     if (UNLIKELY(!_v2_quiet_base)) {
-      _v2_cold_comb_full(171);
+      _v2_cold_comb_full(173);
     } else {
       // [vec comb-quiet] 2 templates x 4 lanes
       ESSENT_LANE_LOOP
@@ -72572,6 +72626,9 @@ void TestHarness::eval_forward(bool update_registers, bool verbose, bool done_re
     ldut.tile_prci_domain.tile_reset_domain.boom_tile.core.dec_finished_mask[3] = _s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$core$dec_finished_mask$next[3 - 1];
     _s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$core$_T_331[3].val = static_cast<typename UInt<1>::scalar_t>((static_cast<uint8_t>((static_cast<uint8_t>((~static_cast<uint8_t>((static_cast<uint8_t>(((static_cast<uint8_t>(ldut.tile_prci_domain.tile_reset_domain.boom_tile.core.dec_finished_mask[3].val) >> 0) & 0x1u)) & 0x1u)))) & 0x1u)) & 0x1u));
     _s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$core$dec_valids_0[3].val = static_cast<typename UInt<1>::scalar_t>((static_cast<uint8_t>((static_cast<uint8_t>(((_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$frontend$fb$io_deq_valid[3].val) & ((static_cast<uint8_t>(((_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$frontend$fb$io_deq_bits_uops_0_valid[3].val) & (_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$core$_T_331[3].val))) & 0x1u)))) & 0x1u)) & 0x1u));
+    }();
+    // [v2 eval chunk 57]
+    [&]() ESSENT_NOINLINE {
     // [vec comb] 1 templates x 4 lanes
     ESSENT_LANE_LOOP
     for (int L = 0; L < 4; L++) {
@@ -72597,9 +72654,6 @@ void TestHarness::eval_forward(bool update_registers, bool verbose, bool done_re
       memcpy(_v2s_0, &_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$core$REG_8$next[0], sizeof(_v2s_0));
       memcpy(&ldut.tile_prci_domain.tile_reset_domain.boom_tile.core.REG_8[1], &_v2s_0[0], sizeof(_v2s_0) - sizeof(_v2s_0[0]));
     }
-    }();
-    // [v2 eval chunk 57]
-    [&]() ESSENT_NOINLINE {
     // [vec comb] 2 templates x 4 lanes
     ESSENT_LANE_LOOP
     for (int L = 0; L < 4; L++) {
@@ -72949,7 +73003,7 @@ void TestHarness::eval_forward(bool update_registers, bool verbose, bool done_re
     _s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$core$dec_xcpts_0[3].val = static_cast<typename UInt<1>::scalar_t>((static_cast<uint8_t>((static_cast<uint8_t>(((_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$core$decode_units_0$io_deq_uop_exception[3].val) & (_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$core$dec_valids_0[3].val))) & 0x1u)) & 0x1u));
     // [vec comb] 1 templates x 4 lanes [cold-guarded base: quiet drops 0, specializes 1]
     if (UNLIKELY(!_v2_quiet_base)) {
-      _v2_cold_comb_full(172);
+      _v2_cold_comb_full(174);
     } else {
       // [vec comb-quiet] 1 templates x 4 lanes
       ESSENT_LANE_LOOP
@@ -73062,18 +73116,18 @@ void TestHarness::eval_forward(bool update_registers, bool verbose, bool done_re
     }
     ESSENT_LANE_LOOP
     for (int L = 0; L < 4; L++) {
-      // [v2 lane-local] lut$idx_1 _v2_local_133710_0
-      UInt<8> _v2_local_133710_0;
-      // [v2 lane-local] lut$v_2 _v2_local_133711_0
-      UInt<4> _v2_local_133711_0;
+      // [v2 lane-local] lut$idx_1 _v2_local_133759_0
+      UInt<8> _v2_local_133759_0;
+      // [v2 lane-local] lut$v_2 _v2_local_133760_0
+      UInt<4> _v2_local_133760_0;
       // [v2 lane-local] ldut.tile_prci_domain.tile_reset_domain.boom_tile.core.dec_brmask_logic.io_br_tag_1 _v2_local_57871_0
       UInt<4> _v2_local_57871_0;
-      _v2_local_133710_0.val = static_cast<typename UInt<8>::scalar_t>((static_cast<uint8_t>((static_cast<uint8_t>(((((static_cast<uint8_t>(0x0u) & 0xffu)) & ((uint8_t)0 - (uint8_t)(((static_cast<uint8_t>(_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$core$dec_brmask_logic$_T_78[L].val) & 0x1u)) != 0))) | (((static_cast<uint8_t>(((((static_cast<uint8_t>(0x1u) & 0xffu)) & ((uint8_t)0 - (uint8_t)(((static_cast<uint8_t>(_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$core$dec_brmask_logic$_T_75[L].val) & 0x1u)) != 0))) | (((static_cast<uint8_t>(((((static_cast<uint8_t>(0x2u) & 0xffu)) & ((uint8_t)0 - (uint8_t)(((static_cast<uint8_t>(_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$core$dec_brmask_logic$_T_72[L].val) & 0x1u)) != 0))) | (((static_cast<uint8_t>(((((static_cast<uint8_t>(0x3u) & 0xffu)) & ((uint8_t)0 - (uint8_t)(((static_cast<uint8_t>(_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$core$dec_brmask_logic$_T_69[L].val) & 0x1u)) != 0))) | (((static_cast<uint8_t>(((((static_cast<uint8_t>(0x4u) & 0xffu)) & ((uint8_t)0 - (uint8_t)(((static_cast<uint8_t>(_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$core$dec_brmask_logic$_T_66[L].val) & 0x1u)) != 0))) | (((static_cast<uint8_t>(((((static_cast<uint8_t>(0x5u) & 0xffu)) & ((uint8_t)0 - (uint8_t)(((static_cast<uint8_t>(_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$core$dec_brmask_logic$_T_63[L].val) & 0x1u)) != 0))) | (((static_cast<uint8_t>(((((static_cast<uint8_t>(0x6u) & 0xffu)) & ((uint8_t)0 - (uint8_t)(((static_cast<uint8_t>(_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$core$dec_brmask_logic$_T_60[L].val) & 0x1u)) != 0))) | (((static_cast<uint8_t>(((((static_cast<uint8_t>(0x7u) & 0xffu)) & ((uint8_t)0 - (uint8_t)(((static_cast<uint8_t>(_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$core$dec_brmask_logic$_T_57[L].val) & 0x1u)) != 0))) | (((static_cast<uint8_t>(((((static_cast<uint8_t>(0x8u) & 0xffu)) & ((uint8_t)0 - (uint8_t)(((static_cast<uint8_t>(_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$core$dec_brmask_logic$_T_54[L].val) & 0x1u)) != 0))) | (((static_cast<uint8_t>(((((static_cast<uint8_t>(0x9u) & 0xffu)) & ((uint8_t)0 - (uint8_t)(((static_cast<uint8_t>(_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$core$dec_brmask_logic$_T_51[L].val) & 0x1u)) != 0))) | (((static_cast<uint8_t>(((((static_cast<uint8_t>(0xau) & 0xffu)) & ((uint8_t)0 - (uint8_t)(((static_cast<uint8_t>(_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$core$dec_brmask_logic$_T_48[L].val) & 0x1u)) != 0))) | (((static_cast<uint8_t>(((((static_cast<uint8_t>(0xbu) & 0xffu)) & ((uint8_t)0 - (uint8_t)(((static_cast<uint8_t>(_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$core$dec_brmask_logic$_T_45[L].val) & 0x1u)) != 0))) | (((static_cast<uint8_t>(0xcu) & 0xffu)) & ~((uint8_t)0 - (uint8_t)(((static_cast<uint8_t>(_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$core$dec_brmask_logic$_T_45[L].val) & 0x1u)) != 0))))) & 0xffu)) & ~((uint8_t)0 - (uint8_t)(((static_cast<uint8_t>(_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$core$dec_brmask_logic$_T_48[L].val) & 0x1u)) != 0))))) & 0xffu)) & ~((uint8_t)0 - (uint8_t)(((static_cast<uint8_t>(_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$core$dec_brmask_logic$_T_51[L].val) & 0x1u)) != 0))))) & 0xffu)) & ~((uint8_t)0 - (uint8_t)(((static_cast<uint8_t>(_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$core$dec_brmask_logic$_T_54[L].val) & 0x1u)) != 0))))) & 0xffu)) & ~((uint8_t)0 - (uint8_t)(((static_cast<uint8_t>(_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$core$dec_brmask_logic$_T_57[L].val) & 0x1u)) != 0))))) & 0xffu)) & ~((uint8_t)0 - (uint8_t)(((static_cast<uint8_t>(_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$core$dec_brmask_logic$_T_60[L].val) & 0x1u)) != 0))))) & 0xffu)) & ~((uint8_t)0 - (uint8_t)(((static_cast<uint8_t>(_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$core$dec_brmask_logic$_T_63[L].val) & 0x1u)) != 0))))) & 0xffu)) & ~((uint8_t)0 - (uint8_t)(((static_cast<uint8_t>(_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$core$dec_brmask_logic$_T_66[L].val) & 0x1u)) != 0))))) & 0xffu)) & ~((uint8_t)0 - (uint8_t)(((static_cast<uint8_t>(_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$core$dec_brmask_logic$_T_69[L].val) & 0x1u)) != 0))))) & 0xffu)) & ~((uint8_t)0 - (uint8_t)(((static_cast<uint8_t>(_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$core$dec_brmask_logic$_T_72[L].val) & 0x1u)) != 0))))) & 0xffu)) & ~((uint8_t)0 - (uint8_t)(((static_cast<uint8_t>(_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$core$dec_brmask_logic$_T_75[L].val) & 0x1u)) != 0))))) & 0xffu)) & ~((uint8_t)0 - (uint8_t)(((static_cast<uint8_t>(_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$core$dec_brmask_logic$_T_78[L].val) & 0x1u)) != 0))))) & 0xffu)) & 0xffu));
-      _v2_local_133711_0 = UInt<4>(_lut_lut$v_2[essent_to_u64(_v2_local_133710_0)]);
-      _v2_local_57871_0.val = static_cast<typename UInt<4>::scalar_t>((static_cast<uint8_t>(_v2_local_133711_0.val) & 0xfu));
+      _v2_local_133759_0.val = static_cast<typename UInt<8>::scalar_t>((static_cast<uint8_t>((static_cast<uint8_t>(((((static_cast<uint8_t>(0x0u) & 0xffu)) & ((uint8_t)0 - (uint8_t)(((static_cast<uint8_t>(_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$core$dec_brmask_logic$_T_78[L].val) & 0x1u)) != 0))) | (((static_cast<uint8_t>(((((static_cast<uint8_t>(0x1u) & 0xffu)) & ((uint8_t)0 - (uint8_t)(((static_cast<uint8_t>(_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$core$dec_brmask_logic$_T_75[L].val) & 0x1u)) != 0))) | (((static_cast<uint8_t>(((((static_cast<uint8_t>(0x2u) & 0xffu)) & ((uint8_t)0 - (uint8_t)(((static_cast<uint8_t>(_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$core$dec_brmask_logic$_T_72[L].val) & 0x1u)) != 0))) | (((static_cast<uint8_t>(((((static_cast<uint8_t>(0x3u) & 0xffu)) & ((uint8_t)0 - (uint8_t)(((static_cast<uint8_t>(_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$core$dec_brmask_logic$_T_69[L].val) & 0x1u)) != 0))) | (((static_cast<uint8_t>(((((static_cast<uint8_t>(0x4u) & 0xffu)) & ((uint8_t)0 - (uint8_t)(((static_cast<uint8_t>(_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$core$dec_brmask_logic$_T_66[L].val) & 0x1u)) != 0))) | (((static_cast<uint8_t>(((((static_cast<uint8_t>(0x5u) & 0xffu)) & ((uint8_t)0 - (uint8_t)(((static_cast<uint8_t>(_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$core$dec_brmask_logic$_T_63[L].val) & 0x1u)) != 0))) | (((static_cast<uint8_t>(((((static_cast<uint8_t>(0x6u) & 0xffu)) & ((uint8_t)0 - (uint8_t)(((static_cast<uint8_t>(_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$core$dec_brmask_logic$_T_60[L].val) & 0x1u)) != 0))) | (((static_cast<uint8_t>(((((static_cast<uint8_t>(0x7u) & 0xffu)) & ((uint8_t)0 - (uint8_t)(((static_cast<uint8_t>(_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$core$dec_brmask_logic$_T_57[L].val) & 0x1u)) != 0))) | (((static_cast<uint8_t>(((((static_cast<uint8_t>(0x8u) & 0xffu)) & ((uint8_t)0 - (uint8_t)(((static_cast<uint8_t>(_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$core$dec_brmask_logic$_T_54[L].val) & 0x1u)) != 0))) | (((static_cast<uint8_t>(((((static_cast<uint8_t>(0x9u) & 0xffu)) & ((uint8_t)0 - (uint8_t)(((static_cast<uint8_t>(_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$core$dec_brmask_logic$_T_51[L].val) & 0x1u)) != 0))) | (((static_cast<uint8_t>(((((static_cast<uint8_t>(0xau) & 0xffu)) & ((uint8_t)0 - (uint8_t)(((static_cast<uint8_t>(_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$core$dec_brmask_logic$_T_48[L].val) & 0x1u)) != 0))) | (((static_cast<uint8_t>(((((static_cast<uint8_t>(0xbu) & 0xffu)) & ((uint8_t)0 - (uint8_t)(((static_cast<uint8_t>(_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$core$dec_brmask_logic$_T_45[L].val) & 0x1u)) != 0))) | (((static_cast<uint8_t>(0xcu) & 0xffu)) & ~((uint8_t)0 - (uint8_t)(((static_cast<uint8_t>(_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$core$dec_brmask_logic$_T_45[L].val) & 0x1u)) != 0))))) & 0xffu)) & ~((uint8_t)0 - (uint8_t)(((static_cast<uint8_t>(_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$core$dec_brmask_logic$_T_48[L].val) & 0x1u)) != 0))))) & 0xffu)) & ~((uint8_t)0 - (uint8_t)(((static_cast<uint8_t>(_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$core$dec_brmask_logic$_T_51[L].val) & 0x1u)) != 0))))) & 0xffu)) & ~((uint8_t)0 - (uint8_t)(((static_cast<uint8_t>(_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$core$dec_brmask_logic$_T_54[L].val) & 0x1u)) != 0))))) & 0xffu)) & ~((uint8_t)0 - (uint8_t)(((static_cast<uint8_t>(_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$core$dec_brmask_logic$_T_57[L].val) & 0x1u)) != 0))))) & 0xffu)) & ~((uint8_t)0 - (uint8_t)(((static_cast<uint8_t>(_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$core$dec_brmask_logic$_T_60[L].val) & 0x1u)) != 0))))) & 0xffu)) & ~((uint8_t)0 - (uint8_t)(((static_cast<uint8_t>(_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$core$dec_brmask_logic$_T_63[L].val) & 0x1u)) != 0))))) & 0xffu)) & ~((uint8_t)0 - (uint8_t)(((static_cast<uint8_t>(_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$core$dec_brmask_logic$_T_66[L].val) & 0x1u)) != 0))))) & 0xffu)) & ~((uint8_t)0 - (uint8_t)(((static_cast<uint8_t>(_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$core$dec_brmask_logic$_T_69[L].val) & 0x1u)) != 0))))) & 0xffu)) & ~((uint8_t)0 - (uint8_t)(((static_cast<uint8_t>(_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$core$dec_brmask_logic$_T_72[L].val) & 0x1u)) != 0))))) & 0xffu)) & ~((uint8_t)0 - (uint8_t)(((static_cast<uint8_t>(_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$core$dec_brmask_logic$_T_75[L].val) & 0x1u)) != 0))))) & 0xffu)) & ~((uint8_t)0 - (uint8_t)(((static_cast<uint8_t>(_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$core$dec_brmask_logic$_T_78[L].val) & 0x1u)) != 0))))) & 0xffu)) & 0xffu));
+      _v2_local_133760_0 = UInt<4>(_lut_lut$v_2[essent_to_u64(_v2_local_133759_0)]);
+      _v2_local_57871_0.val = static_cast<typename UInt<4>::scalar_t>((static_cast<uint8_t>(_v2_local_133760_0.val) & 0xfu));
       _s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$core$rename_stage$REG_3_br_tag$next[L].val = static_cast<typename UInt<4>::scalar_t>((static_cast<uint8_t>((static_cast<uint8_t>((((ldut.tile_prci_domain.tile_reset_domain.boom_tile.core.rename_stage.REG_3_br_tag[L].val) & ((uint8_t)0 - (uint8_t)(((static_cast<uint8_t>(_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$core$io_ifu_redirect_flush[L].val) & 0x1u)) != 0))) | (((static_cast<uint8_t>((((_v2_local_57871_0.val) & ((uint8_t)0 - (uint8_t)(((static_cast<uint8_t>(_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$core$rename_stage$io_dis_ready[L].val) & 0x1u)) != 0))) | ((ldut.tile_prci_domain.tile_reset_domain.boom_tile.core.rename_stage.REG_3_br_tag[L].val) & ~((uint8_t)0 - (uint8_t)(((static_cast<uint8_t>(_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$core$rename_stage$io_dis_ready[L].val) & 0x1u)) != 0))))) & 0xfu)) & ~((uint8_t)0 - (uint8_t)(((static_cast<uint8_t>(_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$core$io_ifu_redirect_flush[L].val) & 0x1u)) != 0))))) & 0xfu)) & 0xfu));
       _s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$core$fp_rename_stage$REG_3_br_tag$next[L].val = static_cast<typename UInt<4>::scalar_t>((static_cast<uint8_t>((static_cast<uint8_t>((((ldut.tile_prci_domain.tile_reset_domain.boom_tile.core.fp_rename_stage.REG_3_br_tag[L].val) & ((uint8_t)0 - (uint8_t)(((static_cast<uint8_t>(_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$core$io_ifu_redirect_flush[L].val) & 0x1u)) != 0))) | (((static_cast<uint8_t>((((_v2_local_57871_0.val) & ((uint8_t)0 - (uint8_t)(((static_cast<uint8_t>(_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$core$fp_rename_stage$io_dis_ready[L].val) & 0x1u)) != 0))) | ((ldut.tile_prci_domain.tile_reset_domain.boom_tile.core.fp_rename_stage.REG_3_br_tag[L].val) & ~((uint8_t)0 - (uint8_t)(((static_cast<uint8_t>(_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$core$fp_rename_stage$io_dis_ready[L].val) & 0x1u)) != 0))))) & 0xfu)) & ~((uint8_t)0 - (uint8_t)(((static_cast<uint8_t>(_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$core$io_ifu_redirect_flush[L].val) & 0x1u)) != 0))))) & 0xfu)) & 0xfu));
-      _s_lut$v_3[L] = UInt<16>(_lut_lut$v_3[essent_to_u64(_v2_local_133710_0)]);
+      _s_lut$v_3[L] = UInt<16>(_lut_lut$v_3[essent_to_u64(_v2_local_133759_0)]);
     }
     // [serial scc=14 lane=3]
     _s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$core$dec_brmask_logic$io_is_full_0[3].val = static_cast<typename UInt<1>::scalar_t>((static_cast<uint16_t>((static_cast<uint16_t>((((static_cast<uint16_t>(((ldut.tile_prci_domain.tile_reset_domain.boom_tile.core.dec_brmask_logic.branch_mask[3].val) == ((static_cast<uint16_t>(0xfffu) & 0xfffu)))) & 0x1u)) & (_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$core$dec_brmask_logic$io_is_branch_0[3].val))) & 0x1u)) & 0x1u));
@@ -74101,6 +74155,9 @@ void TestHarness::eval_forward(bool update_registers, bool verbose, bool done_re
     for (int L = 0; L < 4; L++) {
       _s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$frontend$bpd$banked_predictors_0$components_4$data_2_MPORT_addr_pipe_0[L].val = static_cast<typename UInt<11>::scalar_t>((static_cast<uint64_t>((static_cast<uint64_t>(((static_cast<uint64_t>(_v2_bank_ldut$tile_prci_domain$tile_reset_domain$boom_tile$frontend$bpd$banked_predictors_0$components_4$data__v2_bank_0_0[L].val) >> 11) & 0x7ffULL)) & 0x7ffULL)) & 0x7ffULL));
     }
+    }();
+    // [v2 eval chunk 58]
+    [&]() ESSENT_NOINLINE {
     // [vec state-read] 1 templates x 4 lanes
     #if ESSENT_ORACLE_VERIFY // [extern-read] verify-only recompute: ldut.tile_prci_domain.tile_reset_domain.boom_tile.frontend.bpd.banked_predictors_0.components_4.data_2.MPORT$rtl
     {
@@ -74166,9 +74223,6 @@ void TestHarness::eval_forward(bool update_registers, bool verbose, bool done_re
     { const int L = 3;
       _s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$frontend$bpd$banked_predictors_0$components_4$data__v2_bank_0_0$next[((L) == 0 ? 0 : 1)].val = static_cast<typename UInt<44>::scalar_t>((static_cast<uint64_t>((static_cast<uint64_t>(((((static_cast<uint64_t>(((static_cast<uint64_t>((static_cast<uint64_t>(((static_cast<uint64_t>((static_cast<uint64_t>(((static_cast<uint64_t>((static_cast<uint64_t>(((static_cast<uint64_t>(_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$frontend$bpd$banked_predictors_0$components_0$s1_idx$next[L].val) >> 0) & 0x7ffULL)) & 0x7ffULL)) << 11) | (static_cast<uint64_t>((static_cast<uint64_t>(((static_cast<uint64_t>(_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$frontend$bpd$banked_predictors_0$components_0$s1_idx$next[L].val) >> 0) & 0x7ffULL)) & 0x7ffULL)) & 0x7ffULL))) & 0x3fffffULL)) << 11) | (static_cast<uint64_t>((static_cast<uint64_t>(((static_cast<uint64_t>(_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$frontend$bpd$banked_predictors_0$components_0$s1_idx$next[L].val) >> 0) & 0x7ffULL)) & 0x7ffULL)) & 0x7ffULL))) & 0x1ffffffffULL)) << 11) | (static_cast<uint64_t>((static_cast<uint64_t>(((static_cast<uint64_t>(_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$frontend$bpd$banked_predictors_0$components_0$s1_idx$next[L].val) >> 0) & 0x7ffULL)) & 0x7ffULL)) & 0x7ffULL))) & 0xfffffffffffULL)) & ((uint64_t)0 - (uint64_t)(((static_cast<uint64_t>(_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$frontend$bpd$io_f0_req_valid[L].val) & 0x1ULL)) != 0))) | ((_v2_bank_ldut$tile_prci_domain$tile_reset_domain$boom_tile$frontend$bpd$banked_predictors_0$components_4$data__v2_bank_0_0[L].val) & ~((uint64_t)0 - (uint64_t)(((static_cast<uint64_t>(_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$frontend$bpd$io_f0_req_valid[L].val) & 0x1ULL)) != 0))))) & 0xfffffffffffULL)) & 0xfffffffffffULL));
     }
-    }();
-    // [v2 eval chunk 58]
-    [&]() ESSENT_NOINLINE {
     // [vec state-commit] 4 templates x 4 lanes
     #if ESSENT_ORACLE_VERIFY // [extern-read] commits of fully-externalized arrays
     if (update_registers) {
@@ -74312,7 +74366,7 @@ void TestHarness::eval_forward(bool update_registers, bool verbose, bool done_re
     }
     // [vec comb] 1 templates x 4 lanes [cold-guarded base: quiet drops 0, specializes 1]
     if (UNLIKELY(!_v2_quiet_base)) {
-      _v2_cold_comb_full(173);
+      _v2_cold_comb_full(175);
     } else {
       // [vec comb-quiet] 1 templates x 4 lanes
       ESSENT_LANE_LOOP
@@ -74330,7 +74384,7 @@ void TestHarness::eval_forward(bool update_registers, bool verbose, bool done_re
     }
     // [vec comb] 1 templates x 4 lanes [cold-guarded base: quiet drops 0, specializes 1]
     if (UNLIKELY(!_v2_quiet_base)) {
-      _v2_cold_comb_full(174);
+      _v2_cold_comb_full(176);
     } else {
       // [vec comb-quiet] 1 templates x 4 lanes
       ESSENT_LANE_LOOP
@@ -74368,7 +74422,7 @@ void TestHarness::eval_forward(bool update_registers, bool verbose, bool done_re
     _s_mem$axi4buf$bundleOut_0_ar_deq$do_enq[3].val = static_cast<typename UInt<1>::scalar_t>((static_cast<uint8_t>((static_cast<uint8_t>(((_s_mem$axi4buf$bundleOut_0_ar_deq$io_enq_ready[3].val) & (_s_mem$axi4frag$deq$io_deq_valid[3].val))) & 0x1u)) & 0x1u));
     // [vec comb] 1 templates x 4 lanes [cold-guarded base: quiet drops 0, specializes 1]
     if (UNLIKELY(!_v2_quiet_base)) {
-      _v2_cold_comb_full(175);
+      _v2_cold_comb_full(177);
     } else {
       // [vec comb-quiet] 1 templates x 4 lanes
       ESSENT_LANE_LOOP
@@ -74959,7 +75013,7 @@ void TestHarness::eval_forward(bool update_registers, bool verbose, bool done_re
     _s_mem$axi4buf$bundleOut_0_ar_deq$do_deq[3].val = static_cast<typename UInt<1>::scalar_t>((static_cast<uint8_t>((static_cast<uint8_t>(((_s_mem$srams$auto_in_ar_ready[3].val) & (_s_mem$axi4buf$bundleOut_0_ar_deq$io_deq_valid[3].val))) & 0x1u)) & 0x1u));
     // [vec comb] 1 templates x 4 lanes [cold-guarded base: quiet drops 0, specializes 1]
     if (UNLIKELY(!_v2_quiet_base)) {
-      _v2_cold_comb_full(176);
+      _v2_cold_comb_full(178);
     } else {
       // [vec comb-quiet] 1 templates x 4 lanes
       ESSENT_LANE_LOOP
@@ -74971,7 +75025,7 @@ void TestHarness::eval_forward(bool update_registers, bool verbose, bool done_re
     _s_mem$axi4buf$bundleOut_0_ar_deq$_T[3].val = static_cast<typename UInt<1>::scalar_t>((static_cast<uint8_t>((static_cast<uint8_t>(((_s_mem$axi4buf$bundleOut_0_ar_deq$do_enq[3].val) != (_s_mem$axi4buf$bundleOut_0_ar_deq$do_deq[3].val))) & 0x1u)) & 0x1u));
     // [vec comb] 1 templates x 4 lanes [cold-guarded base: quiet drops 0, specializes 1]
     if (UNLIKELY(!_v2_quiet_base)) {
-      _v2_cold_comb_full(177);
+      _v2_cold_comb_full(179);
     } else {
       // [vec comb-quiet] 1 templates x 4 lanes
       ESSENT_LANE_LOOP
@@ -74986,7 +75040,7 @@ void TestHarness::eval_forward(bool update_registers, bool verbose, bool done_re
     _s_mem$srams$_T_13[3].val = static_cast<typename UInt<1>::scalar_t>((static_cast<uint8_t>((static_cast<uint8_t>(((_s_mem$axi4buf$bundleIn_0_r_deq$io_enq_ready[3].val) & (mem.srams.r_full[3].val))) & 0x1u)) & 0x1u));
     // [vec comb] 3 templates x 4 lanes [cold-guarded base: quiet drops 0, specializes 3]
     if (UNLIKELY(!_v2_quiet_base)) {
-      _v2_cold_comb_full(178);
+      _v2_cold_comb_full(180);
     } else {
       // [vec comb-quiet] 3 templates x 4 lanes
       ESSENT_LANE_LOOP
@@ -77718,6 +77772,9 @@ void TestHarness::eval_forward(bool update_registers, bool verbose, bool done_re
       _v2_bcarry_ldut_tile_prci_domain_tile_reset_domain_boom_tile_core_csr_reg_pmp_0_cfg_l = _s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$core$csr$reg_pmp_0_cfg_l$next[3];
     }
     #endif
+    }();
+    // [v2 eval chunk 59]
+    [&]() ESSENT_NOINLINE {
     // [vec oracle-verify] 32 templates x 4 lanes
     #if ESSENT_ORACLE_VERIFY
     if (done_reset && checks_enabled && update_registers) {
@@ -77942,9 +77999,6 @@ void TestHarness::eval_forward(bool update_registers, bool verbose, bool done_re
       _v2_bcarry_ldut_tile_prci_domain_tile_reset_domain_boom_tile_core_fp_pipeline_fp_issue_unit_slots_6_p3 = _s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$core$fp_pipeline$fp_issue_unit$slots_6$p3$next[3];
     }
     #endif
-    }();
-    // [v2 eval chunk 59]
-    [&]() ESSENT_NOINLINE {
     // [vec oracle-verify] 32 templates x 4 lanes
     #if ESSENT_ORACLE_VERIFY
     if (done_reset && checks_enabled && update_registers) {
@@ -83864,6 +83918,9 @@ void TestHarness::eval_forward(bool update_registers, bool verbose, bool done_re
       }
     }
     #endif
+    }();
+    // [v2 eval chunk 60]
+    [&]() ESSENT_NOINLINE {
     // [vec comb-verify] 32 templates x 4 lanes
     #if ESSENT_ORACLE_VERIFY
     if (done_reset && checks_enabled && update_registers) {
@@ -84052,9 +84109,6 @@ void TestHarness::eval_forward(bool update_registers, bool verbose, bool done_re
       }
     }
     #endif
-    }();
-    // [v2 eval chunk 60]
-    [&]() ESSENT_NOINLINE {
     // [vec comb-verify] 32 templates x 4 lanes
     #if ESSENT_ORACLE_VERIFY
     if (done_reset && checks_enabled && update_registers) {
@@ -86274,6 +86328,9 @@ void TestHarness::eval_forward(bool update_registers, bool verbose, bool done_re
       ldut.tile_prci_domain.tile_reset_domain.boom_tile.frontend.ftq.REG_10[3] = _s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$frontend$ftq$REG_10$next[3];
       ldut.tile_prci_domain.tile_reset_domain.boom_tile.frontend.ftq.REG_11[3] = _s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$frontend$ftq$REG_11$next[3];
     }
+    }();
+    // [v2 eval chunk 61]
+    [&]() ESSENT_NOINLINE {
     // [vec commit] 32 templates x 4 lanes
     if (update_registers) {
       essent_commit_lanes<4>(&ldut.tile_prci_domain.tile_reset_domain.boom_tile.frontend.ftq.REG_12[0], &_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$frontend$ftq$REG_12$next[0]);
@@ -86344,9 +86401,6 @@ void TestHarness::eval_forward(bool update_registers, bool verbose, bool done_re
       ldut.tile_prci_domain.tile_reset_domain.boom_tile.core.brinfos_1_cfi_type[3] = _s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$core$brinfos_1_cfi_type$next[3];
       ldut.tile_prci_domain.tile_reset_domain.boom_tile.core.brinfos_1_pc_sel[3] = _s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$core$brinfos_1_pc_sel$next[3];
     }
-    }();
-    // [v2 eval chunk 61]
-    [&]() ESSENT_NOINLINE {
     // [vec commit] 32 templates x 4 lanes
     if (update_registers) {
       ldut.tile_prci_domain.tile_reset_domain.boom_tile.core.brinfos_1_target_offset[3] = _s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$core$brinfos_1_target_offset$next[3];
@@ -88167,6 +88221,9 @@ void TestHarness::eval_forward(bool update_registers, bool verbose, bool done_re
       essent_commit_lanes<4>(&ldut.tile_prci_domain.tile_reset_domain.boom_tile.lsu.dtlb.sectored_entries_0_data_1[0], &_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$lsu$dtlb$sectored_entries_0_data_1$next[0]);
       essent_commit_lanes<4>(&ldut.tile_prci_domain.tile_reset_domain.boom_tile.lsu.dtlb.sectored_entries_0_data_2[0], &_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$lsu$dtlb$sectored_entries_0_data_2$next[0]);
     }
+    }();
+    // [v2 eval chunk 62]
+    [&]() ESSENT_NOINLINE {
     // [vec commit] 32 templates x 4 lanes
     if (update_registers) {
       essent_commit_lanes<4>(&ldut.tile_prci_domain.tile_reset_domain.boom_tile.lsu.dtlb.sectored_entries_0_data_3[0], &_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$lsu$dtlb$sectored_entries_0_data_3$next[0]);
@@ -88237,9 +88294,6 @@ void TestHarness::eval_forward(bool update_registers, bool verbose, bool done_re
       essent_commit_lanes<4>(&ldut.tile_prci_domain.tile_reset_domain.boom_tile.ptw.s2_valid_vec[0], &_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$ptw$s2_valid_vec$next[0]);
       ldut.tile_prci_domain.tile_reset_domain.boom_tile.ptw.s2_g_vec_0[3] = _s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$ptw$s2_g_vec_0$next[1];
     }
-    }();
-    // [v2 eval chunk 62]
-    [&]() ESSENT_NOINLINE {
     // [vec commit] 32 templates x 4 lanes
     if (update_registers) {
       essent_commit_lanes<4>(&ldut.tile_prci_domain.buffer_1.bundleOut_0_a_q.value[0], &_s_ldut$tile_prci_domain$buffer_1$bundleOut_0_a_q$value$next[0]);

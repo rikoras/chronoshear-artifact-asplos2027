@@ -16505,7 +16505,9 @@
             "-I${ROOT}/generated/sodor/w4",
             "-I${ROOT}/source/runtime",
             "-I${ROOT}/source/reference_models/sodor",
-            "-I${ROOT}/source/duts/sodor-fullchip/flow"
+            "-I${ROOT}/source/duts/sodor-fullchip/flow",
+            "-mtune=znver4",
+            "-mprefer-vector-width=512"
           ],
           "reference": false,
           "memory_gib": 2
@@ -16534,7 +16536,9 @@
             "-I${ROOT}/generated/sodor/w8",
             "-I${ROOT}/source/runtime",
             "-I${ROOT}/source/reference_models/sodor",
-            "-I${ROOT}/source/duts/sodor-fullchip/flow"
+            "-I${ROOT}/source/duts/sodor-fullchip/flow",
+            "-mtune=znver4",
+            "-mprefer-vector-width=512"
           ],
           "reference": false,
           "memory_gib": 2
@@ -16563,7 +16567,9 @@
             "-I${ROOT}/generated/sodor/w16",
             "-I${ROOT}/source/runtime",
             "-I${ROOT}/source/reference_models/sodor",
-            "-I${ROOT}/source/duts/sodor-fullchip/flow"
+            "-I${ROOT}/source/duts/sodor-fullchip/flow",
+            "-mtune=znver4",
+            "-mprefer-vector-width=512"
           ],
           "reference": false,
           "memory_gib": 2
@@ -16592,7 +16598,9 @@
             "-I${ROOT}/generated/sodor/w32",
             "-I${ROOT}/source/runtime",
             "-I${ROOT}/source/reference_models/sodor",
-            "-I${ROOT}/source/duts/sodor-fullchip/flow"
+            "-I${ROOT}/source/duts/sodor-fullchip/flow",
+            "-mtune=znver4",
+            "-mprefer-vector-width=512"
           ],
           "reference": false,
           "memory_gib": 2
@@ -29868,6 +29876,46 @@
         },
         {
           "source": "${ROOT}/generated/boom-large/w4/kernel_scratch.cpp",
+          "flags": [
+            "-std=c++17",
+            "-O3",
+            "-march=icelake-server",
+            "-DNDEBUG",
+            "-DBOOM_GUIDER_CFG_LARGEBOOM_RC",
+            "-DCHISA_WIDE_MODEL",
+            "-DCHISA_MODEL_ARCHITECTURAL=0",
+            "-DBOOM_GUIDER_FP",
+            "-DCHISA_ORACLE_RECORD_HEADER=\"${ROOT}/generated/boom-large/w4/reference_model/system_oracle_record.h\"",
+            "-DCHISA_PROBE_REGISTRY_INC=\"${ROOT}/generated/boom-large/w4/reference_model/system_probe_registry.inc\"",
+            "-Wno-unused-const-variable",
+            "-Wno-missing-field-initializers",
+            "-I${ROOT}/source/reference_models/boom_model/wide",
+            "-I${ROOT}/source/reference_models/boom_model/common",
+            "-I${ROOT}/source/runtime",
+            "-I${ROOT}/source/reference_models/boom-system",
+            "-I${ROOT}/source/duts/boom-repcut/runtime",
+            "-isystem",
+            "${ROOT}/deps/fesvr",
+            "-isystem",
+            "${ROOT}/deps/fesvr/build",
+            "-isystem",
+            "${ROOT}/deps/softfloat/source/include",
+            "-fbracket-depth=1024",
+            "-DCHISA_CONSUMER_WIDTH=4",
+            "-DORACLE_NUM_CYCLES=4194304",
+            "-DESSENT_ORACLE_VERIFY=1",
+            "-I${ROOT}/source/duts/boom-repcut/runtime/generated_syntax",
+            "-DCHISA_DISABLE_ARCHITECTURE_CAPTURE=1",
+            "-I${ROOT}/generated/boom-large/w4",
+            "-I${ROOT}/generated/boom-large/w4/reference_model",
+            "-mtune=znver4",
+            "-mprefer-vector-width=512"
+          ],
+          "reference": false,
+          "memory_gib": 2
+        },
+        {
+          "source": "${ROOT}/generated/boom-large/w4/kernel_helpers_12.cpp",
           "flags": [
             "-std=c++17",
             "-O3",
@@ -51264,7 +51312,9 @@
             "-I${ROOT}/generated/sodor/w32",
             "-I${ROOT}/source/runtime",
             "-I${ROOT}/source/reference_models/sodor",
-            "-I${ROOT}/source/duts/sodor-fullchip/flow"
+            "-I${ROOT}/source/duts/sodor-fullchip/flow",
+            "-mtune=znver4",
+            "-mprefer-vector-width=512"
           ],
           "reference": false,
           "memory_gib": 2

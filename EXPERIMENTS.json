@@ -1261,9 +1261,9 @@
         "--producer=optimized",
         "--overlap",
         "--bench",
-        "1"
+        "10"
       ],
-      "ns_pattern": "SODOR_FULLCHIP_TIMING mode=overlap .*loop_ns_per_cycle=([0-9.]+)",
+      "ns_pattern": "Loop: mean=([0-9.]+) sd=[0-9.]+ ns/cycle \\(live\\)",
       "accept": [
         "\\(PASS\\)",
         "memory_hash=0x9f068cf2dfff396c"
@@ -1289,9 +1289,9 @@
         "--producer=optimized",
         "--overlap",
         "--bench",
-        "1"
+        "10"
       ],
-      "ns_pattern": "SODOR_FULLCHIP_TIMING mode=overlap .*loop_ns_per_cycle=([0-9.]+)",
+      "ns_pattern": "Loop: mean=([0-9.]+) sd=[0-9.]+ ns/cycle \\(live\\)",
       "accept": [
         "\\(PASS\\)",
         "memory_hash=0x9f068cf2dfff396c"
@@ -1317,9 +1317,9 @@
         "--producer=optimized",
         "--overlap",
         "--bench",
-        "1"
+        "10"
       ],
-      "ns_pattern": "SODOR_FULLCHIP_TIMING mode=overlap .*loop_ns_per_cycle=([0-9.]+)",
+      "ns_pattern": "Loop: mean=([0-9.]+) sd=[0-9.]+ ns/cycle \\(live\\)",
       "accept": [
         "\\(PASS\\)",
         "memory_hash=0x9f068cf2dfff396c"
@@ -1345,9 +1345,9 @@
         "--producer=optimized",
         "--overlap",
         "--bench",
-        "1"
+        "10"
       ],
-      "ns_pattern": "SODOR_FULLCHIP_TIMING mode=overlap .*loop_ns_per_cycle=([0-9.]+)",
+      "ns_pattern": "Loop: mean=([0-9.]+) sd=[0-9.]+ ns/cycle \\(live\\)",
       "accept": [
         "\\(PASS\\)",
         "memory_hash=0x9f068cf2dfff396c"
@@ -2060,9 +2060,9 @@
         "--producer=optimized",
         "--overlap",
         "--bench",
-        "1"
+        "10"
       ],
-      "ns_pattern": "SODOR_FULLCHIP_TIMING mode=overlap .*loop_ns_per_cycle=([0-9.]+)",
+      "ns_pattern": "Loop: mean=([0-9.]+) sd=[0-9.]+ ns/cycle \\(live\\)",
       "accept": [
         "\\(PASS\\)",
         "memory_hash=0x9f068cf2dfff396c"
@@ -2088,9 +2088,9 @@
         "--producer=optimized",
         "--overlap",
         "--bench",
-        "1"
+        "10"
       ],
-      "ns_pattern": "SODOR_FULLCHIP_TIMING mode=overlap .*loop_ns_per_cycle=([0-9.]+)",
+      "ns_pattern": "Loop: mean=([0-9.]+) sd=[0-9.]+ ns/cycle \\(live\\)",
       "accept": [
         "\\(PASS\\)",
         "memory_hash=0x9f068cf2dfff396c"
@@ -2116,9 +2116,9 @@
         "--producer=optimized",
         "--overlap",
         "--bench",
-        "1"
+        "10"
       ],
-      "ns_pattern": "SODOR_FULLCHIP_TIMING mode=overlap .*loop_ns_per_cycle=([0-9.]+)",
+      "ns_pattern": "Loop: mean=([0-9.]+) sd=[0-9.]+ ns/cycle \\(live\\)",
       "accept": [
         "\\(PASS\\)",
         "memory_hash=0x9f068cf2dfff396c"
@@ -2144,9 +2144,9 @@
         "--producer=optimized",
         "--overlap",
         "--bench",
-        "1"
+        "10"
       ],
-      "ns_pattern": "SODOR_FULLCHIP_TIMING mode=overlap .*loop_ns_per_cycle=([0-9.]+)",
+      "ns_pattern": "Loop: mean=([0-9.]+) sd=[0-9.]+ ns/cycle \\(live\\)",
       "accept": [
         "\\(PASS\\)",
         "memory_hash=0x9f068cf2dfff396c"

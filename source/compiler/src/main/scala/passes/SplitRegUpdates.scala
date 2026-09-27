@@ -259,8 +259,35 @@ object SplitRegUpdates extends Pass {
         isExactSelfRef(a, regName, nodeMap, depth + 1, truncFloor)
       case DoPrim(PrimOps.AsSInt, Seq(a), _, _) =>
         isExactSelfRef(a, regName, nodeMap, depth + 1, truncFloor)
+      // tail(a, n) keeps the low width(a) - n bits, like bits(a, width(a) - n - 1, 0).
+      case DoPrim(PrimOps.Tail, Seq(a), Seq(n), _) =>
+        isExactSelfRef(a, regName, nodeMap, depth + 1, truncFloor.min(firrtl.bitWidth(a.tpe) - n))
       case _ => false
     }
+  }
+
+  /** Rewrite op(mux(c, t, f)) as mux(c, op(t'), op(f')) for a chain of unary
+    * primitive ops, where t' and f' are the branches extended to the mux type
+    * as mux semantics already does. The value is unchanged, so every operation
+    * stays in the extracted wdata; a hold branch such as bits(pad(self, n), k, 0)
+    * is then recognized by isExactSelfRef, while not(self) is not. */
+  private def distributeUnary(
+    d: DoPrim, nodeMap: Map[String, Expression], depth: Int
+  ): Option[Mux] = {
+    def distribute(p: DoPrim, m: Mux): Mux = {
+      val width = firrtl.bitWidth(m.tpe)
+      def extend(x: Expression): Expression =
+        if (firrtl.bitWidth(x.tpe) == width) x
+        else DoPrim(PrimOps.Pad, Seq(x), Seq(width), m.tpe)
+      Mux(m.cond, p.copy(args = Seq(extend(m.tval))), p.copy(args = Seq(extend(m.fval))), p.tpe)
+    }
+    def muxView(e: Expression, k: Int): Option[Mux] = if (k > 10) None else e match {
+      case wr: WRef => nodeMap.get(wr.name).flatMap(muxView(_, k + 1))
+      case m: Mux => Some(m)
+      case p: DoPrim if p.args.length == 1 => muxView(p.args.head, k + 1).map(distribute(p, _))
+      case _ => None
+    }
+    muxView(d, depth)
   }
 
   /** Find top-level Mux(cond, tval, fval_with_self) where cond and tval are
@@ -357,6 +384,10 @@ object SplitRegUpdates extends Pass {
       case wr: WRef =>
         nodeMap.get(wr.name).flatMap(extractMuxHoldPattern(_, regName, nodeMap, depth + 1, serialOk))
           .orElse(if (serialOk) Some((one, wr)) else None)
+      case d: DoPrim if d.args.length == 1 =>
+        distributeUnary(d, nodeMap, depth)
+          .flatMap(extractMuxHoldPattern(_, regName, nodeMap, depth + 1, serialOk))
+          .orElse(if (serialOk) Some((one, d)) else None)
       case other =>
         // Do not recurse through unary operations: dropping not/shift/slice
         // changes wdata, and wrapping only an extracted wdata is also wrong

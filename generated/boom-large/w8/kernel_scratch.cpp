@@ -45470,6 +45470,8 @@ alignas(16) UInt<1> _s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$core$fp
 alignas(16) UInt<1> _s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$core$fp_pipeline$fpiu_unit$fdivsqrt$r_divsqrt_uop_br_mask$gwen[8];
 alignas(16) UInt<1> _s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$core$fp_pipeline$fpiu_unit$fdivsqrt$divsqrt$ds$divSqrtRecF64ToRaw$cycleNum_A$gwen[8];
 alignas(16) UInt<1> _s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$core$fp_pipeline$fpiu_unit$fdivsqrt$divsqrt$ds$divSqrtRecF64ToRaw$cycleNum_E$gwen[8];
+alignas(16) UInt<1> _s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$core$rename_stage$busytable$busy_table$gwen[8];
+alignas(16) UInt<1> _s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$core$fp_rename_stage$busytable$busy_table$gwen[8];
 alignas(16) UInt<1> _s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$core$rob$r_xcpt_uop_rob_idx$gwen[8];
 alignas(16) UInt<1> _s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$core$rob$r_xcpt_uop_exc_cause$gwen[8];
 alignas(16) UInt<1> _s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$core$rob$r_xcpt_badvaddr$gwen[8];
