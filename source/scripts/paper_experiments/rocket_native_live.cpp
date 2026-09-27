@@ -19,6 +19,28 @@
 #include <sys/mman.h>
 #include <thread>
 #include <vector>
+#include <cstdlib>
+#include <new>
+
+namespace {
+// Oracle blocks start on cache lines, so the consumer's vector copies of each
+// stream do not straddle two lines.
+template <class T>
+struct CacheLineAllocator {
+  using value_type = T;
+  CacheLineAllocator() = default;
+  template <class U> CacheLineAllocator(const CacheLineAllocator<U>&) {}
+  T* allocate(std::size_t n) {
+    void* p = nullptr;
+    if (posix_memalign(&p, 64, n * sizeof(T)) != 0) throw std::bad_alloc();
+    return static_cast<T*>(p);
+  }
+  void deallocate(T* p, std::size_t) { std::free(p); }
+  template <class U> bool operator==(const CacheLineAllocator<U>&) const { return true; }
+  template <class U> bool operator!=(const CacheLineAllocator<U>&) const { return false; }
+};
+using BlockBytes = std::vector<char, CacheLineAllocator<char>>;
+}  // namespace
 namespace {
 using namespace chisa::rocket_model;
 namespace host = chisa::rocket_fullchip;
@@ -108,13 +130,13 @@ int main(int argc, char** argv) {
     host::dmi_host_configure(0x80000000, 0x80001000, 0x80001040);
     rocket_native_live::Consumer rtl(argc, argv, !continue_oracle_mismatches, mismatch_log_limit);
     struct Window {
-      std::vector<char> block;
+      BlockBytes block;
       std::array<rocket_native_live::Cycle,CYCLES> records;
       uint64_t first = 0; bool reset = false;
     };
     std::array<Window,4> ring;
     for (auto& window : ring) window.block.resize(rtl.block_bytes());
-    std::vector<char> reference_block(rtl.block_bytes());
+    BlockBytes reference_block(rtl.block_bytes());
     std::array<Image,CYCLES> images;
     OracleWindowExpander<W> expander; // Plan field geometry once, outside timing.
     SystemConfig config;

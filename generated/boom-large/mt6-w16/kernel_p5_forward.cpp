@@ -2232,7 +2232,7 @@ void TestHarness::eval_forward_p5(bool update_registers, bool verbose, bool done
         _v2_sa_anyw |= (uint64_t)(essent_to_u64(_s_ldut$subsystem_fbus$buffer$bundleOut_0_a_q$io_enq_ready[G] & _s_ldut$subsystem_fbus$coupler_from_port_named_slave_port_axi4$buffer$bundleOut_0_a_q$io_deq_valid[G]) != 0) & (uint64_t)(essent_to_u64(UInt<1>(0x1)) != 0);
       }
       if (_v2_sa_anyw == 0) {
-        for (int L = 0; L < 16; L++) { _s_ldut$subsystem_fbus$buffer$bundleOut_0_a_q$ram_opcode$io_deq_bits_MPORT[L] = ldut.subsystem_fbus.buffer.bundleOut_0_a_q.ram_opcode[essent_to_u64(ldut.subsystem_fbus.buffer.bundleOut_0_a_q.value_1[L])]; }
+        essent_table_read<16, 2, false>(&_s_ldut$subsystem_fbus$buffer$bundleOut_0_a_q$ram_opcode$io_deq_bits_MPORT[0], &ldut.subsystem_fbus.buffer.bundleOut_0_a_q.ram_opcode[0], &ldut.subsystem_fbus.buffer.bundleOut_0_a_q.value_1[0]);
       } else {
       {
         // [state-read-dense] forwarding=branchless
@@ -2241,10 +2241,11 @@ void TestHarness::eval_forward_p5(bool update_registers, bool verbose, bool done
         for (int L = 0; L < 16; L++) {
           const uint64_t _v2_sa_addr = essent_to_u64(ldut.subsystem_fbus.buffer.bundleOut_0_a_q.value_1[L]);
           UInt<3> _v2_sa_value = ldut.subsystem_fbus.buffer.bundleOut_0_a_q.ram_opcode[_v2_sa_addr];
+          // [branchless-forward] select a valid source before loading data
           const int _v2_sa_prev_code = _v2_sa_last[_v2_sa_addr];
-          const uint64_t _v2_sa_prev_valid = (uint64_t)(_v2_sa_prev_code >= 0);
+          const bool _v2_sa_prev_valid = _v2_sa_prev_code >= 0;
           [[maybe_unused]] const int _v2_sa_prev_lane = _v2_sa_prev_code & -static_cast<int>(_v2_sa_prev_valid);
-          _v2_sa_value = essent_mux(UInt<1>(_v2_sa_prev_valid), _s_ldut$subsystem_fbus$coupler_from_port_named_slave_port_axi4$buffer$bundleOut_0_a_q$ram_opcode$io_deq_bits_MPORT[_v2_sa_prev_lane], _v2_sa_value);
+          _v2_sa_value = *essent_select_ptr(_v2_sa_prev_valid, &(_s_ldut$subsystem_fbus$coupler_from_port_named_slave_port_axi4$buffer$bundleOut_0_a_q$ram_opcode$io_deq_bits_MPORT[_v2_sa_prev_lane]), &_v2_sa_value);
           _s_ldut$subsystem_fbus$buffer$bundleOut_0_a_q$ram_opcode$io_deq_bits_MPORT[L] = _v2_sa_value;
           const uint64_t _v2_sa_write_addr_0 = essent_to_u64(ldut.subsystem_fbus.buffer.bundleOut_0_a_q.value[L]);
           const uint64_t _v2_sa_write_take_0 = (uint64_t)(essent_to_u64(_s_ldut$subsystem_fbus$buffer$bundleOut_0_a_q$io_enq_ready[L] & _s_ldut$subsystem_fbus$coupler_from_port_named_slave_port_axi4$buffer$bundleOut_0_a_q$io_deq_valid[L]) != 0) & (uint64_t)(essent_to_u64(UInt<1>(0x1)) != 0);
@@ -2269,7 +2270,7 @@ void TestHarness::eval_forward_p5(bool update_registers, bool verbose, bool done
         _v2_sa_anyw |= (uint64_t)(essent_to_u64(_s_ldut$subsystem_fbus$buffer$bundleOut_0_a_q$io_enq_ready[G] & _s_ldut$subsystem_fbus$coupler_from_port_named_slave_port_axi4$buffer$bundleOut_0_a_q$io_deq_valid[G]) != 0) & (uint64_t)(essent_to_u64(UInt<1>(0x1)) != 0);
       }
       if (_v2_sa_anyw == 0) {
-        for (int L = 0; L < 16; L++) { _s_ldut$subsystem_fbus$buffer$bundleOut_0_a_q$ram_size$io_deq_bits_MPORT[L] = ldut.subsystem_fbus.buffer.bundleOut_0_a_q.ram_size[essent_to_u64(ldut.subsystem_fbus.buffer.bundleOut_0_a_q.value_1[L])]; }
+        essent_table_read<16, 2, false>(&_s_ldut$subsystem_fbus$buffer$bundleOut_0_a_q$ram_size$io_deq_bits_MPORT[0], &ldut.subsystem_fbus.buffer.bundleOut_0_a_q.ram_size[0], &ldut.subsystem_fbus.buffer.bundleOut_0_a_q.value_1[0]);
       } else {
       {
         // [state-read-dense] forwarding=branchless
@@ -2278,10 +2279,11 @@ void TestHarness::eval_forward_p5(bool update_registers, bool verbose, bool done
         for (int L = 0; L < 16; L++) {
           const uint64_t _v2_sa_addr = essent_to_u64(ldut.subsystem_fbus.buffer.bundleOut_0_a_q.value_1[L]);
           UInt<4> _v2_sa_value = ldut.subsystem_fbus.buffer.bundleOut_0_a_q.ram_size[_v2_sa_addr];
+          // [branchless-forward] select a valid source before loading data
           const int _v2_sa_prev_code = _v2_sa_last[_v2_sa_addr];
-          const uint64_t _v2_sa_prev_valid = (uint64_t)(_v2_sa_prev_code >= 0);
+          const bool _v2_sa_prev_valid = _v2_sa_prev_code >= 0;
           [[maybe_unused]] const int _v2_sa_prev_lane = _v2_sa_prev_code & -static_cast<int>(_v2_sa_prev_valid);
-          _v2_sa_value = essent_mux(UInt<1>(_v2_sa_prev_valid), _s_ldut$subsystem_fbus$coupler_from_port_named_slave_port_axi4$buffer$bundleOut_0_a_q$ram_size$io_deq_bits_MPORT[_v2_sa_prev_lane], _v2_sa_value);
+          _v2_sa_value = *essent_select_ptr(_v2_sa_prev_valid, &(_s_ldut$subsystem_fbus$coupler_from_port_named_slave_port_axi4$buffer$bundleOut_0_a_q$ram_size$io_deq_bits_MPORT[_v2_sa_prev_lane]), &_v2_sa_value);
           _s_ldut$subsystem_fbus$buffer$bundleOut_0_a_q$ram_size$io_deq_bits_MPORT[L] = _v2_sa_value;
           const uint64_t _v2_sa_write_addr_0 = essent_to_u64(ldut.subsystem_fbus.buffer.bundleOut_0_a_q.value[L]);
           const uint64_t _v2_sa_write_take_0 = (uint64_t)(essent_to_u64(_s_ldut$subsystem_fbus$buffer$bundleOut_0_a_q$io_enq_ready[L] & _s_ldut$subsystem_fbus$coupler_from_port_named_slave_port_axi4$buffer$bundleOut_0_a_q$io_deq_valid[L]) != 0) & (uint64_t)(essent_to_u64(UInt<1>(0x1)) != 0);
@@ -2307,7 +2309,7 @@ void TestHarness::eval_forward_p5(bool update_registers, bool verbose, bool done
         _v2_sa_anyw |= (uint64_t)(essent_to_u64(_s_ldut$subsystem_fbus$buffer$bundleOut_0_a_q$io_enq_ready[G] & _s_ldut$subsystem_fbus$coupler_from_port_named_slave_port_axi4$buffer$bundleOut_0_a_q$io_deq_valid[G]) != 0) & (uint64_t)(essent_to_u64(UInt<1>(0x1)) != 0);
       }
       if (_v2_sa_anyw == 0) {
-        for (int L = 0; L < 16; L++) { _s_ldut$subsystem_fbus$buffer$bundleOut_0_a_q$ram_source$io_deq_bits_MPORT[L] = ldut.subsystem_fbus.buffer.bundleOut_0_a_q.ram_source[essent_to_u64(ldut.subsystem_fbus.buffer.bundleOut_0_a_q.value_1[L])]; }
+        essent_table_read<16, 2, false>(&_s_ldut$subsystem_fbus$buffer$bundleOut_0_a_q$ram_source$io_deq_bits_MPORT[0], &ldut.subsystem_fbus.buffer.bundleOut_0_a_q.ram_source[0], &ldut.subsystem_fbus.buffer.bundleOut_0_a_q.value_1[0]);
       } else {
       {
         // [state-read-dense] forwarding=branchless
@@ -2316,10 +2318,11 @@ void TestHarness::eval_forward_p5(bool update_registers, bool verbose, bool done
         for (int L = 0; L < 16; L++) {
           const uint64_t _v2_sa_addr = essent_to_u64(ldut.subsystem_fbus.buffer.bundleOut_0_a_q.value_1[L]);
           UInt<4> _v2_sa_value = ldut.subsystem_fbus.buffer.bundleOut_0_a_q.ram_source[_v2_sa_addr];
+          // [branchless-forward] select a valid source before loading data
           const int _v2_sa_prev_code = _v2_sa_last[_v2_sa_addr];
-          const uint64_t _v2_sa_prev_valid = (uint64_t)(_v2_sa_prev_code >= 0);
+          const bool _v2_sa_prev_valid = _v2_sa_prev_code >= 0;
           [[maybe_unused]] const int _v2_sa_prev_lane = _v2_sa_prev_code & -static_cast<int>(_v2_sa_prev_valid);
-          _v2_sa_value = essent_mux(UInt<1>(_v2_sa_prev_valid), _s_ldut$subsystem_fbus$coupler_from_port_named_slave_port_axi4$buffer$bundleOut_0_a_q$ram_source$io_deq_bits_MPORT[_v2_sa_prev_lane], _v2_sa_value);
+          _v2_sa_value = *essent_select_ptr(_v2_sa_prev_valid, &(_s_ldut$subsystem_fbus$coupler_from_port_named_slave_port_axi4$buffer$bundleOut_0_a_q$ram_source$io_deq_bits_MPORT[_v2_sa_prev_lane]), &_v2_sa_value);
           _s_ldut$subsystem_fbus$buffer$bundleOut_0_a_q$ram_source$io_deq_bits_MPORT[L] = _v2_sa_value;
           const uint64_t _v2_sa_write_addr_0 = essent_to_u64(ldut.subsystem_fbus.buffer.bundleOut_0_a_q.value[L]);
           const uint64_t _v2_sa_write_take_0 = (uint64_t)(essent_to_u64(_s_ldut$subsystem_fbus$buffer$bundleOut_0_a_q$io_enq_ready[L] & _s_ldut$subsystem_fbus$coupler_from_port_named_slave_port_axi4$buffer$bundleOut_0_a_q$io_deq_valid[L]) != 0) & (uint64_t)(essent_to_u64(UInt<1>(0x1)) != 0);
@@ -2345,7 +2348,7 @@ void TestHarness::eval_forward_p5(bool update_registers, bool verbose, bool done
         _v2_sa_anyw |= (uint64_t)(essent_to_u64(_s_ldut$subsystem_fbus$buffer$bundleOut_0_a_q$io_enq_ready[G] & _s_ldut$subsystem_fbus$coupler_from_port_named_slave_port_axi4$buffer$bundleOut_0_a_q$io_deq_valid[G]) != 0) & (uint64_t)(essent_to_u64(UInt<1>(0x1)) != 0);
       }
       if (_v2_sa_anyw == 0) {
-        for (int L = 0; L < 16; L++) { _s_ldut$subsystem_fbus$buffer$bundleOut_0_a_q$ram_address$io_deq_bits_MPORT[L] = ldut.subsystem_fbus.buffer.bundleOut_0_a_q.ram_address[essent_to_u64(ldut.subsystem_fbus.buffer.bundleOut_0_a_q.value_1[L])]; }
+        essent_table_read<16, 2, false>(&_s_ldut$subsystem_fbus$buffer$bundleOut_0_a_q$ram_address$io_deq_bits_MPORT[0], &ldut.subsystem_fbus.buffer.bundleOut_0_a_q.ram_address[0], &ldut.subsystem_fbus.buffer.bundleOut_0_a_q.value_1[0]);
       } else {
       {
         // [state-read-dense] forwarding=branchless
@@ -2354,10 +2357,11 @@ void TestHarness::eval_forward_p5(bool update_registers, bool verbose, bool done
         for (int L = 0; L < 16; L++) {
           const uint64_t _v2_sa_addr = essent_to_u64(ldut.subsystem_fbus.buffer.bundleOut_0_a_q.value_1[L]);
           UInt<32> _v2_sa_value = ldut.subsystem_fbus.buffer.bundleOut_0_a_q.ram_address[_v2_sa_addr];
+          // [branchless-forward] select a valid source before loading data
           const int _v2_sa_prev_code = _v2_sa_last[_v2_sa_addr];
-          const uint64_t _v2_sa_prev_valid = (uint64_t)(_v2_sa_prev_code >= 0);
+          const bool _v2_sa_prev_valid = _v2_sa_prev_code >= 0;
           [[maybe_unused]] const int _v2_sa_prev_lane = _v2_sa_prev_code & -static_cast<int>(_v2_sa_prev_valid);
-          _v2_sa_value = essent_mux(UInt<1>(_v2_sa_prev_valid), _s_ldut$subsystem_fbus$coupler_from_port_named_slave_port_axi4$buffer$bundleOut_0_a_q$ram_address$io_deq_bits_MPORT[_v2_sa_prev_lane], _v2_sa_value);
+          _v2_sa_value = *essent_select_ptr(_v2_sa_prev_valid, &(_s_ldut$subsystem_fbus$coupler_from_port_named_slave_port_axi4$buffer$bundleOut_0_a_q$ram_address$io_deq_bits_MPORT[_v2_sa_prev_lane]), &_v2_sa_value);
           _s_ldut$subsystem_fbus$buffer$bundleOut_0_a_q$ram_address$io_deq_bits_MPORT[L] = _v2_sa_value;
           const uint64_t _v2_sa_write_addr_0 = essent_to_u64(ldut.subsystem_fbus.buffer.bundleOut_0_a_q.value[L]);
           const uint64_t _v2_sa_write_take_0 = (uint64_t)(essent_to_u64(_s_ldut$subsystem_fbus$buffer$bundleOut_0_a_q$io_enq_ready[L] & _s_ldut$subsystem_fbus$coupler_from_port_named_slave_port_axi4$buffer$bundleOut_0_a_q$io_deq_valid[L]) != 0) & (uint64_t)(essent_to_u64(UInt<1>(0x1)) != 0);
@@ -3432,12 +3436,9 @@ void TestHarness::eval_forward_p5(bool update_registers, bool verbose, bool done
         _v2_sa_anyw |= (uint64_t)(essent_to_u64(_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$dcache$mshrs$mshrs_0$rpq$io_enq_ready[G] & _s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$dcache$mshrs$mshrs_0$rpq$io_enq_valid[G]) != 0) & (uint64_t)(essent_to_u64(UInt<1>(0x1)) != 0);
       }
       if (_v2_sa_anyw == 0) {
-        for (int L = 0; L < 16; L++) {
-          const uint64_t _v2_sa_field_addr = essent_to_u64(ldut.tile_prci_domain.tile_reset_domain.boom_tile.dcache.mshrs.mshrs_0.rpq.value_1[L]);
-          _s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$dcache$mshrs$mshrs_0$rpq$ram_addr$MPORT_1$rtl[L] = ldut.tile_prci_domain.tile_reset_domain.boom_tile.dcache.mshrs.mshrs_0.rpq.ram_addr[_v2_sa_field_addr];
-          _s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$dcache$mshrs$mshrs_0$rpq$ram_is_hella$MPORT_1$rtl[L] = ldut.tile_prci_domain.tile_reset_domain.boom_tile.dcache.mshrs.mshrs_0.rpq.ram_is_hella[_v2_sa_field_addr];
-          _s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$dcache$mshrs$mshrs_0$rpq$ram_sdq_id$MPORT_1$rtl[L] = ldut.tile_prci_domain.tile_reset_domain.boom_tile.dcache.mshrs.mshrs_0.rpq.ram_sdq_id[_v2_sa_field_addr];
-        }
+        essent_table_read<16, 16, false>(&_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$dcache$mshrs$mshrs_0$rpq$ram_addr$MPORT_1$rtl[0], &ldut.tile_prci_domain.tile_reset_domain.boom_tile.dcache.mshrs.mshrs_0.rpq.ram_addr[0], &ldut.tile_prci_domain.tile_reset_domain.boom_tile.dcache.mshrs.mshrs_0.rpq.value_1[0]);
+        essent_table_read<16, 16, false>(&_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$dcache$mshrs$mshrs_0$rpq$ram_is_hella$MPORT_1$rtl[0], &ldut.tile_prci_domain.tile_reset_domain.boom_tile.dcache.mshrs.mshrs_0.rpq.ram_is_hella[0], &ldut.tile_prci_domain.tile_reset_domain.boom_tile.dcache.mshrs.mshrs_0.rpq.value_1[0]);
+        essent_table_read<16, 16, false>(&_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$dcache$mshrs$mshrs_0$rpq$ram_sdq_id$MPORT_1$rtl[0], &ldut.tile_prci_domain.tile_reset_domain.boom_tile.dcache.mshrs.mshrs_0.rpq.ram_sdq_id[0], &ldut.tile_prci_domain.tile_reset_domain.boom_tile.dcache.mshrs.mshrs_0.rpq.value_1[0]);
       } else {
       {
         // [state-field-read-fused] 3 arrays share one access scan, mode=dense-branchless
@@ -3502,12 +3503,9 @@ void TestHarness::eval_forward_p5(bool update_registers, bool verbose, bool done
         _v2_sa_anyw |= (uint64_t)(essent_to_u64(_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$dcache$mshrs$mshrs_1$rpq$io_enq_ready[G] & _s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$dcache$mshrs$mshrs_1$rpq$io_enq_valid[G]) != 0) & (uint64_t)(essent_to_u64(UInt<1>(0x1)) != 0);
       }
       if (_v2_sa_anyw == 0) {
-        for (int L = 0; L < 16; L++) {
-          const uint64_t _v2_sa_field_addr = essent_to_u64(ldut.tile_prci_domain.tile_reset_domain.boom_tile.dcache.mshrs.mshrs_1.rpq.value_1[L]);
-          _s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$dcache$mshrs$mshrs_1$rpq$ram_addr$MPORT_1$rtl[L] = ldut.tile_prci_domain.tile_reset_domain.boom_tile.dcache.mshrs.mshrs_1.rpq.ram_addr[_v2_sa_field_addr];
-          _s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$dcache$mshrs$mshrs_1$rpq$ram_is_hella$MPORT_1$rtl[L] = ldut.tile_prci_domain.tile_reset_domain.boom_tile.dcache.mshrs.mshrs_1.rpq.ram_is_hella[_v2_sa_field_addr];
-          _s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$dcache$mshrs$mshrs_1$rpq$ram_sdq_id$MPORT_1$rtl[L] = ldut.tile_prci_domain.tile_reset_domain.boom_tile.dcache.mshrs.mshrs_1.rpq.ram_sdq_id[_v2_sa_field_addr];
-        }
+        essent_table_read<16, 16, false>(&_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$dcache$mshrs$mshrs_1$rpq$ram_addr$MPORT_1$rtl[0], &ldut.tile_prci_domain.tile_reset_domain.boom_tile.dcache.mshrs.mshrs_1.rpq.ram_addr[0], &ldut.tile_prci_domain.tile_reset_domain.boom_tile.dcache.mshrs.mshrs_1.rpq.value_1[0]);
+        essent_table_read<16, 16, false>(&_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$dcache$mshrs$mshrs_1$rpq$ram_is_hella$MPORT_1$rtl[0], &ldut.tile_prci_domain.tile_reset_domain.boom_tile.dcache.mshrs.mshrs_1.rpq.ram_is_hella[0], &ldut.tile_prci_domain.tile_reset_domain.boom_tile.dcache.mshrs.mshrs_1.rpq.value_1[0]);
+        essent_table_read<16, 16, false>(&_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$dcache$mshrs$mshrs_1$rpq$ram_sdq_id$MPORT_1$rtl[0], &ldut.tile_prci_domain.tile_reset_domain.boom_tile.dcache.mshrs.mshrs_1.rpq.ram_sdq_id[0], &ldut.tile_prci_domain.tile_reset_domain.boom_tile.dcache.mshrs.mshrs_1.rpq.value_1[0]);
       } else {
       {
         // [state-field-read-fused] 3 arrays share one access scan, mode=dense-branchless
@@ -3570,12 +3568,9 @@ void TestHarness::eval_forward_p5(bool update_registers, bool verbose, bool done
         _v2_sa_anyw |= (uint64_t)(essent_to_u64(_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$dcache$mshrs$mshrs_2$rpq$io_enq_ready[G] & _s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$dcache$mshrs$mshrs_2$rpq$io_enq_valid[G]) != 0) & (uint64_t)(essent_to_u64(UInt<1>(0x1)) != 0);
       }
       if (_v2_sa_anyw == 0) {
-        for (int L = 0; L < 16; L++) {
-          const uint64_t _v2_sa_field_addr = essent_to_u64(ldut.tile_prci_domain.tile_reset_domain.boom_tile.dcache.mshrs.mshrs_2.rpq.value_1[L]);
-          _s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$dcache$mshrs$mshrs_2$rpq$ram_addr$MPORT_1$rtl[L] = ldut.tile_prci_domain.tile_reset_domain.boom_tile.dcache.mshrs.mshrs_2.rpq.ram_addr[_v2_sa_field_addr];
-          _s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$dcache$mshrs$mshrs_2$rpq$ram_is_hella$MPORT_1$rtl[L] = ldut.tile_prci_domain.tile_reset_domain.boom_tile.dcache.mshrs.mshrs_2.rpq.ram_is_hella[_v2_sa_field_addr];
-          _s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$dcache$mshrs$mshrs_2$rpq$ram_sdq_id$MPORT_1$rtl[L] = ldut.tile_prci_domain.tile_reset_domain.boom_tile.dcache.mshrs.mshrs_2.rpq.ram_sdq_id[_v2_sa_field_addr];
-        }
+        essent_table_read<16, 16, false>(&_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$dcache$mshrs$mshrs_2$rpq$ram_addr$MPORT_1$rtl[0], &ldut.tile_prci_domain.tile_reset_domain.boom_tile.dcache.mshrs.mshrs_2.rpq.ram_addr[0], &ldut.tile_prci_domain.tile_reset_domain.boom_tile.dcache.mshrs.mshrs_2.rpq.value_1[0]);
+        essent_table_read<16, 16, false>(&_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$dcache$mshrs$mshrs_2$rpq$ram_is_hella$MPORT_1$rtl[0], &ldut.tile_prci_domain.tile_reset_domain.boom_tile.dcache.mshrs.mshrs_2.rpq.ram_is_hella[0], &ldut.tile_prci_domain.tile_reset_domain.boom_tile.dcache.mshrs.mshrs_2.rpq.value_1[0]);
+        essent_table_read<16, 16, false>(&_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$dcache$mshrs$mshrs_2$rpq$ram_sdq_id$MPORT_1$rtl[0], &ldut.tile_prci_domain.tile_reset_domain.boom_tile.dcache.mshrs.mshrs_2.rpq.ram_sdq_id[0], &ldut.tile_prci_domain.tile_reset_domain.boom_tile.dcache.mshrs.mshrs_2.rpq.value_1[0]);
       } else {
       {
         // [state-field-read-fused] 3 arrays share one access scan, mode=dense-branchless
@@ -3640,12 +3635,9 @@ void TestHarness::eval_forward_p5(bool update_registers, bool verbose, bool done
         _v2_sa_anyw |= (uint64_t)(essent_to_u64(_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$dcache$mshrs$mshrs_3$rpq$io_enq_ready[G] & _s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$dcache$mshrs$mshrs_3$rpq$io_enq_valid[G]) != 0) & (uint64_t)(essent_to_u64(UInt<1>(0x1)) != 0);
       }
       if (_v2_sa_anyw == 0) {
-        for (int L = 0; L < 16; L++) {
-          const uint64_t _v2_sa_field_addr = essent_to_u64(ldut.tile_prci_domain.tile_reset_domain.boom_tile.dcache.mshrs.mshrs_3.rpq.value_1[L]);
-          _s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$dcache$mshrs$mshrs_3$rpq$ram_addr$MPORT_1$rtl[L] = ldut.tile_prci_domain.tile_reset_domain.boom_tile.dcache.mshrs.mshrs_3.rpq.ram_addr[_v2_sa_field_addr];
-          _s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$dcache$mshrs$mshrs_3$rpq$ram_is_hella$MPORT_1$rtl[L] = ldut.tile_prci_domain.tile_reset_domain.boom_tile.dcache.mshrs.mshrs_3.rpq.ram_is_hella[_v2_sa_field_addr];
-          _s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$dcache$mshrs$mshrs_3$rpq$ram_sdq_id$MPORT_1$rtl[L] = ldut.tile_prci_domain.tile_reset_domain.boom_tile.dcache.mshrs.mshrs_3.rpq.ram_sdq_id[_v2_sa_field_addr];
-        }
+        essent_table_read<16, 16, false>(&_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$dcache$mshrs$mshrs_3$rpq$ram_addr$MPORT_1$rtl[0], &ldut.tile_prci_domain.tile_reset_domain.boom_tile.dcache.mshrs.mshrs_3.rpq.ram_addr[0], &ldut.tile_prci_domain.tile_reset_domain.boom_tile.dcache.mshrs.mshrs_3.rpq.value_1[0]);
+        essent_table_read<16, 16, false>(&_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$dcache$mshrs$mshrs_3$rpq$ram_is_hella$MPORT_1$rtl[0], &ldut.tile_prci_domain.tile_reset_domain.boom_tile.dcache.mshrs.mshrs_3.rpq.ram_is_hella[0], &ldut.tile_prci_domain.tile_reset_domain.boom_tile.dcache.mshrs.mshrs_3.rpq.value_1[0]);
+        essent_table_read<16, 16, false>(&_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$dcache$mshrs$mshrs_3$rpq$ram_sdq_id$MPORT_1$rtl[0], &ldut.tile_prci_domain.tile_reset_domain.boom_tile.dcache.mshrs.mshrs_3.rpq.ram_sdq_id[0], &ldut.tile_prci_domain.tile_reset_domain.boom_tile.dcache.mshrs.mshrs_3.rpq.value_1[0]);
       } else {
       {
         // [state-field-read-fused] 3 arrays share one access scan, mode=dense-branchless
@@ -4860,12 +4852,9 @@ void TestHarness::eval_forward_p5(bool update_registers, bool verbose, bool done
         _v2_sa_anyw |= (uint64_t)(essent_to_u64(_s_ldut$tile_prci_domain$buffer_1$bundleOut_0_a_q$io_enq_ready[G] & _s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$tlMasterXbar$auto_out_a_valid[G]) != 0) & (uint64_t)(essent_to_u64(UInt<1>(0x1)) != 0);
       }
       if (_v2_sa_anyw == 0) {
-        for (int L = 0; L < 16; L++) {
-          const uint64_t _v2_sa_field_addr = essent_to_u64(ldut.tile_prci_domain.buffer_1.bundleOut_0_a_q.value_1[L]);
-          _s_ldut$tile_prci_domain$buffer_1$bundleOut_0_a_q$ram_opcode$io_deq_bits_MPORT[L] = ldut.tile_prci_domain.buffer_1.bundleOut_0_a_q.ram_opcode[_v2_sa_field_addr];
-          _s_ldut$tile_prci_domain$buffer_1$bundleOut_0_a_q$ram_size$io_deq_bits_MPORT[L] = ldut.tile_prci_domain.buffer_1.bundleOut_0_a_q.ram_size[_v2_sa_field_addr];
-          _s_ldut$tile_prci_domain$buffer_1$bundleOut_0_a_q$ram_source$io_deq_bits_MPORT[L] = ldut.tile_prci_domain.buffer_1.bundleOut_0_a_q.ram_source[_v2_sa_field_addr];
-        }
+        essent_table_read<16, 2, false>(&_s_ldut$tile_prci_domain$buffer_1$bundleOut_0_a_q$ram_opcode$io_deq_bits_MPORT[0], &ldut.tile_prci_domain.buffer_1.bundleOut_0_a_q.ram_opcode[0], &ldut.tile_prci_domain.buffer_1.bundleOut_0_a_q.value_1[0]);
+        essent_table_read<16, 2, false>(&_s_ldut$tile_prci_domain$buffer_1$bundleOut_0_a_q$ram_size$io_deq_bits_MPORT[0], &ldut.tile_prci_domain.buffer_1.bundleOut_0_a_q.ram_size[0], &ldut.tile_prci_domain.buffer_1.bundleOut_0_a_q.value_1[0]);
+        essent_table_read<16, 2, false>(&_s_ldut$tile_prci_domain$buffer_1$bundleOut_0_a_q$ram_source$io_deq_bits_MPORT[0], &ldut.tile_prci_domain.buffer_1.bundleOut_0_a_q.ram_source[0], &ldut.tile_prci_domain.buffer_1.bundleOut_0_a_q.value_1[0]);
       } else {
       {
         // [state-field-read-fused] 3 arrays share one access scan, mode=dense-branchless
@@ -4909,7 +4898,7 @@ void TestHarness::eval_forward_p5(bool update_registers, bool verbose, bool done
         _v2_sa_anyw |= (uint64_t)(essent_to_u64(_s_ldut$tile_prci_domain$buffer_1$bundleOut_0_a_q$io_enq_ready[G] & _s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$tlMasterXbar$auto_out_a_valid[G]) != 0) & (uint64_t)(essent_to_u64(UInt<1>(0x1)) != 0);
       }
       if (_v2_sa_anyw == 0) {
-        for (int L = 0; L < 16; L++) { _s_ldut$tile_prci_domain$buffer_1$bundleOut_0_a_q$ram_address$io_deq_bits_MPORT[L] = ldut.tile_prci_domain.buffer_1.bundleOut_0_a_q.ram_address[essent_to_u64(ldut.tile_prci_domain.buffer_1.bundleOut_0_a_q.value_1[L])]; }
+        essent_table_read<16, 2, false>(&_s_ldut$tile_prci_domain$buffer_1$bundleOut_0_a_q$ram_address$io_deq_bits_MPORT[0], &ldut.tile_prci_domain.buffer_1.bundleOut_0_a_q.ram_address[0], &ldut.tile_prci_domain.buffer_1.bundleOut_0_a_q.value_1[0]);
       } else {
       {
         // [state-read-dense] forwarding=branchless
@@ -4918,10 +4907,11 @@ void TestHarness::eval_forward_p5(bool update_registers, bool verbose, bool done
         for (int L = 0; L < 16; L++) {
           const uint64_t _v2_sa_addr = essent_to_u64(ldut.tile_prci_domain.buffer_1.bundleOut_0_a_q.value_1[L]);
           UInt<32> _v2_sa_value = ldut.tile_prci_domain.buffer_1.bundleOut_0_a_q.ram_address[_v2_sa_addr];
+          // [branchless-forward] select a valid source before loading data
           const int _v2_sa_prev_code = _v2_sa_last[_v2_sa_addr];
-          const uint64_t _v2_sa_prev_valid = (uint64_t)(_v2_sa_prev_code >= 0);
+          const bool _v2_sa_prev_valid = _v2_sa_prev_code >= 0;
           [[maybe_unused]] const int _v2_sa_prev_lane = _v2_sa_prev_code & -static_cast<int>(_v2_sa_prev_valid);
-          _v2_sa_value = essent_mux(UInt<1>(_v2_sa_prev_valid), _s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$tlMasterXbar$auto_out_a_bits_address[_v2_sa_prev_lane], _v2_sa_value);
+          _v2_sa_value = *essent_select_ptr(_v2_sa_prev_valid, &(_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$tlMasterXbar$auto_out_a_bits_address[_v2_sa_prev_lane]), &_v2_sa_value);
           _s_ldut$tile_prci_domain$buffer_1$bundleOut_0_a_q$ram_address$io_deq_bits_MPORT[L] = _v2_sa_value;
           const uint64_t _v2_sa_write_addr_0 = essent_to_u64(ldut.tile_prci_domain.buffer_1.bundleOut_0_a_q.value[L]);
           const uint64_t _v2_sa_write_take_0 = (uint64_t)(essent_to_u64(_s_ldut$tile_prci_domain$buffer_1$bundleOut_0_a_q$io_enq_ready[L] & _s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$tlMasterXbar$auto_out_a_valid[L]) != 0) & (uint64_t)(essent_to_u64(UInt<1>(0x1)) != 0);
@@ -4957,12 +4947,9 @@ void TestHarness::eval_forward_p5(bool update_registers, bool verbose, bool done
         _v2_sa_anyw |= (uint64_t)(essent_to_u64(_s_ldut$tile_prci_domain$buffer_1$bundleIn_0_b_q$io_enq_ready[G] & _s_ldut$subsystem_l2_wrapper$broadcast_1$auto_in_b_valid[G]) != 0) & (uint64_t)(essent_to_u64(UInt<1>(0x1)) != 0);
       }
       if (_v2_sa_anyw == 0) {
-        for (int L = 0; L < 16; L++) {
-          const uint64_t _v2_sa_field_addr = essent_to_u64(ldut.tile_prci_domain.buffer_1.bundleIn_0_b_q.value_1[L]);
-          _s_ldut$tile_prci_domain$buffer_1$bundleIn_0_b_q$ram_param$io_deq_bits_MPORT[L] = ldut.tile_prci_domain.buffer_1.bundleIn_0_b_q.ram_param[_v2_sa_field_addr];
-          _s_ldut$tile_prci_domain$buffer_1$bundleIn_0_b_q$ram_size$io_deq_bits_MPORT[L] = ldut.tile_prci_domain.buffer_1.bundleIn_0_b_q.ram_size[_v2_sa_field_addr];
-          _s_ldut$tile_prci_domain$buffer_1$bundleIn_0_b_q$ram_source$io_deq_bits_MPORT[L] = ldut.tile_prci_domain.buffer_1.bundleIn_0_b_q.ram_source[_v2_sa_field_addr];
-        }
+        essent_table_read<16, 2, false>(&_s_ldut$tile_prci_domain$buffer_1$bundleIn_0_b_q$ram_param$io_deq_bits_MPORT[0], &ldut.tile_prci_domain.buffer_1.bundleIn_0_b_q.ram_param[0], &ldut.tile_prci_domain.buffer_1.bundleIn_0_b_q.value_1[0]);
+        essent_table_read<16, 2, false>(&_s_ldut$tile_prci_domain$buffer_1$bundleIn_0_b_q$ram_size$io_deq_bits_MPORT[0], &ldut.tile_prci_domain.buffer_1.bundleIn_0_b_q.ram_size[0], &ldut.tile_prci_domain.buffer_1.bundleIn_0_b_q.value_1[0]);
+        essent_table_read<16, 2, false>(&_s_ldut$tile_prci_domain$buffer_1$bundleIn_0_b_q$ram_source$io_deq_bits_MPORT[0], &ldut.tile_prci_domain.buffer_1.bundleIn_0_b_q.ram_source[0], &ldut.tile_prci_domain.buffer_1.bundleIn_0_b_q.value_1[0]);
       } else {
       {
         // [state-field-read-fused] 3 arrays share one access scan, mode=dense-branchless
@@ -5018,7 +5005,7 @@ void TestHarness::eval_forward_p5(bool update_registers, bool verbose, bool done
         _v2_sa_anyw |= (uint64_t)(essent_to_u64(_s_ldut$tile_prci_domain$buffer_1$bundleIn_0_b_q$io_enq_ready[G] & _s_ldut$subsystem_l2_wrapper$broadcast_1$auto_in_b_valid[G]) != 0) & (uint64_t)(essent_to_u64(UInt<1>(0x1)) != 0);
       }
       if (_v2_sa_anyw == 0) {
-        for (int L = 0; L < 16; L++) { _s_ldut$tile_prci_domain$buffer_1$bundleIn_0_b_q$ram_address$io_deq_bits_MPORT[L] = ldut.tile_prci_domain.buffer_1.bundleIn_0_b_q.ram_address[essent_to_u64(ldut.tile_prci_domain.buffer_1.bundleIn_0_b_q.value_1[L])]; }
+        essent_table_read<16, 2, false>(&_s_ldut$tile_prci_domain$buffer_1$bundleIn_0_b_q$ram_address$io_deq_bits_MPORT[0], &ldut.tile_prci_domain.buffer_1.bundleIn_0_b_q.ram_address[0], &ldut.tile_prci_domain.buffer_1.bundleIn_0_b_q.value_1[0]);
       } else {
       {
         // [state-read-dense] forwarding=branchless
@@ -5027,10 +5014,11 @@ void TestHarness::eval_forward_p5(bool update_registers, bool verbose, bool done
         for (int L = 0; L < 16; L++) {
           const uint64_t _v2_sa_addr = essent_to_u64(ldut.tile_prci_domain.buffer_1.bundleIn_0_b_q.value_1[L]);
           UInt<32> _v2_sa_value = ldut.tile_prci_domain.buffer_1.bundleIn_0_b_q.ram_address[_v2_sa_addr];
+          // [branchless-forward] select a valid source before loading data
           const int _v2_sa_prev_code = _v2_sa_last[_v2_sa_addr];
-          const uint64_t _v2_sa_prev_valid = (uint64_t)(_v2_sa_prev_code >= 0);
+          const bool _v2_sa_prev_valid = _v2_sa_prev_code >= 0;
           [[maybe_unused]] const int _v2_sa_prev_lane = _v2_sa_prev_code & -static_cast<int>(_v2_sa_prev_valid);
-          _v2_sa_value = essent_mux(UInt<1>(_v2_sa_prev_valid), _s_ldut$subsystem_l2_wrapper$broadcast_1$auto_in_b_bits_address[_v2_sa_prev_lane], _v2_sa_value);
+          _v2_sa_value = *essent_select_ptr(_v2_sa_prev_valid, &(_s_ldut$subsystem_l2_wrapper$broadcast_1$auto_in_b_bits_address[_v2_sa_prev_lane]), &_v2_sa_value);
           _s_ldut$tile_prci_domain$buffer_1$bundleIn_0_b_q$ram_address$io_deq_bits_MPORT[L] = _v2_sa_value;
           const uint64_t _v2_sa_write_addr_0 = essent_to_u64(ldut.tile_prci_domain.buffer_1.bundleIn_0_b_q.value[L]);
           const uint64_t _v2_sa_write_take_0 = (uint64_t)(essent_to_u64(_s_ldut$tile_prci_domain$buffer_1$bundleIn_0_b_q$io_enq_ready[L] & _s_ldut$subsystem_l2_wrapper$broadcast_1$auto_in_b_valid[L]) != 0) & (uint64_t)(essent_to_u64(UInt<1>(0x1)) != 0);
@@ -5065,7 +5053,7 @@ void TestHarness::eval_forward_p5(bool update_registers, bool verbose, bool done
         _v2_sa_anyw |= (uint64_t)(essent_to_u64(_s_ldut$tile_prci_domain$buffer_1$bundleOut_0_c_q$io_enq_ready[G] & _s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$dcache$auto_out_c_valid[G]) != 0) & (uint64_t)(essent_to_u64(UInt<1>(0x1)) != 0);
       }
       if (_v2_sa_anyw == 0) {
-        for (int L = 0; L < 16; L++) { _s_ldut$tile_prci_domain$buffer_1$bundleOut_0_c_q$ram_opcode$io_deq_bits_MPORT[L] = ldut.tile_prci_domain.buffer_1.bundleOut_0_c_q.ram_opcode[essent_to_u64(ldut.tile_prci_domain.buffer_1.bundleOut_0_c_q.value_1[L])]; }
+        essent_table_read<16, 2, false>(&_s_ldut$tile_prci_domain$buffer_1$bundleOut_0_c_q$ram_opcode$io_deq_bits_MPORT[0], &ldut.tile_prci_domain.buffer_1.bundleOut_0_c_q.ram_opcode[0], &ldut.tile_prci_domain.buffer_1.bundleOut_0_c_q.value_1[0]);
       } else {
       {
         // [state-read-dense] forwarding=branchless
@@ -5074,10 +5062,11 @@ void TestHarness::eval_forward_p5(bool update_registers, bool verbose, bool done
         for (int L = 0; L < 16; L++) {
           const uint64_t _v2_sa_addr = essent_to_u64(ldut.tile_prci_domain.buffer_1.bundleOut_0_c_q.value_1[L]);
           UInt<3> _v2_sa_value = ldut.tile_prci_domain.buffer_1.bundleOut_0_c_q.ram_opcode[_v2_sa_addr];
+          // [branchless-forward] select a valid source before loading data
           const int _v2_sa_prev_code = _v2_sa_last[_v2_sa_addr];
-          const uint64_t _v2_sa_prev_valid = (uint64_t)(_v2_sa_prev_code >= 0);
+          const bool _v2_sa_prev_valid = _v2_sa_prev_code >= 0;
           [[maybe_unused]] const int _v2_sa_prev_lane = _v2_sa_prev_code & -static_cast<int>(_v2_sa_prev_valid);
-          _v2_sa_value = essent_mux(UInt<1>(_v2_sa_prev_valid), _s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$dcache$auto_out_c_bits_opcode[_v2_sa_prev_lane], _v2_sa_value);
+          _v2_sa_value = *essent_select_ptr(_v2_sa_prev_valid, &(_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$dcache$auto_out_c_bits_opcode[_v2_sa_prev_lane]), &_v2_sa_value);
           _s_ldut$tile_prci_domain$buffer_1$bundleOut_0_c_q$ram_opcode$io_deq_bits_MPORT[L] = _v2_sa_value;
           const uint64_t _v2_sa_write_addr_0 = essent_to_u64(ldut.tile_prci_domain.buffer_1.bundleOut_0_c_q.value[L]);
           const uint64_t _v2_sa_write_take_0 = (uint64_t)(essent_to_u64(_s_ldut$tile_prci_domain$buffer_1$bundleOut_0_c_q$io_enq_ready[L] & _s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$dcache$auto_out_c_valid[L]) != 0) & (uint64_t)(essent_to_u64(UInt<1>(0x1)) != 0);
@@ -5107,7 +5096,7 @@ void TestHarness::eval_forward_p5(bool update_registers, bool verbose, bool done
         _v2_sa_anyw |= (uint64_t)(essent_to_u64(_s_ldut$tile_prci_domain$buffer_1$bundleOut_0_c_q$io_enq_ready[G] & _s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$dcache$auto_out_c_valid[G]) != 0) & (uint64_t)(essent_to_u64(UInt<1>(0x1)) != 0);
       }
       if (_v2_sa_anyw == 0) {
-        for (int L = 0; L < 16; L++) { _s_ldut$tile_prci_domain$buffer_1$bundleOut_0_c_q$ram_size$io_deq_bits_MPORT[L] = ldut.tile_prci_domain.buffer_1.bundleOut_0_c_q.ram_size[essent_to_u64(ldut.tile_prci_domain.buffer_1.bundleOut_0_c_q.value_1[L])]; }
+        essent_table_read<16, 2, false>(&_s_ldut$tile_prci_domain$buffer_1$bundleOut_0_c_q$ram_size$io_deq_bits_MPORT[0], &ldut.tile_prci_domain.buffer_1.bundleOut_0_c_q.ram_size[0], &ldut.tile_prci_domain.buffer_1.bundleOut_0_c_q.value_1[0]);
       } else {
       {
         // [state-read-dense] forwarding=branchless
@@ -5116,10 +5105,11 @@ void TestHarness::eval_forward_p5(bool update_registers, bool verbose, bool done
         for (int L = 0; L < 16; L++) {
           const uint64_t _v2_sa_addr = essent_to_u64(ldut.tile_prci_domain.buffer_1.bundleOut_0_c_q.value_1[L]);
           UInt<4> _v2_sa_value = ldut.tile_prci_domain.buffer_1.bundleOut_0_c_q.ram_size[_v2_sa_addr];
+          // [branchless-forward] select a valid source before loading data
           const int _v2_sa_prev_code = _v2_sa_last[_v2_sa_addr];
-          const uint64_t _v2_sa_prev_valid = (uint64_t)(_v2_sa_prev_code >= 0);
+          const bool _v2_sa_prev_valid = _v2_sa_prev_code >= 0;
           [[maybe_unused]] const int _v2_sa_prev_lane = _v2_sa_prev_code & -static_cast<int>(_v2_sa_prev_valid);
-          _v2_sa_value = essent_mux(UInt<1>(_v2_sa_prev_valid), _s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$dcache$auto_out_c_bits_size[_v2_sa_prev_lane], _v2_sa_value);
+          _v2_sa_value = *essent_select_ptr(_v2_sa_prev_valid, &(_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$dcache$auto_out_c_bits_size[_v2_sa_prev_lane]), &_v2_sa_value);
           _s_ldut$tile_prci_domain$buffer_1$bundleOut_0_c_q$ram_size$io_deq_bits_MPORT[L] = _v2_sa_value;
           const uint64_t _v2_sa_write_addr_0 = essent_to_u64(ldut.tile_prci_domain.buffer_1.bundleOut_0_c_q.value[L]);
           const uint64_t _v2_sa_write_take_0 = (uint64_t)(essent_to_u64(_s_ldut$tile_prci_domain$buffer_1$bundleOut_0_c_q$io_enq_ready[L] & _s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$dcache$auto_out_c_valid[L]) != 0) & (uint64_t)(essent_to_u64(UInt<1>(0x1)) != 0);
@@ -5144,7 +5134,7 @@ void TestHarness::eval_forward_p5(bool update_registers, bool verbose, bool done
         _v2_sa_anyw |= (uint64_t)(essent_to_u64(_s_ldut$tile_prci_domain$buffer_1$bundleOut_0_c_q$io_enq_ready[G] & _s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$dcache$auto_out_c_valid[G]) != 0) & (uint64_t)(essent_to_u64(UInt<1>(0x1)) != 0);
       }
       if (_v2_sa_anyw == 0) {
-        for (int L = 0; L < 16; L++) { _s_ldut$tile_prci_domain$buffer_1$bundleOut_0_c_q$ram_source$io_deq_bits_MPORT[L] = ldut.tile_prci_domain.buffer_1.bundleOut_0_c_q.ram_source[essent_to_u64(ldut.tile_prci_domain.buffer_1.bundleOut_0_c_q.value_1[L])]; }
+        essent_table_read<16, 2, false>(&_s_ldut$tile_prci_domain$buffer_1$bundleOut_0_c_q$ram_source$io_deq_bits_MPORT[0], &ldut.tile_prci_domain.buffer_1.bundleOut_0_c_q.ram_source[0], &ldut.tile_prci_domain.buffer_1.bundleOut_0_c_q.value_1[0]);
       } else {
       {
         // [state-read-dense] forwarding=branchless
@@ -5153,10 +5143,11 @@ void TestHarness::eval_forward_p5(bool update_registers, bool verbose, bool done
         for (int L = 0; L < 16; L++) {
           const uint64_t _v2_sa_addr = essent_to_u64(ldut.tile_prci_domain.buffer_1.bundleOut_0_c_q.value_1[L]);
           UInt<4> _v2_sa_value = ldut.tile_prci_domain.buffer_1.bundleOut_0_c_q.ram_source[_v2_sa_addr];
+          // [branchless-forward] select a valid source before loading data
           const int _v2_sa_prev_code = _v2_sa_last[_v2_sa_addr];
-          const uint64_t _v2_sa_prev_valid = (uint64_t)(_v2_sa_prev_code >= 0);
+          const bool _v2_sa_prev_valid = _v2_sa_prev_code >= 0;
           [[maybe_unused]] const int _v2_sa_prev_lane = _v2_sa_prev_code & -static_cast<int>(_v2_sa_prev_valid);
-          _v2_sa_value = essent_mux(UInt<1>(_v2_sa_prev_valid), _s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$tlMasterXbar$auto_out_c_bits_source[_v2_sa_prev_lane], _v2_sa_value);
+          _v2_sa_value = *essent_select_ptr(_v2_sa_prev_valid, &(_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$tlMasterXbar$auto_out_c_bits_source[_v2_sa_prev_lane]), &_v2_sa_value);
           _s_ldut$tile_prci_domain$buffer_1$bundleOut_0_c_q$ram_source$io_deq_bits_MPORT[L] = _v2_sa_value;
           const uint64_t _v2_sa_write_addr_0 = essent_to_u64(ldut.tile_prci_domain.buffer_1.bundleOut_0_c_q.value[L]);
           const uint64_t _v2_sa_write_take_0 = (uint64_t)(essent_to_u64(_s_ldut$tile_prci_domain$buffer_1$bundleOut_0_c_q$io_enq_ready[L] & _s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$dcache$auto_out_c_valid[L]) != 0) & (uint64_t)(essent_to_u64(UInt<1>(0x1)) != 0);
@@ -5427,7 +5418,7 @@ void TestHarness::eval_forward_p5(bool update_registers, bool verbose, bool done
         _v2_sa_anyw |= (uint64_t)(essent_to_u64(_s_ldut$subsystem_cbus$buffer$bundleOut_0_a_q$io_enq_ready[G] & _s_ldut$subsystem_cbus$atomics$auto_out_a_valid[G]) != 0) & (uint64_t)(essent_to_u64(UInt<1>(0x1)) != 0);
       }
       if (_v2_sa_anyw == 0) {
-        for (int L = 0; L < 16; L++) { _s_ldut$subsystem_cbus$buffer$bundleOut_0_a_q$ram_opcode$io_deq_bits_MPORT[L] = ldut.subsystem_cbus.buffer.bundleOut_0_a_q.ram_opcode[essent_to_u64(ldut.subsystem_cbus.buffer.bundleOut_0_a_q.value_1[L])]; }
+        essent_table_read<16, 2, false>(&_s_ldut$subsystem_cbus$buffer$bundleOut_0_a_q$ram_opcode$io_deq_bits_MPORT[0], &ldut.subsystem_cbus.buffer.bundleOut_0_a_q.ram_opcode[0], &ldut.subsystem_cbus.buffer.bundleOut_0_a_q.value_1[0]);
       } else {
       {
         // [state-read-dense] forwarding=branchless
@@ -5436,10 +5427,11 @@ void TestHarness::eval_forward_p5(bool update_registers, bool verbose, bool done
         for (int L = 0; L < 16; L++) {
           const uint64_t _v2_sa_addr = essent_to_u64(ldut.subsystem_cbus.buffer.bundleOut_0_a_q.value_1[L]);
           UInt<3> _v2_sa_value = ldut.subsystem_cbus.buffer.bundleOut_0_a_q.ram_opcode[_v2_sa_addr];
+          // [branchless-forward] select a valid source before loading data
           const int _v2_sa_prev_code = _v2_sa_last[_v2_sa_addr];
-          const uint64_t _v2_sa_prev_valid = (uint64_t)(_v2_sa_prev_code >= 0);
+          const bool _v2_sa_prev_valid = _v2_sa_prev_code >= 0;
           [[maybe_unused]] const int _v2_sa_prev_lane = _v2_sa_prev_code & -static_cast<int>(_v2_sa_prev_valid);
-          _v2_sa_value = essent_mux(UInt<1>(_v2_sa_prev_valid), _s_ldut$subsystem_cbus$atomics$auto_out_a_bits_opcode[_v2_sa_prev_lane], _v2_sa_value);
+          _v2_sa_value = *essent_select_ptr(_v2_sa_prev_valid, &(_s_ldut$subsystem_cbus$atomics$auto_out_a_bits_opcode[_v2_sa_prev_lane]), &_v2_sa_value);
           _s_ldut$subsystem_cbus$buffer$bundleOut_0_a_q$ram_opcode$io_deq_bits_MPORT[L] = _v2_sa_value;
           const uint64_t _v2_sa_write_addr_0 = essent_to_u64(ldut.subsystem_cbus.buffer.bundleOut_0_a_q.value[L]);
           const uint64_t _v2_sa_write_take_0 = (uint64_t)(essent_to_u64(_s_ldut$subsystem_cbus$buffer$bundleOut_0_a_q$io_enq_ready[L] & _s_ldut$subsystem_cbus$atomics$auto_out_a_valid[L]) != 0) & (uint64_t)(essent_to_u64(UInt<1>(0x1)) != 0);
@@ -5463,7 +5455,7 @@ void TestHarness::eval_forward_p5(bool update_registers, bool verbose, bool done
         _v2_sa_anyw |= (uint64_t)(essent_to_u64(_s_ldut$subsystem_cbus$buffer$bundleOut_0_a_q$io_enq_ready[G] & _s_ldut$subsystem_cbus$atomics$auto_out_a_valid[G]) != 0) & (uint64_t)(essent_to_u64(UInt<1>(0x1)) != 0);
       }
       if (_v2_sa_anyw == 0) {
-        for (int L = 0; L < 16; L++) { _s_ldut$subsystem_cbus$buffer$bundleOut_0_a_q$ram_size$io_deq_bits_MPORT[L] = ldut.subsystem_cbus.buffer.bundleOut_0_a_q.ram_size[essent_to_u64(ldut.subsystem_cbus.buffer.bundleOut_0_a_q.value_1[L])]; }
+        essent_table_read<16, 2, false>(&_s_ldut$subsystem_cbus$buffer$bundleOut_0_a_q$ram_size$io_deq_bits_MPORT[0], &ldut.subsystem_cbus.buffer.bundleOut_0_a_q.ram_size[0], &ldut.subsystem_cbus.buffer.bundleOut_0_a_q.value_1[0]);
       } else {
       {
         // [state-read-dense] forwarding=branchless
@@ -5472,10 +5464,11 @@ void TestHarness::eval_forward_p5(bool update_registers, bool verbose, bool done
         for (int L = 0; L < 16; L++) {
           const uint64_t _v2_sa_addr = essent_to_u64(ldut.subsystem_cbus.buffer.bundleOut_0_a_q.value_1[L]);
           UInt<4> _v2_sa_value = ldut.subsystem_cbus.buffer.bundleOut_0_a_q.ram_size[_v2_sa_addr];
+          // [branchless-forward] select a valid source before loading data
           const int _v2_sa_prev_code = _v2_sa_last[_v2_sa_addr];
-          const uint64_t _v2_sa_prev_valid = (uint64_t)(_v2_sa_prev_code >= 0);
+          const bool _v2_sa_prev_valid = _v2_sa_prev_code >= 0;
           [[maybe_unused]] const int _v2_sa_prev_lane = _v2_sa_prev_code & -static_cast<int>(_v2_sa_prev_valid);
-          _v2_sa_value = essent_mux(UInt<1>(_v2_sa_prev_valid), _s_ldut$subsystem_cbus$atomics$auto_out_a_bits_size[_v2_sa_prev_lane], _v2_sa_value);
+          _v2_sa_value = *essent_select_ptr(_v2_sa_prev_valid, &(_s_ldut$subsystem_cbus$atomics$auto_out_a_bits_size[_v2_sa_prev_lane]), &_v2_sa_value);
           _s_ldut$subsystem_cbus$buffer$bundleOut_0_a_q$ram_size$io_deq_bits_MPORT[L] = _v2_sa_value;
           const uint64_t _v2_sa_write_addr_0 = essent_to_u64(ldut.subsystem_cbus.buffer.bundleOut_0_a_q.value[L]);
           const uint64_t _v2_sa_write_take_0 = (uint64_t)(essent_to_u64(_s_ldut$subsystem_cbus$buffer$bundleOut_0_a_q$io_enq_ready[L] & _s_ldut$subsystem_cbus$atomics$auto_out_a_valid[L]) != 0) & (uint64_t)(essent_to_u64(UInt<1>(0x1)) != 0);
@@ -5502,7 +5495,7 @@ void TestHarness::eval_forward_p5(bool update_registers, bool verbose, bool done
         _v2_sa_anyw |= (uint64_t)(essent_to_u64(_s_ldut$subsystem_cbus$buffer$bundleOut_0_a_q$io_enq_ready[G] & _s_ldut$subsystem_cbus$atomics$auto_out_a_valid[G]) != 0) & (uint64_t)(essent_to_u64(UInt<1>(0x1)) != 0);
       }
       if (_v2_sa_anyw == 0) {
-        for (int L = 0; L < 16; L++) { _s_ldut$subsystem_cbus$buffer$bundleOut_0_a_q$ram_source$io_deq_bits_MPORT[L] = ldut.subsystem_cbus.buffer.bundleOut_0_a_q.ram_source[essent_to_u64(ldut.subsystem_cbus.buffer.bundleOut_0_a_q.value_1[L])]; }
+        essent_table_read<16, 2, false>(&_s_ldut$subsystem_cbus$buffer$bundleOut_0_a_q$ram_source$io_deq_bits_MPORT[0], &ldut.subsystem_cbus.buffer.bundleOut_0_a_q.ram_source[0], &ldut.subsystem_cbus.buffer.bundleOut_0_a_q.value_1[0]);
       } else {
       {
         // [state-read-dense] forwarding=branchless
@@ -5511,10 +5504,11 @@ void TestHarness::eval_forward_p5(bool update_registers, bool verbose, bool done
         for (int L = 0; L < 16; L++) {
           const uint64_t _v2_sa_addr = essent_to_u64(ldut.subsystem_cbus.buffer.bundleOut_0_a_q.value_1[L]);
           UInt<5> _v2_sa_value = ldut.subsystem_cbus.buffer.bundleOut_0_a_q.ram_source[_v2_sa_addr];
+          // [branchless-forward] select a valid source before loading data
           const int _v2_sa_prev_code = _v2_sa_last[_v2_sa_addr];
-          const uint64_t _v2_sa_prev_valid = (uint64_t)(_v2_sa_prev_code >= 0);
+          const bool _v2_sa_prev_valid = _v2_sa_prev_code >= 0;
           [[maybe_unused]] const int _v2_sa_prev_lane = _v2_sa_prev_code & -static_cast<int>(_v2_sa_prev_valid);
-          _v2_sa_value = essent_mux(UInt<1>(_v2_sa_prev_valid), _s_ldut$subsystem_cbus$atomics$auto_out_a_bits_source[_v2_sa_prev_lane], _v2_sa_value);
+          _v2_sa_value = *essent_select_ptr(_v2_sa_prev_valid, &(_s_ldut$subsystem_cbus$atomics$auto_out_a_bits_source[_v2_sa_prev_lane]), &_v2_sa_value);
           _s_ldut$subsystem_cbus$buffer$bundleOut_0_a_q$ram_source$io_deq_bits_MPORT[L] = _v2_sa_value;
           const uint64_t _v2_sa_write_addr_0 = essent_to_u64(ldut.subsystem_cbus.buffer.bundleOut_0_a_q.value[L]);
           const uint64_t _v2_sa_write_take_0 = (uint64_t)(essent_to_u64(_s_ldut$subsystem_cbus$buffer$bundleOut_0_a_q$io_enq_ready[L] & _s_ldut$subsystem_cbus$atomics$auto_out_a_valid[L]) != 0) & (uint64_t)(essent_to_u64(UInt<1>(0x1)) != 0);
@@ -5543,7 +5537,7 @@ void TestHarness::eval_forward_p5(bool update_registers, bool verbose, bool done
         _v2_sa_anyw |= (uint64_t)(essent_to_u64(_s_ldut$subsystem_cbus$buffer$bundleOut_0_a_q$io_enq_ready[G] & _s_ldut$subsystem_cbus$atomics$auto_out_a_valid[G]) != 0) & (uint64_t)(essent_to_u64(UInt<1>(0x1)) != 0);
       }
       if (_v2_sa_anyw == 0) {
-        for (int L = 0; L < 16; L++) { _s_ldut$subsystem_cbus$buffer$bundleOut_0_a_q$ram_address$io_deq_bits_MPORT[L] = ldut.subsystem_cbus.buffer.bundleOut_0_a_q.ram_address[essent_to_u64(ldut.subsystem_cbus.buffer.bundleOut_0_a_q.value_1[L])]; }
+        essent_table_read<16, 2, false>(&_s_ldut$subsystem_cbus$buffer$bundleOut_0_a_q$ram_address$io_deq_bits_MPORT[0], &ldut.subsystem_cbus.buffer.bundleOut_0_a_q.ram_address[0], &ldut.subsystem_cbus.buffer.bundleOut_0_a_q.value_1[0]);
       } else {
       {
         // [state-read-dense] forwarding=branchless
@@ -5552,10 +5546,11 @@ void TestHarness::eval_forward_p5(bool update_registers, bool verbose, bool done
         for (int L = 0; L < 16; L++) {
           const uint64_t _v2_sa_addr = essent_to_u64(ldut.subsystem_cbus.buffer.bundleOut_0_a_q.value_1[L]);
           UInt<28> _v2_sa_value = ldut.subsystem_cbus.buffer.bundleOut_0_a_q.ram_address[_v2_sa_addr];
+          // [branchless-forward] select a valid source before loading data
           const int _v2_sa_prev_code = _v2_sa_last[_v2_sa_addr];
-          const uint64_t _v2_sa_prev_valid = (uint64_t)(_v2_sa_prev_code >= 0);
+          const bool _v2_sa_prev_valid = _v2_sa_prev_code >= 0;
           [[maybe_unused]] const int _v2_sa_prev_lane = _v2_sa_prev_code & -static_cast<int>(_v2_sa_prev_valid);
-          _v2_sa_value = essent_mux(UInt<1>(_v2_sa_prev_valid), _s_ldut$subsystem_cbus$atomics$auto_out_a_bits_address[_v2_sa_prev_lane], _v2_sa_value);
+          _v2_sa_value = *essent_select_ptr(_v2_sa_prev_valid, &(_s_ldut$subsystem_cbus$atomics$auto_out_a_bits_address[_v2_sa_prev_lane]), &_v2_sa_value);
           _s_ldut$subsystem_cbus$buffer$bundleOut_0_a_q$ram_address$io_deq_bits_MPORT[L] = _v2_sa_value;
           const uint64_t _v2_sa_write_addr_0 = essent_to_u64(ldut.subsystem_cbus.buffer.bundleOut_0_a_q.value[L]);
           const uint64_t _v2_sa_write_take_0 = (uint64_t)(essent_to_u64(_s_ldut$subsystem_cbus$buffer$bundleOut_0_a_q$io_enq_ready[L] & _s_ldut$subsystem_cbus$atomics$auto_out_a_valid[L]) != 0) & (uint64_t)(essent_to_u64(UInt<1>(0x1)) != 0);
@@ -5771,14 +5766,11 @@ void TestHarness::eval_forward_p5(bool update_registers, bool verbose, bool done
         _v2_sa_anyw |= (uint64_t)(essent_to_u64(_s_ldut$subsystem_cbus$wrapped_error_device$buffer$bundleIn_0_d_q$io_enq_ready[G] & _s_ldut$subsystem_cbus$wrapped_error_device$error$auto_in_d_valid[G]) != 0) & (uint64_t)(essent_to_u64(UInt<1>(0x1)) != 0);
       }
       if (_v2_sa_anyw == 0) {
-        for (int L = 0; L < 16; L++) {
-          const uint64_t _v2_sa_field_addr = essent_to_u64(ldut.subsystem_cbus.wrapped_error_device.buffer.bundleIn_0_d_q.value_1[L]);
-          _s_ldut$subsystem_cbus$wrapped_error_device$buffer$bundleIn_0_d_q$ram_opcode$io_deq_bits_MPORT[L] = ldut.subsystem_cbus.wrapped_error_device.buffer.bundleIn_0_d_q.ram_opcode[_v2_sa_field_addr];
-          _s_ldut$subsystem_cbus$wrapped_error_device$buffer$bundleIn_0_d_q$ram_param$io_deq_bits_MPORT[L] = ldut.subsystem_cbus.wrapped_error_device.buffer.bundleIn_0_d_q.ram_param[_v2_sa_field_addr];
-          _s_ldut$subsystem_cbus$wrapped_error_device$buffer$bundleIn_0_d_q$ram_size$io_deq_bits_MPORT[L] = ldut.subsystem_cbus.wrapped_error_device.buffer.bundleIn_0_d_q.ram_size[_v2_sa_field_addr];
-          _s_ldut$subsystem_cbus$wrapped_error_device$buffer$bundleIn_0_d_q$ram_sink$io_deq_bits_MPORT[L] = ldut.subsystem_cbus.wrapped_error_device.buffer.bundleIn_0_d_q.ram_sink[_v2_sa_field_addr];
-          _s_ldut$subsystem_cbus$wrapped_error_device$buffer$bundleIn_0_d_q$ram_data$io_deq_bits_MPORT[L] = ldut.subsystem_cbus.wrapped_error_device.buffer.bundleIn_0_d_q.ram_data[_v2_sa_field_addr];
-        }
+        essent_table_read<16, 2, false>(&_s_ldut$subsystem_cbus$wrapped_error_device$buffer$bundleIn_0_d_q$ram_opcode$io_deq_bits_MPORT[0], &ldut.subsystem_cbus.wrapped_error_device.buffer.bundleIn_0_d_q.ram_opcode[0], &ldut.subsystem_cbus.wrapped_error_device.buffer.bundleIn_0_d_q.value_1[0]);
+        essent_table_read<16, 2, false>(&_s_ldut$subsystem_cbus$wrapped_error_device$buffer$bundleIn_0_d_q$ram_param$io_deq_bits_MPORT[0], &ldut.subsystem_cbus.wrapped_error_device.buffer.bundleIn_0_d_q.ram_param[0], &ldut.subsystem_cbus.wrapped_error_device.buffer.bundleIn_0_d_q.value_1[0]);
+        essent_table_read<16, 2, false>(&_s_ldut$subsystem_cbus$wrapped_error_device$buffer$bundleIn_0_d_q$ram_size$io_deq_bits_MPORT[0], &ldut.subsystem_cbus.wrapped_error_device.buffer.bundleIn_0_d_q.ram_size[0], &ldut.subsystem_cbus.wrapped_error_device.buffer.bundleIn_0_d_q.value_1[0]);
+        essent_table_read<16, 2, false>(&_s_ldut$subsystem_cbus$wrapped_error_device$buffer$bundleIn_0_d_q$ram_sink$io_deq_bits_MPORT[0], &ldut.subsystem_cbus.wrapped_error_device.buffer.bundleIn_0_d_q.ram_sink[0], &ldut.subsystem_cbus.wrapped_error_device.buffer.bundleIn_0_d_q.value_1[0]);
+        essent_table_read<16, 2, false>(&_s_ldut$subsystem_cbus$wrapped_error_device$buffer$bundleIn_0_d_q$ram_data$io_deq_bits_MPORT[0], &ldut.subsystem_cbus.wrapped_error_device.buffer.bundleIn_0_d_q.ram_data[0], &ldut.subsystem_cbus.wrapped_error_device.buffer.bundleIn_0_d_q.value_1[0]);
       } else {
       {
         // [state-field-read-fused] 5 arrays share one access scan, mode=dense-branchless
@@ -5826,7 +5818,7 @@ void TestHarness::eval_forward_p5(bool update_registers, bool verbose, bool done
         _v2_sa_anyw |= (uint64_t)(essent_to_u64(_s_ldut$subsystem_cbus$wrapped_error_device$buffer$bundleIn_0_d_q$io_enq_ready[G] & _s_ldut$subsystem_cbus$wrapped_error_device$error$auto_in_d_valid[G]) != 0) & (uint64_t)(essent_to_u64(UInt<1>(0x1)) != 0);
       }
       if (_v2_sa_anyw == 0) {
-        for (int L = 0; L < 16; L++) { _s_ldut$subsystem_cbus$wrapped_error_device$buffer$bundleIn_0_d_q$ram_source$io_deq_bits_MPORT[L] = ldut.subsystem_cbus.wrapped_error_device.buffer.bundleIn_0_d_q.ram_source[essent_to_u64(ldut.subsystem_cbus.wrapped_error_device.buffer.bundleIn_0_d_q.value_1[L])]; }
+        essent_table_read<16, 2, false>(&_s_ldut$subsystem_cbus$wrapped_error_device$buffer$bundleIn_0_d_q$ram_source$io_deq_bits_MPORT[0], &ldut.subsystem_cbus.wrapped_error_device.buffer.bundleIn_0_d_q.ram_source[0], &ldut.subsystem_cbus.wrapped_error_device.buffer.bundleIn_0_d_q.value_1[0]);
       } else {
       {
         // [state-read-dense] forwarding=branchless
@@ -5835,10 +5827,11 @@ void TestHarness::eval_forward_p5(bool update_registers, bool verbose, bool done
         for (int L = 0; L < 16; L++) {
           const uint64_t _v2_sa_addr = essent_to_u64(ldut.subsystem_cbus.wrapped_error_device.buffer.bundleIn_0_d_q.value_1[L]);
           UInt<5> _v2_sa_value = ldut.subsystem_cbus.wrapped_error_device.buffer.bundleIn_0_d_q.ram_source[_v2_sa_addr];
+          // [branchless-forward] select a valid source before loading data
           const int _v2_sa_prev_code = _v2_sa_last[_v2_sa_addr];
-          const uint64_t _v2_sa_prev_valid = (uint64_t)(_v2_sa_prev_code >= 0);
+          const bool _v2_sa_prev_valid = _v2_sa_prev_code >= 0;
           [[maybe_unused]] const int _v2_sa_prev_lane = _v2_sa_prev_code & -static_cast<int>(_v2_sa_prev_valid);
-          _v2_sa_value = essent_mux(UInt<1>(_v2_sa_prev_valid), _s_ldut$subsystem_cbus$wrapped_error_device$error$a$ram_source[_v2_sa_prev_lane], _v2_sa_value);
+          _v2_sa_value = *essent_select_ptr(_v2_sa_prev_valid, &(_s_ldut$subsystem_cbus$wrapped_error_device$error$a$ram_source[_v2_sa_prev_lane]), &_v2_sa_value);
           _s_ldut$subsystem_cbus$wrapped_error_device$buffer$bundleIn_0_d_q$ram_source$io_deq_bits_MPORT[L] = _v2_sa_value;
           const uint64_t _v2_sa_write_addr_0 = essent_to_u64(ldut.subsystem_cbus.wrapped_error_device.buffer.bundleIn_0_d_q.value[L]);
           const uint64_t _v2_sa_write_take_0 = (uint64_t)(essent_to_u64(_s_ldut$subsystem_cbus$wrapped_error_device$buffer$bundleIn_0_d_q$io_enq_ready[L] & _s_ldut$subsystem_cbus$wrapped_error_device$error$auto_in_d_valid[L]) != 0) & (uint64_t)(essent_to_u64(UInt<1>(0x1)) != 0);
@@ -7515,14 +7508,11 @@ void TestHarness::eval_forward_p5(bool update_registers, bool verbose, bool done
         for (int L = 0; L < 16; L++) {
           const uint64_t _v2_sa_addr = essent_to_u64(ldut.tile_prci_domain.tile_reset_domain.boom_tile.core.fp_pipeline.fpiu_unit.BranchKillableQueue$$inst.value_1[L]);
           UInt<65> _v2_sa_value = ((_v2_sa_addr) < (uint64_t)7 ? ldut.tile_prci_domain.tile_reset_domain.boom_tile.core.fp_pipeline.fpiu_unit.BranchKillableQueue$$inst.ram_data[_v2_sa_addr] : UInt<65>(0));
+          // [branchless-forward] select a valid source before loading data
           const int _v2_sa_prev_code = ((_v2_sa_addr) < (uint64_t)7 ? _v2_sa_last[_v2_sa_addr] : -1);
-          if (_v2_sa_prev_code >= 0) {
-            [[maybe_unused]] const int _v2_sa_prev_lane = _v2_sa_prev_code / 1;
-            switch (_v2_sa_prev_code % 1) {
-              case 0: _v2_sa_value = _s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$core$fp_pipeline$fpiu_unit$fpu$fpu$io_resp_bits_data[_v2_sa_prev_lane]; break;
-              default: __builtin_unreachable();
-            }
-          }
+          const bool _v2_sa_prev_valid = _v2_sa_prev_code >= 0;
+          [[maybe_unused]] const int _v2_sa_prev_lane = _v2_sa_prev_code & -static_cast<int>(_v2_sa_prev_valid);
+          _v2_sa_value = *essent_select_ptr(_v2_sa_prev_valid, &(_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$core$fp_pipeline$fpiu_unit$fpu$fpu$io_resp_bits_data[_v2_sa_prev_lane]), &_v2_sa_value);
           _s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$core$fp_pipeline$fpiu_unit$BranchKillableQueue$$inst$ram_data$MPORT_1[L] = _v2_sa_value;
           if (essent_to_u64(_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$core$fp_pipeline$fpiu_unit$BranchKillableQueue$$inst$io_empty[L] ? _s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$core$fp_pipeline$fpiu_unit$BranchKillableQueue$$inst$_GEN_1879[L] : _s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$core$fp_pipeline$fpiu_unit$BranchKillableQueue$$inst$_T_2[L]) && essent_to_u64(UInt<1>(0x1)) && essent_to_u64(ldut.tile_prci_domain.tile_reset_domain.boom_tile.core.fp_pipeline.fpiu_unit.BranchKillableQueue$$inst.value[L]) < (uint64_t)7) _v2_sa_last[essent_to_u64(ldut.tile_prci_domain.tile_reset_domain.boom_tile.core.fp_pipeline.fpiu_unit.BranchKillableQueue$$inst.value[L])] = L * 1 + 0;
         }
@@ -7559,14 +7549,11 @@ void TestHarness::eval_forward_p5(bool update_registers, bool verbose, bool done
         for (int L = 0; L < 16; L++) {
           const uint64_t _v2_sa_addr = essent_to_u64(ldut.tile_prci_domain.tile_reset_domain.boom_tile.core.fp_pipeline.fpiu_unit.BranchKillableQueue_1.value_1[L]);
           UInt<65> _v2_sa_value = ((_v2_sa_addr) < (uint64_t)3 ? ldut.tile_prci_domain.tile_reset_domain.boom_tile.core.fp_pipeline.fpiu_unit.BranchKillableQueue_1.ram_data[_v2_sa_addr] : UInt<65>(0));
+          // [branchless-forward] select a valid source before loading data
           const int _v2_sa_prev_code = ((_v2_sa_addr) < (uint64_t)3 ? _v2_sa_last[_v2_sa_addr] : -1);
-          if (_v2_sa_prev_code >= 0) {
-            [[maybe_unused]] const int _v2_sa_prev_lane = _v2_sa_prev_code / 1;
-            switch (_v2_sa_prev_code % 1) {
-              case 0: _v2_sa_value = _s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$core$fp_pipeline$fpiu_unit$BranchKillableQueue_1$io_enq_bits_data[_v2_sa_prev_lane]; break;
-              default: __builtin_unreachable();
-            }
-          }
+          const bool _v2_sa_prev_valid = _v2_sa_prev_code >= 0;
+          [[maybe_unused]] const int _v2_sa_prev_lane = _v2_sa_prev_code & -static_cast<int>(_v2_sa_prev_valid);
+          _v2_sa_value = *essent_select_ptr(_v2_sa_prev_valid, &(_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$core$fp_pipeline$fpiu_unit$BranchKillableQueue_1$io_enq_bits_data[_v2_sa_prev_lane]), &_v2_sa_value);
           _s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$core$fp_pipeline$fpiu_unit$BranchKillableQueue_1$ram_data$MPORT_1[L] = _v2_sa_value;
           if (essent_to_u64(_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$core$fp_pipeline$fpiu_unit$BranchKillableQueue_1$io_empty[L] ? _s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$core$fp_pipeline$fpiu_unit$BranchKillableQueue_1$_GEN_903[L] : _s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$core$fp_pipeline$fpiu_unit$BranchKillableQueue_1$_T_2[L]) && essent_to_u64(UInt<1>(0x1)) && essent_to_u64(ldut.tile_prci_domain.tile_reset_domain.boom_tile.core.fp_pipeline.fpiu_unit.BranchKillableQueue_1.value[L]) < (uint64_t)3) _v2_sa_last[essent_to_u64(ldut.tile_prci_domain.tile_reset_domain.boom_tile.core.fp_pipeline.fpiu_unit.BranchKillableQueue_1.value[L])] = L * 1 + 0;
         }
@@ -7634,7 +7621,7 @@ void TestHarness::eval_forward_p5(bool update_registers, bool verbose, bool done
         _v2_sa_anyw |= (uint64_t)(essent_to_u64(_s_ldut$subsystem_cbus$buffer$bundleIn_0_d_q$io_enq_ready[G] & _s_ldut$subsystem_cbus$out_xbar$auto_in_d_valid[G]) != 0) & (uint64_t)(essent_to_u64(UInt<1>(0x1)) != 0);
       }
       if (_v2_sa_anyw == 0) {
-        for (int L = 0; L < 16; L++) { _s_ldut$subsystem_cbus$buffer$bundleIn_0_d_q$ram_opcode$io_deq_bits_MPORT[L] = ldut.subsystem_cbus.buffer.bundleIn_0_d_q.ram_opcode[essent_to_u64(ldut.subsystem_cbus.buffer.bundleIn_0_d_q.value_1[L])]; }
+        essent_table_read<16, 2, false>(&_s_ldut$subsystem_cbus$buffer$bundleIn_0_d_q$ram_opcode$io_deq_bits_MPORT[0], &ldut.subsystem_cbus.buffer.bundleIn_0_d_q.ram_opcode[0], &ldut.subsystem_cbus.buffer.bundleIn_0_d_q.value_1[0]);
       } else {
       {
         // [state-read-dense] forwarding=branchless
@@ -7643,10 +7630,11 @@ void TestHarness::eval_forward_p5(bool update_registers, bool verbose, bool done
         for (int L = 0; L < 16; L++) {
           const uint64_t _v2_sa_addr = essent_to_u64(ldut.subsystem_cbus.buffer.bundleIn_0_d_q.value_1[L]);
           UInt<3> _v2_sa_value = ldut.subsystem_cbus.buffer.bundleIn_0_d_q.ram_opcode[_v2_sa_addr];
+          // [branchless-forward] select a valid source before loading data
           const int _v2_sa_prev_code = _v2_sa_last[_v2_sa_addr];
-          const uint64_t _v2_sa_prev_valid = (uint64_t)(_v2_sa_prev_code >= 0);
+          const bool _v2_sa_prev_valid = _v2_sa_prev_code >= 0;
           [[maybe_unused]] const int _v2_sa_prev_lane = _v2_sa_prev_code & -static_cast<int>(_v2_sa_prev_valid);
-          _v2_sa_value = essent_mux(UInt<1>(_v2_sa_prev_valid), _s_ldut$subsystem_cbus$out_xbar$auto_in_d_bits_opcode[_v2_sa_prev_lane], _v2_sa_value);
+          _v2_sa_value = *essent_select_ptr(_v2_sa_prev_valid, &(_s_ldut$subsystem_cbus$out_xbar$auto_in_d_bits_opcode[_v2_sa_prev_lane]), &_v2_sa_value);
           _s_ldut$subsystem_cbus$buffer$bundleIn_0_d_q$ram_opcode$io_deq_bits_MPORT[L] = _v2_sa_value;
           const uint64_t _v2_sa_write_addr_0 = essent_to_u64(ldut.subsystem_cbus.buffer.bundleIn_0_d_q.value[L]);
           const uint64_t _v2_sa_write_take_0 = (uint64_t)(essent_to_u64(_s_ldut$subsystem_cbus$buffer$bundleIn_0_d_q$io_enq_ready[L] & _s_ldut$subsystem_cbus$out_xbar$auto_in_d_valid[L]) != 0) & (uint64_t)(essent_to_u64(UInt<1>(0x1)) != 0);
@@ -7670,11 +7658,8 @@ void TestHarness::eval_forward_p5(bool update_registers, bool verbose, bool done
         _v2_sa_anyw |= (uint64_t)(essent_to_u64(_s_ldut$subsystem_cbus$buffer$bundleIn_0_d_q$io_enq_ready[G] & _s_ldut$subsystem_cbus$out_xbar$auto_in_d_valid[G]) != 0) & (uint64_t)(essent_to_u64(UInt<1>(0x1)) != 0);
       }
       if (_v2_sa_anyw == 0) {
-        for (int L = 0; L < 16; L++) {
-          const uint64_t _v2_sa_field_addr = essent_to_u64(ldut.subsystem_cbus.buffer.bundleIn_0_d_q.value_1[L]);
-          _s_ldut$subsystem_cbus$buffer$bundleIn_0_d_q$ram_param$io_deq_bits_MPORT[L] = ldut.subsystem_cbus.buffer.bundleIn_0_d_q.ram_param[_v2_sa_field_addr];
-          _s_ldut$subsystem_cbus$buffer$bundleIn_0_d_q$ram_sink$io_deq_bits_MPORT[L] = ldut.subsystem_cbus.buffer.bundleIn_0_d_q.ram_sink[_v2_sa_field_addr];
-        }
+        essent_table_read<16, 2, false>(&_s_ldut$subsystem_cbus$buffer$bundleIn_0_d_q$ram_param$io_deq_bits_MPORT[0], &ldut.subsystem_cbus.buffer.bundleIn_0_d_q.ram_param[0], &ldut.subsystem_cbus.buffer.bundleIn_0_d_q.value_1[0]);
+        essent_table_read<16, 2, false>(&_s_ldut$subsystem_cbus$buffer$bundleIn_0_d_q$ram_sink$io_deq_bits_MPORT[0], &ldut.subsystem_cbus.buffer.bundleIn_0_d_q.ram_sink[0], &ldut.subsystem_cbus.buffer.bundleIn_0_d_q.value_1[0]);
       } else {
       {
         // [state-field-read-fused] 2 arrays share one access scan, mode=dense-branchless
@@ -7717,7 +7702,7 @@ void TestHarness::eval_forward_p5(bool update_registers, bool verbose, bool done
         _v2_sa_anyw |= (uint64_t)(essent_to_u64(_s_ldut$subsystem_cbus$buffer$bundleIn_0_d_q$io_enq_ready[G] & _s_ldut$subsystem_cbus$out_xbar$auto_in_d_valid[G]) != 0) & (uint64_t)(essent_to_u64(UInt<1>(0x1)) != 0);
       }
       if (_v2_sa_anyw == 0) {
-        for (int L = 0; L < 16; L++) { _s_ldut$subsystem_cbus$buffer$bundleIn_0_d_q$ram_source$io_deq_bits_MPORT[L] = ldut.subsystem_cbus.buffer.bundleIn_0_d_q.ram_source[essent_to_u64(ldut.subsystem_cbus.buffer.bundleIn_0_d_q.value_1[L])]; }
+        essent_table_read<16, 2, false>(&_s_ldut$subsystem_cbus$buffer$bundleIn_0_d_q$ram_source$io_deq_bits_MPORT[0], &ldut.subsystem_cbus.buffer.bundleIn_0_d_q.ram_source[0], &ldut.subsystem_cbus.buffer.bundleIn_0_d_q.value_1[0]);
       } else {
       {
         // [state-read-dense] forwarding=branchless
@@ -7726,10 +7711,11 @@ void TestHarness::eval_forward_p5(bool update_registers, bool verbose, bool done
         for (int L = 0; L < 16; L++) {
           const uint64_t _v2_sa_addr = essent_to_u64(ldut.subsystem_cbus.buffer.bundleIn_0_d_q.value_1[L]);
           UInt<5> _v2_sa_value = ldut.subsystem_cbus.buffer.bundleIn_0_d_q.ram_source[_v2_sa_addr];
+          // [branchless-forward] select a valid source before loading data
           const int _v2_sa_prev_code = _v2_sa_last[_v2_sa_addr];
-          const uint64_t _v2_sa_prev_valid = (uint64_t)(_v2_sa_prev_code >= 0);
+          const bool _v2_sa_prev_valid = _v2_sa_prev_code >= 0;
           [[maybe_unused]] const int _v2_sa_prev_lane = _v2_sa_prev_code & -static_cast<int>(_v2_sa_prev_valid);
-          _v2_sa_value = essent_mux(UInt<1>(_v2_sa_prev_valid), _s_ldut$subsystem_cbus$out_xbar$auto_in_d_bits_source[_v2_sa_prev_lane], _v2_sa_value);
+          _v2_sa_value = *essent_select_ptr(_v2_sa_prev_valid, &(_s_ldut$subsystem_cbus$out_xbar$auto_in_d_bits_source[_v2_sa_prev_lane]), &_v2_sa_value);
           _s_ldut$subsystem_cbus$buffer$bundleIn_0_d_q$ram_source$io_deq_bits_MPORT[L] = _v2_sa_value;
           const uint64_t _v2_sa_write_addr_0 = essent_to_u64(ldut.subsystem_cbus.buffer.bundleIn_0_d_q.value[L]);
           const uint64_t _v2_sa_write_take_0 = (uint64_t)(essent_to_u64(_s_ldut$subsystem_cbus$buffer$bundleIn_0_d_q$io_enq_ready[L] & _s_ldut$subsystem_cbus$out_xbar$auto_in_d_valid[L]) != 0) & (uint64_t)(essent_to_u64(UInt<1>(0x1)) != 0);
@@ -7786,7 +7772,7 @@ void TestHarness::eval_forward_p5(bool update_registers, bool verbose, bool done
         _v2_sa_anyw |= (uint64_t)(essent_to_u64(_s_ldut$subsystem_cbus$buffer$bundleIn_0_d_q$io_enq_ready[G] & _s_ldut$subsystem_cbus$out_xbar$auto_in_d_valid[G]) != 0) & (uint64_t)(essent_to_u64(UInt<1>(0x1)) != 0);
       }
       if (_v2_sa_anyw == 0) {
-        for (int L = 0; L < 16; L++) { _s_ldut$subsystem_cbus$buffer$bundleIn_0_d_q$ram_size$io_deq_bits_MPORT[L] = ldut.subsystem_cbus.buffer.bundleIn_0_d_q.ram_size[essent_to_u64(ldut.subsystem_cbus.buffer.bundleIn_0_d_q.value_1[L])]; }
+        essent_table_read<16, 2, false>(&_s_ldut$subsystem_cbus$buffer$bundleIn_0_d_q$ram_size$io_deq_bits_MPORT[0], &ldut.subsystem_cbus.buffer.bundleIn_0_d_q.ram_size[0], &ldut.subsystem_cbus.buffer.bundleIn_0_d_q.value_1[0]);
       } else {
       {
         // [state-read-dense] forwarding=branchless
@@ -7795,10 +7781,11 @@ void TestHarness::eval_forward_p5(bool update_registers, bool verbose, bool done
         for (int L = 0; L < 16; L++) {
           const uint64_t _v2_sa_addr = essent_to_u64(ldut.subsystem_cbus.buffer.bundleIn_0_d_q.value_1[L]);
           UInt<4> _v2_sa_value = ldut.subsystem_cbus.buffer.bundleIn_0_d_q.ram_size[_v2_sa_addr];
+          // [branchless-forward] select a valid source before loading data
           const int _v2_sa_prev_code = _v2_sa_last[_v2_sa_addr];
-          const uint64_t _v2_sa_prev_valid = (uint64_t)(_v2_sa_prev_code >= 0);
+          const bool _v2_sa_prev_valid = _v2_sa_prev_code >= 0;
           [[maybe_unused]] const int _v2_sa_prev_lane = _v2_sa_prev_code & -static_cast<int>(_v2_sa_prev_valid);
-          _v2_sa_value = essent_mux(UInt<1>(_v2_sa_prev_valid), _s_ldut$subsystem_cbus$out_xbar$auto_in_d_bits_size[_v2_sa_prev_lane], _v2_sa_value);
+          _v2_sa_value = *essent_select_ptr(_v2_sa_prev_valid, &(_s_ldut$subsystem_cbus$out_xbar$auto_in_d_bits_size[_v2_sa_prev_lane]), &_v2_sa_value);
           _s_ldut$subsystem_cbus$buffer$bundleIn_0_d_q$ram_size$io_deq_bits_MPORT[L] = _v2_sa_value;
           const uint64_t _v2_sa_write_addr_0 = essent_to_u64(ldut.subsystem_cbus.buffer.bundleIn_0_d_q.value[L]);
           const uint64_t _v2_sa_write_take_0 = (uint64_t)(essent_to_u64(_s_ldut$subsystem_cbus$buffer$bundleIn_0_d_q$io_enq_ready[L] & _s_ldut$subsystem_cbus$out_xbar$auto_in_d_valid[L]) != 0) & (uint64_t)(essent_to_u64(UInt<1>(0x1)) != 0);
@@ -7863,7 +7850,7 @@ void TestHarness::eval_forward_p5(bool update_registers, bool verbose, bool done
         _v2_sa_anyw |= (uint64_t)(essent_to_u64(_s_ldut$tile_prci_domain$buffer_1$bundleIn_0_d_q$io_enq_ready[G] & _s_ldut$subsystem_sbus$system_bus_xbar$auto_in_1_d_valid[G]) != 0) & (uint64_t)(essent_to_u64(UInt<1>(0x1)) != 0);
       }
       if (_v2_sa_anyw == 0) {
-        for (int L = 0; L < 16; L++) { _s_ldut$tile_prci_domain$buffer_1$bundleIn_0_d_q$ram_opcode$io_deq_bits_MPORT[L] = ldut.tile_prci_domain.buffer_1.bundleIn_0_d_q.ram_opcode[essent_to_u64(ldut.tile_prci_domain.buffer_1.bundleIn_0_d_q.value_1[L])]; }
+        essent_table_read<16, 2, false>(&_s_ldut$tile_prci_domain$buffer_1$bundleIn_0_d_q$ram_opcode$io_deq_bits_MPORT[0], &ldut.tile_prci_domain.buffer_1.bundleIn_0_d_q.ram_opcode[0], &ldut.tile_prci_domain.buffer_1.bundleIn_0_d_q.value_1[0]);
       } else {
       {
         // [state-read-dense] forwarding=branchless
@@ -7872,10 +7859,11 @@ void TestHarness::eval_forward_p5(bool update_registers, bool verbose, bool done
         for (int L = 0; L < 16; L++) {
           const uint64_t _v2_sa_addr = essent_to_u64(ldut.tile_prci_domain.buffer_1.bundleIn_0_d_q.value_1[L]);
           UInt<3> _v2_sa_value = ldut.tile_prci_domain.buffer_1.bundleIn_0_d_q.ram_opcode[_v2_sa_addr];
+          // [branchless-forward] select a valid source before loading data
           const int _v2_sa_prev_code = _v2_sa_last[_v2_sa_addr];
-          const uint64_t _v2_sa_prev_valid = (uint64_t)(_v2_sa_prev_code >= 0);
+          const bool _v2_sa_prev_valid = _v2_sa_prev_code >= 0;
           [[maybe_unused]] const int _v2_sa_prev_lane = _v2_sa_prev_code & -static_cast<int>(_v2_sa_prev_valid);
-          _v2_sa_value = essent_mux(UInt<1>(_v2_sa_prev_valid), _s_ldut$subsystem_sbus$system_bus_xbar$auto_in_1_d_bits_opcode[_v2_sa_prev_lane], _v2_sa_value);
+          _v2_sa_value = *essent_select_ptr(_v2_sa_prev_valid, &(_s_ldut$subsystem_sbus$system_bus_xbar$auto_in_1_d_bits_opcode[_v2_sa_prev_lane]), &_v2_sa_value);
           _s_ldut$tile_prci_domain$buffer_1$bundleIn_0_d_q$ram_opcode$io_deq_bits_MPORT[L] = _v2_sa_value;
           const uint64_t _v2_sa_write_addr_0 = essent_to_u64(ldut.tile_prci_domain.buffer_1.bundleIn_0_d_q.value[L]);
           const uint64_t _v2_sa_write_take_0 = (uint64_t)(essent_to_u64(_s_ldut$tile_prci_domain$buffer_1$bundleIn_0_d_q$io_enq_ready[L] & _s_ldut$subsystem_sbus$system_bus_xbar$auto_in_1_d_valid[L]) != 0) & (uint64_t)(essent_to_u64(UInt<1>(0x1)) != 0);
@@ -7902,7 +7890,7 @@ void TestHarness::eval_forward_p5(bool update_registers, bool verbose, bool done
         _v2_sa_anyw |= (uint64_t)(essent_to_u64(_s_ldut$tile_prci_domain$buffer_1$bundleIn_0_d_q$io_enq_ready[G] & _s_ldut$subsystem_sbus$system_bus_xbar$auto_in_1_d_valid[G]) != 0) & (uint64_t)(essent_to_u64(UInt<1>(0x1)) != 0);
       }
       if (_v2_sa_anyw == 0) {
-        for (int L = 0; L < 16; L++) { _s_ldut$tile_prci_domain$buffer_1$bundleIn_0_d_q$ram_param$io_deq_bits_MPORT[L] = ldut.tile_prci_domain.buffer_1.bundleIn_0_d_q.ram_param[essent_to_u64(ldut.tile_prci_domain.buffer_1.bundleIn_0_d_q.value_1[L])]; }
+        essent_table_read<16, 2, false>(&_s_ldut$tile_prci_domain$buffer_1$bundleIn_0_d_q$ram_param$io_deq_bits_MPORT[0], &ldut.tile_prci_domain.buffer_1.bundleIn_0_d_q.ram_param[0], &ldut.tile_prci_domain.buffer_1.bundleIn_0_d_q.value_1[0]);
       } else {
       {
         // [state-read-dense] forwarding=branchless
@@ -7911,10 +7899,11 @@ void TestHarness::eval_forward_p5(bool update_registers, bool verbose, bool done
         for (int L = 0; L < 16; L++) {
           const uint64_t _v2_sa_addr = essent_to_u64(ldut.tile_prci_domain.buffer_1.bundleIn_0_d_q.value_1[L]);
           UInt<2> _v2_sa_value = ldut.tile_prci_domain.buffer_1.bundleIn_0_d_q.ram_param[_v2_sa_addr];
+          // [branchless-forward] select a valid source before loading data
           const int _v2_sa_prev_code = _v2_sa_last[_v2_sa_addr];
-          const uint64_t _v2_sa_prev_valid = (uint64_t)(_v2_sa_prev_code >= 0);
+          const bool _v2_sa_prev_valid = _v2_sa_prev_code >= 0;
           [[maybe_unused]] const int _v2_sa_prev_lane = _v2_sa_prev_code & -static_cast<int>(_v2_sa_prev_valid);
-          _v2_sa_value = essent_mux(UInt<1>(_v2_sa_prev_valid), _s_ldut$subsystem_sbus$system_bus_xbar$auto_in_1_d_bits_param[_v2_sa_prev_lane], _v2_sa_value);
+          _v2_sa_value = *essent_select_ptr(_v2_sa_prev_valid, &(_s_ldut$subsystem_sbus$system_bus_xbar$auto_in_1_d_bits_param[_v2_sa_prev_lane]), &_v2_sa_value);
           _s_ldut$tile_prci_domain$buffer_1$bundleIn_0_d_q$ram_param$io_deq_bits_MPORT[L] = _v2_sa_value;
           const uint64_t _v2_sa_write_addr_0 = essent_to_u64(ldut.tile_prci_domain.buffer_1.bundleIn_0_d_q.value[L]);
           const uint64_t _v2_sa_write_take_0 = (uint64_t)(essent_to_u64(_s_ldut$tile_prci_domain$buffer_1$bundleIn_0_d_q$io_enq_ready[L] & _s_ldut$subsystem_sbus$system_bus_xbar$auto_in_1_d_valid[L]) != 0) & (uint64_t)(essent_to_u64(UInt<1>(0x1)) != 0);
@@ -7943,7 +7932,7 @@ void TestHarness::eval_forward_p5(bool update_registers, bool verbose, bool done
         _v2_sa_anyw |= (uint64_t)(essent_to_u64(_s_ldut$tile_prci_domain$buffer_1$bundleIn_0_d_q$io_enq_ready[G] & _s_ldut$subsystem_sbus$system_bus_xbar$auto_in_1_d_valid[G]) != 0) & (uint64_t)(essent_to_u64(UInt<1>(0x1)) != 0);
       }
       if (_v2_sa_anyw == 0) {
-        for (int L = 0; L < 16; L++) { _s_ldut$tile_prci_domain$buffer_1$bundleIn_0_d_q$ram_size$io_deq_bits_MPORT[L] = ldut.tile_prci_domain.buffer_1.bundleIn_0_d_q.ram_size[essent_to_u64(ldut.tile_prci_domain.buffer_1.bundleIn_0_d_q.value_1[L])]; }
+        essent_table_read<16, 2, false>(&_s_ldut$tile_prci_domain$buffer_1$bundleIn_0_d_q$ram_size$io_deq_bits_MPORT[0], &ldut.tile_prci_domain.buffer_1.bundleIn_0_d_q.ram_size[0], &ldut.tile_prci_domain.buffer_1.bundleIn_0_d_q.value_1[0]);
       } else {
       {
         // [state-read-dense] forwarding=branchless
@@ -7952,10 +7941,11 @@ void TestHarness::eval_forward_p5(bool update_registers, bool verbose, bool done
         for (int L = 0; L < 16; L++) {
           const uint64_t _v2_sa_addr = essent_to_u64(ldut.tile_prci_domain.buffer_1.bundleIn_0_d_q.value_1[L]);
           UInt<4> _v2_sa_value = ldut.tile_prci_domain.buffer_1.bundleIn_0_d_q.ram_size[_v2_sa_addr];
+          // [branchless-forward] select a valid source before loading data
           const int _v2_sa_prev_code = _v2_sa_last[_v2_sa_addr];
-          const uint64_t _v2_sa_prev_valid = (uint64_t)(_v2_sa_prev_code >= 0);
+          const bool _v2_sa_prev_valid = _v2_sa_prev_code >= 0;
           [[maybe_unused]] const int _v2_sa_prev_lane = _v2_sa_prev_code & -static_cast<int>(_v2_sa_prev_valid);
-          _v2_sa_value = essent_mux(UInt<1>(_v2_sa_prev_valid), _s_ldut$subsystem_sbus$system_bus_xbar$auto_in_1_d_bits_size[_v2_sa_prev_lane], _v2_sa_value);
+          _v2_sa_value = *essent_select_ptr(_v2_sa_prev_valid, &(_s_ldut$subsystem_sbus$system_bus_xbar$auto_in_1_d_bits_size[_v2_sa_prev_lane]), &_v2_sa_value);
           _s_ldut$tile_prci_domain$buffer_1$bundleIn_0_d_q$ram_size$io_deq_bits_MPORT[L] = _v2_sa_value;
           const uint64_t _v2_sa_write_addr_0 = essent_to_u64(ldut.tile_prci_domain.buffer_1.bundleIn_0_d_q.value[L]);
           const uint64_t _v2_sa_write_take_0 = (uint64_t)(essent_to_u64(_s_ldut$tile_prci_domain$buffer_1$bundleIn_0_d_q$io_enq_ready[L] & _s_ldut$subsystem_sbus$system_bus_xbar$auto_in_1_d_valid[L]) != 0) & (uint64_t)(essent_to_u64(UInt<1>(0x1)) != 0);
@@ -7983,7 +7973,7 @@ void TestHarness::eval_forward_p5(bool update_registers, bool verbose, bool done
         _v2_sa_anyw |= (uint64_t)(essent_to_u64(_s_ldut$tile_prci_domain$buffer_1$bundleIn_0_d_q$io_enq_ready[G] & _s_ldut$subsystem_sbus$system_bus_xbar$auto_in_1_d_valid[G]) != 0) & (uint64_t)(essent_to_u64(UInt<1>(0x1)) != 0);
       }
       if (_v2_sa_anyw == 0) {
-        for (int L = 0; L < 16; L++) { _s_ldut$tile_prci_domain$buffer_1$bundleIn_0_d_q$ram_source$io_deq_bits_MPORT[L] = ldut.tile_prci_domain.buffer_1.bundleIn_0_d_q.ram_source[essent_to_u64(ldut.tile_prci_domain.buffer_1.bundleIn_0_d_q.value_1[L])]; }
+        essent_table_read<16, 2, false>(&_s_ldut$tile_prci_domain$buffer_1$bundleIn_0_d_q$ram_source$io_deq_bits_MPORT[0], &ldut.tile_prci_domain.buffer_1.bundleIn_0_d_q.ram_source[0], &ldut.tile_prci_domain.buffer_1.bundleIn_0_d_q.value_1[0]);
       } else {
       {
         // [state-read-dense] forwarding=branchless
@@ -7992,10 +7982,11 @@ void TestHarness::eval_forward_p5(bool update_registers, bool verbose, bool done
         for (int L = 0; L < 16; L++) {
           const uint64_t _v2_sa_addr = essent_to_u64(ldut.tile_prci_domain.buffer_1.bundleIn_0_d_q.value_1[L]);
           UInt<4> _v2_sa_value = ldut.tile_prci_domain.buffer_1.bundleIn_0_d_q.ram_source[_v2_sa_addr];
+          // [branchless-forward] select a valid source before loading data
           const int _v2_sa_prev_code = _v2_sa_last[_v2_sa_addr];
-          const uint64_t _v2_sa_prev_valid = (uint64_t)(_v2_sa_prev_code >= 0);
+          const bool _v2_sa_prev_valid = _v2_sa_prev_code >= 0;
           [[maybe_unused]] const int _v2_sa_prev_lane = _v2_sa_prev_code & -static_cast<int>(_v2_sa_prev_valid);
-          _v2_sa_value = essent_mux(UInt<1>(_v2_sa_prev_valid), _s_ldut$subsystem_sbus$system_bus_xbar$auto_in_1_d_bits_source[_v2_sa_prev_lane], _v2_sa_value);
+          _v2_sa_value = *essent_select_ptr(_v2_sa_prev_valid, &(_s_ldut$subsystem_sbus$system_bus_xbar$auto_in_1_d_bits_source[_v2_sa_prev_lane]), &_v2_sa_value);
           _s_ldut$tile_prci_domain$buffer_1$bundleIn_0_d_q$ram_source$io_deq_bits_MPORT[L] = _v2_sa_value;
           const uint64_t _v2_sa_write_addr_0 = essent_to_u64(ldut.tile_prci_domain.buffer_1.bundleIn_0_d_q.value[L]);
           const uint64_t _v2_sa_write_take_0 = (uint64_t)(essent_to_u64(_s_ldut$tile_prci_domain$buffer_1$bundleIn_0_d_q$io_enq_ready[L] & _s_ldut$subsystem_sbus$system_bus_xbar$auto_in_1_d_valid[L]) != 0) & (uint64_t)(essent_to_u64(UInt<1>(0x1)) != 0);
@@ -8087,7 +8078,7 @@ void TestHarness::eval_forward_p5(bool update_registers, bool verbose, bool done
         _v2_sa_anyw |= (uint64_t)(essent_to_u64(_s_ldut$tile_prci_domain$buffer_1$bundleIn_0_d_q$io_enq_ready[G] & _s_ldut$subsystem_sbus$system_bus_xbar$auto_in_1_d_valid[G]) != 0) & (uint64_t)(essent_to_u64(UInt<1>(0x1)) != 0);
       }
       if (_v2_sa_anyw == 0) {
-        for (int L = 0; L < 16; L++) { _s_ldut$tile_prci_domain$buffer_1$bundleIn_0_d_q$ram_sink$io_deq_bits_MPORT[L] = ldut.tile_prci_domain.buffer_1.bundleIn_0_d_q.ram_sink[essent_to_u64(ldut.tile_prci_domain.buffer_1.bundleIn_0_d_q.value_1[L])]; }
+        essent_table_read<16, 2, false>(&_s_ldut$tile_prci_domain$buffer_1$bundleIn_0_d_q$ram_sink$io_deq_bits_MPORT[0], &ldut.tile_prci_domain.buffer_1.bundleIn_0_d_q.ram_sink[0], &ldut.tile_prci_domain.buffer_1.bundleIn_0_d_q.value_1[0]);
       } else {
       {
         // [state-read-dense] forwarding=branchless
@@ -8096,10 +8087,11 @@ void TestHarness::eval_forward_p5(bool update_registers, bool verbose, bool done
         for (int L = 0; L < 16; L++) {
           const uint64_t _v2_sa_addr = essent_to_u64(ldut.tile_prci_domain.buffer_1.bundleIn_0_d_q.value_1[L]);
           UInt<2> _v2_sa_value = ldut.tile_prci_domain.buffer_1.bundleIn_0_d_q.ram_sink[_v2_sa_addr];
+          // [branchless-forward] select a valid source before loading data
           const int _v2_sa_prev_code = _v2_sa_last[_v2_sa_addr];
-          const uint64_t _v2_sa_prev_valid = (uint64_t)(_v2_sa_prev_code >= 0);
+          const bool _v2_sa_prev_valid = _v2_sa_prev_code >= 0;
           [[maybe_unused]] const int _v2_sa_prev_lane = _v2_sa_prev_code & -static_cast<int>(_v2_sa_prev_valid);
-          _v2_sa_value = essent_mux(UInt<1>(_v2_sa_prev_valid), _s_ldut$subsystem_sbus$system_bus_xbar$auto_in_1_d_bits_sink[_v2_sa_prev_lane], _v2_sa_value);
+          _v2_sa_value = *essent_select_ptr(_v2_sa_prev_valid, &(_s_ldut$subsystem_sbus$system_bus_xbar$auto_in_1_d_bits_sink[_v2_sa_prev_lane]), &_v2_sa_value);
           _s_ldut$tile_prci_domain$buffer_1$bundleIn_0_d_q$ram_sink$io_deq_bits_MPORT[L] = _v2_sa_value;
           const uint64_t _v2_sa_write_addr_0 = essent_to_u64(ldut.tile_prci_domain.buffer_1.bundleIn_0_d_q.value[L]);
           const uint64_t _v2_sa_write_take_0 = (uint64_t)(essent_to_u64(_s_ldut$tile_prci_domain$buffer_1$bundleIn_0_d_q$io_enq_ready[L] & _s_ldut$subsystem_sbus$system_bus_xbar$auto_in_1_d_valid[L]) != 0) & (uint64_t)(essent_to_u64(UInt<1>(0x1)) != 0);
@@ -8828,7 +8820,7 @@ void TestHarness::eval_forward_p5(bool update_registers, bool verbose, bool done
         _v2_sa_anyw |= (uint64_t)(essent_to_u64(_s_ldut$subsystem_cbus$buffer$bundleIn_0_d_q$io_enq_ready[G] & _s_ldut$subsystem_cbus$out_xbar$auto_in_d_valid[G]) != 0) & (uint64_t)(essent_to_u64(UInt<1>(0x1)) != 0);
       }
       if (_v2_sa_anyw == 0) {
-        for (int L = 0; L < 16; L++) { _s_ldut$subsystem_cbus$buffer$bundleIn_0_d_q$ram_data$io_deq_bits_MPORT[L] = ldut.subsystem_cbus.buffer.bundleIn_0_d_q.ram_data[essent_to_u64(ldut.subsystem_cbus.buffer.bundleIn_0_d_q.value_1[L])]; }
+        essent_table_read<16, 2, false>(&_s_ldut$subsystem_cbus$buffer$bundleIn_0_d_q$ram_data$io_deq_bits_MPORT[0], &ldut.subsystem_cbus.buffer.bundleIn_0_d_q.ram_data[0], &ldut.subsystem_cbus.buffer.bundleIn_0_d_q.value_1[0]);
       } else {
       {
         // [state-read-dense] forwarding=branchless
@@ -8837,10 +8829,11 @@ void TestHarness::eval_forward_p5(bool update_registers, bool verbose, bool done
         for (int L = 0; L < 16; L++) {
           const uint64_t _v2_sa_addr = essent_to_u64(ldut.subsystem_cbus.buffer.bundleIn_0_d_q.value_1[L]);
           UInt<64> _v2_sa_value = ldut.subsystem_cbus.buffer.bundleIn_0_d_q.ram_data[_v2_sa_addr];
+          // [branchless-forward] select a valid source before loading data
           const int _v2_sa_prev_code = _v2_sa_last[_v2_sa_addr];
-          const uint64_t _v2_sa_prev_valid = (uint64_t)(_v2_sa_prev_code >= 0);
+          const bool _v2_sa_prev_valid = _v2_sa_prev_code >= 0;
           [[maybe_unused]] const int _v2_sa_prev_lane = _v2_sa_prev_code & -static_cast<int>(_v2_sa_prev_valid);
-          _v2_sa_value = essent_mux(UInt<1>(_v2_sa_prev_valid), _s_ldut$subsystem_cbus$out_xbar$auto_in_d_bits_data[_v2_sa_prev_lane], _v2_sa_value);
+          _v2_sa_value = *essent_select_ptr(_v2_sa_prev_valid, &(_s_ldut$subsystem_cbus$out_xbar$auto_in_d_bits_data[_v2_sa_prev_lane]), &_v2_sa_value);
           _s_ldut$subsystem_cbus$buffer$bundleIn_0_d_q$ram_data$io_deq_bits_MPORT[L] = _v2_sa_value;
           const uint64_t _v2_sa_write_addr_0 = essent_to_u64(ldut.subsystem_cbus.buffer.bundleIn_0_d_q.value[L]);
           const uint64_t _v2_sa_write_take_0 = (uint64_t)(essent_to_u64(_s_ldut$subsystem_cbus$buffer$bundleIn_0_d_q$io_enq_ready[L] & _s_ldut$subsystem_cbus$out_xbar$auto_in_d_valid[L]) != 0) & (uint64_t)(essent_to_u64(UInt<1>(0x1)) != 0);
@@ -8879,14 +8872,11 @@ void TestHarness::eval_forward_p5(bool update_registers, bool verbose, bool done
         for (int L = 0; L < 16; L++) {
           const uint64_t _v2_sa_addr = essent_to_u64(ldut.tile_prci_domain.buffer_1.bundleIn_0_d_q.value_1[L]);
           UInt<128> _v2_sa_value = ldut.tile_prci_domain.buffer_1.bundleIn_0_d_q.ram_data[_v2_sa_addr];
+          // [branchless-forward] select a valid source before loading data
           const int _v2_sa_prev_code = _v2_sa_last[_v2_sa_addr];
-          if (_v2_sa_prev_code >= 0) {
-            [[maybe_unused]] const int _v2_sa_prev_lane = _v2_sa_prev_code / 1;
-            switch (_v2_sa_prev_code % 1) {
-              case 0: _v2_sa_value = _s_ldut$subsystem_sbus$system_bus_xbar$auto_in_1_d_bits_data[_v2_sa_prev_lane]; break;
-              default: __builtin_unreachable();
-            }
-          }
+          const bool _v2_sa_prev_valid = _v2_sa_prev_code >= 0;
+          [[maybe_unused]] const int _v2_sa_prev_lane = _v2_sa_prev_code & -static_cast<int>(_v2_sa_prev_valid);
+          _v2_sa_value = *essent_select_ptr(_v2_sa_prev_valid, &(_s_ldut$subsystem_sbus$system_bus_xbar$auto_in_1_d_bits_data[_v2_sa_prev_lane]), &_v2_sa_value);
           _s_ldut$tile_prci_domain$buffer_1$bundleIn_0_d_q$ram_data$io_deq_bits_MPORT[L] = _v2_sa_value;
           if (essent_to_u64(_s_ldut$tile_prci_domain$buffer_1$bundleIn_0_d_q$io_enq_ready[L] & _s_ldut$subsystem_sbus$system_bus_xbar$auto_in_1_d_valid[L]) && essent_to_u64(UInt<1>(0x1))) _v2_sa_last[essent_to_u64(ldut.tile_prci_domain.buffer_1.bundleIn_0_d_q.value[L])] = L * 1 + 0;
         }
@@ -9103,7 +9093,7 @@ void TestHarness::eval_forward_p5(bool update_registers, bool verbose, bool done
         ESSENT_LANE_LOOP
         for (int L = 0; L < 16; L++) ldut.tile_prci_domain.tile_reset_domain.boom_tile.dcache.wb.acked[L] = _gv;
       } else {
-        for (int L = 1; L < 16; L++) ldut.tile_prci_domain.tile_reset_domain.boom_tile.dcache.wb.acked[L] = (~_s_ldut$reset[L - 1]) & (_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$dcache$wb$_T_5[L - 1] ? ((~_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$dcache$wb$_T_6[L - 1]) & ldut.tile_prci_domain.tile_reset_domain.boom_tile.dcache.wb.acked[L - 1]) : (_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$dcache$wb$_T_7[L - 1] ? ldut.tile_prci_domain.tile_reset_domain.boom_tile.dcache.wb.acked[L - 1] : (_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$dcache$wb$_T_19[L - 1] ? ldut.tile_prci_domain.tile_reset_domain.boom_tile.dcache.wb.acked[L - 1] : (_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$dcache$wb$_T_21[L - 1] ? (_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$dcache$wb$io_mem_grant[L - 1] | ldut.tile_prci_domain.tile_reset_domain.boom_tile.dcache.wb.acked[L - 1]) : (_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$dcache$wb$_T_31[L - 1] ? (_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$dcache$wb$io_mem_grant[L - 1] | ldut.tile_prci_domain.tile_reset_domain.boom_tile.dcache.wb.acked[L - 1]) : ldut.tile_prci_domain.tile_reset_domain.boom_tile.dcache.wb.acked[L - 1])))));
+        for (int L = 1; L < 16; L++) ldut.tile_prci_domain.tile_reset_domain.boom_tile.dcache.wb.acked[L].val = static_cast<typename UInt<1>::scalar_t>((static_cast<uint8_t>((static_cast<uint8_t>((((static_cast<uint8_t>((~static_cast<uint8_t>(_s_ldut$reset[L - 1].val))) & 0x1u)) & ((static_cast<uint8_t>(essent_select_word<uint32_t>(((static_cast<uint8_t>(_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$dcache$wb$_T_5[L - 1].val) & 0x1u)) != 0, static_cast<uint32_t>((static_cast<uint8_t>((((static_cast<uint8_t>((~static_cast<uint8_t>(_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$dcache$wb$_T_6[L - 1].val))) & 0x1u)) & (ldut.tile_prci_domain.tile_reset_domain.boom_tile.dcache.wb.acked[L - 1].val))) & 0x1u)), static_cast<uint32_t>((static_cast<uint8_t>(essent_select_word<uint32_t>(((static_cast<uint8_t>(_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$dcache$wb$_T_7[L - 1].val) & 0x1u)) != 0, static_cast<uint32_t>(ldut.tile_prci_domain.tile_reset_domain.boom_tile.dcache.wb.acked[L - 1].val), static_cast<uint32_t>((static_cast<uint8_t>(essent_select_word<uint32_t>(((static_cast<uint8_t>(_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$dcache$wb$_T_19[L - 1].val) & 0x1u)) != 0, static_cast<uint32_t>(ldut.tile_prci_domain.tile_reset_domain.boom_tile.dcache.wb.acked[L - 1].val), static_cast<uint32_t>((static_cast<uint8_t>(essent_select_word<uint32_t>(((static_cast<uint8_t>(_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$dcache$wb$_T_21[L - 1].val) & 0x1u)) != 0, static_cast<uint32_t>((static_cast<uint8_t>(((_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$dcache$wb$io_mem_grant[L - 1].val) | (ldut.tile_prci_domain.tile_reset_domain.boom_tile.dcache.wb.acked[L - 1].val))) & 0x1u)), static_cast<uint32_t>((static_cast<uint8_t>(essent_select_word<uint32_t>(((static_cast<uint8_t>(_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$dcache$wb$_T_31[L - 1].val) & 0x1u)) != 0, static_cast<uint32_t>((static_cast<uint8_t>(((_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$dcache$wb$io_mem_grant[L - 1].val) | (ldut.tile_prci_domain.tile_reset_domain.boom_tile.dcache.wb.acked[L - 1].val))) & 0x1u)), static_cast<uint32_t>(ldut.tile_prci_domain.tile_reset_domain.boom_tile.dcache.wb.acked[L - 1].val))) & 0x1u)))) & 0x1u)))) & 0x1u)))) & 0x1u)))) & 0x1u)))) & 0x1u)) & 0x1u));
       }
     }
     // [vec boundary-next] 2 templates x 16 lanes
@@ -9130,7 +9120,7 @@ void TestHarness::eval_forward_p5(bool update_registers, bool verbose, bool done
         ESSENT_LANE_LOOP
         for (int L = 0; L < 16; L++) ldut.tile_prci_domain.tile_reset_domain.boom_tile.dcache.mshrs.mshrs_0.counter[L] = _gv;
       } else {
-        for (int L = 1; L < 16; L++) ldut.tile_prci_domain.tile_reset_domain.boom_tile.dcache.mshrs.mshrs_0.counter[L] = _s_ldut$reset[L - 1] ? UInt<8>(0x0) : (_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$dcache$mshrs$mshrs_0$_T_225[L - 1] ? ((ldut.tile_prci_domain.tile_reset_domain.boom_tile.dcache.mshrs.mshrs_0.counter[L - 1] == UInt<8>(0x0)) ? _s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$dcache$mshrs$mshrs_0$beats1[L - 1] : ((ldut.tile_prci_domain.tile_reset_domain.boom_tile.dcache.mshrs.mshrs_0.counter[L - 1] - UInt<8>(0x1)).tail<1>())) : ldut.tile_prci_domain.tile_reset_domain.boom_tile.dcache.mshrs.mshrs_0.counter[L - 1]);
+        for (int L = 1; L < 16; L++) ldut.tile_prci_domain.tile_reset_domain.boom_tile.dcache.mshrs.mshrs_0.counter[L].val = static_cast<typename UInt<8>::scalar_t>((static_cast<uint16_t>((static_cast<uint16_t>(essent_select_word<uint32_t>(((static_cast<uint16_t>(_s_ldut$reset[L - 1].val) & 0x1u)) != 0, static_cast<uint32_t>((static_cast<uint16_t>(0x0u) & 0xffu)), static_cast<uint32_t>((static_cast<uint16_t>(essent_select_word<uint32_t>(((static_cast<uint16_t>(_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$dcache$mshrs$mshrs_0$_T_225[L - 1].val) & 0x1u)) != 0, static_cast<uint32_t>((static_cast<uint16_t>(essent_select_word<uint32_t>(((static_cast<uint16_t>((static_cast<uint16_t>(((ldut.tile_prci_domain.tile_reset_domain.boom_tile.dcache.mshrs.mshrs_0.counter[L - 1].val) == ((static_cast<uint16_t>(0x0u) & 0xffu)))) & 0x1u)) & 0x1u)) != 0, static_cast<uint32_t>(_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$dcache$mshrs$mshrs_0$beats1[L - 1].val), static_cast<uint32_t>((static_cast<uint16_t>((static_cast<uint16_t>((static_cast<uint16_t>((static_cast<uint16_t>(ldut.tile_prci_domain.tile_reset_domain.boom_tile.dcache.mshrs.mshrs_0.counter[L - 1].val) - static_cast<uint16_t>((static_cast<uint16_t>(0x1u) & 0xffu)))) & 0x1ffu)) & 0xffu)) & 0xffu)))) & 0xffu)), static_cast<uint32_t>(ldut.tile_prci_domain.tile_reset_domain.boom_tile.dcache.mshrs.mshrs_0.counter[L - 1].val))) & 0xffu)))) & 0xffu)) & 0xffu));
       }
     }
 
@@ -9166,7 +9156,7 @@ void TestHarness::eval_forward_p5(bool update_registers, bool verbose, bool done
         ESSENT_LANE_LOOP
         for (int L = 0; L < 16; L++) ldut.tile_prci_domain.tile_reset_domain.boom_tile.dcache.mshrs.mshrs_1.counter[L] = _gv;
       } else {
-        for (int L = 1; L < 16; L++) ldut.tile_prci_domain.tile_reset_domain.boom_tile.dcache.mshrs.mshrs_1.counter[L] = _s_ldut$reset[L - 1] ? UInt<8>(0x0) : (_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$dcache$mshrs$mshrs_1$_T_225[L - 1] ? ((ldut.tile_prci_domain.tile_reset_domain.boom_tile.dcache.mshrs.mshrs_1.counter[L - 1] == UInt<8>(0x0)) ? _s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$dcache$mshrs$mshrs_1$beats1[L - 1] : ((ldut.tile_prci_domain.tile_reset_domain.boom_tile.dcache.mshrs.mshrs_1.counter[L - 1] - UInt<8>(0x1)).tail<1>())) : ldut.tile_prci_domain.tile_reset_domain.boom_tile.dcache.mshrs.mshrs_1.counter[L - 1]);
+        for (int L = 1; L < 16; L++) ldut.tile_prci_domain.tile_reset_domain.boom_tile.dcache.mshrs.mshrs_1.counter[L].val = static_cast<typename UInt<8>::scalar_t>((static_cast<uint16_t>((static_cast<uint16_t>(essent_select_word<uint32_t>(((static_cast<uint16_t>(_s_ldut$reset[L - 1].val) & 0x1u)) != 0, static_cast<uint32_t>((static_cast<uint16_t>(0x0u) & 0xffu)), static_cast<uint32_t>((static_cast<uint16_t>(essent_select_word<uint32_t>(((static_cast<uint16_t>(_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$dcache$mshrs$mshrs_1$_T_225[L - 1].val) & 0x1u)) != 0, static_cast<uint32_t>((static_cast<uint16_t>(essent_select_word<uint32_t>(((static_cast<uint16_t>((static_cast<uint16_t>(((ldut.tile_prci_domain.tile_reset_domain.boom_tile.dcache.mshrs.mshrs_1.counter[L - 1].val) == ((static_cast<uint16_t>(0x0u) & 0xffu)))) & 0x1u)) & 0x1u)) != 0, static_cast<uint32_t>(_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$dcache$mshrs$mshrs_1$beats1[L - 1].val), static_cast<uint32_t>((static_cast<uint16_t>((static_cast<uint16_t>((static_cast<uint16_t>((static_cast<uint16_t>(ldut.tile_prci_domain.tile_reset_domain.boom_tile.dcache.mshrs.mshrs_1.counter[L - 1].val) - static_cast<uint16_t>((static_cast<uint16_t>(0x1u) & 0xffu)))) & 0x1ffu)) & 0xffu)) & 0xffu)))) & 0xffu)), static_cast<uint32_t>(ldut.tile_prci_domain.tile_reset_domain.boom_tile.dcache.mshrs.mshrs_1.counter[L - 1].val))) & 0xffu)))) & 0xffu)) & 0xffu));
       }
     }
     // [vec comb] 3 templates x 16 lanes
@@ -9200,7 +9190,7 @@ void TestHarness::eval_forward_p5(bool update_registers, bool verbose, bool done
         ESSENT_LANE_LOOP
         for (int L = 0; L < 16; L++) ldut.tile_prci_domain.tile_reset_domain.boom_tile.dcache.mshrs.mshrs_2.counter[L] = _gv;
       } else {
-        for (int L = 1; L < 16; L++) ldut.tile_prci_domain.tile_reset_domain.boom_tile.dcache.mshrs.mshrs_2.counter[L] = _s_ldut$reset[L - 1] ? UInt<8>(0x0) : (_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$dcache$mshrs$mshrs_2$_T_225[L - 1] ? ((ldut.tile_prci_domain.tile_reset_domain.boom_tile.dcache.mshrs.mshrs_2.counter[L - 1] == UInt<8>(0x0)) ? _s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$dcache$mshrs$mshrs_2$beats1[L - 1] : ((ldut.tile_prci_domain.tile_reset_domain.boom_tile.dcache.mshrs.mshrs_2.counter[L - 1] - UInt<8>(0x1)).tail<1>())) : ldut.tile_prci_domain.tile_reset_domain.boom_tile.dcache.mshrs.mshrs_2.counter[L - 1]);
+        for (int L = 1; L < 16; L++) ldut.tile_prci_domain.tile_reset_domain.boom_tile.dcache.mshrs.mshrs_2.counter[L].val = static_cast<typename UInt<8>::scalar_t>((static_cast<uint16_t>((static_cast<uint16_t>(essent_select_word<uint32_t>(((static_cast<uint16_t>(_s_ldut$reset[L - 1].val) & 0x1u)) != 0, static_cast<uint32_t>((static_cast<uint16_t>(0x0u) & 0xffu)), static_cast<uint32_t>((static_cast<uint16_t>(essent_select_word<uint32_t>(((static_cast<uint16_t>(_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$dcache$mshrs$mshrs_2$_T_225[L - 1].val) & 0x1u)) != 0, static_cast<uint32_t>((static_cast<uint16_t>(essent_select_word<uint32_t>(((static_cast<uint16_t>((static_cast<uint16_t>(((ldut.tile_prci_domain.tile_reset_domain.boom_tile.dcache.mshrs.mshrs_2.counter[L - 1].val) == ((static_cast<uint16_t>(0x0u) & 0xffu)))) & 0x1u)) & 0x1u)) != 0, static_cast<uint32_t>(_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$dcache$mshrs$mshrs_2$beats1[L - 1].val), static_cast<uint32_t>((static_cast<uint16_t>((static_cast<uint16_t>((static_cast<uint16_t>((static_cast<uint16_t>(ldut.tile_prci_domain.tile_reset_domain.boom_tile.dcache.mshrs.mshrs_2.counter[L - 1].val) - static_cast<uint16_t>((static_cast<uint16_t>(0x1u) & 0xffu)))) & 0x1ffu)) & 0xffu)) & 0xffu)))) & 0xffu)), static_cast<uint32_t>(ldut.tile_prci_domain.tile_reset_domain.boom_tile.dcache.mshrs.mshrs_2.counter[L - 1].val))) & 0xffu)))) & 0xffu)) & 0xffu));
       }
     }
     }();
@@ -9238,7 +9228,7 @@ void TestHarness::eval_forward_p5(bool update_registers, bool verbose, bool done
         ESSENT_LANE_LOOP
         for (int L = 0; L < 16; L++) ldut.tile_prci_domain.tile_reset_domain.boom_tile.dcache.mshrs.mshrs_3.counter[L] = _gv;
       } else {
-        for (int L = 1; L < 16; L++) ldut.tile_prci_domain.tile_reset_domain.boom_tile.dcache.mshrs.mshrs_3.counter[L] = _s_ldut$reset[L - 1] ? UInt<8>(0x0) : (_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$dcache$mshrs$mshrs_3$_T_225[L - 1] ? ((ldut.tile_prci_domain.tile_reset_domain.boom_tile.dcache.mshrs.mshrs_3.counter[L - 1] == UInt<8>(0x0)) ? _s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$dcache$mshrs$mshrs_3$beats1[L - 1] : ((ldut.tile_prci_domain.tile_reset_domain.boom_tile.dcache.mshrs.mshrs_3.counter[L - 1] - UInt<8>(0x1)).tail<1>())) : ldut.tile_prci_domain.tile_reset_domain.boom_tile.dcache.mshrs.mshrs_3.counter[L - 1]);
+        for (int L = 1; L < 16; L++) ldut.tile_prci_domain.tile_reset_domain.boom_tile.dcache.mshrs.mshrs_3.counter[L].val = static_cast<typename UInt<8>::scalar_t>((static_cast<uint16_t>((static_cast<uint16_t>(essent_select_word<uint32_t>(((static_cast<uint16_t>(_s_ldut$reset[L - 1].val) & 0x1u)) != 0, static_cast<uint32_t>((static_cast<uint16_t>(0x0u) & 0xffu)), static_cast<uint32_t>((static_cast<uint16_t>(essent_select_word<uint32_t>(((static_cast<uint16_t>(_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$dcache$mshrs$mshrs_3$_T_225[L - 1].val) & 0x1u)) != 0, static_cast<uint32_t>((static_cast<uint16_t>(essent_select_word<uint32_t>(((static_cast<uint16_t>((static_cast<uint16_t>(((ldut.tile_prci_domain.tile_reset_domain.boom_tile.dcache.mshrs.mshrs_3.counter[L - 1].val) == ((static_cast<uint16_t>(0x0u) & 0xffu)))) & 0x1u)) & 0x1u)) != 0, static_cast<uint32_t>(_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$dcache$mshrs$mshrs_3$beats1[L - 1].val), static_cast<uint32_t>((static_cast<uint16_t>((static_cast<uint16_t>((static_cast<uint16_t>((static_cast<uint16_t>(ldut.tile_prci_domain.tile_reset_domain.boom_tile.dcache.mshrs.mshrs_3.counter[L - 1].val) - static_cast<uint16_t>((static_cast<uint16_t>(0x1u) & 0xffu)))) & 0x1ffu)) & 0xffu)) & 0xffu)))) & 0xffu)), static_cast<uint32_t>(ldut.tile_prci_domain.tile_reset_domain.boom_tile.dcache.mshrs.mshrs_3.counter[L - 1].val))) & 0xffu)))) & 0xffu)) & 0xffu));
       }
     }
     // [vec comb] 4 templates x 16 lanes
@@ -9275,7 +9265,7 @@ void TestHarness::eval_forward_p5(bool update_registers, bool verbose, bool done
         ESSENT_LANE_LOOP
         for (int L = 0; L < 16; L++) ldut.tile_prci_domain.tile_reset_domain.boom_tile.dcache.meta_0.rst_cnt[L] = _gv;
       } else {
-        for (int L = 1; L < 16; L++) ldut.tile_prci_domain.tile_reset_domain.boom_tile.dcache.meta_0.rst_cnt[L] = _s_ldut$reset[L - 1] ? UInt<7>(0x0) : ((ldut.tile_prci_domain.tile_reset_domain.boom_tile.dcache.meta_0.rst_cnt[L - 1] < UInt<7>(0x40)) ? ((ldut.tile_prci_domain.tile_reset_domain.boom_tile.dcache.meta_0.rst_cnt[L - 1] + UInt<7>(0x1)).tail<1>()) : ldut.tile_prci_domain.tile_reset_domain.boom_tile.dcache.meta_0.rst_cnt[L - 1]);
+        for (int L = 1; L < 16; L++) ldut.tile_prci_domain.tile_reset_domain.boom_tile.dcache.meta_0.rst_cnt[L].val = static_cast<typename UInt<7>::scalar_t>((static_cast<uint8_t>((static_cast<uint8_t>(essent_select_word<uint32_t>(((static_cast<uint8_t>(_s_ldut$reset[L - 1].val) & 0x1u)) != 0, static_cast<uint32_t>((static_cast<uint8_t>(0x0u) & 0x7fu)), static_cast<uint32_t>((static_cast<uint8_t>(essent_select_word<uint32_t>(((static_cast<uint8_t>((static_cast<uint8_t>(((ldut.tile_prci_domain.tile_reset_domain.boom_tile.dcache.meta_0.rst_cnt[L - 1].val) < ((static_cast<uint8_t>(0x40u) & 0x7fu)))) & 0x1u)) & 0x1u)) != 0, static_cast<uint32_t>((static_cast<uint8_t>((static_cast<uint8_t>((static_cast<uint8_t>((static_cast<uint8_t>(ldut.tile_prci_domain.tile_reset_domain.boom_tile.dcache.meta_0.rst_cnt[L - 1].val) + static_cast<uint8_t>((static_cast<uint8_t>(0x1u) & 0x7fu)))) & 0xffu)) & 0x7fu)) & 0x7fu)), static_cast<uint32_t>(ldut.tile_prci_domain.tile_reset_domain.boom_tile.dcache.meta_0.rst_cnt[L - 1].val))) & 0x7fu)))) & 0x7fu)) & 0x7fu));
       }
     }
 
@@ -9330,7 +9320,7 @@ void TestHarness::eval_forward_p5(bool update_registers, bool verbose, bool done
         ESSENT_LANE_LOOP
         for (int L = 0; L < 16; L++) ldut.tile_prci_domain.tile_reset_domain.boom_tile.dcache.mshrs.mshrs_0.meta_hazard[L] = _gv;
       } else {
-        for (int L = 1; L < 16; L++) ldut.tile_prci_domain.tile_reset_domain.boom_tile.dcache.mshrs.mshrs_0.meta_hazard[L] = _s_ldut$reset[L - 1] ? UInt<2>(0x0) : (_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$dcache$mshrs$mshrs_0$_T_255[L - 1] ? UInt<2>(0x1) : ((ldut.tile_prci_domain.tile_reset_domain.boom_tile.dcache.mshrs.mshrs_0.meta_hazard[L - 1] != UInt<2>(0x0)) ? ((ldut.tile_prci_domain.tile_reset_domain.boom_tile.dcache.mshrs.mshrs_0.meta_hazard[L - 1] + UInt<2>(0x1)).tail<1>()) : ldut.tile_prci_domain.tile_reset_domain.boom_tile.dcache.mshrs.mshrs_0.meta_hazard[L - 1]));
+        for (int L = 1; L < 16; L++) ldut.tile_prci_domain.tile_reset_domain.boom_tile.dcache.mshrs.mshrs_0.meta_hazard[L].val = static_cast<typename UInt<2>::scalar_t>((static_cast<uint8_t>((static_cast<uint8_t>(essent_select_word<uint32_t>(((static_cast<uint8_t>(_s_ldut$reset[L - 1].val) & 0x1u)) != 0, static_cast<uint32_t>((static_cast<uint8_t>(0x0u) & 0x3u)), static_cast<uint32_t>((static_cast<uint8_t>(essent_select_word<uint32_t>(((static_cast<uint8_t>(_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$dcache$mshrs$mshrs_0$_T_255[L - 1].val) & 0x1u)) != 0, static_cast<uint32_t>((static_cast<uint8_t>(0x1u) & 0x3u)), static_cast<uint32_t>((static_cast<uint8_t>(essent_select_word<uint32_t>(((static_cast<uint8_t>((static_cast<uint8_t>(((ldut.tile_prci_domain.tile_reset_domain.boom_tile.dcache.mshrs.mshrs_0.meta_hazard[L - 1].val) != ((static_cast<uint8_t>(0x0u) & 0x3u)))) & 0x1u)) & 0x1u)) != 0, static_cast<uint32_t>((static_cast<uint8_t>((static_cast<uint8_t>((static_cast<uint8_t>((static_cast<uint8_t>(ldut.tile_prci_domain.tile_reset_domain.boom_tile.dcache.mshrs.mshrs_0.meta_hazard[L - 1].val) + static_cast<uint8_t>((static_cast<uint8_t>(0x1u) & 0x3u)))) & 0x7u)) & 0x3u)) & 0x3u)), static_cast<uint32_t>(ldut.tile_prci_domain.tile_reset_domain.boom_tile.dcache.mshrs.mshrs_0.meta_hazard[L - 1].val))) & 0x3u)))) & 0x3u)))) & 0x3u)) & 0x3u));
       }
     }
     // [vec comb] 1 templates x 16 lanes
@@ -9356,7 +9346,7 @@ void TestHarness::eval_forward_p5(bool update_registers, bool verbose, bool done
         ESSENT_LANE_LOOP
         for (int L = 0; L < 16; L++) ldut.tile_prci_domain.tile_reset_domain.boom_tile.dcache.mshrs.mshrs_1.meta_hazard[L] = _gv;
       } else {
-        for (int L = 1; L < 16; L++) ldut.tile_prci_domain.tile_reset_domain.boom_tile.dcache.mshrs.mshrs_1.meta_hazard[L] = _s_ldut$reset[L - 1] ? UInt<2>(0x0) : (_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$dcache$mshrs$mshrs_1$_T_255[L - 1] ? UInt<2>(0x1) : ((ldut.tile_prci_domain.tile_reset_domain.boom_tile.dcache.mshrs.mshrs_1.meta_hazard[L - 1] != UInt<2>(0x0)) ? ((ldut.tile_prci_domain.tile_reset_domain.boom_tile.dcache.mshrs.mshrs_1.meta_hazard[L - 1] + UInt<2>(0x1)).tail<1>()) : ldut.tile_prci_domain.tile_reset_domain.boom_tile.dcache.mshrs.mshrs_1.meta_hazard[L - 1]));
+        for (int L = 1; L < 16; L++) ldut.tile_prci_domain.tile_reset_domain.boom_tile.dcache.mshrs.mshrs_1.meta_hazard[L].val = static_cast<typename UInt<2>::scalar_t>((static_cast<uint8_t>((static_cast<uint8_t>(essent_select_word<uint32_t>(((static_cast<uint8_t>(_s_ldut$reset[L - 1].val) & 0x1u)) != 0, static_cast<uint32_t>((static_cast<uint8_t>(0x0u) & 0x3u)), static_cast<uint32_t>((static_cast<uint8_t>(essent_select_word<uint32_t>(((static_cast<uint8_t>(_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$dcache$mshrs$mshrs_1$_T_255[L - 1].val) & 0x1u)) != 0, static_cast<uint32_t>((static_cast<uint8_t>(0x1u) & 0x3u)), static_cast<uint32_t>((static_cast<uint8_t>(essent_select_word<uint32_t>(((static_cast<uint8_t>((static_cast<uint8_t>(((ldut.tile_prci_domain.tile_reset_domain.boom_tile.dcache.mshrs.mshrs_1.meta_hazard[L - 1].val) != ((static_cast<uint8_t>(0x0u) & 0x3u)))) & 0x1u)) & 0x1u)) != 0, static_cast<uint32_t>((static_cast<uint8_t>((static_cast<uint8_t>((static_cast<uint8_t>((static_cast<uint8_t>(ldut.tile_prci_domain.tile_reset_domain.boom_tile.dcache.mshrs.mshrs_1.meta_hazard[L - 1].val) + static_cast<uint8_t>((static_cast<uint8_t>(0x1u) & 0x3u)))) & 0x7u)) & 0x3u)) & 0x3u)), static_cast<uint32_t>(ldut.tile_prci_domain.tile_reset_domain.boom_tile.dcache.mshrs.mshrs_1.meta_hazard[L - 1].val))) & 0x3u)))) & 0x3u)))) & 0x3u)) & 0x3u));
       }
     }
     // [vec comb] 1 templates x 16 lanes
@@ -9382,7 +9372,7 @@ void TestHarness::eval_forward_p5(bool update_registers, bool verbose, bool done
         ESSENT_LANE_LOOP
         for (int L = 0; L < 16; L++) ldut.tile_prci_domain.tile_reset_domain.boom_tile.dcache.mshrs.mshrs_2.meta_hazard[L] = _gv;
       } else {
-        for (int L = 1; L < 16; L++) ldut.tile_prci_domain.tile_reset_domain.boom_tile.dcache.mshrs.mshrs_2.meta_hazard[L] = _s_ldut$reset[L - 1] ? UInt<2>(0x0) : (_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$dcache$mshrs$mshrs_2$_T_255[L - 1] ? UInt<2>(0x1) : ((ldut.tile_prci_domain.tile_reset_domain.boom_tile.dcache.mshrs.mshrs_2.meta_hazard[L - 1] != UInt<2>(0x0)) ? ((ldut.tile_prci_domain.tile_reset_domain.boom_tile.dcache.mshrs.mshrs_2.meta_hazard[L - 1] + UInt<2>(0x1)).tail<1>()) : ldut.tile_prci_domain.tile_reset_domain.boom_tile.dcache.mshrs.mshrs_2.meta_hazard[L - 1]));
+        for (int L = 1; L < 16; L++) ldut.tile_prci_domain.tile_reset_domain.boom_tile.dcache.mshrs.mshrs_2.meta_hazard[L].val = static_cast<typename UInt<2>::scalar_t>((static_cast<uint8_t>((static_cast<uint8_t>(essent_select_word<uint32_t>(((static_cast<uint8_t>(_s_ldut$reset[L - 1].val) & 0x1u)) != 0, static_cast<uint32_t>((static_cast<uint8_t>(0x0u) & 0x3u)), static_cast<uint32_t>((static_cast<uint8_t>(essent_select_word<uint32_t>(((static_cast<uint8_t>(_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$dcache$mshrs$mshrs_2$_T_255[L - 1].val) & 0x1u)) != 0, static_cast<uint32_t>((static_cast<uint8_t>(0x1u) & 0x3u)), static_cast<uint32_t>((static_cast<uint8_t>(essent_select_word<uint32_t>(((static_cast<uint8_t>((static_cast<uint8_t>(((ldut.tile_prci_domain.tile_reset_domain.boom_tile.dcache.mshrs.mshrs_2.meta_hazard[L - 1].val) != ((static_cast<uint8_t>(0x0u) & 0x3u)))) & 0x1u)) & 0x1u)) != 0, static_cast<uint32_t>((static_cast<uint8_t>((static_cast<uint8_t>((static_cast<uint8_t>((static_cast<uint8_t>(ldut.tile_prci_domain.tile_reset_domain.boom_tile.dcache.mshrs.mshrs_2.meta_hazard[L - 1].val) + static_cast<uint8_t>((static_cast<uint8_t>(0x1u) & 0x3u)))) & 0x7u)) & 0x3u)) & 0x3u)), static_cast<uint32_t>(ldut.tile_prci_domain.tile_reset_domain.boom_tile.dcache.mshrs.mshrs_2.meta_hazard[L - 1].val))) & 0x3u)))) & 0x3u)))) & 0x3u)) & 0x3u));
       }
     }
     // [vec comb] 1 templates x 16 lanes
@@ -9408,7 +9398,7 @@ void TestHarness::eval_forward_p5(bool update_registers, bool verbose, bool done
         ESSENT_LANE_LOOP
         for (int L = 0; L < 16; L++) ldut.tile_prci_domain.tile_reset_domain.boom_tile.dcache.mshrs.mshrs_3.meta_hazard[L] = _gv;
       } else {
-        for (int L = 1; L < 16; L++) ldut.tile_prci_domain.tile_reset_domain.boom_tile.dcache.mshrs.mshrs_3.meta_hazard[L] = _s_ldut$reset[L - 1] ? UInt<2>(0x0) : (_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$dcache$mshrs$mshrs_3$_T_255[L - 1] ? UInt<2>(0x1) : ((ldut.tile_prci_domain.tile_reset_domain.boom_tile.dcache.mshrs.mshrs_3.meta_hazard[L - 1] != UInt<2>(0x0)) ? ((ldut.tile_prci_domain.tile_reset_domain.boom_tile.dcache.mshrs.mshrs_3.meta_hazard[L - 1] + UInt<2>(0x1)).tail<1>()) : ldut.tile_prci_domain.tile_reset_domain.boom_tile.dcache.mshrs.mshrs_3.meta_hazard[L - 1]));
+        for (int L = 1; L < 16; L++) ldut.tile_prci_domain.tile_reset_domain.boom_tile.dcache.mshrs.mshrs_3.meta_hazard[L].val = static_cast<typename UInt<2>::scalar_t>((static_cast<uint8_t>((static_cast<uint8_t>(essent_select_word<uint32_t>(((static_cast<uint8_t>(_s_ldut$reset[L - 1].val) & 0x1u)) != 0, static_cast<uint32_t>((static_cast<uint8_t>(0x0u) & 0x3u)), static_cast<uint32_t>((static_cast<uint8_t>(essent_select_word<uint32_t>(((static_cast<uint8_t>(_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$dcache$mshrs$mshrs_3$_T_255[L - 1].val) & 0x1u)) != 0, static_cast<uint32_t>((static_cast<uint8_t>(0x1u) & 0x3u)), static_cast<uint32_t>((static_cast<uint8_t>(essent_select_word<uint32_t>(((static_cast<uint8_t>((static_cast<uint8_t>(((ldut.tile_prci_domain.tile_reset_domain.boom_tile.dcache.mshrs.mshrs_3.meta_hazard[L - 1].val) != ((static_cast<uint8_t>(0x0u) & 0x3u)))) & 0x1u)) & 0x1u)) != 0, static_cast<uint32_t>((static_cast<uint8_t>((static_cast<uint8_t>((static_cast<uint8_t>((static_cast<uint8_t>(ldut.tile_prci_domain.tile_reset_domain.boom_tile.dcache.mshrs.mshrs_3.meta_hazard[L - 1].val) + static_cast<uint8_t>((static_cast<uint8_t>(0x1u) & 0x3u)))) & 0x7u)) & 0x3u)) & 0x3u)), static_cast<uint32_t>(ldut.tile_prci_domain.tile_reset_domain.boom_tile.dcache.mshrs.mshrs_3.meta_hazard[L - 1].val))) & 0x3u)))) & 0x3u)))) & 0x3u)) & 0x3u));
       }
     }
     // [vec comb] 2 templates x 16 lanes
@@ -10224,7 +10214,7 @@ void TestHarness::eval_forward_p5(bool update_registers, bool verbose, bool done
         ESSENT_LANE_LOOP
         for (int L = 0; L < 16; L++) ldut.tile_prci_domain.tile_reset_domain.boom_tile.dcache.mshrs.mshrs_0.commit_line[L] = _gv;
       } else {
-        for (int L = 1; L < 16; L++) ldut.tile_prci_domain.tile_reset_domain.boom_tile.dcache.mshrs.mshrs_0.commit_line[L] = _s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$dcache$mshrs$mshrs_0$_T_229[L - 1] ? ldut.tile_prci_domain.tile_reset_domain.boom_tile.dcache.mshrs.mshrs_0.commit_line[L - 1] : (_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$dcache$mshrs$mshrs_0$_T_258[L - 1] ? ldut.tile_prci_domain.tile_reset_domain.boom_tile.dcache.mshrs.mshrs_0.commit_line[L - 1] : (_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$dcache$mshrs$mshrs_0$_T_259[L - 1] ? ((~_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$dcache$mshrs$mshrs_0$refill_done[L - 1]) & ldut.tile_prci_domain.tile_reset_domain.boom_tile.dcache.mshrs.mshrs_0.commit_line[L - 1]) : (_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$dcache$mshrs$mshrs_0$_T_260[L - 1] ? (_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$dcache$mshrs$mshrs_0$_T_526[L - 1] | ldut.tile_prci_domain.tile_reset_domain.boom_tile.dcache.mshrs.mshrs_0.commit_line[L - 1]) : ldut.tile_prci_domain.tile_reset_domain.boom_tile.dcache.mshrs.mshrs_0.commit_line[L - 1])));
+        for (int L = 1; L < 16; L++) ldut.tile_prci_domain.tile_reset_domain.boom_tile.dcache.mshrs.mshrs_0.commit_line[L].val = static_cast<typename UInt<1>::scalar_t>((static_cast<uint8_t>((static_cast<uint8_t>(essent_select_word<uint32_t>(((static_cast<uint8_t>(_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$dcache$mshrs$mshrs_0$_T_229[L - 1].val) & 0x1u)) != 0, static_cast<uint32_t>(ldut.tile_prci_domain.tile_reset_domain.boom_tile.dcache.mshrs.mshrs_0.commit_line[L - 1].val), static_cast<uint32_t>((static_cast<uint8_t>(essent_select_word<uint32_t>(((static_cast<uint8_t>(_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$dcache$mshrs$mshrs_0$_T_258[L - 1].val) & 0x1u)) != 0, static_cast<uint32_t>(ldut.tile_prci_domain.tile_reset_domain.boom_tile.dcache.mshrs.mshrs_0.commit_line[L - 1].val), static_cast<uint32_t>((static_cast<uint8_t>(essent_select_word<uint32_t>(((static_cast<uint8_t>(_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$dcache$mshrs$mshrs_0$_T_259[L - 1].val) & 0x1u)) != 0, static_cast<uint32_t>((static_cast<uint8_t>((((static_cast<uint8_t>((~static_cast<uint8_t>(_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$dcache$mshrs$mshrs_0$refill_done[L - 1].val))) & 0x1u)) & (ldut.tile_prci_domain.tile_reset_domain.boom_tile.dcache.mshrs.mshrs_0.commit_line[L - 1].val))) & 0x1u)), static_cast<uint32_t>((static_cast<uint8_t>(essent_select_word<uint32_t>(((static_cast<uint8_t>(_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$dcache$mshrs$mshrs_0$_T_260[L - 1].val) & 0x1u)) != 0, static_cast<uint32_t>((static_cast<uint8_t>(((_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$dcache$mshrs$mshrs_0$_T_526[L - 1].val) | (ldut.tile_prci_domain.tile_reset_domain.boom_tile.dcache.mshrs.mshrs_0.commit_line[L - 1].val))) & 0x1u)), static_cast<uint32_t>(ldut.tile_prci_domain.tile_reset_domain.boom_tile.dcache.mshrs.mshrs_0.commit_line[L - 1].val))) & 0x1u)))) & 0x1u)))) & 0x1u)))) & 0x1u)) & 0x1u));
       }
     }
     // [vec boundary-next] 1 templates x 16 lanes
@@ -10643,7 +10633,7 @@ void TestHarness::eval_forward_p5(bool update_registers, bool verbose, bool done
         ESSENT_LANE_LOOP
         for (int L = 0; L < 16; L++) ldut.tile_prci_domain.tile_reset_domain.boom_tile.dcache.mshrs.mshrs_1.commit_line[L] = _gv;
       } else {
-        for (int L = 1; L < 16; L++) ldut.tile_prci_domain.tile_reset_domain.boom_tile.dcache.mshrs.mshrs_1.commit_line[L] = _s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$dcache$mshrs$mshrs_1$_T_229[L - 1] ? ldut.tile_prci_domain.tile_reset_domain.boom_tile.dcache.mshrs.mshrs_1.commit_line[L - 1] : (_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$dcache$mshrs$mshrs_1$_T_258[L - 1] ? ldut.tile_prci_domain.tile_reset_domain.boom_tile.dcache.mshrs.mshrs_1.commit_line[L - 1] : (_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$dcache$mshrs$mshrs_1$_T_259[L - 1] ? ((~_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$dcache$mshrs$mshrs_1$refill_done[L - 1]) & ldut.tile_prci_domain.tile_reset_domain.boom_tile.dcache.mshrs.mshrs_1.commit_line[L - 1]) : (_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$dcache$mshrs$mshrs_1$_T_260[L - 1] ? (_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$dcache$mshrs$mshrs_1$_T_526[L - 1] | ldut.tile_prci_domain.tile_reset_domain.boom_tile.dcache.mshrs.mshrs_1.commit_line[L - 1]) : ldut.tile_prci_domain.tile_reset_domain.boom_tile.dcache.mshrs.mshrs_1.commit_line[L - 1])));
+        for (int L = 1; L < 16; L++) ldut.tile_prci_domain.tile_reset_domain.boom_tile.dcache.mshrs.mshrs_1.commit_line[L].val = static_cast<typename UInt<1>::scalar_t>((static_cast<uint8_t>((static_cast<uint8_t>(essent_select_word<uint32_t>(((static_cast<uint8_t>(_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$dcache$mshrs$mshrs_1$_T_229[L - 1].val) & 0x1u)) != 0, static_cast<uint32_t>(ldut.tile_prci_domain.tile_reset_domain.boom_tile.dcache.mshrs.mshrs_1.commit_line[L - 1].val), static_cast<uint32_t>((static_cast<uint8_t>(essent_select_word<uint32_t>(((static_cast<uint8_t>(_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$dcache$mshrs$mshrs_1$_T_258[L - 1].val) & 0x1u)) != 0, static_cast<uint32_t>(ldut.tile_prci_domain.tile_reset_domain.boom_tile.dcache.mshrs.mshrs_1.commit_line[L - 1].val), static_cast<uint32_t>((static_cast<uint8_t>(essent_select_word<uint32_t>(((static_cast<uint8_t>(_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$dcache$mshrs$mshrs_1$_T_259[L - 1].val) & 0x1u)) != 0, static_cast<uint32_t>((static_cast<uint8_t>((((static_cast<uint8_t>((~static_cast<uint8_t>(_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$dcache$mshrs$mshrs_1$refill_done[L - 1].val))) & 0x1u)) & (ldut.tile_prci_domain.tile_reset_domain.boom_tile.dcache.mshrs.mshrs_1.commit_line[L - 1].val))) & 0x1u)), static_cast<uint32_t>((static_cast<uint8_t>(essent_select_word<uint32_t>(((static_cast<uint8_t>(_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$dcache$mshrs$mshrs_1$_T_260[L - 1].val) & 0x1u)) != 0, static_cast<uint32_t>((static_cast<uint8_t>(((_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$dcache$mshrs$mshrs_1$_T_526[L - 1].val) | (ldut.tile_prci_domain.tile_reset_domain.boom_tile.dcache.mshrs.mshrs_1.commit_line[L - 1].val))) & 0x1u)), static_cast<uint32_t>(ldut.tile_prci_domain.tile_reset_domain.boom_tile.dcache.mshrs.mshrs_1.commit_line[L - 1].val))) & 0x1u)))) & 0x1u)))) & 0x1u)))) & 0x1u)) & 0x1u));
       }
     }
     // [vec boundary-next] 1 templates x 16 lanes
@@ -11095,10 +11085,11 @@ void TestHarness::eval_forward_p5(bool update_registers, bool verbose, bool done
         for (int L = 0; L < 16; L++) {
           const uint64_t _v2_sa_addr = essent_to_u64(_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$dcache$mshrs$replay_arb$io_out_bits_sdq_id[L]);
           UInt<64> _v2_sa_value = ((_v2_sa_addr) < (uint64_t)17 ? ldut.tile_prci_domain.tile_reset_domain.boom_tile.dcache.mshrs.sdq[_v2_sa_addr] : UInt<64>(0));
+          // [branchless-forward] select a valid source before loading data
           const int _v2_sa_prev_code = ((_v2_sa_addr) < (uint64_t)17 ? _v2_sa_last[_v2_sa_addr] : -1);
-          const uint64_t _v2_sa_prev_valid = (uint64_t)(_v2_sa_prev_code >= 0);
+          const bool _v2_sa_prev_valid = _v2_sa_prev_code >= 0;
           [[maybe_unused]] const int _v2_sa_prev_lane = _v2_sa_prev_code & -static_cast<int>(_v2_sa_prev_valid);
-          _v2_sa_value = essent_mux(UInt<1>(_v2_sa_prev_valid), ldut.tile_prci_domain.tile_reset_domain.boom_tile.dcache.s2_req_0_data[_v2_sa_prev_lane], _v2_sa_value);
+          _v2_sa_value = *essent_select_ptr(_v2_sa_prev_valid, &(ldut.tile_prci_domain.tile_reset_domain.boom_tile.dcache.s2_req_0_data[_v2_sa_prev_lane]), &_v2_sa_value);
           _s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$dcache$mshrs$sdq$MPORT_3$rtl[L] = _v2_sa_value;
           const uint64_t _v2_sa_write_addr_0 = essent_to_u64(_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$dcache$mshrs$_T_20[L] ? UInt<5>(0x0) : _s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$dcache$mshrs$_T_51[L]);
           const uint64_t _v2_sa_write_take_0 = (uint64_t)(essent_to_u64(_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$dcache$mshrs$_T_54[L] & _s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$dcache$mshrs$_T_77[L]) != 0) & (uint64_t)(essent_to_u64(UInt<1>(0x1)) != 0) & (uint64_t)(_v2_sa_write_addr_0 < (uint64_t)17);
@@ -11145,7 +11136,7 @@ void TestHarness::eval_forward_p5(bool update_registers, bool verbose, bool done
         ESSENT_LANE_LOOP
         for (int L = 0; L < 16; L++) ldut.tile_prci_domain.tile_reset_domain.boom_tile.dcache.mshrs.mshrs_2.commit_line[L] = _gv;
       } else {
-        for (int L = 1; L < 16; L++) ldut.tile_prci_domain.tile_reset_domain.boom_tile.dcache.mshrs.mshrs_2.commit_line[L] = _s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$dcache$mshrs$mshrs_2$_T_229[L - 1] ? ldut.tile_prci_domain.tile_reset_domain.boom_tile.dcache.mshrs.mshrs_2.commit_line[L - 1] : (_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$dcache$mshrs$mshrs_2$_T_258[L - 1] ? ldut.tile_prci_domain.tile_reset_domain.boom_tile.dcache.mshrs.mshrs_2.commit_line[L - 1] : (_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$dcache$mshrs$mshrs_2$_T_259[L - 1] ? ((~_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$dcache$mshrs$mshrs_2$refill_done[L - 1]) & ldut.tile_prci_domain.tile_reset_domain.boom_tile.dcache.mshrs.mshrs_2.commit_line[L - 1]) : (_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$dcache$mshrs$mshrs_2$_T_260[L - 1] ? (_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$dcache$mshrs$mshrs_2$_T_526[L - 1] | ldut.tile_prci_domain.tile_reset_domain.boom_tile.dcache.mshrs.mshrs_2.commit_line[L - 1]) : ldut.tile_prci_domain.tile_reset_domain.boom_tile.dcache.mshrs.mshrs_2.commit_line[L - 1])));
+        for (int L = 1; L < 16; L++) ldut.tile_prci_domain.tile_reset_domain.boom_tile.dcache.mshrs.mshrs_2.commit_line[L].val = static_cast<typename UInt<1>::scalar_t>((static_cast<uint8_t>((static_cast<uint8_t>(essent_select_word<uint32_t>(((static_cast<uint8_t>(_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$dcache$mshrs$mshrs_2$_T_229[L - 1].val) & 0x1u)) != 0, static_cast<uint32_t>(ldut.tile_prci_domain.tile_reset_domain.boom_tile.dcache.mshrs.mshrs_2.commit_line[L - 1].val), static_cast<uint32_t>((static_cast<uint8_t>(essent_select_word<uint32_t>(((static_cast<uint8_t>(_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$dcache$mshrs$mshrs_2$_T_258[L - 1].val) & 0x1u)) != 0, static_cast<uint32_t>(ldut.tile_prci_domain.tile_reset_domain.boom_tile.dcache.mshrs.mshrs_2.commit_line[L - 1].val), static_cast<uint32_t>((static_cast<uint8_t>(essent_select_word<uint32_t>(((static_cast<uint8_t>(_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$dcache$mshrs$mshrs_2$_T_259[L - 1].val) & 0x1u)) != 0, static_cast<uint32_t>((static_cast<uint8_t>((((static_cast<uint8_t>((~static_cast<uint8_t>(_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$dcache$mshrs$mshrs_2$refill_done[L - 1].val))) & 0x1u)) & (ldut.tile_prci_domain.tile_reset_domain.boom_tile.dcache.mshrs.mshrs_2.commit_line[L - 1].val))) & 0x1u)), static_cast<uint32_t>((static_cast<uint8_t>(essent_select_word<uint32_t>(((static_cast<uint8_t>(_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$dcache$mshrs$mshrs_2$_T_260[L - 1].val) & 0x1u)) != 0, static_cast<uint32_t>((static_cast<uint8_t>(((_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$dcache$mshrs$mshrs_2$_T_526[L - 1].val) | (ldut.tile_prci_domain.tile_reset_domain.boom_tile.dcache.mshrs.mshrs_2.commit_line[L - 1].val))) & 0x1u)), static_cast<uint32_t>(ldut.tile_prci_domain.tile_reset_domain.boom_tile.dcache.mshrs.mshrs_2.commit_line[L - 1].val))) & 0x1u)))) & 0x1u)))) & 0x1u)))) & 0x1u)) & 0x1u));
       }
     }
     // [vec boundary-next] 1 templates x 16 lanes
@@ -11561,7 +11552,7 @@ void TestHarness::eval_forward_p5(bool update_registers, bool verbose, bool done
         _v2_sa_anyw |= (uint64_t)(essent_to_u64(_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$dcache$mshrs$respq$io_enq_ready[G] & _s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$dcache$mshrs$resp_arb$io_out_valid[G]) != 0) & (uint64_t)(essent_to_u64(UInt<1>(0x1)) != 0);
       }
       if (_v2_sa_anyw == 0) {
-        for (int L = 0; L < 16; L++) { _s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$dcache$mshrs$respq$ram_is_hella$MPORT_1$rtl[L] = ldut.tile_prci_domain.tile_reset_domain.boom_tile.dcache.mshrs.respq.ram_is_hella[essent_to_u64(ldut.tile_prci_domain.tile_reset_domain.boom_tile.dcache.mshrs.respq.value_1[L])]; }
+        essent_table_read<16, 4, false>(&_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$dcache$mshrs$respq$ram_is_hella$MPORT_1$rtl[0], &ldut.tile_prci_domain.tile_reset_domain.boom_tile.dcache.mshrs.respq.ram_is_hella[0], &ldut.tile_prci_domain.tile_reset_domain.boom_tile.dcache.mshrs.respq.value_1[0]);
       } else {
       {
         // [state-read-dense] forwarding=branchless
@@ -11570,10 +11561,11 @@ void TestHarness::eval_forward_p5(bool update_registers, bool verbose, bool done
         for (int L = 0; L < 16; L++) {
           const uint64_t _v2_sa_addr = essent_to_u64(ldut.tile_prci_domain.tile_reset_domain.boom_tile.dcache.mshrs.respq.value_1[L]);
           UInt<1> _v2_sa_value = ldut.tile_prci_domain.tile_reset_domain.boom_tile.dcache.mshrs.respq.ram_is_hella[_v2_sa_addr];
+          // [branchless-forward] select a valid source before loading data
           const int _v2_sa_prev_code = _v2_sa_last[_v2_sa_addr];
-          const uint64_t _v2_sa_prev_valid = (uint64_t)(_v2_sa_prev_code >= 0);
+          const bool _v2_sa_prev_valid = _v2_sa_prev_code >= 0;
           [[maybe_unused]] const int _v2_sa_prev_lane = _v2_sa_prev_code & -static_cast<int>(_v2_sa_prev_valid);
-          _v2_sa_value = essent_mux(UInt<1>(_v2_sa_prev_valid), _s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$dcache$mshrs$resp_arb$io_out_bits_is_hella[_v2_sa_prev_lane], _v2_sa_value);
+          _v2_sa_value = *essent_select_ptr(_v2_sa_prev_valid, &(_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$dcache$mshrs$resp_arb$io_out_bits_is_hella[_v2_sa_prev_lane]), &_v2_sa_value);
           _s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$dcache$mshrs$respq$ram_is_hella$MPORT_1$rtl[L] = _v2_sa_value;
           const uint64_t _v2_sa_write_addr_0 = essent_to_u64(ldut.tile_prci_domain.tile_reset_domain.boom_tile.dcache.mshrs.respq.value[L]);
           const uint64_t _v2_sa_write_take_0 = (uint64_t)(essent_to_u64(_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$dcache$mshrs$respq$io_enq_ready[L] & _s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$dcache$mshrs$resp_arb$io_out_valid[L]) != 0) & (uint64_t)(essent_to_u64(UInt<1>(0x1)) != 0);
@@ -11630,7 +11622,7 @@ void TestHarness::eval_forward_p5(bool update_registers, bool verbose, bool done
         ESSENT_LANE_LOOP
         for (int L = 0; L < 16; L++) ldut.tile_prci_domain.tile_reset_domain.boom_tile.dcache.mshrs.mshrs_3.commit_line[L] = _gv;
       } else {
-        for (int L = 1; L < 16; L++) ldut.tile_prci_domain.tile_reset_domain.boom_tile.dcache.mshrs.mshrs_3.commit_line[L] = _s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$dcache$mshrs$mshrs_3$_T_229[L - 1] ? ldut.tile_prci_domain.tile_reset_domain.boom_tile.dcache.mshrs.mshrs_3.commit_line[L - 1] : (_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$dcache$mshrs$mshrs_3$_T_258[L - 1] ? ldut.tile_prci_domain.tile_reset_domain.boom_tile.dcache.mshrs.mshrs_3.commit_line[L - 1] : (_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$dcache$mshrs$mshrs_3$_T_259[L - 1] ? ((~_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$dcache$mshrs$mshrs_3$refill_done[L - 1]) & ldut.tile_prci_domain.tile_reset_domain.boom_tile.dcache.mshrs.mshrs_3.commit_line[L - 1]) : (_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$dcache$mshrs$mshrs_3$_T_260[L - 1] ? (_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$dcache$mshrs$mshrs_3$_T_526[L - 1] | ldut.tile_prci_domain.tile_reset_domain.boom_tile.dcache.mshrs.mshrs_3.commit_line[L - 1]) : ldut.tile_prci_domain.tile_reset_domain.boom_tile.dcache.mshrs.mshrs_3.commit_line[L - 1])));
+        for (int L = 1; L < 16; L++) ldut.tile_prci_domain.tile_reset_domain.boom_tile.dcache.mshrs.mshrs_3.commit_line[L].val = static_cast<typename UInt<1>::scalar_t>((static_cast<uint8_t>((static_cast<uint8_t>(essent_select_word<uint32_t>(((static_cast<uint8_t>(_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$dcache$mshrs$mshrs_3$_T_229[L - 1].val) & 0x1u)) != 0, static_cast<uint32_t>(ldut.tile_prci_domain.tile_reset_domain.boom_tile.dcache.mshrs.mshrs_3.commit_line[L - 1].val), static_cast<uint32_t>((static_cast<uint8_t>(essent_select_word<uint32_t>(((static_cast<uint8_t>(_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$dcache$mshrs$mshrs_3$_T_258[L - 1].val) & 0x1u)) != 0, static_cast<uint32_t>(ldut.tile_prci_domain.tile_reset_domain.boom_tile.dcache.mshrs.mshrs_3.commit_line[L - 1].val), static_cast<uint32_t>((static_cast<uint8_t>(essent_select_word<uint32_t>(((static_cast<uint8_t>(_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$dcache$mshrs$mshrs_3$_T_259[L - 1].val) & 0x1u)) != 0, static_cast<uint32_t>((static_cast<uint8_t>((((static_cast<uint8_t>((~static_cast<uint8_t>(_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$dcache$mshrs$mshrs_3$refill_done[L - 1].val))) & 0x1u)) & (ldut.tile_prci_domain.tile_reset_domain.boom_tile.dcache.mshrs.mshrs_3.commit_line[L - 1].val))) & 0x1u)), static_cast<uint32_t>((static_cast<uint8_t>(essent_select_word<uint32_t>(((static_cast<uint8_t>(_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$dcache$mshrs$mshrs_3$_T_260[L - 1].val) & 0x1u)) != 0, static_cast<uint32_t>((static_cast<uint8_t>(((_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$dcache$mshrs$mshrs_3$_T_526[L - 1].val) | (ldut.tile_prci_domain.tile_reset_domain.boom_tile.dcache.mshrs.mshrs_3.commit_line[L - 1].val))) & 0x1u)), static_cast<uint32_t>(ldut.tile_prci_domain.tile_reset_domain.boom_tile.dcache.mshrs.mshrs_3.commit_line[L - 1].val))) & 0x1u)))) & 0x1u)))) & 0x1u)))) & 0x1u)) & 0x1u));
       }
     }
     // [vec boundary-next] 1 templates x 16 lanes
@@ -11782,14 +11774,11 @@ void TestHarness::eval_forward_p5(bool update_registers, bool verbose, bool done
         for (int L = 0; L < 16; L++) {
           const uint64_t _v2_sa_addr = essent_to_u64(_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$dcache$mshrs$lb_read_arb$io_out_bits_id[L].cat(_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$dcache$mshrs$lb_read_arb$io_out_bits_offset[L]));
           UInt<128> _v2_sa_value = ldut.tile_prci_domain.tile_reset_domain.boom_tile.dcache.mshrs.lb[_v2_sa_addr];
+          // [branchless-forward] select a valid source before loading data
           const int _v2_sa_prev_code = _v2_sa_last[_v2_sa_addr];
-          if (_v2_sa_prev_code >= 0) {
-            [[maybe_unused]] const int _v2_sa_prev_lane = _v2_sa_prev_code / 1;
-            switch (_v2_sa_prev_code % 1) {
-              case 0: _v2_sa_value = _s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$dcache$mshrs$lb_write_arb$io_out_bits_data[_v2_sa_prev_lane]; break;
-              default: __builtin_unreachable();
-            }
-          }
+          const bool _v2_sa_prev_valid = _v2_sa_prev_code >= 0;
+          [[maybe_unused]] const int _v2_sa_prev_lane = _v2_sa_prev_code & -static_cast<int>(_v2_sa_prev_valid);
+          _v2_sa_value = *essent_select_ptr(_v2_sa_prev_valid, &(_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$dcache$mshrs$lb_write_arb$io_out_bits_data[_v2_sa_prev_lane]), &_v2_sa_value);
           _s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$dcache$mshrs$lb$MPORT_2[L] = _v2_sa_value;
           if (essent_to_u64(_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$dcache$mshrs$lb_write_arb$io_out_ready[L] & _s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$dcache$mshrs$lb_write_arb$io_out_valid[L]) && essent_to_u64(UInt<1>(0x1))) _v2_sa_last[essent_to_u64(_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$dcache$mshrs$lb_write_arb$io_out_bits_id[L].cat(_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$dcache$mshrs$lb_write_arb$io_out_bits_offset[L]))] = L * 1 + 0;
         }
@@ -11962,7 +11951,7 @@ void TestHarness::eval_forward_p5(bool update_registers, bool verbose, bool done
         _v2_sa_anyw |= (uint64_t)(essent_to_u64(_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$dcache$mshrs$respq$io_enq_ready[G] & _s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$dcache$mshrs$resp_arb$io_out_valid[G]) != 0) & (uint64_t)(essent_to_u64(UInt<1>(0x1)) != 0);
       }
       if (_v2_sa_anyw == 0) {
-        for (int L = 0; L < 16; L++) { _s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$dcache$mshrs$respq$ram_data$MPORT_1$rtl[L] = ldut.tile_prci_domain.tile_reset_domain.boom_tile.dcache.mshrs.respq.ram_data[essent_to_u64(ldut.tile_prci_domain.tile_reset_domain.boom_tile.dcache.mshrs.respq.value_1[L])]; }
+        essent_table_read<16, 4, false>(&_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$dcache$mshrs$respq$ram_data$MPORT_1$rtl[0], &ldut.tile_prci_domain.tile_reset_domain.boom_tile.dcache.mshrs.respq.ram_data[0], &ldut.tile_prci_domain.tile_reset_domain.boom_tile.dcache.mshrs.respq.value_1[0]);
       } else {
       {
         // [state-read-dense] forwarding=branchless
@@ -11971,10 +11960,11 @@ void TestHarness::eval_forward_p5(bool update_registers, bool verbose, bool done
         for (int L = 0; L < 16; L++) {
           const uint64_t _v2_sa_addr = essent_to_u64(ldut.tile_prci_domain.tile_reset_domain.boom_tile.dcache.mshrs.respq.value_1[L]);
           UInt<64> _v2_sa_value = ldut.tile_prci_domain.tile_reset_domain.boom_tile.dcache.mshrs.respq.ram_data[_v2_sa_addr];
+          // [branchless-forward] select a valid source before loading data
           const int _v2_sa_prev_code = _v2_sa_last[_v2_sa_addr];
-          const uint64_t _v2_sa_prev_valid = (uint64_t)(_v2_sa_prev_code >= 0);
+          const bool _v2_sa_prev_valid = _v2_sa_prev_code >= 0;
           [[maybe_unused]] const int _v2_sa_prev_lane = _v2_sa_prev_code & -static_cast<int>(_v2_sa_prev_valid);
-          _v2_sa_value = essent_mux(UInt<1>(_v2_sa_prev_valid), _s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$dcache$mshrs$resp_arb$io_out_bits_data[_v2_sa_prev_lane], _v2_sa_value);
+          _v2_sa_value = *essent_select_ptr(_v2_sa_prev_valid, &(_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$dcache$mshrs$resp_arb$io_out_bits_data[_v2_sa_prev_lane]), &_v2_sa_value);
           _s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$dcache$mshrs$respq$ram_data$MPORT_1$rtl[L] = _v2_sa_value;
           const uint64_t _v2_sa_write_addr_0 = essent_to_u64(ldut.tile_prci_domain.tile_reset_domain.boom_tile.dcache.mshrs.respq.value[L]);
           const uint64_t _v2_sa_write_take_0 = (uint64_t)(essent_to_u64(_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$dcache$mshrs$respq$io_enq_ready[L] & _s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$dcache$mshrs$resp_arb$io_out_valid[L]) != 0) & (uint64_t)(essent_to_u64(UInt<1>(0x1)) != 0);
@@ -12317,7 +12307,7 @@ void TestHarness::eval_forward_p5(bool update_registers, bool verbose, bool done
         ESSENT_LANE_LOOP
         for (int L = 0; L < 16; L++) ldut.tile_prci_domain.tile_reset_domain.boom_tile.lsu.dtlb.state_reg[L] = _gv;
       } else {
-        for (int L = 1; L < 16; L++) ldut.tile_prci_domain.tile_reset_domain.boom_tile.lsu.dtlb.state_reg[L] = _s_ldut$reset[L - 1] ? UInt<3>(0x0) : (_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$lsu$dtlb$_T_1316[L - 1] ? (_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$lsu$dtlb$_T_1319[L - 1] ? ((_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$lsu$dtlb$state_reg_hi_hi[L - 1].cat(_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$lsu$dtlb$state_reg_hi_hi[L - 1] ? (ldut.tile_prci_domain.tile_reset_domain.boom_tile.lsu.dtlb.state_reg[L - 1].bits<1,1>()) : _s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$lsu$dtlb$_state_reg_T_2[L - 1])).cat(_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$lsu$dtlb$state_reg_hi_hi[L - 1] ? _s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$lsu$dtlb$_state_reg_T_2[L - 1] : (ldut.tile_prci_domain.tile_reset_domain.boom_tile.lsu.dtlb.state_reg[L - 1].bits<0,0>()))) : ldut.tile_prci_domain.tile_reset_domain.boom_tile.lsu.dtlb.state_reg[L - 1]) : ldut.tile_prci_domain.tile_reset_domain.boom_tile.lsu.dtlb.state_reg[L - 1]);
+        for (int L = 1; L < 16; L++) ldut.tile_prci_domain.tile_reset_domain.boom_tile.lsu.dtlb.state_reg[L].val = static_cast<typename UInt<3>::scalar_t>((static_cast<uint8_t>((static_cast<uint8_t>(essent_select_word<uint32_t>(((static_cast<uint8_t>(_s_ldut$reset[L - 1].val) & 0x1u)) != 0, static_cast<uint32_t>((static_cast<uint8_t>(0x0u) & 0x7u)), static_cast<uint32_t>((static_cast<uint8_t>(essent_select_word<uint32_t>(((static_cast<uint8_t>(_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$lsu$dtlb$_T_1316[L - 1].val) & 0x1u)) != 0, static_cast<uint32_t>((static_cast<uint8_t>(essent_select_word<uint32_t>(((static_cast<uint8_t>(_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$lsu$dtlb$_T_1319[L - 1].val) & 0x1u)) != 0, static_cast<uint32_t>((static_cast<uint8_t>(((static_cast<uint8_t>((static_cast<uint8_t>(((static_cast<uint8_t>(_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$lsu$dtlb$state_reg_hi_hi[L - 1].val) << 1) | (static_cast<uint8_t>((static_cast<uint8_t>(essent_select_word<uint32_t>(((static_cast<uint8_t>(_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$lsu$dtlb$state_reg_hi_hi[L - 1].val) & 0x1u)) != 0, static_cast<uint32_t>((static_cast<uint8_t>(((static_cast<uint8_t>(ldut.tile_prci_domain.tile_reset_domain.boom_tile.lsu.dtlb.state_reg[L - 1].val) >> 1) & 0x1u)) & 0x1u)), static_cast<uint32_t>(_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$lsu$dtlb$_state_reg_T_2[L - 1].val))) & 0x1u)) & 0x1u))) & 0x3u)) << 1) | (static_cast<uint8_t>((static_cast<uint8_t>(essent_select_word<uint32_t>(((static_cast<uint8_t>(_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$lsu$dtlb$state_reg_hi_hi[L - 1].val) & 0x1u)) != 0, static_cast<uint32_t>(_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$lsu$dtlb$_state_reg_T_2[L - 1].val), static_cast<uint32_t>((static_cast<uint8_t>(((static_cast<uint8_t>(ldut.tile_prci_domain.tile_reset_domain.boom_tile.lsu.dtlb.state_reg[L - 1].val) >> 0) & 0x1u)) & 0x1u)))) & 0x1u)) & 0x1u))) & 0x7u)), static_cast<uint32_t>(ldut.tile_prci_domain.tile_reset_domain.boom_tile.lsu.dtlb.state_reg[L - 1].val))) & 0x7u)), static_cast<uint32_t>(ldut.tile_prci_domain.tile_reset_domain.boom_tile.lsu.dtlb.state_reg[L - 1].val))) & 0x7u)))) & 0x7u)) & 0x7u));
       }
     }
     // [vec comb] 4 templates x 16 lanes
@@ -12348,7 +12338,7 @@ void TestHarness::eval_forward_p5(bool update_registers, bool verbose, bool done
         ESSENT_LANE_LOOP
         for (int L = 0; L < 16; L++) ldut.tile_prci_domain.tile_reset_domain.boom_tile.lsu.dtlb.state_reg_1[L] = _gv;
       } else {
-        for (int L = 1; L < 16; L++) ldut.tile_prci_domain.tile_reset_domain.boom_tile.lsu.dtlb.state_reg_1[L] = _s_ldut$reset[L - 1] ? UInt<3>(0x0) : (_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$lsu$dtlb$_T_1316[L - 1] ? (_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$lsu$dtlb$_T_1325[L - 1] ? ((_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$lsu$dtlb$state_reg_hi_hi_1[L - 1].cat(_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$lsu$dtlb$state_reg_hi_hi_1[L - 1] ? (ldut.tile_prci_domain.tile_reset_domain.boom_tile.lsu.dtlb.state_reg_1[L - 1].bits<1,1>()) : _s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$lsu$dtlb$_state_reg_T_9[L - 1])).cat(_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$lsu$dtlb$state_reg_hi_hi_1[L - 1] ? _s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$lsu$dtlb$_state_reg_T_9[L - 1] : (ldut.tile_prci_domain.tile_reset_domain.boom_tile.lsu.dtlb.state_reg_1[L - 1].bits<0,0>()))) : ldut.tile_prci_domain.tile_reset_domain.boom_tile.lsu.dtlb.state_reg_1[L - 1]) : ldut.tile_prci_domain.tile_reset_domain.boom_tile.lsu.dtlb.state_reg_1[L - 1]);
+        for (int L = 1; L < 16; L++) ldut.tile_prci_domain.tile_reset_domain.boom_tile.lsu.dtlb.state_reg_1[L].val = static_cast<typename UInt<3>::scalar_t>((static_cast<uint8_t>((static_cast<uint8_t>(essent_select_word<uint32_t>(((static_cast<uint8_t>(_s_ldut$reset[L - 1].val) & 0x1u)) != 0, static_cast<uint32_t>((static_cast<uint8_t>(0x0u) & 0x7u)), static_cast<uint32_t>((static_cast<uint8_t>(essent_select_word<uint32_t>(((static_cast<uint8_t>(_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$lsu$dtlb$_T_1316[L - 1].val) & 0x1u)) != 0, static_cast<uint32_t>((static_cast<uint8_t>(essent_select_word<uint32_t>(((static_cast<uint8_t>(_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$lsu$dtlb$_T_1325[L - 1].val) & 0x1u)) != 0, static_cast<uint32_t>((static_cast<uint8_t>(((static_cast<uint8_t>((static_cast<uint8_t>(((static_cast<uint8_t>(_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$lsu$dtlb$state_reg_hi_hi_1[L - 1].val) << 1) | (static_cast<uint8_t>((static_cast<uint8_t>(essent_select_word<uint32_t>(((static_cast<uint8_t>(_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$lsu$dtlb$state_reg_hi_hi_1[L - 1].val) & 0x1u)) != 0, static_cast<uint32_t>((static_cast<uint8_t>(((static_cast<uint8_t>(ldut.tile_prci_domain.tile_reset_domain.boom_tile.lsu.dtlb.state_reg_1[L - 1].val) >> 1) & 0x1u)) & 0x1u)), static_cast<uint32_t>(_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$lsu$dtlb$_state_reg_T_9[L - 1].val))) & 0x1u)) & 0x1u))) & 0x3u)) << 1) | (static_cast<uint8_t>((static_cast<uint8_t>(essent_select_word<uint32_t>(((static_cast<uint8_t>(_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$lsu$dtlb$state_reg_hi_hi_1[L - 1].val) & 0x1u)) != 0, static_cast<uint32_t>(_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$lsu$dtlb$_state_reg_T_9[L - 1].val), static_cast<uint32_t>((static_cast<uint8_t>(((static_cast<uint8_t>(ldut.tile_prci_domain.tile_reset_domain.boom_tile.lsu.dtlb.state_reg_1[L - 1].val) >> 0) & 0x1u)) & 0x1u)))) & 0x1u)) & 0x1u))) & 0x7u)), static_cast<uint32_t>(ldut.tile_prci_domain.tile_reset_domain.boom_tile.lsu.dtlb.state_reg_1[L - 1].val))) & 0x7u)), static_cast<uint32_t>(ldut.tile_prci_domain.tile_reset_domain.boom_tile.lsu.dtlb.state_reg_1[L - 1].val))) & 0x7u)))) & 0x7u)) & 0x7u));
       }
     }
 

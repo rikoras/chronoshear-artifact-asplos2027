@@ -14,6 +14,7 @@
 #endif
 #include <memory>
 #include "sint_pod_v2.h"
+#include "branch_select.h"
 #include "oracle_data.h"
 #define UNLIKELY(condition) __builtin_expect(static_cast<bool>(condition), 0)
 #if defined(__clang__) || defined(__INTEL_LLVM_COMPILER)
@@ -211,22 +212,22 @@ template <int W, typename T>
 static ESSENT_NOINLINE void essent_condhold_apply_fwd(T* __restrict r, const int16_t* __restrict idx, const T* __restrict wdata) {
   const T seed = r[0];
   if (idx[W - 1] < 0) { for (int L = 1; L < W; ++L) r[L] = seed; return; }
-
+  if (essent_hold_permute<W>(r, idx, wdata, seed)) return;
   ESSENT_LANE_LOOP
   for (int L = 1; L < W; L++) {
     const int I = idx[L];
-    r[L] = I < 0 ? seed : wdata[I];
+    r[L] = essent_index_or_seed(I, wdata, seed);
   }
 }
 template <int W, typename T>
 static ESSENT_NOINLINE void essent_condhold_apply_rev(T* __restrict r, const int16_t* __restrict idx, const T* __restrict wdata) {
   const T seed = r[W - 1];
   if (idx[0] < 0) { for (int L = 0; L < W - 1; ++L) r[L] = seed; return; }
-
+  if (essent_hold_permute<W>(r, idx, wdata, seed)) return;
   ESSENT_LANE_LOOP
   for (int L = W - 2; L >= 0; L--) {
     const int I = idx[L];
-    r[L] = I < 0 ? seed : wdata[I];
+    r[L] = essent_index_or_seed(I, wdata, seed);
   }
 }
 template <int W, int BW>
@@ -831,6 +832,87 @@ static inline void essent_affine_scan_rev(UInt<BW>* __restrict r, const UInt<1>*
   }
 #endif
   for (int L = W - 2; L >= 0; L--) r[L].val = static_cast<S>((keep[L + 1].val ? static_cast<S>(r[L + 1].val + add[L + 1].val) : add[L + 1].val) & M);
+}
+
+// ---- any-guard state reads as one table lookup ----
+// out[L] = table[idx[L]] for every lane.  A table of at most 128 bytes sits
+// in one or two vector registers, so the whole lane loop becomes one permute
+// per 64 output bytes.  Guard: an index >= D reads zero, as stateReadExpr.
+// All index vectors are loaded before any result is stored, so an output
+// array that shares storage with the index array still reads every index.
+#if defined(__AVX512F__) && defined(__AVX512BW__) && defined(__AVX512VL__) && defined(__AVX512VBMI__)
+#define ESSENT_TABLE_READ_VECTOR 1
+template <int B>
+static inline __m512i essent_table_bytes(const void* p) {
+  if constexpr (B == 64) return _mm512_loadu_si512(p);
+  else return _mm512_maskz_loadu_epi8((__mmask64)((1ull << B) - 1ull), p);
+}
+// n one-byte indexes, widened to E bytes each.
+template <int n, int E>
+static inline __m512i essent_table_index(const uint8_t* p) {
+  if constexpr (E == 1) {
+    if constexpr (n == 64) return _mm512_loadu_si512(p);
+    else if constexpr (n == 32) return _mm512_zextsi256_si512(_mm256_loadu_si256(reinterpret_cast<const __m256i*>(p)));
+    else if constexpr (n == 16) return _mm512_zextsi128_si512(_mm_loadu_si128(reinterpret_cast<const __m128i*>(p)));
+    else return _mm512_zextsi128_si512(_mm_loadl_epi64(reinterpret_cast<const __m128i*>(p)));
+  } else if constexpr (E == 2) {
+    if constexpr (n == 32) return _mm512_cvtepu8_epi16(_mm256_loadu_si256(reinterpret_cast<const __m256i*>(p)));
+    else if constexpr (n == 16) return _mm512_cvtepu8_epi16(_mm256_zextsi128_si256(_mm_loadu_si128(reinterpret_cast<const __m128i*>(p))));
+    else return _mm512_cvtepu8_epi16(_mm256_zextsi128_si256(_mm_loadl_epi64(reinterpret_cast<const __m128i*>(p))));
+  } else if constexpr (E == 4) {
+    if constexpr (n == 16) return _mm512_cvtepu8_epi32(_mm_loadu_si128(reinterpret_cast<const __m128i*>(p)));
+    else return _mm512_cvtepu8_epi32(_mm_loadl_epi64(reinterpret_cast<const __m128i*>(p)));
+  } else {
+    return _mm512_cvtepu8_epi64(_mm_loadl_epi64(reinterpret_cast<const __m128i*>(p)));
+  }
+}
+template <int D, bool Guard, int E>
+static inline __m512i essent_table_lookup(__m512i i, __m512i t0, __m512i t1) {
+  constexpr bool two = D * E > 64;
+  if constexpr (E == 1) {
+    const __mmask64 k = Guard ? _mm512_cmplt_epu8_mask(i, _mm512_set1_epi8(static_cast<char>(D))) : ~0ull;
+    return two ? _mm512_maskz_permutex2var_epi8(k, t0, i, t1) : _mm512_maskz_permutexvar_epi8(k, i, t0);
+  } else if constexpr (E == 2) {
+    const __mmask32 k = Guard ? _mm512_cmplt_epu16_mask(i, _mm512_set1_epi16(D)) : ~0u;
+    return two ? _mm512_maskz_permutex2var_epi16(k, t0, i, t1) : _mm512_maskz_permutexvar_epi16(k, i, t0);
+  } else if constexpr (E == 4) {
+    const __mmask16 k = Guard ? _mm512_cmplt_epu32_mask(i, _mm512_set1_epi32(D)) : 0xffff;
+    return two ? _mm512_maskz_permutex2var_epi32(k, t0, i, t1) : _mm512_maskz_permutexvar_epi32(k, i, t0);
+  } else {
+    const __mmask8 k = Guard ? _mm512_cmplt_epu64_mask(i, _mm512_set1_epi64(D)) : 0xff;
+    return two ? _mm512_maskz_permutex2var_epi64(k, t0, i, t1) : _mm512_maskz_permutexvar_epi64(k, i, t0);
+  }
+}
+template <int B>
+static inline void essent_table_store(void* p, __m512i v) {
+  if constexpr (B == 64) _mm512_storeu_si512(p, v);
+  else if constexpr (B == 32) _mm256_storeu_si256(reinterpret_cast<__m256i*>(p), _mm512_castsi512_si256(v));
+  else if constexpr (B == 16) _mm_storeu_si128(reinterpret_cast<__m128i*>(p), _mm512_castsi512_si128(v));
+  else _mm_storel_epi64(reinterpret_cast<__m128i*>(p), _mm512_castsi512_si128(v));
+}
+#endif
+template <int W, int D, bool Guard, typename T, typename I>
+static inline void essent_table_read(T* out, const T* table, const I* idx) {
+  static_assert(sizeof(I) == 1, "table-read indexes are one-byte lanes");
+#if defined(ESSENT_TABLE_READ_VECTOR)
+  constexpr int E = static_cast<int>(sizeof(T));
+  if constexpr ((E == 1 || E == 2 || E == 4 || E == 8) && D * E <= 128 && W >= 8 && W <= 64 && (W & (W - 1)) == 0) {
+    constexpr int N = 64 / E, n = W < N ? W : N, C = W / n;
+    const uint8_t* ip = reinterpret_cast<const uint8_t*>(idx);
+    const __m512i t0 = essent_table_bytes<(D * E < 64 ? D * E : 64)>(table);
+    __m512i t1 = _mm512_setzero_si512();
+    if constexpr (D * E > 64) t1 = essent_table_bytes<D * E - 64>(reinterpret_cast<const char*>(table) + 64);
+    __m512i r[C];
+    for (int c = 0; c < C; c++) r[c] = essent_table_index<n, E>(ip + c * n);
+    for (int c = 0; c < C; c++) r[c] = essent_table_lookup<D, Guard, E>(r[c], t0, t1);
+    for (int c = 0; c < C; c++) essent_table_store<n * E>(reinterpret_cast<char*>(out) + c * n * E, r[c]);
+    return;
+  }
+#endif
+  for (int L = 0; L < W; L++) {
+    const uint64_t a = static_cast<uint64_t>(idx[L].val);
+    out[L] = (!Guard || a < static_cast<uint64_t>(D)) ? table[a] : T();
+  }
 }
 
 // v2 lookup tables (32), file-scope constants shared by every lane and direction.
@@ -92382,7 +92464,8 @@ typedef struct TestHarness {
 
   #if ESSENT_ORACLE_VERIFY
 
-  ESSENT_COLD_NOINLINE void _v2_verify_boundary_rescan(int _v2_group, bool _forward);
+  ESSENT_NOINLINE void _v2_verify_boundary_rescan(int _v2_group, bool _forward);
+  ESSENT_COLD_NOINLINE void _v2_verify_boundary_report(int _v2_group, bool _forward);
   #endif
 
   // [v2 shared-comb] 1000 groups called from both directions

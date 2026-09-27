@@ -3267,7 +3267,7 @@ void TestHarness::eval_forward_p1(bool update_registers, bool verbose, bool done
         _v2_sa_anyw |= (uint64_t)(essent_to_u64(_s_ldut$subsystem_fbus$buffer$bundleOut_0_a_q$io_enq_ready[G] & _s_ldut$subsystem_fbus$coupler_from_port_named_slave_port_axi4$buffer$bundleOut_0_a_q$io_deq_valid[G]) != 0) & (uint64_t)(essent_to_u64(UInt<1>(0x1)) != 0);
       }
       if (_v2_sa_anyw == 0) {
-        for (int L = 0; L < 16; L++) { _s_ldut$subsystem_fbus$buffer$bundleOut_0_a_q$ram_opcode$io_deq_bits_MPORT[L] = ldut.subsystem_fbus.buffer.bundleOut_0_a_q.ram_opcode[essent_to_u64(ldut.subsystem_fbus.buffer.bundleOut_0_a_q.value_1[L])]; }
+        essent_table_read<16, 2, false>(&_s_ldut$subsystem_fbus$buffer$bundleOut_0_a_q$ram_opcode$io_deq_bits_MPORT[0], &ldut.subsystem_fbus.buffer.bundleOut_0_a_q.ram_opcode[0], &ldut.subsystem_fbus.buffer.bundleOut_0_a_q.value_1[0]);
       } else {
       {
         // [state-read-dense] forwarding=branchless
@@ -3276,10 +3276,11 @@ void TestHarness::eval_forward_p1(bool update_registers, bool verbose, bool done
         for (int L = 0; L < 16; L++) {
           const uint64_t _v2_sa_addr = essent_to_u64(ldut.subsystem_fbus.buffer.bundleOut_0_a_q.value_1[L]);
           UInt<3> _v2_sa_value = ldut.subsystem_fbus.buffer.bundleOut_0_a_q.ram_opcode[_v2_sa_addr];
+          // [branchless-forward] select a valid source before loading data
           const int _v2_sa_prev_code = _v2_sa_last[_v2_sa_addr];
-          const uint64_t _v2_sa_prev_valid = (uint64_t)(_v2_sa_prev_code >= 0);
+          const bool _v2_sa_prev_valid = _v2_sa_prev_code >= 0;
           [[maybe_unused]] const int _v2_sa_prev_lane = _v2_sa_prev_code & -static_cast<int>(_v2_sa_prev_valid);
-          _v2_sa_value = essent_mux(UInt<1>(_v2_sa_prev_valid), _s_ldut$subsystem_fbus$coupler_from_port_named_slave_port_axi4$buffer$bundleOut_0_a_q$ram_opcode$io_deq_bits_MPORT[_v2_sa_prev_lane], _v2_sa_value);
+          _v2_sa_value = *essent_select_ptr(_v2_sa_prev_valid, &(_s_ldut$subsystem_fbus$coupler_from_port_named_slave_port_axi4$buffer$bundleOut_0_a_q$ram_opcode$io_deq_bits_MPORT[_v2_sa_prev_lane]), &_v2_sa_value);
           _s_ldut$subsystem_fbus$buffer$bundleOut_0_a_q$ram_opcode$io_deq_bits_MPORT[L] = _v2_sa_value;
           const uint64_t _v2_sa_write_addr_0 = essent_to_u64(ldut.subsystem_fbus.buffer.bundleOut_0_a_q.value[L]);
           const uint64_t _v2_sa_write_take_0 = (uint64_t)(essent_to_u64(_s_ldut$subsystem_fbus$buffer$bundleOut_0_a_q$io_enq_ready[L] & _s_ldut$subsystem_fbus$coupler_from_port_named_slave_port_axi4$buffer$bundleOut_0_a_q$io_deq_valid[L]) != 0) & (uint64_t)(essent_to_u64(UInt<1>(0x1)) != 0);
@@ -3306,7 +3307,7 @@ void TestHarness::eval_forward_p1(bool update_registers, bool verbose, bool done
         _v2_sa_anyw |= (uint64_t)(essent_to_u64(_s_ldut$subsystem_fbus$buffer$bundleOut_0_a_q$io_enq_ready[G] & _s_ldut$subsystem_fbus$coupler_from_port_named_slave_port_axi4$buffer$bundleOut_0_a_q$io_deq_valid[G]) != 0) & (uint64_t)(essent_to_u64(UInt<1>(0x1)) != 0);
       }
       if (_v2_sa_anyw == 0) {
-        for (int L = 0; L < 16; L++) { _s_ldut$subsystem_fbus$buffer$bundleOut_0_a_q$ram_size$io_deq_bits_MPORT[L] = ldut.subsystem_fbus.buffer.bundleOut_0_a_q.ram_size[essent_to_u64(ldut.subsystem_fbus.buffer.bundleOut_0_a_q.value_1[L])]; }
+        essent_table_read<16, 2, false>(&_s_ldut$subsystem_fbus$buffer$bundleOut_0_a_q$ram_size$io_deq_bits_MPORT[0], &ldut.subsystem_fbus.buffer.bundleOut_0_a_q.ram_size[0], &ldut.subsystem_fbus.buffer.bundleOut_0_a_q.value_1[0]);
       } else {
       {
         // [state-read-dense] forwarding=branchless
@@ -3315,10 +3316,11 @@ void TestHarness::eval_forward_p1(bool update_registers, bool verbose, bool done
         for (int L = 0; L < 16; L++) {
           const uint64_t _v2_sa_addr = essent_to_u64(ldut.subsystem_fbus.buffer.bundleOut_0_a_q.value_1[L]);
           UInt<4> _v2_sa_value = ldut.subsystem_fbus.buffer.bundleOut_0_a_q.ram_size[_v2_sa_addr];
+          // [branchless-forward] select a valid source before loading data
           const int _v2_sa_prev_code = _v2_sa_last[_v2_sa_addr];
-          const uint64_t _v2_sa_prev_valid = (uint64_t)(_v2_sa_prev_code >= 0);
+          const bool _v2_sa_prev_valid = _v2_sa_prev_code >= 0;
           [[maybe_unused]] const int _v2_sa_prev_lane = _v2_sa_prev_code & -static_cast<int>(_v2_sa_prev_valid);
-          _v2_sa_value = essent_mux(UInt<1>(_v2_sa_prev_valid), _s_ldut$subsystem_fbus$coupler_from_port_named_slave_port_axi4$buffer$bundleOut_0_a_q$ram_size$io_deq_bits_MPORT[_v2_sa_prev_lane], _v2_sa_value);
+          _v2_sa_value = *essent_select_ptr(_v2_sa_prev_valid, &(_s_ldut$subsystem_fbus$coupler_from_port_named_slave_port_axi4$buffer$bundleOut_0_a_q$ram_size$io_deq_bits_MPORT[_v2_sa_prev_lane]), &_v2_sa_value);
           _s_ldut$subsystem_fbus$buffer$bundleOut_0_a_q$ram_size$io_deq_bits_MPORT[L] = _v2_sa_value;
           const uint64_t _v2_sa_write_addr_0 = essent_to_u64(ldut.subsystem_fbus.buffer.bundleOut_0_a_q.value[L]);
           const uint64_t _v2_sa_write_take_0 = (uint64_t)(essent_to_u64(_s_ldut$subsystem_fbus$buffer$bundleOut_0_a_q$io_enq_ready[L] & _s_ldut$subsystem_fbus$coupler_from_port_named_slave_port_axi4$buffer$bundleOut_0_a_q$io_deq_valid[L]) != 0) & (uint64_t)(essent_to_u64(UInt<1>(0x1)) != 0);
@@ -3344,7 +3346,7 @@ void TestHarness::eval_forward_p1(bool update_registers, bool verbose, bool done
         _v2_sa_anyw |= (uint64_t)(essent_to_u64(_s_ldut$subsystem_fbus$buffer$bundleOut_0_a_q$io_enq_ready[G] & _s_ldut$subsystem_fbus$coupler_from_port_named_slave_port_axi4$buffer$bundleOut_0_a_q$io_deq_valid[G]) != 0) & (uint64_t)(essent_to_u64(UInt<1>(0x1)) != 0);
       }
       if (_v2_sa_anyw == 0) {
-        for (int L = 0; L < 16; L++) { _s_ldut$subsystem_fbus$buffer$bundleOut_0_a_q$ram_source$io_deq_bits_MPORT[L] = ldut.subsystem_fbus.buffer.bundleOut_0_a_q.ram_source[essent_to_u64(ldut.subsystem_fbus.buffer.bundleOut_0_a_q.value_1[L])]; }
+        essent_table_read<16, 2, false>(&_s_ldut$subsystem_fbus$buffer$bundleOut_0_a_q$ram_source$io_deq_bits_MPORT[0], &ldut.subsystem_fbus.buffer.bundleOut_0_a_q.ram_source[0], &ldut.subsystem_fbus.buffer.bundleOut_0_a_q.value_1[0]);
       } else {
       {
         // [state-read-dense] forwarding=branchless
@@ -3353,10 +3355,11 @@ void TestHarness::eval_forward_p1(bool update_registers, bool verbose, bool done
         for (int L = 0; L < 16; L++) {
           const uint64_t _v2_sa_addr = essent_to_u64(ldut.subsystem_fbus.buffer.bundleOut_0_a_q.value_1[L]);
           UInt<4> _v2_sa_value = ldut.subsystem_fbus.buffer.bundleOut_0_a_q.ram_source[_v2_sa_addr];
+          // [branchless-forward] select a valid source before loading data
           const int _v2_sa_prev_code = _v2_sa_last[_v2_sa_addr];
-          const uint64_t _v2_sa_prev_valid = (uint64_t)(_v2_sa_prev_code >= 0);
+          const bool _v2_sa_prev_valid = _v2_sa_prev_code >= 0;
           [[maybe_unused]] const int _v2_sa_prev_lane = _v2_sa_prev_code & -static_cast<int>(_v2_sa_prev_valid);
-          _v2_sa_value = essent_mux(UInt<1>(_v2_sa_prev_valid), _s_ldut$subsystem_fbus$coupler_from_port_named_slave_port_axi4$buffer$bundleOut_0_a_q$ram_source$io_deq_bits_MPORT[_v2_sa_prev_lane], _v2_sa_value);
+          _v2_sa_value = *essent_select_ptr(_v2_sa_prev_valid, &(_s_ldut$subsystem_fbus$coupler_from_port_named_slave_port_axi4$buffer$bundleOut_0_a_q$ram_source$io_deq_bits_MPORT[_v2_sa_prev_lane]), &_v2_sa_value);
           _s_ldut$subsystem_fbus$buffer$bundleOut_0_a_q$ram_source$io_deq_bits_MPORT[L] = _v2_sa_value;
           const uint64_t _v2_sa_write_addr_0 = essent_to_u64(ldut.subsystem_fbus.buffer.bundleOut_0_a_q.value[L]);
           const uint64_t _v2_sa_write_take_0 = (uint64_t)(essent_to_u64(_s_ldut$subsystem_fbus$buffer$bundleOut_0_a_q$io_enq_ready[L] & _s_ldut$subsystem_fbus$coupler_from_port_named_slave_port_axi4$buffer$bundleOut_0_a_q$io_deq_valid[L]) != 0) & (uint64_t)(essent_to_u64(UInt<1>(0x1)) != 0);
@@ -3382,7 +3385,7 @@ void TestHarness::eval_forward_p1(bool update_registers, bool verbose, bool done
         _v2_sa_anyw |= (uint64_t)(essent_to_u64(_s_ldut$subsystem_fbus$buffer$bundleOut_0_a_q$io_enq_ready[G] & _s_ldut$subsystem_fbus$coupler_from_port_named_slave_port_axi4$buffer$bundleOut_0_a_q$io_deq_valid[G]) != 0) & (uint64_t)(essent_to_u64(UInt<1>(0x1)) != 0);
       }
       if (_v2_sa_anyw == 0) {
-        for (int L = 0; L < 16; L++) { _s_ldut$subsystem_fbus$buffer$bundleOut_0_a_q$ram_address$io_deq_bits_MPORT[L] = ldut.subsystem_fbus.buffer.bundleOut_0_a_q.ram_address[essent_to_u64(ldut.subsystem_fbus.buffer.bundleOut_0_a_q.value_1[L])]; }
+        essent_table_read<16, 2, false>(&_s_ldut$subsystem_fbus$buffer$bundleOut_0_a_q$ram_address$io_deq_bits_MPORT[0], &ldut.subsystem_fbus.buffer.bundleOut_0_a_q.ram_address[0], &ldut.subsystem_fbus.buffer.bundleOut_0_a_q.value_1[0]);
       } else {
       {
         // [state-read-dense] forwarding=branchless
@@ -3391,10 +3394,11 @@ void TestHarness::eval_forward_p1(bool update_registers, bool verbose, bool done
         for (int L = 0; L < 16; L++) {
           const uint64_t _v2_sa_addr = essent_to_u64(ldut.subsystem_fbus.buffer.bundleOut_0_a_q.value_1[L]);
           UInt<32> _v2_sa_value = ldut.subsystem_fbus.buffer.bundleOut_0_a_q.ram_address[_v2_sa_addr];
+          // [branchless-forward] select a valid source before loading data
           const int _v2_sa_prev_code = _v2_sa_last[_v2_sa_addr];
-          const uint64_t _v2_sa_prev_valid = (uint64_t)(_v2_sa_prev_code >= 0);
+          const bool _v2_sa_prev_valid = _v2_sa_prev_code >= 0;
           [[maybe_unused]] const int _v2_sa_prev_lane = _v2_sa_prev_code & -static_cast<int>(_v2_sa_prev_valid);
-          _v2_sa_value = essent_mux(UInt<1>(_v2_sa_prev_valid), _s_ldut$subsystem_fbus$coupler_from_port_named_slave_port_axi4$buffer$bundleOut_0_a_q$ram_address$io_deq_bits_MPORT[_v2_sa_prev_lane], _v2_sa_value);
+          _v2_sa_value = *essent_select_ptr(_v2_sa_prev_valid, &(_s_ldut$subsystem_fbus$coupler_from_port_named_slave_port_axi4$buffer$bundleOut_0_a_q$ram_address$io_deq_bits_MPORT[_v2_sa_prev_lane]), &_v2_sa_value);
           _s_ldut$subsystem_fbus$buffer$bundleOut_0_a_q$ram_address$io_deq_bits_MPORT[L] = _v2_sa_value;
           const uint64_t _v2_sa_write_addr_0 = essent_to_u64(ldut.subsystem_fbus.buffer.bundleOut_0_a_q.value[L]);
           const uint64_t _v2_sa_write_take_0 = (uint64_t)(essent_to_u64(_s_ldut$subsystem_fbus$buffer$bundleOut_0_a_q$io_enq_ready[L] & _s_ldut$subsystem_fbus$coupler_from_port_named_slave_port_axi4$buffer$bundleOut_0_a_q$io_deq_valid[L]) != 0) & (uint64_t)(essent_to_u64(UInt<1>(0x1)) != 0);
@@ -12860,12 +12864,9 @@ void TestHarness::eval_forward_p1(bool update_registers, bool verbose, bool done
         _v2_sa_anyw |= (uint64_t)(essent_to_u64(_s_ldut$tile_prci_domain$buffer_1$bundleOut_0_a_q$io_enq_ready[G] & _s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$tlMasterXbar$auto_out_a_valid[G]) != 0) & (uint64_t)(essent_to_u64(UInt<1>(0x1)) != 0);
       }
       if (_v2_sa_anyw == 0) {
-        for (int L = 0; L < 16; L++) {
-          const uint64_t _v2_sa_field_addr = essent_to_u64(ldut.tile_prci_domain.buffer_1.bundleOut_0_a_q.value_1[L]);
-          _s_ldut$tile_prci_domain$buffer_1$bundleOut_0_a_q$ram_opcode$io_deq_bits_MPORT[L] = ldut.tile_prci_domain.buffer_1.bundleOut_0_a_q.ram_opcode[_v2_sa_field_addr];
-          _s_ldut$tile_prci_domain$buffer_1$bundleOut_0_a_q$ram_size$io_deq_bits_MPORT[L] = ldut.tile_prci_domain.buffer_1.bundleOut_0_a_q.ram_size[_v2_sa_field_addr];
-          _s_ldut$tile_prci_domain$buffer_1$bundleOut_0_a_q$ram_source$io_deq_bits_MPORT[L] = ldut.tile_prci_domain.buffer_1.bundleOut_0_a_q.ram_source[_v2_sa_field_addr];
-        }
+        essent_table_read<16, 2, false>(&_s_ldut$tile_prci_domain$buffer_1$bundleOut_0_a_q$ram_opcode$io_deq_bits_MPORT[0], &ldut.tile_prci_domain.buffer_1.bundleOut_0_a_q.ram_opcode[0], &ldut.tile_prci_domain.buffer_1.bundleOut_0_a_q.value_1[0]);
+        essent_table_read<16, 2, false>(&_s_ldut$tile_prci_domain$buffer_1$bundleOut_0_a_q$ram_size$io_deq_bits_MPORT[0], &ldut.tile_prci_domain.buffer_1.bundleOut_0_a_q.ram_size[0], &ldut.tile_prci_domain.buffer_1.bundleOut_0_a_q.value_1[0]);
+        essent_table_read<16, 2, false>(&_s_ldut$tile_prci_domain$buffer_1$bundleOut_0_a_q$ram_source$io_deq_bits_MPORT[0], &ldut.tile_prci_domain.buffer_1.bundleOut_0_a_q.ram_source[0], &ldut.tile_prci_domain.buffer_1.bundleOut_0_a_q.value_1[0]);
       } else {
       {
         // [state-field-read-fused] 3 arrays share one access scan, mode=dense-branchless
@@ -12909,7 +12910,7 @@ void TestHarness::eval_forward_p1(bool update_registers, bool verbose, bool done
         _v2_sa_anyw |= (uint64_t)(essent_to_u64(_s_ldut$tile_prci_domain$buffer_1$bundleOut_0_a_q$io_enq_ready[G] & _s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$tlMasterXbar$auto_out_a_valid[G]) != 0) & (uint64_t)(essent_to_u64(UInt<1>(0x1)) != 0);
       }
       if (_v2_sa_anyw == 0) {
-        for (int L = 0; L < 16; L++) { _s_ldut$tile_prci_domain$buffer_1$bundleOut_0_a_q$ram_address$io_deq_bits_MPORT[L] = ldut.tile_prci_domain.buffer_1.bundleOut_0_a_q.ram_address[essent_to_u64(ldut.tile_prci_domain.buffer_1.bundleOut_0_a_q.value_1[L])]; }
+        essent_table_read<16, 2, false>(&_s_ldut$tile_prci_domain$buffer_1$bundleOut_0_a_q$ram_address$io_deq_bits_MPORT[0], &ldut.tile_prci_domain.buffer_1.bundleOut_0_a_q.ram_address[0], &ldut.tile_prci_domain.buffer_1.bundleOut_0_a_q.value_1[0]);
       } else {
       {
         // [state-read-dense] forwarding=branchless
@@ -12918,10 +12919,11 @@ void TestHarness::eval_forward_p1(bool update_registers, bool verbose, bool done
         for (int L = 0; L < 16; L++) {
           const uint64_t _v2_sa_addr = essent_to_u64(ldut.tile_prci_domain.buffer_1.bundleOut_0_a_q.value_1[L]);
           UInt<32> _v2_sa_value = ldut.tile_prci_domain.buffer_1.bundleOut_0_a_q.ram_address[_v2_sa_addr];
+          // [branchless-forward] select a valid source before loading data
           const int _v2_sa_prev_code = _v2_sa_last[_v2_sa_addr];
-          const uint64_t _v2_sa_prev_valid = (uint64_t)(_v2_sa_prev_code >= 0);
+          const bool _v2_sa_prev_valid = _v2_sa_prev_code >= 0;
           [[maybe_unused]] const int _v2_sa_prev_lane = _v2_sa_prev_code & -static_cast<int>(_v2_sa_prev_valid);
-          _v2_sa_value = essent_mux(UInt<1>(_v2_sa_prev_valid), _s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$tlMasterXbar$auto_out_a_bits_address[_v2_sa_prev_lane], _v2_sa_value);
+          _v2_sa_value = *essent_select_ptr(_v2_sa_prev_valid, &(_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$tlMasterXbar$auto_out_a_bits_address[_v2_sa_prev_lane]), &_v2_sa_value);
           _s_ldut$tile_prci_domain$buffer_1$bundleOut_0_a_q$ram_address$io_deq_bits_MPORT[L] = _v2_sa_value;
           const uint64_t _v2_sa_write_addr_0 = essent_to_u64(ldut.tile_prci_domain.buffer_1.bundleOut_0_a_q.value[L]);
           const uint64_t _v2_sa_write_take_0 = (uint64_t)(essent_to_u64(_s_ldut$tile_prci_domain$buffer_1$bundleOut_0_a_q$io_enq_ready[L] & _s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$tlMasterXbar$auto_out_a_valid[L]) != 0) & (uint64_t)(essent_to_u64(UInt<1>(0x1)) != 0);
@@ -12958,7 +12960,7 @@ void TestHarness::eval_forward_p1(bool update_registers, bool verbose, bool done
         _v2_sa_anyw |= (uint64_t)(essent_to_u64(_s_ldut$tile_prci_domain$buffer_1$bundleOut_0_c_q$io_enq_ready[G] & _s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$dcache$auto_out_c_valid[G]) != 0) & (uint64_t)(essent_to_u64(UInt<1>(0x1)) != 0);
       }
       if (_v2_sa_anyw == 0) {
-        for (int L = 0; L < 16; L++) { _s_ldut$tile_prci_domain$buffer_1$bundleOut_0_c_q$ram_opcode$io_deq_bits_MPORT[L] = ldut.tile_prci_domain.buffer_1.bundleOut_0_c_q.ram_opcode[essent_to_u64(ldut.tile_prci_domain.buffer_1.bundleOut_0_c_q.value_1[L])]; }
+        essent_table_read<16, 2, false>(&_s_ldut$tile_prci_domain$buffer_1$bundleOut_0_c_q$ram_opcode$io_deq_bits_MPORT[0], &ldut.tile_prci_domain.buffer_1.bundleOut_0_c_q.ram_opcode[0], &ldut.tile_prci_domain.buffer_1.bundleOut_0_c_q.value_1[0]);
       } else {
       {
         // [state-read-dense] forwarding=branchless
@@ -12967,10 +12969,11 @@ void TestHarness::eval_forward_p1(bool update_registers, bool verbose, bool done
         for (int L = 0; L < 16; L++) {
           const uint64_t _v2_sa_addr = essent_to_u64(ldut.tile_prci_domain.buffer_1.bundleOut_0_c_q.value_1[L]);
           UInt<3> _v2_sa_value = ldut.tile_prci_domain.buffer_1.bundleOut_0_c_q.ram_opcode[_v2_sa_addr];
+          // [branchless-forward] select a valid source before loading data
           const int _v2_sa_prev_code = _v2_sa_last[_v2_sa_addr];
-          const uint64_t _v2_sa_prev_valid = (uint64_t)(_v2_sa_prev_code >= 0);
+          const bool _v2_sa_prev_valid = _v2_sa_prev_code >= 0;
           [[maybe_unused]] const int _v2_sa_prev_lane = _v2_sa_prev_code & -static_cast<int>(_v2_sa_prev_valid);
-          _v2_sa_value = essent_mux(UInt<1>(_v2_sa_prev_valid), _s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$dcache$auto_out_c_bits_opcode[_v2_sa_prev_lane], _v2_sa_value);
+          _v2_sa_value = *essent_select_ptr(_v2_sa_prev_valid, &(_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$dcache$auto_out_c_bits_opcode[_v2_sa_prev_lane]), &_v2_sa_value);
           _s_ldut$tile_prci_domain$buffer_1$bundleOut_0_c_q$ram_opcode$io_deq_bits_MPORT[L] = _v2_sa_value;
           const uint64_t _v2_sa_write_addr_0 = essent_to_u64(ldut.tile_prci_domain.buffer_1.bundleOut_0_c_q.value[L]);
           const uint64_t _v2_sa_write_take_0 = (uint64_t)(essent_to_u64(_s_ldut$tile_prci_domain$buffer_1$bundleOut_0_c_q$io_enq_ready[L] & _s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$dcache$auto_out_c_valid[L]) != 0) & (uint64_t)(essent_to_u64(UInt<1>(0x1)) != 0);
@@ -12996,7 +12999,7 @@ void TestHarness::eval_forward_p1(bool update_registers, bool verbose, bool done
         _v2_sa_anyw |= (uint64_t)(essent_to_u64(_s_ldut$tile_prci_domain$buffer_1$bundleOut_0_c_q$io_enq_ready[G] & _s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$dcache$auto_out_c_valid[G]) != 0) & (uint64_t)(essent_to_u64(UInt<1>(0x1)) != 0);
       }
       if (_v2_sa_anyw == 0) {
-        for (int L = 0; L < 16; L++) { _s_ldut$tile_prci_domain$buffer_1$bundleOut_0_c_q$ram_size$io_deq_bits_MPORT[L] = ldut.tile_prci_domain.buffer_1.bundleOut_0_c_q.ram_size[essent_to_u64(ldut.tile_prci_domain.buffer_1.bundleOut_0_c_q.value_1[L])]; }
+        essent_table_read<16, 2, false>(&_s_ldut$tile_prci_domain$buffer_1$bundleOut_0_c_q$ram_size$io_deq_bits_MPORT[0], &ldut.tile_prci_domain.buffer_1.bundleOut_0_c_q.ram_size[0], &ldut.tile_prci_domain.buffer_1.bundleOut_0_c_q.value_1[0]);
       } else {
       {
         // [state-read-dense] forwarding=branchless
@@ -13005,10 +13008,11 @@ void TestHarness::eval_forward_p1(bool update_registers, bool verbose, bool done
         for (int L = 0; L < 16; L++) {
           const uint64_t _v2_sa_addr = essent_to_u64(ldut.tile_prci_domain.buffer_1.bundleOut_0_c_q.value_1[L]);
           UInt<4> _v2_sa_value = ldut.tile_prci_domain.buffer_1.bundleOut_0_c_q.ram_size[_v2_sa_addr];
+          // [branchless-forward] select a valid source before loading data
           const int _v2_sa_prev_code = _v2_sa_last[_v2_sa_addr];
-          const uint64_t _v2_sa_prev_valid = (uint64_t)(_v2_sa_prev_code >= 0);
+          const bool _v2_sa_prev_valid = _v2_sa_prev_code >= 0;
           [[maybe_unused]] const int _v2_sa_prev_lane = _v2_sa_prev_code & -static_cast<int>(_v2_sa_prev_valid);
-          _v2_sa_value = essent_mux(UInt<1>(_v2_sa_prev_valid), _s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$dcache$auto_out_c_bits_size[_v2_sa_prev_lane], _v2_sa_value);
+          _v2_sa_value = *essent_select_ptr(_v2_sa_prev_valid, &(_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$dcache$auto_out_c_bits_size[_v2_sa_prev_lane]), &_v2_sa_value);
           _s_ldut$tile_prci_domain$buffer_1$bundleOut_0_c_q$ram_size$io_deq_bits_MPORT[L] = _v2_sa_value;
           const uint64_t _v2_sa_write_addr_0 = essent_to_u64(ldut.tile_prci_domain.buffer_1.bundleOut_0_c_q.value[L]);
           const uint64_t _v2_sa_write_take_0 = (uint64_t)(essent_to_u64(_s_ldut$tile_prci_domain$buffer_1$bundleOut_0_c_q$io_enq_ready[L] & _s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$dcache$auto_out_c_valid[L]) != 0) & (uint64_t)(essent_to_u64(UInt<1>(0x1)) != 0);
@@ -13033,7 +13037,7 @@ void TestHarness::eval_forward_p1(bool update_registers, bool verbose, bool done
         _v2_sa_anyw |= (uint64_t)(essent_to_u64(_s_ldut$tile_prci_domain$buffer_1$bundleOut_0_c_q$io_enq_ready[G] & _s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$dcache$auto_out_c_valid[G]) != 0) & (uint64_t)(essent_to_u64(UInt<1>(0x1)) != 0);
       }
       if (_v2_sa_anyw == 0) {
-        for (int L = 0; L < 16; L++) { _s_ldut$tile_prci_domain$buffer_1$bundleOut_0_c_q$ram_source$io_deq_bits_MPORT[L] = ldut.tile_prci_domain.buffer_1.bundleOut_0_c_q.ram_source[essent_to_u64(ldut.tile_prci_domain.buffer_1.bundleOut_0_c_q.value_1[L])]; }
+        essent_table_read<16, 2, false>(&_s_ldut$tile_prci_domain$buffer_1$bundleOut_0_c_q$ram_source$io_deq_bits_MPORT[0], &ldut.tile_prci_domain.buffer_1.bundleOut_0_c_q.ram_source[0], &ldut.tile_prci_domain.buffer_1.bundleOut_0_c_q.value_1[0]);
       } else {
       {
         // [state-read-dense] forwarding=branchless
@@ -13042,10 +13046,11 @@ void TestHarness::eval_forward_p1(bool update_registers, bool verbose, bool done
         for (int L = 0; L < 16; L++) {
           const uint64_t _v2_sa_addr = essent_to_u64(ldut.tile_prci_domain.buffer_1.bundleOut_0_c_q.value_1[L]);
           UInt<4> _v2_sa_value = ldut.tile_prci_domain.buffer_1.bundleOut_0_c_q.ram_source[_v2_sa_addr];
+          // [branchless-forward] select a valid source before loading data
           const int _v2_sa_prev_code = _v2_sa_last[_v2_sa_addr];
-          const uint64_t _v2_sa_prev_valid = (uint64_t)(_v2_sa_prev_code >= 0);
+          const bool _v2_sa_prev_valid = _v2_sa_prev_code >= 0;
           [[maybe_unused]] const int _v2_sa_prev_lane = _v2_sa_prev_code & -static_cast<int>(_v2_sa_prev_valid);
-          _v2_sa_value = essent_mux(UInt<1>(_v2_sa_prev_valid), _s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$tlMasterXbar$auto_out_c_bits_source[_v2_sa_prev_lane], _v2_sa_value);
+          _v2_sa_value = *essent_select_ptr(_v2_sa_prev_valid, &(_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$tlMasterXbar$auto_out_c_bits_source[_v2_sa_prev_lane]), &_v2_sa_value);
           _s_ldut$tile_prci_domain$buffer_1$bundleOut_0_c_q$ram_source$io_deq_bits_MPORT[L] = _v2_sa_value;
           const uint64_t _v2_sa_write_addr_0 = essent_to_u64(ldut.tile_prci_domain.buffer_1.bundleOut_0_c_q.value[L]);
           const uint64_t _v2_sa_write_take_0 = (uint64_t)(essent_to_u64(_s_ldut$tile_prci_domain$buffer_1$bundleOut_0_c_q$io_enq_ready[L] & _s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$dcache$auto_out_c_valid[L]) != 0) & (uint64_t)(essent_to_u64(UInt<1>(0x1)) != 0);
@@ -13299,7 +13304,7 @@ void TestHarness::eval_forward_p1(bool update_registers, bool verbose, bool done
         _v2_sa_anyw |= (uint64_t)(essent_to_u64(_s_ldut$subsystem_cbus$buffer$bundleOut_0_a_q$io_enq_ready[G] & _s_ldut$subsystem_cbus$atomics$auto_out_a_valid[G]) != 0) & (uint64_t)(essent_to_u64(UInt<1>(0x1)) != 0);
       }
       if (_v2_sa_anyw == 0) {
-        for (int L = 0; L < 16; L++) { _s_ldut$subsystem_cbus$buffer$bundleOut_0_a_q$ram_opcode$io_deq_bits_MPORT[L] = ldut.subsystem_cbus.buffer.bundleOut_0_a_q.ram_opcode[essent_to_u64(ldut.subsystem_cbus.buffer.bundleOut_0_a_q.value_1[L])]; }
+        essent_table_read<16, 2, false>(&_s_ldut$subsystem_cbus$buffer$bundleOut_0_a_q$ram_opcode$io_deq_bits_MPORT[0], &ldut.subsystem_cbus.buffer.bundleOut_0_a_q.ram_opcode[0], &ldut.subsystem_cbus.buffer.bundleOut_0_a_q.value_1[0]);
       } else {
       {
         // [state-read-dense] forwarding=branchless
@@ -13308,10 +13313,11 @@ void TestHarness::eval_forward_p1(bool update_registers, bool verbose, bool done
         for (int L = 0; L < 16; L++) {
           const uint64_t _v2_sa_addr = essent_to_u64(ldut.subsystem_cbus.buffer.bundleOut_0_a_q.value_1[L]);
           UInt<3> _v2_sa_value = ldut.subsystem_cbus.buffer.bundleOut_0_a_q.ram_opcode[_v2_sa_addr];
+          // [branchless-forward] select a valid source before loading data
           const int _v2_sa_prev_code = _v2_sa_last[_v2_sa_addr];
-          const uint64_t _v2_sa_prev_valid = (uint64_t)(_v2_sa_prev_code >= 0);
+          const bool _v2_sa_prev_valid = _v2_sa_prev_code >= 0;
           [[maybe_unused]] const int _v2_sa_prev_lane = _v2_sa_prev_code & -static_cast<int>(_v2_sa_prev_valid);
-          _v2_sa_value = essent_mux(UInt<1>(_v2_sa_prev_valid), _s_ldut$subsystem_cbus$atomics$auto_out_a_bits_opcode[_v2_sa_prev_lane], _v2_sa_value);
+          _v2_sa_value = *essent_select_ptr(_v2_sa_prev_valid, &(_s_ldut$subsystem_cbus$atomics$auto_out_a_bits_opcode[_v2_sa_prev_lane]), &_v2_sa_value);
           _s_ldut$subsystem_cbus$buffer$bundleOut_0_a_q$ram_opcode$io_deq_bits_MPORT[L] = _v2_sa_value;
           const uint64_t _v2_sa_write_addr_0 = essent_to_u64(ldut.subsystem_cbus.buffer.bundleOut_0_a_q.value[L]);
           const uint64_t _v2_sa_write_take_0 = (uint64_t)(essent_to_u64(_s_ldut$subsystem_cbus$buffer$bundleOut_0_a_q$io_enq_ready[L] & _s_ldut$subsystem_cbus$atomics$auto_out_a_valid[L]) != 0) & (uint64_t)(essent_to_u64(UInt<1>(0x1)) != 0);
@@ -13335,7 +13341,7 @@ void TestHarness::eval_forward_p1(bool update_registers, bool verbose, bool done
         _v2_sa_anyw |= (uint64_t)(essent_to_u64(_s_ldut$subsystem_cbus$buffer$bundleOut_0_a_q$io_enq_ready[G] & _s_ldut$subsystem_cbus$atomics$auto_out_a_valid[G]) != 0) & (uint64_t)(essent_to_u64(UInt<1>(0x1)) != 0);
       }
       if (_v2_sa_anyw == 0) {
-        for (int L = 0; L < 16; L++) { _s_ldut$subsystem_cbus$buffer$bundleOut_0_a_q$ram_size$io_deq_bits_MPORT[L] = ldut.subsystem_cbus.buffer.bundleOut_0_a_q.ram_size[essent_to_u64(ldut.subsystem_cbus.buffer.bundleOut_0_a_q.value_1[L])]; }
+        essent_table_read<16, 2, false>(&_s_ldut$subsystem_cbus$buffer$bundleOut_0_a_q$ram_size$io_deq_bits_MPORT[0], &ldut.subsystem_cbus.buffer.bundleOut_0_a_q.ram_size[0], &ldut.subsystem_cbus.buffer.bundleOut_0_a_q.value_1[0]);
       } else {
       {
         // [state-read-dense] forwarding=branchless
@@ -13344,10 +13350,11 @@ void TestHarness::eval_forward_p1(bool update_registers, bool verbose, bool done
         for (int L = 0; L < 16; L++) {
           const uint64_t _v2_sa_addr = essent_to_u64(ldut.subsystem_cbus.buffer.bundleOut_0_a_q.value_1[L]);
           UInt<4> _v2_sa_value = ldut.subsystem_cbus.buffer.bundleOut_0_a_q.ram_size[_v2_sa_addr];
+          // [branchless-forward] select a valid source before loading data
           const int _v2_sa_prev_code = _v2_sa_last[_v2_sa_addr];
-          const uint64_t _v2_sa_prev_valid = (uint64_t)(_v2_sa_prev_code >= 0);
+          const bool _v2_sa_prev_valid = _v2_sa_prev_code >= 0;
           [[maybe_unused]] const int _v2_sa_prev_lane = _v2_sa_prev_code & -static_cast<int>(_v2_sa_prev_valid);
-          _v2_sa_value = essent_mux(UInt<1>(_v2_sa_prev_valid), _s_ldut$subsystem_cbus$atomics$auto_out_a_bits_size[_v2_sa_prev_lane], _v2_sa_value);
+          _v2_sa_value = *essent_select_ptr(_v2_sa_prev_valid, &(_s_ldut$subsystem_cbus$atomics$auto_out_a_bits_size[_v2_sa_prev_lane]), &_v2_sa_value);
           _s_ldut$subsystem_cbus$buffer$bundleOut_0_a_q$ram_size$io_deq_bits_MPORT[L] = _v2_sa_value;
           const uint64_t _v2_sa_write_addr_0 = essent_to_u64(ldut.subsystem_cbus.buffer.bundleOut_0_a_q.value[L]);
           const uint64_t _v2_sa_write_take_0 = (uint64_t)(essent_to_u64(_s_ldut$subsystem_cbus$buffer$bundleOut_0_a_q$io_enq_ready[L] & _s_ldut$subsystem_cbus$atomics$auto_out_a_valid[L]) != 0) & (uint64_t)(essent_to_u64(UInt<1>(0x1)) != 0);
@@ -13374,7 +13381,7 @@ void TestHarness::eval_forward_p1(bool update_registers, bool verbose, bool done
         _v2_sa_anyw |= (uint64_t)(essent_to_u64(_s_ldut$subsystem_cbus$buffer$bundleOut_0_a_q$io_enq_ready[G] & _s_ldut$subsystem_cbus$atomics$auto_out_a_valid[G]) != 0) & (uint64_t)(essent_to_u64(UInt<1>(0x1)) != 0);
       }
       if (_v2_sa_anyw == 0) {
-        for (int L = 0; L < 16; L++) { _s_ldut$subsystem_cbus$buffer$bundleOut_0_a_q$ram_source$io_deq_bits_MPORT[L] = ldut.subsystem_cbus.buffer.bundleOut_0_a_q.ram_source[essent_to_u64(ldut.subsystem_cbus.buffer.bundleOut_0_a_q.value_1[L])]; }
+        essent_table_read<16, 2, false>(&_s_ldut$subsystem_cbus$buffer$bundleOut_0_a_q$ram_source$io_deq_bits_MPORT[0], &ldut.subsystem_cbus.buffer.bundleOut_0_a_q.ram_source[0], &ldut.subsystem_cbus.buffer.bundleOut_0_a_q.value_1[0]);
       } else {
       {
         // [state-read-dense] forwarding=branchless
@@ -13383,10 +13390,11 @@ void TestHarness::eval_forward_p1(bool update_registers, bool verbose, bool done
         for (int L = 0; L < 16; L++) {
           const uint64_t _v2_sa_addr = essent_to_u64(ldut.subsystem_cbus.buffer.bundleOut_0_a_q.value_1[L]);
           UInt<5> _v2_sa_value = ldut.subsystem_cbus.buffer.bundleOut_0_a_q.ram_source[_v2_sa_addr];
+          // [branchless-forward] select a valid source before loading data
           const int _v2_sa_prev_code = _v2_sa_last[_v2_sa_addr];
-          const uint64_t _v2_sa_prev_valid = (uint64_t)(_v2_sa_prev_code >= 0);
+          const bool _v2_sa_prev_valid = _v2_sa_prev_code >= 0;
           [[maybe_unused]] const int _v2_sa_prev_lane = _v2_sa_prev_code & -static_cast<int>(_v2_sa_prev_valid);
-          _v2_sa_value = essent_mux(UInt<1>(_v2_sa_prev_valid), _s_ldut$subsystem_cbus$atomics$auto_out_a_bits_source[_v2_sa_prev_lane], _v2_sa_value);
+          _v2_sa_value = *essent_select_ptr(_v2_sa_prev_valid, &(_s_ldut$subsystem_cbus$atomics$auto_out_a_bits_source[_v2_sa_prev_lane]), &_v2_sa_value);
           _s_ldut$subsystem_cbus$buffer$bundleOut_0_a_q$ram_source$io_deq_bits_MPORT[L] = _v2_sa_value;
           const uint64_t _v2_sa_write_addr_0 = essent_to_u64(ldut.subsystem_cbus.buffer.bundleOut_0_a_q.value[L]);
           const uint64_t _v2_sa_write_take_0 = (uint64_t)(essent_to_u64(_s_ldut$subsystem_cbus$buffer$bundleOut_0_a_q$io_enq_ready[L] & _s_ldut$subsystem_cbus$atomics$auto_out_a_valid[L]) != 0) & (uint64_t)(essent_to_u64(UInt<1>(0x1)) != 0);
@@ -13415,7 +13423,7 @@ void TestHarness::eval_forward_p1(bool update_registers, bool verbose, bool done
         _v2_sa_anyw |= (uint64_t)(essent_to_u64(_s_ldut$subsystem_cbus$buffer$bundleOut_0_a_q$io_enq_ready[G] & _s_ldut$subsystem_cbus$atomics$auto_out_a_valid[G]) != 0) & (uint64_t)(essent_to_u64(UInt<1>(0x1)) != 0);
       }
       if (_v2_sa_anyw == 0) {
-        for (int L = 0; L < 16; L++) { _s_ldut$subsystem_cbus$buffer$bundleOut_0_a_q$ram_address$io_deq_bits_MPORT[L] = ldut.subsystem_cbus.buffer.bundleOut_0_a_q.ram_address[essent_to_u64(ldut.subsystem_cbus.buffer.bundleOut_0_a_q.value_1[L])]; }
+        essent_table_read<16, 2, false>(&_s_ldut$subsystem_cbus$buffer$bundleOut_0_a_q$ram_address$io_deq_bits_MPORT[0], &ldut.subsystem_cbus.buffer.bundleOut_0_a_q.ram_address[0], &ldut.subsystem_cbus.buffer.bundleOut_0_a_q.value_1[0]);
       } else {
       {
         // [state-read-dense] forwarding=branchless
@@ -13424,10 +13432,11 @@ void TestHarness::eval_forward_p1(bool update_registers, bool verbose, bool done
         for (int L = 0; L < 16; L++) {
           const uint64_t _v2_sa_addr = essent_to_u64(ldut.subsystem_cbus.buffer.bundleOut_0_a_q.value_1[L]);
           UInt<28> _v2_sa_value = ldut.subsystem_cbus.buffer.bundleOut_0_a_q.ram_address[_v2_sa_addr];
+          // [branchless-forward] select a valid source before loading data
           const int _v2_sa_prev_code = _v2_sa_last[_v2_sa_addr];
-          const uint64_t _v2_sa_prev_valid = (uint64_t)(_v2_sa_prev_code >= 0);
+          const bool _v2_sa_prev_valid = _v2_sa_prev_code >= 0;
           [[maybe_unused]] const int _v2_sa_prev_lane = _v2_sa_prev_code & -static_cast<int>(_v2_sa_prev_valid);
-          _v2_sa_value = essent_mux(UInt<1>(_v2_sa_prev_valid), _s_ldut$subsystem_cbus$atomics$auto_out_a_bits_address[_v2_sa_prev_lane], _v2_sa_value);
+          _v2_sa_value = *essent_select_ptr(_v2_sa_prev_valid, &(_s_ldut$subsystem_cbus$atomics$auto_out_a_bits_address[_v2_sa_prev_lane]), &_v2_sa_value);
           _s_ldut$subsystem_cbus$buffer$bundleOut_0_a_q$ram_address$io_deq_bits_MPORT[L] = _v2_sa_value;
           const uint64_t _v2_sa_write_addr_0 = essent_to_u64(ldut.subsystem_cbus.buffer.bundleOut_0_a_q.value[L]);
           const uint64_t _v2_sa_write_take_0 = (uint64_t)(essent_to_u64(_s_ldut$subsystem_cbus$buffer$bundleOut_0_a_q$io_enq_ready[L] & _s_ldut$subsystem_cbus$atomics$auto_out_a_valid[L]) != 0) & (uint64_t)(essent_to_u64(UInt<1>(0x1)) != 0);
@@ -13643,12 +13652,9 @@ void TestHarness::eval_forward_p1(bool update_registers, bool verbose, bool done
         _v2_sa_anyw |= (uint64_t)(essent_to_u64(_s_ldut$subsystem_cbus$wrapped_error_device$buffer$bundleIn_0_d_q$io_enq_ready[G] & _s_ldut$subsystem_cbus$wrapped_error_device$error$auto_in_d_valid[G]) != 0) & (uint64_t)(essent_to_u64(UInt<1>(0x1)) != 0);
       }
       if (_v2_sa_anyw == 0) {
-        for (int L = 0; L < 16; L++) {
-          const uint64_t _v2_sa_field_addr = essent_to_u64(ldut.subsystem_cbus.wrapped_error_device.buffer.bundleIn_0_d_q.value_1[L]);
-          _s_ldut$subsystem_cbus$wrapped_error_device$buffer$bundleIn_0_d_q$ram_opcode$io_deq_bits_MPORT[L] = ldut.subsystem_cbus.wrapped_error_device.buffer.bundleIn_0_d_q.ram_opcode[_v2_sa_field_addr];
-          _s_ldut$subsystem_cbus$wrapped_error_device$buffer$bundleIn_0_d_q$ram_size$io_deq_bits_MPORT[L] = ldut.subsystem_cbus.wrapped_error_device.buffer.bundleIn_0_d_q.ram_size[_v2_sa_field_addr];
-          _s_ldut$subsystem_cbus$wrapped_error_device$buffer$bundleIn_0_d_q$ram_data$io_deq_bits_MPORT[L] = ldut.subsystem_cbus.wrapped_error_device.buffer.bundleIn_0_d_q.ram_data[_v2_sa_field_addr];
-        }
+        essent_table_read<16, 2, false>(&_s_ldut$subsystem_cbus$wrapped_error_device$buffer$bundleIn_0_d_q$ram_opcode$io_deq_bits_MPORT[0], &ldut.subsystem_cbus.wrapped_error_device.buffer.bundleIn_0_d_q.ram_opcode[0], &ldut.subsystem_cbus.wrapped_error_device.buffer.bundleIn_0_d_q.value_1[0]);
+        essent_table_read<16, 2, false>(&_s_ldut$subsystem_cbus$wrapped_error_device$buffer$bundleIn_0_d_q$ram_size$io_deq_bits_MPORT[0], &ldut.subsystem_cbus.wrapped_error_device.buffer.bundleIn_0_d_q.ram_size[0], &ldut.subsystem_cbus.wrapped_error_device.buffer.bundleIn_0_d_q.value_1[0]);
+        essent_table_read<16, 2, false>(&_s_ldut$subsystem_cbus$wrapped_error_device$buffer$bundleIn_0_d_q$ram_data$io_deq_bits_MPORT[0], &ldut.subsystem_cbus.wrapped_error_device.buffer.bundleIn_0_d_q.ram_data[0], &ldut.subsystem_cbus.wrapped_error_device.buffer.bundleIn_0_d_q.value_1[0]);
       } else {
       {
         // [state-field-read-fused] 3 arrays share one access scan, mode=dense-branchless
@@ -13690,7 +13696,7 @@ void TestHarness::eval_forward_p1(bool update_registers, bool verbose, bool done
         _v2_sa_anyw |= (uint64_t)(essent_to_u64(_s_ldut$subsystem_cbus$wrapped_error_device$buffer$bundleIn_0_d_q$io_enq_ready[G] & _s_ldut$subsystem_cbus$wrapped_error_device$error$auto_in_d_valid[G]) != 0) & (uint64_t)(essent_to_u64(UInt<1>(0x1)) != 0);
       }
       if (_v2_sa_anyw == 0) {
-        for (int L = 0; L < 16; L++) { _s_ldut$subsystem_cbus$wrapped_error_device$buffer$bundleIn_0_d_q$ram_source$io_deq_bits_MPORT[L] = ldut.subsystem_cbus.wrapped_error_device.buffer.bundleIn_0_d_q.ram_source[essent_to_u64(ldut.subsystem_cbus.wrapped_error_device.buffer.bundleIn_0_d_q.value_1[L])]; }
+        essent_table_read<16, 2, false>(&_s_ldut$subsystem_cbus$wrapped_error_device$buffer$bundleIn_0_d_q$ram_source$io_deq_bits_MPORT[0], &ldut.subsystem_cbus.wrapped_error_device.buffer.bundleIn_0_d_q.ram_source[0], &ldut.subsystem_cbus.wrapped_error_device.buffer.bundleIn_0_d_q.value_1[0]);
       } else {
       {
         // [state-read-dense] forwarding=branchless
@@ -13699,10 +13705,11 @@ void TestHarness::eval_forward_p1(bool update_registers, bool verbose, bool done
         for (int L = 0; L < 16; L++) {
           const uint64_t _v2_sa_addr = essent_to_u64(ldut.subsystem_cbus.wrapped_error_device.buffer.bundleIn_0_d_q.value_1[L]);
           UInt<5> _v2_sa_value = ldut.subsystem_cbus.wrapped_error_device.buffer.bundleIn_0_d_q.ram_source[_v2_sa_addr];
+          // [branchless-forward] select a valid source before loading data
           const int _v2_sa_prev_code = _v2_sa_last[_v2_sa_addr];
-          const uint64_t _v2_sa_prev_valid = (uint64_t)(_v2_sa_prev_code >= 0);
+          const bool _v2_sa_prev_valid = _v2_sa_prev_code >= 0;
           [[maybe_unused]] const int _v2_sa_prev_lane = _v2_sa_prev_code & -static_cast<int>(_v2_sa_prev_valid);
-          _v2_sa_value = essent_mux(UInt<1>(_v2_sa_prev_valid), _s_ldut$subsystem_cbus$wrapped_error_device$error$a$ram_source[_v2_sa_prev_lane], _v2_sa_value);
+          _v2_sa_value = *essent_select_ptr(_v2_sa_prev_valid, &(_s_ldut$subsystem_cbus$wrapped_error_device$error$a$ram_source[_v2_sa_prev_lane]), &_v2_sa_value);
           _s_ldut$subsystem_cbus$wrapped_error_device$buffer$bundleIn_0_d_q$ram_source$io_deq_bits_MPORT[L] = _v2_sa_value;
           const uint64_t _v2_sa_write_addr_0 = essent_to_u64(ldut.subsystem_cbus.wrapped_error_device.buffer.bundleIn_0_d_q.value[L]);
           const uint64_t _v2_sa_write_take_0 = (uint64_t)(essent_to_u64(_s_ldut$subsystem_cbus$wrapped_error_device$buffer$bundleIn_0_d_q$io_enq_ready[L] & _s_ldut$subsystem_cbus$wrapped_error_device$error$auto_in_d_valid[L]) != 0) & (uint64_t)(essent_to_u64(UInt<1>(0x1)) != 0);
@@ -16662,7 +16669,7 @@ void TestHarness::eval_forward_p1(bool update_registers, bool verbose, bool done
         _v2_sa_anyw |= (uint64_t)(essent_to_u64(_s_ldut$subsystem_cbus$buffer$bundleIn_0_d_q$io_enq_ready[G] & _s_ldut$subsystem_cbus$out_xbar$auto_in_d_valid[G]) != 0) & (uint64_t)(essent_to_u64(UInt<1>(0x1)) != 0);
       }
       if (_v2_sa_anyw == 0) {
-        for (int L = 0; L < 16; L++) { _s_ldut$subsystem_cbus$buffer$bundleIn_0_d_q$ram_opcode$io_deq_bits_MPORT[L] = ldut.subsystem_cbus.buffer.bundleIn_0_d_q.ram_opcode[essent_to_u64(ldut.subsystem_cbus.buffer.bundleIn_0_d_q.value_1[L])]; }
+        essent_table_read<16, 2, false>(&_s_ldut$subsystem_cbus$buffer$bundleIn_0_d_q$ram_opcode$io_deq_bits_MPORT[0], &ldut.subsystem_cbus.buffer.bundleIn_0_d_q.ram_opcode[0], &ldut.subsystem_cbus.buffer.bundleIn_0_d_q.value_1[0]);
       } else {
       {
         // [state-read-dense] forwarding=branchless
@@ -16671,10 +16678,11 @@ void TestHarness::eval_forward_p1(bool update_registers, bool verbose, bool done
         for (int L = 0; L < 16; L++) {
           const uint64_t _v2_sa_addr = essent_to_u64(ldut.subsystem_cbus.buffer.bundleIn_0_d_q.value_1[L]);
           UInt<3> _v2_sa_value = ldut.subsystem_cbus.buffer.bundleIn_0_d_q.ram_opcode[_v2_sa_addr];
+          // [branchless-forward] select a valid source before loading data
           const int _v2_sa_prev_code = _v2_sa_last[_v2_sa_addr];
-          const uint64_t _v2_sa_prev_valid = (uint64_t)(_v2_sa_prev_code >= 0);
+          const bool _v2_sa_prev_valid = _v2_sa_prev_code >= 0;
           [[maybe_unused]] const int _v2_sa_prev_lane = _v2_sa_prev_code & -static_cast<int>(_v2_sa_prev_valid);
-          _v2_sa_value = essent_mux(UInt<1>(_v2_sa_prev_valid), _s_ldut$subsystem_cbus$out_xbar$auto_in_d_bits_opcode[_v2_sa_prev_lane], _v2_sa_value);
+          _v2_sa_value = *essent_select_ptr(_v2_sa_prev_valid, &(_s_ldut$subsystem_cbus$out_xbar$auto_in_d_bits_opcode[_v2_sa_prev_lane]), &_v2_sa_value);
           _s_ldut$subsystem_cbus$buffer$bundleIn_0_d_q$ram_opcode$io_deq_bits_MPORT[L] = _v2_sa_value;
           const uint64_t _v2_sa_write_addr_0 = essent_to_u64(ldut.subsystem_cbus.buffer.bundleIn_0_d_q.value[L]);
           const uint64_t _v2_sa_write_take_0 = (uint64_t)(essent_to_u64(_s_ldut$subsystem_cbus$buffer$bundleIn_0_d_q$io_enq_ready[L] & _s_ldut$subsystem_cbus$out_xbar$auto_in_d_valid[L]) != 0) & (uint64_t)(essent_to_u64(UInt<1>(0x1)) != 0);
@@ -16702,7 +16710,7 @@ void TestHarness::eval_forward_p1(bool update_registers, bool verbose, bool done
         _v2_sa_anyw |= (uint64_t)(essent_to_u64(_s_ldut$subsystem_cbus$buffer$bundleIn_0_d_q$io_enq_ready[G] & _s_ldut$subsystem_cbus$out_xbar$auto_in_d_valid[G]) != 0) & (uint64_t)(essent_to_u64(UInt<1>(0x1)) != 0);
       }
       if (_v2_sa_anyw == 0) {
-        for (int L = 0; L < 16; L++) { _s_ldut$subsystem_cbus$buffer$bundleIn_0_d_q$ram_source$io_deq_bits_MPORT[L] = ldut.subsystem_cbus.buffer.bundleIn_0_d_q.ram_source[essent_to_u64(ldut.subsystem_cbus.buffer.bundleIn_0_d_q.value_1[L])]; }
+        essent_table_read<16, 2, false>(&_s_ldut$subsystem_cbus$buffer$bundleIn_0_d_q$ram_source$io_deq_bits_MPORT[0], &ldut.subsystem_cbus.buffer.bundleIn_0_d_q.ram_source[0], &ldut.subsystem_cbus.buffer.bundleIn_0_d_q.value_1[0]);
       } else {
       {
         // [state-read-dense] forwarding=branchless
@@ -16711,10 +16719,11 @@ void TestHarness::eval_forward_p1(bool update_registers, bool verbose, bool done
         for (int L = 0; L < 16; L++) {
           const uint64_t _v2_sa_addr = essent_to_u64(ldut.subsystem_cbus.buffer.bundleIn_0_d_q.value_1[L]);
           UInt<5> _v2_sa_value = ldut.subsystem_cbus.buffer.bundleIn_0_d_q.ram_source[_v2_sa_addr];
+          // [branchless-forward] select a valid source before loading data
           const int _v2_sa_prev_code = _v2_sa_last[_v2_sa_addr];
-          const uint64_t _v2_sa_prev_valid = (uint64_t)(_v2_sa_prev_code >= 0);
+          const bool _v2_sa_prev_valid = _v2_sa_prev_code >= 0;
           [[maybe_unused]] const int _v2_sa_prev_lane = _v2_sa_prev_code & -static_cast<int>(_v2_sa_prev_valid);
-          _v2_sa_value = essent_mux(UInt<1>(_v2_sa_prev_valid), _s_ldut$subsystem_cbus$out_xbar$auto_in_d_bits_source[_v2_sa_prev_lane], _v2_sa_value);
+          _v2_sa_value = *essent_select_ptr(_v2_sa_prev_valid, &(_s_ldut$subsystem_cbus$out_xbar$auto_in_d_bits_source[_v2_sa_prev_lane]), &_v2_sa_value);
           _s_ldut$subsystem_cbus$buffer$bundleIn_0_d_q$ram_source$io_deq_bits_MPORT[L] = _v2_sa_value;
           const uint64_t _v2_sa_write_addr_0 = essent_to_u64(ldut.subsystem_cbus.buffer.bundleIn_0_d_q.value[L]);
           const uint64_t _v2_sa_write_take_0 = (uint64_t)(essent_to_u64(_s_ldut$subsystem_cbus$buffer$bundleIn_0_d_q$io_enq_ready[L] & _s_ldut$subsystem_cbus$out_xbar$auto_in_d_valid[L]) != 0) & (uint64_t)(essent_to_u64(UInt<1>(0x1)) != 0);
@@ -16769,7 +16778,7 @@ void TestHarness::eval_forward_p1(bool update_registers, bool verbose, bool done
         _v2_sa_anyw |= (uint64_t)(essent_to_u64(_s_ldut$subsystem_cbus$buffer$bundleIn_0_d_q$io_enq_ready[G] & _s_ldut$subsystem_cbus$out_xbar$auto_in_d_valid[G]) != 0) & (uint64_t)(essent_to_u64(UInt<1>(0x1)) != 0);
       }
       if (_v2_sa_anyw == 0) {
-        for (int L = 0; L < 16; L++) { _s_ldut$subsystem_cbus$buffer$bundleIn_0_d_q$ram_size$io_deq_bits_MPORT[L] = ldut.subsystem_cbus.buffer.bundleIn_0_d_q.ram_size[essent_to_u64(ldut.subsystem_cbus.buffer.bundleIn_0_d_q.value_1[L])]; }
+        essent_table_read<16, 2, false>(&_s_ldut$subsystem_cbus$buffer$bundleIn_0_d_q$ram_size$io_deq_bits_MPORT[0], &ldut.subsystem_cbus.buffer.bundleIn_0_d_q.ram_size[0], &ldut.subsystem_cbus.buffer.bundleIn_0_d_q.value_1[0]);
       } else {
       {
         // [state-read-dense] forwarding=branchless
@@ -16778,10 +16787,11 @@ void TestHarness::eval_forward_p1(bool update_registers, bool verbose, bool done
         for (int L = 0; L < 16; L++) {
           const uint64_t _v2_sa_addr = essent_to_u64(ldut.subsystem_cbus.buffer.bundleIn_0_d_q.value_1[L]);
           UInt<4> _v2_sa_value = ldut.subsystem_cbus.buffer.bundleIn_0_d_q.ram_size[_v2_sa_addr];
+          // [branchless-forward] select a valid source before loading data
           const int _v2_sa_prev_code = _v2_sa_last[_v2_sa_addr];
-          const uint64_t _v2_sa_prev_valid = (uint64_t)(_v2_sa_prev_code >= 0);
+          const bool _v2_sa_prev_valid = _v2_sa_prev_code >= 0;
           [[maybe_unused]] const int _v2_sa_prev_lane = _v2_sa_prev_code & -static_cast<int>(_v2_sa_prev_valid);
-          _v2_sa_value = essent_mux(UInt<1>(_v2_sa_prev_valid), _s_ldut$subsystem_cbus$out_xbar$auto_in_d_bits_size[_v2_sa_prev_lane], _v2_sa_value);
+          _v2_sa_value = *essent_select_ptr(_v2_sa_prev_valid, &(_s_ldut$subsystem_cbus$out_xbar$auto_in_d_bits_size[_v2_sa_prev_lane]), &_v2_sa_value);
           _s_ldut$subsystem_cbus$buffer$bundleIn_0_d_q$ram_size$io_deq_bits_MPORT[L] = _v2_sa_value;
           const uint64_t _v2_sa_write_addr_0 = essent_to_u64(ldut.subsystem_cbus.buffer.bundleIn_0_d_q.value[L]);
           const uint64_t _v2_sa_write_take_0 = (uint64_t)(essent_to_u64(_s_ldut$subsystem_cbus$buffer$bundleIn_0_d_q$io_enq_ready[L] & _s_ldut$subsystem_cbus$out_xbar$auto_in_d_valid[L]) != 0) & (uint64_t)(essent_to_u64(UInt<1>(0x1)) != 0);
@@ -16843,7 +16853,7 @@ void TestHarness::eval_forward_p1(bool update_registers, bool verbose, bool done
         _v2_sa_anyw |= (uint64_t)(essent_to_u64(_s_ldut$tile_prci_domain$buffer_1$bundleIn_0_d_q$io_enq_ready[G] & _s_ldut$subsystem_sbus$system_bus_xbar$auto_in_1_d_valid[G]) != 0) & (uint64_t)(essent_to_u64(UInt<1>(0x1)) != 0);
       }
       if (_v2_sa_anyw == 0) {
-        for (int L = 0; L < 16; L++) { _s_ldut$tile_prci_domain$buffer_1$bundleIn_0_d_q$ram_opcode$io_deq_bits_MPORT[L] = ldut.tile_prci_domain.buffer_1.bundleIn_0_d_q.ram_opcode[essent_to_u64(ldut.tile_prci_domain.buffer_1.bundleIn_0_d_q.value_1[L])]; }
+        essent_table_read<16, 2, false>(&_s_ldut$tile_prci_domain$buffer_1$bundleIn_0_d_q$ram_opcode$io_deq_bits_MPORT[0], &ldut.tile_prci_domain.buffer_1.bundleIn_0_d_q.ram_opcode[0], &ldut.tile_prci_domain.buffer_1.bundleIn_0_d_q.value_1[0]);
       } else {
       {
         // [state-read-dense] forwarding=branchless
@@ -16852,10 +16862,11 @@ void TestHarness::eval_forward_p1(bool update_registers, bool verbose, bool done
         for (int L = 0; L < 16; L++) {
           const uint64_t _v2_sa_addr = essent_to_u64(ldut.tile_prci_domain.buffer_1.bundleIn_0_d_q.value_1[L]);
           UInt<3> _v2_sa_value = ldut.tile_prci_domain.buffer_1.bundleIn_0_d_q.ram_opcode[_v2_sa_addr];
+          // [branchless-forward] select a valid source before loading data
           const int _v2_sa_prev_code = _v2_sa_last[_v2_sa_addr];
-          const uint64_t _v2_sa_prev_valid = (uint64_t)(_v2_sa_prev_code >= 0);
+          const bool _v2_sa_prev_valid = _v2_sa_prev_code >= 0;
           [[maybe_unused]] const int _v2_sa_prev_lane = _v2_sa_prev_code & -static_cast<int>(_v2_sa_prev_valid);
-          _v2_sa_value = essent_mux(UInt<1>(_v2_sa_prev_valid), _s_ldut$subsystem_sbus$system_bus_xbar$auto_in_1_d_bits_opcode[_v2_sa_prev_lane], _v2_sa_value);
+          _v2_sa_value = *essent_select_ptr(_v2_sa_prev_valid, &(_s_ldut$subsystem_sbus$system_bus_xbar$auto_in_1_d_bits_opcode[_v2_sa_prev_lane]), &_v2_sa_value);
           _s_ldut$tile_prci_domain$buffer_1$bundleIn_0_d_q$ram_opcode$io_deq_bits_MPORT[L] = _v2_sa_value;
           const uint64_t _v2_sa_write_addr_0 = essent_to_u64(ldut.tile_prci_domain.buffer_1.bundleIn_0_d_q.value[L]);
           const uint64_t _v2_sa_write_take_0 = (uint64_t)(essent_to_u64(_s_ldut$tile_prci_domain$buffer_1$bundleIn_0_d_q$io_enq_ready[L] & _s_ldut$subsystem_sbus$system_bus_xbar$auto_in_1_d_valid[L]) != 0) & (uint64_t)(essent_to_u64(UInt<1>(0x1)) != 0);
@@ -16879,7 +16890,7 @@ void TestHarness::eval_forward_p1(bool update_registers, bool verbose, bool done
         _v2_sa_anyw |= (uint64_t)(essent_to_u64(_s_ldut$tile_prci_domain$buffer_1$bundleIn_0_d_q$io_enq_ready[G] & _s_ldut$subsystem_sbus$system_bus_xbar$auto_in_1_d_valid[G]) != 0) & (uint64_t)(essent_to_u64(UInt<1>(0x1)) != 0);
       }
       if (_v2_sa_anyw == 0) {
-        for (int L = 0; L < 16; L++) { _s_ldut$tile_prci_domain$buffer_1$bundleIn_0_d_q$ram_size$io_deq_bits_MPORT[L] = ldut.tile_prci_domain.buffer_1.bundleIn_0_d_q.ram_size[essent_to_u64(ldut.tile_prci_domain.buffer_1.bundleIn_0_d_q.value_1[L])]; }
+        essent_table_read<16, 2, false>(&_s_ldut$tile_prci_domain$buffer_1$bundleIn_0_d_q$ram_size$io_deq_bits_MPORT[0], &ldut.tile_prci_domain.buffer_1.bundleIn_0_d_q.ram_size[0], &ldut.tile_prci_domain.buffer_1.bundleIn_0_d_q.value_1[0]);
       } else {
       {
         // [state-read-dense] forwarding=branchless
@@ -16888,10 +16899,11 @@ void TestHarness::eval_forward_p1(bool update_registers, bool verbose, bool done
         for (int L = 0; L < 16; L++) {
           const uint64_t _v2_sa_addr = essent_to_u64(ldut.tile_prci_domain.buffer_1.bundleIn_0_d_q.value_1[L]);
           UInt<4> _v2_sa_value = ldut.tile_prci_domain.buffer_1.bundleIn_0_d_q.ram_size[_v2_sa_addr];
+          // [branchless-forward] select a valid source before loading data
           const int _v2_sa_prev_code = _v2_sa_last[_v2_sa_addr];
-          const uint64_t _v2_sa_prev_valid = (uint64_t)(_v2_sa_prev_code >= 0);
+          const bool _v2_sa_prev_valid = _v2_sa_prev_code >= 0;
           [[maybe_unused]] const int _v2_sa_prev_lane = _v2_sa_prev_code & -static_cast<int>(_v2_sa_prev_valid);
-          _v2_sa_value = essent_mux(UInt<1>(_v2_sa_prev_valid), _s_ldut$subsystem_sbus$system_bus_xbar$auto_in_1_d_bits_size[_v2_sa_prev_lane], _v2_sa_value);
+          _v2_sa_value = *essent_select_ptr(_v2_sa_prev_valid, &(_s_ldut$subsystem_sbus$system_bus_xbar$auto_in_1_d_bits_size[_v2_sa_prev_lane]), &_v2_sa_value);
           _s_ldut$tile_prci_domain$buffer_1$bundleIn_0_d_q$ram_size$io_deq_bits_MPORT[L] = _v2_sa_value;
           const uint64_t _v2_sa_write_addr_0 = essent_to_u64(ldut.tile_prci_domain.buffer_1.bundleIn_0_d_q.value[L]);
           const uint64_t _v2_sa_write_take_0 = (uint64_t)(essent_to_u64(_s_ldut$tile_prci_domain$buffer_1$bundleIn_0_d_q$io_enq_ready[L] & _s_ldut$subsystem_sbus$system_bus_xbar$auto_in_1_d_valid[L]) != 0) & (uint64_t)(essent_to_u64(UInt<1>(0x1)) != 0);
@@ -16916,7 +16928,7 @@ void TestHarness::eval_forward_p1(bool update_registers, bool verbose, bool done
         _v2_sa_anyw |= (uint64_t)(essent_to_u64(_s_ldut$tile_prci_domain$buffer_1$bundleIn_0_d_q$io_enq_ready[G] & _s_ldut$subsystem_sbus$system_bus_xbar$auto_in_1_d_valid[G]) != 0) & (uint64_t)(essent_to_u64(UInt<1>(0x1)) != 0);
       }
       if (_v2_sa_anyw == 0) {
-        for (int L = 0; L < 16; L++) { _s_ldut$tile_prci_domain$buffer_1$bundleIn_0_d_q$ram_source$io_deq_bits_MPORT[L] = ldut.tile_prci_domain.buffer_1.bundleIn_0_d_q.ram_source[essent_to_u64(ldut.tile_prci_domain.buffer_1.bundleIn_0_d_q.value_1[L])]; }
+        essent_table_read<16, 2, false>(&_s_ldut$tile_prci_domain$buffer_1$bundleIn_0_d_q$ram_source$io_deq_bits_MPORT[0], &ldut.tile_prci_domain.buffer_1.bundleIn_0_d_q.ram_source[0], &ldut.tile_prci_domain.buffer_1.bundleIn_0_d_q.value_1[0]);
       } else {
       {
         // [state-read-dense] forwarding=branchless
@@ -16925,10 +16937,11 @@ void TestHarness::eval_forward_p1(bool update_registers, bool verbose, bool done
         for (int L = 0; L < 16; L++) {
           const uint64_t _v2_sa_addr = essent_to_u64(ldut.tile_prci_domain.buffer_1.bundleIn_0_d_q.value_1[L]);
           UInt<4> _v2_sa_value = ldut.tile_prci_domain.buffer_1.bundleIn_0_d_q.ram_source[_v2_sa_addr];
+          // [branchless-forward] select a valid source before loading data
           const int _v2_sa_prev_code = _v2_sa_last[_v2_sa_addr];
-          const uint64_t _v2_sa_prev_valid = (uint64_t)(_v2_sa_prev_code >= 0);
+          const bool _v2_sa_prev_valid = _v2_sa_prev_code >= 0;
           [[maybe_unused]] const int _v2_sa_prev_lane = _v2_sa_prev_code & -static_cast<int>(_v2_sa_prev_valid);
-          _v2_sa_value = essent_mux(UInt<1>(_v2_sa_prev_valid), _s_ldut$subsystem_sbus$system_bus_xbar$auto_in_1_d_bits_source[_v2_sa_prev_lane], _v2_sa_value);
+          _v2_sa_value = *essent_select_ptr(_v2_sa_prev_valid, &(_s_ldut$subsystem_sbus$system_bus_xbar$auto_in_1_d_bits_source[_v2_sa_prev_lane]), &_v2_sa_value);
           _s_ldut$tile_prci_domain$buffer_1$bundleIn_0_d_q$ram_source$io_deq_bits_MPORT[L] = _v2_sa_value;
           const uint64_t _v2_sa_write_addr_0 = essent_to_u64(ldut.tile_prci_domain.buffer_1.bundleIn_0_d_q.value[L]);
           const uint64_t _v2_sa_write_take_0 = (uint64_t)(essent_to_u64(_s_ldut$tile_prci_domain$buffer_1$bundleIn_0_d_q$io_enq_ready[L] & _s_ldut$subsystem_sbus$system_bus_xbar$auto_in_1_d_valid[L]) != 0) & (uint64_t)(essent_to_u64(UInt<1>(0x1)) != 0);
@@ -17360,7 +17373,7 @@ void TestHarness::eval_forward_p1(bool update_registers, bool verbose, bool done
         _v2_sa_anyw |= (uint64_t)(essent_to_u64(_s_ldut$subsystem_cbus$buffer$bundleIn_0_d_q$io_enq_ready[G] & _s_ldut$subsystem_cbus$out_xbar$auto_in_d_valid[G]) != 0) & (uint64_t)(essent_to_u64(UInt<1>(0x1)) != 0);
       }
       if (_v2_sa_anyw == 0) {
-        for (int L = 0; L < 16; L++) { _s_ldut$subsystem_cbus$buffer$bundleIn_0_d_q$ram_data$io_deq_bits_MPORT[L] = ldut.subsystem_cbus.buffer.bundleIn_0_d_q.ram_data[essent_to_u64(ldut.subsystem_cbus.buffer.bundleIn_0_d_q.value_1[L])]; }
+        essent_table_read<16, 2, false>(&_s_ldut$subsystem_cbus$buffer$bundleIn_0_d_q$ram_data$io_deq_bits_MPORT[0], &ldut.subsystem_cbus.buffer.bundleIn_0_d_q.ram_data[0], &ldut.subsystem_cbus.buffer.bundleIn_0_d_q.value_1[0]);
       } else {
       {
         // [state-read-dense] forwarding=branchless
@@ -17369,10 +17382,11 @@ void TestHarness::eval_forward_p1(bool update_registers, bool verbose, bool done
         for (int L = 0; L < 16; L++) {
           const uint64_t _v2_sa_addr = essent_to_u64(ldut.subsystem_cbus.buffer.bundleIn_0_d_q.value_1[L]);
           UInt<64> _v2_sa_value = ldut.subsystem_cbus.buffer.bundleIn_0_d_q.ram_data[_v2_sa_addr];
+          // [branchless-forward] select a valid source before loading data
           const int _v2_sa_prev_code = _v2_sa_last[_v2_sa_addr];
-          const uint64_t _v2_sa_prev_valid = (uint64_t)(_v2_sa_prev_code >= 0);
+          const bool _v2_sa_prev_valid = _v2_sa_prev_code >= 0;
           [[maybe_unused]] const int _v2_sa_prev_lane = _v2_sa_prev_code & -static_cast<int>(_v2_sa_prev_valid);
-          _v2_sa_value = essent_mux(UInt<1>(_v2_sa_prev_valid), _s_ldut$subsystem_cbus$out_xbar$auto_in_d_bits_data[_v2_sa_prev_lane], _v2_sa_value);
+          _v2_sa_value = *essent_select_ptr(_v2_sa_prev_valid, &(_s_ldut$subsystem_cbus$out_xbar$auto_in_d_bits_data[_v2_sa_prev_lane]), &_v2_sa_value);
           _s_ldut$subsystem_cbus$buffer$bundleIn_0_d_q$ram_data$io_deq_bits_MPORT[L] = _v2_sa_value;
           const uint64_t _v2_sa_write_addr_0 = essent_to_u64(ldut.subsystem_cbus.buffer.bundleIn_0_d_q.value[L]);
           const uint64_t _v2_sa_write_take_0 = (uint64_t)(essent_to_u64(_s_ldut$subsystem_cbus$buffer$bundleIn_0_d_q$io_enq_ready[L] & _s_ldut$subsystem_cbus$out_xbar$auto_in_d_valid[L]) != 0) & (uint64_t)(essent_to_u64(UInt<1>(0x1)) != 0);
@@ -17411,14 +17425,11 @@ void TestHarness::eval_forward_p1(bool update_registers, bool verbose, bool done
         for (int L = 0; L < 16; L++) {
           const uint64_t _v2_sa_addr = essent_to_u64(ldut.tile_prci_domain.buffer_1.bundleIn_0_d_q.value_1[L]);
           UInt<128> _v2_sa_value = ldut.tile_prci_domain.buffer_1.bundleIn_0_d_q.ram_data[_v2_sa_addr];
+          // [branchless-forward] select a valid source before loading data
           const int _v2_sa_prev_code = _v2_sa_last[_v2_sa_addr];
-          if (_v2_sa_prev_code >= 0) {
-            [[maybe_unused]] const int _v2_sa_prev_lane = _v2_sa_prev_code / 1;
-            switch (_v2_sa_prev_code % 1) {
-              case 0: _v2_sa_value = _s_ldut$subsystem_sbus$system_bus_xbar$auto_in_1_d_bits_data[_v2_sa_prev_lane]; break;
-              default: __builtin_unreachable();
-            }
-          }
+          const bool _v2_sa_prev_valid = _v2_sa_prev_code >= 0;
+          [[maybe_unused]] const int _v2_sa_prev_lane = _v2_sa_prev_code & -static_cast<int>(_v2_sa_prev_valid);
+          _v2_sa_value = *essent_select_ptr(_v2_sa_prev_valid, &(_s_ldut$subsystem_sbus$system_bus_xbar$auto_in_1_d_bits_data[_v2_sa_prev_lane]), &_v2_sa_value);
           _s_ldut$tile_prci_domain$buffer_1$bundleIn_0_d_q$ram_data$io_deq_bits_MPORT[L] = _v2_sa_value;
           if (essent_to_u64(_s_ldut$tile_prci_domain$buffer_1$bundleIn_0_d_q$io_enq_ready[L] & _s_ldut$subsystem_sbus$system_bus_xbar$auto_in_1_d_valid[L]) && essent_to_u64(UInt<1>(0x1))) _v2_sa_last[essent_to_u64(ldut.tile_prci_domain.buffer_1.bundleIn_0_d_q.value[L])] = L * 1 + 0;
         }
@@ -17533,7 +17544,7 @@ void TestHarness::eval_forward_p1(bool update_registers, bool verbose, bool done
         ESSENT_LANE_LOOP
         for (int L = 0; L < 16; L++) ldut.tile_prci_domain.tile_reset_domain.boom_tile.frontend.icache.counter[L] = _gv;
       } else {
-        for (int L = 1; L < 16; L++) ldut.tile_prci_domain.tile_reset_domain.boom_tile.frontend.icache.counter[L] = _s_ldut$reset[L - 1] ? UInt<8>(0x0) : (_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$tlMasterXbar$auto_in_1_d_valid[L - 1] ? ((ldut.tile_prci_domain.tile_reset_domain.boom_tile.frontend.icache.counter[L - 1] == UInt<8>(0x0)) ? _s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$frontend$icache$beats1[L - 1] : ((ldut.tile_prci_domain.tile_reset_domain.boom_tile.frontend.icache.counter[L - 1] - UInt<8>(0x1)).tail<1>())) : ldut.tile_prci_domain.tile_reset_domain.boom_tile.frontend.icache.counter[L - 1]);
+        for (int L = 1; L < 16; L++) ldut.tile_prci_domain.tile_reset_domain.boom_tile.frontend.icache.counter[L].val = static_cast<typename UInt<8>::scalar_t>((static_cast<uint16_t>((static_cast<uint16_t>(essent_select_word<uint32_t>(((static_cast<uint16_t>(_s_ldut$reset[L - 1].val) & 0x1u)) != 0, static_cast<uint32_t>((static_cast<uint16_t>(0x0u) & 0xffu)), static_cast<uint32_t>((static_cast<uint16_t>(essent_select_word<uint32_t>(((static_cast<uint16_t>(_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$tlMasterXbar$auto_in_1_d_valid[L - 1].val) & 0x1u)) != 0, static_cast<uint32_t>((static_cast<uint16_t>(essent_select_word<uint32_t>(((static_cast<uint16_t>((static_cast<uint16_t>(((ldut.tile_prci_domain.tile_reset_domain.boom_tile.frontend.icache.counter[L - 1].val) == ((static_cast<uint16_t>(0x0u) & 0xffu)))) & 0x1u)) & 0x1u)) != 0, static_cast<uint32_t>(_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$frontend$icache$beats1[L - 1].val), static_cast<uint32_t>((static_cast<uint16_t>((static_cast<uint16_t>((static_cast<uint16_t>((static_cast<uint16_t>(ldut.tile_prci_domain.tile_reset_domain.boom_tile.frontend.icache.counter[L - 1].val) - static_cast<uint16_t>((static_cast<uint16_t>(0x1u) & 0xffu)))) & 0x1ffu)) & 0xffu)) & 0xffu)))) & 0xffu)), static_cast<uint32_t>(ldut.tile_prci_domain.tile_reset_domain.boom_tile.frontend.icache.counter[L - 1].val))) & 0xffu)))) & 0xffu)) & 0xffu));
       }
     }
     // [vec comb] 6 templates x 16 lanes
@@ -17557,6 +17568,8 @@ void TestHarness::eval_forward_p1(bool update_registers, bool verbose, bool done
     // [serial scc=251] 1 templates (0 comb), regs=[doing_reset]
     // [serial scc=251 chain-loop]
     for (int L = 1; L < 16; L++) ldut.tile_prci_domain.tile_reset_domain.boom_tile.frontend.bpd.banked_predictors_0.components_0.columns_0.doing_reset[L] = _s_ldut$reset[L - 1] | ((~_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$frontend$bpd$banked_predictors_0$components_0$columns_0$_T_2[L - 1]) & ldut.tile_prci_domain.tile_reset_domain.boom_tile.frontend.bpd.banked_predictors_0.components_0.columns_0.doing_reset[L - 1]);
+
+    if (partition_task_poll) partition_task_poll(partition_task_context, 1, true, 14);
     // [vec comb] 6 templates x 16 lanes
     ESSENT_LANE_LOOP
     for (int L = 0; L < 16; L++) {
@@ -17569,8 +17582,6 @@ void TestHarness::eval_forward_p1(bool update_registers, bool verbose, bool done
       _s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$frontend$bpd$banked_predictors_0$components_0$columns_0$wentry_p_cnt[L].val = static_cast<typename UInt<10>::scalar_t>((static_cast<uint32_t>((static_cast<uint32_t>(((((static_cast<uint32_t>(((((static_cast<uint32_t>(((static_cast<uint32_t>(_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$frontend$bpd$banked_predictors_0$components_0$columns_0$__v2_state_entries$r1[L].val) >> 0) & 0x3ffu)) & 0x3ffu)) & ((uint32_t)0 - (uint32_t)(((static_cast<uint32_t>(_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$frontend$bpd$banked_predictors_0$components_0$columns_0$_T_40[L].val) & 0x1u)) != 0))) | (((static_cast<uint32_t>(((((static_cast<uint32_t>(((static_cast<uint32_t>(_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$frontend$bpd$banked_predictors_0$components_0$columns_0$__v2_state_entries$r1[L].val) >> 0) & 0x3ffu)) & 0x3ffu)) & ((uint32_t)0 - (uint32_t)(((static_cast<uint32_t>(_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$frontend$bpd$banked_predictors_0$components_0$columns_0$_T_43[L].val) & 0x1u)) != 0))) | (((static_cast<uint32_t>(((((static_cast<uint32_t>(((static_cast<uint32_t>(_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$frontend$bpd$banked_predictors_0$components_0$columns_0$__v2_state_entries$r1[L].val) >> 0) & 0x3ffu)) & 0x3ffu)) & ((uint32_t)0 - (uint32_t)(((static_cast<uint32_t>(_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$frontend$bpd$banked_predictors_0$components_0$columns_0$_T_46[L].val) & 0x1u)) != 0))) | (((static_cast<uint32_t>((((_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$frontend$bpd$banked_predictors_0$components_0$columns_0$io_update_meta_s_cnt[L].val) & ((uint32_t)0 - (uint32_t)(((static_cast<uint32_t>(_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$frontend$bpd$banked_predictors_0$components_0$columns_0$_T_52[L].val) & 0x1u)) != 0))) | (((static_cast<uint32_t>((((_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$frontend$bpd$banked_predictors_0$components_0$columns_0$io_update_meta_s_cnt[L].val) & ((uint32_t)0 - (uint32_t)(((static_cast<uint32_t>(_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$frontend$bpd$banked_predictors_0$components_0$columns_0$_T_57[L].val) & 0x1u)) != 0))) | (((static_cast<uint32_t>(((((static_cast<uint32_t>(((static_cast<uint32_t>(_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$frontend$bpd$banked_predictors_0$components_0$columns_0$__v2_state_entries$r1[L].val) >> 0) & 0x3ffu)) & 0x3ffu)) & ((uint32_t)0 - (uint32_t)(((static_cast<uint32_t>(_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$frontend$bpd$banked_predictors_0$components_0$columns_0$_T_62[L].val) & 0x1u)) != 0))) | (((static_cast<uint32_t>(((((static_cast<uint32_t>(((static_cast<uint32_t>(_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$frontend$bpd$banked_predictors_0$components_0$columns_0$__v2_state_entries$r1[L].val) >> 0) & 0x3ffu)) & 0x3ffu)) & ((uint32_t)0 - (uint32_t)(((static_cast<uint32_t>(_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$frontend$bpd$banked_predictors_0$components_0$columns_0$_T_67[L].val) & 0x1u)) != 0))) | (((static_cast<uint32_t>((((_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$frontend$bpd$banked_predictors_0$components_0$columns_0$io_update_meta_s_cnt[L].val) & ((uint32_t)0 - (uint32_t)(((static_cast<uint32_t>(_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$frontend$bpd$banked_predictors_0$components_0$columns_0$_T_71[L].val) & 0x1u)) != 0))) | (((static_cast<uint32_t>((((_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$frontend$bpd$banked_predictors_0$components_0$columns_0$io_update_meta_s_cnt[L].val) & ((uint32_t)0 - (uint32_t)(((static_cast<uint32_t>(_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$frontend$bpd$banked_predictors_0$components_0$columns_0$_T_74[L].val) & 0x1u)) != 0))) | (((static_cast<uint32_t>(((static_cast<uint32_t>(_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$frontend$bpd$banked_predictors_0$components_0$columns_0$__v2_state_entries$r1[L].val) >> 0) & 0x3ffu)) & 0x3ffu)) & ~((uint32_t)0 - (uint32_t)(((static_cast<uint32_t>(_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$frontend$bpd$banked_predictors_0$components_0$columns_0$_T_74[L].val) & 0x1u)) != 0))))) & 0x3ffu)) & ~((uint32_t)0 - (uint32_t)(((static_cast<uint32_t>(_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$frontend$bpd$banked_predictors_0$components_0$columns_0$_T_71[L].val) & 0x1u)) != 0))))) & 0x3ffu)) & ~((uint32_t)0 - (uint32_t)(((static_cast<uint32_t>(_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$frontend$bpd$banked_predictors_0$components_0$columns_0$_T_67[L].val) & 0x1u)) != 0))))) & 0x3ffu)) & ~((uint32_t)0 - (uint32_t)(((static_cast<uint32_t>(_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$frontend$bpd$banked_predictors_0$components_0$columns_0$_T_62[L].val) & 0x1u)) != 0))))) & 0x3ffu)) & ~((uint32_t)0 - (uint32_t)(((static_cast<uint32_t>(_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$frontend$bpd$banked_predictors_0$components_0$columns_0$_T_57[L].val) & 0x1u)) != 0))))) & 0x3ffu)) & ~((uint32_t)0 - (uint32_t)(((static_cast<uint32_t>(_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$frontend$bpd$banked_predictors_0$components_0$columns_0$_T_52[L].val) & 0x1u)) != 0))))) & 0x3ffu)) & ~((uint32_t)0 - (uint32_t)(((static_cast<uint32_t>(_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$frontend$bpd$banked_predictors_0$components_0$columns_0$_T_46[L].val) & 0x1u)) != 0))))) & 0x3ffu)) & ~((uint32_t)0 - (uint32_t)(((static_cast<uint32_t>(_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$frontend$bpd$banked_predictors_0$components_0$columns_0$_T_43[L].val) & 0x1u)) != 0))))) & 0x3ffu)) & ~((uint32_t)0 - (uint32_t)(((static_cast<uint32_t>(_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$frontend$bpd$banked_predictors_0$components_0$columns_0$_T_40[L].val) & 0x1u)) != 0))))) & 0x3ffu)) & ((uint32_t)0 - (uint32_t)(((static_cast<uint32_t>(_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$frontend$bpd$banked_predictors_0$components_0$columns_0$_T_38[L].val) & 0x1u)) != 0))) | (((static_cast<uint32_t>(((static_cast<uint32_t>(_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$frontend$bpd$banked_predictors_0$components_0$columns_0$__v2_state_entries$r1[L].val) >> 0) & 0x3ffu)) & 0x3ffu)) & ~((uint32_t)0 - (uint32_t)(((static_cast<uint32_t>(_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$frontend$bpd$banked_predictors_0$components_0$columns_0$_T_38[L].val) & 0x1u)) != 0))))) & 0x3ffu)) & 0x3ffu));
       _s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$frontend$bpd$banked_predictors_0$components_0$columns_0$_GEN_74[L].val = static_cast<typename UInt<1>::scalar_t>((static_cast<uint8_t>((static_cast<uint8_t>((((static_cast<uint8_t>((~static_cast<uint8_t>(_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$frontend$bpd$banked_predictors_0$components_0$columns_0$_T_38[L].val))) & 0x1u)) & (_v2_local_37131_0.val))) & 0x1u)) & 0x1u));
     }
-
-    if (partition_task_poll) partition_task_poll(partition_task_context, 1, true, 14);
     // [vec state-read] 4 templates x 16 lanes
     #if ESSENT_ORACLE_VERIFY // [extern-read] verify-only recompute: ldut.tile_prci_domain.tile_reset_domain.boom_tile.frontend.bpd.banked_predictors_0.components_0.columns_0.__v2_state_entries_1.r0$rtl
     {
@@ -17643,6 +17654,8 @@ void TestHarness::eval_forward_p1(bool update_registers, bool verbose, bool done
     for (int L = 0; L < 16; L++) {
       _s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$frontend$bpd$banked_predictors_0$components_0$columns_0$_GEN_80[L].val = static_cast<typename UInt<13>::scalar_t>((static_cast<uint32_t>((static_cast<uint32_t>(((static_cast<uint32_t>((static_cast<uint32_t>(((((static_cast<uint32_t>(((((static_cast<uint32_t>(((static_cast<uint32_t>(_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$frontend$bpd$banked_predictors_0$components_0$columns_0$__v2_state_entries$r1[L].val) >> 13) & 0x3ffu)) & 0x3ffu)) & ((uint32_t)0 - (uint32_t)(((static_cast<uint32_t>(_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$frontend$bpd$banked_predictors_0$components_0$columns_0$_T_40[L].val) & 0x1u)) != 0))) | (((static_cast<uint32_t>(((((static_cast<uint32_t>(((static_cast<uint32_t>(_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$frontend$bpd$banked_predictors_0$components_0$columns_0$__v2_state_entries$r1[L].val) >> 13) & 0x3ffu)) & 0x3ffu)) & ((uint32_t)0 - (uint32_t)(((static_cast<uint32_t>(_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$frontend$bpd$banked_predictors_0$components_0$columns_0$_T_43[L].val) & 0x1u)) != 0))) | (((static_cast<uint32_t>(((((static_cast<uint32_t>(((static_cast<uint32_t>(_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$frontend$bpd$banked_predictors_0$components_0$columns_0$__v2_state_entries$r1[L].val) >> 13) & 0x3ffu)) & 0x3ffu)) & ((uint32_t)0 - (uint32_t)(((static_cast<uint32_t>(_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$frontend$bpd$banked_predictors_0$components_0$columns_0$_T_46[L].val) & 0x1u)) != 0))) | (((static_cast<uint32_t>(((((static_cast<uint32_t>(((static_cast<uint32_t>(_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$frontend$bpd$banked_predictors_0$components_0$columns_0$__v2_state_entries$r1[L].val) >> 13) & 0x3ffu)) & 0x3ffu)) & ((uint32_t)0 - (uint32_t)(((static_cast<uint32_t>(_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$frontend$bpd$banked_predictors_0$components_0$columns_0$_T_52[L].val) & 0x1u)) != 0))) | (((static_cast<uint32_t>((((_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$frontend$bpd$banked_predictors_0$components_0$columns_0$tag[L].val) & ((uint32_t)0 - (uint32_t)(((static_cast<uint32_t>(_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$frontend$bpd$banked_predictors_0$components_0$columns_0$_T_57[L].val) & 0x1u)) != 0))) | (((static_cast<uint32_t>(((((static_cast<uint32_t>(((static_cast<uint32_t>(_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$frontend$bpd$banked_predictors_0$components_0$columns_0$__v2_state_entries$r1[L].val) >> 13) & 0x3ffu)) & 0x3ffu)) & ((uint32_t)0 - (uint32_t)(((static_cast<uint32_t>(_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$frontend$bpd$banked_predictors_0$components_0$columns_0$_T_62[L].val) & 0x1u)) != 0))) | (((static_cast<uint32_t>(((((static_cast<uint32_t>(((static_cast<uint32_t>(_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$frontend$bpd$banked_predictors_0$components_0$columns_0$__v2_state_entries$r1[L].val) >> 13) & 0x3ffu)) & 0x3ffu)) & ((uint32_t)0 - (uint32_t)(((static_cast<uint32_t>(_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$frontend$bpd$banked_predictors_0$components_0$columns_0$_T_67[L].val) & 0x1u)) != 0))) | (((static_cast<uint32_t>(((((static_cast<uint32_t>(((static_cast<uint32_t>(_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$frontend$bpd$banked_predictors_0$components_0$columns_0$__v2_state_entries$r1[L].val) >> 13) & 0x3ffu)) & 0x3ffu)) & ((uint32_t)0 - (uint32_t)(((static_cast<uint32_t>(_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$frontend$bpd$banked_predictors_0$components_0$columns_0$_T_71[L].val) & 0x1u)) != 0))) | (((static_cast<uint32_t>((((_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$frontend$bpd$banked_predictors_0$components_0$columns_0$tag[L].val) & ((uint32_t)0 - (uint32_t)(((static_cast<uint32_t>(_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$frontend$bpd$banked_predictors_0$components_0$columns_0$_T_74[L].val) & 0x1u)) != 0))) | (((static_cast<uint32_t>(((static_cast<uint32_t>(_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$frontend$bpd$banked_predictors_0$components_0$columns_0$__v2_state_entries$r1[L].val) >> 13) & 0x3ffu)) & 0x3ffu)) & ~((uint32_t)0 - (uint32_t)(((static_cast<uint32_t>(_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$frontend$bpd$banked_predictors_0$components_0$columns_0$_T_74[L].val) & 0x1u)) != 0))))) & 0x3ffu)) & ~((uint32_t)0 - (uint32_t)(((static_cast<uint32_t>(_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$frontend$bpd$banked_predictors_0$components_0$columns_0$_T_71[L].val) & 0x1u)) != 0))))) & 0x3ffu)) & ~((uint32_t)0 - (uint32_t)(((static_cast<uint32_t>(_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$frontend$bpd$banked_predictors_0$components_0$columns_0$_T_67[L].val) & 0x1u)) != 0))))) & 0x3ffu)) & ~((uint32_t)0 - (uint32_t)(((static_cast<uint32_t>(_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$frontend$bpd$banked_predictors_0$components_0$columns_0$_T_62[L].val) & 0x1u)) != 0))))) & 0x3ffu)) & ~((uint32_t)0 - (uint32_t)(((static_cast<uint32_t>(_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$frontend$bpd$banked_predictors_0$components_0$columns_0$_T_57[L].val) & 0x1u)) != 0))))) & 0x3ffu)) & ~((uint32_t)0 - (uint32_t)(((static_cast<uint32_t>(_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$frontend$bpd$banked_predictors_0$components_0$columns_0$_T_52[L].val) & 0x1u)) != 0))))) & 0x3ffu)) & ~((uint32_t)0 - (uint32_t)(((static_cast<uint32_t>(_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$frontend$bpd$banked_predictors_0$components_0$columns_0$_T_46[L].val) & 0x1u)) != 0))))) & 0x3ffu)) & ~((uint32_t)0 - (uint32_t)(((static_cast<uint32_t>(_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$frontend$bpd$banked_predictors_0$components_0$columns_0$_T_43[L].val) & 0x1u)) != 0))))) & 0x3ffu)) & ~((uint32_t)0 - (uint32_t)(((static_cast<uint32_t>(_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$frontend$bpd$banked_predictors_0$components_0$columns_0$_T_40[L].val) & 0x1u)) != 0))))) & 0x3ffu)) & ((uint32_t)0 - (uint32_t)(((static_cast<uint32_t>(_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$frontend$bpd$banked_predictors_0$components_0$columns_0$_T_38[L].val) & 0x1u)) != 0))) | (((static_cast<uint32_t>(((static_cast<uint32_t>(_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$frontend$bpd$banked_predictors_0$components_0$columns_0$__v2_state_entries$r1[L].val) >> 13) & 0x3ffu)) & 0x3ffu)) & ~((uint32_t)0 - (uint32_t)(((static_cast<uint32_t>(_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$frontend$bpd$banked_predictors_0$components_0$columns_0$_T_38[L].val) & 0x1u)) != 0))))) & 0x3ffu)) << 3) | (static_cast<uint32_t>((static_cast<uint32_t>(((((static_cast<uint32_t>(((((static_cast<uint32_t>(0x0u) & 0x7u)) & ((uint32_t)0 - (uint32_t)(((static_cast<uint32_t>(_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$frontend$bpd$banked_predictors_0$components_0$columns_0$_T_40[L].val) & 0x1u)) != 0))) | (((static_cast<uint32_t>(((((static_cast<uint32_t>(((static_cast<uint32_t>(_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$frontend$bpd$banked_predictors_0$components_0$columns_0$__v2_state_entries$r1[L].val) >> 10) & 0x7u)) & 0x7u)) & ((uint32_t)0 - (uint32_t)(((static_cast<uint32_t>(_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$frontend$bpd$banked_predictors_0$components_0$columns_0$_T_43[L].val) & 0x1u)) != 0))) | (((static_cast<uint32_t>(((((static_cast<uint32_t>((static_cast<uint32_t>((static_cast<uint32_t>((static_cast<uint32_t>(_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$frontend$bpd$banked_predictors_0$components_0$columns_0$_GEN_60[L].val) + static_cast<uint32_t>((static_cast<uint32_t>(0x1u) & 0x7u)))) & 0xfu)) & 0x7u)) & 0x7u)) & ((uint32_t)0 - (uint32_t)(((static_cast<uint32_t>(_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$frontend$bpd$banked_predictors_0$components_0$columns_0$_T_46[L].val) & 0x1u)) != 0))) | (((static_cast<uint32_t>(((((static_cast<uint32_t>(0x0u) & 0x7u)) & ((uint32_t)0 - (uint32_t)(((static_cast<uint32_t>(_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$frontend$bpd$banked_predictors_0$components_0$columns_0$_T_52[L].val) & 0x1u)) != 0))) | (((static_cast<uint32_t>(((((static_cast<uint32_t>(0x1u) & 0x7u)) & ((uint32_t)0 - (uint32_t)(((static_cast<uint32_t>(_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$frontend$bpd$banked_predictors_0$components_0$columns_0$_T_57[L].val) & 0x1u)) != 0))) | (((static_cast<uint32_t>(((((static_cast<uint32_t>(((static_cast<uint32_t>(_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$frontend$bpd$banked_predictors_0$components_0$columns_0$__v2_state_entries$r1[L].val) >> 10) & 0x7u)) & 0x7u)) & ((uint32_t)0 - (uint32_t)(((static_cast<uint32_t>(_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$frontend$bpd$banked_predictors_0$components_0$columns_0$_T_62[L].val) & 0x1u)) != 0))) | (((static_cast<uint32_t>(((((static_cast<uint32_t>(0x1u) & 0x7u)) & ((uint32_t)0 - (uint32_t)(((static_cast<uint32_t>(_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$frontend$bpd$banked_predictors_0$components_0$columns_0$_T_67[L].val) & 0x1u)) != 0))) | (((static_cast<uint32_t>(((((static_cast<uint32_t>(((static_cast<uint32_t>(_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$frontend$bpd$banked_predictors_0$components_0$columns_0$__v2_state_entries$r1[L].val) >> 10) & 0x7u)) & 0x7u)) & ((uint32_t)0 - (uint32_t)(((static_cast<uint32_t>(_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$frontend$bpd$banked_predictors_0$components_0$columns_0$_T_71[L].val) & 0x1u)) != 0))) | (((static_cast<uint32_t>(((((static_cast<uint32_t>(0x1u) & 0x7u)) & ((uint32_t)0 - (uint32_t)(((static_cast<uint32_t>(_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$frontend$bpd$banked_predictors_0$components_0$columns_0$_T_74[L].val) & 0x1u)) != 0))) | (((static_cast<uint32_t>(((static_cast<uint32_t>(_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$frontend$bpd$banked_predictors_0$components_0$columns_0$__v2_state_entries$r1[L].val) >> 10) & 0x7u)) & 0x7u)) & ~((uint32_t)0 - (uint32_t)(((static_cast<uint32_t>(_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$frontend$bpd$banked_predictors_0$components_0$columns_0$_T_74[L].val) & 0x1u)) != 0))))) & 0x7u)) & ~((uint32_t)0 - (uint32_t)(((static_cast<uint32_t>(_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$frontend$bpd$banked_predictors_0$components_0$columns_0$_T_71[L].val) & 0x1u)) != 0))))) & 0x7u)) & ~((uint32_t)0 - (uint32_t)(((static_cast<uint32_t>(_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$frontend$bpd$banked_predictors_0$components_0$columns_0$_T_67[L].val) & 0x1u)) != 0))))) & 0x7u)) & ~((uint32_t)0 - (uint32_t)(((static_cast<uint32_t>(_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$frontend$bpd$banked_predictors_0$components_0$columns_0$_T_62[L].val) & 0x1u)) != 0))))) & 0x7u)) & ~((uint32_t)0 - (uint32_t)(((static_cast<uint32_t>(_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$frontend$bpd$banked_predictors_0$components_0$columns_0$_T_57[L].val) & 0x1u)) != 0))))) & 0x7u)) & ~((uint32_t)0 - (uint32_t)(((static_cast<uint32_t>(_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$frontend$bpd$banked_predictors_0$components_0$columns_0$_T_52[L].val) & 0x1u)) != 0))))) & 0x7u)) & ~((uint32_t)0 - (uint32_t)(((static_cast<uint32_t>(_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$frontend$bpd$banked_predictors_0$components_0$columns_0$_T_46[L].val) & 0x1u)) != 0))))) & 0x7u)) & ~((uint32_t)0 - (uint32_t)(((static_cast<uint32_t>(_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$frontend$bpd$banked_predictors_0$components_0$columns_0$_T_43[L].val) & 0x1u)) != 0))))) & 0x7u)) & ~((uint32_t)0 - (uint32_t)(((static_cast<uint32_t>(_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$frontend$bpd$banked_predictors_0$components_0$columns_0$_T_40[L].val) & 0x1u)) != 0))))) & 0x7u)) & ((uint32_t)0 - (uint32_t)(((static_cast<uint32_t>(_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$frontend$bpd$banked_predictors_0$components_0$columns_0$_T_38[L].val) & 0x1u)) != 0))) | (((static_cast<uint32_t>(((static_cast<uint32_t>(_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$frontend$bpd$banked_predictors_0$components_0$columns_0$__v2_state_entries$r1[L].val) >> 10) & 0x7u)) & 0x7u)) & ~((uint32_t)0 - (uint32_t)(((static_cast<uint32_t>(_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$frontend$bpd$banked_predictors_0$components_0$columns_0$_T_38[L].val) & 0x1u)) != 0))))) & 0x7u)) & 0x7u))) & 0x1fffu)) & 0x1fffu));
     }
+
+    if (partition_task_poll) partition_task_poll(partition_task_context, 1, true, 14);
     // [vec state-read] 2 templates x 16 lanes
     #if ESSENT_ORACLE_VERIFY // [extern-read] verify-only recompute: ldut.tile_prci_domain.tile_reset_domain.boom_tile.frontend.bpd.banked_predictors_0.components_0.columns_0.__v2_state_entries.r0$rtl
     {
@@ -17681,8 +17694,6 @@ void TestHarness::eval_forward_p1(bool update_registers, bool verbose, bool done
     { const int L = 15;
       _s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$frontend$bpd$banked_predictors_0$components_0$columns_0$doing_reset$next[((L) == 0 ? 0 : 1)].val = static_cast<typename UInt<1>::scalar_t>((static_cast<uint8_t>((static_cast<uint8_t>(((_s_ldut$reset[L].val) | ((static_cast<uint8_t>((((static_cast<uint8_t>((~static_cast<uint8_t>(_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$frontend$bpd$banked_predictors_0$components_0$columns_0$_T_2[L].val))) & 0x1u)) & (ldut.tile_prci_domain.tile_reset_domain.boom_tile.frontend.bpd.banked_predictors_0.components_0.columns_0.doing_reset[L].val))) & 0x1u)))) & 0x1u)) & 0x1u));
     }
-
-    if (partition_task_poll) partition_task_poll(partition_task_context, 1, true, 14);
     // [vec comb] 1 templates x 16 lanes
     ESSENT_LANE_LOOP
     for (int L = 0; L < 16; L++) {
@@ -21436,14 +21447,11 @@ void TestHarness::eval_forward_p1(bool update_registers, bool verbose, bool done
         for (int L = 0; L < 16; L++) {
           const uint64_t _v2_sa_addr = essent_to_u64(_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$frontend$ftq$meta_0_bpd_meta_addr_pipe_0[L]);
           UInt<120> _v2_sa_value = ldut.tile_prci_domain.tile_reset_domain.boom_tile.frontend.ftq.meta_0[_v2_sa_addr];
+          // [branchless-forward] select a valid source before loading data
           const int _v2_sa_prev_code = _v2_sa_last[_v2_sa_addr];
-          if (_v2_sa_prev_code >= 0) {
-            [[maybe_unused]] const int _v2_sa_prev_lane = _v2_sa_prev_code / 1;
-            switch (_v2_sa_prev_code % 1) {
-              case 0: _v2_sa_value = ldut.tile_prci_domain.tile_reset_domain.boom_tile.frontend.f4.ram_bpd_meta_0[_v2_sa_prev_lane]; break;
-              default: __builtin_unreachable();
-            }
-          }
+          const bool _v2_sa_prev_valid = _v2_sa_prev_code >= 0;
+          [[maybe_unused]] const int _v2_sa_prev_lane = _v2_sa_prev_code & -static_cast<int>(_v2_sa_prev_valid);
+          _v2_sa_value = *essent_select_ptr(_v2_sa_prev_valid, &(ldut.tile_prci_domain.tile_reset_domain.boom_tile.frontend.f4.ram_bpd_meta_0[_v2_sa_prev_lane]), &_v2_sa_value);
           _s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$frontend$ftq$meta_0$bpd_meta[L] = _v2_sa_value;
           if (essent_to_u64(ldut.tile_prci_domain.tile_reset_domain.boom_tile.frontend.ftq.REG_12[L] & _s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$frontend$ftq$io_enq_valid[L]) && essent_to_u64(UInt<1>(0x1))) _v2_sa_last[essent_to_u64(ldut.tile_prci_domain.tile_reset_domain.boom_tile.frontend.ftq.enq_ptr[L])] = L * 1 + 0;
         }
@@ -21466,14 +21474,11 @@ void TestHarness::eval_forward_p1(bool update_registers, bool verbose, bool done
         for (int L = 0; L < 16; L++) {
           const uint64_t _v2_sa_addr = essent_to_u64(_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$frontend$ftq$meta_1_bpd_meta_addr_pipe_0[L]);
           UInt<120> _v2_sa_value = ldut.tile_prci_domain.tile_reset_domain.boom_tile.frontend.ftq.meta_1[_v2_sa_addr];
+          // [branchless-forward] select a valid source before loading data
           const int _v2_sa_prev_code = _v2_sa_last[_v2_sa_addr];
-          if (_v2_sa_prev_code >= 0) {
-            [[maybe_unused]] const int _v2_sa_prev_lane = _v2_sa_prev_code / 1;
-            switch (_v2_sa_prev_code % 1) {
-              case 0: _v2_sa_value = ldut.tile_prci_domain.tile_reset_domain.boom_tile.frontend.f4.ram_bpd_meta_1[_v2_sa_prev_lane]; break;
-              default: __builtin_unreachable();
-            }
-          }
+          const bool _v2_sa_prev_valid = _v2_sa_prev_code >= 0;
+          [[maybe_unused]] const int _v2_sa_prev_lane = _v2_sa_prev_code & -static_cast<int>(_v2_sa_prev_valid);
+          _v2_sa_value = *essent_select_ptr(_v2_sa_prev_valid, &(ldut.tile_prci_domain.tile_reset_domain.boom_tile.frontend.f4.ram_bpd_meta_1[_v2_sa_prev_lane]), &_v2_sa_value);
           _s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$frontend$ftq$meta_1$bpd_meta[L] = _v2_sa_value;
           if (essent_to_u64(ldut.tile_prci_domain.tile_reset_domain.boom_tile.frontend.ftq.REG_12[L] & _s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$frontend$ftq$io_enq_valid[L]) && essent_to_u64(UInt<1>(0x1))) _v2_sa_last[essent_to_u64(ldut.tile_prci_domain.tile_reset_domain.boom_tile.frontend.ftq.enq_ptr[L])] = L * 1 + 0;
         }
@@ -21488,7 +21493,7 @@ void TestHarness::eval_forward_p1(bool update_registers, bool verbose, bool done
         _v2_sa_anyw |= (uint64_t)(essent_to_u64(ldut.tile_prci_domain.tile_reset_domain.boom_tile.frontend.ftq.REG_12[G] & _s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$frontend$ftq$io_enq_valid[G]) != 0) & (uint64_t)(essent_to_u64(UInt<1>(0x1)) != 0);
       }
       if (_v2_sa_anyw == 0) {
-        for (int L = 0; L < 16; L++) { _s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$frontend$ftq$ghist_0_current_saw_branch_not_taken$bpd_ghist$rtl[L] = ldut.tile_prci_domain.tile_reset_domain.boom_tile.frontend.ftq.ghist_0_current_saw_branch_not_taken[essent_to_u64(_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$frontend$ftq$ghist_0_current_saw_branch_not_taken_bpd_ghist_addr_pipe_0[L])]; }
+        essent_table_read<16, 32, false>(&_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$frontend$ftq$ghist_0_current_saw_branch_not_taken$bpd_ghist$rtl[0], &ldut.tile_prci_domain.tile_reset_domain.boom_tile.frontend.ftq.ghist_0_current_saw_branch_not_taken[0], &_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$frontend$ftq$ghist_0_current_saw_branch_not_taken_bpd_ghist_addr_pipe_0[0]);
       } else {
       {
         // [state-read-dense] forwarding=branchless
@@ -21497,10 +21502,11 @@ void TestHarness::eval_forward_p1(bool update_registers, bool verbose, bool done
         for (int L = 0; L < 16; L++) {
           const uint64_t _v2_sa_addr = essent_to_u64(_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$frontend$ftq$ghist_0_current_saw_branch_not_taken_bpd_ghist_addr_pipe_0[L]);
           UInt<1> _v2_sa_value = ldut.tile_prci_domain.tile_reset_domain.boom_tile.frontend.ftq.ghist_0_current_saw_branch_not_taken[_v2_sa_addr];
+          // [branchless-forward] select a valid source before loading data
           const int _v2_sa_prev_code = _v2_sa_last[_v2_sa_addr];
-          const uint64_t _v2_sa_prev_valid = (uint64_t)(_v2_sa_prev_code >= 0);
+          const bool _v2_sa_prev_valid = _v2_sa_prev_code >= 0;
           [[maybe_unused]] const int _v2_sa_prev_lane = _v2_sa_prev_code & -static_cast<int>(_v2_sa_prev_valid);
-          _v2_sa_value = essent_mux(UInt<1>(_v2_sa_prev_valid), _s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$frontend$f4$ram_ghist_current_saw_branch_not_taken[_v2_sa_prev_lane], _v2_sa_value);
+          _v2_sa_value = *essent_select_ptr(_v2_sa_prev_valid, &(_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$frontend$f4$ram_ghist_current_saw_branch_not_taken[_v2_sa_prev_lane]), &_v2_sa_value);
           _s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$frontend$ftq$ghist_0_current_saw_branch_not_taken$bpd_ghist$rtl[L] = _v2_sa_value;
           const uint64_t _v2_sa_write_addr_0 = essent_to_u64(ldut.tile_prci_domain.tile_reset_domain.boom_tile.frontend.ftq.enq_ptr[L]);
           const uint64_t _v2_sa_write_take_0 = (uint64_t)(essent_to_u64(ldut.tile_prci_domain.tile_reset_domain.boom_tile.frontend.ftq.REG_12[L] & _s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$frontend$ftq$io_enq_valid[L]) != 0) & (uint64_t)(essent_to_u64(UInt<1>(0x1)) != 0);
@@ -21520,7 +21526,7 @@ void TestHarness::eval_forward_p1(bool update_registers, bool verbose, bool done
         _v2_sa_anyw |= (uint64_t)(essent_to_u64(ldut.tile_prci_domain.tile_reset_domain.boom_tile.frontend.ftq.REG_12[G] & _s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$frontend$ftq$io_enq_valid[G]) != 0) & (uint64_t)(essent_to_u64(UInt<1>(0x1)) != 0);
       }
       if (_v2_sa_anyw == 0) {
-        for (int L = 0; L < 16; L++) { _s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$frontend$ftq$ghist_1_current_saw_branch_not_taken$MPORT_3$rtl[L] = ldut.tile_prci_domain.tile_reset_domain.boom_tile.frontend.ftq.ghist_1_current_saw_branch_not_taken[essent_to_u64(_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$frontend$ftq$ghist_1_current_saw_branch_not_taken_MPORT_3_addr_pipe_0[L])]; }
+        essent_table_read<16, 32, false>(&_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$frontend$ftq$ghist_1_current_saw_branch_not_taken$MPORT_3$rtl[0], &ldut.tile_prci_domain.tile_reset_domain.boom_tile.frontend.ftq.ghist_1_current_saw_branch_not_taken[0], &_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$frontend$ftq$ghist_1_current_saw_branch_not_taken_MPORT_3_addr_pipe_0[0]);
       } else {
       {
         // [state-read-dense] forwarding=branchless
@@ -21529,10 +21535,11 @@ void TestHarness::eval_forward_p1(bool update_registers, bool verbose, bool done
         for (int L = 0; L < 16; L++) {
           const uint64_t _v2_sa_addr = essent_to_u64(_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$frontend$ftq$ghist_1_current_saw_branch_not_taken_MPORT_3_addr_pipe_0[L]);
           UInt<1> _v2_sa_value = ldut.tile_prci_domain.tile_reset_domain.boom_tile.frontend.ftq.ghist_1_current_saw_branch_not_taken[_v2_sa_addr];
+          // [branchless-forward] select a valid source before loading data
           const int _v2_sa_prev_code = _v2_sa_last[_v2_sa_addr];
-          const uint64_t _v2_sa_prev_valid = (uint64_t)(_v2_sa_prev_code >= 0);
+          const bool _v2_sa_prev_valid = _v2_sa_prev_code >= 0;
           [[maybe_unused]] const int _v2_sa_prev_lane = _v2_sa_prev_code & -static_cast<int>(_v2_sa_prev_valid);
-          _v2_sa_value = essent_mux(UInt<1>(_v2_sa_prev_valid), _s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$frontend$f4$ram_ghist_current_saw_branch_not_taken[_v2_sa_prev_lane], _v2_sa_value);
+          _v2_sa_value = *essent_select_ptr(_v2_sa_prev_valid, &(_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$frontend$f4$ram_ghist_current_saw_branch_not_taken[_v2_sa_prev_lane]), &_v2_sa_value);
           _s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$frontend$ftq$ghist_1_current_saw_branch_not_taken$MPORT_3$rtl[L] = _v2_sa_value;
           const uint64_t _v2_sa_write_addr_0 = essent_to_u64(ldut.tile_prci_domain.tile_reset_domain.boom_tile.frontend.ftq.enq_ptr[L]);
           const uint64_t _v2_sa_write_take_0 = (uint64_t)(essent_to_u64(ldut.tile_prci_domain.tile_reset_domain.boom_tile.frontend.ftq.REG_12[L] & _s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$frontend$ftq$io_enq_valid[L]) != 0) & (uint64_t)(essent_to_u64(UInt<1>(0x1)) != 0);
@@ -22445,7 +22452,7 @@ void TestHarness::eval_forward_p1(bool update_registers, bool verbose, bool done
         ESSENT_LANE_LOOP
         for (int L = 0; L < 16; L++) ldut.tile_prci_domain.tile_reset_domain.boom_tile.frontend.ftq.prev_ghist_current_saw_branch_not_taken[L] = _gv;
       } else {
-        for (int L = 1; L < 16; L++) ldut.tile_prci_domain.tile_reset_domain.boom_tile.frontend.ftq.prev_ghist_current_saw_branch_not_taken[L] = (~_s_ldut$reset[L - 1]) & (_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$core$io_ifu_redirect_val[L - 1] ? (_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$frontend$ftq$do_enq[L - 1] ? _s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$frontend$f4$ram_ghist_current_saw_branch_not_taken[L - 1] : ldut.tile_prci_domain.tile_reset_domain.boom_tile.frontend.ftq.prev_ghist_current_saw_branch_not_taken[L - 1]) : (ldut.tile_prci_domain.tile_reset_domain.boom_tile.frontend.ftq.REG_13[L - 1] ? _s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$frontend$ftq$ghist_0_current_saw_branch_not_taken$bpd_ghist[L - 1] : (_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$frontend$ftq$do_enq[L - 1] ? _s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$frontend$f4$ram_ghist_current_saw_branch_not_taken[L - 1] : ldut.tile_prci_domain.tile_reset_domain.boom_tile.frontend.ftq.prev_ghist_current_saw_branch_not_taken[L - 1])));
+        for (int L = 1; L < 16; L++) ldut.tile_prci_domain.tile_reset_domain.boom_tile.frontend.ftq.prev_ghist_current_saw_branch_not_taken[L].val = static_cast<typename UInt<1>::scalar_t>((static_cast<uint8_t>((static_cast<uint8_t>((((static_cast<uint8_t>((~static_cast<uint8_t>(_s_ldut$reset[L - 1].val))) & 0x1u)) & ((static_cast<uint8_t>(essent_select_word<uint32_t>(((static_cast<uint8_t>(_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$core$io_ifu_redirect_val[L - 1].val) & 0x1u)) != 0, static_cast<uint32_t>((static_cast<uint8_t>(essent_select_word<uint32_t>(((static_cast<uint8_t>(_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$frontend$ftq$do_enq[L - 1].val) & 0x1u)) != 0, static_cast<uint32_t>(_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$frontend$f4$ram_ghist_current_saw_branch_not_taken[L - 1].val), static_cast<uint32_t>(ldut.tile_prci_domain.tile_reset_domain.boom_tile.frontend.ftq.prev_ghist_current_saw_branch_not_taken[L - 1].val))) & 0x1u)), static_cast<uint32_t>((static_cast<uint8_t>(essent_select_word<uint32_t>(((static_cast<uint8_t>(ldut.tile_prci_domain.tile_reset_domain.boom_tile.frontend.ftq.REG_13[L - 1].val) & 0x1u)) != 0, static_cast<uint32_t>(_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$frontend$ftq$ghist_0_current_saw_branch_not_taken$bpd_ghist[L - 1].val), static_cast<uint32_t>((static_cast<uint8_t>(essent_select_word<uint32_t>(((static_cast<uint8_t>(_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$frontend$ftq$do_enq[L - 1].val) & 0x1u)) != 0, static_cast<uint32_t>(_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$frontend$f4$ram_ghist_current_saw_branch_not_taken[L - 1].val), static_cast<uint32_t>(ldut.tile_prci_domain.tile_reset_domain.boom_tile.frontend.ftq.prev_ghist_current_saw_branch_not_taken[L - 1].val))) & 0x1u)))) & 0x1u)))) & 0x1u)))) & 0x1u)) & 0x1u));
       }
     }
     // [vec boundary-next] 2 templates x 16 lanes
@@ -22472,7 +22479,7 @@ void TestHarness::eval_forward_p1(bool update_registers, bool verbose, bool done
         ESSENT_LANE_LOOP
         for (int L = 0; L < 16; L++) ldut.tile_prci_domain.tile_reset_domain.boom_tile.frontend.ftq.prev_entry_cfi_idx_valid[L] = _gv;
       } else {
-        for (int L = 1; L < 16; L++) ldut.tile_prci_domain.tile_reset_domain.boom_tile.frontend.ftq.prev_entry_cfi_idx_valid[L] = (~_s_ldut$reset[L - 1]) & (_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$core$io_ifu_redirect_val[L - 1] ? (_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$frontend$ftq$do_enq[L - 1] ? _s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$frontend$f4$ram_cfi_idx_valid[L - 1] : ldut.tile_prci_domain.tile_reset_domain.boom_tile.frontend.ftq.prev_entry_cfi_idx_valid[L - 1]) : (ldut.tile_prci_domain.tile_reset_domain.boom_tile.frontend.ftq.REG_13[L - 1] ? ldut.tile_prci_domain.tile_reset_domain.boom_tile.frontend.ftq.REG_14_cfi_idx_valid[L - 1] : (_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$frontend$ftq$do_enq[L - 1] ? _s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$frontend$f4$ram_cfi_idx_valid[L - 1] : ldut.tile_prci_domain.tile_reset_domain.boom_tile.frontend.ftq.prev_entry_cfi_idx_valid[L - 1])));
+        for (int L = 1; L < 16; L++) ldut.tile_prci_domain.tile_reset_domain.boom_tile.frontend.ftq.prev_entry_cfi_idx_valid[L].val = static_cast<typename UInt<1>::scalar_t>((static_cast<uint8_t>((static_cast<uint8_t>((((static_cast<uint8_t>((~static_cast<uint8_t>(_s_ldut$reset[L - 1].val))) & 0x1u)) & ((static_cast<uint8_t>(essent_select_word<uint32_t>(((static_cast<uint8_t>(_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$core$io_ifu_redirect_val[L - 1].val) & 0x1u)) != 0, static_cast<uint32_t>((static_cast<uint8_t>(essent_select_word<uint32_t>(((static_cast<uint8_t>(_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$frontend$ftq$do_enq[L - 1].val) & 0x1u)) != 0, static_cast<uint32_t>(_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$frontend$f4$ram_cfi_idx_valid[L - 1].val), static_cast<uint32_t>(ldut.tile_prci_domain.tile_reset_domain.boom_tile.frontend.ftq.prev_entry_cfi_idx_valid[L - 1].val))) & 0x1u)), static_cast<uint32_t>((static_cast<uint8_t>(essent_select_word<uint32_t>(((static_cast<uint8_t>(ldut.tile_prci_domain.tile_reset_domain.boom_tile.frontend.ftq.REG_13[L - 1].val) & 0x1u)) != 0, static_cast<uint32_t>(ldut.tile_prci_domain.tile_reset_domain.boom_tile.frontend.ftq.REG_14_cfi_idx_valid[L - 1].val), static_cast<uint32_t>((static_cast<uint8_t>(essent_select_word<uint32_t>(((static_cast<uint8_t>(_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$frontend$ftq$do_enq[L - 1].val) & 0x1u)) != 0, static_cast<uint32_t>(_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$frontend$f4$ram_cfi_idx_valid[L - 1].val), static_cast<uint32_t>(ldut.tile_prci_domain.tile_reset_domain.boom_tile.frontend.ftq.prev_entry_cfi_idx_valid[L - 1].val))) & 0x1u)))) & 0x1u)))) & 0x1u)))) & 0x1u)) & 0x1u));
       }
     }
     // [vec boundary-next] 2 templates x 16 lanes
@@ -22499,7 +22506,7 @@ void TestHarness::eval_forward_p1(bool update_registers, bool verbose, bool done
         ESSENT_LANE_LOOP
         for (int L = 0; L < 16; L++) ldut.tile_prci_domain.tile_reset_domain.boom_tile.frontend.ftq.prev_entry_cfi_idx_bits[L] = _gv;
       } else {
-        for (int L = 1; L < 16; L++) ldut.tile_prci_domain.tile_reset_domain.boom_tile.frontend.ftq.prev_entry_cfi_idx_bits[L] = _s_ldut$reset[L - 1] ? UInt<3>(0x0) : (_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$core$io_ifu_redirect_val[L - 1] ? (_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$frontend$ftq$do_enq[L - 1] ? _s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$frontend$f4$ram_cfi_idx_bits[L - 1] : ldut.tile_prci_domain.tile_reset_domain.boom_tile.frontend.ftq.prev_entry_cfi_idx_bits[L - 1]) : (ldut.tile_prci_domain.tile_reset_domain.boom_tile.frontend.ftq.REG_13[L - 1] ? ldut.tile_prci_domain.tile_reset_domain.boom_tile.frontend.ftq.REG_14_cfi_idx_bits[L - 1] : (_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$frontend$ftq$do_enq[L - 1] ? _s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$frontend$f4$ram_cfi_idx_bits[L - 1] : ldut.tile_prci_domain.tile_reset_domain.boom_tile.frontend.ftq.prev_entry_cfi_idx_bits[L - 1])));
+        for (int L = 1; L < 16; L++) ldut.tile_prci_domain.tile_reset_domain.boom_tile.frontend.ftq.prev_entry_cfi_idx_bits[L].val = static_cast<typename UInt<3>::scalar_t>((static_cast<uint8_t>((static_cast<uint8_t>(essent_select_word<uint32_t>(((static_cast<uint8_t>(_s_ldut$reset[L - 1].val) & 0x1u)) != 0, static_cast<uint32_t>((static_cast<uint8_t>(0x0u) & 0x7u)), static_cast<uint32_t>((static_cast<uint8_t>(essent_select_word<uint32_t>(((static_cast<uint8_t>(_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$core$io_ifu_redirect_val[L - 1].val) & 0x1u)) != 0, static_cast<uint32_t>((static_cast<uint8_t>(essent_select_word<uint32_t>(((static_cast<uint8_t>(_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$frontend$ftq$do_enq[L - 1].val) & 0x1u)) != 0, static_cast<uint32_t>(_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$frontend$f4$ram_cfi_idx_bits[L - 1].val), static_cast<uint32_t>(ldut.tile_prci_domain.tile_reset_domain.boom_tile.frontend.ftq.prev_entry_cfi_idx_bits[L - 1].val))) & 0x7u)), static_cast<uint32_t>((static_cast<uint8_t>(essent_select_word<uint32_t>(((static_cast<uint8_t>(ldut.tile_prci_domain.tile_reset_domain.boom_tile.frontend.ftq.REG_13[L - 1].val) & 0x1u)) != 0, static_cast<uint32_t>(ldut.tile_prci_domain.tile_reset_domain.boom_tile.frontend.ftq.REG_14_cfi_idx_bits[L - 1].val), static_cast<uint32_t>((static_cast<uint8_t>(essent_select_word<uint32_t>(((static_cast<uint8_t>(_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$frontend$ftq$do_enq[L - 1].val) & 0x1u)) != 0, static_cast<uint32_t>(_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$frontend$f4$ram_cfi_idx_bits[L - 1].val), static_cast<uint32_t>(ldut.tile_prci_domain.tile_reset_domain.boom_tile.frontend.ftq.prev_entry_cfi_idx_bits[L - 1].val))) & 0x7u)))) & 0x7u)))) & 0x7u)))) & 0x7u)) & 0x7u));
       }
     }
     // [vec comb] 1 templates x 16 lanes
@@ -22531,7 +22538,7 @@ void TestHarness::eval_forward_p1(bool update_registers, bool verbose, bool done
         ESSENT_LANE_LOOP
         for (int L = 0; L < 16; L++) ldut.tile_prci_domain.tile_reset_domain.boom_tile.frontend.ftq.prev_entry_cfi_taken[L] = _gv;
       } else {
-        for (int L = 1; L < 16; L++) ldut.tile_prci_domain.tile_reset_domain.boom_tile.frontend.ftq.prev_entry_cfi_taken[L] = (~_s_ldut$reset[L - 1]) & (_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$core$io_ifu_redirect_val[L - 1] ? (_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$frontend$ftq$do_enq[L - 1] ? _s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$frontend$f4$ram_cfi_idx_valid[L - 1] : ldut.tile_prci_domain.tile_reset_domain.boom_tile.frontend.ftq.prev_entry_cfi_taken[L - 1]) : (ldut.tile_prci_domain.tile_reset_domain.boom_tile.frontend.ftq.REG_13[L - 1] ? ldut.tile_prci_domain.tile_reset_domain.boom_tile.frontend.ftq.REG_14_cfi_taken[L - 1] : (_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$frontend$ftq$do_enq[L - 1] ? _s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$frontend$f4$ram_cfi_idx_valid[L - 1] : ldut.tile_prci_domain.tile_reset_domain.boom_tile.frontend.ftq.prev_entry_cfi_taken[L - 1])));
+        for (int L = 1; L < 16; L++) ldut.tile_prci_domain.tile_reset_domain.boom_tile.frontend.ftq.prev_entry_cfi_taken[L].val = static_cast<typename UInt<1>::scalar_t>((static_cast<uint8_t>((static_cast<uint8_t>((((static_cast<uint8_t>((~static_cast<uint8_t>(_s_ldut$reset[L - 1].val))) & 0x1u)) & ((static_cast<uint8_t>(essent_select_word<uint32_t>(((static_cast<uint8_t>(_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$core$io_ifu_redirect_val[L - 1].val) & 0x1u)) != 0, static_cast<uint32_t>((static_cast<uint8_t>(essent_select_word<uint32_t>(((static_cast<uint8_t>(_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$frontend$ftq$do_enq[L - 1].val) & 0x1u)) != 0, static_cast<uint32_t>(_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$frontend$f4$ram_cfi_idx_valid[L - 1].val), static_cast<uint32_t>(ldut.tile_prci_domain.tile_reset_domain.boom_tile.frontend.ftq.prev_entry_cfi_taken[L - 1].val))) & 0x1u)), static_cast<uint32_t>((static_cast<uint8_t>(essent_select_word<uint32_t>(((static_cast<uint8_t>(ldut.tile_prci_domain.tile_reset_domain.boom_tile.frontend.ftq.REG_13[L - 1].val) & 0x1u)) != 0, static_cast<uint32_t>(ldut.tile_prci_domain.tile_reset_domain.boom_tile.frontend.ftq.REG_14_cfi_taken[L - 1].val), static_cast<uint32_t>((static_cast<uint8_t>(essent_select_word<uint32_t>(((static_cast<uint8_t>(_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$frontend$ftq$do_enq[L - 1].val) & 0x1u)) != 0, static_cast<uint32_t>(_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$frontend$f4$ram_cfi_idx_valid[L - 1].val), static_cast<uint32_t>(ldut.tile_prci_domain.tile_reset_domain.boom_tile.frontend.ftq.prev_entry_cfi_taken[L - 1].val))) & 0x1u)))) & 0x1u)))) & 0x1u)))) & 0x1u)) & 0x1u));
       }
     }
     // [vec comb] 2 templates x 16 lanes
@@ -22540,6 +22547,8 @@ void TestHarness::eval_forward_p1(bool update_registers, bool verbose, bool done
       _s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$frontend$ftq$_T_44[L].val = static_cast<typename UInt<1>::scalar_t>((static_cast<uint8_t>((static_cast<uint8_t>(((ldut.tile_prci_domain.tile_reset_domain.boom_tile.frontend.ftq.prev_entry_cfi_idx_valid[L].val) & (ldut.tile_prci_domain.tile_reset_domain.boom_tile.frontend.ftq.prev_entry_cfi_taken[L].val))) & 0x1u)) & 0x1u));
       _s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$frontend$ftq$_T_46[L].val = static_cast<typename UInt<1>::scalar_t>((static_cast<uint8_t>((static_cast<uint8_t>(((_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$frontend$ftq$_T_44[L].val) & ((static_cast<uint8_t>(((ldut.tile_prci_domain.tile_reset_domain.boom_tile.frontend.ftq.prev_entry_cfi_idx_bits[L].val) < ((static_cast<uint8_t>(0x4u) & 0x7u)))) & 0x1u)))) & 0x1u)) & 0x1u));
     }
+
+    if (partition_task_poll) partition_task_poll(partition_task_context, 1, true, 19);
     // [vec boundary-next] 2 templates x 16 lanes
     // [boundary next] 2 templates, two retained lanes
     { const int L = 0;
@@ -22564,11 +22573,9 @@ void TestHarness::eval_forward_p1(bool update_registers, bool verbose, bool done
         ESSENT_LANE_LOOP
         for (int L = 0; L < 16; L++) ldut.tile_prci_domain.tile_reset_domain.boom_tile.frontend.ftq.prev_entry_br_mask[L] = _gv;
       } else {
-        for (int L = 1; L < 16; L++) ldut.tile_prci_domain.tile_reset_domain.boom_tile.frontend.ftq.prev_entry_br_mask[L] = _s_ldut$reset[L - 1] ? UInt<8>(0x0) : (_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$core$io_ifu_redirect_val[L - 1] ? (_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$frontend$ftq$do_enq[L - 1] ? _s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$frontend$ftq$_T_11[L - 1] : ldut.tile_prci_domain.tile_reset_domain.boom_tile.frontend.ftq.prev_entry_br_mask[L - 1]) : (ldut.tile_prci_domain.tile_reset_domain.boom_tile.frontend.ftq.REG_13[L - 1] ? ldut.tile_prci_domain.tile_reset_domain.boom_tile.frontend.ftq.REG_14_br_mask[L - 1] : (_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$frontend$ftq$do_enq[L - 1] ? _s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$frontend$ftq$_T_11[L - 1] : ldut.tile_prci_domain.tile_reset_domain.boom_tile.frontend.ftq.prev_entry_br_mask[L - 1])));
+        for (int L = 1; L < 16; L++) ldut.tile_prci_domain.tile_reset_domain.boom_tile.frontend.ftq.prev_entry_br_mask[L].val = static_cast<typename UInt<8>::scalar_t>((static_cast<uint8_t>((static_cast<uint8_t>(essent_select_word<uint32_t>(((static_cast<uint8_t>(_s_ldut$reset[L - 1].val) & 0x1u)) != 0, static_cast<uint32_t>((static_cast<uint8_t>(0x0u) & 0xffu)), static_cast<uint32_t>((static_cast<uint8_t>(essent_select_word<uint32_t>(((static_cast<uint8_t>(_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$core$io_ifu_redirect_val[L - 1].val) & 0x1u)) != 0, static_cast<uint32_t>((static_cast<uint8_t>(essent_select_word<uint32_t>(((static_cast<uint8_t>(_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$frontend$ftq$do_enq[L - 1].val) & 0x1u)) != 0, static_cast<uint32_t>(_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$frontend$ftq$_T_11[L - 1].val), static_cast<uint32_t>(ldut.tile_prci_domain.tile_reset_domain.boom_tile.frontend.ftq.prev_entry_br_mask[L - 1].val))) & 0xffu)), static_cast<uint32_t>((static_cast<uint8_t>(essent_select_word<uint32_t>(((static_cast<uint8_t>(ldut.tile_prci_domain.tile_reset_domain.boom_tile.frontend.ftq.REG_13[L - 1].val) & 0x1u)) != 0, static_cast<uint32_t>(ldut.tile_prci_domain.tile_reset_domain.boom_tile.frontend.ftq.REG_14_br_mask[L - 1].val), static_cast<uint32_t>((static_cast<uint8_t>(essent_select_word<uint32_t>(((static_cast<uint8_t>(_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$frontend$ftq$do_enq[L - 1].val) & 0x1u)) != 0, static_cast<uint32_t>(_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$frontend$ftq$_T_11[L - 1].val), static_cast<uint32_t>(ldut.tile_prci_domain.tile_reset_domain.boom_tile.frontend.ftq.prev_entry_br_mask[L - 1].val))) & 0xffu)))) & 0xffu)))) & 0xffu)))) & 0xffu)) & 0xffu));
       }
     }
-
-    if (partition_task_poll) partition_task_poll(partition_task_context, 1, true, 19);
     // [vec comb] 4 templates x 16 lanes
     ESSENT_LANE_LOOP
     for (int L = 0; L < 16; L++) {
@@ -22601,7 +22608,7 @@ void TestHarness::eval_forward_p1(bool update_registers, bool verbose, bool done
         ESSENT_LANE_LOOP
         for (int L = 0; L < 16; L++) ldut.tile_prci_domain.tile_reset_domain.boom_tile.frontend.ftq.prev_entry_cfi_is_call[L] = _gv;
       } else {
-        for (int L = 1; L < 16; L++) ldut.tile_prci_domain.tile_reset_domain.boom_tile.frontend.ftq.prev_entry_cfi_is_call[L] = (~_s_ldut$reset[L - 1]) & (_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$core$io_ifu_redirect_val[L - 1] ? (_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$frontend$ftq$do_enq[L - 1] ? _s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$frontend$f4$ram_cfi_is_call[L - 1] : ldut.tile_prci_domain.tile_reset_domain.boom_tile.frontend.ftq.prev_entry_cfi_is_call[L - 1]) : (ldut.tile_prci_domain.tile_reset_domain.boom_tile.frontend.ftq.REG_13[L - 1] ? ldut.tile_prci_domain.tile_reset_domain.boom_tile.frontend.ftq.REG_14_cfi_is_call[L - 1] : (_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$frontend$ftq$do_enq[L - 1] ? _s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$frontend$f4$ram_cfi_is_call[L - 1] : ldut.tile_prci_domain.tile_reset_domain.boom_tile.frontend.ftq.prev_entry_cfi_is_call[L - 1])));
+        for (int L = 1; L < 16; L++) ldut.tile_prci_domain.tile_reset_domain.boom_tile.frontend.ftq.prev_entry_cfi_is_call[L].val = static_cast<typename UInt<1>::scalar_t>((static_cast<uint8_t>((static_cast<uint8_t>((((static_cast<uint8_t>((~static_cast<uint8_t>(_s_ldut$reset[L - 1].val))) & 0x1u)) & ((static_cast<uint8_t>(essent_select_word<uint32_t>(((static_cast<uint8_t>(_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$core$io_ifu_redirect_val[L - 1].val) & 0x1u)) != 0, static_cast<uint32_t>((static_cast<uint8_t>(essent_select_word<uint32_t>(((static_cast<uint8_t>(_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$frontend$ftq$do_enq[L - 1].val) & 0x1u)) != 0, static_cast<uint32_t>(_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$frontend$f4$ram_cfi_is_call[L - 1].val), static_cast<uint32_t>(ldut.tile_prci_domain.tile_reset_domain.boom_tile.frontend.ftq.prev_entry_cfi_is_call[L - 1].val))) & 0x1u)), static_cast<uint32_t>((static_cast<uint8_t>(essent_select_word<uint32_t>(((static_cast<uint8_t>(ldut.tile_prci_domain.tile_reset_domain.boom_tile.frontend.ftq.REG_13[L - 1].val) & 0x1u)) != 0, static_cast<uint32_t>(ldut.tile_prci_domain.tile_reset_domain.boom_tile.frontend.ftq.REG_14_cfi_is_call[L - 1].val), static_cast<uint32_t>((static_cast<uint8_t>(essent_select_word<uint32_t>(((static_cast<uint8_t>(_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$frontend$ftq$do_enq[L - 1].val) & 0x1u)) != 0, static_cast<uint32_t>(_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$frontend$f4$ram_cfi_is_call[L - 1].val), static_cast<uint32_t>(ldut.tile_prci_domain.tile_reset_domain.boom_tile.frontend.ftq.prev_entry_cfi_is_call[L - 1].val))) & 0x1u)))) & 0x1u)))) & 0x1u)))) & 0x1u)) & 0x1u));
       }
     }
     // [vec boundary-next] 2 templates x 16 lanes
@@ -22628,7 +22635,7 @@ void TestHarness::eval_forward_p1(bool update_registers, bool verbose, bool done
         ESSENT_LANE_LOOP
         for (int L = 0; L < 16; L++) ldut.tile_prci_domain.tile_reset_domain.boom_tile.frontend.ftq.prev_entry_cfi_is_ret[L] = _gv;
       } else {
-        for (int L = 1; L < 16; L++) ldut.tile_prci_domain.tile_reset_domain.boom_tile.frontend.ftq.prev_entry_cfi_is_ret[L] = (~_s_ldut$reset[L - 1]) & (_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$core$io_ifu_redirect_val[L - 1] ? (_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$frontend$ftq$do_enq[L - 1] ? _s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$frontend$f4$ram_cfi_is_ret[L - 1] : ldut.tile_prci_domain.tile_reset_domain.boom_tile.frontend.ftq.prev_entry_cfi_is_ret[L - 1]) : (ldut.tile_prci_domain.tile_reset_domain.boom_tile.frontend.ftq.REG_13[L - 1] ? ldut.tile_prci_domain.tile_reset_domain.boom_tile.frontend.ftq.REG_14_cfi_is_ret[L - 1] : (_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$frontend$ftq$do_enq[L - 1] ? _s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$frontend$f4$ram_cfi_is_ret[L - 1] : ldut.tile_prci_domain.tile_reset_domain.boom_tile.frontend.ftq.prev_entry_cfi_is_ret[L - 1])));
+        for (int L = 1; L < 16; L++) ldut.tile_prci_domain.tile_reset_domain.boom_tile.frontend.ftq.prev_entry_cfi_is_ret[L].val = static_cast<typename UInt<1>::scalar_t>((static_cast<uint8_t>((static_cast<uint8_t>((((static_cast<uint8_t>((~static_cast<uint8_t>(_s_ldut$reset[L - 1].val))) & 0x1u)) & ((static_cast<uint8_t>(essent_select_word<uint32_t>(((static_cast<uint8_t>(_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$core$io_ifu_redirect_val[L - 1].val) & 0x1u)) != 0, static_cast<uint32_t>((static_cast<uint8_t>(essent_select_word<uint32_t>(((static_cast<uint8_t>(_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$frontend$ftq$do_enq[L - 1].val) & 0x1u)) != 0, static_cast<uint32_t>(_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$frontend$f4$ram_cfi_is_ret[L - 1].val), static_cast<uint32_t>(ldut.tile_prci_domain.tile_reset_domain.boom_tile.frontend.ftq.prev_entry_cfi_is_ret[L - 1].val))) & 0x1u)), static_cast<uint32_t>((static_cast<uint8_t>(essent_select_word<uint32_t>(((static_cast<uint8_t>(ldut.tile_prci_domain.tile_reset_domain.boom_tile.frontend.ftq.REG_13[L - 1].val) & 0x1u)) != 0, static_cast<uint32_t>(ldut.tile_prci_domain.tile_reset_domain.boom_tile.frontend.ftq.REG_14_cfi_is_ret[L - 1].val), static_cast<uint32_t>((static_cast<uint8_t>(essent_select_word<uint32_t>(((static_cast<uint8_t>(_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$frontend$ftq$do_enq[L - 1].val) & 0x1u)) != 0, static_cast<uint32_t>(_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$frontend$f4$ram_cfi_is_ret[L - 1].val), static_cast<uint32_t>(ldut.tile_prci_domain.tile_reset_domain.boom_tile.frontend.ftq.prev_entry_cfi_is_ret[L - 1].val))) & 0x1u)))) & 0x1u)))) & 0x1u)))) & 0x1u)) & 0x1u));
       }
     }
     // [vec comb] 1 templates x 16 lanes
@@ -22658,7 +22665,7 @@ void TestHarness::eval_forward_p1(bool update_registers, bool verbose, bool done
         _v2_sa_anyw |= (uint64_t)(essent_to_u64(ldut.tile_prci_domain.tile_reset_domain.boom_tile.frontend.ftq.REG_12[G] & _s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$frontend$ftq$io_enq_valid[G]) != 0) & (uint64_t)(essent_to_u64(UInt<1>(0x1)) != 0);
       }
       if (_v2_sa_anyw == 0) {
-        for (int L = 0; L < 16; L++) { _s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$frontend$ftq$ghist_0_ras_idx$bpd_ghist$rtl[L] = ldut.tile_prci_domain.tile_reset_domain.boom_tile.frontend.ftq.ghist_0_ras_idx[essent_to_u64(_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$frontend$ftq$ghist_0_ras_idx_bpd_ghist_addr_pipe_0[L])]; }
+        essent_table_read<16, 32, false>(&_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$frontend$ftq$ghist_0_ras_idx$bpd_ghist$rtl[0], &ldut.tile_prci_domain.tile_reset_domain.boom_tile.frontend.ftq.ghist_0_ras_idx[0], &_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$frontend$ftq$ghist_0_ras_idx_bpd_ghist_addr_pipe_0[0]);
       } else {
       {
         // [state-read-dense] forwarding=branchless
@@ -22667,10 +22674,11 @@ void TestHarness::eval_forward_p1(bool update_registers, bool verbose, bool done
         for (int L = 0; L < 16; L++) {
           const uint64_t _v2_sa_addr = essent_to_u64(_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$frontend$ftq$ghist_0_ras_idx_bpd_ghist_addr_pipe_0[L]);
           UInt<5> _v2_sa_value = ldut.tile_prci_domain.tile_reset_domain.boom_tile.frontend.ftq.ghist_0_ras_idx[_v2_sa_addr];
+          // [branchless-forward] select a valid source before loading data
           const int _v2_sa_prev_code = _v2_sa_last[_v2_sa_addr];
-          const uint64_t _v2_sa_prev_valid = (uint64_t)(_v2_sa_prev_code >= 0);
+          const bool _v2_sa_prev_valid = _v2_sa_prev_code >= 0;
           [[maybe_unused]] const int _v2_sa_prev_lane = _v2_sa_prev_code & -static_cast<int>(_v2_sa_prev_valid);
-          _v2_sa_value = essent_mux(UInt<1>(_v2_sa_prev_valid), _s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$frontend$f4$ram_ghist_current_saw_branch_not_taken[_v2_sa_prev_lane] ? _s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$frontend$f4$ram_ghist_ras_idx[_v2_sa_prev_lane] : _s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$frontend$ftq$_T_96[_v2_sa_prev_lane], _v2_sa_value);
+          _v2_sa_value = *essent_select_ptr(_v2_sa_prev_valid, essent_select_ptr(essent_to_u64(_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$frontend$f4$ram_ghist_current_saw_branch_not_taken[_v2_sa_prev_lane]) != 0, &(_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$frontend$f4$ram_ghist_ras_idx[_v2_sa_prev_lane]), &(_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$frontend$ftq$_T_96[_v2_sa_prev_lane])), &_v2_sa_value);
           _s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$frontend$ftq$ghist_0_ras_idx$bpd_ghist$rtl[L] = _v2_sa_value;
           const uint64_t _v2_sa_write_addr_0 = essent_to_u64(ldut.tile_prci_domain.tile_reset_domain.boom_tile.frontend.ftq.enq_ptr[L]);
           const uint64_t _v2_sa_write_take_0 = (uint64_t)(essent_to_u64(ldut.tile_prci_domain.tile_reset_domain.boom_tile.frontend.ftq.REG_12[L] & _s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$frontend$ftq$io_enq_valid[L]) != 0) & (uint64_t)(essent_to_u64(UInt<1>(0x1)) != 0);
@@ -22690,7 +22698,7 @@ void TestHarness::eval_forward_p1(bool update_registers, bool verbose, bool done
         _v2_sa_anyw |= (uint64_t)(essent_to_u64(ldut.tile_prci_domain.tile_reset_domain.boom_tile.frontend.ftq.REG_12[G] & _s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$frontend$ftq$io_enq_valid[G]) != 0) & (uint64_t)(essent_to_u64(UInt<1>(0x1)) != 0);
       }
       if (_v2_sa_anyw == 0) {
-        for (int L = 0; L < 16; L++) { _s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$frontend$ftq$ghist_1_ras_idx$MPORT_3$rtl[L] = ldut.tile_prci_domain.tile_reset_domain.boom_tile.frontend.ftq.ghist_1_ras_idx[essent_to_u64(_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$frontend$ftq$ghist_1_ras_idx_MPORT_3_addr_pipe_0[L])]; }
+        essent_table_read<16, 32, false>(&_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$frontend$ftq$ghist_1_ras_idx$MPORT_3$rtl[0], &ldut.tile_prci_domain.tile_reset_domain.boom_tile.frontend.ftq.ghist_1_ras_idx[0], &_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$frontend$ftq$ghist_1_ras_idx_MPORT_3_addr_pipe_0[0]);
       } else {
       {
         // [state-read-dense] forwarding=branchless
@@ -22699,10 +22707,11 @@ void TestHarness::eval_forward_p1(bool update_registers, bool verbose, bool done
         for (int L = 0; L < 16; L++) {
           const uint64_t _v2_sa_addr = essent_to_u64(_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$frontend$ftq$ghist_1_ras_idx_MPORT_3_addr_pipe_0[L]);
           UInt<5> _v2_sa_value = ldut.tile_prci_domain.tile_reset_domain.boom_tile.frontend.ftq.ghist_1_ras_idx[_v2_sa_addr];
+          // [branchless-forward] select a valid source before loading data
           const int _v2_sa_prev_code = _v2_sa_last[_v2_sa_addr];
-          const uint64_t _v2_sa_prev_valid = (uint64_t)(_v2_sa_prev_code >= 0);
+          const bool _v2_sa_prev_valid = _v2_sa_prev_code >= 0;
           [[maybe_unused]] const int _v2_sa_prev_lane = _v2_sa_prev_code & -static_cast<int>(_v2_sa_prev_valid);
-          _v2_sa_value = essent_mux(UInt<1>(_v2_sa_prev_valid), _s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$frontend$f4$ram_ghist_current_saw_branch_not_taken[_v2_sa_prev_lane] ? _s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$frontend$f4$ram_ghist_ras_idx[_v2_sa_prev_lane] : _s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$frontend$ftq$_T_96[_v2_sa_prev_lane], _v2_sa_value);
+          _v2_sa_value = *essent_select_ptr(_v2_sa_prev_valid, essent_select_ptr(essent_to_u64(_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$frontend$f4$ram_ghist_current_saw_branch_not_taken[_v2_sa_prev_lane]) != 0, &(_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$frontend$f4$ram_ghist_ras_idx[_v2_sa_prev_lane]), &(_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$frontend$ftq$_T_96[_v2_sa_prev_lane])), &_v2_sa_value);
           _s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$frontend$ftq$ghist_1_ras_idx$MPORT_3$rtl[L] = _v2_sa_value;
           const uint64_t _v2_sa_write_addr_0 = essent_to_u64(ldut.tile_prci_domain.tile_reset_domain.boom_tile.frontend.ftq.enq_ptr[L]);
           const uint64_t _v2_sa_write_take_0 = (uint64_t)(essent_to_u64(ldut.tile_prci_domain.tile_reset_domain.boom_tile.frontend.ftq.REG_12[L] & _s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$frontend$ftq$io_enq_valid[L]) != 0) & (uint64_t)(essent_to_u64(UInt<1>(0x1)) != 0);
@@ -22719,6 +22728,8 @@ void TestHarness::eval_forward_p1(bool update_registers, bool verbose, bool done
     for (int L = 0; L < 16; L++) {
       _s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$frontend$ftq$prev_ghist_ras_idx$next[L].val = static_cast<typename UInt<5>::scalar_t>((static_cast<uint8_t>((static_cast<uint8_t>(((((static_cast<uint8_t>(0x0u) & 0x1fu)) & ((uint8_t)0 - (uint8_t)(((static_cast<uint8_t>(_s_ldut$reset[L].val) & 0x1u)) != 0))) | (((static_cast<uint8_t>((((_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$frontend$ftq$_GEN_859[L].val) & ((uint8_t)0 - (uint8_t)(((static_cast<uint8_t>(_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$core$io_ifu_redirect_val[L].val) & 0x1u)) != 0))) | (((static_cast<uint8_t>((((_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$frontend$ftq$ghist_0_ras_idx$bpd_ghist[L].val) & ((uint8_t)0 - (uint8_t)(((static_cast<uint8_t>(ldut.tile_prci_domain.tile_reset_domain.boom_tile.frontend.ftq.REG_13[L].val) & 0x1u)) != 0))) | ((_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$frontend$ftq$_GEN_859[L].val) & ~((uint8_t)0 - (uint8_t)(((static_cast<uint8_t>(ldut.tile_prci_domain.tile_reset_domain.boom_tile.frontend.ftq.REG_13[L].val) & 0x1u)) != 0))))) & 0x1fu)) & ~((uint8_t)0 - (uint8_t)(((static_cast<uint8_t>(_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$core$io_ifu_redirect_val[L].val) & 0x1u)) != 0))))) & 0x1fu)) & ~((uint8_t)0 - (uint8_t)(((static_cast<uint8_t>(_s_ldut$reset[L].val) & 0x1u)) != 0))))) & 0x1fu)) & 0x1fu));
     }
+
+    if (partition_task_poll) partition_task_poll(partition_task_context, 1, true, 19);
     // [vec boundary-next] 1 templates x 16 lanes
     // [boundary next] 1 templates, two retained lanes
     { const int L = 0;
@@ -22757,11 +22768,9 @@ void TestHarness::eval_forward_p1(bool update_registers, bool verbose, bool done
         ESSENT_LANE_LOOP
         for (int L = 0; L < 16; L++) ldut.tile_prci_domain.tile_reset_domain.boom_tile.frontend.ftq.prev_pc[L] = _gv;
       } else {
-        for (int L = 1; L < 16; L++) ldut.tile_prci_domain.tile_reset_domain.boom_tile.frontend.ftq.prev_pc[L] = _s_ldut$reset[L - 1] ? UInt<40>(0x0) : (_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$core$io_ifu_redirect_val[L - 1] ? (_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$frontend$ftq$do_enq[L - 1] ? _s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$frontend$f4$ram_pc[L - 1] : ldut.tile_prci_domain.tile_reset_domain.boom_tile.frontend.ftq.prev_pc[L - 1]) : (ldut.tile_prci_domain.tile_reset_domain.boom_tile.frontend.ftq.REG_13[L - 1] ? ldut.tile_prci_domain.tile_reset_domain.boom_tile.frontend.ftq.bpd_pc[L - 1] : (_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$frontend$ftq$do_enq[L - 1] ? _s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$frontend$f4$ram_pc[L - 1] : ldut.tile_prci_domain.tile_reset_domain.boom_tile.frontend.ftq.prev_pc[L - 1])));
+        for (int L = 1; L < 16; L++) ldut.tile_prci_domain.tile_reset_domain.boom_tile.frontend.ftq.prev_pc[L].val = static_cast<typename UInt<40>::scalar_t>((static_cast<uint64_t>((static_cast<uint64_t>(essent_select_word<uint64_t>(((static_cast<uint64_t>(_s_ldut$reset[L - 1].val) & 0x1ULL)) != 0, static_cast<uint64_t>((static_cast<uint64_t>(0x0ULL) & 0xffffffffffULL)), static_cast<uint64_t>((static_cast<uint64_t>(essent_select_word<uint64_t>(((static_cast<uint64_t>(_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$core$io_ifu_redirect_val[L - 1].val) & 0x1ULL)) != 0, static_cast<uint64_t>((static_cast<uint64_t>(essent_select_word<uint64_t>(((static_cast<uint64_t>(_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$frontend$ftq$do_enq[L - 1].val) & 0x1ULL)) != 0, static_cast<uint64_t>(_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$frontend$f4$ram_pc[L - 1].val), static_cast<uint64_t>(ldut.tile_prci_domain.tile_reset_domain.boom_tile.frontend.ftq.prev_pc[L - 1].val))) & 0xffffffffffULL)), static_cast<uint64_t>((static_cast<uint64_t>(essent_select_word<uint64_t>(((static_cast<uint64_t>(ldut.tile_prci_domain.tile_reset_domain.boom_tile.frontend.ftq.REG_13[L - 1].val) & 0x1ULL)) != 0, static_cast<uint64_t>(ldut.tile_prci_domain.tile_reset_domain.boom_tile.frontend.ftq.bpd_pc[L - 1].val), static_cast<uint64_t>((static_cast<uint64_t>(essent_select_word<uint64_t>(((static_cast<uint64_t>(_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$frontend$ftq$do_enq[L - 1].val) & 0x1ULL)) != 0, static_cast<uint64_t>(_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$frontend$f4$ram_pc[L - 1].val), static_cast<uint64_t>(ldut.tile_prci_domain.tile_reset_domain.boom_tile.frontend.ftq.prev_pc[L - 1].val))) & 0xffffffffffULL)))) & 0xffffffffffULL)))) & 0xffffffffffULL)))) & 0xffffffffffULL)) & 0xffffffffffULL));
       }
     }
-
-    if (partition_task_poll) partition_task_poll(partition_task_context, 1, true, 19);
     // [vec comb] 5 templates x 16 lanes
     ESSENT_LANE_LOOP
     for (int L = 0; L < 16; L++) {
@@ -22788,7 +22797,7 @@ void TestHarness::eval_forward_p1(bool update_registers, bool verbose, bool done
         _v2_sa_anyw |= (uint64_t)(essent_to_u64(ldut.tile_prci_domain.tile_reset_domain.boom_tile.frontend.ftq.REG_12[G] & _s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$frontend$ftq$io_enq_valid[G]) != 0) & (uint64_t)(essent_to_u64(UInt<1>(0x1)) != 0);
       }
       if (_v2_sa_anyw == 0) {
-        for (int L = 0; L < 16; L++) { _s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$frontend$ftq$ghist_0_new_saw_branch_not_taken$bpd_ghist$rtl[L] = ldut.tile_prci_domain.tile_reset_domain.boom_tile.frontend.ftq.ghist_0_new_saw_branch_not_taken[essent_to_u64(_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$frontend$ftq$ghist_0_new_saw_branch_not_taken_bpd_ghist_addr_pipe_0[L])]; }
+        essent_table_read<16, 32, false>(&_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$frontend$ftq$ghist_0_new_saw_branch_not_taken$bpd_ghist$rtl[0], &ldut.tile_prci_domain.tile_reset_domain.boom_tile.frontend.ftq.ghist_0_new_saw_branch_not_taken[0], &_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$frontend$ftq$ghist_0_new_saw_branch_not_taken_bpd_ghist_addr_pipe_0[0]);
       } else {
       {
         // [state-read-dense] forwarding=branchless
@@ -22797,10 +22806,11 @@ void TestHarness::eval_forward_p1(bool update_registers, bool verbose, bool done
         for (int L = 0; L < 16; L++) {
           const uint64_t _v2_sa_addr = essent_to_u64(_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$frontend$ftq$ghist_0_new_saw_branch_not_taken_bpd_ghist_addr_pipe_0[L]);
           UInt<1> _v2_sa_value = ldut.tile_prci_domain.tile_reset_domain.boom_tile.frontend.ftq.ghist_0_new_saw_branch_not_taken[_v2_sa_addr];
+          // [branchless-forward] select a valid source before loading data
           const int _v2_sa_prev_code = _v2_sa_last[_v2_sa_addr];
-          const uint64_t _v2_sa_prev_valid = (uint64_t)(_v2_sa_prev_code >= 0);
+          const bool _v2_sa_prev_valid = _v2_sa_prev_code >= 0;
           [[maybe_unused]] const int _v2_sa_prev_lane = _v2_sa_prev_code & -static_cast<int>(_v2_sa_prev_valid);
-          _v2_sa_value = essent_mux(UInt<1>(_v2_sa_prev_valid), _s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$frontend$f4$ram_ghist_current_saw_branch_not_taken[_v2_sa_prev_lane] ? _s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$frontend$f4$ram_ghist_new_saw_branch_not_taken[_v2_sa_prev_lane] : _s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$frontend$ftq$_GEN_33[_v2_sa_prev_lane], _v2_sa_value);
+          _v2_sa_value = *essent_select_ptr(_v2_sa_prev_valid, essent_select_ptr(essent_to_u64(_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$frontend$f4$ram_ghist_current_saw_branch_not_taken[_v2_sa_prev_lane]) != 0, &(_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$frontend$f4$ram_ghist_new_saw_branch_not_taken[_v2_sa_prev_lane]), &(_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$frontend$ftq$_GEN_33[_v2_sa_prev_lane])), &_v2_sa_value);
           _s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$frontend$ftq$ghist_0_new_saw_branch_not_taken$bpd_ghist$rtl[L] = _v2_sa_value;
           const uint64_t _v2_sa_write_addr_0 = essent_to_u64(ldut.tile_prci_domain.tile_reset_domain.boom_tile.frontend.ftq.enq_ptr[L]);
           const uint64_t _v2_sa_write_take_0 = (uint64_t)(essent_to_u64(ldut.tile_prci_domain.tile_reset_domain.boom_tile.frontend.ftq.REG_12[L] & _s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$frontend$ftq$io_enq_valid[L]) != 0) & (uint64_t)(essent_to_u64(UInt<1>(0x1)) != 0);
@@ -22820,7 +22830,7 @@ void TestHarness::eval_forward_p1(bool update_registers, bool verbose, bool done
         _v2_sa_anyw |= (uint64_t)(essent_to_u64(ldut.tile_prci_domain.tile_reset_domain.boom_tile.frontend.ftq.REG_12[G] & _s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$frontend$ftq$io_enq_valid[G]) != 0) & (uint64_t)(essent_to_u64(UInt<1>(0x1)) != 0);
       }
       if (_v2_sa_anyw == 0) {
-        for (int L = 0; L < 16; L++) { _s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$frontend$ftq$ghist_0_new_saw_branch_taken$bpd_ghist$rtl[L] = ldut.tile_prci_domain.tile_reset_domain.boom_tile.frontend.ftq.ghist_0_new_saw_branch_taken[essent_to_u64(_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$frontend$ftq$ghist_0_new_saw_branch_taken_bpd_ghist_addr_pipe_0[L])]; }
+        essent_table_read<16, 32, false>(&_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$frontend$ftq$ghist_0_new_saw_branch_taken$bpd_ghist$rtl[0], &ldut.tile_prci_domain.tile_reset_domain.boom_tile.frontend.ftq.ghist_0_new_saw_branch_taken[0], &_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$frontend$ftq$ghist_0_new_saw_branch_taken_bpd_ghist_addr_pipe_0[0]);
       } else {
       {
         // [state-read-dense] forwarding=branchless
@@ -22829,10 +22839,11 @@ void TestHarness::eval_forward_p1(bool update_registers, bool verbose, bool done
         for (int L = 0; L < 16; L++) {
           const uint64_t _v2_sa_addr = essent_to_u64(_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$frontend$ftq$ghist_0_new_saw_branch_taken_bpd_ghist_addr_pipe_0[L]);
           UInt<1> _v2_sa_value = ldut.tile_prci_domain.tile_reset_domain.boom_tile.frontend.ftq.ghist_0_new_saw_branch_taken[_v2_sa_addr];
+          // [branchless-forward] select a valid source before loading data
           const int _v2_sa_prev_code = _v2_sa_last[_v2_sa_addr];
-          const uint64_t _v2_sa_prev_valid = (uint64_t)(_v2_sa_prev_code >= 0);
+          const bool _v2_sa_prev_valid = _v2_sa_prev_code >= 0;
           [[maybe_unused]] const int _v2_sa_prev_lane = _v2_sa_prev_code & -static_cast<int>(_v2_sa_prev_valid);
-          _v2_sa_value = essent_mux(UInt<1>(_v2_sa_prev_valid), _s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$frontend$f4$ram_ghist_current_saw_branch_not_taken[_v2_sa_prev_lane] ? _s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$frontend$f4$ram_ghist_new_saw_branch_taken[_v2_sa_prev_lane] : _s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$frontend$ftq$_GEN_34[_v2_sa_prev_lane], _v2_sa_value);
+          _v2_sa_value = *essent_select_ptr(_v2_sa_prev_valid, essent_select_ptr(essent_to_u64(_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$frontend$f4$ram_ghist_current_saw_branch_not_taken[_v2_sa_prev_lane]) != 0, &(_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$frontend$f4$ram_ghist_new_saw_branch_taken[_v2_sa_prev_lane]), &(_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$frontend$ftq$_GEN_34[_v2_sa_prev_lane])), &_v2_sa_value);
           _s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$frontend$ftq$ghist_0_new_saw_branch_taken$bpd_ghist$rtl[L] = _v2_sa_value;
           const uint64_t _v2_sa_write_addr_0 = essent_to_u64(ldut.tile_prci_domain.tile_reset_domain.boom_tile.frontend.ftq.enq_ptr[L]);
           const uint64_t _v2_sa_write_take_0 = (uint64_t)(essent_to_u64(ldut.tile_prci_domain.tile_reset_domain.boom_tile.frontend.ftq.REG_12[L] & _s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$frontend$ftq$io_enq_valid[L]) != 0) & (uint64_t)(essent_to_u64(UInt<1>(0x1)) != 0);
@@ -22852,7 +22863,7 @@ void TestHarness::eval_forward_p1(bool update_registers, bool verbose, bool done
         _v2_sa_anyw |= (uint64_t)(essent_to_u64(ldut.tile_prci_domain.tile_reset_domain.boom_tile.frontend.ftq.REG_12[G] & _s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$frontend$ftq$io_enq_valid[G]) != 0) & (uint64_t)(essent_to_u64(UInt<1>(0x1)) != 0);
       }
       if (_v2_sa_anyw == 0) {
-        for (int L = 0; L < 16; L++) { _s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$frontend$ftq$ghist_1_new_saw_branch_not_taken$MPORT_3$rtl[L] = ldut.tile_prci_domain.tile_reset_domain.boom_tile.frontend.ftq.ghist_1_new_saw_branch_not_taken[essent_to_u64(_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$frontend$ftq$ghist_1_new_saw_branch_not_taken_MPORT_3_addr_pipe_0[L])]; }
+        essent_table_read<16, 32, false>(&_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$frontend$ftq$ghist_1_new_saw_branch_not_taken$MPORT_3$rtl[0], &ldut.tile_prci_domain.tile_reset_domain.boom_tile.frontend.ftq.ghist_1_new_saw_branch_not_taken[0], &_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$frontend$ftq$ghist_1_new_saw_branch_not_taken_MPORT_3_addr_pipe_0[0]);
       } else {
       {
         // [state-read-dense] forwarding=branchless
@@ -22861,10 +22872,11 @@ void TestHarness::eval_forward_p1(bool update_registers, bool verbose, bool done
         for (int L = 0; L < 16; L++) {
           const uint64_t _v2_sa_addr = essent_to_u64(_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$frontend$ftq$ghist_1_new_saw_branch_not_taken_MPORT_3_addr_pipe_0[L]);
           UInt<1> _v2_sa_value = ldut.tile_prci_domain.tile_reset_domain.boom_tile.frontend.ftq.ghist_1_new_saw_branch_not_taken[_v2_sa_addr];
+          // [branchless-forward] select a valid source before loading data
           const int _v2_sa_prev_code = _v2_sa_last[_v2_sa_addr];
-          const uint64_t _v2_sa_prev_valid = (uint64_t)(_v2_sa_prev_code >= 0);
+          const bool _v2_sa_prev_valid = _v2_sa_prev_code >= 0;
           [[maybe_unused]] const int _v2_sa_prev_lane = _v2_sa_prev_code & -static_cast<int>(_v2_sa_prev_valid);
-          _v2_sa_value = essent_mux(UInt<1>(_v2_sa_prev_valid), _s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$frontend$f4$ram_ghist_current_saw_branch_not_taken[_v2_sa_prev_lane] ? _s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$frontend$f4$ram_ghist_new_saw_branch_not_taken[_v2_sa_prev_lane] : _s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$frontend$ftq$_GEN_33[_v2_sa_prev_lane], _v2_sa_value);
+          _v2_sa_value = *essent_select_ptr(_v2_sa_prev_valid, essent_select_ptr(essent_to_u64(_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$frontend$f4$ram_ghist_current_saw_branch_not_taken[_v2_sa_prev_lane]) != 0, &(_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$frontend$f4$ram_ghist_new_saw_branch_not_taken[_v2_sa_prev_lane]), &(_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$frontend$ftq$_GEN_33[_v2_sa_prev_lane])), &_v2_sa_value);
           _s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$frontend$ftq$ghist_1_new_saw_branch_not_taken$MPORT_3$rtl[L] = _v2_sa_value;
           const uint64_t _v2_sa_write_addr_0 = essent_to_u64(ldut.tile_prci_domain.tile_reset_domain.boom_tile.frontend.ftq.enq_ptr[L]);
           const uint64_t _v2_sa_write_take_0 = (uint64_t)(essent_to_u64(ldut.tile_prci_domain.tile_reset_domain.boom_tile.frontend.ftq.REG_12[L] & _s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$frontend$ftq$io_enq_valid[L]) != 0) & (uint64_t)(essent_to_u64(UInt<1>(0x1)) != 0);
@@ -22884,7 +22896,7 @@ void TestHarness::eval_forward_p1(bool update_registers, bool verbose, bool done
         _v2_sa_anyw |= (uint64_t)(essent_to_u64(ldut.tile_prci_domain.tile_reset_domain.boom_tile.frontend.ftq.REG_12[G] & _s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$frontend$ftq$io_enq_valid[G]) != 0) & (uint64_t)(essent_to_u64(UInt<1>(0x1)) != 0);
       }
       if (_v2_sa_anyw == 0) {
-        for (int L = 0; L < 16; L++) { _s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$frontend$ftq$ghist_1_new_saw_branch_taken$MPORT_3$rtl[L] = ldut.tile_prci_domain.tile_reset_domain.boom_tile.frontend.ftq.ghist_1_new_saw_branch_taken[essent_to_u64(_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$frontend$ftq$ghist_1_new_saw_branch_taken_MPORT_3_addr_pipe_0[L])]; }
+        essent_table_read<16, 32, false>(&_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$frontend$ftq$ghist_1_new_saw_branch_taken$MPORT_3$rtl[0], &ldut.tile_prci_domain.tile_reset_domain.boom_tile.frontend.ftq.ghist_1_new_saw_branch_taken[0], &_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$frontend$ftq$ghist_1_new_saw_branch_taken_MPORT_3_addr_pipe_0[0]);
       } else {
       {
         // [state-read-dense] forwarding=branchless
@@ -22893,10 +22905,11 @@ void TestHarness::eval_forward_p1(bool update_registers, bool verbose, bool done
         for (int L = 0; L < 16; L++) {
           const uint64_t _v2_sa_addr = essent_to_u64(_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$frontend$ftq$ghist_1_new_saw_branch_taken_MPORT_3_addr_pipe_0[L]);
           UInt<1> _v2_sa_value = ldut.tile_prci_domain.tile_reset_domain.boom_tile.frontend.ftq.ghist_1_new_saw_branch_taken[_v2_sa_addr];
+          // [branchless-forward] select a valid source before loading data
           const int _v2_sa_prev_code = _v2_sa_last[_v2_sa_addr];
-          const uint64_t _v2_sa_prev_valid = (uint64_t)(_v2_sa_prev_code >= 0);
+          const bool _v2_sa_prev_valid = _v2_sa_prev_code >= 0;
           [[maybe_unused]] const int _v2_sa_prev_lane = _v2_sa_prev_code & -static_cast<int>(_v2_sa_prev_valid);
-          _v2_sa_value = essent_mux(UInt<1>(_v2_sa_prev_valid), _s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$frontend$f4$ram_ghist_current_saw_branch_not_taken[_v2_sa_prev_lane] ? _s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$frontend$f4$ram_ghist_new_saw_branch_taken[_v2_sa_prev_lane] : _s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$frontend$ftq$_GEN_34[_v2_sa_prev_lane], _v2_sa_value);
+          _v2_sa_value = *essent_select_ptr(_v2_sa_prev_valid, essent_select_ptr(essent_to_u64(_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$frontend$f4$ram_ghist_current_saw_branch_not_taken[_v2_sa_prev_lane]) != 0, &(_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$frontend$f4$ram_ghist_new_saw_branch_taken[_v2_sa_prev_lane]), &(_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$frontend$ftq$_GEN_34[_v2_sa_prev_lane])), &_v2_sa_value);
           _s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$frontend$ftq$ghist_1_new_saw_branch_taken$MPORT_3$rtl[L] = _v2_sa_value;
           const uint64_t _v2_sa_write_addr_0 = essent_to_u64(ldut.tile_prci_domain.tile_reset_domain.boom_tile.frontend.ftq.enq_ptr[L]);
           const uint64_t _v2_sa_write_take_0 = (uint64_t)(essent_to_u64(ldut.tile_prci_domain.tile_reset_domain.boom_tile.frontend.ftq.REG_12[L] & _s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$frontend$ftq$io_enq_valid[L]) != 0) & (uint64_t)(essent_to_u64(UInt<1>(0x1)) != 0);
@@ -22948,9 +22961,11 @@ void TestHarness::eval_forward_p1(bool update_registers, bool verbose, bool done
         ESSENT_LANE_LOOP
         for (int L = 0; L < 16; L++) ldut.tile_prci_domain.tile_reset_domain.boom_tile.frontend.ftq.prev_ghist_new_saw_branch_not_taken[L] = _gv;
       } else {
-        for (int L = 1; L < 16; L++) ldut.tile_prci_domain.tile_reset_domain.boom_tile.frontend.ftq.prev_ghist_new_saw_branch_not_taken[L] = (~_s_ldut$reset[L - 1]) & (_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$core$io_ifu_redirect_val[L - 1] ? (_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$frontend$ftq$do_enq[L - 1] ? _s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$frontend$ftq$_T_97_new_saw_branch_not_taken[L - 1] : ldut.tile_prci_domain.tile_reset_domain.boom_tile.frontend.ftq.prev_ghist_new_saw_branch_not_taken[L - 1]) : (ldut.tile_prci_domain.tile_reset_domain.boom_tile.frontend.ftq.REG_13[L - 1] ? _s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$frontend$ftq$ghist_0_new_saw_branch_not_taken$bpd_ghist[L - 1] : (_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$frontend$ftq$do_enq[L - 1] ? _s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$frontend$ftq$_T_97_new_saw_branch_not_taken[L - 1] : ldut.tile_prci_domain.tile_reset_domain.boom_tile.frontend.ftq.prev_ghist_new_saw_branch_not_taken[L - 1])));
+        for (int L = 1; L < 16; L++) ldut.tile_prci_domain.tile_reset_domain.boom_tile.frontend.ftq.prev_ghist_new_saw_branch_not_taken[L].val = static_cast<typename UInt<1>::scalar_t>((static_cast<uint8_t>((static_cast<uint8_t>((((static_cast<uint8_t>((~static_cast<uint8_t>(_s_ldut$reset[L - 1].val))) & 0x1u)) & ((static_cast<uint8_t>(essent_select_word<uint32_t>(((static_cast<uint8_t>(_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$core$io_ifu_redirect_val[L - 1].val) & 0x1u)) != 0, static_cast<uint32_t>((static_cast<uint8_t>(essent_select_word<uint32_t>(((static_cast<uint8_t>(_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$frontend$ftq$do_enq[L - 1].val) & 0x1u)) != 0, static_cast<uint32_t>(_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$frontend$ftq$_T_97_new_saw_branch_not_taken[L - 1].val), static_cast<uint32_t>(ldut.tile_prci_domain.tile_reset_domain.boom_tile.frontend.ftq.prev_ghist_new_saw_branch_not_taken[L - 1].val))) & 0x1u)), static_cast<uint32_t>((static_cast<uint8_t>(essent_select_word<uint32_t>(((static_cast<uint8_t>(ldut.tile_prci_domain.tile_reset_domain.boom_tile.frontend.ftq.REG_13[L - 1].val) & 0x1u)) != 0, static_cast<uint32_t>(_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$frontend$ftq$ghist_0_new_saw_branch_not_taken$bpd_ghist[L - 1].val), static_cast<uint32_t>((static_cast<uint8_t>(essent_select_word<uint32_t>(((static_cast<uint8_t>(_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$frontend$ftq$do_enq[L - 1].val) & 0x1u)) != 0, static_cast<uint32_t>(_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$frontend$ftq$_T_97_new_saw_branch_not_taken[L - 1].val), static_cast<uint32_t>(ldut.tile_prci_domain.tile_reset_domain.boom_tile.frontend.ftq.prev_ghist_new_saw_branch_not_taken[L - 1].val))) & 0x1u)))) & 0x1u)))) & 0x1u)))) & 0x1u)) & 0x1u));
       }
     }
+
+    if (partition_task_poll) partition_task_poll(partition_task_context, 1, true, 19);
     // [vec boundary-next] 2 templates x 16 lanes
     // [boundary next] 2 templates, two retained lanes
     { const int L = 0;
@@ -22975,7 +22990,7 @@ void TestHarness::eval_forward_p1(bool update_registers, bool verbose, bool done
         ESSENT_LANE_LOOP
         for (int L = 0; L < 16; L++) ldut.tile_prci_domain.tile_reset_domain.boom_tile.frontend.ftq.prev_ghist_new_saw_branch_taken[L] = _gv;
       } else {
-        for (int L = 1; L < 16; L++) ldut.tile_prci_domain.tile_reset_domain.boom_tile.frontend.ftq.prev_ghist_new_saw_branch_taken[L] = (~_s_ldut$reset[L - 1]) & (_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$core$io_ifu_redirect_val[L - 1] ? (_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$frontend$ftq$do_enq[L - 1] ? _s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$frontend$ftq$_T_97_new_saw_branch_taken[L - 1] : ldut.tile_prci_domain.tile_reset_domain.boom_tile.frontend.ftq.prev_ghist_new_saw_branch_taken[L - 1]) : (ldut.tile_prci_domain.tile_reset_domain.boom_tile.frontend.ftq.REG_13[L - 1] ? _s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$frontend$ftq$ghist_0_new_saw_branch_taken$bpd_ghist[L - 1] : (_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$frontend$ftq$do_enq[L - 1] ? _s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$frontend$ftq$_T_97_new_saw_branch_taken[L - 1] : ldut.tile_prci_domain.tile_reset_domain.boom_tile.frontend.ftq.prev_ghist_new_saw_branch_taken[L - 1])));
+        for (int L = 1; L < 16; L++) ldut.tile_prci_domain.tile_reset_domain.boom_tile.frontend.ftq.prev_ghist_new_saw_branch_taken[L].val = static_cast<typename UInt<1>::scalar_t>((static_cast<uint8_t>((static_cast<uint8_t>((((static_cast<uint8_t>((~static_cast<uint8_t>(_s_ldut$reset[L - 1].val))) & 0x1u)) & ((static_cast<uint8_t>(essent_select_word<uint32_t>(((static_cast<uint8_t>(_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$core$io_ifu_redirect_val[L - 1].val) & 0x1u)) != 0, static_cast<uint32_t>((static_cast<uint8_t>(essent_select_word<uint32_t>(((static_cast<uint8_t>(_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$frontend$ftq$do_enq[L - 1].val) & 0x1u)) != 0, static_cast<uint32_t>(_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$frontend$ftq$_T_97_new_saw_branch_taken[L - 1].val), static_cast<uint32_t>(ldut.tile_prci_domain.tile_reset_domain.boom_tile.frontend.ftq.prev_ghist_new_saw_branch_taken[L - 1].val))) & 0x1u)), static_cast<uint32_t>((static_cast<uint8_t>(essent_select_word<uint32_t>(((static_cast<uint8_t>(ldut.tile_prci_domain.tile_reset_domain.boom_tile.frontend.ftq.REG_13[L - 1].val) & 0x1u)) != 0, static_cast<uint32_t>(_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$frontend$ftq$ghist_0_new_saw_branch_taken$bpd_ghist[L - 1].val), static_cast<uint32_t>((static_cast<uint8_t>(essent_select_word<uint32_t>(((static_cast<uint8_t>(_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$frontend$ftq$do_enq[L - 1].val) & 0x1u)) != 0, static_cast<uint32_t>(_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$frontend$ftq$_T_97_new_saw_branch_taken[L - 1].val), static_cast<uint32_t>(ldut.tile_prci_domain.tile_reset_domain.boom_tile.frontend.ftq.prev_ghist_new_saw_branch_taken[L - 1].val))) & 0x1u)))) & 0x1u)))) & 0x1u)))) & 0x1u)) & 0x1u));
       }
     }
     // [vec comb] 3 templates x 16 lanes
@@ -22988,8 +23003,6 @@ void TestHarness::eval_forward_p1(bool update_registers, bool verbose, bool done
     for (int L = 0; L < 16; L++) {
       _s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$frontend$ftq$_WIRE_3_old_history[L].val = static_cast<typename UInt<64>::scalar_t>(static_cast<uint64_t>(static_cast<uint64_t>(static_cast<uint64_t>((((static_cast<uint64_t>((_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$frontend$ftq$_T_43[L].val[0] >> 0))) & ((uint64_t)0 - (uint64_t)(((static_cast<uint64_t>(_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$frontend$ftq$_T_50[L].val) & 0x1ULL)) != 0))) | ((static_cast<uint64_t>((((static_cast<uint64_t>(((static_cast<uint64_t>((_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$frontend$ftq$_T_66[L].val[0] >> 0))) | (static_cast<uint64_t>(0x1ULL))))) & ((uint64_t)0 - (uint64_t)(((static_cast<uint64_t>(_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$frontend$ftq$_T_59[L].val) & 0x1ULL)) != 0))) | ((static_cast<uint64_t>((((static_cast<uint64_t>((_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$frontend$ftq$_T_66[L].val[0] >> 0))) & ((uint64_t)0 - (uint64_t)(((static_cast<uint64_t>(_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$frontend$ftq$_T_53[L].val) & 0x1ULL)) != 0))) | ((static_cast<uint64_t>((_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$frontend$ftq$_T_43[L].val[0] >> 0))) & ~((uint64_t)0 - (uint64_t)(((static_cast<uint64_t>(_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$frontend$ftq$_T_53[L].val) & 0x1ULL)) != 0)))))) & ~((uint64_t)0 - (uint64_t)(((static_cast<uint64_t>(_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$frontend$ftq$_T_59[L].val) & 0x1ULL)) != 0)))))) & ~((uint64_t)0 - (uint64_t)(((static_cast<uint64_t>(_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$frontend$ftq$_T_50[L].val) & 0x1ULL)) != 0))))))));
     }
-
-    if (partition_task_poll) partition_task_poll(partition_task_context, 1, true, 19);
     // [vec boundary-next] 1 templates x 16 lanes
     // [boundary next] 1 templates, two retained lanes
     { const int L = 0;
@@ -23021,10 +23034,11 @@ void TestHarness::eval_forward_p1(bool update_registers, bool verbose, bool done
         for (int L = 0; L < 16; L++) {
           const uint64_t _v2_sa_addr = essent_to_u64(_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$frontend$ftq$ghist_0_old_history_bpd_ghist_addr_pipe_0[L]);
           UInt<64> _v2_sa_value = ldut.tile_prci_domain.tile_reset_domain.boom_tile.frontend.ftq.ghist_0_old_history[_v2_sa_addr];
+          // [branchless-forward] select a valid source before loading data
           const int _v2_sa_prev_code = _v2_sa_last[_v2_sa_addr];
-          const uint64_t _v2_sa_prev_valid = (uint64_t)(_v2_sa_prev_code >= 0);
+          const bool _v2_sa_prev_valid = _v2_sa_prev_code >= 0;
           [[maybe_unused]] const int _v2_sa_prev_lane = _v2_sa_prev_code & -static_cast<int>(_v2_sa_prev_valid);
-          _v2_sa_value = essent_mux(UInt<1>(_v2_sa_prev_valid), _s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$frontend$f4$ram_ghist_current_saw_branch_not_taken[_v2_sa_prev_lane] ? ldut.tile_prci_domain.tile_reset_domain.boom_tile.frontend.f4.ram_ghist_old_history[_v2_sa_prev_lane] : _s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$frontend$ftq$_WIRE_3_old_history[_v2_sa_prev_lane], _v2_sa_value);
+          _v2_sa_value = *essent_select_ptr(_v2_sa_prev_valid, essent_select_ptr(essent_to_u64(_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$frontend$f4$ram_ghist_current_saw_branch_not_taken[_v2_sa_prev_lane]) != 0, &(ldut.tile_prci_domain.tile_reset_domain.boom_tile.frontend.f4.ram_ghist_old_history[_v2_sa_prev_lane]), &(_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$frontend$ftq$_WIRE_3_old_history[_v2_sa_prev_lane])), &_v2_sa_value);
           _s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$frontend$ftq$ghist_0_old_history$bpd_ghist$rtl[L] = _v2_sa_value;
           const uint64_t _v2_sa_write_addr_0 = essent_to_u64(ldut.tile_prci_domain.tile_reset_domain.boom_tile.frontend.ftq.enq_ptr[L]);
           const uint64_t _v2_sa_write_take_0 = (uint64_t)(essent_to_u64(ldut.tile_prci_domain.tile_reset_domain.boom_tile.frontend.ftq.REG_12[L] & _s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$frontend$ftq$io_enq_valid[L]) != 0) & (uint64_t)(essent_to_u64(UInt<1>(0x1)) != 0);
@@ -23053,10 +23067,11 @@ void TestHarness::eval_forward_p1(bool update_registers, bool verbose, bool done
         for (int L = 0; L < 16; L++) {
           const uint64_t _v2_sa_addr = essent_to_u64(_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$frontend$ftq$ghist_1_old_history_MPORT_3_addr_pipe_0[L]);
           UInt<64> _v2_sa_value = ldut.tile_prci_domain.tile_reset_domain.boom_tile.frontend.ftq.ghist_1_old_history[_v2_sa_addr];
+          // [branchless-forward] select a valid source before loading data
           const int _v2_sa_prev_code = _v2_sa_last[_v2_sa_addr];
-          const uint64_t _v2_sa_prev_valid = (uint64_t)(_v2_sa_prev_code >= 0);
+          const bool _v2_sa_prev_valid = _v2_sa_prev_code >= 0;
           [[maybe_unused]] const int _v2_sa_prev_lane = _v2_sa_prev_code & -static_cast<int>(_v2_sa_prev_valid);
-          _v2_sa_value = essent_mux(UInt<1>(_v2_sa_prev_valid), _s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$frontend$f4$ram_ghist_current_saw_branch_not_taken[_v2_sa_prev_lane] ? ldut.tile_prci_domain.tile_reset_domain.boom_tile.frontend.f4.ram_ghist_old_history[_v2_sa_prev_lane] : _s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$frontend$ftq$_WIRE_3_old_history[_v2_sa_prev_lane], _v2_sa_value);
+          _v2_sa_value = *essent_select_ptr(_v2_sa_prev_valid, essent_select_ptr(essent_to_u64(_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$frontend$f4$ram_ghist_current_saw_branch_not_taken[_v2_sa_prev_lane]) != 0, &(ldut.tile_prci_domain.tile_reset_domain.boom_tile.frontend.f4.ram_ghist_old_history[_v2_sa_prev_lane]), &(_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$frontend$ftq$_WIRE_3_old_history[_v2_sa_prev_lane])), &_v2_sa_value);
           _s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$frontend$ftq$ghist_1_old_history$MPORT_3$rtl[L] = _v2_sa_value;
           const uint64_t _v2_sa_write_addr_0 = essent_to_u64(ldut.tile_prci_domain.tile_reset_domain.boom_tile.frontend.ftq.enq_ptr[L]);
           const uint64_t _v2_sa_write_take_0 = (uint64_t)(essent_to_u64(ldut.tile_prci_domain.tile_reset_domain.boom_tile.frontend.ftq.REG_12[L] & _s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$frontend$ftq$io_enq_valid[L]) != 0) & (uint64_t)(essent_to_u64(UInt<1>(0x1)) != 0);
@@ -23126,6 +23141,8 @@ void TestHarness::eval_forward_p1(bool update_registers, bool verbose, bool done
     // [serial scc=338] 1 templates (0 comb), regs=[pcs_2]
     // [serial scc=338 chain-loop]
     essent_condhold_scan_fwd<16>(ldut.tile_prci_domain.tile_reset_domain.boom_tile.frontend.ftq.pcs_2, _s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$frontend$ftq$pcs_2$wen, _s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$frontend$ftq$pcs_2$wdata);
+
+    if (partition_task_poll) partition_task_poll(partition_task_context, 1, true, 19);
     // [vec boundary-next] 1 templates x 16 lanes
     // [boundary next] 1 templates, two retained lanes
     { const int L = 0;
@@ -23170,8 +23187,6 @@ void TestHarness::eval_forward_p1(bool update_registers, bool verbose, bool done
     // [serial scc=342] 1 templates (0 comb), regs=[pcs_6]
     // [serial scc=342 chain-loop]
     essent_condhold_scan_fwd<16>(ldut.tile_prci_domain.tile_reset_domain.boom_tile.frontend.ftq.pcs_6, _s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$frontend$ftq$pcs_6$wen, _s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$frontend$ftq$pcs_6$wdata);
-
-    if (partition_task_poll) partition_task_poll(partition_task_context, 1, true, 19);
     // [vec boundary-next] 1 templates x 16 lanes
     // [boundary next] 1 templates, two retained lanes
     { const int L = 0;
@@ -23249,6 +23264,8 @@ void TestHarness::eval_forward_p1(bool update_registers, bool verbose, bool done
     // [serial scc=349] 1 templates (0 comb), regs=[pcs_13]
     // [serial scc=349 chain-loop]
     essent_condhold_scan_fwd<16>(ldut.tile_prci_domain.tile_reset_domain.boom_tile.frontend.ftq.pcs_13, _s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$frontend$ftq$pcs_13$wen, _s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$frontend$ftq$pcs_13$wdata);
+
+    if (partition_task_poll) partition_task_poll(partition_task_context, 1, true, 19);
     // [vec boundary-next] 1 templates x 16 lanes
     // [boundary next] 1 templates, two retained lanes
     { const int L = 0;
@@ -23293,8 +23310,6 @@ void TestHarness::eval_forward_p1(bool update_registers, bool verbose, bool done
     // [serial scc=353] 1 templates (0 comb), regs=[pcs_17]
     // [serial scc=353 chain-loop]
     essent_condhold_scan_fwd<16>(ldut.tile_prci_domain.tile_reset_domain.boom_tile.frontend.ftq.pcs_17, _s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$frontend$ftq$pcs_17$wen, _s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$frontend$ftq$pcs_17$wdata);
-
-    if (partition_task_poll) partition_task_poll(partition_task_context, 1, true, 19);
     // [vec boundary-next] 1 templates x 16 lanes
     // [boundary next] 1 templates, two retained lanes
     { const int L = 0;
@@ -23374,6 +23389,8 @@ void TestHarness::eval_forward_p1(bool update_registers, bool verbose, bool done
     // [serial scc=360] 1 templates (0 comb), regs=[pcs_24]
     // [serial scc=360 chain-loop]
     essent_condhold_scan_fwd<16>(ldut.tile_prci_domain.tile_reset_domain.boom_tile.frontend.ftq.pcs_24, _s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$frontend$ftq$pcs_24$wen, _s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$frontend$ftq$pcs_24$wdata);
+
+    if (partition_task_poll) partition_task_poll(partition_task_context, 1, true, 19);
     // [vec boundary-next] 1 templates x 16 lanes
     // [boundary next] 1 templates, two retained lanes
     { const int L = 0;
@@ -24967,23 +24984,23 @@ void TestHarness::eval_forward_p1(bool update_registers, bool verbose, bool done
         _v2_sa_anyw |= (uint64_t)(essent_to_u64(_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$frontend$f4_btb_corrections$io_enq_ready[G] & _s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$frontend$f4_btb_corrections$io_enq_valid[G]) != 0) & (uint64_t)(essent_to_u64(UInt<1>(0x1)) != 0);
       }
       if (_v2_sa_anyw == 0) {
+        essent_table_read<16, 2, false>(&_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$frontend$f4_btb_corrections$ram_is_mispredict_update$io_deq_bits_MPORT$rtl[0], &ldut.tile_prci_domain.tile_reset_domain.boom_tile.frontend.f4_btb_corrections.ram_is_mispredict_update[0], &ldut.tile_prci_domain.tile_reset_domain.boom_tile.frontend.f4_btb_corrections.deq_ptr_value[0]);
+        essent_table_read<16, 2, false>(&_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$frontend$f4_btb_corrections$ram_is_repair_update$io_deq_bits_MPORT$rtl[0], &ldut.tile_prci_domain.tile_reset_domain.boom_tile.frontend.f4_btb_corrections.ram_is_repair_update[0], &ldut.tile_prci_domain.tile_reset_domain.boom_tile.frontend.f4_btb_corrections.deq_ptr_value[0]);
+        essent_table_read<16, 2, false>(&_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$frontend$f4_btb_corrections$ram_btb_mispredicts$io_deq_bits_MPORT$rtl[0], &ldut.tile_prci_domain.tile_reset_domain.boom_tile.frontend.f4_btb_corrections.ram_btb_mispredicts[0], &ldut.tile_prci_domain.tile_reset_domain.boom_tile.frontend.f4_btb_corrections.deq_ptr_value[0]);
+        essent_table_read<16, 2, false>(&_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$frontend$f4_btb_corrections$ram_pc$io_deq_bits_MPORT$rtl[0], &ldut.tile_prci_domain.tile_reset_domain.boom_tile.frontend.f4_btb_corrections.ram_pc[0], &ldut.tile_prci_domain.tile_reset_domain.boom_tile.frontend.f4_btb_corrections.deq_ptr_value[0]);
+        essent_table_read<16, 2, false>(&_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$frontend$f4_btb_corrections$ram_br_mask$io_deq_bits_MPORT$rtl[0], &ldut.tile_prci_domain.tile_reset_domain.boom_tile.frontend.f4_btb_corrections.ram_br_mask[0], &ldut.tile_prci_domain.tile_reset_domain.boom_tile.frontend.f4_btb_corrections.deq_ptr_value[0]);
+        essent_table_read<16, 2, false>(&_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$frontend$f4_btb_corrections$ram_cfi_idx_valid$io_deq_bits_MPORT$rtl[0], &ldut.tile_prci_domain.tile_reset_domain.boom_tile.frontend.f4_btb_corrections.ram_cfi_idx_valid[0], &ldut.tile_prci_domain.tile_reset_domain.boom_tile.frontend.f4_btb_corrections.deq_ptr_value[0]);
+        essent_table_read<16, 2, false>(&_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$frontend$f4_btb_corrections$ram_cfi_idx_bits$io_deq_bits_MPORT$rtl[0], &ldut.tile_prci_domain.tile_reset_domain.boom_tile.frontend.f4_btb_corrections.ram_cfi_idx_bits[0], &ldut.tile_prci_domain.tile_reset_domain.boom_tile.frontend.f4_btb_corrections.deq_ptr_value[0]);
+        essent_table_read<16, 2, false>(&_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$frontend$f4_btb_corrections$ram_cfi_taken$io_deq_bits_MPORT$rtl[0], &ldut.tile_prci_domain.tile_reset_domain.boom_tile.frontend.f4_btb_corrections.ram_cfi_taken[0], &ldut.tile_prci_domain.tile_reset_domain.boom_tile.frontend.f4_btb_corrections.deq_ptr_value[0]);
+        essent_table_read<16, 2, false>(&_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$frontend$f4_btb_corrections$ram_cfi_mispredicted$io_deq_bits_MPORT$rtl[0], &ldut.tile_prci_domain.tile_reset_domain.boom_tile.frontend.f4_btb_corrections.ram_cfi_mispredicted[0], &ldut.tile_prci_domain.tile_reset_domain.boom_tile.frontend.f4_btb_corrections.deq_ptr_value[0]);
+        essent_table_read<16, 2, false>(&_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$frontend$f4_btb_corrections$ram_cfi_is_br$io_deq_bits_MPORT$rtl[0], &ldut.tile_prci_domain.tile_reset_domain.boom_tile.frontend.f4_btb_corrections.ram_cfi_is_br[0], &ldut.tile_prci_domain.tile_reset_domain.boom_tile.frontend.f4_btb_corrections.deq_ptr_value[0]);
+        essent_table_read<16, 2, false>(&_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$frontend$f4_btb_corrections$ram_cfi_is_jal$io_deq_bits_MPORT$rtl[0], &ldut.tile_prci_domain.tile_reset_domain.boom_tile.frontend.f4_btb_corrections.ram_cfi_is_jal[0], &ldut.tile_prci_domain.tile_reset_domain.boom_tile.frontend.f4_btb_corrections.deq_ptr_value[0]);
+        essent_table_read<16, 2, false>(&_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$frontend$f4_btb_corrections$ram_ghist_old_history$io_deq_bits_MPORT$rtl[0], &ldut.tile_prci_domain.tile_reset_domain.boom_tile.frontend.f4_btb_corrections.ram_ghist_old_history[0], &ldut.tile_prci_domain.tile_reset_domain.boom_tile.frontend.f4_btb_corrections.deq_ptr_value[0]);
+        essent_table_read<16, 2, false>(&_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$frontend$f4_btb_corrections$ram_ghist_new_saw_branch_not_taken$io_deq_bits_MPORT$rtl[0], &ldut.tile_prci_domain.tile_reset_domain.boom_tile.frontend.f4_btb_corrections.ram_ghist_new_saw_branch_not_taken[0], &ldut.tile_prci_domain.tile_reset_domain.boom_tile.frontend.f4_btb_corrections.deq_ptr_value[0]);
+        essent_table_read<16, 2, false>(&_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$frontend$f4_btb_corrections$ram_ghist_new_saw_branch_taken$io_deq_bits_MPORT$rtl[0], &ldut.tile_prci_domain.tile_reset_domain.boom_tile.frontend.f4_btb_corrections.ram_ghist_new_saw_branch_taken[0], &ldut.tile_prci_domain.tile_reset_domain.boom_tile.frontend.f4_btb_corrections.deq_ptr_value[0]);
+        essent_table_read<16, 2, false>(&_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$frontend$f4_btb_corrections$ram_target$io_deq_bits_MPORT$rtl[0], &ldut.tile_prci_domain.tile_reset_domain.boom_tile.frontend.f4_btb_corrections.ram_target[0], &ldut.tile_prci_domain.tile_reset_domain.boom_tile.frontend.f4_btb_corrections.deq_ptr_value[0]);
         for (int L = 0; L < 16; L++) {
           const uint64_t _v2_sa_field_addr = essent_to_u64(ldut.tile_prci_domain.tile_reset_domain.boom_tile.frontend.f4_btb_corrections.deq_ptr_value[L]);
-          _s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$frontend$f4_btb_corrections$ram_is_mispredict_update$io_deq_bits_MPORT$rtl[L] = ldut.tile_prci_domain.tile_reset_domain.boom_tile.frontend.f4_btb_corrections.ram_is_mispredict_update[_v2_sa_field_addr];
-          _s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$frontend$f4_btb_corrections$ram_is_repair_update$io_deq_bits_MPORT$rtl[L] = ldut.tile_prci_domain.tile_reset_domain.boom_tile.frontend.f4_btb_corrections.ram_is_repair_update[_v2_sa_field_addr];
-          _s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$frontend$f4_btb_corrections$ram_btb_mispredicts$io_deq_bits_MPORT$rtl[L] = ldut.tile_prci_domain.tile_reset_domain.boom_tile.frontend.f4_btb_corrections.ram_btb_mispredicts[_v2_sa_field_addr];
-          _s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$frontend$f4_btb_corrections$ram_pc$io_deq_bits_MPORT$rtl[L] = ldut.tile_prci_domain.tile_reset_domain.boom_tile.frontend.f4_btb_corrections.ram_pc[_v2_sa_field_addr];
-          _s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$frontend$f4_btb_corrections$ram_br_mask$io_deq_bits_MPORT$rtl[L] = ldut.tile_prci_domain.tile_reset_domain.boom_tile.frontend.f4_btb_corrections.ram_br_mask[_v2_sa_field_addr];
-          _s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$frontend$f4_btb_corrections$ram_cfi_idx_valid$io_deq_bits_MPORT$rtl[L] = ldut.tile_prci_domain.tile_reset_domain.boom_tile.frontend.f4_btb_corrections.ram_cfi_idx_valid[_v2_sa_field_addr];
-          _s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$frontend$f4_btb_corrections$ram_cfi_idx_bits$io_deq_bits_MPORT$rtl[L] = ldut.tile_prci_domain.tile_reset_domain.boom_tile.frontend.f4_btb_corrections.ram_cfi_idx_bits[_v2_sa_field_addr];
-          _s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$frontend$f4_btb_corrections$ram_cfi_taken$io_deq_bits_MPORT$rtl[L] = ldut.tile_prci_domain.tile_reset_domain.boom_tile.frontend.f4_btb_corrections.ram_cfi_taken[_v2_sa_field_addr];
-          _s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$frontend$f4_btb_corrections$ram_cfi_mispredicted$io_deq_bits_MPORT$rtl[L] = ldut.tile_prci_domain.tile_reset_domain.boom_tile.frontend.f4_btb_corrections.ram_cfi_mispredicted[_v2_sa_field_addr];
-          _s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$frontend$f4_btb_corrections$ram_cfi_is_br$io_deq_bits_MPORT$rtl[L] = ldut.tile_prci_domain.tile_reset_domain.boom_tile.frontend.f4_btb_corrections.ram_cfi_is_br[_v2_sa_field_addr];
-          _s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$frontend$f4_btb_corrections$ram_cfi_is_jal$io_deq_bits_MPORT$rtl[L] = ldut.tile_prci_domain.tile_reset_domain.boom_tile.frontend.f4_btb_corrections.ram_cfi_is_jal[_v2_sa_field_addr];
-          _s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$frontend$f4_btb_corrections$ram_ghist_old_history$io_deq_bits_MPORT$rtl[L] = ldut.tile_prci_domain.tile_reset_domain.boom_tile.frontend.f4_btb_corrections.ram_ghist_old_history[_v2_sa_field_addr];
-          _s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$frontend$f4_btb_corrections$ram_ghist_new_saw_branch_not_taken$io_deq_bits_MPORT$rtl[L] = ldut.tile_prci_domain.tile_reset_domain.boom_tile.frontend.f4_btb_corrections.ram_ghist_new_saw_branch_not_taken[_v2_sa_field_addr];
-          _s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$frontend$f4_btb_corrections$ram_ghist_new_saw_branch_taken$io_deq_bits_MPORT$rtl[L] = ldut.tile_prci_domain.tile_reset_domain.boom_tile.frontend.f4_btb_corrections.ram_ghist_new_saw_branch_taken[_v2_sa_field_addr];
-          _s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$frontend$f4_btb_corrections$ram_target$io_deq_bits_MPORT$rtl[L] = ldut.tile_prci_domain.tile_reset_domain.boom_tile.frontend.f4_btb_corrections.ram_target[_v2_sa_field_addr];
           _s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$frontend$f4_btb_corrections$ram_meta_0$io_deq_bits_MPORT[L] = ldut.tile_prci_domain.tile_reset_domain.boom_tile.frontend.f4_btb_corrections.ram_meta_0[_v2_sa_field_addr];
           _s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$frontend$f4_btb_corrections$ram_meta_1$io_deq_bits_MPORT[L] = ldut.tile_prci_domain.tile_reset_domain.boom_tile.frontend.f4_btb_corrections.ram_meta_1[_v2_sa_field_addr];
         }
@@ -25204,7 +25221,7 @@ void TestHarness::eval_forward_p1(bool update_registers, bool verbose, bool done
         ESSENT_LANE_LOOP
         for (int L = 0; L < 16; L++) ldut.tile_prci_domain.tile_reset_domain.boom_tile.frontend.tlb.state_reg_1[L] = _gv;
       } else {
-        for (int L = 1; L < 16; L++) ldut.tile_prci_domain.tile_reset_domain.boom_tile.frontend.tlb.state_reg_1[L] = _s_ldut$reset[L - 1] ? UInt<3>(0x0) : (_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$frontend$tlb$_T_23[L - 1] ? (_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$frontend$tlb$_T_37[L - 1] ? ((_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$frontend$tlb$state_reg_hi_hi[L - 1].cat(_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$frontend$tlb$state_reg_hi_hi[L - 1] ? (ldut.tile_prci_domain.tile_reset_domain.boom_tile.frontend.tlb.state_reg_1[L - 1].bits<1,1>()) : _s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$frontend$tlb$_state_reg_T_2[L - 1])).cat(_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$frontend$tlb$state_reg_hi_hi[L - 1] ? _s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$frontend$tlb$_state_reg_T_2[L - 1] : (ldut.tile_prci_domain.tile_reset_domain.boom_tile.frontend.tlb.state_reg_1[L - 1].bits<0,0>()))) : ldut.tile_prci_domain.tile_reset_domain.boom_tile.frontend.tlb.state_reg_1[L - 1]) : ldut.tile_prci_domain.tile_reset_domain.boom_tile.frontend.tlb.state_reg_1[L - 1]);
+        for (int L = 1; L < 16; L++) ldut.tile_prci_domain.tile_reset_domain.boom_tile.frontend.tlb.state_reg_1[L].val = static_cast<typename UInt<3>::scalar_t>((static_cast<uint8_t>((static_cast<uint8_t>(essent_select_word<uint32_t>(((static_cast<uint8_t>(_s_ldut$reset[L - 1].val) & 0x1u)) != 0, static_cast<uint32_t>((static_cast<uint8_t>(0x0u) & 0x7u)), static_cast<uint32_t>((static_cast<uint8_t>(essent_select_word<uint32_t>(((static_cast<uint8_t>(_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$frontend$tlb$_T_23[L - 1].val) & 0x1u)) != 0, static_cast<uint32_t>((static_cast<uint8_t>(essent_select_word<uint32_t>(((static_cast<uint8_t>(_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$frontend$tlb$_T_37[L - 1].val) & 0x1u)) != 0, static_cast<uint32_t>((static_cast<uint8_t>(((static_cast<uint8_t>((static_cast<uint8_t>(((static_cast<uint8_t>(_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$frontend$tlb$state_reg_hi_hi[L - 1].val) << 1) | (static_cast<uint8_t>((static_cast<uint8_t>(essent_select_word<uint32_t>(((static_cast<uint8_t>(_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$frontend$tlb$state_reg_hi_hi[L - 1].val) & 0x1u)) != 0, static_cast<uint32_t>((static_cast<uint8_t>(((static_cast<uint8_t>(ldut.tile_prci_domain.tile_reset_domain.boom_tile.frontend.tlb.state_reg_1[L - 1].val) >> 1) & 0x1u)) & 0x1u)), static_cast<uint32_t>(_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$frontend$tlb$_state_reg_T_2[L - 1].val))) & 0x1u)) & 0x1u))) & 0x3u)) << 1) | (static_cast<uint8_t>((static_cast<uint8_t>(essent_select_word<uint32_t>(((static_cast<uint8_t>(_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$frontend$tlb$state_reg_hi_hi[L - 1].val) & 0x1u)) != 0, static_cast<uint32_t>(_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$frontend$tlb$_state_reg_T_2[L - 1].val), static_cast<uint32_t>((static_cast<uint8_t>(((static_cast<uint8_t>(ldut.tile_prci_domain.tile_reset_domain.boom_tile.frontend.tlb.state_reg_1[L - 1].val) >> 0) & 0x1u)) & 0x1u)))) & 0x1u)) & 0x1u))) & 0x7u)), static_cast<uint32_t>(ldut.tile_prci_domain.tile_reset_domain.boom_tile.frontend.tlb.state_reg_1[L - 1].val))) & 0x7u)), static_cast<uint32_t>(ldut.tile_prci_domain.tile_reset_domain.boom_tile.frontend.tlb.state_reg_1[L - 1].val))) & 0x7u)))) & 0x7u)) & 0x7u));
       }
     }
     // [vec comb] 3 templates x 16 lanes
@@ -25282,6 +25299,8 @@ void TestHarness::eval_forward_p1(bool update_registers, bool verbose, bool done
     // [serial scc=725 chain-loop]
     essent_condhold_index_fwd<16>(_v2_cond_idx_75, _s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$frontend$bpd$banked_predictors_0$components_1$tables_0$hi_us__v2_bank_0_0$wen);
     essent_condhold_apply_fwd<16>(_v2_bank_ldut$tile_prci_domain$tile_reset_domain$boom_tile$frontend$bpd$banked_predictors_0$components_1$tables_0$hi_us__v2_bank_0_0, _v2_cond_idx_75, _s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$frontend$bpd$banked_predictors_0$components_1$tables_0$hi_us__v2_bank_0_0$wdata);
+
+    if (partition_task_poll) partition_task_poll(partition_task_context, 1, true, 22);
     // [vec comb] 1 templates x 16 lanes
     ESSENT_LANE_LOOP
     for (int L = 0; L < 16; L++) {
@@ -25296,7 +25315,7 @@ void TestHarness::eval_forward_p1(bool update_registers, bool verbose, bool done
         _v2_sa_anyw |= (uint64_t)(essent_to_u64(UInt<1>(0x1)) != 0) & (uint64_t)(essent_to_u64(_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$frontend$bpd$banked_predictors_0$components_1$tables_0$_T_80[G].bits<0,0>()) != 0);
       }
       if (_v2_sa_anyw == 0) {
-        for (int L = 0; L < 16; L++) { _s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$frontend$bpd$banked_predictors_0$components_1$tables_0$hi_us_0$s2_req_rhius$rtl[L] = ldut.tile_prci_domain.tile_reset_domain.boom_tile.frontend.bpd.banked_predictors_0.components_1.tables_0.hi_us_0[essent_to_u64(_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$frontend$bpd$banked_predictors_0$components_1$tables_0$hi_us_0_s2_req_rhius_addr_pipe_0[L])]; }
+        essent_table_read<16, 128, false>(&_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$frontend$bpd$banked_predictors_0$components_1$tables_0$hi_us_0$s2_req_rhius$rtl[0], &ldut.tile_prci_domain.tile_reset_domain.boom_tile.frontend.bpd.banked_predictors_0.components_1.tables_0.hi_us_0[0], &_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$frontend$bpd$banked_predictors_0$components_1$tables_0$hi_us_0_s2_req_rhius_addr_pipe_0[0]);
       } else {
       {
         // [state-read-dense] forwarding=branchless
@@ -25325,8 +25344,6 @@ void TestHarness::eval_forward_p1(bool update_registers, bool verbose, bool done
     for (int L = 0; L < 16; L++) {
       _s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$frontend$bpd$banked_predictors_0$components_1$tables_0$hi_us_1_s2_req_rhius_addr_pipe_0[L].val = static_cast<typename UInt<7>::scalar_t>((static_cast<uint32_t>((static_cast<uint32_t>(((static_cast<uint32_t>(_v2_bank_ldut$tile_prci_domain$tile_reset_domain$boom_tile$frontend$bpd$banked_predictors_0$components_1$tables_0$hi_us__v2_bank_0_0[L].val) >> 14) & 0x7fu)) & 0x7fu)) & 0x7fu));
     }
-
-    if (partition_task_poll) partition_task_poll(partition_task_context, 1, true, 22);
     // [vec state-read] 1 templates x 16 lanes
     #if ESSENT_ORACLE_VERIFY // [extern-read] verify-only recompute: ldut.tile_prci_domain.tile_reset_domain.boom_tile.frontend.bpd.banked_predictors_0.components_1.tables_0.hi_us_1.s2_req_rhius$rtl
     {
@@ -25336,7 +25353,7 @@ void TestHarness::eval_forward_p1(bool update_registers, bool verbose, bool done
         _v2_sa_anyw |= (uint64_t)(essent_to_u64(UInt<1>(0x1)) != 0) & (uint64_t)(essent_to_u64(_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$frontend$bpd$banked_predictors_0$components_1$tables_0$_T_80[G].bits<1,1>()) != 0);
       }
       if (_v2_sa_anyw == 0) {
-        for (int L = 0; L < 16; L++) { _s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$frontend$bpd$banked_predictors_0$components_1$tables_0$hi_us_1$s2_req_rhius$rtl[L] = ldut.tile_prci_domain.tile_reset_domain.boom_tile.frontend.bpd.banked_predictors_0.components_1.tables_0.hi_us_1[essent_to_u64(_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$frontend$bpd$banked_predictors_0$components_1$tables_0$hi_us_1_s2_req_rhius_addr_pipe_0[L])]; }
+        essent_table_read<16, 128, false>(&_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$frontend$bpd$banked_predictors_0$components_1$tables_0$hi_us_1$s2_req_rhius$rtl[0], &ldut.tile_prci_domain.tile_reset_domain.boom_tile.frontend.bpd.banked_predictors_0.components_1.tables_0.hi_us_1[0], &_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$frontend$bpd$banked_predictors_0$components_1$tables_0$hi_us_1_s2_req_rhius_addr_pipe_0[0]);
       } else {
       {
         // [state-read-dense] forwarding=branchless
@@ -25374,7 +25391,7 @@ void TestHarness::eval_forward_p1(bool update_registers, bool verbose, bool done
         _v2_sa_anyw |= (uint64_t)(essent_to_u64(UInt<1>(0x1)) != 0) & (uint64_t)(essent_to_u64(_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$frontend$bpd$banked_predictors_0$components_1$tables_0$_T_80[G].bits<2,2>()) != 0);
       }
       if (_v2_sa_anyw == 0) {
-        for (int L = 0; L < 16; L++) { _s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$frontend$bpd$banked_predictors_0$components_1$tables_0$hi_us_2$s2_req_rhius$rtl[L] = ldut.tile_prci_domain.tile_reset_domain.boom_tile.frontend.bpd.banked_predictors_0.components_1.tables_0.hi_us_2[essent_to_u64(_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$frontend$bpd$banked_predictors_0$components_1$tables_0$hi_us_2_s2_req_rhius_addr_pipe_0[L])]; }
+        essent_table_read<16, 128, false>(&_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$frontend$bpd$banked_predictors_0$components_1$tables_0$hi_us_2$s2_req_rhius$rtl[0], &ldut.tile_prci_domain.tile_reset_domain.boom_tile.frontend.bpd.banked_predictors_0.components_1.tables_0.hi_us_2[0], &_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$frontend$bpd$banked_predictors_0$components_1$tables_0$hi_us_2_s2_req_rhius_addr_pipe_0[0]);
       } else {
       {
         // [state-read-dense] forwarding=branchless
@@ -25412,7 +25429,7 @@ void TestHarness::eval_forward_p1(bool update_registers, bool verbose, bool done
         _v2_sa_anyw |= (uint64_t)(essent_to_u64(UInt<1>(0x1)) != 0) & (uint64_t)(essent_to_u64(_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$frontend$bpd$banked_predictors_0$components_1$tables_0$_T_80[G].bits<3,3>()) != 0);
       }
       if (_v2_sa_anyw == 0) {
-        for (int L = 0; L < 16; L++) { _s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$frontend$bpd$banked_predictors_0$components_1$tables_0$hi_us_3$s2_req_rhius$rtl[L] = ldut.tile_prci_domain.tile_reset_domain.boom_tile.frontend.bpd.banked_predictors_0.components_1.tables_0.hi_us_3[essent_to_u64(_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$frontend$bpd$banked_predictors_0$components_1$tables_0$hi_us_3_s2_req_rhius_addr_pipe_0[L])]; }
+        essent_table_read<16, 128, false>(&_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$frontend$bpd$banked_predictors_0$components_1$tables_0$hi_us_3$s2_req_rhius$rtl[0], &ldut.tile_prci_domain.tile_reset_domain.boom_tile.frontend.bpd.banked_predictors_0.components_1.tables_0.hi_us_3[0], &_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$frontend$bpd$banked_predictors_0$components_1$tables_0$hi_us_3_s2_req_rhius_addr_pipe_0[0]);
       } else {
       {
         // [state-read-dense] forwarding=branchless
@@ -25491,7 +25508,7 @@ void TestHarness::eval_forward_p1(bool update_registers, bool verbose, bool done
         _v2_sa_anyw |= (uint64_t)(essent_to_u64(UInt<1>(0x1)) != 0) & (uint64_t)(essent_to_u64(_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$frontend$bpd$banked_predictors_0$components_1$tables_0$_T_93[G].bits<0,0>()) != 0);
       }
       if (_v2_sa_anyw == 0) {
-        for (int L = 0; L < 16; L++) { _s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$frontend$bpd$banked_predictors_0$components_1$tables_0$lo_us_0$s2_req_rlous$rtl[L] = ldut.tile_prci_domain.tile_reset_domain.boom_tile.frontend.bpd.banked_predictors_0.components_1.tables_0.lo_us_0[essent_to_u64(_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$frontend$bpd$banked_predictors_0$components_1$tables_0$lo_us_0_s2_req_rlous_addr_pipe_0[L])]; }
+        essent_table_read<16, 128, false>(&_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$frontend$bpd$banked_predictors_0$components_1$tables_0$lo_us_0$s2_req_rlous$rtl[0], &ldut.tile_prci_domain.tile_reset_domain.boom_tile.frontend.bpd.banked_predictors_0.components_1.tables_0.lo_us_0[0], &_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$frontend$bpd$banked_predictors_0$components_1$tables_0$lo_us_0_s2_req_rlous_addr_pipe_0[0]);
       } else {
       {
         // [state-read-dense] forwarding=branchless
@@ -25529,7 +25546,7 @@ void TestHarness::eval_forward_p1(bool update_registers, bool verbose, bool done
         _v2_sa_anyw |= (uint64_t)(essent_to_u64(UInt<1>(0x1)) != 0) & (uint64_t)(essent_to_u64(_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$frontend$bpd$banked_predictors_0$components_1$tables_0$_T_93[G].bits<1,1>()) != 0);
       }
       if (_v2_sa_anyw == 0) {
-        for (int L = 0; L < 16; L++) { _s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$frontend$bpd$banked_predictors_0$components_1$tables_0$lo_us_1$s2_req_rlous$rtl[L] = ldut.tile_prci_domain.tile_reset_domain.boom_tile.frontend.bpd.banked_predictors_0.components_1.tables_0.lo_us_1[essent_to_u64(_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$frontend$bpd$banked_predictors_0$components_1$tables_0$lo_us_1_s2_req_rlous_addr_pipe_0[L])]; }
+        essent_table_read<16, 128, false>(&_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$frontend$bpd$banked_predictors_0$components_1$tables_0$lo_us_1$s2_req_rlous$rtl[0], &ldut.tile_prci_domain.tile_reset_domain.boom_tile.frontend.bpd.banked_predictors_0.components_1.tables_0.lo_us_1[0], &_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$frontend$bpd$banked_predictors_0$components_1$tables_0$lo_us_1_s2_req_rlous_addr_pipe_0[0]);
       } else {
       {
         // [state-read-dense] forwarding=branchless
@@ -25567,7 +25584,7 @@ void TestHarness::eval_forward_p1(bool update_registers, bool verbose, bool done
         _v2_sa_anyw |= (uint64_t)(essent_to_u64(UInt<1>(0x1)) != 0) & (uint64_t)(essent_to_u64(_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$frontend$bpd$banked_predictors_0$components_1$tables_0$_T_93[G].bits<2,2>()) != 0);
       }
       if (_v2_sa_anyw == 0) {
-        for (int L = 0; L < 16; L++) { _s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$frontend$bpd$banked_predictors_0$components_1$tables_0$lo_us_2$s2_req_rlous$rtl[L] = ldut.tile_prci_domain.tile_reset_domain.boom_tile.frontend.bpd.banked_predictors_0.components_1.tables_0.lo_us_2[essent_to_u64(_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$frontend$bpd$banked_predictors_0$components_1$tables_0$lo_us_2_s2_req_rlous_addr_pipe_0[L])]; }
+        essent_table_read<16, 128, false>(&_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$frontend$bpd$banked_predictors_0$components_1$tables_0$lo_us_2$s2_req_rlous$rtl[0], &ldut.tile_prci_domain.tile_reset_domain.boom_tile.frontend.bpd.banked_predictors_0.components_1.tables_0.lo_us_2[0], &_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$frontend$bpd$banked_predictors_0$components_1$tables_0$lo_us_2_s2_req_rlous_addr_pipe_0[0]);
       } else {
       {
         // [state-read-dense] forwarding=branchless
@@ -25596,6 +25613,8 @@ void TestHarness::eval_forward_p1(bool update_registers, bool verbose, bool done
     for (int L = 0; L < 16; L++) {
       _s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$frontend$bpd$banked_predictors_0$components_1$tables_0$lo_us_3_s2_req_rlous_addr_pipe_0[L].val = static_cast<typename UInt<7>::scalar_t>((static_cast<uint32_t>((static_cast<uint32_t>(((static_cast<uint32_t>(_v2_bank_ldut$tile_prci_domain$tile_reset_domain$boom_tile$frontend$bpd$banked_predictors_0$components_1$tables_0$lo_us__v2_bank_0_0[L].val) >> 0) & 0x7fu)) & 0x7fu)) & 0x7fu));
     }
+
+    if (partition_task_poll) partition_task_poll(partition_task_context, 1, true, 22);
     // [vec state-read] 1 templates x 16 lanes
     #if ESSENT_ORACLE_VERIFY // [extern-read] verify-only recompute: ldut.tile_prci_domain.tile_reset_domain.boom_tile.frontend.bpd.banked_predictors_0.components_1.tables_0.lo_us_3.s2_req_rlous$rtl
     {
@@ -25605,7 +25624,7 @@ void TestHarness::eval_forward_p1(bool update_registers, bool verbose, bool done
         _v2_sa_anyw |= (uint64_t)(essent_to_u64(UInt<1>(0x1)) != 0) & (uint64_t)(essent_to_u64(_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$frontend$bpd$banked_predictors_0$components_1$tables_0$_T_93[G].bits<3,3>()) != 0);
       }
       if (_v2_sa_anyw == 0) {
-        for (int L = 0; L < 16; L++) { _s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$frontend$bpd$banked_predictors_0$components_1$tables_0$lo_us_3$s2_req_rlous$rtl[L] = ldut.tile_prci_domain.tile_reset_domain.boom_tile.frontend.bpd.banked_predictors_0.components_1.tables_0.lo_us_3[essent_to_u64(_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$frontend$bpd$banked_predictors_0$components_1$tables_0$lo_us_3_s2_req_rlous_addr_pipe_0[L])]; }
+        essent_table_read<16, 128, false>(&_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$frontend$bpd$banked_predictors_0$components_1$tables_0$lo_us_3$s2_req_rlous$rtl[0], &ldut.tile_prci_domain.tile_reset_domain.boom_tile.frontend.bpd.banked_predictors_0.components_1.tables_0.lo_us_3[0], &_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$frontend$bpd$banked_predictors_0$components_1$tables_0$lo_us_3_s2_req_rlous_addr_pipe_0[0]);
       } else {
       {
         // [state-read-dense] forwarding=branchless
@@ -25637,8 +25656,6 @@ void TestHarness::eval_forward_p1(bool update_registers, bool verbose, bool done
     { const int L = 15;
       _s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$frontend$bpd$banked_predictors_0$components_1$tables_0$lo_us__v2_bank_0_0$next[((L) == 0 ? 0 : 1)].val = static_cast<typename UInt<28>::scalar_t>((static_cast<uint64_t>((static_cast<uint64_t>(((((static_cast<uint64_t>(((static_cast<uint64_t>((static_cast<uint64_t>(((static_cast<uint64_t>((static_cast<uint64_t>(((static_cast<uint64_t>((static_cast<uint64_t>(((static_cast<uint64_t>(_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$frontend$bpd$banked_predictors_0$components_1$tables_0$_T_5[L].val) >> 0) & 0x7fULL)) & 0x7fULL)) << 7) | (static_cast<uint64_t>((static_cast<uint64_t>(((static_cast<uint64_t>(_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$frontend$bpd$banked_predictors_0$components_1$tables_0$_T_5[L].val) >> 0) & 0x7fULL)) & 0x7fULL)) & 0x7fULL))) & 0x3fffULL)) << 7) | (static_cast<uint64_t>((static_cast<uint64_t>(((static_cast<uint64_t>(_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$frontend$bpd$banked_predictors_0$components_1$tables_0$_T_5[L].val) >> 0) & 0x7fULL)) & 0x7fULL)) & 0x7fULL))) & 0x1fffffULL)) << 7) | (static_cast<uint64_t>((static_cast<uint64_t>(((static_cast<uint64_t>(_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$frontend$bpd$banked_predictors_0$components_1$tables_0$_T_5[L].val) >> 0) & 0x7fULL)) & 0x7fULL)) & 0x7fULL))) & 0xfffffffULL)) & ((uint64_t)0 - (uint64_t)(((static_cast<uint64_t>(ldut.tile_prci_domain.tile_reset_domain.boom_tile.frontend.bpd.banked_predictors_0.components_1.REG[L].val) & 0x1ULL)) != 0))) | ((_v2_bank_ldut$tile_prci_domain$tile_reset_domain$boom_tile$frontend$bpd$banked_predictors_0$components_1$tables_0$lo_us__v2_bank_0_0[L].val) & ~((uint64_t)0 - (uint64_t)(((static_cast<uint64_t>(ldut.tile_prci_domain.tile_reset_domain.boom_tile.frontend.bpd.banked_predictors_0.components_1.REG[L].val) & 0x1ULL)) != 0))))) & 0xfffffffULL)) & 0xfffffffULL));
     }
-
-    if (partition_task_poll) partition_task_poll(partition_task_context, 1, true, 22);
     // [vec state-commit] 4 templates x 16 lanes
     #if ESSENT_ORACLE_VERIFY // [extern-read] commits of fully-externalized arrays
     if (update_registers) {
@@ -25866,6 +25883,8 @@ void TestHarness::eval_forward_p1(bool update_registers, bool verbose, bool done
     // [serial scc=728 chain-loop]
     essent_condhold_index_fwd<16>(_v2_cond_idx_76, _s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$frontend$bpd$banked_predictors_0$components_1$tables_1$hi_us__v2_bank_0_0$wen);
     essent_condhold_apply_fwd<16>(_v2_bank_ldut$tile_prci_domain$tile_reset_domain$boom_tile$frontend$bpd$banked_predictors_0$components_1$tables_1$hi_us__v2_bank_0_0, _v2_cond_idx_76, _s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$frontend$bpd$banked_predictors_0$components_1$tables_1$hi_us__v2_bank_0_0$wdata);
+
+    if (partition_task_poll) partition_task_poll(partition_task_context, 1, true, 22);
     // [vec comb] 1 templates x 16 lanes
     ESSENT_LANE_LOOP
     for (int L = 0; L < 16; L++) {
@@ -25880,7 +25899,7 @@ void TestHarness::eval_forward_p1(bool update_registers, bool verbose, bool done
         _v2_sa_anyw |= (uint64_t)(essent_to_u64(UInt<1>(0x1)) != 0) & (uint64_t)(essent_to_u64(_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$frontend$bpd$banked_predictors_0$components_1$tables_1$_T_80[G].bits<0,0>()) != 0);
       }
       if (_v2_sa_anyw == 0) {
-        for (int L = 0; L < 16; L++) { _s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$frontend$bpd$banked_predictors_0$components_1$tables_1$hi_us_0$s2_req_rhius$rtl[L] = ldut.tile_prci_domain.tile_reset_domain.boom_tile.frontend.bpd.banked_predictors_0.components_1.tables_1.hi_us_0[essent_to_u64(_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$frontend$bpd$banked_predictors_0$components_1$tables_1$hi_us_0_s2_req_rhius_addr_pipe_0[L])]; }
+        essent_table_read<16, 128, false>(&_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$frontend$bpd$banked_predictors_0$components_1$tables_1$hi_us_0$s2_req_rhius$rtl[0], &ldut.tile_prci_domain.tile_reset_domain.boom_tile.frontend.bpd.banked_predictors_0.components_1.tables_1.hi_us_0[0], &_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$frontend$bpd$banked_predictors_0$components_1$tables_1$hi_us_0_s2_req_rhius_addr_pipe_0[0]);
       } else {
       {
         // [state-read-dense] forwarding=branchless
@@ -25909,8 +25928,6 @@ void TestHarness::eval_forward_p1(bool update_registers, bool verbose, bool done
     for (int L = 0; L < 16; L++) {
       _s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$frontend$bpd$banked_predictors_0$components_1$tables_1$hi_us_1_s2_req_rhius_addr_pipe_0[L].val = static_cast<typename UInt<7>::scalar_t>((static_cast<uint32_t>((static_cast<uint32_t>(((static_cast<uint32_t>(_v2_bank_ldut$tile_prci_domain$tile_reset_domain$boom_tile$frontend$bpd$banked_predictors_0$components_1$tables_1$hi_us__v2_bank_0_0[L].val) >> 14) & 0x7fu)) & 0x7fu)) & 0x7fu));
     }
-
-    if (partition_task_poll) partition_task_poll(partition_task_context, 1, true, 22);
     // [vec state-read] 1 templates x 16 lanes
     #if ESSENT_ORACLE_VERIFY // [extern-read] verify-only recompute: ldut.tile_prci_domain.tile_reset_domain.boom_tile.frontend.bpd.banked_predictors_0.components_1.tables_1.hi_us_1.s2_req_rhius$rtl
     {
@@ -25920,7 +25937,7 @@ void TestHarness::eval_forward_p1(bool update_registers, bool verbose, bool done
         _v2_sa_anyw |= (uint64_t)(essent_to_u64(UInt<1>(0x1)) != 0) & (uint64_t)(essent_to_u64(_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$frontend$bpd$banked_predictors_0$components_1$tables_1$_T_80[G].bits<1,1>()) != 0);
       }
       if (_v2_sa_anyw == 0) {
-        for (int L = 0; L < 16; L++) { _s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$frontend$bpd$banked_predictors_0$components_1$tables_1$hi_us_1$s2_req_rhius$rtl[L] = ldut.tile_prci_domain.tile_reset_domain.boom_tile.frontend.bpd.banked_predictors_0.components_1.tables_1.hi_us_1[essent_to_u64(_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$frontend$bpd$banked_predictors_0$components_1$tables_1$hi_us_1_s2_req_rhius_addr_pipe_0[L])]; }
+        essent_table_read<16, 128, false>(&_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$frontend$bpd$banked_predictors_0$components_1$tables_1$hi_us_1$s2_req_rhius$rtl[0], &ldut.tile_prci_domain.tile_reset_domain.boom_tile.frontend.bpd.banked_predictors_0.components_1.tables_1.hi_us_1[0], &_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$frontend$bpd$banked_predictors_0$components_1$tables_1$hi_us_1_s2_req_rhius_addr_pipe_0[0]);
       } else {
       {
         // [state-read-dense] forwarding=branchless
@@ -25958,7 +25975,7 @@ void TestHarness::eval_forward_p1(bool update_registers, bool verbose, bool done
         _v2_sa_anyw |= (uint64_t)(essent_to_u64(UInt<1>(0x1)) != 0) & (uint64_t)(essent_to_u64(_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$frontend$bpd$banked_predictors_0$components_1$tables_1$_T_80[G].bits<2,2>()) != 0);
       }
       if (_v2_sa_anyw == 0) {
-        for (int L = 0; L < 16; L++) { _s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$frontend$bpd$banked_predictors_0$components_1$tables_1$hi_us_2$s2_req_rhius$rtl[L] = ldut.tile_prci_domain.tile_reset_domain.boom_tile.frontend.bpd.banked_predictors_0.components_1.tables_1.hi_us_2[essent_to_u64(_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$frontend$bpd$banked_predictors_0$components_1$tables_1$hi_us_2_s2_req_rhius_addr_pipe_0[L])]; }
+        essent_table_read<16, 128, false>(&_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$frontend$bpd$banked_predictors_0$components_1$tables_1$hi_us_2$s2_req_rhius$rtl[0], &ldut.tile_prci_domain.tile_reset_domain.boom_tile.frontend.bpd.banked_predictors_0.components_1.tables_1.hi_us_2[0], &_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$frontend$bpd$banked_predictors_0$components_1$tables_1$hi_us_2_s2_req_rhius_addr_pipe_0[0]);
       } else {
       {
         // [state-read-dense] forwarding=branchless
@@ -25996,7 +26013,7 @@ void TestHarness::eval_forward_p1(bool update_registers, bool verbose, bool done
         _v2_sa_anyw |= (uint64_t)(essent_to_u64(UInt<1>(0x1)) != 0) & (uint64_t)(essent_to_u64(_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$frontend$bpd$banked_predictors_0$components_1$tables_1$_T_80[G].bits<3,3>()) != 0);
       }
       if (_v2_sa_anyw == 0) {
-        for (int L = 0; L < 16; L++) { _s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$frontend$bpd$banked_predictors_0$components_1$tables_1$hi_us_3$s2_req_rhius$rtl[L] = ldut.tile_prci_domain.tile_reset_domain.boom_tile.frontend.bpd.banked_predictors_0.components_1.tables_1.hi_us_3[essent_to_u64(_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$frontend$bpd$banked_predictors_0$components_1$tables_1$hi_us_3_s2_req_rhius_addr_pipe_0[L])]; }
+        essent_table_read<16, 128, false>(&_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$frontend$bpd$banked_predictors_0$components_1$tables_1$hi_us_3$s2_req_rhius$rtl[0], &ldut.tile_prci_domain.tile_reset_domain.boom_tile.frontend.bpd.banked_predictors_0.components_1.tables_1.hi_us_3[0], &_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$frontend$bpd$banked_predictors_0$components_1$tables_1$hi_us_3_s2_req_rhius_addr_pipe_0[0]);
       } else {
       {
         // [state-read-dense] forwarding=branchless
@@ -26075,7 +26092,7 @@ void TestHarness::eval_forward_p1(bool update_registers, bool verbose, bool done
         _v2_sa_anyw |= (uint64_t)(essent_to_u64(UInt<1>(0x1)) != 0) & (uint64_t)(essent_to_u64(_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$frontend$bpd$banked_predictors_0$components_1$tables_1$_T_93[G].bits<0,0>()) != 0);
       }
       if (_v2_sa_anyw == 0) {
-        for (int L = 0; L < 16; L++) { _s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$frontend$bpd$banked_predictors_0$components_1$tables_1$lo_us_0$s2_req_rlous$rtl[L] = ldut.tile_prci_domain.tile_reset_domain.boom_tile.frontend.bpd.banked_predictors_0.components_1.tables_1.lo_us_0[essent_to_u64(_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$frontend$bpd$banked_predictors_0$components_1$tables_1$lo_us_0_s2_req_rlous_addr_pipe_0[L])]; }
+        essent_table_read<16, 128, false>(&_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$frontend$bpd$banked_predictors_0$components_1$tables_1$lo_us_0$s2_req_rlous$rtl[0], &ldut.tile_prci_domain.tile_reset_domain.boom_tile.frontend.bpd.banked_predictors_0.components_1.tables_1.lo_us_0[0], &_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$frontend$bpd$banked_predictors_0$components_1$tables_1$lo_us_0_s2_req_rlous_addr_pipe_0[0]);
       } else {
       {
         // [state-read-dense] forwarding=branchless
@@ -26113,7 +26130,7 @@ void TestHarness::eval_forward_p1(bool update_registers, bool verbose, bool done
         _v2_sa_anyw |= (uint64_t)(essent_to_u64(UInt<1>(0x1)) != 0) & (uint64_t)(essent_to_u64(_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$frontend$bpd$banked_predictors_0$components_1$tables_1$_T_93[G].bits<1,1>()) != 0);
       }
       if (_v2_sa_anyw == 0) {
-        for (int L = 0; L < 16; L++) { _s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$frontend$bpd$banked_predictors_0$components_1$tables_1$lo_us_1$s2_req_rlous$rtl[L] = ldut.tile_prci_domain.tile_reset_domain.boom_tile.frontend.bpd.banked_predictors_0.components_1.tables_1.lo_us_1[essent_to_u64(_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$frontend$bpd$banked_predictors_0$components_1$tables_1$lo_us_1_s2_req_rlous_addr_pipe_0[L])]; }
+        essent_table_read<16, 128, false>(&_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$frontend$bpd$banked_predictors_0$components_1$tables_1$lo_us_1$s2_req_rlous$rtl[0], &ldut.tile_prci_domain.tile_reset_domain.boom_tile.frontend.bpd.banked_predictors_0.components_1.tables_1.lo_us_1[0], &_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$frontend$bpd$banked_predictors_0$components_1$tables_1$lo_us_1_s2_req_rlous_addr_pipe_0[0]);
       } else {
       {
         // [state-read-dense] forwarding=branchless
@@ -26151,7 +26168,7 @@ void TestHarness::eval_forward_p1(bool update_registers, bool verbose, bool done
         _v2_sa_anyw |= (uint64_t)(essent_to_u64(UInt<1>(0x1)) != 0) & (uint64_t)(essent_to_u64(_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$frontend$bpd$banked_predictors_0$components_1$tables_1$_T_93[G].bits<2,2>()) != 0);
       }
       if (_v2_sa_anyw == 0) {
-        for (int L = 0; L < 16; L++) { _s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$frontend$bpd$banked_predictors_0$components_1$tables_1$lo_us_2$s2_req_rlous$rtl[L] = ldut.tile_prci_domain.tile_reset_domain.boom_tile.frontend.bpd.banked_predictors_0.components_1.tables_1.lo_us_2[essent_to_u64(_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$frontend$bpd$banked_predictors_0$components_1$tables_1$lo_us_2_s2_req_rlous_addr_pipe_0[L])]; }
+        essent_table_read<16, 128, false>(&_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$frontend$bpd$banked_predictors_0$components_1$tables_1$lo_us_2$s2_req_rlous$rtl[0], &ldut.tile_prci_domain.tile_reset_domain.boom_tile.frontend.bpd.banked_predictors_0.components_1.tables_1.lo_us_2[0], &_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$frontend$bpd$banked_predictors_0$components_1$tables_1$lo_us_2_s2_req_rlous_addr_pipe_0[0]);
       } else {
       {
         // [state-read-dense] forwarding=branchless
@@ -26180,6 +26197,8 @@ void TestHarness::eval_forward_p1(bool update_registers, bool verbose, bool done
     for (int L = 0; L < 16; L++) {
       _s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$frontend$bpd$banked_predictors_0$components_1$tables_1$lo_us_3_s2_req_rlous_addr_pipe_0[L].val = static_cast<typename UInt<7>::scalar_t>((static_cast<uint32_t>((static_cast<uint32_t>(((static_cast<uint32_t>(_v2_bank_ldut$tile_prci_domain$tile_reset_domain$boom_tile$frontend$bpd$banked_predictors_0$components_1$tables_1$lo_us__v2_bank_0_0[L].val) >> 0) & 0x7fu)) & 0x7fu)) & 0x7fu));
     }
+
+    if (partition_task_poll) partition_task_poll(partition_task_context, 1, true, 22);
     // [vec state-read] 1 templates x 16 lanes
     #if ESSENT_ORACLE_VERIFY // [extern-read] verify-only recompute: ldut.tile_prci_domain.tile_reset_domain.boom_tile.frontend.bpd.banked_predictors_0.components_1.tables_1.lo_us_3.s2_req_rlous$rtl
     {
@@ -26189,7 +26208,7 @@ void TestHarness::eval_forward_p1(bool update_registers, bool verbose, bool done
         _v2_sa_anyw |= (uint64_t)(essent_to_u64(UInt<1>(0x1)) != 0) & (uint64_t)(essent_to_u64(_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$frontend$bpd$banked_predictors_0$components_1$tables_1$_T_93[G].bits<3,3>()) != 0);
       }
       if (_v2_sa_anyw == 0) {
-        for (int L = 0; L < 16; L++) { _s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$frontend$bpd$banked_predictors_0$components_1$tables_1$lo_us_3$s2_req_rlous$rtl[L] = ldut.tile_prci_domain.tile_reset_domain.boom_tile.frontend.bpd.banked_predictors_0.components_1.tables_1.lo_us_3[essent_to_u64(_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$frontend$bpd$banked_predictors_0$components_1$tables_1$lo_us_3_s2_req_rlous_addr_pipe_0[L])]; }
+        essent_table_read<16, 128, false>(&_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$frontend$bpd$banked_predictors_0$components_1$tables_1$lo_us_3$s2_req_rlous$rtl[0], &ldut.tile_prci_domain.tile_reset_domain.boom_tile.frontend.bpd.banked_predictors_0.components_1.tables_1.lo_us_3[0], &_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$frontend$bpd$banked_predictors_0$components_1$tables_1$lo_us_3_s2_req_rlous_addr_pipe_0[0]);
       } else {
       {
         // [state-read-dense] forwarding=branchless
@@ -26221,8 +26240,6 @@ void TestHarness::eval_forward_p1(bool update_registers, bool verbose, bool done
     { const int L = 15;
       _s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$frontend$bpd$banked_predictors_0$components_1$tables_1$lo_us__v2_bank_0_0$next[((L) == 0 ? 0 : 1)].val = static_cast<typename UInt<28>::scalar_t>((static_cast<uint64_t>((static_cast<uint64_t>(((((static_cast<uint64_t>(((static_cast<uint64_t>((static_cast<uint64_t>(((static_cast<uint64_t>((static_cast<uint64_t>(((static_cast<uint64_t>((static_cast<uint64_t>(((static_cast<uint64_t>(_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$frontend$bpd$banked_predictors_0$components_1$tables_1$_T_5[L].val) >> 0) & 0x7fULL)) & 0x7fULL)) << 7) | (static_cast<uint64_t>((static_cast<uint64_t>(((static_cast<uint64_t>(_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$frontend$bpd$banked_predictors_0$components_1$tables_1$_T_5[L].val) >> 0) & 0x7fULL)) & 0x7fULL)) & 0x7fULL))) & 0x3fffULL)) << 7) | (static_cast<uint64_t>((static_cast<uint64_t>(((static_cast<uint64_t>(_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$frontend$bpd$banked_predictors_0$components_1$tables_1$_T_5[L].val) >> 0) & 0x7fULL)) & 0x7fULL)) & 0x7fULL))) & 0x1fffffULL)) << 7) | (static_cast<uint64_t>((static_cast<uint64_t>(((static_cast<uint64_t>(_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$frontend$bpd$banked_predictors_0$components_1$tables_1$_T_5[L].val) >> 0) & 0x7fULL)) & 0x7fULL)) & 0x7fULL))) & 0xfffffffULL)) & ((uint64_t)0 - (uint64_t)(((static_cast<uint64_t>(ldut.tile_prci_domain.tile_reset_domain.boom_tile.frontend.bpd.banked_predictors_0.components_1.REG_2[L].val) & 0x1ULL)) != 0))) | ((_v2_bank_ldut$tile_prci_domain$tile_reset_domain$boom_tile$frontend$bpd$banked_predictors_0$components_1$tables_1$lo_us__v2_bank_0_0[L].val) & ~((uint64_t)0 - (uint64_t)(((static_cast<uint64_t>(ldut.tile_prci_domain.tile_reset_domain.boom_tile.frontend.bpd.banked_predictors_0.components_1.REG_2[L].val) & 0x1ULL)) != 0))))) & 0xfffffffULL)) & 0xfffffffULL));
     }
-
-    if (partition_task_poll) partition_task_poll(partition_task_context, 1, true, 22);
     // [vec state-commit] 4 templates x 16 lanes
     #if ESSENT_ORACLE_VERIFY // [extern-read] commits of fully-externalized arrays
     if (update_registers) {
@@ -26450,6 +26467,8 @@ void TestHarness::eval_forward_p1(bool update_registers, bool verbose, bool done
     // [serial scc=731 chain-loop]
     essent_condhold_index_fwd<16>(_v2_cond_idx_77, _s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$frontend$bpd$banked_predictors_0$components_1$tables_2$hi_us__v2_bank_0_0$wen);
     essent_condhold_apply_fwd<16>(_v2_bank_ldut$tile_prci_domain$tile_reset_domain$boom_tile$frontend$bpd$banked_predictors_0$components_1$tables_2$hi_us__v2_bank_0_0, _v2_cond_idx_77, _s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$frontend$bpd$banked_predictors_0$components_1$tables_2$hi_us__v2_bank_0_0$wdata);
+
+    if (partition_task_poll) partition_task_poll(partition_task_context, 1, true, 22);
     // [vec comb] 1 templates x 16 lanes
     ESSENT_LANE_LOOP
     for (int L = 0; L < 16; L++) {
@@ -26486,8 +26505,6 @@ void TestHarness::eval_forward_p1(bool update_registers, bool verbose, bool done
     for (int L = 0; L < 16; L++) {
       _s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$frontend$bpd$banked_predictors_0$components_1$tables_2$hi_us_1_s2_req_rhius_addr_pipe_0[L].val = static_cast<typename UInt<8>::scalar_t>((static_cast<uint32_t>((static_cast<uint32_t>(((static_cast<uint32_t>(_v2_bank_ldut$tile_prci_domain$tile_reset_domain$boom_tile$frontend$bpd$banked_predictors_0$components_1$tables_2$hi_us__v2_bank_0_0[L].val) >> 16) & 0xffu)) & 0xffu)) & 0xffu));
     }
-
-    if (partition_task_poll) partition_task_poll(partition_task_context, 1, true, 22);
     // [vec state-read] 1 templates x 16 lanes
     #if ESSENT_ORACLE_VERIFY // [extern-read] verify-only recompute: ldut.tile_prci_domain.tile_reset_domain.boom_tile.frontend.bpd.banked_predictors_0.components_1.tables_2.hi_us_1.s2_req_rhius$rtl
     {
@@ -27468,7 +27485,7 @@ void TestHarness::eval_forward_p1(bool update_registers, bool verbose, bool done
         _v2_sa_anyw |= (uint64_t)(essent_to_u64(UInt<1>(0x1)) != 0) & (uint64_t)(essent_to_u64(_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$frontend$bpd$banked_predictors_0$components_1$tables_4$_T_108[G].bits<0,0>()) != 0);
       }
       if (_v2_sa_anyw == 0) {
-        for (int L = 0; L < 16; L++) { _s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$frontend$bpd$banked_predictors_0$components_1$tables_4$hi_us_0$s2_req_rhius$rtl[L] = ldut.tile_prci_domain.tile_reset_domain.boom_tile.frontend.bpd.banked_predictors_0.components_1.tables_4.hi_us_0[essent_to_u64(_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$frontend$bpd$banked_predictors_0$components_1$tables_4$hi_us_0_s2_req_rhius_addr_pipe_0[L])]; }
+        essent_table_read<16, 128, false>(&_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$frontend$bpd$banked_predictors_0$components_1$tables_4$hi_us_0$s2_req_rhius$rtl[0], &ldut.tile_prci_domain.tile_reset_domain.boom_tile.frontend.bpd.banked_predictors_0.components_1.tables_4.hi_us_0[0], &_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$frontend$bpd$banked_predictors_0$components_1$tables_4$hi_us_0_s2_req_rhius_addr_pipe_0[0]);
       } else {
       {
         // [state-read-dense] forwarding=branchless
@@ -27506,7 +27523,7 @@ void TestHarness::eval_forward_p1(bool update_registers, bool verbose, bool done
         _v2_sa_anyw |= (uint64_t)(essent_to_u64(UInt<1>(0x1)) != 0) & (uint64_t)(essent_to_u64(_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$frontend$bpd$banked_predictors_0$components_1$tables_4$_T_108[G].bits<1,1>()) != 0);
       }
       if (_v2_sa_anyw == 0) {
-        for (int L = 0; L < 16; L++) { _s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$frontend$bpd$banked_predictors_0$components_1$tables_4$hi_us_1$s2_req_rhius$rtl[L] = ldut.tile_prci_domain.tile_reset_domain.boom_tile.frontend.bpd.banked_predictors_0.components_1.tables_4.hi_us_1[essent_to_u64(_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$frontend$bpd$banked_predictors_0$components_1$tables_4$hi_us_1_s2_req_rhius_addr_pipe_0[L])]; }
+        essent_table_read<16, 128, false>(&_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$frontend$bpd$banked_predictors_0$components_1$tables_4$hi_us_1$s2_req_rhius$rtl[0], &ldut.tile_prci_domain.tile_reset_domain.boom_tile.frontend.bpd.banked_predictors_0.components_1.tables_4.hi_us_1[0], &_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$frontend$bpd$banked_predictors_0$components_1$tables_4$hi_us_1_s2_req_rhius_addr_pipe_0[0]);
       } else {
       {
         // [state-read-dense] forwarding=branchless
@@ -27544,7 +27561,7 @@ void TestHarness::eval_forward_p1(bool update_registers, bool verbose, bool done
         _v2_sa_anyw |= (uint64_t)(essent_to_u64(UInt<1>(0x1)) != 0) & (uint64_t)(essent_to_u64(_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$frontend$bpd$banked_predictors_0$components_1$tables_4$_T_108[G].bits<2,2>()) != 0);
       }
       if (_v2_sa_anyw == 0) {
-        for (int L = 0; L < 16; L++) { _s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$frontend$bpd$banked_predictors_0$components_1$tables_4$hi_us_2$s2_req_rhius$rtl[L] = ldut.tile_prci_domain.tile_reset_domain.boom_tile.frontend.bpd.banked_predictors_0.components_1.tables_4.hi_us_2[essent_to_u64(_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$frontend$bpd$banked_predictors_0$components_1$tables_4$hi_us_2_s2_req_rhius_addr_pipe_0[L])]; }
+        essent_table_read<16, 128, false>(&_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$frontend$bpd$banked_predictors_0$components_1$tables_4$hi_us_2$s2_req_rhius$rtl[0], &ldut.tile_prci_domain.tile_reset_domain.boom_tile.frontend.bpd.banked_predictors_0.components_1.tables_4.hi_us_2[0], &_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$frontend$bpd$banked_predictors_0$components_1$tables_4$hi_us_2_s2_req_rhius_addr_pipe_0[0]);
       } else {
       {
         // [state-read-dense] forwarding=branchless
@@ -27582,7 +27599,7 @@ void TestHarness::eval_forward_p1(bool update_registers, bool verbose, bool done
         _v2_sa_anyw |= (uint64_t)(essent_to_u64(UInt<1>(0x1)) != 0) & (uint64_t)(essent_to_u64(_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$frontend$bpd$banked_predictors_0$components_1$tables_4$_T_108[G].bits<3,3>()) != 0);
       }
       if (_v2_sa_anyw == 0) {
-        for (int L = 0; L < 16; L++) { _s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$frontend$bpd$banked_predictors_0$components_1$tables_4$hi_us_3$s2_req_rhius$rtl[L] = ldut.tile_prci_domain.tile_reset_domain.boom_tile.frontend.bpd.banked_predictors_0.components_1.tables_4.hi_us_3[essent_to_u64(_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$frontend$bpd$banked_predictors_0$components_1$tables_4$hi_us_3_s2_req_rhius_addr_pipe_0[L])]; }
+        essent_table_read<16, 128, false>(&_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$frontend$bpd$banked_predictors_0$components_1$tables_4$hi_us_3$s2_req_rhius$rtl[0], &ldut.tile_prci_domain.tile_reset_domain.boom_tile.frontend.bpd.banked_predictors_0.components_1.tables_4.hi_us_3[0], &_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$frontend$bpd$banked_predictors_0$components_1$tables_4$hi_us_3_s2_req_rhius_addr_pipe_0[0]);
       } else {
       {
         // [state-read-dense] forwarding=branchless
@@ -27661,7 +27678,7 @@ void TestHarness::eval_forward_p1(bool update_registers, bool verbose, bool done
         _v2_sa_anyw |= (uint64_t)(essent_to_u64(UInt<1>(0x1)) != 0) & (uint64_t)(essent_to_u64(_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$frontend$bpd$banked_predictors_0$components_1$tables_4$_T_121[G].bits<0,0>()) != 0);
       }
       if (_v2_sa_anyw == 0) {
-        for (int L = 0; L < 16; L++) { _s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$frontend$bpd$banked_predictors_0$components_1$tables_4$lo_us_0$s2_req_rlous$rtl[L] = ldut.tile_prci_domain.tile_reset_domain.boom_tile.frontend.bpd.banked_predictors_0.components_1.tables_4.lo_us_0[essent_to_u64(_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$frontend$bpd$banked_predictors_0$components_1$tables_4$lo_us_0_s2_req_rlous_addr_pipe_0[L])]; }
+        essent_table_read<16, 128, false>(&_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$frontend$bpd$banked_predictors_0$components_1$tables_4$lo_us_0$s2_req_rlous$rtl[0], &ldut.tile_prci_domain.tile_reset_domain.boom_tile.frontend.bpd.banked_predictors_0.components_1.tables_4.lo_us_0[0], &_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$frontend$bpd$banked_predictors_0$components_1$tables_4$lo_us_0_s2_req_rlous_addr_pipe_0[0]);
       } else {
       {
         // [state-read-dense] forwarding=branchless
@@ -27699,7 +27716,7 @@ void TestHarness::eval_forward_p1(bool update_registers, bool verbose, bool done
         _v2_sa_anyw |= (uint64_t)(essent_to_u64(UInt<1>(0x1)) != 0) & (uint64_t)(essent_to_u64(_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$frontend$bpd$banked_predictors_0$components_1$tables_4$_T_121[G].bits<1,1>()) != 0);
       }
       if (_v2_sa_anyw == 0) {
-        for (int L = 0; L < 16; L++) { _s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$frontend$bpd$banked_predictors_0$components_1$tables_4$lo_us_1$s2_req_rlous$rtl[L] = ldut.tile_prci_domain.tile_reset_domain.boom_tile.frontend.bpd.banked_predictors_0.components_1.tables_4.lo_us_1[essent_to_u64(_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$frontend$bpd$banked_predictors_0$components_1$tables_4$lo_us_1_s2_req_rlous_addr_pipe_0[L])]; }
+        essent_table_read<16, 128, false>(&_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$frontend$bpd$banked_predictors_0$components_1$tables_4$lo_us_1$s2_req_rlous$rtl[0], &ldut.tile_prci_domain.tile_reset_domain.boom_tile.frontend.bpd.banked_predictors_0.components_1.tables_4.lo_us_1[0], &_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$frontend$bpd$banked_predictors_0$components_1$tables_4$lo_us_1_s2_req_rlous_addr_pipe_0[0]);
       } else {
       {
         // [state-read-dense] forwarding=branchless
@@ -27737,7 +27754,7 @@ void TestHarness::eval_forward_p1(bool update_registers, bool verbose, bool done
         _v2_sa_anyw |= (uint64_t)(essent_to_u64(UInt<1>(0x1)) != 0) & (uint64_t)(essent_to_u64(_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$frontend$bpd$banked_predictors_0$components_1$tables_4$_T_121[G].bits<2,2>()) != 0);
       }
       if (_v2_sa_anyw == 0) {
-        for (int L = 0; L < 16; L++) { _s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$frontend$bpd$banked_predictors_0$components_1$tables_4$lo_us_2$s2_req_rlous$rtl[L] = ldut.tile_prci_domain.tile_reset_domain.boom_tile.frontend.bpd.banked_predictors_0.components_1.tables_4.lo_us_2[essent_to_u64(_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$frontend$bpd$banked_predictors_0$components_1$tables_4$lo_us_2_s2_req_rlous_addr_pipe_0[L])]; }
+        essent_table_read<16, 128, false>(&_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$frontend$bpd$banked_predictors_0$components_1$tables_4$lo_us_2$s2_req_rlous$rtl[0], &ldut.tile_prci_domain.tile_reset_domain.boom_tile.frontend.bpd.banked_predictors_0.components_1.tables_4.lo_us_2[0], &_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$frontend$bpd$banked_predictors_0$components_1$tables_4$lo_us_2_s2_req_rlous_addr_pipe_0[0]);
       } else {
       {
         // [state-read-dense] forwarding=branchless
@@ -27777,7 +27794,7 @@ void TestHarness::eval_forward_p1(bool update_registers, bool verbose, bool done
         _v2_sa_anyw |= (uint64_t)(essent_to_u64(UInt<1>(0x1)) != 0) & (uint64_t)(essent_to_u64(_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$frontend$bpd$banked_predictors_0$components_1$tables_4$_T_121[G].bits<3,3>()) != 0);
       }
       if (_v2_sa_anyw == 0) {
-        for (int L = 0; L < 16; L++) { _s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$frontend$bpd$banked_predictors_0$components_1$tables_4$lo_us_3$s2_req_rlous$rtl[L] = ldut.tile_prci_domain.tile_reset_domain.boom_tile.frontend.bpd.banked_predictors_0.components_1.tables_4.lo_us_3[essent_to_u64(_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$frontend$bpd$banked_predictors_0$components_1$tables_4$lo_us_3_s2_req_rlous_addr_pipe_0[L])]; }
+        essent_table_read<16, 128, false>(&_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$frontend$bpd$banked_predictors_0$components_1$tables_4$lo_us_3$s2_req_rlous$rtl[0], &ldut.tile_prci_domain.tile_reset_domain.boom_tile.frontend.bpd.banked_predictors_0.components_1.tables_4.lo_us_3[0], &_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$frontend$bpd$banked_predictors_0$components_1$tables_4$lo_us_3_s2_req_rlous_addr_pipe_0[0]);
       } else {
       {
         // [state-read-dense] forwarding=branchless
@@ -28052,7 +28069,7 @@ void TestHarness::eval_forward_p1(bool update_registers, bool verbose, bool done
         _v2_sa_anyw |= (uint64_t)(essent_to_u64(UInt<1>(0x1)) != 0) & (uint64_t)(essent_to_u64(_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$frontend$bpd$banked_predictors_0$components_1$tables_5$_T_144[G].bits<0,0>()) != 0);
       }
       if (_v2_sa_anyw == 0) {
-        for (int L = 0; L < 16; L++) { _s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$frontend$bpd$banked_predictors_0$components_1$tables_5$hi_us_0$s2_req_rhius$rtl[L] = ldut.tile_prci_domain.tile_reset_domain.boom_tile.frontend.bpd.banked_predictors_0.components_1.tables_5.hi_us_0[essent_to_u64(_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$frontend$bpd$banked_predictors_0$components_1$tables_5$hi_us_0_s2_req_rhius_addr_pipe_0[L])]; }
+        essent_table_read<16, 128, false>(&_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$frontend$bpd$banked_predictors_0$components_1$tables_5$hi_us_0$s2_req_rhius$rtl[0], &ldut.tile_prci_domain.tile_reset_domain.boom_tile.frontend.bpd.banked_predictors_0.components_1.tables_5.hi_us_0[0], &_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$frontend$bpd$banked_predictors_0$components_1$tables_5$hi_us_0_s2_req_rhius_addr_pipe_0[0]);
       } else {
       {
         // [state-read-dense] forwarding=branchless
@@ -28090,7 +28107,7 @@ void TestHarness::eval_forward_p1(bool update_registers, bool verbose, bool done
         _v2_sa_anyw |= (uint64_t)(essent_to_u64(UInt<1>(0x1)) != 0) & (uint64_t)(essent_to_u64(_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$frontend$bpd$banked_predictors_0$components_1$tables_5$_T_144[G].bits<1,1>()) != 0);
       }
       if (_v2_sa_anyw == 0) {
-        for (int L = 0; L < 16; L++) { _s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$frontend$bpd$banked_predictors_0$components_1$tables_5$hi_us_1$s2_req_rhius$rtl[L] = ldut.tile_prci_domain.tile_reset_domain.boom_tile.frontend.bpd.banked_predictors_0.components_1.tables_5.hi_us_1[essent_to_u64(_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$frontend$bpd$banked_predictors_0$components_1$tables_5$hi_us_1_s2_req_rhius_addr_pipe_0[L])]; }
+        essent_table_read<16, 128, false>(&_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$frontend$bpd$banked_predictors_0$components_1$tables_5$hi_us_1$s2_req_rhius$rtl[0], &ldut.tile_prci_domain.tile_reset_domain.boom_tile.frontend.bpd.banked_predictors_0.components_1.tables_5.hi_us_1[0], &_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$frontend$bpd$banked_predictors_0$components_1$tables_5$hi_us_1_s2_req_rhius_addr_pipe_0[0]);
       } else {
       {
         // [state-read-dense] forwarding=branchless
@@ -28128,7 +28145,7 @@ void TestHarness::eval_forward_p1(bool update_registers, bool verbose, bool done
         _v2_sa_anyw |= (uint64_t)(essent_to_u64(UInt<1>(0x1)) != 0) & (uint64_t)(essent_to_u64(_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$frontend$bpd$banked_predictors_0$components_1$tables_5$_T_144[G].bits<2,2>()) != 0);
       }
       if (_v2_sa_anyw == 0) {
-        for (int L = 0; L < 16; L++) { _s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$frontend$bpd$banked_predictors_0$components_1$tables_5$hi_us_2$s2_req_rhius$rtl[L] = ldut.tile_prci_domain.tile_reset_domain.boom_tile.frontend.bpd.banked_predictors_0.components_1.tables_5.hi_us_2[essent_to_u64(_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$frontend$bpd$banked_predictors_0$components_1$tables_5$hi_us_2_s2_req_rhius_addr_pipe_0[L])]; }
+        essent_table_read<16, 128, false>(&_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$frontend$bpd$banked_predictors_0$components_1$tables_5$hi_us_2$s2_req_rhius$rtl[0], &ldut.tile_prci_domain.tile_reset_domain.boom_tile.frontend.bpd.banked_predictors_0.components_1.tables_5.hi_us_2[0], &_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$frontend$bpd$banked_predictors_0$components_1$tables_5$hi_us_2_s2_req_rhius_addr_pipe_0[0]);
       } else {
       {
         // [state-read-dense] forwarding=branchless
@@ -28166,7 +28183,7 @@ void TestHarness::eval_forward_p1(bool update_registers, bool verbose, bool done
         _v2_sa_anyw |= (uint64_t)(essent_to_u64(UInt<1>(0x1)) != 0) & (uint64_t)(essent_to_u64(_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$frontend$bpd$banked_predictors_0$components_1$tables_5$_T_144[G].bits<3,3>()) != 0);
       }
       if (_v2_sa_anyw == 0) {
-        for (int L = 0; L < 16; L++) { _s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$frontend$bpd$banked_predictors_0$components_1$tables_5$hi_us_3$s2_req_rhius$rtl[L] = ldut.tile_prci_domain.tile_reset_domain.boom_tile.frontend.bpd.banked_predictors_0.components_1.tables_5.hi_us_3[essent_to_u64(_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$frontend$bpd$banked_predictors_0$components_1$tables_5$hi_us_3_s2_req_rhius_addr_pipe_0[L])]; }
+        essent_table_read<16, 128, false>(&_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$frontend$bpd$banked_predictors_0$components_1$tables_5$hi_us_3$s2_req_rhius$rtl[0], &ldut.tile_prci_domain.tile_reset_domain.boom_tile.frontend.bpd.banked_predictors_0.components_1.tables_5.hi_us_3[0], &_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$frontend$bpd$banked_predictors_0$components_1$tables_5$hi_us_3_s2_req_rhius_addr_pipe_0[0]);
       } else {
       {
         // [state-read-dense] forwarding=branchless
@@ -28245,7 +28262,7 @@ void TestHarness::eval_forward_p1(bool update_registers, bool verbose, bool done
         _v2_sa_anyw |= (uint64_t)(essent_to_u64(UInt<1>(0x1)) != 0) & (uint64_t)(essent_to_u64(_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$frontend$bpd$banked_predictors_0$components_1$tables_5$_T_157[G].bits<0,0>()) != 0);
       }
       if (_v2_sa_anyw == 0) {
-        for (int L = 0; L < 16; L++) { _s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$frontend$bpd$banked_predictors_0$components_1$tables_5$lo_us_0$s2_req_rlous$rtl[L] = ldut.tile_prci_domain.tile_reset_domain.boom_tile.frontend.bpd.banked_predictors_0.components_1.tables_5.lo_us_0[essent_to_u64(_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$frontend$bpd$banked_predictors_0$components_1$tables_5$lo_us_0_s2_req_rlous_addr_pipe_0[L])]; }
+        essent_table_read<16, 128, false>(&_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$frontend$bpd$banked_predictors_0$components_1$tables_5$lo_us_0$s2_req_rlous$rtl[0], &ldut.tile_prci_domain.tile_reset_domain.boom_tile.frontend.bpd.banked_predictors_0.components_1.tables_5.lo_us_0[0], &_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$frontend$bpd$banked_predictors_0$components_1$tables_5$lo_us_0_s2_req_rlous_addr_pipe_0[0]);
       } else {
       {
         // [state-read-dense] forwarding=branchless
@@ -28283,7 +28300,7 @@ void TestHarness::eval_forward_p1(bool update_registers, bool verbose, bool done
         _v2_sa_anyw |= (uint64_t)(essent_to_u64(UInt<1>(0x1)) != 0) & (uint64_t)(essent_to_u64(_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$frontend$bpd$banked_predictors_0$components_1$tables_5$_T_157[G].bits<1,1>()) != 0);
       }
       if (_v2_sa_anyw == 0) {
-        for (int L = 0; L < 16; L++) { _s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$frontend$bpd$banked_predictors_0$components_1$tables_5$lo_us_1$s2_req_rlous$rtl[L] = ldut.tile_prci_domain.tile_reset_domain.boom_tile.frontend.bpd.banked_predictors_0.components_1.tables_5.lo_us_1[essent_to_u64(_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$frontend$bpd$banked_predictors_0$components_1$tables_5$lo_us_1_s2_req_rlous_addr_pipe_0[L])]; }
+        essent_table_read<16, 128, false>(&_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$frontend$bpd$banked_predictors_0$components_1$tables_5$lo_us_1$s2_req_rlous$rtl[0], &ldut.tile_prci_domain.tile_reset_domain.boom_tile.frontend.bpd.banked_predictors_0.components_1.tables_5.lo_us_1[0], &_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$frontend$bpd$banked_predictors_0$components_1$tables_5$lo_us_1_s2_req_rlous_addr_pipe_0[0]);
       } else {
       {
         // [state-read-dense] forwarding=branchless
@@ -28321,7 +28338,7 @@ void TestHarness::eval_forward_p1(bool update_registers, bool verbose, bool done
         _v2_sa_anyw |= (uint64_t)(essent_to_u64(UInt<1>(0x1)) != 0) & (uint64_t)(essent_to_u64(_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$frontend$bpd$banked_predictors_0$components_1$tables_5$_T_157[G].bits<2,2>()) != 0);
       }
       if (_v2_sa_anyw == 0) {
-        for (int L = 0; L < 16; L++) { _s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$frontend$bpd$banked_predictors_0$components_1$tables_5$lo_us_2$s2_req_rlous$rtl[L] = ldut.tile_prci_domain.tile_reset_domain.boom_tile.frontend.bpd.banked_predictors_0.components_1.tables_5.lo_us_2[essent_to_u64(_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$frontend$bpd$banked_predictors_0$components_1$tables_5$lo_us_2_s2_req_rlous_addr_pipe_0[L])]; }
+        essent_table_read<16, 128, false>(&_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$frontend$bpd$banked_predictors_0$components_1$tables_5$lo_us_2$s2_req_rlous$rtl[0], &ldut.tile_prci_domain.tile_reset_domain.boom_tile.frontend.bpd.banked_predictors_0.components_1.tables_5.lo_us_2[0], &_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$frontend$bpd$banked_predictors_0$components_1$tables_5$lo_us_2_s2_req_rlous_addr_pipe_0[0]);
       } else {
       {
         // [state-read-dense] forwarding=branchless
@@ -28361,7 +28378,7 @@ void TestHarness::eval_forward_p1(bool update_registers, bool verbose, bool done
         _v2_sa_anyw |= (uint64_t)(essent_to_u64(UInt<1>(0x1)) != 0) & (uint64_t)(essent_to_u64(_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$frontend$bpd$banked_predictors_0$components_1$tables_5$_T_157[G].bits<3,3>()) != 0);
       }
       if (_v2_sa_anyw == 0) {
-        for (int L = 0; L < 16; L++) { _s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$frontend$bpd$banked_predictors_0$components_1$tables_5$lo_us_3$s2_req_rlous$rtl[L] = ldut.tile_prci_domain.tile_reset_domain.boom_tile.frontend.bpd.banked_predictors_0.components_1.tables_5.lo_us_3[essent_to_u64(_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$frontend$bpd$banked_predictors_0$components_1$tables_5$lo_us_3_s2_req_rlous_addr_pipe_0[L])]; }
+        essent_table_read<16, 128, false>(&_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$frontend$bpd$banked_predictors_0$components_1$tables_5$lo_us_3$s2_req_rlous$rtl[0], &ldut.tile_prci_domain.tile_reset_domain.boom_tile.frontend.bpd.banked_predictors_0.components_1.tables_5.lo_us_3[0], &_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$frontend$bpd$banked_predictors_0$components_1$tables_5$lo_us_3_s2_req_rlous_addr_pipe_0[0]);
       } else {
       {
         // [state-read-dense] forwarding=branchless
@@ -28636,7 +28653,7 @@ void TestHarness::eval_forward_p1(bool update_registers, bool verbose, bool done
         _v2_sa_anyw |= (uint64_t)(essent_to_u64(UInt<1>(0x1)) != 0) & (uint64_t)(essent_to_u64(_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$frontend$bpd$banked_predictors_1$components_1$tables_0$_T_80[G].bits<0,0>()) != 0);
       }
       if (_v2_sa_anyw == 0) {
-        for (int L = 0; L < 16; L++) { _s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$frontend$bpd$banked_predictors_1$components_1$tables_0$hi_us_0$s2_req_rhius$rtl[L] = ldut.tile_prci_domain.tile_reset_domain.boom_tile.frontend.bpd.banked_predictors_1.components_1.tables_0.hi_us_0[essent_to_u64(_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$frontend$bpd$banked_predictors_1$components_1$tables_0$hi_us_0_s2_req_rhius_addr_pipe_0[L])]; }
+        essent_table_read<16, 128, false>(&_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$frontend$bpd$banked_predictors_1$components_1$tables_0$hi_us_0$s2_req_rhius$rtl[0], &ldut.tile_prci_domain.tile_reset_domain.boom_tile.frontend.bpd.banked_predictors_1.components_1.tables_0.hi_us_0[0], &_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$frontend$bpd$banked_predictors_1$components_1$tables_0$hi_us_0_s2_req_rhius_addr_pipe_0[0]);
       } else {
       {
         // [state-read-dense] forwarding=branchless
@@ -28674,7 +28691,7 @@ void TestHarness::eval_forward_p1(bool update_registers, bool verbose, bool done
         _v2_sa_anyw |= (uint64_t)(essent_to_u64(UInt<1>(0x1)) != 0) & (uint64_t)(essent_to_u64(_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$frontend$bpd$banked_predictors_1$components_1$tables_0$_T_80[G].bits<1,1>()) != 0);
       }
       if (_v2_sa_anyw == 0) {
-        for (int L = 0; L < 16; L++) { _s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$frontend$bpd$banked_predictors_1$components_1$tables_0$hi_us_1$s2_req_rhius$rtl[L] = ldut.tile_prci_domain.tile_reset_domain.boom_tile.frontend.bpd.banked_predictors_1.components_1.tables_0.hi_us_1[essent_to_u64(_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$frontend$bpd$banked_predictors_1$components_1$tables_0$hi_us_1_s2_req_rhius_addr_pipe_0[L])]; }
+        essent_table_read<16, 128, false>(&_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$frontend$bpd$banked_predictors_1$components_1$tables_0$hi_us_1$s2_req_rhius$rtl[0], &ldut.tile_prci_domain.tile_reset_domain.boom_tile.frontend.bpd.banked_predictors_1.components_1.tables_0.hi_us_1[0], &_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$frontend$bpd$banked_predictors_1$components_1$tables_0$hi_us_1_s2_req_rhius_addr_pipe_0[0]);
       } else {
       {
         // [state-read-dense] forwarding=branchless
@@ -28716,7 +28733,7 @@ void TestHarness::eval_forward_p1(bool update_registers, bool verbose, bool done
         _v2_sa_anyw |= (uint64_t)(essent_to_u64(UInt<1>(0x1)) != 0) & (uint64_t)(essent_to_u64(_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$frontend$bpd$banked_predictors_1$components_1$tables_0$_T_80[G].bits<2,2>()) != 0);
       }
       if (_v2_sa_anyw == 0) {
-        for (int L = 0; L < 16; L++) { _s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$frontend$bpd$banked_predictors_1$components_1$tables_0$hi_us_2$s2_req_rhius$rtl[L] = ldut.tile_prci_domain.tile_reset_domain.boom_tile.frontend.bpd.banked_predictors_1.components_1.tables_0.hi_us_2[essent_to_u64(_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$frontend$bpd$banked_predictors_1$components_1$tables_0$hi_us_2_s2_req_rhius_addr_pipe_0[L])]; }
+        essent_table_read<16, 128, false>(&_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$frontend$bpd$banked_predictors_1$components_1$tables_0$hi_us_2$s2_req_rhius$rtl[0], &ldut.tile_prci_domain.tile_reset_domain.boom_tile.frontend.bpd.banked_predictors_1.components_1.tables_0.hi_us_2[0], &_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$frontend$bpd$banked_predictors_1$components_1$tables_0$hi_us_2_s2_req_rhius_addr_pipe_0[0]);
       } else {
       {
         // [state-read-dense] forwarding=branchless
@@ -28754,7 +28771,7 @@ void TestHarness::eval_forward_p1(bool update_registers, bool verbose, bool done
         _v2_sa_anyw |= (uint64_t)(essent_to_u64(UInt<1>(0x1)) != 0) & (uint64_t)(essent_to_u64(_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$frontend$bpd$banked_predictors_1$components_1$tables_0$_T_80[G].bits<3,3>()) != 0);
       }
       if (_v2_sa_anyw == 0) {
-        for (int L = 0; L < 16; L++) { _s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$frontend$bpd$banked_predictors_1$components_1$tables_0$hi_us_3$s2_req_rhius$rtl[L] = ldut.tile_prci_domain.tile_reset_domain.boom_tile.frontend.bpd.banked_predictors_1.components_1.tables_0.hi_us_3[essent_to_u64(_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$frontend$bpd$banked_predictors_1$components_1$tables_0$hi_us_3_s2_req_rhius_addr_pipe_0[L])]; }
+        essent_table_read<16, 128, false>(&_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$frontend$bpd$banked_predictors_1$components_1$tables_0$hi_us_3$s2_req_rhius$rtl[0], &ldut.tile_prci_domain.tile_reset_domain.boom_tile.frontend.bpd.banked_predictors_1.components_1.tables_0.hi_us_3[0], &_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$frontend$bpd$banked_predictors_1$components_1$tables_0$hi_us_3_s2_req_rhius_addr_pipe_0[0]);
       } else {
       {
         // [state-read-dense] forwarding=branchless
@@ -28833,7 +28850,7 @@ void TestHarness::eval_forward_p1(bool update_registers, bool verbose, bool done
         _v2_sa_anyw |= (uint64_t)(essent_to_u64(UInt<1>(0x1)) != 0) & (uint64_t)(essent_to_u64(_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$frontend$bpd$banked_predictors_1$components_1$tables_0$_T_93[G].bits<0,0>()) != 0);
       }
       if (_v2_sa_anyw == 0) {
-        for (int L = 0; L < 16; L++) { _s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$frontend$bpd$banked_predictors_1$components_1$tables_0$lo_us_0$s2_req_rlous$rtl[L] = ldut.tile_prci_domain.tile_reset_domain.boom_tile.frontend.bpd.banked_predictors_1.components_1.tables_0.lo_us_0[essent_to_u64(_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$frontend$bpd$banked_predictors_1$components_1$tables_0$lo_us_0_s2_req_rlous_addr_pipe_0[L])]; }
+        essent_table_read<16, 128, false>(&_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$frontend$bpd$banked_predictors_1$components_1$tables_0$lo_us_0$s2_req_rlous$rtl[0], &ldut.tile_prci_domain.tile_reset_domain.boom_tile.frontend.bpd.banked_predictors_1.components_1.tables_0.lo_us_0[0], &_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$frontend$bpd$banked_predictors_1$components_1$tables_0$lo_us_0_s2_req_rlous_addr_pipe_0[0]);
       } else {
       {
         // [state-read-dense] forwarding=branchless
@@ -28871,7 +28888,7 @@ void TestHarness::eval_forward_p1(bool update_registers, bool verbose, bool done
         _v2_sa_anyw |= (uint64_t)(essent_to_u64(UInt<1>(0x1)) != 0) & (uint64_t)(essent_to_u64(_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$frontend$bpd$banked_predictors_1$components_1$tables_0$_T_93[G].bits<1,1>()) != 0);
       }
       if (_v2_sa_anyw == 0) {
-        for (int L = 0; L < 16; L++) { _s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$frontend$bpd$banked_predictors_1$components_1$tables_0$lo_us_1$s2_req_rlous$rtl[L] = ldut.tile_prci_domain.tile_reset_domain.boom_tile.frontend.bpd.banked_predictors_1.components_1.tables_0.lo_us_1[essent_to_u64(_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$frontend$bpd$banked_predictors_1$components_1$tables_0$lo_us_1_s2_req_rlous_addr_pipe_0[L])]; }
+        essent_table_read<16, 128, false>(&_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$frontend$bpd$banked_predictors_1$components_1$tables_0$lo_us_1$s2_req_rlous$rtl[0], &ldut.tile_prci_domain.tile_reset_domain.boom_tile.frontend.bpd.banked_predictors_1.components_1.tables_0.lo_us_1[0], &_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$frontend$bpd$banked_predictors_1$components_1$tables_0$lo_us_1_s2_req_rlous_addr_pipe_0[0]);
       } else {
       {
         // [state-read-dense] forwarding=branchless
@@ -28909,7 +28926,7 @@ void TestHarness::eval_forward_p1(bool update_registers, bool verbose, bool done
         _v2_sa_anyw |= (uint64_t)(essent_to_u64(UInt<1>(0x1)) != 0) & (uint64_t)(essent_to_u64(_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$frontend$bpd$banked_predictors_1$components_1$tables_0$_T_93[G].bits<2,2>()) != 0);
       }
       if (_v2_sa_anyw == 0) {
-        for (int L = 0; L < 16; L++) { _s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$frontend$bpd$banked_predictors_1$components_1$tables_0$lo_us_2$s2_req_rlous$rtl[L] = ldut.tile_prci_domain.tile_reset_domain.boom_tile.frontend.bpd.banked_predictors_1.components_1.tables_0.lo_us_2[essent_to_u64(_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$frontend$bpd$banked_predictors_1$components_1$tables_0$lo_us_2_s2_req_rlous_addr_pipe_0[L])]; }
+        essent_table_read<16, 128, false>(&_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$frontend$bpd$banked_predictors_1$components_1$tables_0$lo_us_2$s2_req_rlous$rtl[0], &ldut.tile_prci_domain.tile_reset_domain.boom_tile.frontend.bpd.banked_predictors_1.components_1.tables_0.lo_us_2[0], &_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$frontend$bpd$banked_predictors_1$components_1$tables_0$lo_us_2_s2_req_rlous_addr_pipe_0[0]);
       } else {
       {
         // [state-read-dense] forwarding=branchless
@@ -28947,7 +28964,7 @@ void TestHarness::eval_forward_p1(bool update_registers, bool verbose, bool done
         _v2_sa_anyw |= (uint64_t)(essent_to_u64(UInt<1>(0x1)) != 0) & (uint64_t)(essent_to_u64(_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$frontend$bpd$banked_predictors_1$components_1$tables_0$_T_93[G].bits<3,3>()) != 0);
       }
       if (_v2_sa_anyw == 0) {
-        for (int L = 0; L < 16; L++) { _s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$frontend$bpd$banked_predictors_1$components_1$tables_0$lo_us_3$s2_req_rlous$rtl[L] = ldut.tile_prci_domain.tile_reset_domain.boom_tile.frontend.bpd.banked_predictors_1.components_1.tables_0.lo_us_3[essent_to_u64(_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$frontend$bpd$banked_predictors_1$components_1$tables_0$lo_us_3_s2_req_rlous_addr_pipe_0[L])]; }
+        essent_table_read<16, 128, false>(&_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$frontend$bpd$banked_predictors_1$components_1$tables_0$lo_us_3$s2_req_rlous$rtl[0], &ldut.tile_prci_domain.tile_reset_domain.boom_tile.frontend.bpd.banked_predictors_1.components_1.tables_0.lo_us_3[0], &_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$frontend$bpd$banked_predictors_1$components_1$tables_0$lo_us_3_s2_req_rlous_addr_pipe_0[0]);
       } else {
       {
         // [state-read-dense] forwarding=branchless
@@ -29222,7 +29239,7 @@ void TestHarness::eval_forward_p1(bool update_registers, bool verbose, bool done
         _v2_sa_anyw |= (uint64_t)(essent_to_u64(UInt<1>(0x1)) != 0) & (uint64_t)(essent_to_u64(_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$frontend$bpd$banked_predictors_1$components_1$tables_1$_T_80[G].bits<0,0>()) != 0);
       }
       if (_v2_sa_anyw == 0) {
-        for (int L = 0; L < 16; L++) { _s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$frontend$bpd$banked_predictors_1$components_1$tables_1$hi_us_0$s2_req_rhius$rtl[L] = ldut.tile_prci_domain.tile_reset_domain.boom_tile.frontend.bpd.banked_predictors_1.components_1.tables_1.hi_us_0[essent_to_u64(_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$frontend$bpd$banked_predictors_1$components_1$tables_1$hi_us_0_s2_req_rhius_addr_pipe_0[L])]; }
+        essent_table_read<16, 128, false>(&_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$frontend$bpd$banked_predictors_1$components_1$tables_1$hi_us_0$s2_req_rhius$rtl[0], &ldut.tile_prci_domain.tile_reset_domain.boom_tile.frontend.bpd.banked_predictors_1.components_1.tables_1.hi_us_0[0], &_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$frontend$bpd$banked_predictors_1$components_1$tables_1$hi_us_0_s2_req_rhius_addr_pipe_0[0]);
       } else {
       {
         // [state-read-dense] forwarding=branchless
@@ -29262,7 +29279,7 @@ void TestHarness::eval_forward_p1(bool update_registers, bool verbose, bool done
         _v2_sa_anyw |= (uint64_t)(essent_to_u64(UInt<1>(0x1)) != 0) & (uint64_t)(essent_to_u64(_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$frontend$bpd$banked_predictors_1$components_1$tables_1$_T_80[G].bits<1,1>()) != 0);
       }
       if (_v2_sa_anyw == 0) {
-        for (int L = 0; L < 16; L++) { _s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$frontend$bpd$banked_predictors_1$components_1$tables_1$hi_us_1$s2_req_rhius$rtl[L] = ldut.tile_prci_domain.tile_reset_domain.boom_tile.frontend.bpd.banked_predictors_1.components_1.tables_1.hi_us_1[essent_to_u64(_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$frontend$bpd$banked_predictors_1$components_1$tables_1$hi_us_1_s2_req_rhius_addr_pipe_0[L])]; }
+        essent_table_read<16, 128, false>(&_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$frontend$bpd$banked_predictors_1$components_1$tables_1$hi_us_1$s2_req_rhius$rtl[0], &ldut.tile_prci_domain.tile_reset_domain.boom_tile.frontend.bpd.banked_predictors_1.components_1.tables_1.hi_us_1[0], &_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$frontend$bpd$banked_predictors_1$components_1$tables_1$hi_us_1_s2_req_rhius_addr_pipe_0[0]);
       } else {
       {
         // [state-read-dense] forwarding=branchless
@@ -29300,7 +29317,7 @@ void TestHarness::eval_forward_p1(bool update_registers, bool verbose, bool done
         _v2_sa_anyw |= (uint64_t)(essent_to_u64(UInt<1>(0x1)) != 0) & (uint64_t)(essent_to_u64(_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$frontend$bpd$banked_predictors_1$components_1$tables_1$_T_80[G].bits<2,2>()) != 0);
       }
       if (_v2_sa_anyw == 0) {
-        for (int L = 0; L < 16; L++) { _s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$frontend$bpd$banked_predictors_1$components_1$tables_1$hi_us_2$s2_req_rhius$rtl[L] = ldut.tile_prci_domain.tile_reset_domain.boom_tile.frontend.bpd.banked_predictors_1.components_1.tables_1.hi_us_2[essent_to_u64(_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$frontend$bpd$banked_predictors_1$components_1$tables_1$hi_us_2_s2_req_rhius_addr_pipe_0[L])]; }
+        essent_table_read<16, 128, false>(&_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$frontend$bpd$banked_predictors_1$components_1$tables_1$hi_us_2$s2_req_rhius$rtl[0], &ldut.tile_prci_domain.tile_reset_domain.boom_tile.frontend.bpd.banked_predictors_1.components_1.tables_1.hi_us_2[0], &_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$frontend$bpd$banked_predictors_1$components_1$tables_1$hi_us_2_s2_req_rhius_addr_pipe_0[0]);
       } else {
       {
         // [state-read-dense] forwarding=branchless
@@ -29338,7 +29355,7 @@ void TestHarness::eval_forward_p1(bool update_registers, bool verbose, bool done
         _v2_sa_anyw |= (uint64_t)(essent_to_u64(UInt<1>(0x1)) != 0) & (uint64_t)(essent_to_u64(_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$frontend$bpd$banked_predictors_1$components_1$tables_1$_T_80[G].bits<3,3>()) != 0);
       }
       if (_v2_sa_anyw == 0) {
-        for (int L = 0; L < 16; L++) { _s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$frontend$bpd$banked_predictors_1$components_1$tables_1$hi_us_3$s2_req_rhius$rtl[L] = ldut.tile_prci_domain.tile_reset_domain.boom_tile.frontend.bpd.banked_predictors_1.components_1.tables_1.hi_us_3[essent_to_u64(_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$frontend$bpd$banked_predictors_1$components_1$tables_1$hi_us_3_s2_req_rhius_addr_pipe_0[L])]; }
+        essent_table_read<16, 128, false>(&_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$frontend$bpd$banked_predictors_1$components_1$tables_1$hi_us_3$s2_req_rhius$rtl[0], &ldut.tile_prci_domain.tile_reset_domain.boom_tile.frontend.bpd.banked_predictors_1.components_1.tables_1.hi_us_3[0], &_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$frontend$bpd$banked_predictors_1$components_1$tables_1$hi_us_3_s2_req_rhius_addr_pipe_0[0]);
       } else {
       {
         // [state-read-dense] forwarding=branchless
@@ -29417,7 +29434,7 @@ void TestHarness::eval_forward_p1(bool update_registers, bool verbose, bool done
         _v2_sa_anyw |= (uint64_t)(essent_to_u64(UInt<1>(0x1)) != 0) & (uint64_t)(essent_to_u64(_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$frontend$bpd$banked_predictors_1$components_1$tables_1$_T_93[G].bits<0,0>()) != 0);
       }
       if (_v2_sa_anyw == 0) {
-        for (int L = 0; L < 16; L++) { _s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$frontend$bpd$banked_predictors_1$components_1$tables_1$lo_us_0$s2_req_rlous$rtl[L] = ldut.tile_prci_domain.tile_reset_domain.boom_tile.frontend.bpd.banked_predictors_1.components_1.tables_1.lo_us_0[essent_to_u64(_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$frontend$bpd$banked_predictors_1$components_1$tables_1$lo_us_0_s2_req_rlous_addr_pipe_0[L])]; }
+        essent_table_read<16, 128, false>(&_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$frontend$bpd$banked_predictors_1$components_1$tables_1$lo_us_0$s2_req_rlous$rtl[0], &ldut.tile_prci_domain.tile_reset_domain.boom_tile.frontend.bpd.banked_predictors_1.components_1.tables_1.lo_us_0[0], &_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$frontend$bpd$banked_predictors_1$components_1$tables_1$lo_us_0_s2_req_rlous_addr_pipe_0[0]);
       } else {
       {
         // [state-read-dense] forwarding=branchless
@@ -29455,7 +29472,7 @@ void TestHarness::eval_forward_p1(bool update_registers, bool verbose, bool done
         _v2_sa_anyw |= (uint64_t)(essent_to_u64(UInt<1>(0x1)) != 0) & (uint64_t)(essent_to_u64(_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$frontend$bpd$banked_predictors_1$components_1$tables_1$_T_93[G].bits<1,1>()) != 0);
       }
       if (_v2_sa_anyw == 0) {
-        for (int L = 0; L < 16; L++) { _s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$frontend$bpd$banked_predictors_1$components_1$tables_1$lo_us_1$s2_req_rlous$rtl[L] = ldut.tile_prci_domain.tile_reset_domain.boom_tile.frontend.bpd.banked_predictors_1.components_1.tables_1.lo_us_1[essent_to_u64(_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$frontend$bpd$banked_predictors_1$components_1$tables_1$lo_us_1_s2_req_rlous_addr_pipe_0[L])]; }
+        essent_table_read<16, 128, false>(&_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$frontend$bpd$banked_predictors_1$components_1$tables_1$lo_us_1$s2_req_rlous$rtl[0], &ldut.tile_prci_domain.tile_reset_domain.boom_tile.frontend.bpd.banked_predictors_1.components_1.tables_1.lo_us_1[0], &_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$frontend$bpd$banked_predictors_1$components_1$tables_1$lo_us_1_s2_req_rlous_addr_pipe_0[0]);
       } else {
       {
         // [state-read-dense] forwarding=branchless
@@ -29493,7 +29510,7 @@ void TestHarness::eval_forward_p1(bool update_registers, bool verbose, bool done
         _v2_sa_anyw |= (uint64_t)(essent_to_u64(UInt<1>(0x1)) != 0) & (uint64_t)(essent_to_u64(_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$frontend$bpd$banked_predictors_1$components_1$tables_1$_T_93[G].bits<2,2>()) != 0);
       }
       if (_v2_sa_anyw == 0) {
-        for (int L = 0; L < 16; L++) { _s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$frontend$bpd$banked_predictors_1$components_1$tables_1$lo_us_2$s2_req_rlous$rtl[L] = ldut.tile_prci_domain.tile_reset_domain.boom_tile.frontend.bpd.banked_predictors_1.components_1.tables_1.lo_us_2[essent_to_u64(_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$frontend$bpd$banked_predictors_1$components_1$tables_1$lo_us_2_s2_req_rlous_addr_pipe_0[L])]; }
+        essent_table_read<16, 128, false>(&_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$frontend$bpd$banked_predictors_1$components_1$tables_1$lo_us_2$s2_req_rlous$rtl[0], &ldut.tile_prci_domain.tile_reset_domain.boom_tile.frontend.bpd.banked_predictors_1.components_1.tables_1.lo_us_2[0], &_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$frontend$bpd$banked_predictors_1$components_1$tables_1$lo_us_2_s2_req_rlous_addr_pipe_0[0]);
       } else {
       {
         // [state-read-dense] forwarding=branchless
@@ -29531,7 +29548,7 @@ void TestHarness::eval_forward_p1(bool update_registers, bool verbose, bool done
         _v2_sa_anyw |= (uint64_t)(essent_to_u64(UInt<1>(0x1)) != 0) & (uint64_t)(essent_to_u64(_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$frontend$bpd$banked_predictors_1$components_1$tables_1$_T_93[G].bits<3,3>()) != 0);
       }
       if (_v2_sa_anyw == 0) {
-        for (int L = 0; L < 16; L++) { _s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$frontend$bpd$banked_predictors_1$components_1$tables_1$lo_us_3$s2_req_rlous$rtl[L] = ldut.tile_prci_domain.tile_reset_domain.boom_tile.frontend.bpd.banked_predictors_1.components_1.tables_1.lo_us_3[essent_to_u64(_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$frontend$bpd$banked_predictors_1$components_1$tables_1$lo_us_3_s2_req_rlous_addr_pipe_0[L])]; }
+        essent_table_read<16, 128, false>(&_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$frontend$bpd$banked_predictors_1$components_1$tables_1$lo_us_3$s2_req_rlous$rtl[0], &ldut.tile_prci_domain.tile_reset_domain.boom_tile.frontend.bpd.banked_predictors_1.components_1.tables_1.lo_us_3[0], &_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$frontend$bpd$banked_predictors_1$components_1$tables_1$lo_us_3_s2_req_rlous_addr_pipe_0[0]);
       } else {
       {
         // [state-read-dense] forwarding=branchless
@@ -30810,7 +30827,7 @@ void TestHarness::eval_forward_p1(bool update_registers, bool verbose, bool done
         _v2_sa_anyw |= (uint64_t)(essent_to_u64(UInt<1>(0x1)) != 0) & (uint64_t)(essent_to_u64(_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$frontend$bpd$banked_predictors_1$components_1$tables_4$_T_108[G].bits<0,0>()) != 0);
       }
       if (_v2_sa_anyw == 0) {
-        for (int L = 0; L < 16; L++) { _s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$frontend$bpd$banked_predictors_1$components_1$tables_4$hi_us_0$s2_req_rhius$rtl[L] = ldut.tile_prci_domain.tile_reset_domain.boom_tile.frontend.bpd.banked_predictors_1.components_1.tables_4.hi_us_0[essent_to_u64(_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$frontend$bpd$banked_predictors_1$components_1$tables_4$hi_us_0_s2_req_rhius_addr_pipe_0[L])]; }
+        essent_table_read<16, 128, false>(&_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$frontend$bpd$banked_predictors_1$components_1$tables_4$hi_us_0$s2_req_rhius$rtl[0], &ldut.tile_prci_domain.tile_reset_domain.boom_tile.frontend.bpd.banked_predictors_1.components_1.tables_4.hi_us_0[0], &_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$frontend$bpd$banked_predictors_1$components_1$tables_4$hi_us_0_s2_req_rhius_addr_pipe_0[0]);
       } else {
       {
         // [state-read-dense] forwarding=branchless
@@ -30848,7 +30865,7 @@ void TestHarness::eval_forward_p1(bool update_registers, bool verbose, bool done
         _v2_sa_anyw |= (uint64_t)(essent_to_u64(UInt<1>(0x1)) != 0) & (uint64_t)(essent_to_u64(_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$frontend$bpd$banked_predictors_1$components_1$tables_4$_T_108[G].bits<1,1>()) != 0);
       }
       if (_v2_sa_anyw == 0) {
-        for (int L = 0; L < 16; L++) { _s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$frontend$bpd$banked_predictors_1$components_1$tables_4$hi_us_1$s2_req_rhius$rtl[L] = ldut.tile_prci_domain.tile_reset_domain.boom_tile.frontend.bpd.banked_predictors_1.components_1.tables_4.hi_us_1[essent_to_u64(_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$frontend$bpd$banked_predictors_1$components_1$tables_4$hi_us_1_s2_req_rhius_addr_pipe_0[L])]; }
+        essent_table_read<16, 128, false>(&_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$frontend$bpd$banked_predictors_1$components_1$tables_4$hi_us_1$s2_req_rhius$rtl[0], &ldut.tile_prci_domain.tile_reset_domain.boom_tile.frontend.bpd.banked_predictors_1.components_1.tables_4.hi_us_1[0], &_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$frontend$bpd$banked_predictors_1$components_1$tables_4$hi_us_1_s2_req_rhius_addr_pipe_0[0]);
       } else {
       {
         // [state-read-dense] forwarding=branchless
@@ -30886,7 +30903,7 @@ void TestHarness::eval_forward_p1(bool update_registers, bool verbose, bool done
         _v2_sa_anyw |= (uint64_t)(essent_to_u64(UInt<1>(0x1)) != 0) & (uint64_t)(essent_to_u64(_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$frontend$bpd$banked_predictors_1$components_1$tables_4$_T_108[G].bits<2,2>()) != 0);
       }
       if (_v2_sa_anyw == 0) {
-        for (int L = 0; L < 16; L++) { _s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$frontend$bpd$banked_predictors_1$components_1$tables_4$hi_us_2$s2_req_rhius$rtl[L] = ldut.tile_prci_domain.tile_reset_domain.boom_tile.frontend.bpd.banked_predictors_1.components_1.tables_4.hi_us_2[essent_to_u64(_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$frontend$bpd$banked_predictors_1$components_1$tables_4$hi_us_2_s2_req_rhius_addr_pipe_0[L])]; }
+        essent_table_read<16, 128, false>(&_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$frontend$bpd$banked_predictors_1$components_1$tables_4$hi_us_2$s2_req_rhius$rtl[0], &ldut.tile_prci_domain.tile_reset_domain.boom_tile.frontend.bpd.banked_predictors_1.components_1.tables_4.hi_us_2[0], &_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$frontend$bpd$banked_predictors_1$components_1$tables_4$hi_us_2_s2_req_rhius_addr_pipe_0[0]);
       } else {
       {
         // [state-read-dense] forwarding=branchless
@@ -30924,7 +30941,7 @@ void TestHarness::eval_forward_p1(bool update_registers, bool verbose, bool done
         _v2_sa_anyw |= (uint64_t)(essent_to_u64(UInt<1>(0x1)) != 0) & (uint64_t)(essent_to_u64(_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$frontend$bpd$banked_predictors_1$components_1$tables_4$_T_108[G].bits<3,3>()) != 0);
       }
       if (_v2_sa_anyw == 0) {
-        for (int L = 0; L < 16; L++) { _s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$frontend$bpd$banked_predictors_1$components_1$tables_4$hi_us_3$s2_req_rhius$rtl[L] = ldut.tile_prci_domain.tile_reset_domain.boom_tile.frontend.bpd.banked_predictors_1.components_1.tables_4.hi_us_3[essent_to_u64(_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$frontend$bpd$banked_predictors_1$components_1$tables_4$hi_us_3_s2_req_rhius_addr_pipe_0[L])]; }
+        essent_table_read<16, 128, false>(&_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$frontend$bpd$banked_predictors_1$components_1$tables_4$hi_us_3$s2_req_rhius$rtl[0], &ldut.tile_prci_domain.tile_reset_domain.boom_tile.frontend.bpd.banked_predictors_1.components_1.tables_4.hi_us_3[0], &_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$frontend$bpd$banked_predictors_1$components_1$tables_4$hi_us_3_s2_req_rhius_addr_pipe_0[0]);
       } else {
       {
         // [state-read-dense] forwarding=branchless
@@ -31005,7 +31022,7 @@ void TestHarness::eval_forward_p1(bool update_registers, bool verbose, bool done
         _v2_sa_anyw |= (uint64_t)(essent_to_u64(UInt<1>(0x1)) != 0) & (uint64_t)(essent_to_u64(_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$frontend$bpd$banked_predictors_1$components_1$tables_4$_T_121[G].bits<0,0>()) != 0);
       }
       if (_v2_sa_anyw == 0) {
-        for (int L = 0; L < 16; L++) { _s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$frontend$bpd$banked_predictors_1$components_1$tables_4$lo_us_0$s2_req_rlous$rtl[L] = ldut.tile_prci_domain.tile_reset_domain.boom_tile.frontend.bpd.banked_predictors_1.components_1.tables_4.lo_us_0[essent_to_u64(_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$frontend$bpd$banked_predictors_1$components_1$tables_4$lo_us_0_s2_req_rlous_addr_pipe_0[L])]; }
+        essent_table_read<16, 128, false>(&_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$frontend$bpd$banked_predictors_1$components_1$tables_4$lo_us_0$s2_req_rlous$rtl[0], &ldut.tile_prci_domain.tile_reset_domain.boom_tile.frontend.bpd.banked_predictors_1.components_1.tables_4.lo_us_0[0], &_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$frontend$bpd$banked_predictors_1$components_1$tables_4$lo_us_0_s2_req_rlous_addr_pipe_0[0]);
       } else {
       {
         // [state-read-dense] forwarding=branchless
@@ -31043,7 +31060,7 @@ void TestHarness::eval_forward_p1(bool update_registers, bool verbose, bool done
         _v2_sa_anyw |= (uint64_t)(essent_to_u64(UInt<1>(0x1)) != 0) & (uint64_t)(essent_to_u64(_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$frontend$bpd$banked_predictors_1$components_1$tables_4$_T_121[G].bits<1,1>()) != 0);
       }
       if (_v2_sa_anyw == 0) {
-        for (int L = 0; L < 16; L++) { _s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$frontend$bpd$banked_predictors_1$components_1$tables_4$lo_us_1$s2_req_rlous$rtl[L] = ldut.tile_prci_domain.tile_reset_domain.boom_tile.frontend.bpd.banked_predictors_1.components_1.tables_4.lo_us_1[essent_to_u64(_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$frontend$bpd$banked_predictors_1$components_1$tables_4$lo_us_1_s2_req_rlous_addr_pipe_0[L])]; }
+        essent_table_read<16, 128, false>(&_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$frontend$bpd$banked_predictors_1$components_1$tables_4$lo_us_1$s2_req_rlous$rtl[0], &ldut.tile_prci_domain.tile_reset_domain.boom_tile.frontend.bpd.banked_predictors_1.components_1.tables_4.lo_us_1[0], &_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$frontend$bpd$banked_predictors_1$components_1$tables_4$lo_us_1_s2_req_rlous_addr_pipe_0[0]);
       } else {
       {
         // [state-read-dense] forwarding=branchless
@@ -31081,7 +31098,7 @@ void TestHarness::eval_forward_p1(bool update_registers, bool verbose, bool done
         _v2_sa_anyw |= (uint64_t)(essent_to_u64(UInt<1>(0x1)) != 0) & (uint64_t)(essent_to_u64(_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$frontend$bpd$banked_predictors_1$components_1$tables_4$_T_121[G].bits<2,2>()) != 0);
       }
       if (_v2_sa_anyw == 0) {
-        for (int L = 0; L < 16; L++) { _s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$frontend$bpd$banked_predictors_1$components_1$tables_4$lo_us_2$s2_req_rlous$rtl[L] = ldut.tile_prci_domain.tile_reset_domain.boom_tile.frontend.bpd.banked_predictors_1.components_1.tables_4.lo_us_2[essent_to_u64(_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$frontend$bpd$banked_predictors_1$components_1$tables_4$lo_us_2_s2_req_rlous_addr_pipe_0[L])]; }
+        essent_table_read<16, 128, false>(&_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$frontend$bpd$banked_predictors_1$components_1$tables_4$lo_us_2$s2_req_rlous$rtl[0], &ldut.tile_prci_domain.tile_reset_domain.boom_tile.frontend.bpd.banked_predictors_1.components_1.tables_4.lo_us_2[0], &_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$frontend$bpd$banked_predictors_1$components_1$tables_4$lo_us_2_s2_req_rlous_addr_pipe_0[0]);
       } else {
       {
         // [state-read-dense] forwarding=branchless
@@ -31119,7 +31136,7 @@ void TestHarness::eval_forward_p1(bool update_registers, bool verbose, bool done
         _v2_sa_anyw |= (uint64_t)(essent_to_u64(UInt<1>(0x1)) != 0) & (uint64_t)(essent_to_u64(_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$frontend$bpd$banked_predictors_1$components_1$tables_4$_T_121[G].bits<3,3>()) != 0);
       }
       if (_v2_sa_anyw == 0) {
-        for (int L = 0; L < 16; L++) { _s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$frontend$bpd$banked_predictors_1$components_1$tables_4$lo_us_3$s2_req_rlous$rtl[L] = ldut.tile_prci_domain.tile_reset_domain.boom_tile.frontend.bpd.banked_predictors_1.components_1.tables_4.lo_us_3[essent_to_u64(_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$frontend$bpd$banked_predictors_1$components_1$tables_4$lo_us_3_s2_req_rlous_addr_pipe_0[L])]; }
+        essent_table_read<16, 128, false>(&_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$frontend$bpd$banked_predictors_1$components_1$tables_4$lo_us_3$s2_req_rlous$rtl[0], &ldut.tile_prci_domain.tile_reset_domain.boom_tile.frontend.bpd.banked_predictors_1.components_1.tables_4.lo_us_3[0], &_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$frontend$bpd$banked_predictors_1$components_1$tables_4$lo_us_3_s2_req_rlous_addr_pipe_0[0]);
       } else {
       {
         // [state-read-dense] forwarding=branchless
@@ -31394,7 +31411,7 @@ void TestHarness::eval_forward_p1(bool update_registers, bool verbose, bool done
         _v2_sa_anyw |= (uint64_t)(essent_to_u64(UInt<1>(0x1)) != 0) & (uint64_t)(essent_to_u64(_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$frontend$bpd$banked_predictors_1$components_1$tables_5$_T_144[G].bits<0,0>()) != 0);
       }
       if (_v2_sa_anyw == 0) {
-        for (int L = 0; L < 16; L++) { _s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$frontend$bpd$banked_predictors_1$components_1$tables_5$hi_us_0$s2_req_rhius$rtl[L] = ldut.tile_prci_domain.tile_reset_domain.boom_tile.frontend.bpd.banked_predictors_1.components_1.tables_5.hi_us_0[essent_to_u64(_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$frontend$bpd$banked_predictors_1$components_1$tables_5$hi_us_0_s2_req_rhius_addr_pipe_0[L])]; }
+        essent_table_read<16, 128, false>(&_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$frontend$bpd$banked_predictors_1$components_1$tables_5$hi_us_0$s2_req_rhius$rtl[0], &ldut.tile_prci_domain.tile_reset_domain.boom_tile.frontend.bpd.banked_predictors_1.components_1.tables_5.hi_us_0[0], &_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$frontend$bpd$banked_predictors_1$components_1$tables_5$hi_us_0_s2_req_rhius_addr_pipe_0[0]);
       } else {
       {
         // [state-read-dense] forwarding=branchless
@@ -31432,7 +31449,7 @@ void TestHarness::eval_forward_p1(bool update_registers, bool verbose, bool done
         _v2_sa_anyw |= (uint64_t)(essent_to_u64(UInt<1>(0x1)) != 0) & (uint64_t)(essent_to_u64(_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$frontend$bpd$banked_predictors_1$components_1$tables_5$_T_144[G].bits<1,1>()) != 0);
       }
       if (_v2_sa_anyw == 0) {
-        for (int L = 0; L < 16; L++) { _s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$frontend$bpd$banked_predictors_1$components_1$tables_5$hi_us_1$s2_req_rhius$rtl[L] = ldut.tile_prci_domain.tile_reset_domain.boom_tile.frontend.bpd.banked_predictors_1.components_1.tables_5.hi_us_1[essent_to_u64(_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$frontend$bpd$banked_predictors_1$components_1$tables_5$hi_us_1_s2_req_rhius_addr_pipe_0[L])]; }
+        essent_table_read<16, 128, false>(&_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$frontend$bpd$banked_predictors_1$components_1$tables_5$hi_us_1$s2_req_rhius$rtl[0], &ldut.tile_prci_domain.tile_reset_domain.boom_tile.frontend.bpd.banked_predictors_1.components_1.tables_5.hi_us_1[0], &_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$frontend$bpd$banked_predictors_1$components_1$tables_5$hi_us_1_s2_req_rhius_addr_pipe_0[0]);
       } else {
       {
         // [state-read-dense] forwarding=branchless
@@ -31470,7 +31487,7 @@ void TestHarness::eval_forward_p1(bool update_registers, bool verbose, bool done
         _v2_sa_anyw |= (uint64_t)(essent_to_u64(UInt<1>(0x1)) != 0) & (uint64_t)(essent_to_u64(_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$frontend$bpd$banked_predictors_1$components_1$tables_5$_T_144[G].bits<2,2>()) != 0);
       }
       if (_v2_sa_anyw == 0) {
-        for (int L = 0; L < 16; L++) { _s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$frontend$bpd$banked_predictors_1$components_1$tables_5$hi_us_2$s2_req_rhius$rtl[L] = ldut.tile_prci_domain.tile_reset_domain.boom_tile.frontend.bpd.banked_predictors_1.components_1.tables_5.hi_us_2[essent_to_u64(_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$frontend$bpd$banked_predictors_1$components_1$tables_5$hi_us_2_s2_req_rhius_addr_pipe_0[L])]; }
+        essent_table_read<16, 128, false>(&_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$frontend$bpd$banked_predictors_1$components_1$tables_5$hi_us_2$s2_req_rhius$rtl[0], &ldut.tile_prci_domain.tile_reset_domain.boom_tile.frontend.bpd.banked_predictors_1.components_1.tables_5.hi_us_2[0], &_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$frontend$bpd$banked_predictors_1$components_1$tables_5$hi_us_2_s2_req_rhius_addr_pipe_0[0]);
       } else {
       {
         // [state-read-dense] forwarding=branchless
@@ -31510,7 +31527,7 @@ void TestHarness::eval_forward_p1(bool update_registers, bool verbose, bool done
         _v2_sa_anyw |= (uint64_t)(essent_to_u64(UInt<1>(0x1)) != 0) & (uint64_t)(essent_to_u64(_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$frontend$bpd$banked_predictors_1$components_1$tables_5$_T_144[G].bits<3,3>()) != 0);
       }
       if (_v2_sa_anyw == 0) {
-        for (int L = 0; L < 16; L++) { _s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$frontend$bpd$banked_predictors_1$components_1$tables_5$hi_us_3$s2_req_rhius$rtl[L] = ldut.tile_prci_domain.tile_reset_domain.boom_tile.frontend.bpd.banked_predictors_1.components_1.tables_5.hi_us_3[essent_to_u64(_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$frontend$bpd$banked_predictors_1$components_1$tables_5$hi_us_3_s2_req_rhius_addr_pipe_0[L])]; }
+        essent_table_read<16, 128, false>(&_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$frontend$bpd$banked_predictors_1$components_1$tables_5$hi_us_3$s2_req_rhius$rtl[0], &ldut.tile_prci_domain.tile_reset_domain.boom_tile.frontend.bpd.banked_predictors_1.components_1.tables_5.hi_us_3[0], &_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$frontend$bpd$banked_predictors_1$components_1$tables_5$hi_us_3_s2_req_rhius_addr_pipe_0[0]);
       } else {
       {
         // [state-read-dense] forwarding=branchless
@@ -31589,7 +31606,7 @@ void TestHarness::eval_forward_p1(bool update_registers, bool verbose, bool done
         _v2_sa_anyw |= (uint64_t)(essent_to_u64(UInt<1>(0x1)) != 0) & (uint64_t)(essent_to_u64(_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$frontend$bpd$banked_predictors_1$components_1$tables_5$_T_157[G].bits<0,0>()) != 0);
       }
       if (_v2_sa_anyw == 0) {
-        for (int L = 0; L < 16; L++) { _s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$frontend$bpd$banked_predictors_1$components_1$tables_5$lo_us_0$s2_req_rlous$rtl[L] = ldut.tile_prci_domain.tile_reset_domain.boom_tile.frontend.bpd.banked_predictors_1.components_1.tables_5.lo_us_0[essent_to_u64(_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$frontend$bpd$banked_predictors_1$components_1$tables_5$lo_us_0_s2_req_rlous_addr_pipe_0[L])]; }
+        essent_table_read<16, 128, false>(&_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$frontend$bpd$banked_predictors_1$components_1$tables_5$lo_us_0$s2_req_rlous$rtl[0], &ldut.tile_prci_domain.tile_reset_domain.boom_tile.frontend.bpd.banked_predictors_1.components_1.tables_5.lo_us_0[0], &_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$frontend$bpd$banked_predictors_1$components_1$tables_5$lo_us_0_s2_req_rlous_addr_pipe_0[0]);
       } else {
       {
         // [state-read-dense] forwarding=branchless
@@ -31627,7 +31644,7 @@ void TestHarness::eval_forward_p1(bool update_registers, bool verbose, bool done
         _v2_sa_anyw |= (uint64_t)(essent_to_u64(UInt<1>(0x1)) != 0) & (uint64_t)(essent_to_u64(_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$frontend$bpd$banked_predictors_1$components_1$tables_5$_T_157[G].bits<1,1>()) != 0);
       }
       if (_v2_sa_anyw == 0) {
-        for (int L = 0; L < 16; L++) { _s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$frontend$bpd$banked_predictors_1$components_1$tables_5$lo_us_1$s2_req_rlous$rtl[L] = ldut.tile_prci_domain.tile_reset_domain.boom_tile.frontend.bpd.banked_predictors_1.components_1.tables_5.lo_us_1[essent_to_u64(_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$frontend$bpd$banked_predictors_1$components_1$tables_5$lo_us_1_s2_req_rlous_addr_pipe_0[L])]; }
+        essent_table_read<16, 128, false>(&_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$frontend$bpd$banked_predictors_1$components_1$tables_5$lo_us_1$s2_req_rlous$rtl[0], &ldut.tile_prci_domain.tile_reset_domain.boom_tile.frontend.bpd.banked_predictors_1.components_1.tables_5.lo_us_1[0], &_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$frontend$bpd$banked_predictors_1$components_1$tables_5$lo_us_1_s2_req_rlous_addr_pipe_0[0]);
       } else {
       {
         // [state-read-dense] forwarding=branchless
@@ -31665,7 +31682,7 @@ void TestHarness::eval_forward_p1(bool update_registers, bool verbose, bool done
         _v2_sa_anyw |= (uint64_t)(essent_to_u64(UInt<1>(0x1)) != 0) & (uint64_t)(essent_to_u64(_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$frontend$bpd$banked_predictors_1$components_1$tables_5$_T_157[G].bits<2,2>()) != 0);
       }
       if (_v2_sa_anyw == 0) {
-        for (int L = 0; L < 16; L++) { _s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$frontend$bpd$banked_predictors_1$components_1$tables_5$lo_us_2$s2_req_rlous$rtl[L] = ldut.tile_prci_domain.tile_reset_domain.boom_tile.frontend.bpd.banked_predictors_1.components_1.tables_5.lo_us_2[essent_to_u64(_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$frontend$bpd$banked_predictors_1$components_1$tables_5$lo_us_2_s2_req_rlous_addr_pipe_0[L])]; }
+        essent_table_read<16, 128, false>(&_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$frontend$bpd$banked_predictors_1$components_1$tables_5$lo_us_2$s2_req_rlous$rtl[0], &ldut.tile_prci_domain.tile_reset_domain.boom_tile.frontend.bpd.banked_predictors_1.components_1.tables_5.lo_us_2[0], &_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$frontend$bpd$banked_predictors_1$components_1$tables_5$lo_us_2_s2_req_rlous_addr_pipe_0[0]);
       } else {
       {
         // [state-read-dense] forwarding=branchless
@@ -31703,7 +31720,7 @@ void TestHarness::eval_forward_p1(bool update_registers, bool verbose, bool done
         _v2_sa_anyw |= (uint64_t)(essent_to_u64(UInt<1>(0x1)) != 0) & (uint64_t)(essent_to_u64(_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$frontend$bpd$banked_predictors_1$components_1$tables_5$_T_157[G].bits<3,3>()) != 0);
       }
       if (_v2_sa_anyw == 0) {
-        for (int L = 0; L < 16; L++) { _s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$frontend$bpd$banked_predictors_1$components_1$tables_5$lo_us_3$s2_req_rlous$rtl[L] = ldut.tile_prci_domain.tile_reset_domain.boom_tile.frontend.bpd.banked_predictors_1.components_1.tables_5.lo_us_3[essent_to_u64(_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$frontend$bpd$banked_predictors_1$components_1$tables_5$lo_us_3_s2_req_rlous_addr_pipe_0[L])]; }
+        essent_table_read<16, 128, false>(&_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$frontend$bpd$banked_predictors_1$components_1$tables_5$lo_us_3$s2_req_rlous$rtl[0], &ldut.tile_prci_domain.tile_reset_domain.boom_tile.frontend.bpd.banked_predictors_1.components_1.tables_5.lo_us_3[0], &_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$frontend$bpd$banked_predictors_1$components_1$tables_5$lo_us_3_s2_req_rlous_addr_pipe_0[0]);
       } else {
       {
         // [state-read-dense] forwarding=branchless
@@ -34844,10 +34861,11 @@ void TestHarness::eval_forward_p1(bool update_registers, bool verbose, bool done
         for (int L = 0; L < 16; L++) {
           const uint64_t _v2_sa_addr = essent_to_u64(ldut.tile_prci_domain.tile_reset_domain.boom_tile.frontend.bpd.banked_predictors_0.components_2.ebtb_s1_req_rebtb_addr_pipe_0[L]);
           UInt<40> _v2_sa_value = ldut.tile_prci_domain.tile_reset_domain.boom_tile.frontend.bpd.banked_predictors_0.components_2.ebtb[_v2_sa_addr];
+          // [branchless-forward] select a valid source before loading data
           const int _v2_sa_prev_code = _v2_sa_last[_v2_sa_addr];
-          const uint64_t _v2_sa_prev_valid = (uint64_t)(_v2_sa_prev_code >= 0);
+          const bool _v2_sa_prev_valid = _v2_sa_prev_code >= 0;
           [[maybe_unused]] const int _v2_sa_prev_lane = _v2_sa_prev_code & -static_cast<int>(_v2_sa_prev_valid);
-          _v2_sa_value = essent_mux(UInt<1>(_v2_sa_prev_valid), ldut.tile_prci_domain.tile_reset_domain.boom_tile.frontend.bpd.banked_predictors_0.components_2.s1_update__bits_target[_v2_sa_prev_lane], _v2_sa_value);
+          _v2_sa_value = *essent_select_ptr(_v2_sa_prev_valid, &(ldut.tile_prci_domain.tile_reset_domain.boom_tile.frontend.bpd.banked_predictors_0.components_2.s1_update__bits_target[_v2_sa_prev_lane]), &_v2_sa_value);
           _s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$frontend$bpd$banked_predictors_0$components_2$ebtb$s1_req_rebtb$rtl[L] = _v2_sa_value;
           const uint64_t _v2_sa_write_addr_0 = essent_to_u64(ldut.tile_prci_domain.tile_reset_domain.boom_tile.frontend.bpd.banked_predictors_0.components_2.s1_update_idx[L].bits<6,0>());
           const uint64_t _v2_sa_write_take_0 = (uint64_t)(essent_to_u64(_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$frontend$bpd$banked_predictors_0$components_2$_T_792[L] & _s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$frontend$bpd$banked_predictors_0$components_2$offset_is_extended[L]) != 0) & (uint64_t)(essent_to_u64(UInt<1>(0x1)) != 0);
@@ -35799,10 +35817,11 @@ void TestHarness::eval_forward_p1(bool update_registers, bool verbose, bool done
         for (int L = 0; L < 16; L++) {
           const uint64_t _v2_sa_addr = essent_to_u64(ldut.tile_prci_domain.tile_reset_domain.boom_tile.frontend.bpd.banked_predictors_1.components_2.ebtb_s1_req_rebtb_addr_pipe_0[L]);
           UInt<40> _v2_sa_value = ldut.tile_prci_domain.tile_reset_domain.boom_tile.frontend.bpd.banked_predictors_1.components_2.ebtb[_v2_sa_addr];
+          // [branchless-forward] select a valid source before loading data
           const int _v2_sa_prev_code = _v2_sa_last[_v2_sa_addr];
-          const uint64_t _v2_sa_prev_valid = (uint64_t)(_v2_sa_prev_code >= 0);
+          const bool _v2_sa_prev_valid = _v2_sa_prev_code >= 0;
           [[maybe_unused]] const int _v2_sa_prev_lane = _v2_sa_prev_code & -static_cast<int>(_v2_sa_prev_valid);
-          _v2_sa_value = essent_mux(UInt<1>(_v2_sa_prev_valid), ldut.tile_prci_domain.tile_reset_domain.boom_tile.frontend.bpd.banked_predictors_1.components_2.s1_update__bits_target[_v2_sa_prev_lane], _v2_sa_value);
+          _v2_sa_value = *essent_select_ptr(_v2_sa_prev_valid, &(ldut.tile_prci_domain.tile_reset_domain.boom_tile.frontend.bpd.banked_predictors_1.components_2.s1_update__bits_target[_v2_sa_prev_lane]), &_v2_sa_value);
           _s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$frontend$bpd$banked_predictors_1$components_2$ebtb$s1_req_rebtb$rtl[L] = _v2_sa_value;
           const uint64_t _v2_sa_write_addr_0 = essent_to_u64(ldut.tile_prci_domain.tile_reset_domain.boom_tile.frontend.bpd.banked_predictors_1.components_2.s1_update_idx[L].bits<6,0>());
           const uint64_t _v2_sa_write_take_0 = (uint64_t)(essent_to_u64(_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$frontend$bpd$banked_predictors_1$components_2$_T_792[L] & _s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$frontend$bpd$banked_predictors_1$components_2$offset_is_extended[L]) != 0) & (uint64_t)(essent_to_u64(UInt<1>(0x1)) != 0);

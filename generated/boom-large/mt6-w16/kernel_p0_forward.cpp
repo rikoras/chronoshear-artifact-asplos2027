@@ -2215,15 +2215,12 @@
         _v2_sa_anyw |= (uint64_t)(essent_to_u64(_s_ldut$subsystem_sbus$coupler_to_port_named_mmio_port_axi4$axi4deint$qs_queue_0$io_enq_ready[G] & _s_ldut$subsystem_sbus$coupler_to_port_named_mmio_port_axi4$axi4deint$qs_queue_0$io_enq_valid[G]) != 0) & (uint64_t)(essent_to_u64(UInt<1>(0x1)) != 0);
       }
       if (_v2_sa_anyw == 0) {
-        for (int L = 0; L < 16; L++) {
-          const uint64_t _v2_sa_field_addr = essent_to_u64(ldut.subsystem_sbus.coupler_to_port_named_mmio_port_axi4.axi4deint.qs_queue_0.deq_ptr_value[L]);
-          _s_ldut$subsystem_sbus$coupler_to_port_named_mmio_port_axi4$axi4deint$qs_queue_0$ram_id$io_deq_bits_MPORT$rtl[L] = ldut.subsystem_sbus.coupler_to_port_named_mmio_port_axi4.axi4deint.qs_queue_0.ram_id[_v2_sa_field_addr];
-          _s_ldut$subsystem_sbus$coupler_to_port_named_mmio_port_axi4$axi4deint$qs_queue_0$ram_data$io_deq_bits_MPORT$rtl[L] = ldut.subsystem_sbus.coupler_to_port_named_mmio_port_axi4.axi4deint.qs_queue_0.ram_data[_v2_sa_field_addr];
-          _s_ldut$subsystem_sbus$coupler_to_port_named_mmio_port_axi4$axi4deint$qs_queue_0$ram_resp$io_deq_bits_MPORT$rtl[L] = ldut.subsystem_sbus.coupler_to_port_named_mmio_port_axi4.axi4deint.qs_queue_0.ram_resp[_v2_sa_field_addr];
-          _s_ldut$subsystem_sbus$coupler_to_port_named_mmio_port_axi4$axi4deint$qs_queue_0$ram_echo_tl_state_size$io_deq_bits_MPORT$rtl[L] = ldut.subsystem_sbus.coupler_to_port_named_mmio_port_axi4.axi4deint.qs_queue_0.ram_echo_tl_state_size[_v2_sa_field_addr];
-          _s_ldut$subsystem_sbus$coupler_to_port_named_mmio_port_axi4$axi4deint$qs_queue_0$ram_echo_tl_state_source$io_deq_bits_MPORT$rtl[L] = ldut.subsystem_sbus.coupler_to_port_named_mmio_port_axi4.axi4deint.qs_queue_0.ram_echo_tl_state_source[_v2_sa_field_addr];
-          _s_ldut$subsystem_sbus$coupler_to_port_named_mmio_port_axi4$axi4deint$qs_queue_0$ram_last$io_deq_bits_MPORT$rtl[L] = ldut.subsystem_sbus.coupler_to_port_named_mmio_port_axi4.axi4deint.qs_queue_0.ram_last[_v2_sa_field_addr];
-        }
+        essent_table_read<16, 8, false>(&_s_ldut$subsystem_sbus$coupler_to_port_named_mmio_port_axi4$axi4deint$qs_queue_0$ram_id$io_deq_bits_MPORT$rtl[0], &ldut.subsystem_sbus.coupler_to_port_named_mmio_port_axi4.axi4deint.qs_queue_0.ram_id[0], &ldut.subsystem_sbus.coupler_to_port_named_mmio_port_axi4.axi4deint.qs_queue_0.deq_ptr_value[0]);
+        essent_table_read<16, 8, false>(&_s_ldut$subsystem_sbus$coupler_to_port_named_mmio_port_axi4$axi4deint$qs_queue_0$ram_data$io_deq_bits_MPORT$rtl[0], &ldut.subsystem_sbus.coupler_to_port_named_mmio_port_axi4.axi4deint.qs_queue_0.ram_data[0], &ldut.subsystem_sbus.coupler_to_port_named_mmio_port_axi4.axi4deint.qs_queue_0.deq_ptr_value[0]);
+        essent_table_read<16, 8, false>(&_s_ldut$subsystem_sbus$coupler_to_port_named_mmio_port_axi4$axi4deint$qs_queue_0$ram_resp$io_deq_bits_MPORT$rtl[0], &ldut.subsystem_sbus.coupler_to_port_named_mmio_port_axi4.axi4deint.qs_queue_0.ram_resp[0], &ldut.subsystem_sbus.coupler_to_port_named_mmio_port_axi4.axi4deint.qs_queue_0.deq_ptr_value[0]);
+        essent_table_read<16, 8, false>(&_s_ldut$subsystem_sbus$coupler_to_port_named_mmio_port_axi4$axi4deint$qs_queue_0$ram_echo_tl_state_size$io_deq_bits_MPORT$rtl[0], &ldut.subsystem_sbus.coupler_to_port_named_mmio_port_axi4.axi4deint.qs_queue_0.ram_echo_tl_state_size[0], &ldut.subsystem_sbus.coupler_to_port_named_mmio_port_axi4.axi4deint.qs_queue_0.deq_ptr_value[0]);
+        essent_table_read<16, 8, false>(&_s_ldut$subsystem_sbus$coupler_to_port_named_mmio_port_axi4$axi4deint$qs_queue_0$ram_echo_tl_state_source$io_deq_bits_MPORT$rtl[0], &ldut.subsystem_sbus.coupler_to_port_named_mmio_port_axi4.axi4deint.qs_queue_0.ram_echo_tl_state_source[0], &ldut.subsystem_sbus.coupler_to_port_named_mmio_port_axi4.axi4deint.qs_queue_0.deq_ptr_value[0]);
+        essent_table_read<16, 8, false>(&_s_ldut$subsystem_sbus$coupler_to_port_named_mmio_port_axi4$axi4deint$qs_queue_0$ram_last$io_deq_bits_MPORT$rtl[0], &ldut.subsystem_sbus.coupler_to_port_named_mmio_port_axi4.axi4deint.qs_queue_0.ram_last[0], &ldut.subsystem_sbus.coupler_to_port_named_mmio_port_axi4.axi4deint.qs_queue_0.deq_ptr_value[0]);
       } else {
       {
         // [state-field-read-fused] 6 arrays share one access scan, mode=dense-branchless
@@ -2282,15 +2279,12 @@
         _v2_sa_anyw |= (uint64_t)(essent_to_u64(_s_ldut$subsystem_sbus$coupler_to_port_named_mmio_port_axi4$axi4deint$qs_queue_1$io_enq_ready[G] & _s_ldut$subsystem_sbus$coupler_to_port_named_mmio_port_axi4$axi4deint$qs_queue_1$io_enq_valid[G]) != 0) & (uint64_t)(essent_to_u64(UInt<1>(0x1)) != 0);
       }
       if (_v2_sa_anyw == 0) {
-        for (int L = 0; L < 16; L++) {
-          const uint64_t _v2_sa_field_addr = essent_to_u64(ldut.subsystem_sbus.coupler_to_port_named_mmio_port_axi4.axi4deint.qs_queue_1.deq_ptr_value[L]);
-          _s_ldut$subsystem_sbus$coupler_to_port_named_mmio_port_axi4$axi4deint$qs_queue_1$ram_id$io_deq_bits_MPORT$rtl[L] = ldut.subsystem_sbus.coupler_to_port_named_mmio_port_axi4.axi4deint.qs_queue_1.ram_id[_v2_sa_field_addr];
-          _s_ldut$subsystem_sbus$coupler_to_port_named_mmio_port_axi4$axi4deint$qs_queue_1$ram_data$io_deq_bits_MPORT$rtl[L] = ldut.subsystem_sbus.coupler_to_port_named_mmio_port_axi4.axi4deint.qs_queue_1.ram_data[_v2_sa_field_addr];
-          _s_ldut$subsystem_sbus$coupler_to_port_named_mmio_port_axi4$axi4deint$qs_queue_1$ram_resp$io_deq_bits_MPORT$rtl[L] = ldut.subsystem_sbus.coupler_to_port_named_mmio_port_axi4.axi4deint.qs_queue_1.ram_resp[_v2_sa_field_addr];
-          _s_ldut$subsystem_sbus$coupler_to_port_named_mmio_port_axi4$axi4deint$qs_queue_1$ram_echo_tl_state_size$io_deq_bits_MPORT$rtl[L] = ldut.subsystem_sbus.coupler_to_port_named_mmio_port_axi4.axi4deint.qs_queue_1.ram_echo_tl_state_size[_v2_sa_field_addr];
-          _s_ldut$subsystem_sbus$coupler_to_port_named_mmio_port_axi4$axi4deint$qs_queue_1$ram_echo_tl_state_source$io_deq_bits_MPORT$rtl[L] = ldut.subsystem_sbus.coupler_to_port_named_mmio_port_axi4.axi4deint.qs_queue_1.ram_echo_tl_state_source[_v2_sa_field_addr];
-          _s_ldut$subsystem_sbus$coupler_to_port_named_mmio_port_axi4$axi4deint$qs_queue_1$ram_last$io_deq_bits_MPORT$rtl[L] = ldut.subsystem_sbus.coupler_to_port_named_mmio_port_axi4.axi4deint.qs_queue_1.ram_last[_v2_sa_field_addr];
-        }
+        essent_table_read<16, 8, false>(&_s_ldut$subsystem_sbus$coupler_to_port_named_mmio_port_axi4$axi4deint$qs_queue_1$ram_id$io_deq_bits_MPORT$rtl[0], &ldut.subsystem_sbus.coupler_to_port_named_mmio_port_axi4.axi4deint.qs_queue_1.ram_id[0], &ldut.subsystem_sbus.coupler_to_port_named_mmio_port_axi4.axi4deint.qs_queue_1.deq_ptr_value[0]);
+        essent_table_read<16, 8, false>(&_s_ldut$subsystem_sbus$coupler_to_port_named_mmio_port_axi4$axi4deint$qs_queue_1$ram_data$io_deq_bits_MPORT$rtl[0], &ldut.subsystem_sbus.coupler_to_port_named_mmio_port_axi4.axi4deint.qs_queue_1.ram_data[0], &ldut.subsystem_sbus.coupler_to_port_named_mmio_port_axi4.axi4deint.qs_queue_1.deq_ptr_value[0]);
+        essent_table_read<16, 8, false>(&_s_ldut$subsystem_sbus$coupler_to_port_named_mmio_port_axi4$axi4deint$qs_queue_1$ram_resp$io_deq_bits_MPORT$rtl[0], &ldut.subsystem_sbus.coupler_to_port_named_mmio_port_axi4.axi4deint.qs_queue_1.ram_resp[0], &ldut.subsystem_sbus.coupler_to_port_named_mmio_port_axi4.axi4deint.qs_queue_1.deq_ptr_value[0]);
+        essent_table_read<16, 8, false>(&_s_ldut$subsystem_sbus$coupler_to_port_named_mmio_port_axi4$axi4deint$qs_queue_1$ram_echo_tl_state_size$io_deq_bits_MPORT$rtl[0], &ldut.subsystem_sbus.coupler_to_port_named_mmio_port_axi4.axi4deint.qs_queue_1.ram_echo_tl_state_size[0], &ldut.subsystem_sbus.coupler_to_port_named_mmio_port_axi4.axi4deint.qs_queue_1.deq_ptr_value[0]);
+        essent_table_read<16, 8, false>(&_s_ldut$subsystem_sbus$coupler_to_port_named_mmio_port_axi4$axi4deint$qs_queue_1$ram_echo_tl_state_source$io_deq_bits_MPORT$rtl[0], &ldut.subsystem_sbus.coupler_to_port_named_mmio_port_axi4.axi4deint.qs_queue_1.ram_echo_tl_state_source[0], &ldut.subsystem_sbus.coupler_to_port_named_mmio_port_axi4.axi4deint.qs_queue_1.deq_ptr_value[0]);
+        essent_table_read<16, 8, false>(&_s_ldut$subsystem_sbus$coupler_to_port_named_mmio_port_axi4$axi4deint$qs_queue_1$ram_last$io_deq_bits_MPORT$rtl[0], &ldut.subsystem_sbus.coupler_to_port_named_mmio_port_axi4.axi4deint.qs_queue_1.ram_last[0], &ldut.subsystem_sbus.coupler_to_port_named_mmio_port_axi4.axi4deint.qs_queue_1.deq_ptr_value[0]);
       } else {
       {
         // [state-field-read-fused] 6 arrays share one access scan, mode=dense-branchless
@@ -2349,15 +2343,12 @@
         _v2_sa_anyw |= (uint64_t)(essent_to_u64(_s_ldut$subsystem_sbus$coupler_to_port_named_mmio_port_axi4$axi4deint$qs_queue_2$io_enq_ready[G] & _s_ldut$subsystem_sbus$coupler_to_port_named_mmio_port_axi4$axi4deint$qs_queue_2$io_enq_valid[G]) != 0) & (uint64_t)(essent_to_u64(UInt<1>(0x1)) != 0);
       }
       if (_v2_sa_anyw == 0) {
-        for (int L = 0; L < 16; L++) {
-          const uint64_t _v2_sa_field_addr = essent_to_u64(ldut.subsystem_sbus.coupler_to_port_named_mmio_port_axi4.axi4deint.qs_queue_2.deq_ptr_value[L]);
-          _s_ldut$subsystem_sbus$coupler_to_port_named_mmio_port_axi4$axi4deint$qs_queue_2$ram_id$io_deq_bits_MPORT$rtl[L] = ldut.subsystem_sbus.coupler_to_port_named_mmio_port_axi4.axi4deint.qs_queue_2.ram_id[_v2_sa_field_addr];
-          _s_ldut$subsystem_sbus$coupler_to_port_named_mmio_port_axi4$axi4deint$qs_queue_2$ram_data$io_deq_bits_MPORT$rtl[L] = ldut.subsystem_sbus.coupler_to_port_named_mmio_port_axi4.axi4deint.qs_queue_2.ram_data[_v2_sa_field_addr];
-          _s_ldut$subsystem_sbus$coupler_to_port_named_mmio_port_axi4$axi4deint$qs_queue_2$ram_resp$io_deq_bits_MPORT$rtl[L] = ldut.subsystem_sbus.coupler_to_port_named_mmio_port_axi4.axi4deint.qs_queue_2.ram_resp[_v2_sa_field_addr];
-          _s_ldut$subsystem_sbus$coupler_to_port_named_mmio_port_axi4$axi4deint$qs_queue_2$ram_echo_tl_state_size$io_deq_bits_MPORT$rtl[L] = ldut.subsystem_sbus.coupler_to_port_named_mmio_port_axi4.axi4deint.qs_queue_2.ram_echo_tl_state_size[_v2_sa_field_addr];
-          _s_ldut$subsystem_sbus$coupler_to_port_named_mmio_port_axi4$axi4deint$qs_queue_2$ram_echo_tl_state_source$io_deq_bits_MPORT$rtl[L] = ldut.subsystem_sbus.coupler_to_port_named_mmio_port_axi4.axi4deint.qs_queue_2.ram_echo_tl_state_source[_v2_sa_field_addr];
-          _s_ldut$subsystem_sbus$coupler_to_port_named_mmio_port_axi4$axi4deint$qs_queue_2$ram_last$io_deq_bits_MPORT$rtl[L] = ldut.subsystem_sbus.coupler_to_port_named_mmio_port_axi4.axi4deint.qs_queue_2.ram_last[_v2_sa_field_addr];
-        }
+        essent_table_read<16, 8, false>(&_s_ldut$subsystem_sbus$coupler_to_port_named_mmio_port_axi4$axi4deint$qs_queue_2$ram_id$io_deq_bits_MPORT$rtl[0], &ldut.subsystem_sbus.coupler_to_port_named_mmio_port_axi4.axi4deint.qs_queue_2.ram_id[0], &ldut.subsystem_sbus.coupler_to_port_named_mmio_port_axi4.axi4deint.qs_queue_2.deq_ptr_value[0]);
+        essent_table_read<16, 8, false>(&_s_ldut$subsystem_sbus$coupler_to_port_named_mmio_port_axi4$axi4deint$qs_queue_2$ram_data$io_deq_bits_MPORT$rtl[0], &ldut.subsystem_sbus.coupler_to_port_named_mmio_port_axi4.axi4deint.qs_queue_2.ram_data[0], &ldut.subsystem_sbus.coupler_to_port_named_mmio_port_axi4.axi4deint.qs_queue_2.deq_ptr_value[0]);
+        essent_table_read<16, 8, false>(&_s_ldut$subsystem_sbus$coupler_to_port_named_mmio_port_axi4$axi4deint$qs_queue_2$ram_resp$io_deq_bits_MPORT$rtl[0], &ldut.subsystem_sbus.coupler_to_port_named_mmio_port_axi4.axi4deint.qs_queue_2.ram_resp[0], &ldut.subsystem_sbus.coupler_to_port_named_mmio_port_axi4.axi4deint.qs_queue_2.deq_ptr_value[0]);
+        essent_table_read<16, 8, false>(&_s_ldut$subsystem_sbus$coupler_to_port_named_mmio_port_axi4$axi4deint$qs_queue_2$ram_echo_tl_state_size$io_deq_bits_MPORT$rtl[0], &ldut.subsystem_sbus.coupler_to_port_named_mmio_port_axi4.axi4deint.qs_queue_2.ram_echo_tl_state_size[0], &ldut.subsystem_sbus.coupler_to_port_named_mmio_port_axi4.axi4deint.qs_queue_2.deq_ptr_value[0]);
+        essent_table_read<16, 8, false>(&_s_ldut$subsystem_sbus$coupler_to_port_named_mmio_port_axi4$axi4deint$qs_queue_2$ram_echo_tl_state_source$io_deq_bits_MPORT$rtl[0], &ldut.subsystem_sbus.coupler_to_port_named_mmio_port_axi4.axi4deint.qs_queue_2.ram_echo_tl_state_source[0], &ldut.subsystem_sbus.coupler_to_port_named_mmio_port_axi4.axi4deint.qs_queue_2.deq_ptr_value[0]);
+        essent_table_read<16, 8, false>(&_s_ldut$subsystem_sbus$coupler_to_port_named_mmio_port_axi4$axi4deint$qs_queue_2$ram_last$io_deq_bits_MPORT$rtl[0], &ldut.subsystem_sbus.coupler_to_port_named_mmio_port_axi4.axi4deint.qs_queue_2.ram_last[0], &ldut.subsystem_sbus.coupler_to_port_named_mmio_port_axi4.axi4deint.qs_queue_2.deq_ptr_value[0]);
       } else {
       {
         // [state-field-read-fused] 6 arrays share one access scan, mode=dense-branchless
@@ -2418,15 +2409,12 @@
         _v2_sa_anyw |= (uint64_t)(essent_to_u64(_s_ldut$subsystem_sbus$coupler_to_port_named_mmio_port_axi4$axi4deint$qs_queue_3$io_enq_ready[G] & _s_ldut$subsystem_sbus$coupler_to_port_named_mmio_port_axi4$axi4deint$qs_queue_3$io_enq_valid[G]) != 0) & (uint64_t)(essent_to_u64(UInt<1>(0x1)) != 0);
       }
       if (_v2_sa_anyw == 0) {
-        for (int L = 0; L < 16; L++) {
-          const uint64_t _v2_sa_field_addr = essent_to_u64(ldut.subsystem_sbus.coupler_to_port_named_mmio_port_axi4.axi4deint.qs_queue_3.deq_ptr_value[L]);
-          _s_ldut$subsystem_sbus$coupler_to_port_named_mmio_port_axi4$axi4deint$qs_queue_3$ram_id$io_deq_bits_MPORT$rtl[L] = ldut.subsystem_sbus.coupler_to_port_named_mmio_port_axi4.axi4deint.qs_queue_3.ram_id[_v2_sa_field_addr];
-          _s_ldut$subsystem_sbus$coupler_to_port_named_mmio_port_axi4$axi4deint$qs_queue_3$ram_data$io_deq_bits_MPORT$rtl[L] = ldut.subsystem_sbus.coupler_to_port_named_mmio_port_axi4.axi4deint.qs_queue_3.ram_data[_v2_sa_field_addr];
-          _s_ldut$subsystem_sbus$coupler_to_port_named_mmio_port_axi4$axi4deint$qs_queue_3$ram_resp$io_deq_bits_MPORT$rtl[L] = ldut.subsystem_sbus.coupler_to_port_named_mmio_port_axi4.axi4deint.qs_queue_3.ram_resp[_v2_sa_field_addr];
-          _s_ldut$subsystem_sbus$coupler_to_port_named_mmio_port_axi4$axi4deint$qs_queue_3$ram_echo_tl_state_size$io_deq_bits_MPORT$rtl[L] = ldut.subsystem_sbus.coupler_to_port_named_mmio_port_axi4.axi4deint.qs_queue_3.ram_echo_tl_state_size[_v2_sa_field_addr];
-          _s_ldut$subsystem_sbus$coupler_to_port_named_mmio_port_axi4$axi4deint$qs_queue_3$ram_echo_tl_state_source$io_deq_bits_MPORT$rtl[L] = ldut.subsystem_sbus.coupler_to_port_named_mmio_port_axi4.axi4deint.qs_queue_3.ram_echo_tl_state_source[_v2_sa_field_addr];
-          _s_ldut$subsystem_sbus$coupler_to_port_named_mmio_port_axi4$axi4deint$qs_queue_3$ram_last$io_deq_bits_MPORT$rtl[L] = ldut.subsystem_sbus.coupler_to_port_named_mmio_port_axi4.axi4deint.qs_queue_3.ram_last[_v2_sa_field_addr];
-        }
+        essent_table_read<16, 8, false>(&_s_ldut$subsystem_sbus$coupler_to_port_named_mmio_port_axi4$axi4deint$qs_queue_3$ram_id$io_deq_bits_MPORT$rtl[0], &ldut.subsystem_sbus.coupler_to_port_named_mmio_port_axi4.axi4deint.qs_queue_3.ram_id[0], &ldut.subsystem_sbus.coupler_to_port_named_mmio_port_axi4.axi4deint.qs_queue_3.deq_ptr_value[0]);
+        essent_table_read<16, 8, false>(&_s_ldut$subsystem_sbus$coupler_to_port_named_mmio_port_axi4$axi4deint$qs_queue_3$ram_data$io_deq_bits_MPORT$rtl[0], &ldut.subsystem_sbus.coupler_to_port_named_mmio_port_axi4.axi4deint.qs_queue_3.ram_data[0], &ldut.subsystem_sbus.coupler_to_port_named_mmio_port_axi4.axi4deint.qs_queue_3.deq_ptr_value[0]);
+        essent_table_read<16, 8, false>(&_s_ldut$subsystem_sbus$coupler_to_port_named_mmio_port_axi4$axi4deint$qs_queue_3$ram_resp$io_deq_bits_MPORT$rtl[0], &ldut.subsystem_sbus.coupler_to_port_named_mmio_port_axi4.axi4deint.qs_queue_3.ram_resp[0], &ldut.subsystem_sbus.coupler_to_port_named_mmio_port_axi4.axi4deint.qs_queue_3.deq_ptr_value[0]);
+        essent_table_read<16, 8, false>(&_s_ldut$subsystem_sbus$coupler_to_port_named_mmio_port_axi4$axi4deint$qs_queue_3$ram_echo_tl_state_size$io_deq_bits_MPORT$rtl[0], &ldut.subsystem_sbus.coupler_to_port_named_mmio_port_axi4.axi4deint.qs_queue_3.ram_echo_tl_state_size[0], &ldut.subsystem_sbus.coupler_to_port_named_mmio_port_axi4.axi4deint.qs_queue_3.deq_ptr_value[0]);
+        essent_table_read<16, 8, false>(&_s_ldut$subsystem_sbus$coupler_to_port_named_mmio_port_axi4$axi4deint$qs_queue_3$ram_echo_tl_state_source$io_deq_bits_MPORT$rtl[0], &ldut.subsystem_sbus.coupler_to_port_named_mmio_port_axi4.axi4deint.qs_queue_3.ram_echo_tl_state_source[0], &ldut.subsystem_sbus.coupler_to_port_named_mmio_port_axi4.axi4deint.qs_queue_3.deq_ptr_value[0]);
+        essent_table_read<16, 8, false>(&_s_ldut$subsystem_sbus$coupler_to_port_named_mmio_port_axi4$axi4deint$qs_queue_3$ram_last$io_deq_bits_MPORT$rtl[0], &ldut.subsystem_sbus.coupler_to_port_named_mmio_port_axi4.axi4deint.qs_queue_3.ram_last[0], &ldut.subsystem_sbus.coupler_to_port_named_mmio_port_axi4.axi4deint.qs_queue_3.deq_ptr_value[0]);
       } else {
       {
         // [state-field-read-fused] 6 arrays share one access scan, mode=dense-branchless
@@ -2485,15 +2473,12 @@
         _v2_sa_anyw |= (uint64_t)(essent_to_u64(_s_ldut$subsystem_sbus$coupler_to_port_named_mmio_port_axi4$axi4deint$qs_queue_4$io_enq_ready[G] & _s_ldut$subsystem_sbus$coupler_to_port_named_mmio_port_axi4$axi4deint$qs_queue_4$io_enq_valid[G]) != 0) & (uint64_t)(essent_to_u64(UInt<1>(0x1)) != 0);
       }
       if (_v2_sa_anyw == 0) {
-        for (int L = 0; L < 16; L++) {
-          const uint64_t _v2_sa_field_addr = essent_to_u64(ldut.subsystem_sbus.coupler_to_port_named_mmio_port_axi4.axi4deint.qs_queue_4.deq_ptr_value[L]);
-          _s_ldut$subsystem_sbus$coupler_to_port_named_mmio_port_axi4$axi4deint$qs_queue_4$ram_id$io_deq_bits_MPORT$rtl[L] = ldut.subsystem_sbus.coupler_to_port_named_mmio_port_axi4.axi4deint.qs_queue_4.ram_id[_v2_sa_field_addr];
-          _s_ldut$subsystem_sbus$coupler_to_port_named_mmio_port_axi4$axi4deint$qs_queue_4$ram_data$io_deq_bits_MPORT$rtl[L] = ldut.subsystem_sbus.coupler_to_port_named_mmio_port_axi4.axi4deint.qs_queue_4.ram_data[_v2_sa_field_addr];
-          _s_ldut$subsystem_sbus$coupler_to_port_named_mmio_port_axi4$axi4deint$qs_queue_4$ram_resp$io_deq_bits_MPORT$rtl[L] = ldut.subsystem_sbus.coupler_to_port_named_mmio_port_axi4.axi4deint.qs_queue_4.ram_resp[_v2_sa_field_addr];
-          _s_ldut$subsystem_sbus$coupler_to_port_named_mmio_port_axi4$axi4deint$qs_queue_4$ram_echo_tl_state_size$io_deq_bits_MPORT$rtl[L] = ldut.subsystem_sbus.coupler_to_port_named_mmio_port_axi4.axi4deint.qs_queue_4.ram_echo_tl_state_size[_v2_sa_field_addr];
-          _s_ldut$subsystem_sbus$coupler_to_port_named_mmio_port_axi4$axi4deint$qs_queue_4$ram_echo_tl_state_source$io_deq_bits_MPORT$rtl[L] = ldut.subsystem_sbus.coupler_to_port_named_mmio_port_axi4.axi4deint.qs_queue_4.ram_echo_tl_state_source[_v2_sa_field_addr];
-          _s_ldut$subsystem_sbus$coupler_to_port_named_mmio_port_axi4$axi4deint$qs_queue_4$ram_last$io_deq_bits_MPORT$rtl[L] = ldut.subsystem_sbus.coupler_to_port_named_mmio_port_axi4.axi4deint.qs_queue_4.ram_last[_v2_sa_field_addr];
-        }
+        essent_table_read<16, 8, false>(&_s_ldut$subsystem_sbus$coupler_to_port_named_mmio_port_axi4$axi4deint$qs_queue_4$ram_id$io_deq_bits_MPORT$rtl[0], &ldut.subsystem_sbus.coupler_to_port_named_mmio_port_axi4.axi4deint.qs_queue_4.ram_id[0], &ldut.subsystem_sbus.coupler_to_port_named_mmio_port_axi4.axi4deint.qs_queue_4.deq_ptr_value[0]);
+        essent_table_read<16, 8, false>(&_s_ldut$subsystem_sbus$coupler_to_port_named_mmio_port_axi4$axi4deint$qs_queue_4$ram_data$io_deq_bits_MPORT$rtl[0], &ldut.subsystem_sbus.coupler_to_port_named_mmio_port_axi4.axi4deint.qs_queue_4.ram_data[0], &ldut.subsystem_sbus.coupler_to_port_named_mmio_port_axi4.axi4deint.qs_queue_4.deq_ptr_value[0]);
+        essent_table_read<16, 8, false>(&_s_ldut$subsystem_sbus$coupler_to_port_named_mmio_port_axi4$axi4deint$qs_queue_4$ram_resp$io_deq_bits_MPORT$rtl[0], &ldut.subsystem_sbus.coupler_to_port_named_mmio_port_axi4.axi4deint.qs_queue_4.ram_resp[0], &ldut.subsystem_sbus.coupler_to_port_named_mmio_port_axi4.axi4deint.qs_queue_4.deq_ptr_value[0]);
+        essent_table_read<16, 8, false>(&_s_ldut$subsystem_sbus$coupler_to_port_named_mmio_port_axi4$axi4deint$qs_queue_4$ram_echo_tl_state_size$io_deq_bits_MPORT$rtl[0], &ldut.subsystem_sbus.coupler_to_port_named_mmio_port_axi4.axi4deint.qs_queue_4.ram_echo_tl_state_size[0], &ldut.subsystem_sbus.coupler_to_port_named_mmio_port_axi4.axi4deint.qs_queue_4.deq_ptr_value[0]);
+        essent_table_read<16, 8, false>(&_s_ldut$subsystem_sbus$coupler_to_port_named_mmio_port_axi4$axi4deint$qs_queue_4$ram_echo_tl_state_source$io_deq_bits_MPORT$rtl[0], &ldut.subsystem_sbus.coupler_to_port_named_mmio_port_axi4.axi4deint.qs_queue_4.ram_echo_tl_state_source[0], &ldut.subsystem_sbus.coupler_to_port_named_mmio_port_axi4.axi4deint.qs_queue_4.deq_ptr_value[0]);
+        essent_table_read<16, 8, false>(&_s_ldut$subsystem_sbus$coupler_to_port_named_mmio_port_axi4$axi4deint$qs_queue_4$ram_last$io_deq_bits_MPORT$rtl[0], &ldut.subsystem_sbus.coupler_to_port_named_mmio_port_axi4.axi4deint.qs_queue_4.ram_last[0], &ldut.subsystem_sbus.coupler_to_port_named_mmio_port_axi4.axi4deint.qs_queue_4.deq_ptr_value[0]);
       } else {
       {
         // [state-field-read-fused] 6 arrays share one access scan, mode=dense-branchless
@@ -2552,15 +2537,12 @@
         _v2_sa_anyw |= (uint64_t)(essent_to_u64(_s_ldut$subsystem_sbus$coupler_to_port_named_mmio_port_axi4$axi4deint$qs_queue_5$io_enq_ready[G] & _s_ldut$subsystem_sbus$coupler_to_port_named_mmio_port_axi4$axi4deint$qs_queue_5$io_enq_valid[G]) != 0) & (uint64_t)(essent_to_u64(UInt<1>(0x1)) != 0);
       }
       if (_v2_sa_anyw == 0) {
-        for (int L = 0; L < 16; L++) {
-          const uint64_t _v2_sa_field_addr = essent_to_u64(ldut.subsystem_sbus.coupler_to_port_named_mmio_port_axi4.axi4deint.qs_queue_5.deq_ptr_value[L]);
-          _s_ldut$subsystem_sbus$coupler_to_port_named_mmio_port_axi4$axi4deint$qs_queue_5$ram_id$io_deq_bits_MPORT$rtl[L] = ldut.subsystem_sbus.coupler_to_port_named_mmio_port_axi4.axi4deint.qs_queue_5.ram_id[_v2_sa_field_addr];
-          _s_ldut$subsystem_sbus$coupler_to_port_named_mmio_port_axi4$axi4deint$qs_queue_5$ram_data$io_deq_bits_MPORT$rtl[L] = ldut.subsystem_sbus.coupler_to_port_named_mmio_port_axi4.axi4deint.qs_queue_5.ram_data[_v2_sa_field_addr];
-          _s_ldut$subsystem_sbus$coupler_to_port_named_mmio_port_axi4$axi4deint$qs_queue_5$ram_resp$io_deq_bits_MPORT$rtl[L] = ldut.subsystem_sbus.coupler_to_port_named_mmio_port_axi4.axi4deint.qs_queue_5.ram_resp[_v2_sa_field_addr];
-          _s_ldut$subsystem_sbus$coupler_to_port_named_mmio_port_axi4$axi4deint$qs_queue_5$ram_echo_tl_state_size$io_deq_bits_MPORT$rtl[L] = ldut.subsystem_sbus.coupler_to_port_named_mmio_port_axi4.axi4deint.qs_queue_5.ram_echo_tl_state_size[_v2_sa_field_addr];
-          _s_ldut$subsystem_sbus$coupler_to_port_named_mmio_port_axi4$axi4deint$qs_queue_5$ram_echo_tl_state_source$io_deq_bits_MPORT$rtl[L] = ldut.subsystem_sbus.coupler_to_port_named_mmio_port_axi4.axi4deint.qs_queue_5.ram_echo_tl_state_source[_v2_sa_field_addr];
-          _s_ldut$subsystem_sbus$coupler_to_port_named_mmio_port_axi4$axi4deint$qs_queue_5$ram_last$io_deq_bits_MPORT$rtl[L] = ldut.subsystem_sbus.coupler_to_port_named_mmio_port_axi4.axi4deint.qs_queue_5.ram_last[_v2_sa_field_addr];
-        }
+        essent_table_read<16, 8, false>(&_s_ldut$subsystem_sbus$coupler_to_port_named_mmio_port_axi4$axi4deint$qs_queue_5$ram_id$io_deq_bits_MPORT$rtl[0], &ldut.subsystem_sbus.coupler_to_port_named_mmio_port_axi4.axi4deint.qs_queue_5.ram_id[0], &ldut.subsystem_sbus.coupler_to_port_named_mmio_port_axi4.axi4deint.qs_queue_5.deq_ptr_value[0]);
+        essent_table_read<16, 8, false>(&_s_ldut$subsystem_sbus$coupler_to_port_named_mmio_port_axi4$axi4deint$qs_queue_5$ram_data$io_deq_bits_MPORT$rtl[0], &ldut.subsystem_sbus.coupler_to_port_named_mmio_port_axi4.axi4deint.qs_queue_5.ram_data[0], &ldut.subsystem_sbus.coupler_to_port_named_mmio_port_axi4.axi4deint.qs_queue_5.deq_ptr_value[0]);
+        essent_table_read<16, 8, false>(&_s_ldut$subsystem_sbus$coupler_to_port_named_mmio_port_axi4$axi4deint$qs_queue_5$ram_resp$io_deq_bits_MPORT$rtl[0], &ldut.subsystem_sbus.coupler_to_port_named_mmio_port_axi4.axi4deint.qs_queue_5.ram_resp[0], &ldut.subsystem_sbus.coupler_to_port_named_mmio_port_axi4.axi4deint.qs_queue_5.deq_ptr_value[0]);
+        essent_table_read<16, 8, false>(&_s_ldut$subsystem_sbus$coupler_to_port_named_mmio_port_axi4$axi4deint$qs_queue_5$ram_echo_tl_state_size$io_deq_bits_MPORT$rtl[0], &ldut.subsystem_sbus.coupler_to_port_named_mmio_port_axi4.axi4deint.qs_queue_5.ram_echo_tl_state_size[0], &ldut.subsystem_sbus.coupler_to_port_named_mmio_port_axi4.axi4deint.qs_queue_5.deq_ptr_value[0]);
+        essent_table_read<16, 8, false>(&_s_ldut$subsystem_sbus$coupler_to_port_named_mmio_port_axi4$axi4deint$qs_queue_5$ram_echo_tl_state_source$io_deq_bits_MPORT$rtl[0], &ldut.subsystem_sbus.coupler_to_port_named_mmio_port_axi4.axi4deint.qs_queue_5.ram_echo_tl_state_source[0], &ldut.subsystem_sbus.coupler_to_port_named_mmio_port_axi4.axi4deint.qs_queue_5.deq_ptr_value[0]);
+        essent_table_read<16, 8, false>(&_s_ldut$subsystem_sbus$coupler_to_port_named_mmio_port_axi4$axi4deint$qs_queue_5$ram_last$io_deq_bits_MPORT$rtl[0], &ldut.subsystem_sbus.coupler_to_port_named_mmio_port_axi4.axi4deint.qs_queue_5.ram_last[0], &ldut.subsystem_sbus.coupler_to_port_named_mmio_port_axi4.axi4deint.qs_queue_5.deq_ptr_value[0]);
       } else {
       {
         // [state-field-read-fused] 6 arrays share one access scan, mode=dense-branchless
@@ -2619,15 +2601,12 @@
         _v2_sa_anyw |= (uint64_t)(essent_to_u64(_s_ldut$subsystem_sbus$coupler_to_port_named_mmio_port_axi4$axi4deint$qs_queue_6$io_enq_ready[G] & _s_ldut$subsystem_sbus$coupler_to_port_named_mmio_port_axi4$axi4deint$qs_queue_6$io_enq_valid[G]) != 0) & (uint64_t)(essent_to_u64(UInt<1>(0x1)) != 0);
       }
       if (_v2_sa_anyw == 0) {
-        for (int L = 0; L < 16; L++) {
-          const uint64_t _v2_sa_field_addr = essent_to_u64(ldut.subsystem_sbus.coupler_to_port_named_mmio_port_axi4.axi4deint.qs_queue_6.deq_ptr_value[L]);
-          _s_ldut$subsystem_sbus$coupler_to_port_named_mmio_port_axi4$axi4deint$qs_queue_6$ram_id$io_deq_bits_MPORT$rtl[L] = ldut.subsystem_sbus.coupler_to_port_named_mmio_port_axi4.axi4deint.qs_queue_6.ram_id[_v2_sa_field_addr];
-          _s_ldut$subsystem_sbus$coupler_to_port_named_mmio_port_axi4$axi4deint$qs_queue_6$ram_data$io_deq_bits_MPORT$rtl[L] = ldut.subsystem_sbus.coupler_to_port_named_mmio_port_axi4.axi4deint.qs_queue_6.ram_data[_v2_sa_field_addr];
-          _s_ldut$subsystem_sbus$coupler_to_port_named_mmio_port_axi4$axi4deint$qs_queue_6$ram_resp$io_deq_bits_MPORT$rtl[L] = ldut.subsystem_sbus.coupler_to_port_named_mmio_port_axi4.axi4deint.qs_queue_6.ram_resp[_v2_sa_field_addr];
-          _s_ldut$subsystem_sbus$coupler_to_port_named_mmio_port_axi4$axi4deint$qs_queue_6$ram_echo_tl_state_size$io_deq_bits_MPORT$rtl[L] = ldut.subsystem_sbus.coupler_to_port_named_mmio_port_axi4.axi4deint.qs_queue_6.ram_echo_tl_state_size[_v2_sa_field_addr];
-          _s_ldut$subsystem_sbus$coupler_to_port_named_mmio_port_axi4$axi4deint$qs_queue_6$ram_echo_tl_state_source$io_deq_bits_MPORT$rtl[L] = ldut.subsystem_sbus.coupler_to_port_named_mmio_port_axi4.axi4deint.qs_queue_6.ram_echo_tl_state_source[_v2_sa_field_addr];
-          _s_ldut$subsystem_sbus$coupler_to_port_named_mmio_port_axi4$axi4deint$qs_queue_6$ram_last$io_deq_bits_MPORT$rtl[L] = ldut.subsystem_sbus.coupler_to_port_named_mmio_port_axi4.axi4deint.qs_queue_6.ram_last[_v2_sa_field_addr];
-        }
+        essent_table_read<16, 8, false>(&_s_ldut$subsystem_sbus$coupler_to_port_named_mmio_port_axi4$axi4deint$qs_queue_6$ram_id$io_deq_bits_MPORT$rtl[0], &ldut.subsystem_sbus.coupler_to_port_named_mmio_port_axi4.axi4deint.qs_queue_6.ram_id[0], &ldut.subsystem_sbus.coupler_to_port_named_mmio_port_axi4.axi4deint.qs_queue_6.deq_ptr_value[0]);
+        essent_table_read<16, 8, false>(&_s_ldut$subsystem_sbus$coupler_to_port_named_mmio_port_axi4$axi4deint$qs_queue_6$ram_data$io_deq_bits_MPORT$rtl[0], &ldut.subsystem_sbus.coupler_to_port_named_mmio_port_axi4.axi4deint.qs_queue_6.ram_data[0], &ldut.subsystem_sbus.coupler_to_port_named_mmio_port_axi4.axi4deint.qs_queue_6.deq_ptr_value[0]);
+        essent_table_read<16, 8, false>(&_s_ldut$subsystem_sbus$coupler_to_port_named_mmio_port_axi4$axi4deint$qs_queue_6$ram_resp$io_deq_bits_MPORT$rtl[0], &ldut.subsystem_sbus.coupler_to_port_named_mmio_port_axi4.axi4deint.qs_queue_6.ram_resp[0], &ldut.subsystem_sbus.coupler_to_port_named_mmio_port_axi4.axi4deint.qs_queue_6.deq_ptr_value[0]);
+        essent_table_read<16, 8, false>(&_s_ldut$subsystem_sbus$coupler_to_port_named_mmio_port_axi4$axi4deint$qs_queue_6$ram_echo_tl_state_size$io_deq_bits_MPORT$rtl[0], &ldut.subsystem_sbus.coupler_to_port_named_mmio_port_axi4.axi4deint.qs_queue_6.ram_echo_tl_state_size[0], &ldut.subsystem_sbus.coupler_to_port_named_mmio_port_axi4.axi4deint.qs_queue_6.deq_ptr_value[0]);
+        essent_table_read<16, 8, false>(&_s_ldut$subsystem_sbus$coupler_to_port_named_mmio_port_axi4$axi4deint$qs_queue_6$ram_echo_tl_state_source$io_deq_bits_MPORT$rtl[0], &ldut.subsystem_sbus.coupler_to_port_named_mmio_port_axi4.axi4deint.qs_queue_6.ram_echo_tl_state_source[0], &ldut.subsystem_sbus.coupler_to_port_named_mmio_port_axi4.axi4deint.qs_queue_6.deq_ptr_value[0]);
+        essent_table_read<16, 8, false>(&_s_ldut$subsystem_sbus$coupler_to_port_named_mmio_port_axi4$axi4deint$qs_queue_6$ram_last$io_deq_bits_MPORT$rtl[0], &ldut.subsystem_sbus.coupler_to_port_named_mmio_port_axi4.axi4deint.qs_queue_6.ram_last[0], &ldut.subsystem_sbus.coupler_to_port_named_mmio_port_axi4.axi4deint.qs_queue_6.deq_ptr_value[0]);
       } else {
       {
         // [state-field-read-fused] 6 arrays share one access scan, mode=dense-branchless
@@ -2688,15 +2667,12 @@
         _v2_sa_anyw |= (uint64_t)(essent_to_u64(_s_ldut$subsystem_sbus$coupler_to_port_named_mmio_port_axi4$axi4deint$qs_queue_7$io_enq_ready[G] & _s_ldut$subsystem_sbus$coupler_to_port_named_mmio_port_axi4$axi4deint$qs_queue_7$io_enq_valid[G]) != 0) & (uint64_t)(essent_to_u64(UInt<1>(0x1)) != 0);
       }
       if (_v2_sa_anyw == 0) {
-        for (int L = 0; L < 16; L++) {
-          const uint64_t _v2_sa_field_addr = essent_to_u64(ldut.subsystem_sbus.coupler_to_port_named_mmio_port_axi4.axi4deint.qs_queue_7.deq_ptr_value[L]);
-          _s_ldut$subsystem_sbus$coupler_to_port_named_mmio_port_axi4$axi4deint$qs_queue_7$ram_id$io_deq_bits_MPORT$rtl[L] = ldut.subsystem_sbus.coupler_to_port_named_mmio_port_axi4.axi4deint.qs_queue_7.ram_id[_v2_sa_field_addr];
-          _s_ldut$subsystem_sbus$coupler_to_port_named_mmio_port_axi4$axi4deint$qs_queue_7$ram_data$io_deq_bits_MPORT$rtl[L] = ldut.subsystem_sbus.coupler_to_port_named_mmio_port_axi4.axi4deint.qs_queue_7.ram_data[_v2_sa_field_addr];
-          _s_ldut$subsystem_sbus$coupler_to_port_named_mmio_port_axi4$axi4deint$qs_queue_7$ram_resp$io_deq_bits_MPORT$rtl[L] = ldut.subsystem_sbus.coupler_to_port_named_mmio_port_axi4.axi4deint.qs_queue_7.ram_resp[_v2_sa_field_addr];
-          _s_ldut$subsystem_sbus$coupler_to_port_named_mmio_port_axi4$axi4deint$qs_queue_7$ram_echo_tl_state_size$io_deq_bits_MPORT$rtl[L] = ldut.subsystem_sbus.coupler_to_port_named_mmio_port_axi4.axi4deint.qs_queue_7.ram_echo_tl_state_size[_v2_sa_field_addr];
-          _s_ldut$subsystem_sbus$coupler_to_port_named_mmio_port_axi4$axi4deint$qs_queue_7$ram_echo_tl_state_source$io_deq_bits_MPORT$rtl[L] = ldut.subsystem_sbus.coupler_to_port_named_mmio_port_axi4.axi4deint.qs_queue_7.ram_echo_tl_state_source[_v2_sa_field_addr];
-          _s_ldut$subsystem_sbus$coupler_to_port_named_mmio_port_axi4$axi4deint$qs_queue_7$ram_last$io_deq_bits_MPORT$rtl[L] = ldut.subsystem_sbus.coupler_to_port_named_mmio_port_axi4.axi4deint.qs_queue_7.ram_last[_v2_sa_field_addr];
-        }
+        essent_table_read<16, 8, false>(&_s_ldut$subsystem_sbus$coupler_to_port_named_mmio_port_axi4$axi4deint$qs_queue_7$ram_id$io_deq_bits_MPORT$rtl[0], &ldut.subsystem_sbus.coupler_to_port_named_mmio_port_axi4.axi4deint.qs_queue_7.ram_id[0], &ldut.subsystem_sbus.coupler_to_port_named_mmio_port_axi4.axi4deint.qs_queue_7.deq_ptr_value[0]);
+        essent_table_read<16, 8, false>(&_s_ldut$subsystem_sbus$coupler_to_port_named_mmio_port_axi4$axi4deint$qs_queue_7$ram_data$io_deq_bits_MPORT$rtl[0], &ldut.subsystem_sbus.coupler_to_port_named_mmio_port_axi4.axi4deint.qs_queue_7.ram_data[0], &ldut.subsystem_sbus.coupler_to_port_named_mmio_port_axi4.axi4deint.qs_queue_7.deq_ptr_value[0]);
+        essent_table_read<16, 8, false>(&_s_ldut$subsystem_sbus$coupler_to_port_named_mmio_port_axi4$axi4deint$qs_queue_7$ram_resp$io_deq_bits_MPORT$rtl[0], &ldut.subsystem_sbus.coupler_to_port_named_mmio_port_axi4.axi4deint.qs_queue_7.ram_resp[0], &ldut.subsystem_sbus.coupler_to_port_named_mmio_port_axi4.axi4deint.qs_queue_7.deq_ptr_value[0]);
+        essent_table_read<16, 8, false>(&_s_ldut$subsystem_sbus$coupler_to_port_named_mmio_port_axi4$axi4deint$qs_queue_7$ram_echo_tl_state_size$io_deq_bits_MPORT$rtl[0], &ldut.subsystem_sbus.coupler_to_port_named_mmio_port_axi4.axi4deint.qs_queue_7.ram_echo_tl_state_size[0], &ldut.subsystem_sbus.coupler_to_port_named_mmio_port_axi4.axi4deint.qs_queue_7.deq_ptr_value[0]);
+        essent_table_read<16, 8, false>(&_s_ldut$subsystem_sbus$coupler_to_port_named_mmio_port_axi4$axi4deint$qs_queue_7$ram_echo_tl_state_source$io_deq_bits_MPORT$rtl[0], &ldut.subsystem_sbus.coupler_to_port_named_mmio_port_axi4.axi4deint.qs_queue_7.ram_echo_tl_state_source[0], &ldut.subsystem_sbus.coupler_to_port_named_mmio_port_axi4.axi4deint.qs_queue_7.deq_ptr_value[0]);
+        essent_table_read<16, 8, false>(&_s_ldut$subsystem_sbus$coupler_to_port_named_mmio_port_axi4$axi4deint$qs_queue_7$ram_last$io_deq_bits_MPORT$rtl[0], &ldut.subsystem_sbus.coupler_to_port_named_mmio_port_axi4.axi4deint.qs_queue_7.ram_last[0], &ldut.subsystem_sbus.coupler_to_port_named_mmio_port_axi4.axi4deint.qs_queue_7.deq_ptr_value[0]);
       } else {
       {
         // [state-field-read-fused] 6 arrays share one access scan, mode=dense-branchless
@@ -2751,15 +2727,12 @@
         _v2_sa_anyw |= (uint64_t)(essent_to_u64(_s_ldut$subsystem_sbus$coupler_to_port_named_mmio_port_axi4$axi4deint$qs_queue_8$io_enq_ready[G] & _s_ldut$subsystem_sbus$coupler_to_port_named_mmio_port_axi4$axi4deint$qs_queue_8$io_enq_valid[G]) != 0) & (uint64_t)(essent_to_u64(UInt<1>(0x1)) != 0);
       }
       if (_v2_sa_anyw == 0) {
-        for (int L = 0; L < 16; L++) {
-          const uint64_t _v2_sa_field_addr = essent_to_u64(ldut.subsystem_sbus.coupler_to_port_named_mmio_port_axi4.axi4deint.qs_queue_8.deq_ptr_value[L]);
-          _s_ldut$subsystem_sbus$coupler_to_port_named_mmio_port_axi4$axi4deint$qs_queue_8$ram_id$io_deq_bits_MPORT$rtl[L] = ldut.subsystem_sbus.coupler_to_port_named_mmio_port_axi4.axi4deint.qs_queue_8.ram_id[_v2_sa_field_addr];
-          _s_ldut$subsystem_sbus$coupler_to_port_named_mmio_port_axi4$axi4deint$qs_queue_8$ram_data$io_deq_bits_MPORT$rtl[L] = ldut.subsystem_sbus.coupler_to_port_named_mmio_port_axi4.axi4deint.qs_queue_8.ram_data[_v2_sa_field_addr];
-          _s_ldut$subsystem_sbus$coupler_to_port_named_mmio_port_axi4$axi4deint$qs_queue_8$ram_resp$io_deq_bits_MPORT$rtl[L] = ldut.subsystem_sbus.coupler_to_port_named_mmio_port_axi4.axi4deint.qs_queue_8.ram_resp[_v2_sa_field_addr];
-          _s_ldut$subsystem_sbus$coupler_to_port_named_mmio_port_axi4$axi4deint$qs_queue_8$ram_echo_tl_state_size$io_deq_bits_MPORT$rtl[L] = ldut.subsystem_sbus.coupler_to_port_named_mmio_port_axi4.axi4deint.qs_queue_8.ram_echo_tl_state_size[_v2_sa_field_addr];
-          _s_ldut$subsystem_sbus$coupler_to_port_named_mmio_port_axi4$axi4deint$qs_queue_8$ram_echo_tl_state_source$io_deq_bits_MPORT$rtl[L] = ldut.subsystem_sbus.coupler_to_port_named_mmio_port_axi4.axi4deint.qs_queue_8.ram_echo_tl_state_source[_v2_sa_field_addr];
-          _s_ldut$subsystem_sbus$coupler_to_port_named_mmio_port_axi4$axi4deint$qs_queue_8$ram_last$io_deq_bits_MPORT$rtl[L] = ldut.subsystem_sbus.coupler_to_port_named_mmio_port_axi4.axi4deint.qs_queue_8.ram_last[_v2_sa_field_addr];
-        }
+        essent_table_read<16, 8, false>(&_s_ldut$subsystem_sbus$coupler_to_port_named_mmio_port_axi4$axi4deint$qs_queue_8$ram_id$io_deq_bits_MPORT$rtl[0], &ldut.subsystem_sbus.coupler_to_port_named_mmio_port_axi4.axi4deint.qs_queue_8.ram_id[0], &ldut.subsystem_sbus.coupler_to_port_named_mmio_port_axi4.axi4deint.qs_queue_8.deq_ptr_value[0]);
+        essent_table_read<16, 8, false>(&_s_ldut$subsystem_sbus$coupler_to_port_named_mmio_port_axi4$axi4deint$qs_queue_8$ram_data$io_deq_bits_MPORT$rtl[0], &ldut.subsystem_sbus.coupler_to_port_named_mmio_port_axi4.axi4deint.qs_queue_8.ram_data[0], &ldut.subsystem_sbus.coupler_to_port_named_mmio_port_axi4.axi4deint.qs_queue_8.deq_ptr_value[0]);
+        essent_table_read<16, 8, false>(&_s_ldut$subsystem_sbus$coupler_to_port_named_mmio_port_axi4$axi4deint$qs_queue_8$ram_resp$io_deq_bits_MPORT$rtl[0], &ldut.subsystem_sbus.coupler_to_port_named_mmio_port_axi4.axi4deint.qs_queue_8.ram_resp[0], &ldut.subsystem_sbus.coupler_to_port_named_mmio_port_axi4.axi4deint.qs_queue_8.deq_ptr_value[0]);
+        essent_table_read<16, 8, false>(&_s_ldut$subsystem_sbus$coupler_to_port_named_mmio_port_axi4$axi4deint$qs_queue_8$ram_echo_tl_state_size$io_deq_bits_MPORT$rtl[0], &ldut.subsystem_sbus.coupler_to_port_named_mmio_port_axi4.axi4deint.qs_queue_8.ram_echo_tl_state_size[0], &ldut.subsystem_sbus.coupler_to_port_named_mmio_port_axi4.axi4deint.qs_queue_8.deq_ptr_value[0]);
+        essent_table_read<16, 8, false>(&_s_ldut$subsystem_sbus$coupler_to_port_named_mmio_port_axi4$axi4deint$qs_queue_8$ram_echo_tl_state_source$io_deq_bits_MPORT$rtl[0], &ldut.subsystem_sbus.coupler_to_port_named_mmio_port_axi4.axi4deint.qs_queue_8.ram_echo_tl_state_source[0], &ldut.subsystem_sbus.coupler_to_port_named_mmio_port_axi4.axi4deint.qs_queue_8.deq_ptr_value[0]);
+        essent_table_read<16, 8, false>(&_s_ldut$subsystem_sbus$coupler_to_port_named_mmio_port_axi4$axi4deint$qs_queue_8$ram_last$io_deq_bits_MPORT$rtl[0], &ldut.subsystem_sbus.coupler_to_port_named_mmio_port_axi4.axi4deint.qs_queue_8.ram_last[0], &ldut.subsystem_sbus.coupler_to_port_named_mmio_port_axi4.axi4deint.qs_queue_8.deq_ptr_value[0]);
       } else {
       {
         // [state-field-read-fused] 6 arrays share one access scan, mode=dense-branchless
@@ -2851,13 +2824,13 @@
       _s_ldut$subsystem_sbus$coupler_to_port_named_mmio_port_axi4$widget$auto_in_d_valid[L].val = static_cast<typename UInt<1>::scalar_t>((static_cast<uint8_t>((static_cast<uint8_t>(((_s_ldut$subsystem_sbus$coupler_to_port_named_mmio_port_axi4$tl2axi4$auto_in_d_valid[L].val) & (_s_ldut$subsystem_sbus$coupler_to_port_named_mmio_port_axi4$widget$last[L].val))) & 0x1u)) & 0x1u));
       _s_ldut$subsystem_sbus$system_bus_xbar$portsDIO_filtered_2_0_valid[L].val = static_cast<typename UInt<1>::scalar_t>((static_cast<uint8_t>((static_cast<uint8_t>(((_s_ldut$subsystem_sbus$coupler_to_port_named_mmio_port_axi4$widget$auto_in_d_valid[L].val) & (_s_ldut$subsystem_sbus$system_bus_xbar$requestDOI_2_0[L].val))) & 0x1u)) & 0x1u));
     }
+
+    if (partition_task_poll) partition_task_poll(partition_task_context, 0, true, 0);
     // [vec comb] 18 templates x 16 lanes
     ESSENT_LANE_LOOP
     for (int L = 0; L < 16; L++) {
       _s_ldut$subsystem_sbus$system_bus_xbar$portsDIO_filtered_2_1_valid[L].val = static_cast<typename UInt<1>::scalar_t>((static_cast<uint8_t>((static_cast<uint8_t>(((_s_ldut$subsystem_sbus$coupler_to_port_named_mmio_port_axi4$widget$auto_in_d_valid[L].val) & (_s_ldut$subsystem_sbus$system_bus_xbar$requestDOI_2_1[L].val))) & 0x1u)) & 0x1u));
     }
-
-    if (partition_task_poll) partition_task_poll(partition_task_context, 0, true, 0);
     // [vec comb-wide] 1 templates (compiler-selected vector width)
     for (int L = 0; L < 16; L++) {
       { const uint64_t _v2_word_0 = static_cast<uint64_t>((static_cast<uint64_t>(_s_ldut$subsystem_sbus$coupler_to_port_named_mmio_port_axi4$widget$bundleIn_0_d_bits_data_lo[L].val) >> 0)); const uint64_t _v2_word_1 = static_cast<uint64_t>((static_cast<uint64_t>(_s_ldut$subsystem_sbus$coupler_to_port_named_mmio_port_axi4$axi4deint$auto_in_r_bits_data[L].val) >> 0)); _s_ldut$subsystem_sbus$coupler_to_port_named_mmio_port_axi4$widget$auto_in_d_bits_data[L].val[0] = _v2_word_0; _s_ldut$subsystem_sbus$coupler_to_port_named_mmio_port_axi4$widget$auto_in_d_bits_data[L].val[1] = _v2_word_1; }
@@ -2899,7 +2872,7 @@
         _v2_sa_anyw |= (uint64_t)(essent_to_u64(_s_ldut$subsystem_fbus$buffer$bundleOut_0_a_q$io_enq_ready[G] & _s_ldut$subsystem_fbus$coupler_from_port_named_slave_port_axi4$buffer$bundleOut_0_a_q$io_deq_valid[G]) != 0) & (uint64_t)(essent_to_u64(UInt<1>(0x1)) != 0);
       }
       if (_v2_sa_anyw == 0) {
-        for (int L = 0; L < 16; L++) { _s_ldut$subsystem_fbus$buffer$bundleOut_0_a_q$ram_opcode$io_deq_bits_MPORT[L] = ldut.subsystem_fbus.buffer.bundleOut_0_a_q.ram_opcode[essent_to_u64(ldut.subsystem_fbus.buffer.bundleOut_0_a_q.value_1[L])]; }
+        essent_table_read<16, 2, false>(&_s_ldut$subsystem_fbus$buffer$bundleOut_0_a_q$ram_opcode$io_deq_bits_MPORT[0], &ldut.subsystem_fbus.buffer.bundleOut_0_a_q.ram_opcode[0], &ldut.subsystem_fbus.buffer.bundleOut_0_a_q.value_1[0]);
       } else {
       {
         // [state-read-dense] forwarding=branchless
@@ -2908,10 +2881,11 @@
         for (int L = 0; L < 16; L++) {
           const uint64_t _v2_sa_addr = essent_to_u64(ldut.subsystem_fbus.buffer.bundleOut_0_a_q.value_1[L]);
           UInt<3> _v2_sa_value = ldut.subsystem_fbus.buffer.bundleOut_0_a_q.ram_opcode[_v2_sa_addr];
+          // [branchless-forward] select a valid source before loading data
           const int _v2_sa_prev_code = _v2_sa_last[_v2_sa_addr];
-          const uint64_t _v2_sa_prev_valid = (uint64_t)(_v2_sa_prev_code >= 0);
+          const bool _v2_sa_prev_valid = _v2_sa_prev_code >= 0;
           [[maybe_unused]] const int _v2_sa_prev_lane = _v2_sa_prev_code & -static_cast<int>(_v2_sa_prev_valid);
-          _v2_sa_value = essent_mux(UInt<1>(_v2_sa_prev_valid), _s_ldut$subsystem_fbus$coupler_from_port_named_slave_port_axi4$buffer$bundleOut_0_a_q$ram_opcode$io_deq_bits_MPORT[_v2_sa_prev_lane], _v2_sa_value);
+          _v2_sa_value = *essent_select_ptr(_v2_sa_prev_valid, &(_s_ldut$subsystem_fbus$coupler_from_port_named_slave_port_axi4$buffer$bundleOut_0_a_q$ram_opcode$io_deq_bits_MPORT[_v2_sa_prev_lane]), &_v2_sa_value);
           _s_ldut$subsystem_fbus$buffer$bundleOut_0_a_q$ram_opcode$io_deq_bits_MPORT[L] = _v2_sa_value;
           const uint64_t _v2_sa_write_addr_0 = essent_to_u64(ldut.subsystem_fbus.buffer.bundleOut_0_a_q.value[L]);
           const uint64_t _v2_sa_write_take_0 = (uint64_t)(essent_to_u64(_s_ldut$subsystem_fbus$buffer$bundleOut_0_a_q$io_enq_ready[L] & _s_ldut$subsystem_fbus$coupler_from_port_named_slave_port_axi4$buffer$bundleOut_0_a_q$io_deq_valid[L]) != 0) & (uint64_t)(essent_to_u64(UInt<1>(0x1)) != 0);
@@ -2936,11 +2910,8 @@
         _v2_sa_anyw |= (uint64_t)(essent_to_u64(_s_ldut$subsystem_fbus$buffer$bundleOut_0_a_q$io_enq_ready[G] & _s_ldut$subsystem_fbus$coupler_from_port_named_slave_port_axi4$buffer$bundleOut_0_a_q$io_deq_valid[G]) != 0) & (uint64_t)(essent_to_u64(UInt<1>(0x1)) != 0);
       }
       if (_v2_sa_anyw == 0) {
-        for (int L = 0; L < 16; L++) {
-          const uint64_t _v2_sa_field_addr = essent_to_u64(ldut.subsystem_fbus.buffer.bundleOut_0_a_q.value_1[L]);
-          _s_ldut$subsystem_fbus$buffer$bundleOut_0_a_q$ram_param$io_deq_bits_MPORT[L] = ldut.subsystem_fbus.buffer.bundleOut_0_a_q.ram_param[_v2_sa_field_addr];
-          _s_ldut$subsystem_fbus$buffer$bundleOut_0_a_q$ram_size$io_deq_bits_MPORT[L] = ldut.subsystem_fbus.buffer.bundleOut_0_a_q.ram_size[_v2_sa_field_addr];
-        }
+        essent_table_read<16, 2, false>(&_s_ldut$subsystem_fbus$buffer$bundleOut_0_a_q$ram_param$io_deq_bits_MPORT[0], &ldut.subsystem_fbus.buffer.bundleOut_0_a_q.ram_param[0], &ldut.subsystem_fbus.buffer.bundleOut_0_a_q.value_1[0]);
+        essent_table_read<16, 2, false>(&_s_ldut$subsystem_fbus$buffer$bundleOut_0_a_q$ram_size$io_deq_bits_MPORT[0], &ldut.subsystem_fbus.buffer.bundleOut_0_a_q.ram_size[0], &ldut.subsystem_fbus.buffer.bundleOut_0_a_q.value_1[0]);
       } else {
       {
         // [state-field-read-fused] 2 arrays share one access scan, mode=dense-branchless
@@ -3001,7 +2972,7 @@
         _v2_sa_anyw |= (uint64_t)(essent_to_u64(_s_ldut$subsystem_fbus$buffer$bundleOut_0_a_q$io_enq_ready[G] & _s_ldut$subsystem_fbus$coupler_from_port_named_slave_port_axi4$buffer$bundleOut_0_a_q$io_deq_valid[G]) != 0) & (uint64_t)(essent_to_u64(UInt<1>(0x1)) != 0);
       }
       if (_v2_sa_anyw == 0) {
-        for (int L = 0; L < 16; L++) { _s_ldut$subsystem_fbus$buffer$bundleOut_0_a_q$ram_source$io_deq_bits_MPORT[L] = ldut.subsystem_fbus.buffer.bundleOut_0_a_q.ram_source[essent_to_u64(ldut.subsystem_fbus.buffer.bundleOut_0_a_q.value_1[L])]; }
+        essent_table_read<16, 2, false>(&_s_ldut$subsystem_fbus$buffer$bundleOut_0_a_q$ram_source$io_deq_bits_MPORT[0], &ldut.subsystem_fbus.buffer.bundleOut_0_a_q.ram_source[0], &ldut.subsystem_fbus.buffer.bundleOut_0_a_q.value_1[0]);
       } else {
       {
         // [state-read-dense] forwarding=branchless
@@ -3010,10 +2981,11 @@
         for (int L = 0; L < 16; L++) {
           const uint64_t _v2_sa_addr = essent_to_u64(ldut.subsystem_fbus.buffer.bundleOut_0_a_q.value_1[L]);
           UInt<4> _v2_sa_value = ldut.subsystem_fbus.buffer.bundleOut_0_a_q.ram_source[_v2_sa_addr];
+          // [branchless-forward] select a valid source before loading data
           const int _v2_sa_prev_code = _v2_sa_last[_v2_sa_addr];
-          const uint64_t _v2_sa_prev_valid = (uint64_t)(_v2_sa_prev_code >= 0);
+          const bool _v2_sa_prev_valid = _v2_sa_prev_code >= 0;
           [[maybe_unused]] const int _v2_sa_prev_lane = _v2_sa_prev_code & -static_cast<int>(_v2_sa_prev_valid);
-          _v2_sa_value = essent_mux(UInt<1>(_v2_sa_prev_valid), _s_ldut$subsystem_fbus$coupler_from_port_named_slave_port_axi4$buffer$bundleOut_0_a_q$ram_source$io_deq_bits_MPORT[_v2_sa_prev_lane], _v2_sa_value);
+          _v2_sa_value = *essent_select_ptr(_v2_sa_prev_valid, &(_s_ldut$subsystem_fbus$coupler_from_port_named_slave_port_axi4$buffer$bundleOut_0_a_q$ram_source$io_deq_bits_MPORT[_v2_sa_prev_lane]), &_v2_sa_value);
           _s_ldut$subsystem_fbus$buffer$bundleOut_0_a_q$ram_source$io_deq_bits_MPORT[L] = _v2_sa_value;
           const uint64_t _v2_sa_write_addr_0 = essent_to_u64(ldut.subsystem_fbus.buffer.bundleOut_0_a_q.value[L]);
           const uint64_t _v2_sa_write_take_0 = (uint64_t)(essent_to_u64(_s_ldut$subsystem_fbus$buffer$bundleOut_0_a_q$io_enq_ready[L] & _s_ldut$subsystem_fbus$coupler_from_port_named_slave_port_axi4$buffer$bundleOut_0_a_q$io_deq_valid[L]) != 0) & (uint64_t)(essent_to_u64(UInt<1>(0x1)) != 0);
@@ -3039,7 +3011,7 @@
         _v2_sa_anyw |= (uint64_t)(essent_to_u64(_s_ldut$subsystem_fbus$buffer$bundleOut_0_a_q$io_enq_ready[G] & _s_ldut$subsystem_fbus$coupler_from_port_named_slave_port_axi4$buffer$bundleOut_0_a_q$io_deq_valid[G]) != 0) & (uint64_t)(essent_to_u64(UInt<1>(0x1)) != 0);
       }
       if (_v2_sa_anyw == 0) {
-        for (int L = 0; L < 16; L++) { _s_ldut$subsystem_fbus$buffer$bundleOut_0_a_q$ram_address$io_deq_bits_MPORT[L] = ldut.subsystem_fbus.buffer.bundleOut_0_a_q.ram_address[essent_to_u64(ldut.subsystem_fbus.buffer.bundleOut_0_a_q.value_1[L])]; }
+        essent_table_read<16, 2, false>(&_s_ldut$subsystem_fbus$buffer$bundleOut_0_a_q$ram_address$io_deq_bits_MPORT[0], &ldut.subsystem_fbus.buffer.bundleOut_0_a_q.ram_address[0], &ldut.subsystem_fbus.buffer.bundleOut_0_a_q.value_1[0]);
       } else {
       {
         // [state-read-dense] forwarding=branchless
@@ -3048,10 +3020,11 @@
         for (int L = 0; L < 16; L++) {
           const uint64_t _v2_sa_addr = essent_to_u64(ldut.subsystem_fbus.buffer.bundleOut_0_a_q.value_1[L]);
           UInt<32> _v2_sa_value = ldut.subsystem_fbus.buffer.bundleOut_0_a_q.ram_address[_v2_sa_addr];
+          // [branchless-forward] select a valid source before loading data
           const int _v2_sa_prev_code = _v2_sa_last[_v2_sa_addr];
-          const uint64_t _v2_sa_prev_valid = (uint64_t)(_v2_sa_prev_code >= 0);
+          const bool _v2_sa_prev_valid = _v2_sa_prev_code >= 0;
           [[maybe_unused]] const int _v2_sa_prev_lane = _v2_sa_prev_code & -static_cast<int>(_v2_sa_prev_valid);
-          _v2_sa_value = essent_mux(UInt<1>(_v2_sa_prev_valid), _s_ldut$subsystem_fbus$coupler_from_port_named_slave_port_axi4$buffer$bundleOut_0_a_q$ram_address$io_deq_bits_MPORT[_v2_sa_prev_lane], _v2_sa_value);
+          _v2_sa_value = *essent_select_ptr(_v2_sa_prev_valid, &(_s_ldut$subsystem_fbus$coupler_from_port_named_slave_port_axi4$buffer$bundleOut_0_a_q$ram_address$io_deq_bits_MPORT[_v2_sa_prev_lane]), &_v2_sa_value);
           _s_ldut$subsystem_fbus$buffer$bundleOut_0_a_q$ram_address$io_deq_bits_MPORT[L] = _v2_sa_value;
           const uint64_t _v2_sa_write_addr_0 = essent_to_u64(ldut.subsystem_fbus.buffer.bundleOut_0_a_q.value[L]);
           const uint64_t _v2_sa_write_take_0 = (uint64_t)(essent_to_u64(_s_ldut$subsystem_fbus$buffer$bundleOut_0_a_q$io_enq_ready[L] & _s_ldut$subsystem_fbus$coupler_from_port_named_slave_port_axi4$buffer$bundleOut_0_a_q$io_deq_valid[L]) != 0) & (uint64_t)(essent_to_u64(UInt<1>(0x1)) != 0);
@@ -3151,19 +3124,16 @@
         _v2_sa_anyw |= (uint64_t)(essent_to_u64(_s_ldut$subsystem_fbus$buffer$bundleOut_0_a_q$io_enq_ready[G] & _s_ldut$subsystem_fbus$coupler_from_port_named_slave_port_axi4$buffer$bundleOut_0_a_q$io_deq_valid[G]) != 0) & (uint64_t)(essent_to_u64(UInt<1>(0x1)) != 0);
       }
       if (_v2_sa_anyw == 0) {
-        for (int L = 0; L < 16; L++) {
-          const uint64_t _v2_sa_field_addr = essent_to_u64(ldut.subsystem_fbus.buffer.bundleOut_0_a_q.value_1[L]);
-          _s_ldut$subsystem_fbus$buffer$bundleOut_0_a_q$ram_user_amba_prot_bufferable$io_deq_bits_MPORT[L] = ldut.subsystem_fbus.buffer.bundleOut_0_a_q.ram_user_amba_prot_bufferable[_v2_sa_field_addr];
-          _s_ldut$subsystem_fbus$buffer$bundleOut_0_a_q$ram_user_amba_prot_modifiable$io_deq_bits_MPORT[L] = ldut.subsystem_fbus.buffer.bundleOut_0_a_q.ram_user_amba_prot_modifiable[_v2_sa_field_addr];
-          _s_ldut$subsystem_fbus$buffer$bundleOut_0_a_q$ram_user_amba_prot_readalloc$io_deq_bits_MPORT[L] = ldut.subsystem_fbus.buffer.bundleOut_0_a_q.ram_user_amba_prot_readalloc[_v2_sa_field_addr];
-          _s_ldut$subsystem_fbus$buffer$bundleOut_0_a_q$ram_user_amba_prot_writealloc$io_deq_bits_MPORT[L] = ldut.subsystem_fbus.buffer.bundleOut_0_a_q.ram_user_amba_prot_writealloc[_v2_sa_field_addr];
-          _s_ldut$subsystem_fbus$buffer$bundleOut_0_a_q$ram_user_amba_prot_privileged$io_deq_bits_MPORT[L] = ldut.subsystem_fbus.buffer.bundleOut_0_a_q.ram_user_amba_prot_privileged[_v2_sa_field_addr];
-          _s_ldut$subsystem_fbus$buffer$bundleOut_0_a_q$ram_user_amba_prot_secure$io_deq_bits_MPORT[L] = ldut.subsystem_fbus.buffer.bundleOut_0_a_q.ram_user_amba_prot_secure[_v2_sa_field_addr];
-          _s_ldut$subsystem_fbus$buffer$bundleOut_0_a_q$ram_user_amba_prot_fetch$io_deq_bits_MPORT[L] = ldut.subsystem_fbus.buffer.bundleOut_0_a_q.ram_user_amba_prot_fetch[_v2_sa_field_addr];
-          _s_ldut$subsystem_fbus$buffer$bundleOut_0_a_q$ram_mask$io_deq_bits_MPORT[L] = ldut.subsystem_fbus.buffer.bundleOut_0_a_q.ram_mask[_v2_sa_field_addr];
-          _s_ldut$subsystem_fbus$buffer$bundleOut_0_a_q$ram_data$io_deq_bits_MPORT[L] = ldut.subsystem_fbus.buffer.bundleOut_0_a_q.ram_data[_v2_sa_field_addr];
-          _s_ldut$subsystem_fbus$buffer$bundleOut_0_a_q$ram_corrupt$io_deq_bits_MPORT[L] = ldut.subsystem_fbus.buffer.bundleOut_0_a_q.ram_corrupt[_v2_sa_field_addr];
-        }
+        essent_table_read<16, 2, false>(&_s_ldut$subsystem_fbus$buffer$bundleOut_0_a_q$ram_user_amba_prot_bufferable$io_deq_bits_MPORT[0], &ldut.subsystem_fbus.buffer.bundleOut_0_a_q.ram_user_amba_prot_bufferable[0], &ldut.subsystem_fbus.buffer.bundleOut_0_a_q.value_1[0]);
+        essent_table_read<16, 2, false>(&_s_ldut$subsystem_fbus$buffer$bundleOut_0_a_q$ram_user_amba_prot_modifiable$io_deq_bits_MPORT[0], &ldut.subsystem_fbus.buffer.bundleOut_0_a_q.ram_user_amba_prot_modifiable[0], &ldut.subsystem_fbus.buffer.bundleOut_0_a_q.value_1[0]);
+        essent_table_read<16, 2, false>(&_s_ldut$subsystem_fbus$buffer$bundleOut_0_a_q$ram_user_amba_prot_readalloc$io_deq_bits_MPORT[0], &ldut.subsystem_fbus.buffer.bundleOut_0_a_q.ram_user_amba_prot_readalloc[0], &ldut.subsystem_fbus.buffer.bundleOut_0_a_q.value_1[0]);
+        essent_table_read<16, 2, false>(&_s_ldut$subsystem_fbus$buffer$bundleOut_0_a_q$ram_user_amba_prot_writealloc$io_deq_bits_MPORT[0], &ldut.subsystem_fbus.buffer.bundleOut_0_a_q.ram_user_amba_prot_writealloc[0], &ldut.subsystem_fbus.buffer.bundleOut_0_a_q.value_1[0]);
+        essent_table_read<16, 2, false>(&_s_ldut$subsystem_fbus$buffer$bundleOut_0_a_q$ram_user_amba_prot_privileged$io_deq_bits_MPORT[0], &ldut.subsystem_fbus.buffer.bundleOut_0_a_q.ram_user_amba_prot_privileged[0], &ldut.subsystem_fbus.buffer.bundleOut_0_a_q.value_1[0]);
+        essent_table_read<16, 2, false>(&_s_ldut$subsystem_fbus$buffer$bundleOut_0_a_q$ram_user_amba_prot_secure$io_deq_bits_MPORT[0], &ldut.subsystem_fbus.buffer.bundleOut_0_a_q.ram_user_amba_prot_secure[0], &ldut.subsystem_fbus.buffer.bundleOut_0_a_q.value_1[0]);
+        essent_table_read<16, 2, false>(&_s_ldut$subsystem_fbus$buffer$bundleOut_0_a_q$ram_user_amba_prot_fetch$io_deq_bits_MPORT[0], &ldut.subsystem_fbus.buffer.bundleOut_0_a_q.ram_user_amba_prot_fetch[0], &ldut.subsystem_fbus.buffer.bundleOut_0_a_q.value_1[0]);
+        essent_table_read<16, 2, false>(&_s_ldut$subsystem_fbus$buffer$bundleOut_0_a_q$ram_mask$io_deq_bits_MPORT[0], &ldut.subsystem_fbus.buffer.bundleOut_0_a_q.ram_mask[0], &ldut.subsystem_fbus.buffer.bundleOut_0_a_q.value_1[0]);
+        essent_table_read<16, 2, false>(&_s_ldut$subsystem_fbus$buffer$bundleOut_0_a_q$ram_data$io_deq_bits_MPORT[0], &ldut.subsystem_fbus.buffer.bundleOut_0_a_q.ram_data[0], &ldut.subsystem_fbus.buffer.bundleOut_0_a_q.value_1[0]);
+        essent_table_read<16, 2, false>(&_s_ldut$subsystem_fbus$buffer$bundleOut_0_a_q$ram_corrupt$io_deq_bits_MPORT[0], &ldut.subsystem_fbus.buffer.bundleOut_0_a_q.ram_corrupt[0], &ldut.subsystem_fbus.buffer.bundleOut_0_a_q.value_1[0]);
       } else {
       {
         // [state-field-read-fused] 10 arrays share one access scan, mode=dense-branchless
@@ -4073,12 +4043,9 @@
         _v2_sa_anyw |= (uint64_t)(essent_to_u64(_s_ldut$tile_prci_domain$buffer_1$bundleOut_0_a_q$io_enq_ready[G] & _s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$tlMasterXbar$auto_out_a_valid[G]) != 0) & (uint64_t)(essent_to_u64(UInt<1>(0x1)) != 0);
       }
       if (_v2_sa_anyw == 0) {
-        for (int L = 0; L < 16; L++) {
-          const uint64_t _v2_sa_field_addr = essent_to_u64(ldut.tile_prci_domain.buffer_1.bundleOut_0_a_q.value_1[L]);
-          _s_ldut$tile_prci_domain$buffer_1$bundleOut_0_a_q$ram_opcode$io_deq_bits_MPORT[L] = ldut.tile_prci_domain.buffer_1.bundleOut_0_a_q.ram_opcode[_v2_sa_field_addr];
-          _s_ldut$tile_prci_domain$buffer_1$bundleOut_0_a_q$ram_param$io_deq_bits_MPORT[L] = ldut.tile_prci_domain.buffer_1.bundleOut_0_a_q.ram_param[_v2_sa_field_addr];
-          _s_ldut$tile_prci_domain$buffer_1$bundleOut_0_a_q$ram_size$io_deq_bits_MPORT[L] = ldut.tile_prci_domain.buffer_1.bundleOut_0_a_q.ram_size[_v2_sa_field_addr];
-        }
+        essent_table_read<16, 2, false>(&_s_ldut$tile_prci_domain$buffer_1$bundleOut_0_a_q$ram_opcode$io_deq_bits_MPORT[0], &ldut.tile_prci_domain.buffer_1.bundleOut_0_a_q.ram_opcode[0], &ldut.tile_prci_domain.buffer_1.bundleOut_0_a_q.value_1[0]);
+        essent_table_read<16, 2, false>(&_s_ldut$tile_prci_domain$buffer_1$bundleOut_0_a_q$ram_param$io_deq_bits_MPORT[0], &ldut.tile_prci_domain.buffer_1.bundleOut_0_a_q.ram_param[0], &ldut.tile_prci_domain.buffer_1.bundleOut_0_a_q.value_1[0]);
+        essent_table_read<16, 2, false>(&_s_ldut$tile_prci_domain$buffer_1$bundleOut_0_a_q$ram_size$io_deq_bits_MPORT[0], &ldut.tile_prci_domain.buffer_1.bundleOut_0_a_q.ram_size[0], &ldut.tile_prci_domain.buffer_1.bundleOut_0_a_q.value_1[0]);
       } else {
       {
         // [state-field-read-fused] 3 arrays share one access scan, mode=dense-branchless
@@ -4120,7 +4087,7 @@
         _v2_sa_anyw |= (uint64_t)(essent_to_u64(_s_ldut$tile_prci_domain$buffer_1$bundleOut_0_a_q$io_enq_ready[G] & _s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$tlMasterXbar$auto_out_a_valid[G]) != 0) & (uint64_t)(essent_to_u64(UInt<1>(0x1)) != 0);
       }
       if (_v2_sa_anyw == 0) {
-        for (int L = 0; L < 16; L++) { _s_ldut$tile_prci_domain$buffer_1$bundleOut_0_a_q$ram_source$io_deq_bits_MPORT[L] = ldut.tile_prci_domain.buffer_1.bundleOut_0_a_q.ram_source[essent_to_u64(ldut.tile_prci_domain.buffer_1.bundleOut_0_a_q.value_1[L])]; }
+        essent_table_read<16, 2, false>(&_s_ldut$tile_prci_domain$buffer_1$bundleOut_0_a_q$ram_source$io_deq_bits_MPORT[0], &ldut.tile_prci_domain.buffer_1.bundleOut_0_a_q.ram_source[0], &ldut.tile_prci_domain.buffer_1.bundleOut_0_a_q.value_1[0]);
       } else {
       {
         // [state-read-dense] forwarding=branchless
@@ -4129,10 +4096,11 @@
         for (int L = 0; L < 16; L++) {
           const uint64_t _v2_sa_addr = essent_to_u64(ldut.tile_prci_domain.buffer_1.bundleOut_0_a_q.value_1[L]);
           UInt<4> _v2_sa_value = ldut.tile_prci_domain.buffer_1.bundleOut_0_a_q.ram_source[_v2_sa_addr];
+          // [branchless-forward] select a valid source before loading data
           const int _v2_sa_prev_code = _v2_sa_last[_v2_sa_addr];
-          const uint64_t _v2_sa_prev_valid = (uint64_t)(_v2_sa_prev_code >= 0);
+          const bool _v2_sa_prev_valid = _v2_sa_prev_code >= 0;
           [[maybe_unused]] const int _v2_sa_prev_lane = _v2_sa_prev_code & -static_cast<int>(_v2_sa_prev_valid);
-          _v2_sa_value = essent_mux(UInt<1>(_v2_sa_prev_valid), _s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$tlMasterXbar$auto_out_a_bits_source[_v2_sa_prev_lane], _v2_sa_value);
+          _v2_sa_value = *essent_select_ptr(_v2_sa_prev_valid, &(_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$tlMasterXbar$auto_out_a_bits_source[_v2_sa_prev_lane]), &_v2_sa_value);
           _s_ldut$tile_prci_domain$buffer_1$bundleOut_0_a_q$ram_source$io_deq_bits_MPORT[L] = _v2_sa_value;
           const uint64_t _v2_sa_write_addr_0 = essent_to_u64(ldut.tile_prci_domain.buffer_1.bundleOut_0_a_q.value[L]);
           const uint64_t _v2_sa_write_take_0 = (uint64_t)(essent_to_u64(_s_ldut$tile_prci_domain$buffer_1$bundleOut_0_a_q$io_enq_ready[L] & _s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$tlMasterXbar$auto_out_a_valid[L]) != 0) & (uint64_t)(essent_to_u64(UInt<1>(0x1)) != 0);
@@ -4156,7 +4124,7 @@
         _v2_sa_anyw |= (uint64_t)(essent_to_u64(_s_ldut$tile_prci_domain$buffer_1$bundleOut_0_a_q$io_enq_ready[G] & _s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$tlMasterXbar$auto_out_a_valid[G]) != 0) & (uint64_t)(essent_to_u64(UInt<1>(0x1)) != 0);
       }
       if (_v2_sa_anyw == 0) {
-        for (int L = 0; L < 16; L++) { _s_ldut$tile_prci_domain$buffer_1$bundleOut_0_a_q$ram_address$io_deq_bits_MPORT[L] = ldut.tile_prci_domain.buffer_1.bundleOut_0_a_q.ram_address[essent_to_u64(ldut.tile_prci_domain.buffer_1.bundleOut_0_a_q.value_1[L])]; }
+        essent_table_read<16, 2, false>(&_s_ldut$tile_prci_domain$buffer_1$bundleOut_0_a_q$ram_address$io_deq_bits_MPORT[0], &ldut.tile_prci_domain.buffer_1.bundleOut_0_a_q.ram_address[0], &ldut.tile_prci_domain.buffer_1.bundleOut_0_a_q.value_1[0]);
       } else {
       {
         // [state-read-dense] forwarding=branchless
@@ -4165,10 +4133,11 @@
         for (int L = 0; L < 16; L++) {
           const uint64_t _v2_sa_addr = essent_to_u64(ldut.tile_prci_domain.buffer_1.bundleOut_0_a_q.value_1[L]);
           UInt<32> _v2_sa_value = ldut.tile_prci_domain.buffer_1.bundleOut_0_a_q.ram_address[_v2_sa_addr];
+          // [branchless-forward] select a valid source before loading data
           const int _v2_sa_prev_code = _v2_sa_last[_v2_sa_addr];
-          const uint64_t _v2_sa_prev_valid = (uint64_t)(_v2_sa_prev_code >= 0);
+          const bool _v2_sa_prev_valid = _v2_sa_prev_code >= 0;
           [[maybe_unused]] const int _v2_sa_prev_lane = _v2_sa_prev_code & -static_cast<int>(_v2_sa_prev_valid);
-          _v2_sa_value = essent_mux(UInt<1>(_v2_sa_prev_valid), _s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$tlMasterXbar$auto_out_a_bits_address[_v2_sa_prev_lane], _v2_sa_value);
+          _v2_sa_value = *essent_select_ptr(_v2_sa_prev_valid, &(_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$tlMasterXbar$auto_out_a_bits_address[_v2_sa_prev_lane]), &_v2_sa_value);
           _s_ldut$tile_prci_domain$buffer_1$bundleOut_0_a_q$ram_address$io_deq_bits_MPORT[L] = _v2_sa_value;
           const uint64_t _v2_sa_write_addr_0 = essent_to_u64(ldut.tile_prci_domain.buffer_1.bundleOut_0_a_q.value[L]);
           const uint64_t _v2_sa_write_take_0 = (uint64_t)(essent_to_u64(_s_ldut$tile_prci_domain$buffer_1$bundleOut_0_a_q$io_enq_ready[L] & _s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$tlMasterXbar$auto_out_a_valid[L]) != 0) & (uint64_t)(essent_to_u64(UInt<1>(0x1)) != 0);
@@ -4197,11 +4166,11 @@
         _v2_sa_anyw |= (uint64_t)(essent_to_u64(_s_ldut$tile_prci_domain$buffer_1$bundleOut_0_a_q$io_enq_ready[G] & _s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$tlMasterXbar$auto_out_a_valid[G]) != 0) & (uint64_t)(essent_to_u64(UInt<1>(0x1)) != 0);
       }
       if (_v2_sa_anyw == 0) {
+        essent_table_read<16, 2, false>(&_s_ldut$tile_prci_domain$buffer_1$bundleOut_0_a_q$ram_mask$io_deq_bits_MPORT[0], &ldut.tile_prci_domain.buffer_1.bundleOut_0_a_q.ram_mask[0], &ldut.tile_prci_domain.buffer_1.bundleOut_0_a_q.value_1[0]);
+        essent_table_read<16, 2, false>(&_s_ldut$tile_prci_domain$buffer_1$bundleOut_0_a_q$ram_corrupt$io_deq_bits_MPORT[0], &ldut.tile_prci_domain.buffer_1.bundleOut_0_a_q.ram_corrupt[0], &ldut.tile_prci_domain.buffer_1.bundleOut_0_a_q.value_1[0]);
         for (int L = 0; L < 16; L++) {
           const uint64_t _v2_sa_field_addr = essent_to_u64(ldut.tile_prci_domain.buffer_1.bundleOut_0_a_q.value_1[L]);
-          _s_ldut$tile_prci_domain$buffer_1$bundleOut_0_a_q$ram_mask$io_deq_bits_MPORT[L] = ldut.tile_prci_domain.buffer_1.bundleOut_0_a_q.ram_mask[_v2_sa_field_addr];
           _s_ldut$tile_prci_domain$buffer_1$bundleOut_0_a_q$ram_data$io_deq_bits_MPORT[L] = ldut.tile_prci_domain.buffer_1.bundleOut_0_a_q.ram_data[_v2_sa_field_addr];
-          _s_ldut$tile_prci_domain$buffer_1$bundleOut_0_a_q$ram_corrupt$io_deq_bits_MPORT[L] = ldut.tile_prci_domain.buffer_1.bundleOut_0_a_q.ram_corrupt[_v2_sa_field_addr];
         }
       } else {
       {
@@ -4259,7 +4228,7 @@
         _v2_sa_anyw |= (uint64_t)(essent_to_u64(_s_ldut$tile_prci_domain$buffer_1$bundleIn_0_b_q$io_enq_ready[G] & _s_ldut$subsystem_l2_wrapper$broadcast_1$auto_in_b_valid[G]) != 0) & (uint64_t)(essent_to_u64(UInt<1>(0x1)) != 0);
       }
       if (_v2_sa_anyw == 0) {
-        for (int L = 0; L < 16; L++) { _s_ldut$tile_prci_domain$buffer_1$bundleIn_0_b_q$ram_source$io_deq_bits_MPORT[L] = ldut.tile_prci_domain.buffer_1.bundleIn_0_b_q.ram_source[essent_to_u64(ldut.tile_prci_domain.buffer_1.bundleIn_0_b_q.value_1[L])]; }
+        essent_table_read<16, 2, false>(&_s_ldut$tile_prci_domain$buffer_1$bundleIn_0_b_q$ram_source$io_deq_bits_MPORT[0], &ldut.tile_prci_domain.buffer_1.bundleIn_0_b_q.ram_source[0], &ldut.tile_prci_domain.buffer_1.bundleIn_0_b_q.value_1[0]);
       } else {
       {
         // [state-read-dense] forwarding=branchless
@@ -4316,7 +4285,7 @@
         _v2_sa_anyw |= (uint64_t)(essent_to_u64(_s_ldut$tile_prci_domain$buffer_1$bundleOut_0_c_q$io_enq_ready[G] & _s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$dcache$auto_out_c_valid[G]) != 0) & (uint64_t)(essent_to_u64(UInt<1>(0x1)) != 0);
       }
       if (_v2_sa_anyw == 0) {
-        for (int L = 0; L < 16; L++) { _s_ldut$tile_prci_domain$buffer_1$bundleOut_0_c_q$ram_opcode$io_deq_bits_MPORT[L] = ldut.tile_prci_domain.buffer_1.bundleOut_0_c_q.ram_opcode[essent_to_u64(ldut.tile_prci_domain.buffer_1.bundleOut_0_c_q.value_1[L])]; }
+        essent_table_read<16, 2, false>(&_s_ldut$tile_prci_domain$buffer_1$bundleOut_0_c_q$ram_opcode$io_deq_bits_MPORT[0], &ldut.tile_prci_domain.buffer_1.bundleOut_0_c_q.ram_opcode[0], &ldut.tile_prci_domain.buffer_1.bundleOut_0_c_q.value_1[0]);
       } else {
       {
         // [state-read-dense] forwarding=branchless
@@ -4325,10 +4294,11 @@
         for (int L = 0; L < 16; L++) {
           const uint64_t _v2_sa_addr = essent_to_u64(ldut.tile_prci_domain.buffer_1.bundleOut_0_c_q.value_1[L]);
           UInt<3> _v2_sa_value = ldut.tile_prci_domain.buffer_1.bundleOut_0_c_q.ram_opcode[_v2_sa_addr];
+          // [branchless-forward] select a valid source before loading data
           const int _v2_sa_prev_code = _v2_sa_last[_v2_sa_addr];
-          const uint64_t _v2_sa_prev_valid = (uint64_t)(_v2_sa_prev_code >= 0);
+          const bool _v2_sa_prev_valid = _v2_sa_prev_code >= 0;
           [[maybe_unused]] const int _v2_sa_prev_lane = _v2_sa_prev_code & -static_cast<int>(_v2_sa_prev_valid);
-          _v2_sa_value = essent_mux(UInt<1>(_v2_sa_prev_valid), _s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$dcache$auto_out_c_bits_opcode[_v2_sa_prev_lane], _v2_sa_value);
+          _v2_sa_value = *essent_select_ptr(_v2_sa_prev_valid, &(_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$dcache$auto_out_c_bits_opcode[_v2_sa_prev_lane]), &_v2_sa_value);
           _s_ldut$tile_prci_domain$buffer_1$bundleOut_0_c_q$ram_opcode$io_deq_bits_MPORT[L] = _v2_sa_value;
           const uint64_t _v2_sa_write_addr_0 = essent_to_u64(ldut.tile_prci_domain.buffer_1.bundleOut_0_c_q.value[L]);
           const uint64_t _v2_sa_write_take_0 = (uint64_t)(essent_to_u64(_s_ldut$tile_prci_domain$buffer_1$bundleOut_0_c_q$io_enq_ready[L] & _s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$dcache$auto_out_c_valid[L]) != 0) & (uint64_t)(essent_to_u64(UInt<1>(0x1)) != 0);
@@ -4390,11 +4360,8 @@
         _v2_sa_anyw |= (uint64_t)(essent_to_u64(_s_ldut$tile_prci_domain$buffer_1$bundleOut_0_c_q$io_enq_ready[G] & _s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$dcache$auto_out_c_valid[G]) != 0) & (uint64_t)(essent_to_u64(UInt<1>(0x1)) != 0);
       }
       if (_v2_sa_anyw == 0) {
-        for (int L = 0; L < 16; L++) {
-          const uint64_t _v2_sa_field_addr = essent_to_u64(ldut.tile_prci_domain.buffer_1.bundleOut_0_c_q.value_1[L]);
-          _s_ldut$tile_prci_domain$buffer_1$bundleOut_0_c_q$ram_param$io_deq_bits_MPORT[L] = ldut.tile_prci_domain.buffer_1.bundleOut_0_c_q.ram_param[_v2_sa_field_addr];
-          _s_ldut$tile_prci_domain$buffer_1$bundleOut_0_c_q$ram_size$io_deq_bits_MPORT[L] = ldut.tile_prci_domain.buffer_1.bundleOut_0_c_q.ram_size[_v2_sa_field_addr];
-        }
+        essent_table_read<16, 2, false>(&_s_ldut$tile_prci_domain$buffer_1$bundleOut_0_c_q$ram_param$io_deq_bits_MPORT[0], &ldut.tile_prci_domain.buffer_1.bundleOut_0_c_q.ram_param[0], &ldut.tile_prci_domain.buffer_1.bundleOut_0_c_q.value_1[0]);
+        essent_table_read<16, 2, false>(&_s_ldut$tile_prci_domain$buffer_1$bundleOut_0_c_q$ram_size$io_deq_bits_MPORT[0], &ldut.tile_prci_domain.buffer_1.bundleOut_0_c_q.ram_size[0], &ldut.tile_prci_domain.buffer_1.bundleOut_0_c_q.value_1[0]);
       } else {
       {
         // [state-field-read-fused] 2 arrays share one access scan, mode=dense-branchless
@@ -4443,7 +4410,7 @@
         _v2_sa_anyw |= (uint64_t)(essent_to_u64(_s_ldut$tile_prci_domain$buffer_1$bundleOut_0_c_q$io_enq_ready[G] & _s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$dcache$auto_out_c_valid[G]) != 0) & (uint64_t)(essent_to_u64(UInt<1>(0x1)) != 0);
       }
       if (_v2_sa_anyw == 0) {
-        for (int L = 0; L < 16; L++) { _s_ldut$tile_prci_domain$buffer_1$bundleOut_0_c_q$ram_source$io_deq_bits_MPORT[L] = ldut.tile_prci_domain.buffer_1.bundleOut_0_c_q.ram_source[essent_to_u64(ldut.tile_prci_domain.buffer_1.bundleOut_0_c_q.value_1[L])]; }
+        essent_table_read<16, 2, false>(&_s_ldut$tile_prci_domain$buffer_1$bundleOut_0_c_q$ram_source$io_deq_bits_MPORT[0], &ldut.tile_prci_domain.buffer_1.bundleOut_0_c_q.ram_source[0], &ldut.tile_prci_domain.buffer_1.bundleOut_0_c_q.value_1[0]);
       } else {
       {
         // [state-read-dense] forwarding=branchless
@@ -4452,10 +4419,11 @@
         for (int L = 0; L < 16; L++) {
           const uint64_t _v2_sa_addr = essent_to_u64(ldut.tile_prci_domain.buffer_1.bundleOut_0_c_q.value_1[L]);
           UInt<4> _v2_sa_value = ldut.tile_prci_domain.buffer_1.bundleOut_0_c_q.ram_source[_v2_sa_addr];
+          // [branchless-forward] select a valid source before loading data
           const int _v2_sa_prev_code = _v2_sa_last[_v2_sa_addr];
-          const uint64_t _v2_sa_prev_valid = (uint64_t)(_v2_sa_prev_code >= 0);
+          const bool _v2_sa_prev_valid = _v2_sa_prev_code >= 0;
           [[maybe_unused]] const int _v2_sa_prev_lane = _v2_sa_prev_code & -static_cast<int>(_v2_sa_prev_valid);
-          _v2_sa_value = essent_mux(UInt<1>(_v2_sa_prev_valid), _s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$tlMasterXbar$auto_out_c_bits_source[_v2_sa_prev_lane], _v2_sa_value);
+          _v2_sa_value = *essent_select_ptr(_v2_sa_prev_valid, &(_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$tlMasterXbar$auto_out_c_bits_source[_v2_sa_prev_lane]), &_v2_sa_value);
           _s_ldut$tile_prci_domain$buffer_1$bundleOut_0_c_q$ram_source$io_deq_bits_MPORT[L] = _v2_sa_value;
           const uint64_t _v2_sa_write_addr_0 = essent_to_u64(ldut.tile_prci_domain.buffer_1.bundleOut_0_c_q.value[L]);
           const uint64_t _v2_sa_write_take_0 = (uint64_t)(essent_to_u64(_s_ldut$tile_prci_domain$buffer_1$bundleOut_0_c_q$io_enq_ready[L] & _s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$dcache$auto_out_c_valid[L]) != 0) & (uint64_t)(essent_to_u64(UInt<1>(0x1)) != 0);
@@ -4480,7 +4448,7 @@
         _v2_sa_anyw |= (uint64_t)(essent_to_u64(_s_ldut$tile_prci_domain$buffer_1$bundleOut_0_c_q$io_enq_ready[G] & _s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$dcache$auto_out_c_valid[G]) != 0) & (uint64_t)(essent_to_u64(UInt<1>(0x1)) != 0);
       }
       if (_v2_sa_anyw == 0) {
-        for (int L = 0; L < 16; L++) { _s_ldut$tile_prci_domain$buffer_1$bundleOut_0_c_q$ram_address$io_deq_bits_MPORT[L] = ldut.tile_prci_domain.buffer_1.bundleOut_0_c_q.ram_address[essent_to_u64(ldut.tile_prci_domain.buffer_1.bundleOut_0_c_q.value_1[L])]; }
+        essent_table_read<16, 2, false>(&_s_ldut$tile_prci_domain$buffer_1$bundleOut_0_c_q$ram_address$io_deq_bits_MPORT[0], &ldut.tile_prci_domain.buffer_1.bundleOut_0_c_q.ram_address[0], &ldut.tile_prci_domain.buffer_1.bundleOut_0_c_q.value_1[0]);
       } else {
       {
         // [state-read-dense] forwarding=branchless
@@ -4489,10 +4457,11 @@
         for (int L = 0; L < 16; L++) {
           const uint64_t _v2_sa_addr = essent_to_u64(ldut.tile_prci_domain.buffer_1.bundleOut_0_c_q.value_1[L]);
           UInt<32> _v2_sa_value = ldut.tile_prci_domain.buffer_1.bundleOut_0_c_q.ram_address[_v2_sa_addr];
+          // [branchless-forward] select a valid source before loading data
           const int _v2_sa_prev_code = _v2_sa_last[_v2_sa_addr];
-          const uint64_t _v2_sa_prev_valid = (uint64_t)(_v2_sa_prev_code >= 0);
+          const bool _v2_sa_prev_valid = _v2_sa_prev_code >= 0;
           [[maybe_unused]] const int _v2_sa_prev_lane = _v2_sa_prev_code & -static_cast<int>(_v2_sa_prev_valid);
-          _v2_sa_value = essent_mux(UInt<1>(_v2_sa_prev_valid), _s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$dcache$auto_out_c_bits_address[_v2_sa_prev_lane], _v2_sa_value);
+          _v2_sa_value = *essent_select_ptr(_v2_sa_prev_valid, &(_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$dcache$auto_out_c_bits_address[_v2_sa_prev_lane]), &_v2_sa_value);
           _s_ldut$tile_prci_domain$buffer_1$bundleOut_0_c_q$ram_address$io_deq_bits_MPORT[L] = _v2_sa_value;
           const uint64_t _v2_sa_write_addr_0 = essent_to_u64(ldut.tile_prci_domain.buffer_1.bundleOut_0_c_q.value[L]);
           const uint64_t _v2_sa_write_take_0 = (uint64_t)(essent_to_u64(_s_ldut$tile_prci_domain$buffer_1$bundleOut_0_c_q$io_enq_ready[L] & _s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$dcache$auto_out_c_valid[L]) != 0) & (uint64_t)(essent_to_u64(UInt<1>(0x1)) != 0);
@@ -4559,14 +4528,11 @@
         for (int L = 0; L < 16; L++) {
           const uint64_t _v2_sa_addr = essent_to_u64(ldut.tile_prci_domain.buffer_1.bundleOut_0_c_q.value_1[L]);
           UInt<128> _v2_sa_value = ldut.tile_prci_domain.buffer_1.bundleOut_0_c_q.ram_data[_v2_sa_addr];
+          // [branchless-forward] select a valid source before loading data
           const int _v2_sa_prev_code = _v2_sa_last[_v2_sa_addr];
-          if (_v2_sa_prev_code >= 0) {
-            [[maybe_unused]] const int _v2_sa_prev_lane = _v2_sa_prev_code / 1;
-            switch (_v2_sa_prev_code % 1) {
-              case 0: _v2_sa_value = _s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$dcache$auto_out_c_bits_data[_v2_sa_prev_lane]; break;
-              default: __builtin_unreachable();
-            }
-          }
+          const bool _v2_sa_prev_valid = _v2_sa_prev_code >= 0;
+          [[maybe_unused]] const int _v2_sa_prev_lane = _v2_sa_prev_code & -static_cast<int>(_v2_sa_prev_valid);
+          _v2_sa_value = *essent_select_ptr(_v2_sa_prev_valid, &(_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$dcache$auto_out_c_bits_data[_v2_sa_prev_lane]), &_v2_sa_value);
           _s_ldut$tile_prci_domain$buffer_1$bundleOut_0_c_q$ram_data$io_deq_bits_MPORT[L] = _v2_sa_value;
           if (essent_to_u64(_s_ldut$tile_prci_domain$buffer_1$bundleOut_0_c_q$io_enq_ready[L] & _s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$dcache$auto_out_c_valid[L]) && essent_to_u64(UInt<1>(0x1))) _v2_sa_last[essent_to_u64(ldut.tile_prci_domain.buffer_1.bundleOut_0_c_q.value[L])] = L * 1 + 0;
         }
@@ -4599,7 +4565,7 @@
         _v2_sa_anyw |= (uint64_t)(essent_to_u64(_s_ldut$tile_prci_domain$buffer_1$bundleOut_0_e_q$io_enq_ready[G] & _s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$dcache$mshrs$io_mem_finish_valid[G]) != 0) & (uint64_t)(essent_to_u64(UInt<1>(0x1)) != 0);
       }
       if (_v2_sa_anyw == 0) {
-        for (int L = 0; L < 16; L++) { _s_ldut$tile_prci_domain$buffer_1$bundleOut_0_e_q$ram_sink$io_deq_bits_MPORT[L] = ldut.tile_prci_domain.buffer_1.bundleOut_0_e_q.ram_sink[essent_to_u64(ldut.tile_prci_domain.buffer_1.bundleOut_0_e_q.value_1[L])]; }
+        essent_table_read<16, 2, false>(&_s_ldut$tile_prci_domain$buffer_1$bundleOut_0_e_q$ram_sink$io_deq_bits_MPORT[0], &ldut.tile_prci_domain.buffer_1.bundleOut_0_e_q.ram_sink[0], &ldut.tile_prci_domain.buffer_1.bundleOut_0_e_q.value_1[0]);
       } else {
       {
         // [state-read-dense] forwarding=branchless
@@ -4608,10 +4574,11 @@
         for (int L = 0; L < 16; L++) {
           const uint64_t _v2_sa_addr = essent_to_u64(ldut.tile_prci_domain.buffer_1.bundleOut_0_e_q.value_1[L]);
           UInt<2> _v2_sa_value = ldut.tile_prci_domain.buffer_1.bundleOut_0_e_q.ram_sink[_v2_sa_addr];
+          // [branchless-forward] select a valid source before loading data
           const int _v2_sa_prev_code = _v2_sa_last[_v2_sa_addr];
-          const uint64_t _v2_sa_prev_valid = (uint64_t)(_v2_sa_prev_code >= 0);
+          const bool _v2_sa_prev_valid = _v2_sa_prev_code >= 0;
           [[maybe_unused]] const int _v2_sa_prev_lane = _v2_sa_prev_code & -static_cast<int>(_v2_sa_prev_valid);
-          _v2_sa_value = essent_mux(UInt<1>(_v2_sa_prev_valid), _s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$dcache$mshrs$io_mem_finish_bits_sink[_v2_sa_prev_lane], _v2_sa_value);
+          _v2_sa_value = *essent_select_ptr(_v2_sa_prev_valid, &(_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$dcache$mshrs$io_mem_finish_bits_sink[_v2_sa_prev_lane]), &_v2_sa_value);
           _s_ldut$tile_prci_domain$buffer_1$bundleOut_0_e_q$ram_sink$io_deq_bits_MPORT[L] = _v2_sa_value;
           const uint64_t _v2_sa_write_addr_0 = essent_to_u64(ldut.tile_prci_domain.buffer_1.bundleOut_0_e_q.value[L]);
           const uint64_t _v2_sa_write_take_0 = (uint64_t)(essent_to_u64(_s_ldut$tile_prci_domain$buffer_1$bundleOut_0_e_q$io_enq_ready[L] & _s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$dcache$mshrs$io_mem_finish_valid[L]) != 0) & (uint64_t)(essent_to_u64(UInt<1>(0x1)) != 0);
@@ -5060,7 +5027,7 @@
         _v2_sa_anyw |= (uint64_t)(essent_to_u64(_s_mem$axi4buf$bundleIn_0_r_deq$io_enq_ready[G] & mem.srams.r_full[G]) != 0) & (uint64_t)(essent_to_u64(UInt<1>(0x1)) != 0);
       }
       if (_v2_sa_anyw == 0) {
-        for (int L = 0; L < 16; L++) { _s_mem$axi4buf$bundleIn_0_r_deq$ram_last$io_deq_bits_MPORT$rtl[L] = mem.axi4buf.bundleIn_0_r_deq.ram_last[essent_to_u64(mem.axi4buf.bundleIn_0_r_deq.value_1[L])]; }
+        essent_table_read<16, 2, false>(&_s_mem$axi4buf$bundleIn_0_r_deq$ram_last$io_deq_bits_MPORT$rtl[0], &mem.axi4buf.bundleIn_0_r_deq.ram_last[0], &mem.axi4buf.bundleIn_0_r_deq.value_1[0]);
       } else {
       {
         // [state-read-dense] forwarding=branchless
@@ -5208,7 +5175,7 @@
         _v2_sa_anyw |= (uint64_t)(essent_to_u64(_s_mmio_mem$axi4buf$bundleIn_0_b_deq$io_enq_ready[G] & mmio_mem.srams.w_full[G]) != 0) & (uint64_t)(essent_to_u64(UInt<1>(0x1)) != 0);
       }
       if (_v2_sa_anyw == 0) {
-        for (int L = 0; L < 16; L++) { _s_mmio_mem$axi4buf$bundleIn_0_b_deq$ram_echo_real_last$io_deq_bits_MPORT$rtl[L] = mmio_mem.axi4buf.bundleIn_0_b_deq.ram_echo_real_last[essent_to_u64(mmio_mem.axi4buf.bundleIn_0_b_deq.value_1[L])]; }
+        essent_table_read<16, 2, false>(&_s_mmio_mem$axi4buf$bundleIn_0_b_deq$ram_echo_real_last$io_deq_bits_MPORT$rtl[0], &mmio_mem.axi4buf.bundleIn_0_b_deq.ram_echo_real_last[0], &mmio_mem.axi4buf.bundleIn_0_b_deq.value_1[0]);
       } else {
       {
         // [state-read-dense] forwarding=branchless
@@ -5217,10 +5184,11 @@
         for (int L = 0; L < 16; L++) {
           const uint64_t _v2_sa_addr = essent_to_u64(mmio_mem.axi4buf.bundleIn_0_b_deq.value_1[L]);
           UInt<1> _v2_sa_value = mmio_mem.axi4buf.bundleIn_0_b_deq.ram_echo_real_last[_v2_sa_addr];
+          // [branchless-forward] select a valid source before loading data
           const int _v2_sa_prev_code = _v2_sa_last[_v2_sa_addr];
-          const uint64_t _v2_sa_prev_valid = (uint64_t)(_v2_sa_prev_code >= 0);
+          const bool _v2_sa_prev_valid = _v2_sa_prev_code >= 0;
           [[maybe_unused]] const int _v2_sa_prev_lane = _v2_sa_prev_code & -static_cast<int>(_v2_sa_prev_valid);
-          _v2_sa_value = essent_mux(UInt<1>(_v2_sa_prev_valid), mmio_mem.srams.w_echo_real_last[_v2_sa_prev_lane], _v2_sa_value);
+          _v2_sa_value = *essent_select_ptr(_v2_sa_prev_valid, &(mmio_mem.srams.w_echo_real_last[_v2_sa_prev_lane]), &_v2_sa_value);
           _s_mmio_mem$axi4buf$bundleIn_0_b_deq$ram_echo_real_last$io_deq_bits_MPORT$rtl[L] = _v2_sa_value;
           const uint64_t _v2_sa_write_addr_0 = essent_to_u64(mmio_mem.axi4buf.bundleIn_0_b_deq.value[L]);
           const uint64_t _v2_sa_write_take_0 = (uint64_t)(essent_to_u64(_s_mmio_mem$axi4buf$bundleIn_0_b_deq$io_enq_ready[L] & mmio_mem.srams.w_full[L]) != 0) & (uint64_t)(essent_to_u64(UInt<1>(0x1)) != 0);
@@ -5284,12 +5252,9 @@
         _v2_sa_anyw |= (uint64_t)(essent_to_u64(_s_ldut$subsystem_sbus$coupler_to_port_named_mmio_port_axi4$axi4buf$bundleIn_0_r_deq$io_enq_ready[G] & _s_mmio_mem$axi4buf$bundleIn_0_r_deq$io_deq_valid[G]) != 0) & (uint64_t)(essent_to_u64(UInt<1>(0x1)) != 0);
       }
       if (_v2_sa_anyw == 0) {
-        for (int L = 0; L < 16; L++) {
-          const uint64_t _v2_sa_field_addr = essent_to_u64(ldut.subsystem_sbus.coupler_to_port_named_mmio_port_axi4.axi4buf.bundleIn_0_r_deq.value_1[L]);
-          _s_ldut$subsystem_sbus$coupler_to_port_named_mmio_port_axi4$axi4buf$bundleIn_0_r_deq$ram_id$io_deq_bits_MPORT$rtl[L] = ldut.subsystem_sbus.coupler_to_port_named_mmio_port_axi4.axi4buf.bundleIn_0_r_deq.ram_id[_v2_sa_field_addr];
-          _s_ldut$subsystem_sbus$coupler_to_port_named_mmio_port_axi4$axi4buf$bundleIn_0_r_deq$ram_data$io_deq_bits_MPORT$rtl[L] = ldut.subsystem_sbus.coupler_to_port_named_mmio_port_axi4.axi4buf.bundleIn_0_r_deq.ram_data[_v2_sa_field_addr];
-          _s_ldut$subsystem_sbus$coupler_to_port_named_mmio_port_axi4$axi4buf$bundleIn_0_r_deq$ram_resp$io_deq_bits_MPORT$rtl[L] = ldut.subsystem_sbus.coupler_to_port_named_mmio_port_axi4.axi4buf.bundleIn_0_r_deq.ram_resp[_v2_sa_field_addr];
-        }
+        essent_table_read<16, 2, false>(&_s_ldut$subsystem_sbus$coupler_to_port_named_mmio_port_axi4$axi4buf$bundleIn_0_r_deq$ram_id$io_deq_bits_MPORT$rtl[0], &ldut.subsystem_sbus.coupler_to_port_named_mmio_port_axi4.axi4buf.bundleIn_0_r_deq.ram_id[0], &ldut.subsystem_sbus.coupler_to_port_named_mmio_port_axi4.axi4buf.bundleIn_0_r_deq.value_1[0]);
+        essent_table_read<16, 2, false>(&_s_ldut$subsystem_sbus$coupler_to_port_named_mmio_port_axi4$axi4buf$bundleIn_0_r_deq$ram_data$io_deq_bits_MPORT$rtl[0], &ldut.subsystem_sbus.coupler_to_port_named_mmio_port_axi4.axi4buf.bundleIn_0_r_deq.ram_data[0], &ldut.subsystem_sbus.coupler_to_port_named_mmio_port_axi4.axi4buf.bundleIn_0_r_deq.value_1[0]);
+        essent_table_read<16, 2, false>(&_s_ldut$subsystem_sbus$coupler_to_port_named_mmio_port_axi4$axi4buf$bundleIn_0_r_deq$ram_resp$io_deq_bits_MPORT$rtl[0], &ldut.subsystem_sbus.coupler_to_port_named_mmio_port_axi4.axi4buf.bundleIn_0_r_deq.ram_resp[0], &ldut.subsystem_sbus.coupler_to_port_named_mmio_port_axi4.axi4buf.bundleIn_0_r_deq.value_1[0]);
       } else {
       {
         // [state-field-read-fused] 3 arrays share one access scan, mode=dense-branchless
@@ -5334,11 +5299,8 @@
         _v2_sa_anyw |= (uint64_t)(essent_to_u64(_s_mmio_mem$axi4buf$bundleIn_0_r_deq$io_enq_ready[G] & mmio_mem.srams.r_full[G]) != 0) & (uint64_t)(essent_to_u64(UInt<1>(0x1)) != 0);
       }
       if (_v2_sa_anyw == 0) {
-        for (int L = 0; L < 16; L++) {
-          const uint64_t _v2_sa_field_addr = essent_to_u64(mmio_mem.axi4buf.bundleIn_0_r_deq.value_1[L]);
-          _s_mmio_mem$axi4buf$bundleIn_0_r_deq$ram_id$io_deq_bits_MPORT$rtl[L] = mmio_mem.axi4buf.bundleIn_0_r_deq.ram_id[_v2_sa_field_addr];
-          _s_mmio_mem$axi4buf$bundleIn_0_r_deq$ram_last$io_deq_bits_MPORT$rtl[L] = mmio_mem.axi4buf.bundleIn_0_r_deq.ram_last[_v2_sa_field_addr];
-        }
+        essent_table_read<16, 2, false>(&_s_mmio_mem$axi4buf$bundleIn_0_r_deq$ram_id$io_deq_bits_MPORT$rtl[0], &mmio_mem.axi4buf.bundleIn_0_r_deq.ram_id[0], &mmio_mem.axi4buf.bundleIn_0_r_deq.value_1[0]);
+        essent_table_read<16, 2, false>(&_s_mmio_mem$axi4buf$bundleIn_0_r_deq$ram_last$io_deq_bits_MPORT$rtl[0], &mmio_mem.axi4buf.bundleIn_0_r_deq.ram_last[0], &mmio_mem.axi4buf.bundleIn_0_r_deq.value_1[0]);
       } else {
       {
         // [state-field-read-fused] 2 arrays share one access scan, mode=dense-branchless
@@ -5416,7 +5378,7 @@
         _v2_sa_anyw |= (uint64_t)(essent_to_u64(_s_ldut$subsystem_sbus$coupler_to_port_named_mmio_port_axi4$axi4buf$bundleIn_0_b_deq$io_enq_ready[G] & _s_mmio_mem$axi4frag$auto_in_b_valid[G]) != 0) & (uint64_t)(essent_to_u64(UInt<1>(0x1)) != 0);
       }
       if (_v2_sa_anyw == 0) {
-        for (int L = 0; L < 16; L++) { _s_ldut$subsystem_sbus$coupler_to_port_named_mmio_port_axi4$axi4buf$bundleIn_0_b_deq$ram_id$io_deq_bits_MPORT$rtl[L] = ldut.subsystem_sbus.coupler_to_port_named_mmio_port_axi4.axi4buf.bundleIn_0_b_deq.ram_id[essent_to_u64(ldut.subsystem_sbus.coupler_to_port_named_mmio_port_axi4.axi4buf.bundleIn_0_b_deq.value_1[L])]; }
+        essent_table_read<16, 2, false>(&_s_ldut$subsystem_sbus$coupler_to_port_named_mmio_port_axi4$axi4buf$bundleIn_0_b_deq$ram_id$io_deq_bits_MPORT$rtl[0], &ldut.subsystem_sbus.coupler_to_port_named_mmio_port_axi4.axi4buf.bundleIn_0_b_deq.ram_id[0], &ldut.subsystem_sbus.coupler_to_port_named_mmio_port_axi4.axi4buf.bundleIn_0_b_deq.value_1[0]);
       } else {
       {
         // [state-read-dense] forwarding=branchless
@@ -5425,10 +5387,11 @@
         for (int L = 0; L < 16; L++) {
           const uint64_t _v2_sa_addr = essent_to_u64(ldut.subsystem_sbus.coupler_to_port_named_mmio_port_axi4.axi4buf.bundleIn_0_b_deq.value_1[L]);
           UInt<4> _v2_sa_value = ldut.subsystem_sbus.coupler_to_port_named_mmio_port_axi4.axi4buf.bundleIn_0_b_deq.ram_id[_v2_sa_addr];
+          // [branchless-forward] select a valid source before loading data
           const int _v2_sa_prev_code = _v2_sa_last[_v2_sa_addr];
-          const uint64_t _v2_sa_prev_valid = (uint64_t)(_v2_sa_prev_code >= 0);
+          const bool _v2_sa_prev_valid = _v2_sa_prev_code >= 0;
           [[maybe_unused]] const int _v2_sa_prev_lane = _v2_sa_prev_code & -static_cast<int>(_v2_sa_prev_valid);
-          _v2_sa_value = essent_mux(UInt<1>(_v2_sa_prev_valid), _s_mmio_mem$axi4buf$bundleIn_0_b_deq$ram_id$io_deq_bits_MPORT[_v2_sa_prev_lane], _v2_sa_value);
+          _v2_sa_value = *essent_select_ptr(_v2_sa_prev_valid, &(_s_mmio_mem$axi4buf$bundleIn_0_b_deq$ram_id$io_deq_bits_MPORT[_v2_sa_prev_lane]), &_v2_sa_value);
           _s_ldut$subsystem_sbus$coupler_to_port_named_mmio_port_axi4$axi4buf$bundleIn_0_b_deq$ram_id$io_deq_bits_MPORT$rtl[L] = _v2_sa_value;
           const uint64_t _v2_sa_write_addr_0 = essent_to_u64(ldut.subsystem_sbus.coupler_to_port_named_mmio_port_axi4.axi4buf.bundleIn_0_b_deq.value[L]);
           const uint64_t _v2_sa_write_take_0 = (uint64_t)(essent_to_u64(_s_ldut$subsystem_sbus$coupler_to_port_named_mmio_port_axi4$axi4buf$bundleIn_0_b_deq$io_enq_ready[L] & _s_mmio_mem$axi4frag$auto_in_b_valid[L]) != 0) & (uint64_t)(essent_to_u64(UInt<1>(0x1)) != 0);
@@ -5455,7 +5418,7 @@
         _v2_sa_anyw |= (uint64_t)(essent_to_u64(_s_ldut$subsystem_sbus$coupler_to_port_named_mmio_port_axi4$axi4buf$bundleIn_0_r_deq$io_enq_ready[G] & _s_mmio_mem$axi4buf$bundleIn_0_r_deq$io_deq_valid[G]) != 0) & (uint64_t)(essent_to_u64(UInt<1>(0x1)) != 0);
       }
       if (_v2_sa_anyw == 0) {
-        for (int L = 0; L < 16; L++) { _s_ldut$subsystem_sbus$coupler_to_port_named_mmio_port_axi4$axi4buf$bundleIn_0_r_deq$ram_last$io_deq_bits_MPORT$rtl[L] = ldut.subsystem_sbus.coupler_to_port_named_mmio_port_axi4.axi4buf.bundleIn_0_r_deq.ram_last[essent_to_u64(ldut.subsystem_sbus.coupler_to_port_named_mmio_port_axi4.axi4buf.bundleIn_0_r_deq.value_1[L])]; }
+        essent_table_read<16, 2, false>(&_s_ldut$subsystem_sbus$coupler_to_port_named_mmio_port_axi4$axi4buf$bundleIn_0_r_deq$ram_last$io_deq_bits_MPORT$rtl[0], &ldut.subsystem_sbus.coupler_to_port_named_mmio_port_axi4.axi4buf.bundleIn_0_r_deq.ram_last[0], &ldut.subsystem_sbus.coupler_to_port_named_mmio_port_axi4.axi4buf.bundleIn_0_r_deq.value_1[0]);
       } else {
       {
         // [state-read-dense] forwarding=branchless
@@ -5464,10 +5427,11 @@
         for (int L = 0; L < 16; L++) {
           const uint64_t _v2_sa_addr = essent_to_u64(ldut.subsystem_sbus.coupler_to_port_named_mmio_port_axi4.axi4buf.bundleIn_0_r_deq.value_1[L]);
           UInt<1> _v2_sa_value = ldut.subsystem_sbus.coupler_to_port_named_mmio_port_axi4.axi4buf.bundleIn_0_r_deq.ram_last[_v2_sa_addr];
+          // [branchless-forward] select a valid source before loading data
           const int _v2_sa_prev_code = _v2_sa_last[_v2_sa_addr];
-          const uint64_t _v2_sa_prev_valid = (uint64_t)(_v2_sa_prev_code >= 0);
+          const bool _v2_sa_prev_valid = _v2_sa_prev_code >= 0;
           [[maybe_unused]] const int _v2_sa_prev_lane = _v2_sa_prev_code & -static_cast<int>(_v2_sa_prev_valid);
-          _v2_sa_value = essent_mux(UInt<1>(_v2_sa_prev_valid), _s_mmio_mem$axi4frag$auto_in_r_bits_last[_v2_sa_prev_lane], _v2_sa_value);
+          _v2_sa_value = *essent_select_ptr(_v2_sa_prev_valid, &(_s_mmio_mem$axi4frag$auto_in_r_bits_last[_v2_sa_prev_lane]), &_v2_sa_value);
           _s_ldut$subsystem_sbus$coupler_to_port_named_mmio_port_axi4$axi4buf$bundleIn_0_r_deq$ram_last$io_deq_bits_MPORT$rtl[L] = _v2_sa_value;
           const uint64_t _v2_sa_write_addr_0 = essent_to_u64(ldut.subsystem_sbus.coupler_to_port_named_mmio_port_axi4.axi4buf.bundleIn_0_r_deq.value[L]);
           const uint64_t _v2_sa_write_take_0 = (uint64_t)(essent_to_u64(_s_ldut$subsystem_sbus$coupler_to_port_named_mmio_port_axi4$axi4buf$bundleIn_0_r_deq$io_enq_ready[L] & _s_mmio_mem$axi4buf$bundleIn_0_r_deq$io_deq_valid[L]) != 0) & (uint64_t)(essent_to_u64(UInt<1>(0x1)) != 0);
@@ -5520,7 +5484,7 @@
         _v2_sa_anyw |= (uint64_t)(essent_to_u64(_s_mmio_mem$axi4buf$bundleOut_0_ar_deq$io_enq_ready[G] & _s_mmio_mem$axi4frag$deq$io_deq_valid[G]) != 0) & (uint64_t)(essent_to_u64(UInt<1>(0x1)) != 0);
       }
       if (_v2_sa_anyw == 0) {
-        for (int L = 0; L < 16; L++) { _s_mmio_mem$axi4buf$bundleOut_0_ar_deq$ram_id$io_deq_bits_MPORT$rtl[L] = mmio_mem.axi4buf.bundleOut_0_ar_deq.ram_id[essent_to_u64(mmio_mem.axi4buf.bundleOut_0_ar_deq.value_1[L])]; }
+        essent_table_read<16, 2, false>(&_s_mmio_mem$axi4buf$bundleOut_0_ar_deq$ram_id$io_deq_bits_MPORT$rtl[0], &mmio_mem.axi4buf.bundleOut_0_ar_deq.ram_id[0], &mmio_mem.axi4buf.bundleOut_0_ar_deq.value_1[0]);
       } else {
       {
         // [state-read-dense] forwarding=branchless
@@ -5529,10 +5493,11 @@
         for (int L = 0; L < 16; L++) {
           const uint64_t _v2_sa_addr = essent_to_u64(mmio_mem.axi4buf.bundleOut_0_ar_deq.value_1[L]);
           UInt<4> _v2_sa_value = mmio_mem.axi4buf.bundleOut_0_ar_deq.ram_id[_v2_sa_addr];
+          // [branchless-forward] select a valid source before loading data
           const int _v2_sa_prev_code = _v2_sa_last[_v2_sa_addr];
-          const uint64_t _v2_sa_prev_valid = (uint64_t)(_v2_sa_prev_code >= 0);
+          const bool _v2_sa_prev_valid = _v2_sa_prev_code >= 0;
           [[maybe_unused]] const int _v2_sa_prev_lane = _v2_sa_prev_code & -static_cast<int>(_v2_sa_prev_valid);
-          _v2_sa_value = essent_mux(UInt<1>(_v2_sa_prev_valid), _s_mmio_mem$axi4frag$deq$io_deq_bits_id[_v2_sa_prev_lane], _v2_sa_value);
+          _v2_sa_value = *essent_select_ptr(_v2_sa_prev_valid, &(_s_mmio_mem$axi4frag$deq$io_deq_bits_id[_v2_sa_prev_lane]), &_v2_sa_value);
           _s_mmio_mem$axi4buf$bundleOut_0_ar_deq$ram_id$io_deq_bits_MPORT$rtl[L] = _v2_sa_value;
           const uint64_t _v2_sa_write_addr_0 = essent_to_u64(mmio_mem.axi4buf.bundleOut_0_ar_deq.value[L]);
           const uint64_t _v2_sa_write_take_0 = (uint64_t)(essent_to_u64(_s_mmio_mem$axi4buf$bundleOut_0_ar_deq$io_enq_ready[L] & _s_mmio_mem$axi4frag$deq$io_deq_valid[L]) != 0) & (uint64_t)(essent_to_u64(UInt<1>(0x1)) != 0);
@@ -5572,7 +5537,7 @@
         _v2_sa_anyw |= (uint64_t)(essent_to_u64(_s_mmio_mem$axi4buf$bundleOut_0_ar_deq$io_enq_ready[G] & _s_mmio_mem$axi4frag$deq$io_deq_valid[G]) != 0) & (uint64_t)(essent_to_u64(UInt<1>(0x1)) != 0);
       }
       if (_v2_sa_anyw == 0) {
-        for (int L = 0; L < 16; L++) { _s_mmio_mem$axi4buf$bundleOut_0_ar_deq$ram_echo_real_last$io_deq_bits_MPORT$rtl[L] = mmio_mem.axi4buf.bundleOut_0_ar_deq.ram_echo_real_last[essent_to_u64(mmio_mem.axi4buf.bundleOut_0_ar_deq.value_1[L])]; }
+        essent_table_read<16, 2, false>(&_s_mmio_mem$axi4buf$bundleOut_0_ar_deq$ram_echo_real_last$io_deq_bits_MPORT$rtl[0], &mmio_mem.axi4buf.bundleOut_0_ar_deq.ram_echo_real_last[0], &mmio_mem.axi4buf.bundleOut_0_ar_deq.value_1[0]);
       } else {
       {
         // [state-read-dense] forwarding=branchless
@@ -5581,10 +5546,11 @@
         for (int L = 0; L < 16; L++) {
           const uint64_t _v2_sa_addr = essent_to_u64(mmio_mem.axi4buf.bundleOut_0_ar_deq.value_1[L]);
           UInt<1> _v2_sa_value = mmio_mem.axi4buf.bundleOut_0_ar_deq.ram_echo_real_last[_v2_sa_addr];
+          // [branchless-forward] select a valid source before loading data
           const int _v2_sa_prev_code = _v2_sa_last[_v2_sa_addr];
-          const uint64_t _v2_sa_prev_valid = (uint64_t)(_v2_sa_prev_code >= 0);
+          const bool _v2_sa_prev_valid = _v2_sa_prev_code >= 0;
           [[maybe_unused]] const int _v2_sa_prev_lane = _v2_sa_prev_code & -static_cast<int>(_v2_sa_prev_valid);
-          _v2_sa_value = essent_mux(UInt<1>(_v2_sa_prev_valid), _s_mmio_mem$axi4frag$auto_out_ar_bits_echo_real_last[_v2_sa_prev_lane], _v2_sa_value);
+          _v2_sa_value = *essent_select_ptr(_v2_sa_prev_valid, &(_s_mmio_mem$axi4frag$auto_out_ar_bits_echo_real_last[_v2_sa_prev_lane]), &_v2_sa_value);
           _s_mmio_mem$axi4buf$bundleOut_0_ar_deq$ram_echo_real_last$io_deq_bits_MPORT$rtl[L] = _v2_sa_value;
           const uint64_t _v2_sa_write_addr_0 = essent_to_u64(mmio_mem.axi4buf.bundleOut_0_ar_deq.value[L]);
           const uint64_t _v2_sa_write_take_0 = (uint64_t)(essent_to_u64(_s_mmio_mem$axi4buf$bundleOut_0_ar_deq$io_enq_ready[L] & _s_mmio_mem$axi4frag$deq$io_deq_valid[L]) != 0) & (uint64_t)(essent_to_u64(UInt<1>(0x1)) != 0);
@@ -5624,7 +5590,7 @@
         _v2_sa_anyw |= (uint64_t)(essent_to_u64(_s_mmio_mem$axi4buf$bundleOut_0_ar_deq$io_enq_ready[G] & _s_mmio_mem$axi4frag$deq$io_deq_valid[G]) != 0) & (uint64_t)(essent_to_u64(UInt<1>(0x1)) != 0);
       }
       if (_v2_sa_anyw == 0) {
-        for (int L = 0; L < 16; L++) { _s_mmio_mem$axi4buf$bundleOut_0_ar_deq$ram_addr$io_deq_bits_MPORT$rtl[L] = mmio_mem.axi4buf.bundleOut_0_ar_deq.ram_addr[essent_to_u64(mmio_mem.axi4buf.bundleOut_0_ar_deq.value_1[L])]; }
+        essent_table_read<16, 2, false>(&_s_mmio_mem$axi4buf$bundleOut_0_ar_deq$ram_addr$io_deq_bits_MPORT$rtl[0], &mmio_mem.axi4buf.bundleOut_0_ar_deq.ram_addr[0], &mmio_mem.axi4buf.bundleOut_0_ar_deq.value_1[0]);
       } else {
       {
         // [state-read-dense] forwarding=branchless
@@ -5633,10 +5599,11 @@
         for (int L = 0; L < 16; L++) {
           const uint64_t _v2_sa_addr = essent_to_u64(mmio_mem.axi4buf.bundleOut_0_ar_deq.value_1[L]);
           UInt<31> _v2_sa_value = mmio_mem.axi4buf.bundleOut_0_ar_deq.ram_addr[_v2_sa_addr];
+          // [branchless-forward] select a valid source before loading data
           const int _v2_sa_prev_code = _v2_sa_last[_v2_sa_addr];
-          const uint64_t _v2_sa_prev_valid = (uint64_t)(_v2_sa_prev_code >= 0);
+          const bool _v2_sa_prev_valid = _v2_sa_prev_code >= 0;
           [[maybe_unused]] const int _v2_sa_prev_lane = _v2_sa_prev_code & -static_cast<int>(_v2_sa_prev_valid);
-          _v2_sa_value = essent_mux(UInt<1>(_v2_sa_prev_valid), _s_mmio_mem$axi4frag$auto_out_ar_bits_addr[_v2_sa_prev_lane], _v2_sa_value);
+          _v2_sa_value = *essent_select_ptr(_v2_sa_prev_valid, &(_s_mmio_mem$axi4frag$auto_out_ar_bits_addr[_v2_sa_prev_lane]), &_v2_sa_value);
           _s_mmio_mem$axi4buf$bundleOut_0_ar_deq$ram_addr$io_deq_bits_MPORT$rtl[L] = _v2_sa_value;
           const uint64_t _v2_sa_write_addr_0 = essent_to_u64(mmio_mem.axi4buf.bundleOut_0_ar_deq.value[L]);
           const uint64_t _v2_sa_write_take_0 = (uint64_t)(essent_to_u64(_s_mmio_mem$axi4buf$bundleOut_0_ar_deq$io_enq_ready[L] & _s_mmio_mem$axi4frag$deq$io_deq_valid[L]) != 0) & (uint64_t)(essent_to_u64(UInt<1>(0x1)) != 0);
@@ -6286,7 +6253,7 @@
         _v2_sa_anyw |= (uint64_t)(essent_to_u64(_s_ldut$subsystem_cbus$buffer$bundleOut_0_a_q$io_enq_ready[G] & _s_ldut$subsystem_cbus$atomics$auto_out_a_valid[G]) != 0) & (uint64_t)(essent_to_u64(UInt<1>(0x1)) != 0);
       }
       if (_v2_sa_anyw == 0) {
-        for (int L = 0; L < 16; L++) { _s_ldut$subsystem_cbus$buffer$bundleOut_0_a_q$ram_opcode$io_deq_bits_MPORT[L] = ldut.subsystem_cbus.buffer.bundleOut_0_a_q.ram_opcode[essent_to_u64(ldut.subsystem_cbus.buffer.bundleOut_0_a_q.value_1[L])]; }
+        essent_table_read<16, 2, false>(&_s_ldut$subsystem_cbus$buffer$bundleOut_0_a_q$ram_opcode$io_deq_bits_MPORT[0], &ldut.subsystem_cbus.buffer.bundleOut_0_a_q.ram_opcode[0], &ldut.subsystem_cbus.buffer.bundleOut_0_a_q.value_1[0]);
       } else {
       {
         // [state-read-dense] forwarding=branchless
@@ -6295,10 +6262,11 @@
         for (int L = 0; L < 16; L++) {
           const uint64_t _v2_sa_addr = essent_to_u64(ldut.subsystem_cbus.buffer.bundleOut_0_a_q.value_1[L]);
           UInt<3> _v2_sa_value = ldut.subsystem_cbus.buffer.bundleOut_0_a_q.ram_opcode[_v2_sa_addr];
+          // [branchless-forward] select a valid source before loading data
           const int _v2_sa_prev_code = _v2_sa_last[_v2_sa_addr];
-          const uint64_t _v2_sa_prev_valid = (uint64_t)(_v2_sa_prev_code >= 0);
+          const bool _v2_sa_prev_valid = _v2_sa_prev_code >= 0;
           [[maybe_unused]] const int _v2_sa_prev_lane = _v2_sa_prev_code & -static_cast<int>(_v2_sa_prev_valid);
-          _v2_sa_value = essent_mux(UInt<1>(_v2_sa_prev_valid), _s_ldut$subsystem_cbus$atomics$auto_out_a_bits_opcode[_v2_sa_prev_lane], _v2_sa_value);
+          _v2_sa_value = *essent_select_ptr(_v2_sa_prev_valid, &(_s_ldut$subsystem_cbus$atomics$auto_out_a_bits_opcode[_v2_sa_prev_lane]), &_v2_sa_value);
           _s_ldut$subsystem_cbus$buffer$bundleOut_0_a_q$ram_opcode$io_deq_bits_MPORT[L] = _v2_sa_value;
           const uint64_t _v2_sa_write_addr_0 = essent_to_u64(ldut.subsystem_cbus.buffer.bundleOut_0_a_q.value[L]);
           const uint64_t _v2_sa_write_take_0 = (uint64_t)(essent_to_u64(_s_ldut$subsystem_cbus$buffer$bundleOut_0_a_q$io_enq_ready[L] & _s_ldut$subsystem_cbus$atomics$auto_out_a_valid[L]) != 0) & (uint64_t)(essent_to_u64(UInt<1>(0x1)) != 0);
@@ -6322,7 +6290,7 @@
         _v2_sa_anyw |= (uint64_t)(essent_to_u64(_s_ldut$subsystem_cbus$buffer$bundleOut_0_a_q$io_enq_ready[G] & _s_ldut$subsystem_cbus$atomics$auto_out_a_valid[G]) != 0) & (uint64_t)(essent_to_u64(UInt<1>(0x1)) != 0);
       }
       if (_v2_sa_anyw == 0) {
-        for (int L = 0; L < 16; L++) { _s_ldut$subsystem_cbus$buffer$bundleOut_0_a_q$ram_size$io_deq_bits_MPORT[L] = ldut.subsystem_cbus.buffer.bundleOut_0_a_q.ram_size[essent_to_u64(ldut.subsystem_cbus.buffer.bundleOut_0_a_q.value_1[L])]; }
+        essent_table_read<16, 2, false>(&_s_ldut$subsystem_cbus$buffer$bundleOut_0_a_q$ram_size$io_deq_bits_MPORT[0], &ldut.subsystem_cbus.buffer.bundleOut_0_a_q.ram_size[0], &ldut.subsystem_cbus.buffer.bundleOut_0_a_q.value_1[0]);
       } else {
       {
         // [state-read-dense] forwarding=branchless
@@ -6331,10 +6299,11 @@
         for (int L = 0; L < 16; L++) {
           const uint64_t _v2_sa_addr = essent_to_u64(ldut.subsystem_cbus.buffer.bundleOut_0_a_q.value_1[L]);
           UInt<4> _v2_sa_value = ldut.subsystem_cbus.buffer.bundleOut_0_a_q.ram_size[_v2_sa_addr];
+          // [branchless-forward] select a valid source before loading data
           const int _v2_sa_prev_code = _v2_sa_last[_v2_sa_addr];
-          const uint64_t _v2_sa_prev_valid = (uint64_t)(_v2_sa_prev_code >= 0);
+          const bool _v2_sa_prev_valid = _v2_sa_prev_code >= 0;
           [[maybe_unused]] const int _v2_sa_prev_lane = _v2_sa_prev_code & -static_cast<int>(_v2_sa_prev_valid);
-          _v2_sa_value = essent_mux(UInt<1>(_v2_sa_prev_valid), _s_ldut$subsystem_cbus$atomics$auto_out_a_bits_size[_v2_sa_prev_lane], _v2_sa_value);
+          _v2_sa_value = *essent_select_ptr(_v2_sa_prev_valid, &(_s_ldut$subsystem_cbus$atomics$auto_out_a_bits_size[_v2_sa_prev_lane]), &_v2_sa_value);
           _s_ldut$subsystem_cbus$buffer$bundleOut_0_a_q$ram_size$io_deq_bits_MPORT[L] = _v2_sa_value;
           const uint64_t _v2_sa_write_addr_0 = essent_to_u64(ldut.subsystem_cbus.buffer.bundleOut_0_a_q.value[L]);
           const uint64_t _v2_sa_write_take_0 = (uint64_t)(essent_to_u64(_s_ldut$subsystem_cbus$buffer$bundleOut_0_a_q$io_enq_ready[L] & _s_ldut$subsystem_cbus$atomics$auto_out_a_valid[L]) != 0) & (uint64_t)(essent_to_u64(UInt<1>(0x1)) != 0);
@@ -6362,7 +6331,7 @@
         _v2_sa_anyw |= (uint64_t)(essent_to_u64(_s_ldut$subsystem_cbus$buffer$bundleOut_0_a_q$io_enq_ready[G] & _s_ldut$subsystem_cbus$atomics$auto_out_a_valid[G]) != 0) & (uint64_t)(essent_to_u64(UInt<1>(0x1)) != 0);
       }
       if (_v2_sa_anyw == 0) {
-        for (int L = 0; L < 16; L++) { _s_ldut$subsystem_cbus$buffer$bundleOut_0_a_q$ram_source$io_deq_bits_MPORT[L] = ldut.subsystem_cbus.buffer.bundleOut_0_a_q.ram_source[essent_to_u64(ldut.subsystem_cbus.buffer.bundleOut_0_a_q.value_1[L])]; }
+        essent_table_read<16, 2, false>(&_s_ldut$subsystem_cbus$buffer$bundleOut_0_a_q$ram_source$io_deq_bits_MPORT[0], &ldut.subsystem_cbus.buffer.bundleOut_0_a_q.ram_source[0], &ldut.subsystem_cbus.buffer.bundleOut_0_a_q.value_1[0]);
       } else {
       {
         // [state-read-dense] forwarding=branchless
@@ -6371,10 +6340,11 @@
         for (int L = 0; L < 16; L++) {
           const uint64_t _v2_sa_addr = essent_to_u64(ldut.subsystem_cbus.buffer.bundleOut_0_a_q.value_1[L]);
           UInt<5> _v2_sa_value = ldut.subsystem_cbus.buffer.bundleOut_0_a_q.ram_source[_v2_sa_addr];
+          // [branchless-forward] select a valid source before loading data
           const int _v2_sa_prev_code = _v2_sa_last[_v2_sa_addr];
-          const uint64_t _v2_sa_prev_valid = (uint64_t)(_v2_sa_prev_code >= 0);
+          const bool _v2_sa_prev_valid = _v2_sa_prev_code >= 0;
           [[maybe_unused]] const int _v2_sa_prev_lane = _v2_sa_prev_code & -static_cast<int>(_v2_sa_prev_valid);
-          _v2_sa_value = essent_mux(UInt<1>(_v2_sa_prev_valid), _s_ldut$subsystem_cbus$atomics$auto_out_a_bits_source[_v2_sa_prev_lane], _v2_sa_value);
+          _v2_sa_value = *essent_select_ptr(_v2_sa_prev_valid, &(_s_ldut$subsystem_cbus$atomics$auto_out_a_bits_source[_v2_sa_prev_lane]), &_v2_sa_value);
           _s_ldut$subsystem_cbus$buffer$bundleOut_0_a_q$ram_source$io_deq_bits_MPORT[L] = _v2_sa_value;
           const uint64_t _v2_sa_write_addr_0 = essent_to_u64(ldut.subsystem_cbus.buffer.bundleOut_0_a_q.value[L]);
           const uint64_t _v2_sa_write_take_0 = (uint64_t)(essent_to_u64(_s_ldut$subsystem_cbus$buffer$bundleOut_0_a_q$io_enq_ready[L] & _s_ldut$subsystem_cbus$atomics$auto_out_a_valid[L]) != 0) & (uint64_t)(essent_to_u64(UInt<1>(0x1)) != 0);
@@ -6403,7 +6373,7 @@
         _v2_sa_anyw |= (uint64_t)(essent_to_u64(_s_ldut$subsystem_cbus$buffer$bundleOut_0_a_q$io_enq_ready[G] & _s_ldut$subsystem_cbus$atomics$auto_out_a_valid[G]) != 0) & (uint64_t)(essent_to_u64(UInt<1>(0x1)) != 0);
       }
       if (_v2_sa_anyw == 0) {
-        for (int L = 0; L < 16; L++) { _s_ldut$subsystem_cbus$buffer$bundleOut_0_a_q$ram_address$io_deq_bits_MPORT[L] = ldut.subsystem_cbus.buffer.bundleOut_0_a_q.ram_address[essent_to_u64(ldut.subsystem_cbus.buffer.bundleOut_0_a_q.value_1[L])]; }
+        essent_table_read<16, 2, false>(&_s_ldut$subsystem_cbus$buffer$bundleOut_0_a_q$ram_address$io_deq_bits_MPORT[0], &ldut.subsystem_cbus.buffer.bundleOut_0_a_q.ram_address[0], &ldut.subsystem_cbus.buffer.bundleOut_0_a_q.value_1[0]);
       } else {
       {
         // [state-read-dense] forwarding=branchless
@@ -6412,10 +6382,11 @@
         for (int L = 0; L < 16; L++) {
           const uint64_t _v2_sa_addr = essent_to_u64(ldut.subsystem_cbus.buffer.bundleOut_0_a_q.value_1[L]);
           UInt<28> _v2_sa_value = ldut.subsystem_cbus.buffer.bundleOut_0_a_q.ram_address[_v2_sa_addr];
+          // [branchless-forward] select a valid source before loading data
           const int _v2_sa_prev_code = _v2_sa_last[_v2_sa_addr];
-          const uint64_t _v2_sa_prev_valid = (uint64_t)(_v2_sa_prev_code >= 0);
+          const bool _v2_sa_prev_valid = _v2_sa_prev_code >= 0;
           [[maybe_unused]] const int _v2_sa_prev_lane = _v2_sa_prev_code & -static_cast<int>(_v2_sa_prev_valid);
-          _v2_sa_value = essent_mux(UInt<1>(_v2_sa_prev_valid), _s_ldut$subsystem_cbus$atomics$auto_out_a_bits_address[_v2_sa_prev_lane], _v2_sa_value);
+          _v2_sa_value = *essent_select_ptr(_v2_sa_prev_valid, &(_s_ldut$subsystem_cbus$atomics$auto_out_a_bits_address[_v2_sa_prev_lane]), &_v2_sa_value);
           _s_ldut$subsystem_cbus$buffer$bundleOut_0_a_q$ram_address$io_deq_bits_MPORT[L] = _v2_sa_value;
           const uint64_t _v2_sa_write_addr_0 = essent_to_u64(ldut.subsystem_cbus.buffer.bundleOut_0_a_q.value[L]);
           const uint64_t _v2_sa_write_take_0 = (uint64_t)(essent_to_u64(_s_ldut$subsystem_cbus$buffer$bundleOut_0_a_q$io_enq_ready[L] & _s_ldut$subsystem_cbus$atomics$auto_out_a_valid[L]) != 0) & (uint64_t)(essent_to_u64(UInt<1>(0x1)) != 0);
@@ -6585,24 +6556,21 @@
         _v2_sa_anyw |= (uint64_t)(essent_to_u64(_s_ldut$subsystem_fbus$coupler_from_port_named_slave_port_axi4$buffer$bundleOut_0_a_q$io_enq_ready[G] & _s_ldut$subsystem_fbus$coupler_from_port_named_slave_port_axi4$fixer$auto_out_a_valid[G]) != 0) & (uint64_t)(essent_to_u64(UInt<1>(0x1)) != 0);
       }
       if (_v2_sa_anyw == 0) {
-        for (int L = 0; L < 16; L++) {
-          const uint64_t _v2_sa_field_addr = essent_to_u64(ldut.subsystem_fbus.coupler_from_port_named_slave_port_axi4.buffer.bundleOut_0_a_q.value_1[L]);
-          _s_ldut$subsystem_fbus$coupler_from_port_named_slave_port_axi4$buffer$bundleOut_0_a_q$ram_opcode$io_deq_bits_MPORT$rtl[L] = ldut.subsystem_fbus.coupler_from_port_named_slave_port_axi4.buffer.bundleOut_0_a_q.ram_opcode[_v2_sa_field_addr];
-          _s_ldut$subsystem_fbus$coupler_from_port_named_slave_port_axi4$buffer$bundleOut_0_a_q$ram_param$io_deq_bits_MPORT$rtl[L] = ldut.subsystem_fbus.coupler_from_port_named_slave_port_axi4.buffer.bundleOut_0_a_q.ram_param[_v2_sa_field_addr];
-          _s_ldut$subsystem_fbus$coupler_from_port_named_slave_port_axi4$buffer$bundleOut_0_a_q$ram_size$io_deq_bits_MPORT$rtl[L] = ldut.subsystem_fbus.coupler_from_port_named_slave_port_axi4.buffer.bundleOut_0_a_q.ram_size[_v2_sa_field_addr];
-          _s_ldut$subsystem_fbus$coupler_from_port_named_slave_port_axi4$buffer$bundleOut_0_a_q$ram_source$io_deq_bits_MPORT$rtl[L] = ldut.subsystem_fbus.coupler_from_port_named_slave_port_axi4.buffer.bundleOut_0_a_q.ram_source[_v2_sa_field_addr];
-          _s_ldut$subsystem_fbus$coupler_from_port_named_slave_port_axi4$buffer$bundleOut_0_a_q$ram_address$io_deq_bits_MPORT$rtl[L] = ldut.subsystem_fbus.coupler_from_port_named_slave_port_axi4.buffer.bundleOut_0_a_q.ram_address[_v2_sa_field_addr];
-          _s_ldut$subsystem_fbus$coupler_from_port_named_slave_port_axi4$buffer$bundleOut_0_a_q$ram_user_amba_prot_bufferable$io_deq_bits_MPORT$rtl[L] = ldut.subsystem_fbus.coupler_from_port_named_slave_port_axi4.buffer.bundleOut_0_a_q.ram_user_amba_prot_bufferable[_v2_sa_field_addr];
-          _s_ldut$subsystem_fbus$coupler_from_port_named_slave_port_axi4$buffer$bundleOut_0_a_q$ram_user_amba_prot_modifiable$io_deq_bits_MPORT$rtl[L] = ldut.subsystem_fbus.coupler_from_port_named_slave_port_axi4.buffer.bundleOut_0_a_q.ram_user_amba_prot_modifiable[_v2_sa_field_addr];
-          _s_ldut$subsystem_fbus$coupler_from_port_named_slave_port_axi4$buffer$bundleOut_0_a_q$ram_user_amba_prot_readalloc$io_deq_bits_MPORT$rtl[L] = ldut.subsystem_fbus.coupler_from_port_named_slave_port_axi4.buffer.bundleOut_0_a_q.ram_user_amba_prot_readalloc[_v2_sa_field_addr];
-          _s_ldut$subsystem_fbus$coupler_from_port_named_slave_port_axi4$buffer$bundleOut_0_a_q$ram_user_amba_prot_writealloc$io_deq_bits_MPORT$rtl[L] = ldut.subsystem_fbus.coupler_from_port_named_slave_port_axi4.buffer.bundleOut_0_a_q.ram_user_amba_prot_writealloc[_v2_sa_field_addr];
-          _s_ldut$subsystem_fbus$coupler_from_port_named_slave_port_axi4$buffer$bundleOut_0_a_q$ram_user_amba_prot_privileged$io_deq_bits_MPORT$rtl[L] = ldut.subsystem_fbus.coupler_from_port_named_slave_port_axi4.buffer.bundleOut_0_a_q.ram_user_amba_prot_privileged[_v2_sa_field_addr];
-          _s_ldut$subsystem_fbus$coupler_from_port_named_slave_port_axi4$buffer$bundleOut_0_a_q$ram_user_amba_prot_secure$io_deq_bits_MPORT$rtl[L] = ldut.subsystem_fbus.coupler_from_port_named_slave_port_axi4.buffer.bundleOut_0_a_q.ram_user_amba_prot_secure[_v2_sa_field_addr];
-          _s_ldut$subsystem_fbus$coupler_from_port_named_slave_port_axi4$buffer$bundleOut_0_a_q$ram_user_amba_prot_fetch$io_deq_bits_MPORT$rtl[L] = ldut.subsystem_fbus.coupler_from_port_named_slave_port_axi4.buffer.bundleOut_0_a_q.ram_user_amba_prot_fetch[_v2_sa_field_addr];
-          _s_ldut$subsystem_fbus$coupler_from_port_named_slave_port_axi4$buffer$bundleOut_0_a_q$ram_mask$io_deq_bits_MPORT$rtl[L] = ldut.subsystem_fbus.coupler_from_port_named_slave_port_axi4.buffer.bundleOut_0_a_q.ram_mask[_v2_sa_field_addr];
-          _s_ldut$subsystem_fbus$coupler_from_port_named_slave_port_axi4$buffer$bundleOut_0_a_q$ram_data$io_deq_bits_MPORT$rtl[L] = ldut.subsystem_fbus.coupler_from_port_named_slave_port_axi4.buffer.bundleOut_0_a_q.ram_data[_v2_sa_field_addr];
-          _s_ldut$subsystem_fbus$coupler_from_port_named_slave_port_axi4$buffer$bundleOut_0_a_q$ram_corrupt$io_deq_bits_MPORT$rtl[L] = ldut.subsystem_fbus.coupler_from_port_named_slave_port_axi4.buffer.bundleOut_0_a_q.ram_corrupt[_v2_sa_field_addr];
-        }
+        essent_table_read<16, 2, false>(&_s_ldut$subsystem_fbus$coupler_from_port_named_slave_port_axi4$buffer$bundleOut_0_a_q$ram_opcode$io_deq_bits_MPORT$rtl[0], &ldut.subsystem_fbus.coupler_from_port_named_slave_port_axi4.buffer.bundleOut_0_a_q.ram_opcode[0], &ldut.subsystem_fbus.coupler_from_port_named_slave_port_axi4.buffer.bundleOut_0_a_q.value_1[0]);
+        essent_table_read<16, 2, false>(&_s_ldut$subsystem_fbus$coupler_from_port_named_slave_port_axi4$buffer$bundleOut_0_a_q$ram_param$io_deq_bits_MPORT$rtl[0], &ldut.subsystem_fbus.coupler_from_port_named_slave_port_axi4.buffer.bundleOut_0_a_q.ram_param[0], &ldut.subsystem_fbus.coupler_from_port_named_slave_port_axi4.buffer.bundleOut_0_a_q.value_1[0]);
+        essent_table_read<16, 2, false>(&_s_ldut$subsystem_fbus$coupler_from_port_named_slave_port_axi4$buffer$bundleOut_0_a_q$ram_size$io_deq_bits_MPORT$rtl[0], &ldut.subsystem_fbus.coupler_from_port_named_slave_port_axi4.buffer.bundleOut_0_a_q.ram_size[0], &ldut.subsystem_fbus.coupler_from_port_named_slave_port_axi4.buffer.bundleOut_0_a_q.value_1[0]);
+        essent_table_read<16, 2, false>(&_s_ldut$subsystem_fbus$coupler_from_port_named_slave_port_axi4$buffer$bundleOut_0_a_q$ram_source$io_deq_bits_MPORT$rtl[0], &ldut.subsystem_fbus.coupler_from_port_named_slave_port_axi4.buffer.bundleOut_0_a_q.ram_source[0], &ldut.subsystem_fbus.coupler_from_port_named_slave_port_axi4.buffer.bundleOut_0_a_q.value_1[0]);
+        essent_table_read<16, 2, false>(&_s_ldut$subsystem_fbus$coupler_from_port_named_slave_port_axi4$buffer$bundleOut_0_a_q$ram_address$io_deq_bits_MPORT$rtl[0], &ldut.subsystem_fbus.coupler_from_port_named_slave_port_axi4.buffer.bundleOut_0_a_q.ram_address[0], &ldut.subsystem_fbus.coupler_from_port_named_slave_port_axi4.buffer.bundleOut_0_a_q.value_1[0]);
+        essent_table_read<16, 2, false>(&_s_ldut$subsystem_fbus$coupler_from_port_named_slave_port_axi4$buffer$bundleOut_0_a_q$ram_user_amba_prot_bufferable$io_deq_bits_MPORT$rtl[0], &ldut.subsystem_fbus.coupler_from_port_named_slave_port_axi4.buffer.bundleOut_0_a_q.ram_user_amba_prot_bufferable[0], &ldut.subsystem_fbus.coupler_from_port_named_slave_port_axi4.buffer.bundleOut_0_a_q.value_1[0]);
+        essent_table_read<16, 2, false>(&_s_ldut$subsystem_fbus$coupler_from_port_named_slave_port_axi4$buffer$bundleOut_0_a_q$ram_user_amba_prot_modifiable$io_deq_bits_MPORT$rtl[0], &ldut.subsystem_fbus.coupler_from_port_named_slave_port_axi4.buffer.bundleOut_0_a_q.ram_user_amba_prot_modifiable[0], &ldut.subsystem_fbus.coupler_from_port_named_slave_port_axi4.buffer.bundleOut_0_a_q.value_1[0]);
+        essent_table_read<16, 2, false>(&_s_ldut$subsystem_fbus$coupler_from_port_named_slave_port_axi4$buffer$bundleOut_0_a_q$ram_user_amba_prot_readalloc$io_deq_bits_MPORT$rtl[0], &ldut.subsystem_fbus.coupler_from_port_named_slave_port_axi4.buffer.bundleOut_0_a_q.ram_user_amba_prot_readalloc[0], &ldut.subsystem_fbus.coupler_from_port_named_slave_port_axi4.buffer.bundleOut_0_a_q.value_1[0]);
+        essent_table_read<16, 2, false>(&_s_ldut$subsystem_fbus$coupler_from_port_named_slave_port_axi4$buffer$bundleOut_0_a_q$ram_user_amba_prot_writealloc$io_deq_bits_MPORT$rtl[0], &ldut.subsystem_fbus.coupler_from_port_named_slave_port_axi4.buffer.bundleOut_0_a_q.ram_user_amba_prot_writealloc[0], &ldut.subsystem_fbus.coupler_from_port_named_slave_port_axi4.buffer.bundleOut_0_a_q.value_1[0]);
+        essent_table_read<16, 2, false>(&_s_ldut$subsystem_fbus$coupler_from_port_named_slave_port_axi4$buffer$bundleOut_0_a_q$ram_user_amba_prot_privileged$io_deq_bits_MPORT$rtl[0], &ldut.subsystem_fbus.coupler_from_port_named_slave_port_axi4.buffer.bundleOut_0_a_q.ram_user_amba_prot_privileged[0], &ldut.subsystem_fbus.coupler_from_port_named_slave_port_axi4.buffer.bundleOut_0_a_q.value_1[0]);
+        essent_table_read<16, 2, false>(&_s_ldut$subsystem_fbus$coupler_from_port_named_slave_port_axi4$buffer$bundleOut_0_a_q$ram_user_amba_prot_secure$io_deq_bits_MPORT$rtl[0], &ldut.subsystem_fbus.coupler_from_port_named_slave_port_axi4.buffer.bundleOut_0_a_q.ram_user_amba_prot_secure[0], &ldut.subsystem_fbus.coupler_from_port_named_slave_port_axi4.buffer.bundleOut_0_a_q.value_1[0]);
+        essent_table_read<16, 2, false>(&_s_ldut$subsystem_fbus$coupler_from_port_named_slave_port_axi4$buffer$bundleOut_0_a_q$ram_user_amba_prot_fetch$io_deq_bits_MPORT$rtl[0], &ldut.subsystem_fbus.coupler_from_port_named_slave_port_axi4.buffer.bundleOut_0_a_q.ram_user_amba_prot_fetch[0], &ldut.subsystem_fbus.coupler_from_port_named_slave_port_axi4.buffer.bundleOut_0_a_q.value_1[0]);
+        essent_table_read<16, 2, false>(&_s_ldut$subsystem_fbus$coupler_from_port_named_slave_port_axi4$buffer$bundleOut_0_a_q$ram_mask$io_deq_bits_MPORT$rtl[0], &ldut.subsystem_fbus.coupler_from_port_named_slave_port_axi4.buffer.bundleOut_0_a_q.ram_mask[0], &ldut.subsystem_fbus.coupler_from_port_named_slave_port_axi4.buffer.bundleOut_0_a_q.value_1[0]);
+        essent_table_read<16, 2, false>(&_s_ldut$subsystem_fbus$coupler_from_port_named_slave_port_axi4$buffer$bundleOut_0_a_q$ram_data$io_deq_bits_MPORT$rtl[0], &ldut.subsystem_fbus.coupler_from_port_named_slave_port_axi4.buffer.bundleOut_0_a_q.ram_data[0], &ldut.subsystem_fbus.coupler_from_port_named_slave_port_axi4.buffer.bundleOut_0_a_q.value_1[0]);
+        essent_table_read<16, 2, false>(&_s_ldut$subsystem_fbus$coupler_from_port_named_slave_port_axi4$buffer$bundleOut_0_a_q$ram_corrupt$io_deq_bits_MPORT$rtl[0], &ldut.subsystem_fbus.coupler_from_port_named_slave_port_axi4.buffer.bundleOut_0_a_q.ram_corrupt[0], &ldut.subsystem_fbus.coupler_from_port_named_slave_port_axi4.buffer.bundleOut_0_a_q.value_1[0]);
       } else {
       {
         // [state-field-read-fused] 15 arrays share one access scan, mode=dense-branchless
@@ -6679,11 +6647,8 @@
         _v2_sa_anyw |= (uint64_t)(essent_to_u64(_s_ldut$subsystem_fbus$coupler_from_port_named_slave_port_axi4$axi4yank$QueueCompatibility$$inst$io_enq_ready[G] & _s_ldut$subsystem_fbus$coupler_from_port_named_slave_port_axi4$axi4yank$QueueCompatibility$$inst$io_enq_valid[G]) != 0) & (uint64_t)(essent_to_u64(UInt<1>(0x1)) != 0);
       }
       if (_v2_sa_anyw == 0) {
-        for (int L = 0; L < 16; L++) {
-          const uint64_t _v2_sa_field_addr = essent_to_u64(ldut.subsystem_fbus.coupler_from_port_named_slave_port_axi4.axi4yank.QueueCompatibility$$inst.deq_ptr_value[L]);
-          _s_ldut$subsystem_fbus$coupler_from_port_named_slave_port_axi4$axi4yank$QueueCompatibility$$inst$ram_extra_id$io_deq_bits_MPORT$rtl[L] = ldut.subsystem_fbus.coupler_from_port_named_slave_port_axi4.axi4yank.QueueCompatibility$$inst.ram_extra_id[_v2_sa_field_addr];
-          _s_ldut$subsystem_fbus$coupler_from_port_named_slave_port_axi4$axi4yank$QueueCompatibility$$inst$ram_real_last$io_deq_bits_MPORT$rtl[L] = ldut.subsystem_fbus.coupler_from_port_named_slave_port_axi4.axi4yank.QueueCompatibility$$inst.ram_real_last[_v2_sa_field_addr];
-        }
+        essent_table_read<16, 4, false>(&_s_ldut$subsystem_fbus$coupler_from_port_named_slave_port_axi4$axi4yank$QueueCompatibility$$inst$ram_extra_id$io_deq_bits_MPORT$rtl[0], &ldut.subsystem_fbus.coupler_from_port_named_slave_port_axi4.axi4yank.QueueCompatibility$$inst.ram_extra_id[0], &ldut.subsystem_fbus.coupler_from_port_named_slave_port_axi4.axi4yank.QueueCompatibility$$inst.deq_ptr_value[0]);
+        essent_table_read<16, 4, false>(&_s_ldut$subsystem_fbus$coupler_from_port_named_slave_port_axi4$axi4yank$QueueCompatibility$$inst$ram_real_last$io_deq_bits_MPORT$rtl[0], &ldut.subsystem_fbus.coupler_from_port_named_slave_port_axi4.axi4yank.QueueCompatibility$$inst.ram_real_last[0], &ldut.subsystem_fbus.coupler_from_port_named_slave_port_axi4.axi4yank.QueueCompatibility$$inst.deq_ptr_value[0]);
       } else {
       {
         // [state-field-read-fused] 2 arrays share one access scan, mode=dense-branchless
@@ -6725,11 +6690,8 @@
         _v2_sa_anyw |= (uint64_t)(essent_to_u64(_s_ldut$subsystem_fbus$coupler_from_port_named_slave_port_axi4$axi4yank$QueueCompatibility_1$io_enq_ready[G] & _s_ldut$subsystem_fbus$coupler_from_port_named_slave_port_axi4$axi4yank$QueueCompatibility_1$io_enq_valid[G]) != 0) & (uint64_t)(essent_to_u64(UInt<1>(0x1)) != 0);
       }
       if (_v2_sa_anyw == 0) {
-        for (int L = 0; L < 16; L++) {
-          const uint64_t _v2_sa_field_addr = essent_to_u64(ldut.subsystem_fbus.coupler_from_port_named_slave_port_axi4.axi4yank.QueueCompatibility_1.deq_ptr_value[L]);
-          _s_ldut$subsystem_fbus$coupler_from_port_named_slave_port_axi4$axi4yank$QueueCompatibility_1$ram_extra_id$io_deq_bits_MPORT$rtl[L] = ldut.subsystem_fbus.coupler_from_port_named_slave_port_axi4.axi4yank.QueueCompatibility_1.ram_extra_id[_v2_sa_field_addr];
-          _s_ldut$subsystem_fbus$coupler_from_port_named_slave_port_axi4$axi4yank$QueueCompatibility_1$ram_real_last$io_deq_bits_MPORT$rtl[L] = ldut.subsystem_fbus.coupler_from_port_named_slave_port_axi4.axi4yank.QueueCompatibility_1.ram_real_last[_v2_sa_field_addr];
-        }
+        essent_table_read<16, 4, false>(&_s_ldut$subsystem_fbus$coupler_from_port_named_slave_port_axi4$axi4yank$QueueCompatibility_1$ram_extra_id$io_deq_bits_MPORT$rtl[0], &ldut.subsystem_fbus.coupler_from_port_named_slave_port_axi4.axi4yank.QueueCompatibility_1.ram_extra_id[0], &ldut.subsystem_fbus.coupler_from_port_named_slave_port_axi4.axi4yank.QueueCompatibility_1.deq_ptr_value[0]);
+        essent_table_read<16, 4, false>(&_s_ldut$subsystem_fbus$coupler_from_port_named_slave_port_axi4$axi4yank$QueueCompatibility_1$ram_real_last$io_deq_bits_MPORT$rtl[0], &ldut.subsystem_fbus.coupler_from_port_named_slave_port_axi4.axi4yank.QueueCompatibility_1.ram_real_last[0], &ldut.subsystem_fbus.coupler_from_port_named_slave_port_axi4.axi4yank.QueueCompatibility_1.deq_ptr_value[0]);
       } else {
       {
         // [state-field-read-fused] 2 arrays share one access scan, mode=dense-branchless
@@ -6771,11 +6733,8 @@
         _v2_sa_anyw |= (uint64_t)(essent_to_u64(_s_ldut$subsystem_fbus$coupler_from_port_named_slave_port_axi4$axi4yank$QueueCompatibility_2$$inst$io_enq_ready[G] & _s_ldut$subsystem_fbus$coupler_from_port_named_slave_port_axi4$axi4yank$QueueCompatibility_2$$inst$io_enq_valid[G]) != 0) & (uint64_t)(essent_to_u64(UInt<1>(0x1)) != 0);
       }
       if (_v2_sa_anyw == 0) {
-        for (int L = 0; L < 16; L++) {
-          const uint64_t _v2_sa_field_addr = essent_to_u64(ldut.subsystem_fbus.coupler_from_port_named_slave_port_axi4.axi4yank.QueueCompatibility_2$$inst.deq_ptr_value[L]);
-          _s_ldut$subsystem_fbus$coupler_from_port_named_slave_port_axi4$axi4yank$QueueCompatibility_2$$inst$ram_extra_id$io_deq_bits_MPORT$rtl[L] = ldut.subsystem_fbus.coupler_from_port_named_slave_port_axi4.axi4yank.QueueCompatibility_2$$inst.ram_extra_id[_v2_sa_field_addr];
-          _s_ldut$subsystem_fbus$coupler_from_port_named_slave_port_axi4$axi4yank$QueueCompatibility_2$$inst$ram_real_last$io_deq_bits_MPORT$rtl[L] = ldut.subsystem_fbus.coupler_from_port_named_slave_port_axi4.axi4yank.QueueCompatibility_2$$inst.ram_real_last[_v2_sa_field_addr];
-        }
+        essent_table_read<16, 4, false>(&_s_ldut$subsystem_fbus$coupler_from_port_named_slave_port_axi4$axi4yank$QueueCompatibility_2$$inst$ram_extra_id$io_deq_bits_MPORT$rtl[0], &ldut.subsystem_fbus.coupler_from_port_named_slave_port_axi4.axi4yank.QueueCompatibility_2$$inst.ram_extra_id[0], &ldut.subsystem_fbus.coupler_from_port_named_slave_port_axi4.axi4yank.QueueCompatibility_2$$inst.deq_ptr_value[0]);
+        essent_table_read<16, 4, false>(&_s_ldut$subsystem_fbus$coupler_from_port_named_slave_port_axi4$axi4yank$QueueCompatibility_2$$inst$ram_real_last$io_deq_bits_MPORT$rtl[0], &ldut.subsystem_fbus.coupler_from_port_named_slave_port_axi4.axi4yank.QueueCompatibility_2$$inst.ram_real_last[0], &ldut.subsystem_fbus.coupler_from_port_named_slave_port_axi4.axi4yank.QueueCompatibility_2$$inst.deq_ptr_value[0]);
       } else {
       {
         // [state-field-read-fused] 2 arrays share one access scan, mode=dense-branchless
@@ -6819,11 +6778,8 @@
         _v2_sa_anyw |= (uint64_t)(essent_to_u64(_s_ldut$subsystem_fbus$coupler_from_port_named_slave_port_axi4$axi4yank$QueueCompatibility_3$io_enq_ready[G] & _s_ldut$subsystem_fbus$coupler_from_port_named_slave_port_axi4$axi4yank$QueueCompatibility_3$io_enq_valid[G]) != 0) & (uint64_t)(essent_to_u64(UInt<1>(0x1)) != 0);
       }
       if (_v2_sa_anyw == 0) {
-        for (int L = 0; L < 16; L++) {
-          const uint64_t _v2_sa_field_addr = essent_to_u64(ldut.subsystem_fbus.coupler_from_port_named_slave_port_axi4.axi4yank.QueueCompatibility_3.deq_ptr_value[L]);
-          _s_ldut$subsystem_fbus$coupler_from_port_named_slave_port_axi4$axi4yank$QueueCompatibility_3$ram_extra_id$io_deq_bits_MPORT$rtl[L] = ldut.subsystem_fbus.coupler_from_port_named_slave_port_axi4.axi4yank.QueueCompatibility_3.ram_extra_id[_v2_sa_field_addr];
-          _s_ldut$subsystem_fbus$coupler_from_port_named_slave_port_axi4$axi4yank$QueueCompatibility_3$ram_real_last$io_deq_bits_MPORT$rtl[L] = ldut.subsystem_fbus.coupler_from_port_named_slave_port_axi4.axi4yank.QueueCompatibility_3.ram_real_last[_v2_sa_field_addr];
-        }
+        essent_table_read<16, 4, false>(&_s_ldut$subsystem_fbus$coupler_from_port_named_slave_port_axi4$axi4yank$QueueCompatibility_3$ram_extra_id$io_deq_bits_MPORT$rtl[0], &ldut.subsystem_fbus.coupler_from_port_named_slave_port_axi4.axi4yank.QueueCompatibility_3.ram_extra_id[0], &ldut.subsystem_fbus.coupler_from_port_named_slave_port_axi4.axi4yank.QueueCompatibility_3.deq_ptr_value[0]);
+        essent_table_read<16, 4, false>(&_s_ldut$subsystem_fbus$coupler_from_port_named_slave_port_axi4$axi4yank$QueueCompatibility_3$ram_real_last$io_deq_bits_MPORT$rtl[0], &ldut.subsystem_fbus.coupler_from_port_named_slave_port_axi4.axi4yank.QueueCompatibility_3.ram_real_last[0], &ldut.subsystem_fbus.coupler_from_port_named_slave_port_axi4.axi4yank.QueueCompatibility_3.deq_ptr_value[0]);
       } else {
       {
         // [state-field-read-fused] 2 arrays share one access scan, mode=dense-branchless
@@ -6938,12 +6894,9 @@
         _v2_sa_anyw |= (uint64_t)(essent_to_u64(_s_ldut$subsystem_cbus$wrapped_error_device$buffer$bundleOut_0_a_q$io_enq_ready[G] & _s_ldut$subsystem_cbus$out_xbar$auto_out_0_a_valid[G]) != 0) & (uint64_t)(essent_to_u64(UInt<1>(0x1)) != 0);
       }
       if (_v2_sa_anyw == 0) {
-        for (int L = 0; L < 16; L++) {
-          const uint64_t _v2_sa_field_addr = essent_to_u64(ldut.subsystem_cbus.wrapped_error_device.buffer.bundleOut_0_a_q.value_1[L]);
-          _s_ldut$subsystem_cbus$wrapped_error_device$buffer$bundleOut_0_a_q$ram_opcode$io_deq_bits_MPORT[L] = ldut.subsystem_cbus.wrapped_error_device.buffer.bundleOut_0_a_q.ram_opcode[_v2_sa_field_addr];
-          _s_ldut$subsystem_cbus$wrapped_error_device$buffer$bundleOut_0_a_q$ram_size$io_deq_bits_MPORT[L] = ldut.subsystem_cbus.wrapped_error_device.buffer.bundleOut_0_a_q.ram_size[_v2_sa_field_addr];
-          _s_ldut$subsystem_cbus$wrapped_error_device$buffer$bundleOut_0_a_q$ram_source$io_deq_bits_MPORT[L] = ldut.subsystem_cbus.wrapped_error_device.buffer.bundleOut_0_a_q.ram_source[_v2_sa_field_addr];
-        }
+        essent_table_read<16, 2, false>(&_s_ldut$subsystem_cbus$wrapped_error_device$buffer$bundleOut_0_a_q$ram_opcode$io_deq_bits_MPORT[0], &ldut.subsystem_cbus.wrapped_error_device.buffer.bundleOut_0_a_q.ram_opcode[0], &ldut.subsystem_cbus.wrapped_error_device.buffer.bundleOut_0_a_q.value_1[0]);
+        essent_table_read<16, 2, false>(&_s_ldut$subsystem_cbus$wrapped_error_device$buffer$bundleOut_0_a_q$ram_size$io_deq_bits_MPORT[0], &ldut.subsystem_cbus.wrapped_error_device.buffer.bundleOut_0_a_q.ram_size[0], &ldut.subsystem_cbus.wrapped_error_device.buffer.bundleOut_0_a_q.value_1[0]);
+        essent_table_read<16, 2, false>(&_s_ldut$subsystem_cbus$wrapped_error_device$buffer$bundleOut_0_a_q$ram_source$io_deq_bits_MPORT[0], &ldut.subsystem_cbus.wrapped_error_device.buffer.bundleOut_0_a_q.ram_source[0], &ldut.subsystem_cbus.wrapped_error_device.buffer.bundleOut_0_a_q.value_1[0]);
       } else {
       {
         // [state-field-read-fused] 3 arrays share one access scan, mode=dense-branchless
@@ -7019,16 +6972,13 @@
         _v2_sa_anyw |= (uint64_t)(essent_to_u64(_s_ldut$subsystem_cbus$wrapped_error_device$buffer$bundleIn_0_d_q$io_enq_ready[G] & _s_ldut$subsystem_cbus$wrapped_error_device$error$auto_in_d_valid[G]) != 0) & (uint64_t)(essent_to_u64(UInt<1>(0x1)) != 0);
       }
       if (_v2_sa_anyw == 0) {
-        for (int L = 0; L < 16; L++) {
-          const uint64_t _v2_sa_field_addr = essent_to_u64(ldut.subsystem_cbus.wrapped_error_device.buffer.bundleIn_0_d_q.value_1[L]);
-          _s_ldut$subsystem_cbus$wrapped_error_device$buffer$bundleIn_0_d_q$ram_opcode$io_deq_bits_MPORT[L] = ldut.subsystem_cbus.wrapped_error_device.buffer.bundleIn_0_d_q.ram_opcode[_v2_sa_field_addr];
-          _s_ldut$subsystem_cbus$wrapped_error_device$buffer$bundleIn_0_d_q$ram_param$io_deq_bits_MPORT[L] = ldut.subsystem_cbus.wrapped_error_device.buffer.bundleIn_0_d_q.ram_param[_v2_sa_field_addr];
-          _s_ldut$subsystem_cbus$wrapped_error_device$buffer$bundleIn_0_d_q$ram_size$io_deq_bits_MPORT[L] = ldut.subsystem_cbus.wrapped_error_device.buffer.bundleIn_0_d_q.ram_size[_v2_sa_field_addr];
-          _s_ldut$subsystem_cbus$wrapped_error_device$buffer$bundleIn_0_d_q$ram_sink$io_deq_bits_MPORT[L] = ldut.subsystem_cbus.wrapped_error_device.buffer.bundleIn_0_d_q.ram_sink[_v2_sa_field_addr];
-          _s_ldut$subsystem_cbus$wrapped_error_device$buffer$bundleIn_0_d_q$ram_denied$io_deq_bits_MPORT[L] = ldut.subsystem_cbus.wrapped_error_device.buffer.bundleIn_0_d_q.ram_denied[_v2_sa_field_addr];
-          _s_ldut$subsystem_cbus$wrapped_error_device$buffer$bundleIn_0_d_q$ram_data$io_deq_bits_MPORT[L] = ldut.subsystem_cbus.wrapped_error_device.buffer.bundleIn_0_d_q.ram_data[_v2_sa_field_addr];
-          _s_ldut$subsystem_cbus$wrapped_error_device$buffer$bundleIn_0_d_q$ram_corrupt$io_deq_bits_MPORT[L] = ldut.subsystem_cbus.wrapped_error_device.buffer.bundleIn_0_d_q.ram_corrupt[_v2_sa_field_addr];
-        }
+        essent_table_read<16, 2, false>(&_s_ldut$subsystem_cbus$wrapped_error_device$buffer$bundleIn_0_d_q$ram_opcode$io_deq_bits_MPORT[0], &ldut.subsystem_cbus.wrapped_error_device.buffer.bundleIn_0_d_q.ram_opcode[0], &ldut.subsystem_cbus.wrapped_error_device.buffer.bundleIn_0_d_q.value_1[0]);
+        essent_table_read<16, 2, false>(&_s_ldut$subsystem_cbus$wrapped_error_device$buffer$bundleIn_0_d_q$ram_param$io_deq_bits_MPORT[0], &ldut.subsystem_cbus.wrapped_error_device.buffer.bundleIn_0_d_q.ram_param[0], &ldut.subsystem_cbus.wrapped_error_device.buffer.bundleIn_0_d_q.value_1[0]);
+        essent_table_read<16, 2, false>(&_s_ldut$subsystem_cbus$wrapped_error_device$buffer$bundleIn_0_d_q$ram_size$io_deq_bits_MPORT[0], &ldut.subsystem_cbus.wrapped_error_device.buffer.bundleIn_0_d_q.ram_size[0], &ldut.subsystem_cbus.wrapped_error_device.buffer.bundleIn_0_d_q.value_1[0]);
+        essent_table_read<16, 2, false>(&_s_ldut$subsystem_cbus$wrapped_error_device$buffer$bundleIn_0_d_q$ram_sink$io_deq_bits_MPORT[0], &ldut.subsystem_cbus.wrapped_error_device.buffer.bundleIn_0_d_q.ram_sink[0], &ldut.subsystem_cbus.wrapped_error_device.buffer.bundleIn_0_d_q.value_1[0]);
+        essent_table_read<16, 2, false>(&_s_ldut$subsystem_cbus$wrapped_error_device$buffer$bundleIn_0_d_q$ram_denied$io_deq_bits_MPORT[0], &ldut.subsystem_cbus.wrapped_error_device.buffer.bundleIn_0_d_q.ram_denied[0], &ldut.subsystem_cbus.wrapped_error_device.buffer.bundleIn_0_d_q.value_1[0]);
+        essent_table_read<16, 2, false>(&_s_ldut$subsystem_cbus$wrapped_error_device$buffer$bundleIn_0_d_q$ram_data$io_deq_bits_MPORT[0], &ldut.subsystem_cbus.wrapped_error_device.buffer.bundleIn_0_d_q.ram_data[0], &ldut.subsystem_cbus.wrapped_error_device.buffer.bundleIn_0_d_q.value_1[0]);
+        essent_table_read<16, 2, false>(&_s_ldut$subsystem_cbus$wrapped_error_device$buffer$bundleIn_0_d_q$ram_corrupt$io_deq_bits_MPORT[0], &ldut.subsystem_cbus.wrapped_error_device.buffer.bundleIn_0_d_q.ram_corrupt[0], &ldut.subsystem_cbus.wrapped_error_device.buffer.bundleIn_0_d_q.value_1[0]);
       } else {
       {
         // [state-field-read-fused] 7 arrays share one access scan, mode=dense-branchless
@@ -7083,7 +7033,7 @@
         _v2_sa_anyw |= (uint64_t)(essent_to_u64(_s_ldut$subsystem_cbus$wrapped_error_device$buffer$bundleIn_0_d_q$io_enq_ready[G] & _s_ldut$subsystem_cbus$wrapped_error_device$error$auto_in_d_valid[G]) != 0) & (uint64_t)(essent_to_u64(UInt<1>(0x1)) != 0);
       }
       if (_v2_sa_anyw == 0) {
-        for (int L = 0; L < 16; L++) { _s_ldut$subsystem_cbus$wrapped_error_device$buffer$bundleIn_0_d_q$ram_source$io_deq_bits_MPORT[L] = ldut.subsystem_cbus.wrapped_error_device.buffer.bundleIn_0_d_q.ram_source[essent_to_u64(ldut.subsystem_cbus.wrapped_error_device.buffer.bundleIn_0_d_q.value_1[L])]; }
+        essent_table_read<16, 2, false>(&_s_ldut$subsystem_cbus$wrapped_error_device$buffer$bundleIn_0_d_q$ram_source$io_deq_bits_MPORT[0], &ldut.subsystem_cbus.wrapped_error_device.buffer.bundleIn_0_d_q.ram_source[0], &ldut.subsystem_cbus.wrapped_error_device.buffer.bundleIn_0_d_q.value_1[0]);
       } else {
       {
         // [state-read-dense] forwarding=branchless
@@ -7092,10 +7042,11 @@
         for (int L = 0; L < 16; L++) {
           const uint64_t _v2_sa_addr = essent_to_u64(ldut.subsystem_cbus.wrapped_error_device.buffer.bundleIn_0_d_q.value_1[L]);
           UInt<5> _v2_sa_value = ldut.subsystem_cbus.wrapped_error_device.buffer.bundleIn_0_d_q.ram_source[_v2_sa_addr];
+          // [branchless-forward] select a valid source before loading data
           const int _v2_sa_prev_code = _v2_sa_last[_v2_sa_addr];
-          const uint64_t _v2_sa_prev_valid = (uint64_t)(_v2_sa_prev_code >= 0);
+          const bool _v2_sa_prev_valid = _v2_sa_prev_code >= 0;
           [[maybe_unused]] const int _v2_sa_prev_lane = _v2_sa_prev_code & -static_cast<int>(_v2_sa_prev_valid);
-          _v2_sa_value = essent_mux(UInt<1>(_v2_sa_prev_valid), _s_ldut$subsystem_cbus$wrapped_error_device$error$a$ram_source[_v2_sa_prev_lane], _v2_sa_value);
+          _v2_sa_value = *essent_select_ptr(_v2_sa_prev_valid, &(_s_ldut$subsystem_cbus$wrapped_error_device$error$a$ram_source[_v2_sa_prev_lane]), &_v2_sa_value);
           _s_ldut$subsystem_cbus$wrapped_error_device$buffer$bundleIn_0_d_q$ram_source$io_deq_bits_MPORT[L] = _v2_sa_value;
           const uint64_t _v2_sa_write_addr_0 = essent_to_u64(ldut.subsystem_cbus.wrapped_error_device.buffer.bundleIn_0_d_q.value[L]);
           const uint64_t _v2_sa_write_take_0 = (uint64_t)(essent_to_u64(_s_ldut$subsystem_cbus$wrapped_error_device$buffer$bundleIn_0_d_q$io_enq_ready[L] & _s_ldut$subsystem_cbus$wrapped_error_device$error$auto_in_d_valid[L]) != 0) & (uint64_t)(essent_to_u64(UInt<1>(0x1)) != 0);
@@ -7196,7 +7147,7 @@
         _v2_sa_anyw |= (uint64_t)(essent_to_u64(_s_ldut$subsystem_cbus$buffer$bundleIn_0_d_q$io_enq_ready[G] & _s_ldut$subsystem_cbus$out_xbar$auto_in_d_valid[G]) != 0) & (uint64_t)(essent_to_u64(UInt<1>(0x1)) != 0);
       }
       if (_v2_sa_anyw == 0) {
-        for (int L = 0; L < 16; L++) { _s_ldut$subsystem_cbus$buffer$bundleIn_0_d_q$ram_opcode$io_deq_bits_MPORT[L] = ldut.subsystem_cbus.buffer.bundleIn_0_d_q.ram_opcode[essent_to_u64(ldut.subsystem_cbus.buffer.bundleIn_0_d_q.value_1[L])]; }
+        essent_table_read<16, 2, false>(&_s_ldut$subsystem_cbus$buffer$bundleIn_0_d_q$ram_opcode$io_deq_bits_MPORT[0], &ldut.subsystem_cbus.buffer.bundleIn_0_d_q.ram_opcode[0], &ldut.subsystem_cbus.buffer.bundleIn_0_d_q.value_1[0]);
       } else {
       {
         // [state-read-dense] forwarding=branchless
@@ -7205,10 +7156,11 @@
         for (int L = 0; L < 16; L++) {
           const uint64_t _v2_sa_addr = essent_to_u64(ldut.subsystem_cbus.buffer.bundleIn_0_d_q.value_1[L]);
           UInt<3> _v2_sa_value = ldut.subsystem_cbus.buffer.bundleIn_0_d_q.ram_opcode[_v2_sa_addr];
+          // [branchless-forward] select a valid source before loading data
           const int _v2_sa_prev_code = _v2_sa_last[_v2_sa_addr];
-          const uint64_t _v2_sa_prev_valid = (uint64_t)(_v2_sa_prev_code >= 0);
+          const bool _v2_sa_prev_valid = _v2_sa_prev_code >= 0;
           [[maybe_unused]] const int _v2_sa_prev_lane = _v2_sa_prev_code & -static_cast<int>(_v2_sa_prev_valid);
-          _v2_sa_value = essent_mux(UInt<1>(_v2_sa_prev_valid), _s_ldut$subsystem_cbus$out_xbar$auto_in_d_bits_opcode[_v2_sa_prev_lane], _v2_sa_value);
+          _v2_sa_value = *essent_select_ptr(_v2_sa_prev_valid, &(_s_ldut$subsystem_cbus$out_xbar$auto_in_d_bits_opcode[_v2_sa_prev_lane]), &_v2_sa_value);
           _s_ldut$subsystem_cbus$buffer$bundleIn_0_d_q$ram_opcode$io_deq_bits_MPORT[L] = _v2_sa_value;
           const uint64_t _v2_sa_write_addr_0 = essent_to_u64(ldut.subsystem_cbus.buffer.bundleIn_0_d_q.value[L]);
           const uint64_t _v2_sa_write_take_0 = (uint64_t)(essent_to_u64(_s_ldut$subsystem_cbus$buffer$bundleIn_0_d_q$io_enq_ready[L] & _s_ldut$subsystem_cbus$out_xbar$auto_in_d_valid[L]) != 0) & (uint64_t)(essent_to_u64(UInt<1>(0x1)) != 0);
@@ -7232,11 +7184,8 @@
         _v2_sa_anyw |= (uint64_t)(essent_to_u64(_s_ldut$subsystem_cbus$buffer$bundleIn_0_d_q$io_enq_ready[G] & _s_ldut$subsystem_cbus$out_xbar$auto_in_d_valid[G]) != 0) & (uint64_t)(essent_to_u64(UInt<1>(0x1)) != 0);
       }
       if (_v2_sa_anyw == 0) {
-        for (int L = 0; L < 16; L++) {
-          const uint64_t _v2_sa_field_addr = essent_to_u64(ldut.subsystem_cbus.buffer.bundleIn_0_d_q.value_1[L]);
-          _s_ldut$subsystem_cbus$buffer$bundleIn_0_d_q$ram_param$io_deq_bits_MPORT[L] = ldut.subsystem_cbus.buffer.bundleIn_0_d_q.ram_param[_v2_sa_field_addr];
-          _s_ldut$subsystem_cbus$buffer$bundleIn_0_d_q$ram_sink$io_deq_bits_MPORT[L] = ldut.subsystem_cbus.buffer.bundleIn_0_d_q.ram_sink[_v2_sa_field_addr];
-        }
+        essent_table_read<16, 2, false>(&_s_ldut$subsystem_cbus$buffer$bundleIn_0_d_q$ram_param$io_deq_bits_MPORT[0], &ldut.subsystem_cbus.buffer.bundleIn_0_d_q.ram_param[0], &ldut.subsystem_cbus.buffer.bundleIn_0_d_q.value_1[0]);
+        essent_table_read<16, 2, false>(&_s_ldut$subsystem_cbus$buffer$bundleIn_0_d_q$ram_sink$io_deq_bits_MPORT[0], &ldut.subsystem_cbus.buffer.bundleIn_0_d_q.ram_sink[0], &ldut.subsystem_cbus.buffer.bundleIn_0_d_q.value_1[0]);
       } else {
       {
         // [state-field-read-fused] 2 arrays share one access scan, mode=dense-branchless
@@ -7275,11 +7224,8 @@
         _v2_sa_anyw |= (uint64_t)(essent_to_u64(_s_ldut$subsystem_cbus$buffer$bundleIn_0_d_q$io_enq_ready[G] & _s_ldut$subsystem_cbus$out_xbar$auto_in_d_valid[G]) != 0) & (uint64_t)(essent_to_u64(UInt<1>(0x1)) != 0);
       }
       if (_v2_sa_anyw == 0) {
-        for (int L = 0; L < 16; L++) {
-          const uint64_t _v2_sa_field_addr = essent_to_u64(ldut.subsystem_cbus.buffer.bundleIn_0_d_q.value_1[L]);
-          _s_ldut$subsystem_cbus$buffer$bundleIn_0_d_q$ram_denied$io_deq_bits_MPORT[L] = ldut.subsystem_cbus.buffer.bundleIn_0_d_q.ram_denied[_v2_sa_field_addr];
-          _s_ldut$subsystem_cbus$buffer$bundleIn_0_d_q$ram_corrupt$io_deq_bits_MPORT[L] = ldut.subsystem_cbus.buffer.bundleIn_0_d_q.ram_corrupt[_v2_sa_field_addr];
-        }
+        essent_table_read<16, 2, false>(&_s_ldut$subsystem_cbus$buffer$bundleIn_0_d_q$ram_denied$io_deq_bits_MPORT[0], &ldut.subsystem_cbus.buffer.bundleIn_0_d_q.ram_denied[0], &ldut.subsystem_cbus.buffer.bundleIn_0_d_q.value_1[0]);
+        essent_table_read<16, 2, false>(&_s_ldut$subsystem_cbus$buffer$bundleIn_0_d_q$ram_corrupt$io_deq_bits_MPORT[0], &ldut.subsystem_cbus.buffer.bundleIn_0_d_q.ram_corrupt[0], &ldut.subsystem_cbus.buffer.bundleIn_0_d_q.value_1[0]);
       } else {
       {
         // [state-field-read-fused] 2 arrays share one access scan, mode=dense-branchless
@@ -7329,7 +7275,7 @@
         _v2_sa_anyw |= (uint64_t)(essent_to_u64(_s_ldut$subsystem_cbus$buffer$bundleIn_0_d_q$io_enq_ready[G] & _s_ldut$subsystem_cbus$out_xbar$auto_in_d_valid[G]) != 0) & (uint64_t)(essent_to_u64(UInt<1>(0x1)) != 0);
       }
       if (_v2_sa_anyw == 0) {
-        for (int L = 0; L < 16; L++) { _s_ldut$subsystem_cbus$buffer$bundleIn_0_d_q$ram_source$io_deq_bits_MPORT[L] = ldut.subsystem_cbus.buffer.bundleIn_0_d_q.ram_source[essent_to_u64(ldut.subsystem_cbus.buffer.bundleIn_0_d_q.value_1[L])]; }
+        essent_table_read<16, 2, false>(&_s_ldut$subsystem_cbus$buffer$bundleIn_0_d_q$ram_source$io_deq_bits_MPORT[0], &ldut.subsystem_cbus.buffer.bundleIn_0_d_q.ram_source[0], &ldut.subsystem_cbus.buffer.bundleIn_0_d_q.value_1[0]);
       } else {
       {
         // [state-read-dense] forwarding=branchless
@@ -7338,10 +7284,11 @@
         for (int L = 0; L < 16; L++) {
           const uint64_t _v2_sa_addr = essent_to_u64(ldut.subsystem_cbus.buffer.bundleIn_0_d_q.value_1[L]);
           UInt<5> _v2_sa_value = ldut.subsystem_cbus.buffer.bundleIn_0_d_q.ram_source[_v2_sa_addr];
+          // [branchless-forward] select a valid source before loading data
           const int _v2_sa_prev_code = _v2_sa_last[_v2_sa_addr];
-          const uint64_t _v2_sa_prev_valid = (uint64_t)(_v2_sa_prev_code >= 0);
+          const bool _v2_sa_prev_valid = _v2_sa_prev_code >= 0;
           [[maybe_unused]] const int _v2_sa_prev_lane = _v2_sa_prev_code & -static_cast<int>(_v2_sa_prev_valid);
-          _v2_sa_value = essent_mux(UInt<1>(_v2_sa_prev_valid), _s_ldut$subsystem_cbus$out_xbar$auto_in_d_bits_source[_v2_sa_prev_lane], _v2_sa_value);
+          _v2_sa_value = *essent_select_ptr(_v2_sa_prev_valid, &(_s_ldut$subsystem_cbus$out_xbar$auto_in_d_bits_source[_v2_sa_prev_lane]), &_v2_sa_value);
           _s_ldut$subsystem_cbus$buffer$bundleIn_0_d_q$ram_source$io_deq_bits_MPORT[L] = _v2_sa_value;
           const uint64_t _v2_sa_write_addr_0 = essent_to_u64(ldut.subsystem_cbus.buffer.bundleIn_0_d_q.value[L]);
           const uint64_t _v2_sa_write_take_0 = (uint64_t)(essent_to_u64(_s_ldut$subsystem_cbus$buffer$bundleIn_0_d_q$io_enq_ready[L] & _s_ldut$subsystem_cbus$out_xbar$auto_in_d_valid[L]) != 0) & (uint64_t)(essent_to_u64(UInt<1>(0x1)) != 0);
@@ -7413,7 +7360,7 @@
         _v2_sa_anyw |= (uint64_t)(essent_to_u64(_s_ldut$subsystem_cbus$buffer$bundleIn_0_d_q$io_enq_ready[G] & _s_ldut$subsystem_cbus$out_xbar$auto_in_d_valid[G]) != 0) & (uint64_t)(essent_to_u64(UInt<1>(0x1)) != 0);
       }
       if (_v2_sa_anyw == 0) {
-        for (int L = 0; L < 16; L++) { _s_ldut$subsystem_cbus$buffer$bundleIn_0_d_q$ram_size$io_deq_bits_MPORT[L] = ldut.subsystem_cbus.buffer.bundleIn_0_d_q.ram_size[essent_to_u64(ldut.subsystem_cbus.buffer.bundleIn_0_d_q.value_1[L])]; }
+        essent_table_read<16, 2, false>(&_s_ldut$subsystem_cbus$buffer$bundleIn_0_d_q$ram_size$io_deq_bits_MPORT[0], &ldut.subsystem_cbus.buffer.bundleIn_0_d_q.ram_size[0], &ldut.subsystem_cbus.buffer.bundleIn_0_d_q.value_1[0]);
       } else {
       {
         // [state-read-dense] forwarding=branchless
@@ -7422,10 +7369,11 @@
         for (int L = 0; L < 16; L++) {
           const uint64_t _v2_sa_addr = essent_to_u64(ldut.subsystem_cbus.buffer.bundleIn_0_d_q.value_1[L]);
           UInt<4> _v2_sa_value = ldut.subsystem_cbus.buffer.bundleIn_0_d_q.ram_size[_v2_sa_addr];
+          // [branchless-forward] select a valid source before loading data
           const int _v2_sa_prev_code = _v2_sa_last[_v2_sa_addr];
-          const uint64_t _v2_sa_prev_valid = (uint64_t)(_v2_sa_prev_code >= 0);
+          const bool _v2_sa_prev_valid = _v2_sa_prev_code >= 0;
           [[maybe_unused]] const int _v2_sa_prev_lane = _v2_sa_prev_code & -static_cast<int>(_v2_sa_prev_valid);
-          _v2_sa_value = essent_mux(UInt<1>(_v2_sa_prev_valid), _s_ldut$subsystem_cbus$out_xbar$auto_in_d_bits_size[_v2_sa_prev_lane], _v2_sa_value);
+          _v2_sa_value = *essent_select_ptr(_v2_sa_prev_valid, &(_s_ldut$subsystem_cbus$out_xbar$auto_in_d_bits_size[_v2_sa_prev_lane]), &_v2_sa_value);
           _s_ldut$subsystem_cbus$buffer$bundleIn_0_d_q$ram_size$io_deq_bits_MPORT[L] = _v2_sa_value;
           const uint64_t _v2_sa_write_addr_0 = essent_to_u64(ldut.subsystem_cbus.buffer.bundleIn_0_d_q.value[L]);
           const uint64_t _v2_sa_write_take_0 = (uint64_t)(essent_to_u64(_s_ldut$subsystem_cbus$buffer$bundleIn_0_d_q$io_enq_ready[L] & _s_ldut$subsystem_cbus$out_xbar$auto_in_d_valid[L]) != 0) & (uint64_t)(essent_to_u64(UInt<1>(0x1)) != 0);
@@ -7509,7 +7457,7 @@
         _v2_sa_anyw |= (uint64_t)(essent_to_u64(_s_ldut$tile_prci_domain$buffer_1$bundleIn_0_d_q$io_enq_ready[G] & _s_ldut$subsystem_sbus$system_bus_xbar$auto_in_1_d_valid[G]) != 0) & (uint64_t)(essent_to_u64(UInt<1>(0x1)) != 0);
       }
       if (_v2_sa_anyw == 0) {
-        for (int L = 0; L < 16; L++) { _s_ldut$tile_prci_domain$buffer_1$bundleIn_0_d_q$ram_opcode$io_deq_bits_MPORT[L] = ldut.tile_prci_domain.buffer_1.bundleIn_0_d_q.ram_opcode[essent_to_u64(ldut.tile_prci_domain.buffer_1.bundleIn_0_d_q.value_1[L])]; }
+        essent_table_read<16, 2, false>(&_s_ldut$tile_prci_domain$buffer_1$bundleIn_0_d_q$ram_opcode$io_deq_bits_MPORT[0], &ldut.tile_prci_domain.buffer_1.bundleIn_0_d_q.ram_opcode[0], &ldut.tile_prci_domain.buffer_1.bundleIn_0_d_q.value_1[0]);
       } else {
       {
         // [state-read-dense] forwarding=branchless
@@ -7518,10 +7466,11 @@
         for (int L = 0; L < 16; L++) {
           const uint64_t _v2_sa_addr = essent_to_u64(ldut.tile_prci_domain.buffer_1.bundleIn_0_d_q.value_1[L]);
           UInt<3> _v2_sa_value = ldut.tile_prci_domain.buffer_1.bundleIn_0_d_q.ram_opcode[_v2_sa_addr];
+          // [branchless-forward] select a valid source before loading data
           const int _v2_sa_prev_code = _v2_sa_last[_v2_sa_addr];
-          const uint64_t _v2_sa_prev_valid = (uint64_t)(_v2_sa_prev_code >= 0);
+          const bool _v2_sa_prev_valid = _v2_sa_prev_code >= 0;
           [[maybe_unused]] const int _v2_sa_prev_lane = _v2_sa_prev_code & -static_cast<int>(_v2_sa_prev_valid);
-          _v2_sa_value = essent_mux(UInt<1>(_v2_sa_prev_valid), _s_ldut$subsystem_sbus$system_bus_xbar$auto_in_1_d_bits_opcode[_v2_sa_prev_lane], _v2_sa_value);
+          _v2_sa_value = *essent_select_ptr(_v2_sa_prev_valid, &(_s_ldut$subsystem_sbus$system_bus_xbar$auto_in_1_d_bits_opcode[_v2_sa_prev_lane]), &_v2_sa_value);
           _s_ldut$tile_prci_domain$buffer_1$bundleIn_0_d_q$ram_opcode$io_deq_bits_MPORT[L] = _v2_sa_value;
           const uint64_t _v2_sa_write_addr_0 = essent_to_u64(ldut.tile_prci_domain.buffer_1.bundleIn_0_d_q.value[L]);
           const uint64_t _v2_sa_write_take_0 = (uint64_t)(essent_to_u64(_s_ldut$tile_prci_domain$buffer_1$bundleIn_0_d_q$io_enq_ready[L] & _s_ldut$subsystem_sbus$system_bus_xbar$auto_in_1_d_valid[L]) != 0) & (uint64_t)(essent_to_u64(UInt<1>(0x1)) != 0);
@@ -7555,7 +7504,7 @@
         _v2_sa_anyw |= (uint64_t)(essent_to_u64(_s_ldut$tile_prci_domain$buffer_1$bundleIn_0_d_q$io_enq_ready[G] & _s_ldut$subsystem_sbus$system_bus_xbar$auto_in_1_d_valid[G]) != 0) & (uint64_t)(essent_to_u64(UInt<1>(0x1)) != 0);
       }
       if (_v2_sa_anyw == 0) {
-        for (int L = 0; L < 16; L++) { _s_ldut$tile_prci_domain$buffer_1$bundleIn_0_d_q$ram_source$io_deq_bits_MPORT[L] = ldut.tile_prci_domain.buffer_1.bundleIn_0_d_q.ram_source[essent_to_u64(ldut.tile_prci_domain.buffer_1.bundleIn_0_d_q.value_1[L])]; }
+        essent_table_read<16, 2, false>(&_s_ldut$tile_prci_domain$buffer_1$bundleIn_0_d_q$ram_source$io_deq_bits_MPORT[0], &ldut.tile_prci_domain.buffer_1.bundleIn_0_d_q.ram_source[0], &ldut.tile_prci_domain.buffer_1.bundleIn_0_d_q.value_1[0]);
       } else {
       {
         // [state-read-dense] forwarding=branchless
@@ -7564,10 +7513,11 @@
         for (int L = 0; L < 16; L++) {
           const uint64_t _v2_sa_addr = essent_to_u64(ldut.tile_prci_domain.buffer_1.bundleIn_0_d_q.value_1[L]);
           UInt<4> _v2_sa_value = ldut.tile_prci_domain.buffer_1.bundleIn_0_d_q.ram_source[_v2_sa_addr];
+          // [branchless-forward] select a valid source before loading data
           const int _v2_sa_prev_code = _v2_sa_last[_v2_sa_addr];
-          const uint64_t _v2_sa_prev_valid = (uint64_t)(_v2_sa_prev_code >= 0);
+          const bool _v2_sa_prev_valid = _v2_sa_prev_code >= 0;
           [[maybe_unused]] const int _v2_sa_prev_lane = _v2_sa_prev_code & -static_cast<int>(_v2_sa_prev_valid);
-          _v2_sa_value = essent_mux(UInt<1>(_v2_sa_prev_valid), _s_ldut$subsystem_sbus$system_bus_xbar$auto_in_1_d_bits_source[_v2_sa_prev_lane], _v2_sa_value);
+          _v2_sa_value = *essent_select_ptr(_v2_sa_prev_valid, &(_s_ldut$subsystem_sbus$system_bus_xbar$auto_in_1_d_bits_source[_v2_sa_prev_lane]), &_v2_sa_value);
           _s_ldut$tile_prci_domain$buffer_1$bundleIn_0_d_q$ram_source$io_deq_bits_MPORT[L] = _v2_sa_value;
           const uint64_t _v2_sa_write_addr_0 = essent_to_u64(ldut.tile_prci_domain.buffer_1.bundleIn_0_d_q.value[L]);
           const uint64_t _v2_sa_write_take_0 = (uint64_t)(essent_to_u64(_s_ldut$tile_prci_domain$buffer_1$bundleIn_0_d_q$io_enq_ready[L] & _s_ldut$subsystem_sbus$system_bus_xbar$auto_in_1_d_valid[L]) != 0) & (uint64_t)(essent_to_u64(UInt<1>(0x1)) != 0);
@@ -8064,7 +8014,7 @@
         _v2_sa_anyw |= (uint64_t)(essent_to_u64(_s_ldut$subsystem_cbus$buffer$bundleIn_0_d_q$io_enq_ready[G] & _s_ldut$subsystem_cbus$out_xbar$auto_in_d_valid[G]) != 0) & (uint64_t)(essent_to_u64(UInt<1>(0x1)) != 0);
       }
       if (_v2_sa_anyw == 0) {
-        for (int L = 0; L < 16; L++) { _s_ldut$subsystem_cbus$buffer$bundleIn_0_d_q$ram_data$io_deq_bits_MPORT[L] = ldut.subsystem_cbus.buffer.bundleIn_0_d_q.ram_data[essent_to_u64(ldut.subsystem_cbus.buffer.bundleIn_0_d_q.value_1[L])]; }
+        essent_table_read<16, 2, false>(&_s_ldut$subsystem_cbus$buffer$bundleIn_0_d_q$ram_data$io_deq_bits_MPORT[0], &ldut.subsystem_cbus.buffer.bundleIn_0_d_q.ram_data[0], &ldut.subsystem_cbus.buffer.bundleIn_0_d_q.value_1[0]);
       } else {
       {
         // [state-read-dense] forwarding=branchless
@@ -8073,10 +8023,11 @@
         for (int L = 0; L < 16; L++) {
           const uint64_t _v2_sa_addr = essent_to_u64(ldut.subsystem_cbus.buffer.bundleIn_0_d_q.value_1[L]);
           UInt<64> _v2_sa_value = ldut.subsystem_cbus.buffer.bundleIn_0_d_q.ram_data[_v2_sa_addr];
+          // [branchless-forward] select a valid source before loading data
           const int _v2_sa_prev_code = _v2_sa_last[_v2_sa_addr];
-          const uint64_t _v2_sa_prev_valid = (uint64_t)(_v2_sa_prev_code >= 0);
+          const bool _v2_sa_prev_valid = _v2_sa_prev_code >= 0;
           [[maybe_unused]] const int _v2_sa_prev_lane = _v2_sa_prev_code & -static_cast<int>(_v2_sa_prev_valid);
-          _v2_sa_value = essent_mux(UInt<1>(_v2_sa_prev_valid), _s_ldut$subsystem_cbus$out_xbar$auto_in_d_bits_data[_v2_sa_prev_lane], _v2_sa_value);
+          _v2_sa_value = *essent_select_ptr(_v2_sa_prev_valid, &(_s_ldut$subsystem_cbus$out_xbar$auto_in_d_bits_data[_v2_sa_prev_lane]), &_v2_sa_value);
           _s_ldut$subsystem_cbus$buffer$bundleIn_0_d_q$ram_data$io_deq_bits_MPORT[L] = _v2_sa_value;
           const uint64_t _v2_sa_write_addr_0 = essent_to_u64(ldut.subsystem_cbus.buffer.bundleIn_0_d_q.value[L]);
           const uint64_t _v2_sa_write_take_0 = (uint64_t)(essent_to_u64(_s_ldut$subsystem_cbus$buffer$bundleIn_0_d_q$io_enq_ready[L] & _s_ldut$subsystem_cbus$out_xbar$auto_in_d_valid[L]) != 0) & (uint64_t)(essent_to_u64(UInt<1>(0x1)) != 0);
@@ -10594,7 +10545,7 @@
         ESSENT_LANE_LOOP
         for (int L = 0; L < 16; L++) ldut.debug_1.dmOuter.dmiBypass.bar.counter[L] = _gv;
       } else {
-        for (int L = 1; L < 16; L++) ldut.debug_1.dmOuter.dmiBypass.bar.counter[L] = (~reset) & (_s_ldut$debug_1$dmOuter$dmiBypass$bar$done[L - 1] ? (ldut.debug_1.dmOuter.dmiBypass.bar.counter[L - 1] & ((ldut.debug_1.dmOuter.dmiBypass.bar.counter[L - 1] - UInt<1>(0x1)).tail<1>())) : ldut.debug_1.dmOuter.dmiBypass.bar.counter[L - 1]);
+        for (int L = 1; L < 16; L++) ldut.debug_1.dmOuter.dmiBypass.bar.counter[L].val = static_cast<typename UInt<1>::scalar_t>((static_cast<uint8_t>((static_cast<uint8_t>((((static_cast<uint8_t>((~static_cast<uint8_t>(reset.val))) & 0x1u)) & ((static_cast<uint8_t>(essent_select_word<uint32_t>(((static_cast<uint8_t>(_s_ldut$debug_1$dmOuter$dmiBypass$bar$done[L - 1].val) & 0x1u)) != 0, static_cast<uint32_t>((static_cast<uint8_t>(((ldut.debug_1.dmOuter.dmiBypass.bar.counter[L - 1].val) & ((static_cast<uint8_t>((static_cast<uint8_t>((static_cast<uint8_t>((static_cast<uint8_t>(ldut.debug_1.dmOuter.dmiBypass.bar.counter[L - 1].val) - static_cast<uint8_t>((static_cast<uint8_t>(0x1u) & 0x1u)))) & 0x3u)) & 0x1u)) & 0x1u)))) & 0x1u)), static_cast<uint32_t>(ldut.debug_1.dmOuter.dmiBypass.bar.counter[L - 1].val))) & 0x1u)))) & 0x1u)) & 0x1u));
       }
     }
     // [vec comb] 1 templates x 16 lanes
@@ -10712,7 +10663,7 @@
         ESSENT_LANE_LOOP
         for (int L = 0; L < 16; L++) ldut.debug_1.dmOuter.dmiBypass.bar.counter_3[L] = _gv;
       } else {
-        for (int L = 1; L < 16; L++) ldut.debug_1.dmOuter.dmiBypass.bar.counter_3[L] = (~reset) & (_s_ldut$debug_1$dmOuter$dmiBypass$bar$done_3[L - 1] ? (ldut.debug_1.dmOuter.dmiBypass.bar.counter_3[L - 1] & ((ldut.debug_1.dmOuter.dmiBypass.bar.counter_3[L - 1] - UInt<1>(0x1)).tail<1>())) : ldut.debug_1.dmOuter.dmiBypass.bar.counter_3[L - 1]);
+        for (int L = 1; L < 16; L++) ldut.debug_1.dmOuter.dmiBypass.bar.counter_3[L].val = static_cast<typename UInt<1>::scalar_t>((static_cast<uint8_t>((static_cast<uint8_t>((((static_cast<uint8_t>((~static_cast<uint8_t>(reset.val))) & 0x1u)) & ((static_cast<uint8_t>(essent_select_word<uint32_t>(((static_cast<uint8_t>(_s_ldut$debug_1$dmOuter$dmiBypass$bar$done_3[L - 1].val) & 0x1u)) != 0, static_cast<uint32_t>((static_cast<uint8_t>(((ldut.debug_1.dmOuter.dmiBypass.bar.counter_3[L - 1].val) & ((static_cast<uint8_t>((static_cast<uint8_t>((static_cast<uint8_t>((static_cast<uint8_t>(ldut.debug_1.dmOuter.dmiBypass.bar.counter_3[L - 1].val) - static_cast<uint8_t>((static_cast<uint8_t>(0x1u) & 0x1u)))) & 0x3u)) & 0x1u)) & 0x1u)))) & 0x1u)), static_cast<uint32_t>(ldut.debug_1.dmOuter.dmiBypass.bar.counter_3[L - 1].val))) & 0x1u)))) & 0x1u)) & 0x1u));
       }
     }
     // [vec comb] 1 templates x 16 lanes
@@ -11183,35 +11134,35 @@
     }
     // [serial scc=6] 1 templates (0 comb), regs=[haveResetBitRegs]
     // [serial scc=6 lane=1]
-    ldut.debug_1.dmInner.dmInner.haveResetBitRegs[1] = clock_en[1 - 1] ? ((~_s_ldut$debug_1$dmInner$dmInner$_T_1[1 - 1]) & (_s_ldut$debug_1$dmInner$dmInner$_T_20[1 - 1] ? ((ldut.debug_1.dmInner.dmInner.haveResetBitRegs[1 - 1] & _s_ldut$debug_1$dmInner$dmInner$_resumeAcks_T_1[1 - 1]) | ldut.debug_1.dmInner.dmInner.hartIsInResetSync_0_debug_hartReset_0.output_chain.sync_0[1 - 1]) : (ldut.debug_1.dmInner.dmInner.haveResetBitRegs[1 - 1] | ldut.debug_1.dmInner.dmInner.hartIsInResetSync_0_debug_hartReset_0.output_chain.sync_0[1 - 1]))) : ldut.debug_1.dmInner.dmInner.haveResetBitRegs[1 - 1];
+    ldut.debug_1.dmInner.dmInner.haveResetBitRegs[1].val = static_cast<typename UInt<1>::scalar_t>((static_cast<uint8_t>((static_cast<uint8_t>(essent_select_word<uint32_t>(((static_cast<uint8_t>(clock_en[1 - 1].val) & 0x1u)) != 0, static_cast<uint32_t>((static_cast<uint8_t>((((static_cast<uint8_t>((~static_cast<uint8_t>(_s_ldut$debug_1$dmInner$dmInner$_T_1[1 - 1].val))) & 0x1u)) & ((static_cast<uint8_t>(essent_select_word<uint32_t>(((static_cast<uint8_t>(_s_ldut$debug_1$dmInner$dmInner$_T_20[1 - 1].val) & 0x1u)) != 0, static_cast<uint32_t>((static_cast<uint8_t>((((static_cast<uint8_t>(((ldut.debug_1.dmInner.dmInner.haveResetBitRegs[1 - 1].val) & (_s_ldut$debug_1$dmInner$dmInner$_resumeAcks_T_1[1 - 1].val))) & 0x1u)) | (ldut.debug_1.dmInner.dmInner.hartIsInResetSync_0_debug_hartReset_0.output_chain.sync_0[1 - 1].val))) & 0x1u)), static_cast<uint32_t>((static_cast<uint8_t>(((ldut.debug_1.dmInner.dmInner.haveResetBitRegs[1 - 1].val) | (ldut.debug_1.dmInner.dmInner.hartIsInResetSync_0_debug_hartReset_0.output_chain.sync_0[1 - 1].val))) & 0x1u)))) & 0x1u)))) & 0x1u)), static_cast<uint32_t>(ldut.debug_1.dmInner.dmInner.haveResetBitRegs[1 - 1].val))) & 0x1u)) & 0x1u));
     // [serial scc=6 lane=2]
-    ldut.debug_1.dmInner.dmInner.haveResetBitRegs[2] = clock_en[2 - 1] ? ((~_s_ldut$debug_1$dmInner$dmInner$_T_1[2 - 1]) & (_s_ldut$debug_1$dmInner$dmInner$_T_20[2 - 1] ? ((ldut.debug_1.dmInner.dmInner.haveResetBitRegs[2 - 1] & _s_ldut$debug_1$dmInner$dmInner$_resumeAcks_T_1[2 - 1]) | ldut.debug_1.dmInner.dmInner.hartIsInResetSync_0_debug_hartReset_0.output_chain.sync_0[2 - 1]) : (ldut.debug_1.dmInner.dmInner.haveResetBitRegs[2 - 1] | ldut.debug_1.dmInner.dmInner.hartIsInResetSync_0_debug_hartReset_0.output_chain.sync_0[2 - 1]))) : ldut.debug_1.dmInner.dmInner.haveResetBitRegs[2 - 1];
+    ldut.debug_1.dmInner.dmInner.haveResetBitRegs[2].val = static_cast<typename UInt<1>::scalar_t>((static_cast<uint8_t>((static_cast<uint8_t>(essent_select_word<uint32_t>(((static_cast<uint8_t>(clock_en[2 - 1].val) & 0x1u)) != 0, static_cast<uint32_t>((static_cast<uint8_t>((((static_cast<uint8_t>((~static_cast<uint8_t>(_s_ldut$debug_1$dmInner$dmInner$_T_1[2 - 1].val))) & 0x1u)) & ((static_cast<uint8_t>(essent_select_word<uint32_t>(((static_cast<uint8_t>(_s_ldut$debug_1$dmInner$dmInner$_T_20[2 - 1].val) & 0x1u)) != 0, static_cast<uint32_t>((static_cast<uint8_t>((((static_cast<uint8_t>(((ldut.debug_1.dmInner.dmInner.haveResetBitRegs[2 - 1].val) & (_s_ldut$debug_1$dmInner$dmInner$_resumeAcks_T_1[2 - 1].val))) & 0x1u)) | (ldut.debug_1.dmInner.dmInner.hartIsInResetSync_0_debug_hartReset_0.output_chain.sync_0[2 - 1].val))) & 0x1u)), static_cast<uint32_t>((static_cast<uint8_t>(((ldut.debug_1.dmInner.dmInner.haveResetBitRegs[2 - 1].val) | (ldut.debug_1.dmInner.dmInner.hartIsInResetSync_0_debug_hartReset_0.output_chain.sync_0[2 - 1].val))) & 0x1u)))) & 0x1u)))) & 0x1u)), static_cast<uint32_t>(ldut.debug_1.dmInner.dmInner.haveResetBitRegs[2 - 1].val))) & 0x1u)) & 0x1u));
     // [serial scc=6 lane=3]
-    ldut.debug_1.dmInner.dmInner.haveResetBitRegs[3] = clock_en[3 - 1] ? ((~_s_ldut$debug_1$dmInner$dmInner$_T_1[3 - 1]) & (_s_ldut$debug_1$dmInner$dmInner$_T_20[3 - 1] ? ((ldut.debug_1.dmInner.dmInner.haveResetBitRegs[3 - 1] & _s_ldut$debug_1$dmInner$dmInner$_resumeAcks_T_1[3 - 1]) | ldut.debug_1.dmInner.dmInner.hartIsInResetSync_0_debug_hartReset_0.output_chain.sync_0[3 - 1]) : (ldut.debug_1.dmInner.dmInner.haveResetBitRegs[3 - 1] | ldut.debug_1.dmInner.dmInner.hartIsInResetSync_0_debug_hartReset_0.output_chain.sync_0[3 - 1]))) : ldut.debug_1.dmInner.dmInner.haveResetBitRegs[3 - 1];
+    ldut.debug_1.dmInner.dmInner.haveResetBitRegs[3].val = static_cast<typename UInt<1>::scalar_t>((static_cast<uint8_t>((static_cast<uint8_t>(essent_select_word<uint32_t>(((static_cast<uint8_t>(clock_en[3 - 1].val) & 0x1u)) != 0, static_cast<uint32_t>((static_cast<uint8_t>((((static_cast<uint8_t>((~static_cast<uint8_t>(_s_ldut$debug_1$dmInner$dmInner$_T_1[3 - 1].val))) & 0x1u)) & ((static_cast<uint8_t>(essent_select_word<uint32_t>(((static_cast<uint8_t>(_s_ldut$debug_1$dmInner$dmInner$_T_20[3 - 1].val) & 0x1u)) != 0, static_cast<uint32_t>((static_cast<uint8_t>((((static_cast<uint8_t>(((ldut.debug_1.dmInner.dmInner.haveResetBitRegs[3 - 1].val) & (_s_ldut$debug_1$dmInner$dmInner$_resumeAcks_T_1[3 - 1].val))) & 0x1u)) | (ldut.debug_1.dmInner.dmInner.hartIsInResetSync_0_debug_hartReset_0.output_chain.sync_0[3 - 1].val))) & 0x1u)), static_cast<uint32_t>((static_cast<uint8_t>(((ldut.debug_1.dmInner.dmInner.haveResetBitRegs[3 - 1].val) | (ldut.debug_1.dmInner.dmInner.hartIsInResetSync_0_debug_hartReset_0.output_chain.sync_0[3 - 1].val))) & 0x1u)))) & 0x1u)))) & 0x1u)), static_cast<uint32_t>(ldut.debug_1.dmInner.dmInner.haveResetBitRegs[3 - 1].val))) & 0x1u)) & 0x1u));
     // [serial scc=6 lane=4]
-    ldut.debug_1.dmInner.dmInner.haveResetBitRegs[4] = clock_en[4 - 1] ? ((~_s_ldut$debug_1$dmInner$dmInner$_T_1[4 - 1]) & (_s_ldut$debug_1$dmInner$dmInner$_T_20[4 - 1] ? ((ldut.debug_1.dmInner.dmInner.haveResetBitRegs[4 - 1] & _s_ldut$debug_1$dmInner$dmInner$_resumeAcks_T_1[4 - 1]) | ldut.debug_1.dmInner.dmInner.hartIsInResetSync_0_debug_hartReset_0.output_chain.sync_0[4 - 1]) : (ldut.debug_1.dmInner.dmInner.haveResetBitRegs[4 - 1] | ldut.debug_1.dmInner.dmInner.hartIsInResetSync_0_debug_hartReset_0.output_chain.sync_0[4 - 1]))) : ldut.debug_1.dmInner.dmInner.haveResetBitRegs[4 - 1];
+    ldut.debug_1.dmInner.dmInner.haveResetBitRegs[4].val = static_cast<typename UInt<1>::scalar_t>((static_cast<uint8_t>((static_cast<uint8_t>(essent_select_word<uint32_t>(((static_cast<uint8_t>(clock_en[4 - 1].val) & 0x1u)) != 0, static_cast<uint32_t>((static_cast<uint8_t>((((static_cast<uint8_t>((~static_cast<uint8_t>(_s_ldut$debug_1$dmInner$dmInner$_T_1[4 - 1].val))) & 0x1u)) & ((static_cast<uint8_t>(essent_select_word<uint32_t>(((static_cast<uint8_t>(_s_ldut$debug_1$dmInner$dmInner$_T_20[4 - 1].val) & 0x1u)) != 0, static_cast<uint32_t>((static_cast<uint8_t>((((static_cast<uint8_t>(((ldut.debug_1.dmInner.dmInner.haveResetBitRegs[4 - 1].val) & (_s_ldut$debug_1$dmInner$dmInner$_resumeAcks_T_1[4 - 1].val))) & 0x1u)) | (ldut.debug_1.dmInner.dmInner.hartIsInResetSync_0_debug_hartReset_0.output_chain.sync_0[4 - 1].val))) & 0x1u)), static_cast<uint32_t>((static_cast<uint8_t>(((ldut.debug_1.dmInner.dmInner.haveResetBitRegs[4 - 1].val) | (ldut.debug_1.dmInner.dmInner.hartIsInResetSync_0_debug_hartReset_0.output_chain.sync_0[4 - 1].val))) & 0x1u)))) & 0x1u)))) & 0x1u)), static_cast<uint32_t>(ldut.debug_1.dmInner.dmInner.haveResetBitRegs[4 - 1].val))) & 0x1u)) & 0x1u));
     // [serial scc=6 lane=5]
-    ldut.debug_1.dmInner.dmInner.haveResetBitRegs[5] = clock_en[5 - 1] ? ((~_s_ldut$debug_1$dmInner$dmInner$_T_1[5 - 1]) & (_s_ldut$debug_1$dmInner$dmInner$_T_20[5 - 1] ? ((ldut.debug_1.dmInner.dmInner.haveResetBitRegs[5 - 1] & _s_ldut$debug_1$dmInner$dmInner$_resumeAcks_T_1[5 - 1]) | ldut.debug_1.dmInner.dmInner.hartIsInResetSync_0_debug_hartReset_0.output_chain.sync_0[5 - 1]) : (ldut.debug_1.dmInner.dmInner.haveResetBitRegs[5 - 1] | ldut.debug_1.dmInner.dmInner.hartIsInResetSync_0_debug_hartReset_0.output_chain.sync_0[5 - 1]))) : ldut.debug_1.dmInner.dmInner.haveResetBitRegs[5 - 1];
+    ldut.debug_1.dmInner.dmInner.haveResetBitRegs[5].val = static_cast<typename UInt<1>::scalar_t>((static_cast<uint8_t>((static_cast<uint8_t>(essent_select_word<uint32_t>(((static_cast<uint8_t>(clock_en[5 - 1].val) & 0x1u)) != 0, static_cast<uint32_t>((static_cast<uint8_t>((((static_cast<uint8_t>((~static_cast<uint8_t>(_s_ldut$debug_1$dmInner$dmInner$_T_1[5 - 1].val))) & 0x1u)) & ((static_cast<uint8_t>(essent_select_word<uint32_t>(((static_cast<uint8_t>(_s_ldut$debug_1$dmInner$dmInner$_T_20[5 - 1].val) & 0x1u)) != 0, static_cast<uint32_t>((static_cast<uint8_t>((((static_cast<uint8_t>(((ldut.debug_1.dmInner.dmInner.haveResetBitRegs[5 - 1].val) & (_s_ldut$debug_1$dmInner$dmInner$_resumeAcks_T_1[5 - 1].val))) & 0x1u)) | (ldut.debug_1.dmInner.dmInner.hartIsInResetSync_0_debug_hartReset_0.output_chain.sync_0[5 - 1].val))) & 0x1u)), static_cast<uint32_t>((static_cast<uint8_t>(((ldut.debug_1.dmInner.dmInner.haveResetBitRegs[5 - 1].val) | (ldut.debug_1.dmInner.dmInner.hartIsInResetSync_0_debug_hartReset_0.output_chain.sync_0[5 - 1].val))) & 0x1u)))) & 0x1u)))) & 0x1u)), static_cast<uint32_t>(ldut.debug_1.dmInner.dmInner.haveResetBitRegs[5 - 1].val))) & 0x1u)) & 0x1u));
     // [serial scc=6 lane=6]
-    ldut.debug_1.dmInner.dmInner.haveResetBitRegs[6] = clock_en[6 - 1] ? ((~_s_ldut$debug_1$dmInner$dmInner$_T_1[6 - 1]) & (_s_ldut$debug_1$dmInner$dmInner$_T_20[6 - 1] ? ((ldut.debug_1.dmInner.dmInner.haveResetBitRegs[6 - 1] & _s_ldut$debug_1$dmInner$dmInner$_resumeAcks_T_1[6 - 1]) | ldut.debug_1.dmInner.dmInner.hartIsInResetSync_0_debug_hartReset_0.output_chain.sync_0[6 - 1]) : (ldut.debug_1.dmInner.dmInner.haveResetBitRegs[6 - 1] | ldut.debug_1.dmInner.dmInner.hartIsInResetSync_0_debug_hartReset_0.output_chain.sync_0[6 - 1]))) : ldut.debug_1.dmInner.dmInner.haveResetBitRegs[6 - 1];
+    ldut.debug_1.dmInner.dmInner.haveResetBitRegs[6].val = static_cast<typename UInt<1>::scalar_t>((static_cast<uint8_t>((static_cast<uint8_t>(essent_select_word<uint32_t>(((static_cast<uint8_t>(clock_en[6 - 1].val) & 0x1u)) != 0, static_cast<uint32_t>((static_cast<uint8_t>((((static_cast<uint8_t>((~static_cast<uint8_t>(_s_ldut$debug_1$dmInner$dmInner$_T_1[6 - 1].val))) & 0x1u)) & ((static_cast<uint8_t>(essent_select_word<uint32_t>(((static_cast<uint8_t>(_s_ldut$debug_1$dmInner$dmInner$_T_20[6 - 1].val) & 0x1u)) != 0, static_cast<uint32_t>((static_cast<uint8_t>((((static_cast<uint8_t>(((ldut.debug_1.dmInner.dmInner.haveResetBitRegs[6 - 1].val) & (_s_ldut$debug_1$dmInner$dmInner$_resumeAcks_T_1[6 - 1].val))) & 0x1u)) | (ldut.debug_1.dmInner.dmInner.hartIsInResetSync_0_debug_hartReset_0.output_chain.sync_0[6 - 1].val))) & 0x1u)), static_cast<uint32_t>((static_cast<uint8_t>(((ldut.debug_1.dmInner.dmInner.haveResetBitRegs[6 - 1].val) | (ldut.debug_1.dmInner.dmInner.hartIsInResetSync_0_debug_hartReset_0.output_chain.sync_0[6 - 1].val))) & 0x1u)))) & 0x1u)))) & 0x1u)), static_cast<uint32_t>(ldut.debug_1.dmInner.dmInner.haveResetBitRegs[6 - 1].val))) & 0x1u)) & 0x1u));
     // [serial scc=6 lane=7]
-    ldut.debug_1.dmInner.dmInner.haveResetBitRegs[7] = clock_en[7 - 1] ? ((~_s_ldut$debug_1$dmInner$dmInner$_T_1[7 - 1]) & (_s_ldut$debug_1$dmInner$dmInner$_T_20[7 - 1] ? ((ldut.debug_1.dmInner.dmInner.haveResetBitRegs[7 - 1] & _s_ldut$debug_1$dmInner$dmInner$_resumeAcks_T_1[7 - 1]) | ldut.debug_1.dmInner.dmInner.hartIsInResetSync_0_debug_hartReset_0.output_chain.sync_0[7 - 1]) : (ldut.debug_1.dmInner.dmInner.haveResetBitRegs[7 - 1] | ldut.debug_1.dmInner.dmInner.hartIsInResetSync_0_debug_hartReset_0.output_chain.sync_0[7 - 1]))) : ldut.debug_1.dmInner.dmInner.haveResetBitRegs[7 - 1];
+    ldut.debug_1.dmInner.dmInner.haveResetBitRegs[7].val = static_cast<typename UInt<1>::scalar_t>((static_cast<uint8_t>((static_cast<uint8_t>(essent_select_word<uint32_t>(((static_cast<uint8_t>(clock_en[7 - 1].val) & 0x1u)) != 0, static_cast<uint32_t>((static_cast<uint8_t>((((static_cast<uint8_t>((~static_cast<uint8_t>(_s_ldut$debug_1$dmInner$dmInner$_T_1[7 - 1].val))) & 0x1u)) & ((static_cast<uint8_t>(essent_select_word<uint32_t>(((static_cast<uint8_t>(_s_ldut$debug_1$dmInner$dmInner$_T_20[7 - 1].val) & 0x1u)) != 0, static_cast<uint32_t>((static_cast<uint8_t>((((static_cast<uint8_t>(((ldut.debug_1.dmInner.dmInner.haveResetBitRegs[7 - 1].val) & (_s_ldut$debug_1$dmInner$dmInner$_resumeAcks_T_1[7 - 1].val))) & 0x1u)) | (ldut.debug_1.dmInner.dmInner.hartIsInResetSync_0_debug_hartReset_0.output_chain.sync_0[7 - 1].val))) & 0x1u)), static_cast<uint32_t>((static_cast<uint8_t>(((ldut.debug_1.dmInner.dmInner.haveResetBitRegs[7 - 1].val) | (ldut.debug_1.dmInner.dmInner.hartIsInResetSync_0_debug_hartReset_0.output_chain.sync_0[7 - 1].val))) & 0x1u)))) & 0x1u)))) & 0x1u)), static_cast<uint32_t>(ldut.debug_1.dmInner.dmInner.haveResetBitRegs[7 - 1].val))) & 0x1u)) & 0x1u));
     // [serial scc=6 lane=8]
-    ldut.debug_1.dmInner.dmInner.haveResetBitRegs[8] = clock_en[8 - 1] ? ((~_s_ldut$debug_1$dmInner$dmInner$_T_1[8 - 1]) & (_s_ldut$debug_1$dmInner$dmInner$_T_20[8 - 1] ? ((ldut.debug_1.dmInner.dmInner.haveResetBitRegs[8 - 1] & _s_ldut$debug_1$dmInner$dmInner$_resumeAcks_T_1[8 - 1]) | ldut.debug_1.dmInner.dmInner.hartIsInResetSync_0_debug_hartReset_0.output_chain.sync_0[8 - 1]) : (ldut.debug_1.dmInner.dmInner.haveResetBitRegs[8 - 1] | ldut.debug_1.dmInner.dmInner.hartIsInResetSync_0_debug_hartReset_0.output_chain.sync_0[8 - 1]))) : ldut.debug_1.dmInner.dmInner.haveResetBitRegs[8 - 1];
+    ldut.debug_1.dmInner.dmInner.haveResetBitRegs[8].val = static_cast<typename UInt<1>::scalar_t>((static_cast<uint8_t>((static_cast<uint8_t>(essent_select_word<uint32_t>(((static_cast<uint8_t>(clock_en[8 - 1].val) & 0x1u)) != 0, static_cast<uint32_t>((static_cast<uint8_t>((((static_cast<uint8_t>((~static_cast<uint8_t>(_s_ldut$debug_1$dmInner$dmInner$_T_1[8 - 1].val))) & 0x1u)) & ((static_cast<uint8_t>(essent_select_word<uint32_t>(((static_cast<uint8_t>(_s_ldut$debug_1$dmInner$dmInner$_T_20[8 - 1].val) & 0x1u)) != 0, static_cast<uint32_t>((static_cast<uint8_t>((((static_cast<uint8_t>(((ldut.debug_1.dmInner.dmInner.haveResetBitRegs[8 - 1].val) & (_s_ldut$debug_1$dmInner$dmInner$_resumeAcks_T_1[8 - 1].val))) & 0x1u)) | (ldut.debug_1.dmInner.dmInner.hartIsInResetSync_0_debug_hartReset_0.output_chain.sync_0[8 - 1].val))) & 0x1u)), static_cast<uint32_t>((static_cast<uint8_t>(((ldut.debug_1.dmInner.dmInner.haveResetBitRegs[8 - 1].val) | (ldut.debug_1.dmInner.dmInner.hartIsInResetSync_0_debug_hartReset_0.output_chain.sync_0[8 - 1].val))) & 0x1u)))) & 0x1u)))) & 0x1u)), static_cast<uint32_t>(ldut.debug_1.dmInner.dmInner.haveResetBitRegs[8 - 1].val))) & 0x1u)) & 0x1u));
     // [serial scc=6 lane=9]
-    ldut.debug_1.dmInner.dmInner.haveResetBitRegs[9] = clock_en[9 - 1] ? ((~_s_ldut$debug_1$dmInner$dmInner$_T_1[9 - 1]) & (_s_ldut$debug_1$dmInner$dmInner$_T_20[9 - 1] ? ((ldut.debug_1.dmInner.dmInner.haveResetBitRegs[9 - 1] & _s_ldut$debug_1$dmInner$dmInner$_resumeAcks_T_1[9 - 1]) | ldut.debug_1.dmInner.dmInner.hartIsInResetSync_0_debug_hartReset_0.output_chain.sync_0[9 - 1]) : (ldut.debug_1.dmInner.dmInner.haveResetBitRegs[9 - 1] | ldut.debug_1.dmInner.dmInner.hartIsInResetSync_0_debug_hartReset_0.output_chain.sync_0[9 - 1]))) : ldut.debug_1.dmInner.dmInner.haveResetBitRegs[9 - 1];
+    ldut.debug_1.dmInner.dmInner.haveResetBitRegs[9].val = static_cast<typename UInt<1>::scalar_t>((static_cast<uint8_t>((static_cast<uint8_t>(essent_select_word<uint32_t>(((static_cast<uint8_t>(clock_en[9 - 1].val) & 0x1u)) != 0, static_cast<uint32_t>((static_cast<uint8_t>((((static_cast<uint8_t>((~static_cast<uint8_t>(_s_ldut$debug_1$dmInner$dmInner$_T_1[9 - 1].val))) & 0x1u)) & ((static_cast<uint8_t>(essent_select_word<uint32_t>(((static_cast<uint8_t>(_s_ldut$debug_1$dmInner$dmInner$_T_20[9 - 1].val) & 0x1u)) != 0, static_cast<uint32_t>((static_cast<uint8_t>((((static_cast<uint8_t>(((ldut.debug_1.dmInner.dmInner.haveResetBitRegs[9 - 1].val) & (_s_ldut$debug_1$dmInner$dmInner$_resumeAcks_T_1[9 - 1].val))) & 0x1u)) | (ldut.debug_1.dmInner.dmInner.hartIsInResetSync_0_debug_hartReset_0.output_chain.sync_0[9 - 1].val))) & 0x1u)), static_cast<uint32_t>((static_cast<uint8_t>(((ldut.debug_1.dmInner.dmInner.haveResetBitRegs[9 - 1].val) | (ldut.debug_1.dmInner.dmInner.hartIsInResetSync_0_debug_hartReset_0.output_chain.sync_0[9 - 1].val))) & 0x1u)))) & 0x1u)))) & 0x1u)), static_cast<uint32_t>(ldut.debug_1.dmInner.dmInner.haveResetBitRegs[9 - 1].val))) & 0x1u)) & 0x1u));
     // [serial scc=6 lane=10]
-    ldut.debug_1.dmInner.dmInner.haveResetBitRegs[10] = clock_en[10 - 1] ? ((~_s_ldut$debug_1$dmInner$dmInner$_T_1[10 - 1]) & (_s_ldut$debug_1$dmInner$dmInner$_T_20[10 - 1] ? ((ldut.debug_1.dmInner.dmInner.haveResetBitRegs[10 - 1] & _s_ldut$debug_1$dmInner$dmInner$_resumeAcks_T_1[10 - 1]) | ldut.debug_1.dmInner.dmInner.hartIsInResetSync_0_debug_hartReset_0.output_chain.sync_0[10 - 1]) : (ldut.debug_1.dmInner.dmInner.haveResetBitRegs[10 - 1] | ldut.debug_1.dmInner.dmInner.hartIsInResetSync_0_debug_hartReset_0.output_chain.sync_0[10 - 1]))) : ldut.debug_1.dmInner.dmInner.haveResetBitRegs[10 - 1];
+    ldut.debug_1.dmInner.dmInner.haveResetBitRegs[10].val = static_cast<typename UInt<1>::scalar_t>((static_cast<uint8_t>((static_cast<uint8_t>(essent_select_word<uint32_t>(((static_cast<uint8_t>(clock_en[10 - 1].val) & 0x1u)) != 0, static_cast<uint32_t>((static_cast<uint8_t>((((static_cast<uint8_t>((~static_cast<uint8_t>(_s_ldut$debug_1$dmInner$dmInner$_T_1[10 - 1].val))) & 0x1u)) & ((static_cast<uint8_t>(essent_select_word<uint32_t>(((static_cast<uint8_t>(_s_ldut$debug_1$dmInner$dmInner$_T_20[10 - 1].val) & 0x1u)) != 0, static_cast<uint32_t>((static_cast<uint8_t>((((static_cast<uint8_t>(((ldut.debug_1.dmInner.dmInner.haveResetBitRegs[10 - 1].val) & (_s_ldut$debug_1$dmInner$dmInner$_resumeAcks_T_1[10 - 1].val))) & 0x1u)) | (ldut.debug_1.dmInner.dmInner.hartIsInResetSync_0_debug_hartReset_0.output_chain.sync_0[10 - 1].val))) & 0x1u)), static_cast<uint32_t>((static_cast<uint8_t>(((ldut.debug_1.dmInner.dmInner.haveResetBitRegs[10 - 1].val) | (ldut.debug_1.dmInner.dmInner.hartIsInResetSync_0_debug_hartReset_0.output_chain.sync_0[10 - 1].val))) & 0x1u)))) & 0x1u)))) & 0x1u)), static_cast<uint32_t>(ldut.debug_1.dmInner.dmInner.haveResetBitRegs[10 - 1].val))) & 0x1u)) & 0x1u));
     // [serial scc=6 lane=11]
-    ldut.debug_1.dmInner.dmInner.haveResetBitRegs[11] = clock_en[11 - 1] ? ((~_s_ldut$debug_1$dmInner$dmInner$_T_1[11 - 1]) & (_s_ldut$debug_1$dmInner$dmInner$_T_20[11 - 1] ? ((ldut.debug_1.dmInner.dmInner.haveResetBitRegs[11 - 1] & _s_ldut$debug_1$dmInner$dmInner$_resumeAcks_T_1[11 - 1]) | ldut.debug_1.dmInner.dmInner.hartIsInResetSync_0_debug_hartReset_0.output_chain.sync_0[11 - 1]) : (ldut.debug_1.dmInner.dmInner.haveResetBitRegs[11 - 1] | ldut.debug_1.dmInner.dmInner.hartIsInResetSync_0_debug_hartReset_0.output_chain.sync_0[11 - 1]))) : ldut.debug_1.dmInner.dmInner.haveResetBitRegs[11 - 1];
+    ldut.debug_1.dmInner.dmInner.haveResetBitRegs[11].val = static_cast<typename UInt<1>::scalar_t>((static_cast<uint8_t>((static_cast<uint8_t>(essent_select_word<uint32_t>(((static_cast<uint8_t>(clock_en[11 - 1].val) & 0x1u)) != 0, static_cast<uint32_t>((static_cast<uint8_t>((((static_cast<uint8_t>((~static_cast<uint8_t>(_s_ldut$debug_1$dmInner$dmInner$_T_1[11 - 1].val))) & 0x1u)) & ((static_cast<uint8_t>(essent_select_word<uint32_t>(((static_cast<uint8_t>(_s_ldut$debug_1$dmInner$dmInner$_T_20[11 - 1].val) & 0x1u)) != 0, static_cast<uint32_t>((static_cast<uint8_t>((((static_cast<uint8_t>(((ldut.debug_1.dmInner.dmInner.haveResetBitRegs[11 - 1].val) & (_s_ldut$debug_1$dmInner$dmInner$_resumeAcks_T_1[11 - 1].val))) & 0x1u)) | (ldut.debug_1.dmInner.dmInner.hartIsInResetSync_0_debug_hartReset_0.output_chain.sync_0[11 - 1].val))) & 0x1u)), static_cast<uint32_t>((static_cast<uint8_t>(((ldut.debug_1.dmInner.dmInner.haveResetBitRegs[11 - 1].val) | (ldut.debug_1.dmInner.dmInner.hartIsInResetSync_0_debug_hartReset_0.output_chain.sync_0[11 - 1].val))) & 0x1u)))) & 0x1u)))) & 0x1u)), static_cast<uint32_t>(ldut.debug_1.dmInner.dmInner.haveResetBitRegs[11 - 1].val))) & 0x1u)) & 0x1u));
     // [serial scc=6 lane=12]
-    ldut.debug_1.dmInner.dmInner.haveResetBitRegs[12] = clock_en[12 - 1] ? ((~_s_ldut$debug_1$dmInner$dmInner$_T_1[12 - 1]) & (_s_ldut$debug_1$dmInner$dmInner$_T_20[12 - 1] ? ((ldut.debug_1.dmInner.dmInner.haveResetBitRegs[12 - 1] & _s_ldut$debug_1$dmInner$dmInner$_resumeAcks_T_1[12 - 1]) | ldut.debug_1.dmInner.dmInner.hartIsInResetSync_0_debug_hartReset_0.output_chain.sync_0[12 - 1]) : (ldut.debug_1.dmInner.dmInner.haveResetBitRegs[12 - 1] | ldut.debug_1.dmInner.dmInner.hartIsInResetSync_0_debug_hartReset_0.output_chain.sync_0[12 - 1]))) : ldut.debug_1.dmInner.dmInner.haveResetBitRegs[12 - 1];
+    ldut.debug_1.dmInner.dmInner.haveResetBitRegs[12].val = static_cast<typename UInt<1>::scalar_t>((static_cast<uint8_t>((static_cast<uint8_t>(essent_select_word<uint32_t>(((static_cast<uint8_t>(clock_en[12 - 1].val) & 0x1u)) != 0, static_cast<uint32_t>((static_cast<uint8_t>((((static_cast<uint8_t>((~static_cast<uint8_t>(_s_ldut$debug_1$dmInner$dmInner$_T_1[12 - 1].val))) & 0x1u)) & ((static_cast<uint8_t>(essent_select_word<uint32_t>(((static_cast<uint8_t>(_s_ldut$debug_1$dmInner$dmInner$_T_20[12 - 1].val) & 0x1u)) != 0, static_cast<uint32_t>((static_cast<uint8_t>((((static_cast<uint8_t>(((ldut.debug_1.dmInner.dmInner.haveResetBitRegs[12 - 1].val) & (_s_ldut$debug_1$dmInner$dmInner$_resumeAcks_T_1[12 - 1].val))) & 0x1u)) | (ldut.debug_1.dmInner.dmInner.hartIsInResetSync_0_debug_hartReset_0.output_chain.sync_0[12 - 1].val))) & 0x1u)), static_cast<uint32_t>((static_cast<uint8_t>(((ldut.debug_1.dmInner.dmInner.haveResetBitRegs[12 - 1].val) | (ldut.debug_1.dmInner.dmInner.hartIsInResetSync_0_debug_hartReset_0.output_chain.sync_0[12 - 1].val))) & 0x1u)))) & 0x1u)))) & 0x1u)), static_cast<uint32_t>(ldut.debug_1.dmInner.dmInner.haveResetBitRegs[12 - 1].val))) & 0x1u)) & 0x1u));
     // [serial scc=6 lane=13]
-    ldut.debug_1.dmInner.dmInner.haveResetBitRegs[13] = clock_en[13 - 1] ? ((~_s_ldut$debug_1$dmInner$dmInner$_T_1[13 - 1]) & (_s_ldut$debug_1$dmInner$dmInner$_T_20[13 - 1] ? ((ldut.debug_1.dmInner.dmInner.haveResetBitRegs[13 - 1] & _s_ldut$debug_1$dmInner$dmInner$_resumeAcks_T_1[13 - 1]) | ldut.debug_1.dmInner.dmInner.hartIsInResetSync_0_debug_hartReset_0.output_chain.sync_0[13 - 1]) : (ldut.debug_1.dmInner.dmInner.haveResetBitRegs[13 - 1] | ldut.debug_1.dmInner.dmInner.hartIsInResetSync_0_debug_hartReset_0.output_chain.sync_0[13 - 1]))) : ldut.debug_1.dmInner.dmInner.haveResetBitRegs[13 - 1];
+    ldut.debug_1.dmInner.dmInner.haveResetBitRegs[13].val = static_cast<typename UInt<1>::scalar_t>((static_cast<uint8_t>((static_cast<uint8_t>(essent_select_word<uint32_t>(((static_cast<uint8_t>(clock_en[13 - 1].val) & 0x1u)) != 0, static_cast<uint32_t>((static_cast<uint8_t>((((static_cast<uint8_t>((~static_cast<uint8_t>(_s_ldut$debug_1$dmInner$dmInner$_T_1[13 - 1].val))) & 0x1u)) & ((static_cast<uint8_t>(essent_select_word<uint32_t>(((static_cast<uint8_t>(_s_ldut$debug_1$dmInner$dmInner$_T_20[13 - 1].val) & 0x1u)) != 0, static_cast<uint32_t>((static_cast<uint8_t>((((static_cast<uint8_t>(((ldut.debug_1.dmInner.dmInner.haveResetBitRegs[13 - 1].val) & (_s_ldut$debug_1$dmInner$dmInner$_resumeAcks_T_1[13 - 1].val))) & 0x1u)) | (ldut.debug_1.dmInner.dmInner.hartIsInResetSync_0_debug_hartReset_0.output_chain.sync_0[13 - 1].val))) & 0x1u)), static_cast<uint32_t>((static_cast<uint8_t>(((ldut.debug_1.dmInner.dmInner.haveResetBitRegs[13 - 1].val) | (ldut.debug_1.dmInner.dmInner.hartIsInResetSync_0_debug_hartReset_0.output_chain.sync_0[13 - 1].val))) & 0x1u)))) & 0x1u)))) & 0x1u)), static_cast<uint32_t>(ldut.debug_1.dmInner.dmInner.haveResetBitRegs[13 - 1].val))) & 0x1u)) & 0x1u));
     // [serial scc=6 lane=14]
-    ldut.debug_1.dmInner.dmInner.haveResetBitRegs[14] = clock_en[14 - 1] ? ((~_s_ldut$debug_1$dmInner$dmInner$_T_1[14 - 1]) & (_s_ldut$debug_1$dmInner$dmInner$_T_20[14 - 1] ? ((ldut.debug_1.dmInner.dmInner.haveResetBitRegs[14 - 1] & _s_ldut$debug_1$dmInner$dmInner$_resumeAcks_T_1[14 - 1]) | ldut.debug_1.dmInner.dmInner.hartIsInResetSync_0_debug_hartReset_0.output_chain.sync_0[14 - 1]) : (ldut.debug_1.dmInner.dmInner.haveResetBitRegs[14 - 1] | ldut.debug_1.dmInner.dmInner.hartIsInResetSync_0_debug_hartReset_0.output_chain.sync_0[14 - 1]))) : ldut.debug_1.dmInner.dmInner.haveResetBitRegs[14 - 1];
+    ldut.debug_1.dmInner.dmInner.haveResetBitRegs[14].val = static_cast<typename UInt<1>::scalar_t>((static_cast<uint8_t>((static_cast<uint8_t>(essent_select_word<uint32_t>(((static_cast<uint8_t>(clock_en[14 - 1].val) & 0x1u)) != 0, static_cast<uint32_t>((static_cast<uint8_t>((((static_cast<uint8_t>((~static_cast<uint8_t>(_s_ldut$debug_1$dmInner$dmInner$_T_1[14 - 1].val))) & 0x1u)) & ((static_cast<uint8_t>(essent_select_word<uint32_t>(((static_cast<uint8_t>(_s_ldut$debug_1$dmInner$dmInner$_T_20[14 - 1].val) & 0x1u)) != 0, static_cast<uint32_t>((static_cast<uint8_t>((((static_cast<uint8_t>(((ldut.debug_1.dmInner.dmInner.haveResetBitRegs[14 - 1].val) & (_s_ldut$debug_1$dmInner$dmInner$_resumeAcks_T_1[14 - 1].val))) & 0x1u)) | (ldut.debug_1.dmInner.dmInner.hartIsInResetSync_0_debug_hartReset_0.output_chain.sync_0[14 - 1].val))) & 0x1u)), static_cast<uint32_t>((static_cast<uint8_t>(((ldut.debug_1.dmInner.dmInner.haveResetBitRegs[14 - 1].val) | (ldut.debug_1.dmInner.dmInner.hartIsInResetSync_0_debug_hartReset_0.output_chain.sync_0[14 - 1].val))) & 0x1u)))) & 0x1u)))) & 0x1u)), static_cast<uint32_t>(ldut.debug_1.dmInner.dmInner.haveResetBitRegs[14 - 1].val))) & 0x1u)) & 0x1u));
     // [serial scc=6 lane=15]
-    ldut.debug_1.dmInner.dmInner.haveResetBitRegs[15] = clock_en[15 - 1] ? ((~_s_ldut$debug_1$dmInner$dmInner$_T_1[15 - 1]) & (_s_ldut$debug_1$dmInner$dmInner$_T_20[15 - 1] ? ((ldut.debug_1.dmInner.dmInner.haveResetBitRegs[15 - 1] & _s_ldut$debug_1$dmInner$dmInner$_resumeAcks_T_1[15 - 1]) | ldut.debug_1.dmInner.dmInner.hartIsInResetSync_0_debug_hartReset_0.output_chain.sync_0[15 - 1]) : (ldut.debug_1.dmInner.dmInner.haveResetBitRegs[15 - 1] | ldut.debug_1.dmInner.dmInner.hartIsInResetSync_0_debug_hartReset_0.output_chain.sync_0[15 - 1]))) : ldut.debug_1.dmInner.dmInner.haveResetBitRegs[15 - 1];
+    ldut.debug_1.dmInner.dmInner.haveResetBitRegs[15].val = static_cast<typename UInt<1>::scalar_t>((static_cast<uint8_t>((static_cast<uint8_t>(essent_select_word<uint32_t>(((static_cast<uint8_t>(clock_en[15 - 1].val) & 0x1u)) != 0, static_cast<uint32_t>((static_cast<uint8_t>((((static_cast<uint8_t>((~static_cast<uint8_t>(_s_ldut$debug_1$dmInner$dmInner$_T_1[15 - 1].val))) & 0x1u)) & ((static_cast<uint8_t>(essent_select_word<uint32_t>(((static_cast<uint8_t>(_s_ldut$debug_1$dmInner$dmInner$_T_20[15 - 1].val) & 0x1u)) != 0, static_cast<uint32_t>((static_cast<uint8_t>((((static_cast<uint8_t>(((ldut.debug_1.dmInner.dmInner.haveResetBitRegs[15 - 1].val) & (_s_ldut$debug_1$dmInner$dmInner$_resumeAcks_T_1[15 - 1].val))) & 0x1u)) | (ldut.debug_1.dmInner.dmInner.hartIsInResetSync_0_debug_hartReset_0.output_chain.sync_0[15 - 1].val))) & 0x1u)), static_cast<uint32_t>((static_cast<uint8_t>(((ldut.debug_1.dmInner.dmInner.haveResetBitRegs[15 - 1].val) | (ldut.debug_1.dmInner.dmInner.hartIsInResetSync_0_debug_hartReset_0.output_chain.sync_0[15 - 1].val))) & 0x1u)))) & 0x1u)))) & 0x1u)), static_cast<uint32_t>(ldut.debug_1.dmInner.dmInner.haveResetBitRegs[15 - 1].val))) & 0x1u)) & 0x1u));
     // [vec boundary-next] 1 templates x 16 lanes
     // [boundary next] 1 templates, two retained lanes
     { const int L = 0;
@@ -11223,6 +11174,8 @@
     // [serial scc=42] 1 templates (0 comb), regs=[hrmaskReg_0]
     // [serial scc=42 chain-loop]
     essent_condhold_scan_fwd<16>(ldut.debug_1.dmInner.dmInner.hrmaskReg_0, _s_ldut$debug_1$dmInner$dmInner$hrmaskReg_0$wen, _s_ldut$debug_1$dmInner$dmInner$hrmaskReg_0$wdata);
+
+    if (partition_task_poll) partition_task_poll(partition_task_context, 0, true, 6);
     // [vec boundary-next] 1 templates x 16 lanes
     // [boundary next] 1 templates, two retained lanes
     { const int L = 0;
@@ -11292,8 +11245,6 @@
         for (int L = 1; L < 16; L++) ldut.plicDomainWrapper.plic.gateways_gateway.inFlight[L] = (~_s_ldut$reset[L - 1]) & ((~_s_ldut$plicDomainWrapper$plic$gateways_gateway$io_plic_complete[L - 1]) & (_s_ldut$plicDomainWrapper$plic$gateways_gateway$_T[L - 1] | ldut.plicDomainWrapper.plic.gateways_gateway.inFlight[L - 1]));
       }
     }
-
-    if (partition_task_poll) partition_task_poll(partition_task_context, 0, true, 6);
     // [vec comb] 2 templates x 16 lanes
     ESSENT_LANE_LOOP
     for (int L = 0; L < 16; L++) {
@@ -11349,7 +11300,7 @@
         ESSENT_LANE_LOOP
         for (int L = 0; L < 16; L++) ldut.int_rtc_tick_value[L] = _gv;
       } else {
-        for (int L = 1; L < 16; L++) ldut.int_rtc_tick_value[L] = _s_ldut$reset[L - 1] ? UInt<7>(0x0) : ((ldut.int_rtc_tick_value[L - 1] == UInt<7>(0x63)) ? UInt<7>(0x0) : ((ldut.int_rtc_tick_value[L - 1] + UInt<7>(0x1)).tail<1>()));
+        for (int L = 1; L < 16; L++) ldut.int_rtc_tick_value[L].val = static_cast<typename UInt<7>::scalar_t>((static_cast<uint8_t>((static_cast<uint8_t>(essent_select_word<uint32_t>(((static_cast<uint8_t>(_s_ldut$reset[L - 1].val) & 0x1u)) != 0, static_cast<uint32_t>((static_cast<uint8_t>(0x0u) & 0x7fu)), static_cast<uint32_t>((static_cast<uint8_t>(essent_select_word<uint32_t>(((static_cast<uint8_t>((static_cast<uint8_t>(((ldut.int_rtc_tick_value[L - 1].val) == ((static_cast<uint8_t>(0x63u) & 0x7fu)))) & 0x1u)) & 0x1u)) != 0, static_cast<uint32_t>((static_cast<uint8_t>(0x0u) & 0x7fu)), static_cast<uint32_t>((static_cast<uint8_t>((static_cast<uint8_t>((static_cast<uint8_t>((static_cast<uint8_t>(ldut.int_rtc_tick_value[L - 1].val) + static_cast<uint8_t>((static_cast<uint8_t>(0x1u) & 0x7fu)))) & 0xffu)) & 0x7fu)) & 0x7fu)))) & 0x7fu)))) & 0x7fu)) & 0x7fu));
       }
     }
     // [vec comb] 1 templates x 16 lanes
@@ -11375,7 +11326,7 @@
         ESSENT_LANE_LOOP
         for (int L = 0; L < 16; L++) ldut.subsystem_sbus.coupler_to_bus_named_subsystem_cbus.widget.repeat_count[L] = _gv;
       } else {
-        for (int L = 1; L < 16; L++) ldut.subsystem_sbus.coupler_to_bus_named_subsystem_cbus.widget.repeat_count[L] = (~_s_ldut$reset[L - 1]) & (_s_ldut$subsystem_sbus$coupler_to_bus_named_subsystem_cbus$widget$_repeat_T[L - 1] ? ((~((ldut.subsystem_sbus.coupler_to_bus_named_subsystem_cbus.widget.repeat_count[L - 1] == _s_ldut$subsystem_sbus$coupler_to_bus_named_subsystem_cbus$widget$repeat_limit[L - 1]) | _s_ldut$subsystem_sbus$coupler_to_bus_named_subsystem_cbus$widget$_repeat_last_T_1[L - 1])) & ((ldut.subsystem_sbus.coupler_to_bus_named_subsystem_cbus.widget.repeat_count[L - 1] + UInt<1>(0x1)).tail<1>())) : ldut.subsystem_sbus.coupler_to_bus_named_subsystem_cbus.widget.repeat_count[L - 1]);
+        for (int L = 1; L < 16; L++) ldut.subsystem_sbus.coupler_to_bus_named_subsystem_cbus.widget.repeat_count[L].val = static_cast<typename UInt<1>::scalar_t>((static_cast<uint8_t>((static_cast<uint8_t>((((static_cast<uint8_t>((~static_cast<uint8_t>(_s_ldut$reset[L - 1].val))) & 0x1u)) & ((static_cast<uint8_t>(essent_select_word<uint32_t>(((static_cast<uint8_t>(_s_ldut$subsystem_sbus$coupler_to_bus_named_subsystem_cbus$widget$_repeat_T[L - 1].val) & 0x1u)) != 0, static_cast<uint32_t>((static_cast<uint8_t>((((static_cast<uint8_t>((~static_cast<uint8_t>((static_cast<uint8_t>((((static_cast<uint8_t>(((ldut.subsystem_sbus.coupler_to_bus_named_subsystem_cbus.widget.repeat_count[L - 1].val) == (_s_ldut$subsystem_sbus$coupler_to_bus_named_subsystem_cbus$widget$repeat_limit[L - 1].val))) & 0x1u)) | (_s_ldut$subsystem_sbus$coupler_to_bus_named_subsystem_cbus$widget$_repeat_last_T_1[L - 1].val))) & 0x1u)))) & 0x1u)) & ((static_cast<uint8_t>((static_cast<uint8_t>((static_cast<uint8_t>((static_cast<uint8_t>(ldut.subsystem_sbus.coupler_to_bus_named_subsystem_cbus.widget.repeat_count[L - 1].val) + static_cast<uint8_t>((static_cast<uint8_t>(0x1u) & 0x1u)))) & 0x3u)) & 0x1u)) & 0x1u)))) & 0x1u)), static_cast<uint32_t>(ldut.subsystem_sbus.coupler_to_bus_named_subsystem_cbus.widget.repeat_count[L - 1].val))) & 0x1u)))) & 0x1u)) & 0x1u));
       }
     }
     // [vec comb] 3 templates x 16 lanes
@@ -11418,6 +11369,8 @@
     for (int L = 0; L < 16; L++) {
       _s_ldut$subsystem_sbus$coupler_to_bus_named_subsystem_cbus$widget$repeated_repeater$io_deq_bits_param[L].val = static_cast<typename UInt<3>::scalar_t>((static_cast<uint8_t>((static_cast<uint8_t>((((ldut.subsystem_sbus.coupler_to_bus_named_subsystem_cbus.widget.repeated_repeater.saved_param[L].val) & ((uint8_t)0 - (uint8_t)(((static_cast<uint8_t>(ldut.subsystem_sbus.coupler_to_bus_named_subsystem_cbus.widget.repeated_repeater.full[L].val) & 0x1u)) != 0))) | ((_s_ldut$subsystem_sbus$system_bus_xbar$auto_out_0_a_bits_param[L].val) & ~((uint8_t)0 - (uint8_t)(((static_cast<uint8_t>(ldut.subsystem_sbus.coupler_to_bus_named_subsystem_cbus.widget.repeated_repeater.full[L].val) & 0x1u)) != 0))))) & 0x7u)) & 0x7u));
     }
+
+    if (partition_task_poll) partition_task_poll(partition_task_context, 0, true, 6);
     // [vec boundary-next] 1 templates x 16 lanes
     // [boundary next] 1 templates, two retained lanes
     { const int L = 0;
@@ -11443,7 +11396,7 @@
         _v2_sa_anyw |= (uint64_t)(essent_to_u64(_s_ldut$subsystem_cbus$buffer$bundleOut_0_a_q$io_enq_ready[G] & _s_ldut$subsystem_cbus$atomics$auto_out_a_valid[G]) != 0) & (uint64_t)(essent_to_u64(UInt<1>(0x1)) != 0);
       }
       if (_v2_sa_anyw == 0) {
-        for (int L = 0; L < 16; L++) { _s_ldut$subsystem_cbus$buffer$bundleOut_0_a_q$ram_param$io_deq_bits_MPORT[L] = ldut.subsystem_cbus.buffer.bundleOut_0_a_q.ram_param[essent_to_u64(ldut.subsystem_cbus.buffer.bundleOut_0_a_q.value_1[L])]; }
+        essent_table_read<16, 2, false>(&_s_ldut$subsystem_cbus$buffer$bundleOut_0_a_q$ram_param$io_deq_bits_MPORT[0], &ldut.subsystem_cbus.buffer.bundleOut_0_a_q.ram_param[0], &ldut.subsystem_cbus.buffer.bundleOut_0_a_q.value_1[0]);
       } else {
       {
         // [state-read-dense] forwarding=branchless
@@ -11452,10 +11405,11 @@
         for (int L = 0; L < 16; L++) {
           const uint64_t _v2_sa_addr = essent_to_u64(ldut.subsystem_cbus.buffer.bundleOut_0_a_q.value_1[L]);
           UInt<3> _v2_sa_value = ldut.subsystem_cbus.buffer.bundleOut_0_a_q.ram_param[_v2_sa_addr];
+          // [branchless-forward] select a valid source before loading data
           const int _v2_sa_prev_code = _v2_sa_last[_v2_sa_addr];
-          const uint64_t _v2_sa_prev_valid = (uint64_t)(_v2_sa_prev_code >= 0);
+          const bool _v2_sa_prev_valid = _v2_sa_prev_code >= 0;
           [[maybe_unused]] const int _v2_sa_prev_lane = _v2_sa_prev_code & -static_cast<int>(_v2_sa_prev_valid);
-          _v2_sa_value = essent_mux(UInt<1>(_v2_sa_prev_valid), _s_ldut$subsystem_cbus$atomics$auto_out_a_bits_param[_v2_sa_prev_lane], _v2_sa_value);
+          _v2_sa_value = *essent_select_ptr(_v2_sa_prev_valid, &(_s_ldut$subsystem_cbus$atomics$auto_out_a_bits_param[_v2_sa_prev_lane]), &_v2_sa_value);
           _s_ldut$subsystem_cbus$buffer$bundleOut_0_a_q$ram_param$io_deq_bits_MPORT[L] = _v2_sa_value;
           const uint64_t _v2_sa_write_addr_0 = essent_to_u64(ldut.subsystem_cbus.buffer.bundleOut_0_a_q.value[L]);
           const uint64_t _v2_sa_write_take_0 = (uint64_t)(essent_to_u64(_s_ldut$subsystem_cbus$buffer$bundleOut_0_a_q$io_enq_ready[L] & _s_ldut$subsystem_cbus$atomics$auto_out_a_valid[L]) != 0) & (uint64_t)(essent_to_u64(UInt<1>(0x1)) != 0);
@@ -11507,8 +11461,6 @@
     // [serial scc=153] 1 templates (0 comb), regs=[cam_a_0_bits_param]
     // [serial scc=153 chain-loop]
     essent_condhold_apply_fwd<16>(ldut.subsystem_cbus.atomics.cam_a_0_bits_param, _v2_cond_idx_7, _s_ldut$subsystem_cbus$atomics$cam_a_0_bits_param$wdata);
-
-    if (partition_task_poll) partition_task_poll(partition_task_context, 0, true, 6);
     // [vec comb] 1 templates x 16 lanes
     ESSENT_LANE_LOOP
     for (int L = 0; L < 16; L++) {
@@ -11532,7 +11484,7 @@
         ESSENT_LANE_LOOP
         for (int L = 0; L < 16; L++) ldut.subsystem_cbus.fixer.d_first_counter[L] = _gv;
       } else {
-        for (int L = 1; L < 16; L++) ldut.subsystem_cbus.fixer.d_first_counter[L] = _s_ldut$reset[L - 1] ? UInt<9>(0x0) : (_s_ldut$subsystem_cbus$fixer$_d_first_T[L - 1] ? ((ldut.subsystem_cbus.fixer.d_first_counter[L - 1] == UInt<9>(0x0)) ? _s_ldut$subsystem_cbus$fixer$d_first_beats1[L - 1] : ((ldut.subsystem_cbus.fixer.d_first_counter[L - 1] - UInt<9>(0x1)).tail<1>())) : ldut.subsystem_cbus.fixer.d_first_counter[L - 1]);
+        for (int L = 1; L < 16; L++) ldut.subsystem_cbus.fixer.d_first_counter[L].val = static_cast<typename UInt<9>::scalar_t>((static_cast<uint16_t>((static_cast<uint16_t>(essent_select_word<uint32_t>(((static_cast<uint16_t>(_s_ldut$reset[L - 1].val) & 0x1u)) != 0, static_cast<uint32_t>((static_cast<uint16_t>(0x0u) & 0x1ffu)), static_cast<uint32_t>((static_cast<uint16_t>(essent_select_word<uint32_t>(((static_cast<uint16_t>(_s_ldut$subsystem_cbus$fixer$_d_first_T[L - 1].val) & 0x1u)) != 0, static_cast<uint32_t>((static_cast<uint16_t>(essent_select_word<uint32_t>(((static_cast<uint16_t>((static_cast<uint16_t>(((ldut.subsystem_cbus.fixer.d_first_counter[L - 1].val) == ((static_cast<uint16_t>(0x0u) & 0x1ffu)))) & 0x1u)) & 0x1u)) != 0, static_cast<uint32_t>(_s_ldut$subsystem_cbus$fixer$d_first_beats1[L - 1].val), static_cast<uint32_t>((static_cast<uint16_t>((static_cast<uint16_t>((static_cast<uint16_t>((static_cast<uint16_t>(ldut.subsystem_cbus.fixer.d_first_counter[L - 1].val) - static_cast<uint16_t>((static_cast<uint16_t>(0x1u) & 0x1ffu)))) & 0x3ffu)) & 0x1ffu)) & 0x1ffu)))) & 0x1ffu)), static_cast<uint32_t>(ldut.subsystem_cbus.fixer.d_first_counter[L - 1].val))) & 0x1ffu)))) & 0x1ffu)) & 0x1ffu));
       }
     }
     // [vec comb] 2 templates x 16 lanes
@@ -11564,9 +11516,11 @@
         ESSENT_LANE_LOOP
         for (int L = 0; L < 16; L++) ldut.subsystem_cbus.wrapped_error_device.error.counter[L] = _gv;
       } else {
-        for (int L = 1; L < 16; L++) ldut.subsystem_cbus.wrapped_error_device.error.counter[L] = _s_ldut$reset[L - 1] ? UInt<9>(0x0) : (_s_ldut$subsystem_cbus$wrapped_error_device$error$_T[L - 1] ? ((ldut.subsystem_cbus.wrapped_error_device.error.counter[L - 1] == UInt<9>(0x0)) ? _s_ldut$subsystem_cbus$wrapped_error_device$error$beats1[L - 1] : ((ldut.subsystem_cbus.wrapped_error_device.error.counter[L - 1] - UInt<9>(0x1)).tail<1>())) : ldut.subsystem_cbus.wrapped_error_device.error.counter[L - 1]);
+        for (int L = 1; L < 16; L++) ldut.subsystem_cbus.wrapped_error_device.error.counter[L].val = static_cast<typename UInt<9>::scalar_t>((static_cast<uint16_t>((static_cast<uint16_t>(essent_select_word<uint32_t>(((static_cast<uint16_t>(_s_ldut$reset[L - 1].val) & 0x1u)) != 0, static_cast<uint32_t>((static_cast<uint16_t>(0x0u) & 0x1ffu)), static_cast<uint32_t>((static_cast<uint16_t>(essent_select_word<uint32_t>(((static_cast<uint16_t>(_s_ldut$subsystem_cbus$wrapped_error_device$error$_T[L - 1].val) & 0x1u)) != 0, static_cast<uint32_t>((static_cast<uint16_t>(essent_select_word<uint32_t>(((static_cast<uint16_t>((static_cast<uint16_t>(((ldut.subsystem_cbus.wrapped_error_device.error.counter[L - 1].val) == ((static_cast<uint16_t>(0x0u) & 0x1ffu)))) & 0x1u)) & 0x1u)) != 0, static_cast<uint32_t>(_s_ldut$subsystem_cbus$wrapped_error_device$error$beats1[L - 1].val), static_cast<uint32_t>((static_cast<uint16_t>((static_cast<uint16_t>((static_cast<uint16_t>((static_cast<uint16_t>(ldut.subsystem_cbus.wrapped_error_device.error.counter[L - 1].val) - static_cast<uint16_t>((static_cast<uint16_t>(0x1u) & 0x1ffu)))) & 0x3ffu)) & 0x1ffu)) & 0x1ffu)))) & 0x1ffu)), static_cast<uint32_t>(ldut.subsystem_cbus.wrapped_error_device.error.counter[L - 1].val))) & 0x1ffu)))) & 0x1ffu)) & 0x1ffu));
       }
     }
+
+    if (partition_task_poll) partition_task_poll(partition_task_context, 0, true, 6);
     // [vec comb] 3 templates x 16 lanes
     ESSENT_LANE_LOOP
     for (int L = 0; L < 16; L++) {
@@ -11599,7 +11553,7 @@
         ESSENT_LANE_LOOP
         for (int L = 0; L < 16; L++) ldut.subsystem_cbus.coupler_to_plic.fragmenter.gennum[L] = _gv;
       } else {
-        for (int L = 1; L < 16; L++) ldut.subsystem_cbus.coupler_to_plic.fragmenter.gennum[L] = _s_ldut$reset[L - 1] ? UInt<3>(0x0) : (_s_ldut$subsystem_cbus$coupler_to_plic$fragmenter$_T_8[L - 1] ? ((ldut.subsystem_cbus.coupler_to_plic.fragmenter.gennum[L - 1] == UInt<3>(0x0)) ? _s_ldut$subsystem_cbus$coupler_to_plic$fragmenter$_old_gennum1_T[L - 1] : ((ldut.subsystem_cbus.coupler_to_plic.fragmenter.gennum[L - 1] - UInt<3>(0x1)).tail<1>())) : ldut.subsystem_cbus.coupler_to_plic.fragmenter.gennum[L - 1]);
+        for (int L = 1; L < 16; L++) ldut.subsystem_cbus.coupler_to_plic.fragmenter.gennum[L].val = static_cast<typename UInt<3>::scalar_t>((static_cast<uint8_t>((static_cast<uint8_t>(essent_select_word<uint32_t>(((static_cast<uint8_t>(_s_ldut$reset[L - 1].val) & 0x1u)) != 0, static_cast<uint32_t>((static_cast<uint8_t>(0x0u) & 0x7u)), static_cast<uint32_t>((static_cast<uint8_t>(essent_select_word<uint32_t>(((static_cast<uint8_t>(_s_ldut$subsystem_cbus$coupler_to_plic$fragmenter$_T_8[L - 1].val) & 0x1u)) != 0, static_cast<uint32_t>((static_cast<uint8_t>(essent_select_word<uint32_t>(((static_cast<uint8_t>((static_cast<uint8_t>(((ldut.subsystem_cbus.coupler_to_plic.fragmenter.gennum[L - 1].val) == ((static_cast<uint8_t>(0x0u) & 0x7u)))) & 0x1u)) & 0x1u)) != 0, static_cast<uint32_t>(_s_ldut$subsystem_cbus$coupler_to_plic$fragmenter$_old_gennum1_T[L - 1].val), static_cast<uint32_t>((static_cast<uint8_t>((static_cast<uint8_t>((static_cast<uint8_t>((static_cast<uint8_t>(ldut.subsystem_cbus.coupler_to_plic.fragmenter.gennum[L - 1].val) - static_cast<uint8_t>((static_cast<uint8_t>(0x1u) & 0x7u)))) & 0xfu)) & 0x7u)) & 0x7u)))) & 0x7u)), static_cast<uint32_t>(ldut.subsystem_cbus.coupler_to_plic.fragmenter.gennum[L - 1].val))) & 0x7u)))) & 0x7u)) & 0x7u));
       }
     }
     // [vec comb] 4 templates x 16 lanes
@@ -11618,8 +11572,6 @@
     { const int L = 15;
       _s_ldut$subsystem_cbus$coupler_to_plic$fragmenter$gennum$next[((L) == 0 ? 0 : 1)].val = static_cast<typename UInt<3>::scalar_t>((static_cast<uint8_t>((static_cast<uint8_t>(((((static_cast<uint8_t>(0x0u) & 0x7u)) & ((uint8_t)0 - (uint8_t)(((static_cast<uint8_t>(_s_ldut$reset[L].val) & 0x1u)) != 0))) | (((static_cast<uint8_t>((((_s_ldut$subsystem_cbus$coupler_to_plic$fragmenter$new_gennum[L].val) & ((uint8_t)0 - (uint8_t)(((static_cast<uint8_t>(_s_ldut$subsystem_cbus$coupler_to_plic$fragmenter$_T_8[L].val) & 0x1u)) != 0))) | ((ldut.subsystem_cbus.coupler_to_plic.fragmenter.gennum[L].val) & ~((uint8_t)0 - (uint8_t)(((static_cast<uint8_t>(_s_ldut$subsystem_cbus$coupler_to_plic$fragmenter$_T_8[L].val) & 0x1u)) != 0))))) & 0x7u)) & ~((uint8_t)0 - (uint8_t)(((static_cast<uint8_t>(_s_ldut$reset[L].val) & 0x1u)) != 0))))) & 0x7u)) & 0x7u));
     }
-
-    if (partition_task_poll) partition_task_poll(partition_task_context, 0, true, 6);
     // [vec comb] 7 templates x 16 lanes
     ESSENT_LANE_LOOP
     for (int L = 0; L < 16; L++) {
@@ -11748,6 +11700,8 @@
     // [serial scc=423 chain-loop]
     essent_condhold_index_fwd<16>(_v2_cond_idx_8, _s_ldut$subsystem_cbus$atomics$cam_d_0_denied$wen);
     essent_condhold_apply_fwd<16>(ldut.subsystem_cbus.atomics.cam_d_0_denied, _v2_cond_idx_8, _s_ldut$subsystem_cbus$atomics$cam_d_0_denied$wdata);
+
+    if (partition_task_poll) partition_task_poll(partition_task_context, 0, true, 6);
     // [vec comb] 1 templates x 16 lanes
     ESSENT_LANE_LOOP
     for (int L = 0; L < 16; L++) {
@@ -11787,11 +11741,9 @@
         ESSENT_LANE_LOOP
         for (int L = 0; L < 16; L++) ldut.subsystem_sbus.coupler_to_bus_named_subsystem_cbus.widget.corrupt_reg[L] = _gv;
       } else {
-        for (int L = 1; L < 16; L++) ldut.subsystem_sbus.coupler_to_bus_named_subsystem_cbus.widget.corrupt_reg[L] = (~_s_ldut$reset[L - 1]) & (_s_ldut$subsystem_sbus$coupler_to_bus_named_subsystem_cbus$widget$_T[L - 1] ? ((~_s_ldut$subsystem_sbus$coupler_to_bus_named_subsystem_cbus$widget$last[L - 1]) & (_s_ldut$subsystem_cbus$atomics$auto_in_d_bits_corrupt[L - 1] | ldut.subsystem_sbus.coupler_to_bus_named_subsystem_cbus.widget.corrupt_reg[L - 1])) : ldut.subsystem_sbus.coupler_to_bus_named_subsystem_cbus.widget.corrupt_reg[L - 1]);
+        for (int L = 1; L < 16; L++) ldut.subsystem_sbus.coupler_to_bus_named_subsystem_cbus.widget.corrupt_reg[L].val = static_cast<typename UInt<1>::scalar_t>((static_cast<uint8_t>((static_cast<uint8_t>((((static_cast<uint8_t>((~static_cast<uint8_t>(_s_ldut$reset[L - 1].val))) & 0x1u)) & ((static_cast<uint8_t>(essent_select_word<uint32_t>(((static_cast<uint8_t>(_s_ldut$subsystem_sbus$coupler_to_bus_named_subsystem_cbus$widget$_T[L - 1].val) & 0x1u)) != 0, static_cast<uint32_t>((static_cast<uint8_t>((((static_cast<uint8_t>((~static_cast<uint8_t>(_s_ldut$subsystem_sbus$coupler_to_bus_named_subsystem_cbus$widget$last[L - 1].val))) & 0x1u)) & ((static_cast<uint8_t>(((_s_ldut$subsystem_cbus$atomics$auto_in_d_bits_corrupt[L - 1].val) | (ldut.subsystem_sbus.coupler_to_bus_named_subsystem_cbus.widget.corrupt_reg[L - 1].val))) & 0x1u)))) & 0x1u)), static_cast<uint32_t>(ldut.subsystem_sbus.coupler_to_bus_named_subsystem_cbus.widget.corrupt_reg[L - 1].val))) & 0x1u)))) & 0x1u)) & 0x1u));
       }
     }
-
-    if (partition_task_poll) partition_task_poll(partition_task_context, 0, true, 6);
     // [vec comb] 1 templates x 16 lanes
     ESSENT_LANE_LOOP
     for (int L = 0; L < 16; L++) {
@@ -11995,35 +11947,35 @@
     }
     // [serial scc=222] 1 templates (0 comb), regs=[r_first]
     // [serial scc=222 lane=1]
-    ldut.subsystem_mbus.coupler_to_memory_controller_port_named_axi4.tl2axi4.r_first[1] = _s_ldut$reset[1 - 1] | (_s_ldut$subsystem_mbus$coupler_to_memory_controller_port_named_axi4$tl2axi4$_T_2[1 - 1] ? _s_mem$axi4frag$auto_in_r_bits_last[1 - 1] : ldut.subsystem_mbus.coupler_to_memory_controller_port_named_axi4.tl2axi4.r_first[1 - 1]);
+    ldut.subsystem_mbus.coupler_to_memory_controller_port_named_axi4.tl2axi4.r_first[1].val = static_cast<typename UInt<1>::scalar_t>((static_cast<uint8_t>((static_cast<uint8_t>(((_s_ldut$reset[1 - 1].val) | ((static_cast<uint8_t>(essent_select_word<uint32_t>(((static_cast<uint8_t>(_s_ldut$subsystem_mbus$coupler_to_memory_controller_port_named_axi4$tl2axi4$_T_2[1 - 1].val) & 0x1u)) != 0, static_cast<uint32_t>(_s_mem$axi4frag$auto_in_r_bits_last[1 - 1].val), static_cast<uint32_t>(ldut.subsystem_mbus.coupler_to_memory_controller_port_named_axi4.tl2axi4.r_first[1 - 1].val))) & 0x1u)))) & 0x1u)) & 0x1u));
     // [serial scc=222 lane=2]
-    ldut.subsystem_mbus.coupler_to_memory_controller_port_named_axi4.tl2axi4.r_first[2] = _s_ldut$reset[2 - 1] | (_s_ldut$subsystem_mbus$coupler_to_memory_controller_port_named_axi4$tl2axi4$_T_2[2 - 1] ? _s_mem$axi4frag$auto_in_r_bits_last[2 - 1] : ldut.subsystem_mbus.coupler_to_memory_controller_port_named_axi4.tl2axi4.r_first[2 - 1]);
+    ldut.subsystem_mbus.coupler_to_memory_controller_port_named_axi4.tl2axi4.r_first[2].val = static_cast<typename UInt<1>::scalar_t>((static_cast<uint8_t>((static_cast<uint8_t>(((_s_ldut$reset[2 - 1].val) | ((static_cast<uint8_t>(essent_select_word<uint32_t>(((static_cast<uint8_t>(_s_ldut$subsystem_mbus$coupler_to_memory_controller_port_named_axi4$tl2axi4$_T_2[2 - 1].val) & 0x1u)) != 0, static_cast<uint32_t>(_s_mem$axi4frag$auto_in_r_bits_last[2 - 1].val), static_cast<uint32_t>(ldut.subsystem_mbus.coupler_to_memory_controller_port_named_axi4.tl2axi4.r_first[2 - 1].val))) & 0x1u)))) & 0x1u)) & 0x1u));
     // [serial scc=222 lane=3]
-    ldut.subsystem_mbus.coupler_to_memory_controller_port_named_axi4.tl2axi4.r_first[3] = _s_ldut$reset[3 - 1] | (_s_ldut$subsystem_mbus$coupler_to_memory_controller_port_named_axi4$tl2axi4$_T_2[3 - 1] ? _s_mem$axi4frag$auto_in_r_bits_last[3 - 1] : ldut.subsystem_mbus.coupler_to_memory_controller_port_named_axi4.tl2axi4.r_first[3 - 1]);
+    ldut.subsystem_mbus.coupler_to_memory_controller_port_named_axi4.tl2axi4.r_first[3].val = static_cast<typename UInt<1>::scalar_t>((static_cast<uint8_t>((static_cast<uint8_t>(((_s_ldut$reset[3 - 1].val) | ((static_cast<uint8_t>(essent_select_word<uint32_t>(((static_cast<uint8_t>(_s_ldut$subsystem_mbus$coupler_to_memory_controller_port_named_axi4$tl2axi4$_T_2[3 - 1].val) & 0x1u)) != 0, static_cast<uint32_t>(_s_mem$axi4frag$auto_in_r_bits_last[3 - 1].val), static_cast<uint32_t>(ldut.subsystem_mbus.coupler_to_memory_controller_port_named_axi4.tl2axi4.r_first[3 - 1].val))) & 0x1u)))) & 0x1u)) & 0x1u));
     // [serial scc=222 lane=4]
-    ldut.subsystem_mbus.coupler_to_memory_controller_port_named_axi4.tl2axi4.r_first[4] = _s_ldut$reset[4 - 1] | (_s_ldut$subsystem_mbus$coupler_to_memory_controller_port_named_axi4$tl2axi4$_T_2[4 - 1] ? _s_mem$axi4frag$auto_in_r_bits_last[4 - 1] : ldut.subsystem_mbus.coupler_to_memory_controller_port_named_axi4.tl2axi4.r_first[4 - 1]);
+    ldut.subsystem_mbus.coupler_to_memory_controller_port_named_axi4.tl2axi4.r_first[4].val = static_cast<typename UInt<1>::scalar_t>((static_cast<uint8_t>((static_cast<uint8_t>(((_s_ldut$reset[4 - 1].val) | ((static_cast<uint8_t>(essent_select_word<uint32_t>(((static_cast<uint8_t>(_s_ldut$subsystem_mbus$coupler_to_memory_controller_port_named_axi4$tl2axi4$_T_2[4 - 1].val) & 0x1u)) != 0, static_cast<uint32_t>(_s_mem$axi4frag$auto_in_r_bits_last[4 - 1].val), static_cast<uint32_t>(ldut.subsystem_mbus.coupler_to_memory_controller_port_named_axi4.tl2axi4.r_first[4 - 1].val))) & 0x1u)))) & 0x1u)) & 0x1u));
     // [serial scc=222 lane=5]
-    ldut.subsystem_mbus.coupler_to_memory_controller_port_named_axi4.tl2axi4.r_first[5] = _s_ldut$reset[5 - 1] | (_s_ldut$subsystem_mbus$coupler_to_memory_controller_port_named_axi4$tl2axi4$_T_2[5 - 1] ? _s_mem$axi4frag$auto_in_r_bits_last[5 - 1] : ldut.subsystem_mbus.coupler_to_memory_controller_port_named_axi4.tl2axi4.r_first[5 - 1]);
+    ldut.subsystem_mbus.coupler_to_memory_controller_port_named_axi4.tl2axi4.r_first[5].val = static_cast<typename UInt<1>::scalar_t>((static_cast<uint8_t>((static_cast<uint8_t>(((_s_ldut$reset[5 - 1].val) | ((static_cast<uint8_t>(essent_select_word<uint32_t>(((static_cast<uint8_t>(_s_ldut$subsystem_mbus$coupler_to_memory_controller_port_named_axi4$tl2axi4$_T_2[5 - 1].val) & 0x1u)) != 0, static_cast<uint32_t>(_s_mem$axi4frag$auto_in_r_bits_last[5 - 1].val), static_cast<uint32_t>(ldut.subsystem_mbus.coupler_to_memory_controller_port_named_axi4.tl2axi4.r_first[5 - 1].val))) & 0x1u)))) & 0x1u)) & 0x1u));
     // [serial scc=222 lane=6]
-    ldut.subsystem_mbus.coupler_to_memory_controller_port_named_axi4.tl2axi4.r_first[6] = _s_ldut$reset[6 - 1] | (_s_ldut$subsystem_mbus$coupler_to_memory_controller_port_named_axi4$tl2axi4$_T_2[6 - 1] ? _s_mem$axi4frag$auto_in_r_bits_last[6 - 1] : ldut.subsystem_mbus.coupler_to_memory_controller_port_named_axi4.tl2axi4.r_first[6 - 1]);
+    ldut.subsystem_mbus.coupler_to_memory_controller_port_named_axi4.tl2axi4.r_first[6].val = static_cast<typename UInt<1>::scalar_t>((static_cast<uint8_t>((static_cast<uint8_t>(((_s_ldut$reset[6 - 1].val) | ((static_cast<uint8_t>(essent_select_word<uint32_t>(((static_cast<uint8_t>(_s_ldut$subsystem_mbus$coupler_to_memory_controller_port_named_axi4$tl2axi4$_T_2[6 - 1].val) & 0x1u)) != 0, static_cast<uint32_t>(_s_mem$axi4frag$auto_in_r_bits_last[6 - 1].val), static_cast<uint32_t>(ldut.subsystem_mbus.coupler_to_memory_controller_port_named_axi4.tl2axi4.r_first[6 - 1].val))) & 0x1u)))) & 0x1u)) & 0x1u));
     // [serial scc=222 lane=7]
-    ldut.subsystem_mbus.coupler_to_memory_controller_port_named_axi4.tl2axi4.r_first[7] = _s_ldut$reset[7 - 1] | (_s_ldut$subsystem_mbus$coupler_to_memory_controller_port_named_axi4$tl2axi4$_T_2[7 - 1] ? _s_mem$axi4frag$auto_in_r_bits_last[7 - 1] : ldut.subsystem_mbus.coupler_to_memory_controller_port_named_axi4.tl2axi4.r_first[7 - 1]);
+    ldut.subsystem_mbus.coupler_to_memory_controller_port_named_axi4.tl2axi4.r_first[7].val = static_cast<typename UInt<1>::scalar_t>((static_cast<uint8_t>((static_cast<uint8_t>(((_s_ldut$reset[7 - 1].val) | ((static_cast<uint8_t>(essent_select_word<uint32_t>(((static_cast<uint8_t>(_s_ldut$subsystem_mbus$coupler_to_memory_controller_port_named_axi4$tl2axi4$_T_2[7 - 1].val) & 0x1u)) != 0, static_cast<uint32_t>(_s_mem$axi4frag$auto_in_r_bits_last[7 - 1].val), static_cast<uint32_t>(ldut.subsystem_mbus.coupler_to_memory_controller_port_named_axi4.tl2axi4.r_first[7 - 1].val))) & 0x1u)))) & 0x1u)) & 0x1u));
     // [serial scc=222 lane=8]
-    ldut.subsystem_mbus.coupler_to_memory_controller_port_named_axi4.tl2axi4.r_first[8] = _s_ldut$reset[8 - 1] | (_s_ldut$subsystem_mbus$coupler_to_memory_controller_port_named_axi4$tl2axi4$_T_2[8 - 1] ? _s_mem$axi4frag$auto_in_r_bits_last[8 - 1] : ldut.subsystem_mbus.coupler_to_memory_controller_port_named_axi4.tl2axi4.r_first[8 - 1]);
+    ldut.subsystem_mbus.coupler_to_memory_controller_port_named_axi4.tl2axi4.r_first[8].val = static_cast<typename UInt<1>::scalar_t>((static_cast<uint8_t>((static_cast<uint8_t>(((_s_ldut$reset[8 - 1].val) | ((static_cast<uint8_t>(essent_select_word<uint32_t>(((static_cast<uint8_t>(_s_ldut$subsystem_mbus$coupler_to_memory_controller_port_named_axi4$tl2axi4$_T_2[8 - 1].val) & 0x1u)) != 0, static_cast<uint32_t>(_s_mem$axi4frag$auto_in_r_bits_last[8 - 1].val), static_cast<uint32_t>(ldut.subsystem_mbus.coupler_to_memory_controller_port_named_axi4.tl2axi4.r_first[8 - 1].val))) & 0x1u)))) & 0x1u)) & 0x1u));
     // [serial scc=222 lane=9]
-    ldut.subsystem_mbus.coupler_to_memory_controller_port_named_axi4.tl2axi4.r_first[9] = _s_ldut$reset[9 - 1] | (_s_ldut$subsystem_mbus$coupler_to_memory_controller_port_named_axi4$tl2axi4$_T_2[9 - 1] ? _s_mem$axi4frag$auto_in_r_bits_last[9 - 1] : ldut.subsystem_mbus.coupler_to_memory_controller_port_named_axi4.tl2axi4.r_first[9 - 1]);
+    ldut.subsystem_mbus.coupler_to_memory_controller_port_named_axi4.tl2axi4.r_first[9].val = static_cast<typename UInt<1>::scalar_t>((static_cast<uint8_t>((static_cast<uint8_t>(((_s_ldut$reset[9 - 1].val) | ((static_cast<uint8_t>(essent_select_word<uint32_t>(((static_cast<uint8_t>(_s_ldut$subsystem_mbus$coupler_to_memory_controller_port_named_axi4$tl2axi4$_T_2[9 - 1].val) & 0x1u)) != 0, static_cast<uint32_t>(_s_mem$axi4frag$auto_in_r_bits_last[9 - 1].val), static_cast<uint32_t>(ldut.subsystem_mbus.coupler_to_memory_controller_port_named_axi4.tl2axi4.r_first[9 - 1].val))) & 0x1u)))) & 0x1u)) & 0x1u));
     // [serial scc=222 lane=10]
-    ldut.subsystem_mbus.coupler_to_memory_controller_port_named_axi4.tl2axi4.r_first[10] = _s_ldut$reset[10 - 1] | (_s_ldut$subsystem_mbus$coupler_to_memory_controller_port_named_axi4$tl2axi4$_T_2[10 - 1] ? _s_mem$axi4frag$auto_in_r_bits_last[10 - 1] : ldut.subsystem_mbus.coupler_to_memory_controller_port_named_axi4.tl2axi4.r_first[10 - 1]);
+    ldut.subsystem_mbus.coupler_to_memory_controller_port_named_axi4.tl2axi4.r_first[10].val = static_cast<typename UInt<1>::scalar_t>((static_cast<uint8_t>((static_cast<uint8_t>(((_s_ldut$reset[10 - 1].val) | ((static_cast<uint8_t>(essent_select_word<uint32_t>(((static_cast<uint8_t>(_s_ldut$subsystem_mbus$coupler_to_memory_controller_port_named_axi4$tl2axi4$_T_2[10 - 1].val) & 0x1u)) != 0, static_cast<uint32_t>(_s_mem$axi4frag$auto_in_r_bits_last[10 - 1].val), static_cast<uint32_t>(ldut.subsystem_mbus.coupler_to_memory_controller_port_named_axi4.tl2axi4.r_first[10 - 1].val))) & 0x1u)))) & 0x1u)) & 0x1u));
     // [serial scc=222 lane=11]
-    ldut.subsystem_mbus.coupler_to_memory_controller_port_named_axi4.tl2axi4.r_first[11] = _s_ldut$reset[11 - 1] | (_s_ldut$subsystem_mbus$coupler_to_memory_controller_port_named_axi4$tl2axi4$_T_2[11 - 1] ? _s_mem$axi4frag$auto_in_r_bits_last[11 - 1] : ldut.subsystem_mbus.coupler_to_memory_controller_port_named_axi4.tl2axi4.r_first[11 - 1]);
+    ldut.subsystem_mbus.coupler_to_memory_controller_port_named_axi4.tl2axi4.r_first[11].val = static_cast<typename UInt<1>::scalar_t>((static_cast<uint8_t>((static_cast<uint8_t>(((_s_ldut$reset[11 - 1].val) | ((static_cast<uint8_t>(essent_select_word<uint32_t>(((static_cast<uint8_t>(_s_ldut$subsystem_mbus$coupler_to_memory_controller_port_named_axi4$tl2axi4$_T_2[11 - 1].val) & 0x1u)) != 0, static_cast<uint32_t>(_s_mem$axi4frag$auto_in_r_bits_last[11 - 1].val), static_cast<uint32_t>(ldut.subsystem_mbus.coupler_to_memory_controller_port_named_axi4.tl2axi4.r_first[11 - 1].val))) & 0x1u)))) & 0x1u)) & 0x1u));
     // [serial scc=222 lane=12]
-    ldut.subsystem_mbus.coupler_to_memory_controller_port_named_axi4.tl2axi4.r_first[12] = _s_ldut$reset[12 - 1] | (_s_ldut$subsystem_mbus$coupler_to_memory_controller_port_named_axi4$tl2axi4$_T_2[12 - 1] ? _s_mem$axi4frag$auto_in_r_bits_last[12 - 1] : ldut.subsystem_mbus.coupler_to_memory_controller_port_named_axi4.tl2axi4.r_first[12 - 1]);
+    ldut.subsystem_mbus.coupler_to_memory_controller_port_named_axi4.tl2axi4.r_first[12].val = static_cast<typename UInt<1>::scalar_t>((static_cast<uint8_t>((static_cast<uint8_t>(((_s_ldut$reset[12 - 1].val) | ((static_cast<uint8_t>(essent_select_word<uint32_t>(((static_cast<uint8_t>(_s_ldut$subsystem_mbus$coupler_to_memory_controller_port_named_axi4$tl2axi4$_T_2[12 - 1].val) & 0x1u)) != 0, static_cast<uint32_t>(_s_mem$axi4frag$auto_in_r_bits_last[12 - 1].val), static_cast<uint32_t>(ldut.subsystem_mbus.coupler_to_memory_controller_port_named_axi4.tl2axi4.r_first[12 - 1].val))) & 0x1u)))) & 0x1u)) & 0x1u));
     // [serial scc=222 lane=13]
-    ldut.subsystem_mbus.coupler_to_memory_controller_port_named_axi4.tl2axi4.r_first[13] = _s_ldut$reset[13 - 1] | (_s_ldut$subsystem_mbus$coupler_to_memory_controller_port_named_axi4$tl2axi4$_T_2[13 - 1] ? _s_mem$axi4frag$auto_in_r_bits_last[13 - 1] : ldut.subsystem_mbus.coupler_to_memory_controller_port_named_axi4.tl2axi4.r_first[13 - 1]);
+    ldut.subsystem_mbus.coupler_to_memory_controller_port_named_axi4.tl2axi4.r_first[13].val = static_cast<typename UInt<1>::scalar_t>((static_cast<uint8_t>((static_cast<uint8_t>(((_s_ldut$reset[13 - 1].val) | ((static_cast<uint8_t>(essent_select_word<uint32_t>(((static_cast<uint8_t>(_s_ldut$subsystem_mbus$coupler_to_memory_controller_port_named_axi4$tl2axi4$_T_2[13 - 1].val) & 0x1u)) != 0, static_cast<uint32_t>(_s_mem$axi4frag$auto_in_r_bits_last[13 - 1].val), static_cast<uint32_t>(ldut.subsystem_mbus.coupler_to_memory_controller_port_named_axi4.tl2axi4.r_first[13 - 1].val))) & 0x1u)))) & 0x1u)) & 0x1u));
     // [serial scc=222 lane=14]
-    ldut.subsystem_mbus.coupler_to_memory_controller_port_named_axi4.tl2axi4.r_first[14] = _s_ldut$reset[14 - 1] | (_s_ldut$subsystem_mbus$coupler_to_memory_controller_port_named_axi4$tl2axi4$_T_2[14 - 1] ? _s_mem$axi4frag$auto_in_r_bits_last[14 - 1] : ldut.subsystem_mbus.coupler_to_memory_controller_port_named_axi4.tl2axi4.r_first[14 - 1]);
+    ldut.subsystem_mbus.coupler_to_memory_controller_port_named_axi4.tl2axi4.r_first[14].val = static_cast<typename UInt<1>::scalar_t>((static_cast<uint8_t>((static_cast<uint8_t>(((_s_ldut$reset[14 - 1].val) | ((static_cast<uint8_t>(essent_select_word<uint32_t>(((static_cast<uint8_t>(_s_ldut$subsystem_mbus$coupler_to_memory_controller_port_named_axi4$tl2axi4$_T_2[14 - 1].val) & 0x1u)) != 0, static_cast<uint32_t>(_s_mem$axi4frag$auto_in_r_bits_last[14 - 1].val), static_cast<uint32_t>(ldut.subsystem_mbus.coupler_to_memory_controller_port_named_axi4.tl2axi4.r_first[14 - 1].val))) & 0x1u)))) & 0x1u)) & 0x1u));
     // [serial scc=222 lane=15]
-    ldut.subsystem_mbus.coupler_to_memory_controller_port_named_axi4.tl2axi4.r_first[15] = _s_ldut$reset[15 - 1] | (_s_ldut$subsystem_mbus$coupler_to_memory_controller_port_named_axi4$tl2axi4$_T_2[15 - 1] ? _s_mem$axi4frag$auto_in_r_bits_last[15 - 1] : ldut.subsystem_mbus.coupler_to_memory_controller_port_named_axi4.tl2axi4.r_first[15 - 1]);
+    ldut.subsystem_mbus.coupler_to_memory_controller_port_named_axi4.tl2axi4.r_first[15].val = static_cast<typename UInt<1>::scalar_t>((static_cast<uint8_t>((static_cast<uint8_t>(((_s_ldut$reset[15 - 1].val) | ((static_cast<uint8_t>(essent_select_word<uint32_t>(((static_cast<uint8_t>(_s_ldut$subsystem_mbus$coupler_to_memory_controller_port_named_axi4$tl2axi4$_T_2[15 - 1].val) & 0x1u)) != 0, static_cast<uint32_t>(_s_mem$axi4frag$auto_in_r_bits_last[15 - 1].val), static_cast<uint32_t>(ldut.subsystem_mbus.coupler_to_memory_controller_port_named_axi4.tl2axi4.r_first[15 - 1].val))) & 0x1u)))) & 0x1u)) & 0x1u));
 
     if (partition_task_poll) partition_task_poll(partition_task_context, 0, true, 7);
     // [vec boundary-next] 1 templates x 16 lanes
@@ -12071,7 +12023,7 @@
         ESSENT_LANE_LOOP
         for (int L = 0; L < 16; L++) ldut.subsystem_sbus.coupler_to_bus_named_subsystem_l2.widget.corrupt_reg[L] = _gv;
       } else {
-        for (int L = 1; L < 16; L++) ldut.subsystem_sbus.coupler_to_bus_named_subsystem_l2.widget.corrupt_reg[L] = (~_s_ldut$reset[L - 1]) & (_s_ldut$subsystem_sbus$coupler_to_bus_named_subsystem_l2$widget$_T[L - 1] ? ((~_s_ldut$subsystem_sbus$coupler_to_bus_named_subsystem_l2$widget$last[L - 1]) & (_s_ldut$subsystem_l2_wrapper$broadcast_1$auto_in_d_bits_corrupt[L - 1] | ldut.subsystem_sbus.coupler_to_bus_named_subsystem_l2.widget.corrupt_reg[L - 1])) : ldut.subsystem_sbus.coupler_to_bus_named_subsystem_l2.widget.corrupt_reg[L - 1]);
+        for (int L = 1; L < 16; L++) ldut.subsystem_sbus.coupler_to_bus_named_subsystem_l2.widget.corrupt_reg[L].val = static_cast<typename UInt<1>::scalar_t>((static_cast<uint8_t>((static_cast<uint8_t>((((static_cast<uint8_t>((~static_cast<uint8_t>(_s_ldut$reset[L - 1].val))) & 0x1u)) & ((static_cast<uint8_t>(essent_select_word<uint32_t>(((static_cast<uint8_t>(_s_ldut$subsystem_sbus$coupler_to_bus_named_subsystem_l2$widget$_T[L - 1].val) & 0x1u)) != 0, static_cast<uint32_t>((static_cast<uint8_t>((((static_cast<uint8_t>((~static_cast<uint8_t>(_s_ldut$subsystem_sbus$coupler_to_bus_named_subsystem_l2$widget$last[L - 1].val))) & 0x1u)) & ((static_cast<uint8_t>(((_s_ldut$subsystem_l2_wrapper$broadcast_1$auto_in_d_bits_corrupt[L - 1].val) | (ldut.subsystem_sbus.coupler_to_bus_named_subsystem_l2.widget.corrupt_reg[L - 1].val))) & 0x1u)))) & 0x1u)), static_cast<uint32_t>(ldut.subsystem_sbus.coupler_to_bus_named_subsystem_l2.widget.corrupt_reg[L - 1].val))) & 0x1u)))) & 0x1u)) & 0x1u));
       }
     }
     // [vec comb] 1 templates x 16 lanes
@@ -12097,7 +12049,7 @@
         ESSENT_LANE_LOOP
         for (int L = 0; L < 16; L++) mem.axi4frag.error_0[L] = _gv;
       } else {
-        for (int L = 1; L < 16; L++) mem.axi4frag.error_0[L] = reset ? UInt<2>(0x0) : (_s_mem$axi4frag$_T_41[L - 1] ? (_s_mem$axi4buf$bundleIn_0_b_deq$ram_echo_real_last$io_deq_bits_MPORT[L - 1] ? UInt<2>(0x0) : (mem.axi4frag.error_0[L - 1] | _s_mem$axi4buf$bundleIn_0_b_deq$ram_resp$io_deq_bits_MPORT[L - 1])) : mem.axi4frag.error_0[L - 1]);
+        for (int L = 1; L < 16; L++) mem.axi4frag.error_0[L].val = static_cast<typename UInt<2>::scalar_t>((static_cast<uint8_t>((static_cast<uint8_t>(essent_select_word<uint32_t>(((static_cast<uint8_t>(reset.val) & 0x1u)) != 0, static_cast<uint32_t>((static_cast<uint8_t>(0x0u) & 0x3u)), static_cast<uint32_t>((static_cast<uint8_t>(essent_select_word<uint32_t>(((static_cast<uint8_t>(_s_mem$axi4frag$_T_41[L - 1].val) & 0x1u)) != 0, static_cast<uint32_t>((static_cast<uint8_t>(essent_select_word<uint32_t>(((static_cast<uint8_t>(_s_mem$axi4buf$bundleIn_0_b_deq$ram_echo_real_last$io_deq_bits_MPORT[L - 1].val) & 0x1u)) != 0, static_cast<uint32_t>((static_cast<uint8_t>(0x0u) & 0x3u)), static_cast<uint32_t>((static_cast<uint8_t>(((mem.axi4frag.error_0[L - 1].val) | (_s_mem$axi4buf$bundleIn_0_b_deq$ram_resp$io_deq_bits_MPORT[L - 1].val))) & 0x3u)))) & 0x3u)), static_cast<uint32_t>(mem.axi4frag.error_0[L - 1].val))) & 0x3u)))) & 0x3u)) & 0x3u));
       }
     }
     // [vec comb] 1 templates x 16 lanes [cold-guarded base: quiet drops 0, specializes 1]
@@ -12120,7 +12072,7 @@
         ESSENT_LANE_LOOP
         for (int L = 0; L < 16; L++) mem.axi4frag.error_1[L] = _gv;
       } else {
-        for (int L = 1; L < 16; L++) mem.axi4frag.error_1[L] = reset ? UInt<2>(0x0) : (_s_mem$axi4frag$_T_43[L - 1] ? (_s_mem$axi4buf$bundleIn_0_b_deq$ram_echo_real_last$io_deq_bits_MPORT[L - 1] ? UInt<2>(0x0) : (mem.axi4frag.error_1[L - 1] | _s_mem$axi4buf$bundleIn_0_b_deq$ram_resp$io_deq_bits_MPORT[L - 1])) : mem.axi4frag.error_1[L - 1]);
+        for (int L = 1; L < 16; L++) mem.axi4frag.error_1[L].val = static_cast<typename UInt<2>::scalar_t>((static_cast<uint8_t>((static_cast<uint8_t>(essent_select_word<uint32_t>(((static_cast<uint8_t>(reset.val) & 0x1u)) != 0, static_cast<uint32_t>((static_cast<uint8_t>(0x0u) & 0x3u)), static_cast<uint32_t>((static_cast<uint8_t>(essent_select_word<uint32_t>(((static_cast<uint8_t>(_s_mem$axi4frag$_T_43[L - 1].val) & 0x1u)) != 0, static_cast<uint32_t>((static_cast<uint8_t>(essent_select_word<uint32_t>(((static_cast<uint8_t>(_s_mem$axi4buf$bundleIn_0_b_deq$ram_echo_real_last$io_deq_bits_MPORT[L - 1].val) & 0x1u)) != 0, static_cast<uint32_t>((static_cast<uint8_t>(0x0u) & 0x3u)), static_cast<uint32_t>((static_cast<uint8_t>(((mem.axi4frag.error_1[L - 1].val) | (_s_mem$axi4buf$bundleIn_0_b_deq$ram_resp$io_deq_bits_MPORT[L - 1].val))) & 0x3u)))) & 0x3u)), static_cast<uint32_t>(mem.axi4frag.error_1[L - 1].val))) & 0x3u)))) & 0x3u)) & 0x3u));
       }
     }
     // [vec comb] 1 templates x 16 lanes [cold-guarded base: quiet drops 0, specializes 1]
@@ -12143,7 +12095,7 @@
         ESSENT_LANE_LOOP
         for (int L = 0; L < 16; L++) mem.axi4frag.error_2[L] = _gv;
       } else {
-        for (int L = 1; L < 16; L++) mem.axi4frag.error_2[L] = reset ? UInt<2>(0x0) : (_s_mem$axi4frag$_T_45[L - 1] ? (_s_mem$axi4buf$bundleIn_0_b_deq$ram_echo_real_last$io_deq_bits_MPORT[L - 1] ? UInt<2>(0x0) : (mem.axi4frag.error_2[L - 1] | _s_mem$axi4buf$bundleIn_0_b_deq$ram_resp$io_deq_bits_MPORT[L - 1])) : mem.axi4frag.error_2[L - 1]);
+        for (int L = 1; L < 16; L++) mem.axi4frag.error_2[L].val = static_cast<typename UInt<2>::scalar_t>((static_cast<uint8_t>((static_cast<uint8_t>(essent_select_word<uint32_t>(((static_cast<uint8_t>(reset.val) & 0x1u)) != 0, static_cast<uint32_t>((static_cast<uint8_t>(0x0u) & 0x3u)), static_cast<uint32_t>((static_cast<uint8_t>(essent_select_word<uint32_t>(((static_cast<uint8_t>(_s_mem$axi4frag$_T_45[L - 1].val) & 0x1u)) != 0, static_cast<uint32_t>((static_cast<uint8_t>(essent_select_word<uint32_t>(((static_cast<uint8_t>(_s_mem$axi4buf$bundleIn_0_b_deq$ram_echo_real_last$io_deq_bits_MPORT[L - 1].val) & 0x1u)) != 0, static_cast<uint32_t>((static_cast<uint8_t>(0x0u) & 0x3u)), static_cast<uint32_t>((static_cast<uint8_t>(((mem.axi4frag.error_2[L - 1].val) | (_s_mem$axi4buf$bundleIn_0_b_deq$ram_resp$io_deq_bits_MPORT[L - 1].val))) & 0x3u)))) & 0x3u)), static_cast<uint32_t>(mem.axi4frag.error_2[L - 1].val))) & 0x3u)))) & 0x3u)) & 0x3u));
       }
     }
     // [vec comb] 1 templates x 16 lanes [cold-guarded base: quiet drops 0, specializes 1]
@@ -12166,7 +12118,7 @@
         ESSENT_LANE_LOOP
         for (int L = 0; L < 16; L++) mem.axi4frag.error_3[L] = _gv;
       } else {
-        for (int L = 1; L < 16; L++) mem.axi4frag.error_3[L] = reset ? UInt<2>(0x0) : (_s_mem$axi4frag$_T_47[L - 1] ? (_s_mem$axi4buf$bundleIn_0_b_deq$ram_echo_real_last$io_deq_bits_MPORT[L - 1] ? UInt<2>(0x0) : (mem.axi4frag.error_3[L - 1] | _s_mem$axi4buf$bundleIn_0_b_deq$ram_resp$io_deq_bits_MPORT[L - 1])) : mem.axi4frag.error_3[L - 1]);
+        for (int L = 1; L < 16; L++) mem.axi4frag.error_3[L].val = static_cast<typename UInt<2>::scalar_t>((static_cast<uint8_t>((static_cast<uint8_t>(essent_select_word<uint32_t>(((static_cast<uint8_t>(reset.val) & 0x1u)) != 0, static_cast<uint32_t>((static_cast<uint8_t>(0x0u) & 0x3u)), static_cast<uint32_t>((static_cast<uint8_t>(essent_select_word<uint32_t>(((static_cast<uint8_t>(_s_mem$axi4frag$_T_47[L - 1].val) & 0x1u)) != 0, static_cast<uint32_t>((static_cast<uint8_t>(essent_select_word<uint32_t>(((static_cast<uint8_t>(_s_mem$axi4buf$bundleIn_0_b_deq$ram_echo_real_last$io_deq_bits_MPORT[L - 1].val) & 0x1u)) != 0, static_cast<uint32_t>((static_cast<uint8_t>(0x0u) & 0x3u)), static_cast<uint32_t>((static_cast<uint8_t>(((mem.axi4frag.error_3[L - 1].val) | (_s_mem$axi4buf$bundleIn_0_b_deq$ram_resp$io_deq_bits_MPORT[L - 1].val))) & 0x3u)))) & 0x3u)), static_cast<uint32_t>(mem.axi4frag.error_3[L - 1].val))) & 0x3u)))) & 0x3u)) & 0x3u));
       }
     }
     // [vec comb] 1 templates x 16 lanes [cold-guarded base: quiet drops 0, specializes 1]
@@ -12189,7 +12141,7 @@
         ESSENT_LANE_LOOP
         for (int L = 0; L < 16; L++) mem.axi4frag.error_4[L] = _gv;
       } else {
-        for (int L = 1; L < 16; L++) mem.axi4frag.error_4[L] = reset ? UInt<2>(0x0) : (_s_mem$axi4frag$_T_49[L - 1] ? (_s_mem$axi4buf$bundleIn_0_b_deq$ram_echo_real_last$io_deq_bits_MPORT[L - 1] ? UInt<2>(0x0) : (mem.axi4frag.error_4[L - 1] | _s_mem$axi4buf$bundleIn_0_b_deq$ram_resp$io_deq_bits_MPORT[L - 1])) : mem.axi4frag.error_4[L - 1]);
+        for (int L = 1; L < 16; L++) mem.axi4frag.error_4[L].val = static_cast<typename UInt<2>::scalar_t>((static_cast<uint8_t>((static_cast<uint8_t>(essent_select_word<uint32_t>(((static_cast<uint8_t>(reset.val) & 0x1u)) != 0, static_cast<uint32_t>((static_cast<uint8_t>(0x0u) & 0x3u)), static_cast<uint32_t>((static_cast<uint8_t>(essent_select_word<uint32_t>(((static_cast<uint8_t>(_s_mem$axi4frag$_T_49[L - 1].val) & 0x1u)) != 0, static_cast<uint32_t>((static_cast<uint8_t>(essent_select_word<uint32_t>(((static_cast<uint8_t>(_s_mem$axi4buf$bundleIn_0_b_deq$ram_echo_real_last$io_deq_bits_MPORT[L - 1].val) & 0x1u)) != 0, static_cast<uint32_t>((static_cast<uint8_t>(0x0u) & 0x3u)), static_cast<uint32_t>((static_cast<uint8_t>(((mem.axi4frag.error_4[L - 1].val) | (_s_mem$axi4buf$bundleIn_0_b_deq$ram_resp$io_deq_bits_MPORT[L - 1].val))) & 0x3u)))) & 0x3u)), static_cast<uint32_t>(mem.axi4frag.error_4[L - 1].val))) & 0x3u)))) & 0x3u)) & 0x3u));
       }
     }
     // [vec comb] 1 templates x 16 lanes [cold-guarded base: quiet drops 0, specializes 1]
@@ -12212,7 +12164,7 @@
         ESSENT_LANE_LOOP
         for (int L = 0; L < 16; L++) mem.axi4frag.error_5[L] = _gv;
       } else {
-        for (int L = 1; L < 16; L++) mem.axi4frag.error_5[L] = reset ? UInt<2>(0x0) : (_s_mem$axi4frag$_T_51[L - 1] ? (_s_mem$axi4buf$bundleIn_0_b_deq$ram_echo_real_last$io_deq_bits_MPORT[L - 1] ? UInt<2>(0x0) : (mem.axi4frag.error_5[L - 1] | _s_mem$axi4buf$bundleIn_0_b_deq$ram_resp$io_deq_bits_MPORT[L - 1])) : mem.axi4frag.error_5[L - 1]);
+        for (int L = 1; L < 16; L++) mem.axi4frag.error_5[L].val = static_cast<typename UInt<2>::scalar_t>((static_cast<uint8_t>((static_cast<uint8_t>(essent_select_word<uint32_t>(((static_cast<uint8_t>(reset.val) & 0x1u)) != 0, static_cast<uint32_t>((static_cast<uint8_t>(0x0u) & 0x3u)), static_cast<uint32_t>((static_cast<uint8_t>(essent_select_word<uint32_t>(((static_cast<uint8_t>(_s_mem$axi4frag$_T_51[L - 1].val) & 0x1u)) != 0, static_cast<uint32_t>((static_cast<uint8_t>(essent_select_word<uint32_t>(((static_cast<uint8_t>(_s_mem$axi4buf$bundleIn_0_b_deq$ram_echo_real_last$io_deq_bits_MPORT[L - 1].val) & 0x1u)) != 0, static_cast<uint32_t>((static_cast<uint8_t>(0x0u) & 0x3u)), static_cast<uint32_t>((static_cast<uint8_t>(((mem.axi4frag.error_5[L - 1].val) | (_s_mem$axi4buf$bundleIn_0_b_deq$ram_resp$io_deq_bits_MPORT[L - 1].val))) & 0x3u)))) & 0x3u)), static_cast<uint32_t>(mem.axi4frag.error_5[L - 1].val))) & 0x3u)))) & 0x3u)) & 0x3u));
       }
     }
     // [vec comb] 1 templates x 16 lanes [cold-guarded base: quiet drops 0, specializes 1]
@@ -12235,7 +12187,7 @@
         ESSENT_LANE_LOOP
         for (int L = 0; L < 16; L++) mem.axi4frag.error_6[L] = _gv;
       } else {
-        for (int L = 1; L < 16; L++) mem.axi4frag.error_6[L] = reset ? UInt<2>(0x0) : (_s_mem$axi4frag$_T_53[L - 1] ? (_s_mem$axi4buf$bundleIn_0_b_deq$ram_echo_real_last$io_deq_bits_MPORT[L - 1] ? UInt<2>(0x0) : (mem.axi4frag.error_6[L - 1] | _s_mem$axi4buf$bundleIn_0_b_deq$ram_resp$io_deq_bits_MPORT[L - 1])) : mem.axi4frag.error_6[L - 1]);
+        for (int L = 1; L < 16; L++) mem.axi4frag.error_6[L].val = static_cast<typename UInt<2>::scalar_t>((static_cast<uint8_t>((static_cast<uint8_t>(essent_select_word<uint32_t>(((static_cast<uint8_t>(reset.val) & 0x1u)) != 0, static_cast<uint32_t>((static_cast<uint8_t>(0x0u) & 0x3u)), static_cast<uint32_t>((static_cast<uint8_t>(essent_select_word<uint32_t>(((static_cast<uint8_t>(_s_mem$axi4frag$_T_53[L - 1].val) & 0x1u)) != 0, static_cast<uint32_t>((static_cast<uint8_t>(essent_select_word<uint32_t>(((static_cast<uint8_t>(_s_mem$axi4buf$bundleIn_0_b_deq$ram_echo_real_last$io_deq_bits_MPORT[L - 1].val) & 0x1u)) != 0, static_cast<uint32_t>((static_cast<uint8_t>(0x0u) & 0x3u)), static_cast<uint32_t>((static_cast<uint8_t>(((mem.axi4frag.error_6[L - 1].val) | (_s_mem$axi4buf$bundleIn_0_b_deq$ram_resp$io_deq_bits_MPORT[L - 1].val))) & 0x3u)))) & 0x3u)), static_cast<uint32_t>(mem.axi4frag.error_6[L - 1].val))) & 0x3u)))) & 0x3u)) & 0x3u));
       }
     }
     // [vec comb] 1 templates x 16 lanes [cold-guarded base: quiet drops 0, specializes 1]
@@ -12258,7 +12210,7 @@
         ESSENT_LANE_LOOP
         for (int L = 0; L < 16; L++) mem.axi4frag.error_7[L] = _gv;
       } else {
-        for (int L = 1; L < 16; L++) mem.axi4frag.error_7[L] = reset ? UInt<2>(0x0) : (_s_mem$axi4frag$_T_55[L - 1] ? (_s_mem$axi4buf$bundleIn_0_b_deq$ram_echo_real_last$io_deq_bits_MPORT[L - 1] ? UInt<2>(0x0) : (mem.axi4frag.error_7[L - 1] | _s_mem$axi4buf$bundleIn_0_b_deq$ram_resp$io_deq_bits_MPORT[L - 1])) : mem.axi4frag.error_7[L - 1]);
+        for (int L = 1; L < 16; L++) mem.axi4frag.error_7[L].val = static_cast<typename UInt<2>::scalar_t>((static_cast<uint8_t>((static_cast<uint8_t>(essent_select_word<uint32_t>(((static_cast<uint8_t>(reset.val) & 0x1u)) != 0, static_cast<uint32_t>((static_cast<uint8_t>(0x0u) & 0x3u)), static_cast<uint32_t>((static_cast<uint8_t>(essent_select_word<uint32_t>(((static_cast<uint8_t>(_s_mem$axi4frag$_T_55[L - 1].val) & 0x1u)) != 0, static_cast<uint32_t>((static_cast<uint8_t>(essent_select_word<uint32_t>(((static_cast<uint8_t>(_s_mem$axi4buf$bundleIn_0_b_deq$ram_echo_real_last$io_deq_bits_MPORT[L - 1].val) & 0x1u)) != 0, static_cast<uint32_t>((static_cast<uint8_t>(0x0u) & 0x3u)), static_cast<uint32_t>((static_cast<uint8_t>(((mem.axi4frag.error_7[L - 1].val) | (_s_mem$axi4buf$bundleIn_0_b_deq$ram_resp$io_deq_bits_MPORT[L - 1].val))) & 0x3u)))) & 0x3u)), static_cast<uint32_t>(mem.axi4frag.error_7[L - 1].val))) & 0x3u)))) & 0x3u)) & 0x3u));
       }
     }
     // [vec comb] 1 templates x 16 lanes [cold-guarded base: quiet drops 0, specializes 1]
@@ -12281,7 +12233,7 @@
         ESSENT_LANE_LOOP
         for (int L = 0; L < 16; L++) mem.axi4frag.error_8[L] = _gv;
       } else {
-        for (int L = 1; L < 16; L++) mem.axi4frag.error_8[L] = reset ? UInt<2>(0x0) : (_s_mem$axi4frag$_T_57[L - 1] ? (_s_mem$axi4buf$bundleIn_0_b_deq$ram_echo_real_last$io_deq_bits_MPORT[L - 1] ? UInt<2>(0x0) : (mem.axi4frag.error_8[L - 1] | _s_mem$axi4buf$bundleIn_0_b_deq$ram_resp$io_deq_bits_MPORT[L - 1])) : mem.axi4frag.error_8[L - 1]);
+        for (int L = 1; L < 16; L++) mem.axi4frag.error_8[L].val = static_cast<typename UInt<2>::scalar_t>((static_cast<uint8_t>((static_cast<uint8_t>(essent_select_word<uint32_t>(((static_cast<uint8_t>(reset.val) & 0x1u)) != 0, static_cast<uint32_t>((static_cast<uint8_t>(0x0u) & 0x3u)), static_cast<uint32_t>((static_cast<uint8_t>(essent_select_word<uint32_t>(((static_cast<uint8_t>(_s_mem$axi4frag$_T_57[L - 1].val) & 0x1u)) != 0, static_cast<uint32_t>((static_cast<uint8_t>(essent_select_word<uint32_t>(((static_cast<uint8_t>(_s_mem$axi4buf$bundleIn_0_b_deq$ram_echo_real_last$io_deq_bits_MPORT[L - 1].val) & 0x1u)) != 0, static_cast<uint32_t>((static_cast<uint8_t>(0x0u) & 0x3u)), static_cast<uint32_t>((static_cast<uint8_t>(((mem.axi4frag.error_8[L - 1].val) | (_s_mem$axi4buf$bundleIn_0_b_deq$ram_resp$io_deq_bits_MPORT[L - 1].val))) & 0x3u)))) & 0x3u)), static_cast<uint32_t>(mem.axi4frag.error_8[L - 1].val))) & 0x3u)))) & 0x3u)) & 0x3u));
       }
     }
     // [vec comb] 1 templates x 16 lanes [cold-guarded base: quiet drops 0, specializes 1]
@@ -12304,9 +12256,11 @@
         ESSENT_LANE_LOOP
         for (int L = 0; L < 16; L++) mem.axi4frag.error_9[L] = _gv;
       } else {
-        for (int L = 1; L < 16; L++) mem.axi4frag.error_9[L] = reset ? UInt<2>(0x0) : (_s_mem$axi4frag$_T_59[L - 1] ? (_s_mem$axi4buf$bundleIn_0_b_deq$ram_echo_real_last$io_deq_bits_MPORT[L - 1] ? UInt<2>(0x0) : (mem.axi4frag.error_9[L - 1] | _s_mem$axi4buf$bundleIn_0_b_deq$ram_resp$io_deq_bits_MPORT[L - 1])) : mem.axi4frag.error_9[L - 1]);
+        for (int L = 1; L < 16; L++) mem.axi4frag.error_9[L].val = static_cast<typename UInt<2>::scalar_t>((static_cast<uint8_t>((static_cast<uint8_t>(essent_select_word<uint32_t>(((static_cast<uint8_t>(reset.val) & 0x1u)) != 0, static_cast<uint32_t>((static_cast<uint8_t>(0x0u) & 0x3u)), static_cast<uint32_t>((static_cast<uint8_t>(essent_select_word<uint32_t>(((static_cast<uint8_t>(_s_mem$axi4frag$_T_59[L - 1].val) & 0x1u)) != 0, static_cast<uint32_t>((static_cast<uint8_t>(essent_select_word<uint32_t>(((static_cast<uint8_t>(_s_mem$axi4buf$bundleIn_0_b_deq$ram_echo_real_last$io_deq_bits_MPORT[L - 1].val) & 0x1u)) != 0, static_cast<uint32_t>((static_cast<uint8_t>(0x0u) & 0x3u)), static_cast<uint32_t>((static_cast<uint8_t>(((mem.axi4frag.error_9[L - 1].val) | (_s_mem$axi4buf$bundleIn_0_b_deq$ram_resp$io_deq_bits_MPORT[L - 1].val))) & 0x3u)))) & 0x3u)), static_cast<uint32_t>(mem.axi4frag.error_9[L - 1].val))) & 0x3u)))) & 0x3u)) & 0x3u));
       }
     }
+
+    if (partition_task_poll) partition_task_poll(partition_task_context, 0, true, 7);
     // [vec comb] 1 templates x 16 lanes [cold-guarded base: quiet drops 0, specializes 1]
     if (UNLIKELY(!_v2_quiet_base)) {
       _v2_cold_comb_full(77);
@@ -12327,7 +12281,7 @@
         ESSENT_LANE_LOOP
         for (int L = 0; L < 16; L++) mem.axi4frag.error_10[L] = _gv;
       } else {
-        for (int L = 1; L < 16; L++) mem.axi4frag.error_10[L] = reset ? UInt<2>(0x0) : (_s_mem$axi4frag$_T_61[L - 1] ? (_s_mem$axi4buf$bundleIn_0_b_deq$ram_echo_real_last$io_deq_bits_MPORT[L - 1] ? UInt<2>(0x0) : (mem.axi4frag.error_10[L - 1] | _s_mem$axi4buf$bundleIn_0_b_deq$ram_resp$io_deq_bits_MPORT[L - 1])) : mem.axi4frag.error_10[L - 1]);
+        for (int L = 1; L < 16; L++) mem.axi4frag.error_10[L].val = static_cast<typename UInt<2>::scalar_t>((static_cast<uint8_t>((static_cast<uint8_t>(essent_select_word<uint32_t>(((static_cast<uint8_t>(reset.val) & 0x1u)) != 0, static_cast<uint32_t>((static_cast<uint8_t>(0x0u) & 0x3u)), static_cast<uint32_t>((static_cast<uint8_t>(essent_select_word<uint32_t>(((static_cast<uint8_t>(_s_mem$axi4frag$_T_61[L - 1].val) & 0x1u)) != 0, static_cast<uint32_t>((static_cast<uint8_t>(essent_select_word<uint32_t>(((static_cast<uint8_t>(_s_mem$axi4buf$bundleIn_0_b_deq$ram_echo_real_last$io_deq_bits_MPORT[L - 1].val) & 0x1u)) != 0, static_cast<uint32_t>((static_cast<uint8_t>(0x0u) & 0x3u)), static_cast<uint32_t>((static_cast<uint8_t>(((mem.axi4frag.error_10[L - 1].val) | (_s_mem$axi4buf$bundleIn_0_b_deq$ram_resp$io_deq_bits_MPORT[L - 1].val))) & 0x3u)))) & 0x3u)), static_cast<uint32_t>(mem.axi4frag.error_10[L - 1].val))) & 0x3u)))) & 0x3u)) & 0x3u));
       }
     }
     // [vec comb] 1 templates x 16 lanes [cold-guarded base: quiet drops 0, specializes 1]
@@ -12350,7 +12304,7 @@
         ESSENT_LANE_LOOP
         for (int L = 0; L < 16; L++) mem.axi4frag.error_11[L] = _gv;
       } else {
-        for (int L = 1; L < 16; L++) mem.axi4frag.error_11[L] = reset ? UInt<2>(0x0) : (_s_mem$axi4frag$_T_63[L - 1] ? (_s_mem$axi4buf$bundleIn_0_b_deq$ram_echo_real_last$io_deq_bits_MPORT[L - 1] ? UInt<2>(0x0) : (mem.axi4frag.error_11[L - 1] | _s_mem$axi4buf$bundleIn_0_b_deq$ram_resp$io_deq_bits_MPORT[L - 1])) : mem.axi4frag.error_11[L - 1]);
+        for (int L = 1; L < 16; L++) mem.axi4frag.error_11[L].val = static_cast<typename UInt<2>::scalar_t>((static_cast<uint8_t>((static_cast<uint8_t>(essent_select_word<uint32_t>(((static_cast<uint8_t>(reset.val) & 0x1u)) != 0, static_cast<uint32_t>((static_cast<uint8_t>(0x0u) & 0x3u)), static_cast<uint32_t>((static_cast<uint8_t>(essent_select_word<uint32_t>(((static_cast<uint8_t>(_s_mem$axi4frag$_T_63[L - 1].val) & 0x1u)) != 0, static_cast<uint32_t>((static_cast<uint8_t>(essent_select_word<uint32_t>(((static_cast<uint8_t>(_s_mem$axi4buf$bundleIn_0_b_deq$ram_echo_real_last$io_deq_bits_MPORT[L - 1].val) & 0x1u)) != 0, static_cast<uint32_t>((static_cast<uint8_t>(0x0u) & 0x3u)), static_cast<uint32_t>((static_cast<uint8_t>(((mem.axi4frag.error_11[L - 1].val) | (_s_mem$axi4buf$bundleIn_0_b_deq$ram_resp$io_deq_bits_MPORT[L - 1].val))) & 0x3u)))) & 0x3u)), static_cast<uint32_t>(mem.axi4frag.error_11[L - 1].val))) & 0x3u)))) & 0x3u)) & 0x3u));
       }
     }
     // [vec comb] 1 templates x 16 lanes [cold-guarded base: quiet drops 0, specializes 1]
@@ -12373,11 +12327,9 @@
         ESSENT_LANE_LOOP
         for (int L = 0; L < 16; L++) mem.axi4frag.error_12[L] = _gv;
       } else {
-        for (int L = 1; L < 16; L++) mem.axi4frag.error_12[L] = reset ? UInt<2>(0x0) : (_s_mem$axi4frag$_T_65[L - 1] ? (_s_mem$axi4buf$bundleIn_0_b_deq$ram_echo_real_last$io_deq_bits_MPORT[L - 1] ? UInt<2>(0x0) : (mem.axi4frag.error_12[L - 1] | _s_mem$axi4buf$bundleIn_0_b_deq$ram_resp$io_deq_bits_MPORT[L - 1])) : mem.axi4frag.error_12[L - 1]);
+        for (int L = 1; L < 16; L++) mem.axi4frag.error_12[L].val = static_cast<typename UInt<2>::scalar_t>((static_cast<uint8_t>((static_cast<uint8_t>(essent_select_word<uint32_t>(((static_cast<uint8_t>(reset.val) & 0x1u)) != 0, static_cast<uint32_t>((static_cast<uint8_t>(0x0u) & 0x3u)), static_cast<uint32_t>((static_cast<uint8_t>(essent_select_word<uint32_t>(((static_cast<uint8_t>(_s_mem$axi4frag$_T_65[L - 1].val) & 0x1u)) != 0, static_cast<uint32_t>((static_cast<uint8_t>(essent_select_word<uint32_t>(((static_cast<uint8_t>(_s_mem$axi4buf$bundleIn_0_b_deq$ram_echo_real_last$io_deq_bits_MPORT[L - 1].val) & 0x1u)) != 0, static_cast<uint32_t>((static_cast<uint8_t>(0x0u) & 0x3u)), static_cast<uint32_t>((static_cast<uint8_t>(((mem.axi4frag.error_12[L - 1].val) | (_s_mem$axi4buf$bundleIn_0_b_deq$ram_resp$io_deq_bits_MPORT[L - 1].val))) & 0x3u)))) & 0x3u)), static_cast<uint32_t>(mem.axi4frag.error_12[L - 1].val))) & 0x3u)))) & 0x3u)) & 0x3u));
       }
     }
-
-    if (partition_task_poll) partition_task_poll(partition_task_context, 0, true, 7);
     // [vec comb] 1 templates x 16 lanes [cold-guarded base: quiet drops 0, specializes 1]
     if (UNLIKELY(!_v2_quiet_base)) {
       _v2_cold_comb_full(80);
@@ -12398,7 +12350,7 @@
         ESSENT_LANE_LOOP
         for (int L = 0; L < 16; L++) mem.axi4frag.error_13[L] = _gv;
       } else {
-        for (int L = 1; L < 16; L++) mem.axi4frag.error_13[L] = reset ? UInt<2>(0x0) : (_s_mem$axi4frag$_T_67[L - 1] ? (_s_mem$axi4buf$bundleIn_0_b_deq$ram_echo_real_last$io_deq_bits_MPORT[L - 1] ? UInt<2>(0x0) : (mem.axi4frag.error_13[L - 1] | _s_mem$axi4buf$bundleIn_0_b_deq$ram_resp$io_deq_bits_MPORT[L - 1])) : mem.axi4frag.error_13[L - 1]);
+        for (int L = 1; L < 16; L++) mem.axi4frag.error_13[L].val = static_cast<typename UInt<2>::scalar_t>((static_cast<uint8_t>((static_cast<uint8_t>(essent_select_word<uint32_t>(((static_cast<uint8_t>(reset.val) & 0x1u)) != 0, static_cast<uint32_t>((static_cast<uint8_t>(0x0u) & 0x3u)), static_cast<uint32_t>((static_cast<uint8_t>(essent_select_word<uint32_t>(((static_cast<uint8_t>(_s_mem$axi4frag$_T_67[L - 1].val) & 0x1u)) != 0, static_cast<uint32_t>((static_cast<uint8_t>(essent_select_word<uint32_t>(((static_cast<uint8_t>(_s_mem$axi4buf$bundleIn_0_b_deq$ram_echo_real_last$io_deq_bits_MPORT[L - 1].val) & 0x1u)) != 0, static_cast<uint32_t>((static_cast<uint8_t>(0x0u) & 0x3u)), static_cast<uint32_t>((static_cast<uint8_t>(((mem.axi4frag.error_13[L - 1].val) | (_s_mem$axi4buf$bundleIn_0_b_deq$ram_resp$io_deq_bits_MPORT[L - 1].val))) & 0x3u)))) & 0x3u)), static_cast<uint32_t>(mem.axi4frag.error_13[L - 1].val))) & 0x3u)))) & 0x3u)) & 0x3u));
       }
     }
     // [vec comb] 1 templates x 16 lanes [cold-guarded base: quiet drops 0, specializes 1]
@@ -12421,7 +12373,7 @@
         ESSENT_LANE_LOOP
         for (int L = 0; L < 16; L++) mem.axi4frag.error_14[L] = _gv;
       } else {
-        for (int L = 1; L < 16; L++) mem.axi4frag.error_14[L] = reset ? UInt<2>(0x0) : (_s_mem$axi4frag$_T_69[L - 1] ? (_s_mem$axi4buf$bundleIn_0_b_deq$ram_echo_real_last$io_deq_bits_MPORT[L - 1] ? UInt<2>(0x0) : (mem.axi4frag.error_14[L - 1] | _s_mem$axi4buf$bundleIn_0_b_deq$ram_resp$io_deq_bits_MPORT[L - 1])) : mem.axi4frag.error_14[L - 1]);
+        for (int L = 1; L < 16; L++) mem.axi4frag.error_14[L].val = static_cast<typename UInt<2>::scalar_t>((static_cast<uint8_t>((static_cast<uint8_t>(essent_select_word<uint32_t>(((static_cast<uint8_t>(reset.val) & 0x1u)) != 0, static_cast<uint32_t>((static_cast<uint8_t>(0x0u) & 0x3u)), static_cast<uint32_t>((static_cast<uint8_t>(essent_select_word<uint32_t>(((static_cast<uint8_t>(_s_mem$axi4frag$_T_69[L - 1].val) & 0x1u)) != 0, static_cast<uint32_t>((static_cast<uint8_t>(essent_select_word<uint32_t>(((static_cast<uint8_t>(_s_mem$axi4buf$bundleIn_0_b_deq$ram_echo_real_last$io_deq_bits_MPORT[L - 1].val) & 0x1u)) != 0, static_cast<uint32_t>((static_cast<uint8_t>(0x0u) & 0x3u)), static_cast<uint32_t>((static_cast<uint8_t>(((mem.axi4frag.error_14[L - 1].val) | (_s_mem$axi4buf$bundleIn_0_b_deq$ram_resp$io_deq_bits_MPORT[L - 1].val))) & 0x3u)))) & 0x3u)), static_cast<uint32_t>(mem.axi4frag.error_14[L - 1].val))) & 0x3u)))) & 0x3u)) & 0x3u));
       }
     }
     // [vec comb] 1 templates x 16 lanes [cold-guarded base: quiet drops 0, specializes 1]
@@ -12444,7 +12396,7 @@
         ESSENT_LANE_LOOP
         for (int L = 0; L < 16; L++) mem.axi4frag.error_15[L] = _gv;
       } else {
-        for (int L = 1; L < 16; L++) mem.axi4frag.error_15[L] = reset ? UInt<2>(0x0) : (_s_mem$axi4frag$_T_71[L - 1] ? (_s_mem$axi4buf$bundleIn_0_b_deq$ram_echo_real_last$io_deq_bits_MPORT[L - 1] ? UInt<2>(0x0) : (mem.axi4frag.error_15[L - 1] | _s_mem$axi4buf$bundleIn_0_b_deq$ram_resp$io_deq_bits_MPORT[L - 1])) : mem.axi4frag.error_15[L - 1]);
+        for (int L = 1; L < 16; L++) mem.axi4frag.error_15[L].val = static_cast<typename UInt<2>::scalar_t>((static_cast<uint8_t>((static_cast<uint8_t>(essent_select_word<uint32_t>(((static_cast<uint8_t>(reset.val) & 0x1u)) != 0, static_cast<uint32_t>((static_cast<uint8_t>(0x0u) & 0x3u)), static_cast<uint32_t>((static_cast<uint8_t>(essent_select_word<uint32_t>(((static_cast<uint8_t>(_s_mem$axi4frag$_T_71[L - 1].val) & 0x1u)) != 0, static_cast<uint32_t>((static_cast<uint8_t>(essent_select_word<uint32_t>(((static_cast<uint8_t>(_s_mem$axi4buf$bundleIn_0_b_deq$ram_echo_real_last$io_deq_bits_MPORT[L - 1].val) & 0x1u)) != 0, static_cast<uint32_t>((static_cast<uint8_t>(0x0u) & 0x3u)), static_cast<uint32_t>((static_cast<uint8_t>(((mem.axi4frag.error_15[L - 1].val) | (_s_mem$axi4buf$bundleIn_0_b_deq$ram_resp$io_deq_bits_MPORT[L - 1].val))) & 0x3u)))) & 0x3u)), static_cast<uint32_t>(mem.axi4frag.error_15[L - 1].val))) & 0x3u)))) & 0x3u)) & 0x3u));
       }
     }
     // [vec comb] 3 templates x 16 lanes
@@ -12490,6 +12442,8 @@
       _s_ldut$subsystem_sbus$system_bus_xbar$auto_out_2_d_ready[L].val = static_cast<typename UInt<1>::scalar_t>((static_cast<uint8_t>((static_cast<uint8_t>((((static_cast<uint8_t>(((_s_ldut$subsystem_sbus$system_bus_xbar$requestDOI_2_0[L].val) & ((static_cast<uint8_t>(((_s_ldut$subsystem_sbus$coupler_from_bus_named_subsystem_fbus$widget$repeated_repeater$io_enq_ready[L].val) & ((static_cast<uint8_t>((((static_cast<uint8_t>(((_s_ldut$subsystem_sbus$system_bus_xbar$idle_3[L].val) & (_s_ldut$subsystem_sbus$system_bus_xbar$readys_3_2[L].val))) & 0x1u)) | ((static_cast<uint8_t>((((static_cast<uint8_t>((~static_cast<uint8_t>(_s_ldut$subsystem_sbus$system_bus_xbar$idle_3[L].val))) & 0x1u)) & (ldut.subsystem_sbus.system_bus_xbar.state_3_2[L].val))) & 0x1u)))) & 0x1u)))) & 0x1u)))) & 0x1u)) | ((static_cast<uint8_t>(((_s_ldut$subsystem_sbus$system_bus_xbar$requestDOI_2_1[L].val) & ((static_cast<uint8_t>(((_s_ldut$tile_prci_domain$buffer_1$bundleIn_0_d_q$io_enq_ready[L].val) & ((static_cast<uint8_t>((((static_cast<uint8_t>(((_s_ldut$subsystem_sbus$system_bus_xbar$idle_4[L].val) & (_s_ldut$subsystem_sbus$system_bus_xbar$readys_4_2[L].val))) & 0x1u)) | ((static_cast<uint8_t>((((static_cast<uint8_t>((~static_cast<uint8_t>(_s_ldut$subsystem_sbus$system_bus_xbar$idle_4[L].val))) & 0x1u)) & (ldut.subsystem_sbus.system_bus_xbar.state_4_2[L].val))) & 0x1u)))) & 0x1u)))) & 0x1u)))) & 0x1u)))) & 0x1u)) & 0x1u));
       _s_ldut$subsystem_sbus$system_bus_xbar$beatsLeft_3$next[L].val = static_cast<typename UInt<8>::scalar_t>((static_cast<uint16_t>((static_cast<uint16_t>(((((static_cast<uint16_t>(0x0u) & 0xffu)) & ((uint16_t)0 - (uint16_t)(((static_cast<uint16_t>(_s_ldut$reset[L].val) & 0x1u)) != 0))) | (((static_cast<uint16_t>(((((static_cast<uint16_t>((((static_cast<uint16_t>((((_s_ldut$subsystem_sbus$system_bus_xbar$beatsDO_0[L].val) & ((uint16_t)0 - (uint16_t)(((static_cast<uint16_t>(_s_ldut$subsystem_sbus$system_bus_xbar$earlyWinner_3_0[L].val) & 0x1u)) != 0))) | (((static_cast<uint16_t>(0x0u) & 0xffu)) & ~((uint16_t)0 - (uint16_t)(((static_cast<uint16_t>(_s_ldut$subsystem_sbus$system_bus_xbar$earlyWinner_3_0[L].val) & 0x1u)) != 0))))) & 0xffu)) | ((static_cast<uint16_t>((((static_cast<uint16_t>((static_cast<uint16_t>((((_s_ldut$subsystem_sbus$system_bus_xbar$beatsDO_1[L].val) & ((uint16_t)0 - (uint16_t)(((static_cast<uint16_t>(_s_ldut$subsystem_sbus$system_bus_xbar$earlyWinner_3_1[L].val) & 0x1u)) != 0))) | (((static_cast<uint16_t>(0x0u) & 0x3u)) & ~((uint16_t)0 - (uint16_t)(((static_cast<uint16_t>(_s_ldut$subsystem_sbus$system_bus_xbar$earlyWinner_3_1[L].val) & 0x1u)) != 0))))) & 0x3u)) & 0xffu)) | ((static_cast<uint16_t>((static_cast<uint16_t>((((_s_ldut$subsystem_sbus$system_bus_xbar$beatsDO_2[L].val) & ((uint16_t)0 - (uint16_t)(((static_cast<uint16_t>(_s_ldut$subsystem_sbus$system_bus_xbar$earlyWinner_3_2[L].val) & 0x1u)) != 0))) | (((static_cast<uint16_t>(0x0u) & 0xfu)) & ~((uint16_t)0 - (uint16_t)(((static_cast<uint16_t>(_s_ldut$subsystem_sbus$system_bus_xbar$earlyWinner_3_2[L].val) & 0x1u)) != 0))))) & 0xfu)) & 0xffu)))) & 0xffu)))) & 0xffu)) & ((uint16_t)0 - (uint16_t)(((static_cast<uint16_t>(_s_ldut$subsystem_sbus$system_bus_xbar$latch_3[L].val) & 0x1u)) != 0))) | (((static_cast<uint16_t>((static_cast<uint16_t>((static_cast<uint16_t>((static_cast<uint16_t>(ldut.subsystem_sbus.system_bus_xbar.beatsLeft_3[L].val) - static_cast<uint16_t>((static_cast<uint16_t>((static_cast<uint16_t>(((_s_ldut$subsystem_sbus$coupler_from_bus_named_subsystem_fbus$widget$repeated_repeater$io_enq_ready[L].val) & ((static_cast<uint16_t>((((static_cast<uint16_t>(((_s_ldut$subsystem_sbus$system_bus_xbar$idle_3[L].val) & (_s_ldut$subsystem_sbus$system_bus_xbar$_T_223[L].val))) & 0x1u)) | ((static_cast<uint16_t>((((static_cast<uint16_t>((~static_cast<uint16_t>(_s_ldut$subsystem_sbus$system_bus_xbar$idle_3[L].val))) & 0x1u)) & (_s_ldut$subsystem_sbus$system_bus_xbar$_sink_ACancel_earlyValid_T_6[L].val))) & 0x1u)))) & 0x1u)))) & 0x1u)) & 0xffu)))) & 0x1ffu)) & 0xffu)) & 0xffu)) & ~((uint16_t)0 - (uint16_t)(((static_cast<uint16_t>(_s_ldut$subsystem_sbus$system_bus_xbar$latch_3[L].val) & 0x1u)) != 0))))) & 0xffu)) & ~((uint16_t)0 - (uint16_t)(((static_cast<uint16_t>(_s_ldut$reset[L].val) & 0x1u)) != 0))))) & 0xffu)) & 0xffu));
     }
+
+    if (partition_task_poll) partition_task_poll(partition_task_context, 0, true, 7);
     // [vec boundary-next] 1 templates x 16 lanes
     // [boundary next] 1 templates, two retained lanes
     { const int L = 0;
@@ -12514,8 +12468,6 @@
       _s_ldut$subsystem_sbus$coupler_from_bus_named_subsystem_fbus$widget$repeated_repeater$io_deq_bits_size[L].val = static_cast<typename UInt<4>::scalar_t>((static_cast<uint8_t>((static_cast<uint8_t>((((ldut.subsystem_sbus.coupler_from_bus_named_subsystem_fbus.widget.repeated_repeater.saved_size[L].val) & ((uint8_t)0 - (uint8_t)(((static_cast<uint8_t>(ldut.subsystem_sbus.coupler_from_bus_named_subsystem_fbus.widget.repeated_repeater.full[L].val) & 0x1u)) != 0))) | ((_s_ldut$subsystem_sbus$system_bus_xbar$auto_in_0_d_bits_size[L].val) & ~((uint8_t)0 - (uint8_t)(((static_cast<uint8_t>(ldut.subsystem_sbus.coupler_from_bus_named_subsystem_fbus.widget.repeated_repeater.full[L].val) & 0x1u)) != 0))))) & 0xfu)) & 0xfu));
       _s_ldut$subsystem_sbus$coupler_from_bus_named_subsystem_fbus$widget$repeat_limit[L].val = static_cast<typename UInt<1>::scalar_t>((static_cast<uint32_t>((static_cast<uint32_t>((static_cast<uint32_t>((static_cast<uint32_t>((~static_cast<uint32_t>((static_cast<uint32_t>(((static_cast<uint32_t>((static_cast<uint32_t>((static_cast<uint32_t>((static_cast<uint32_t>(0xfu) & 0xfu)) << (_s_ldut$subsystem_sbus$coupler_from_bus_named_subsystem_fbus$widget$repeated_repeater$io_deq_bits_size[L].val))) & 0x7ffffu)) >> 0) & 0xfu)) & 0xfu)))) & 0xfu)) >> 3)) & 0x1u)) & 0x1u));
     }
-
-    if (partition_task_poll) partition_task_poll(partition_task_context, 0, true, 7);
     // [vec comb-wide] 2 templates (compiler-selected vector width)
     for (int L = 0; L < 16; L++) {
       // [v2 lane-local] ldut.subsystem_sbus.coupler_from_bus_named_subsystem_fbus.widget.repeated_repeater.io_deq_bits_data _v2_local_5263_0
@@ -12671,11 +12623,8 @@
         _v2_sa_anyw |= (uint64_t)(essent_to_u64(_s_ldut$subsystem_fbus$buffer$bundleIn_0_d_q$io_enq_ready[G] & _s_ldut$subsystem_sbus$coupler_from_bus_named_subsystem_fbus$widget$repeated_repeater$io_deq_valid[G]) != 0) & (uint64_t)(essent_to_u64(UInt<1>(0x1)) != 0);
       }
       if (_v2_sa_anyw == 0) {
-        for (int L = 0; L < 16; L++) {
-          const uint64_t _v2_sa_field_addr = essent_to_u64(ldut.subsystem_fbus.buffer.bundleIn_0_d_q.value_1[L]);
-          _s_ldut$subsystem_fbus$buffer$bundleIn_0_d_q$ram_opcode$io_deq_bits_MPORT[L] = ldut.subsystem_fbus.buffer.bundleIn_0_d_q.ram_opcode[_v2_sa_field_addr];
-          _s_ldut$subsystem_fbus$buffer$bundleIn_0_d_q$ram_size$io_deq_bits_MPORT[L] = ldut.subsystem_fbus.buffer.bundleIn_0_d_q.ram_size[_v2_sa_field_addr];
-        }
+        essent_table_read<16, 2, false>(&_s_ldut$subsystem_fbus$buffer$bundleIn_0_d_q$ram_opcode$io_deq_bits_MPORT[0], &ldut.subsystem_fbus.buffer.bundleIn_0_d_q.ram_opcode[0], &ldut.subsystem_fbus.buffer.bundleIn_0_d_q.value_1[0]);
+        essent_table_read<16, 2, false>(&_s_ldut$subsystem_fbus$buffer$bundleIn_0_d_q$ram_size$io_deq_bits_MPORT[0], &ldut.subsystem_fbus.buffer.bundleIn_0_d_q.ram_size[0], &ldut.subsystem_fbus.buffer.bundleIn_0_d_q.value_1[0]);
       } else {
       {
         // [state-field-read-fused] 2 arrays share one access scan, mode=dense-branchless
@@ -12738,7 +12687,7 @@
         ESSENT_LANE_LOOP
         for (int L = 0; L < 16; L++) ldut.subsystem_sbus.fixer.d_first_counter[L] = _gv;
       } else {
-        for (int L = 1; L < 16; L++) ldut.subsystem_sbus.fixer.d_first_counter[L] = _s_ldut$reset[L - 1] ? UInt<8>(0x0) : (_s_ldut$subsystem_sbus$fixer$_d_first_T[L - 1] ? ((ldut.subsystem_sbus.fixer.d_first_counter[L - 1] == UInt<8>(0x0)) ? _s_ldut$subsystem_sbus$fixer$d_first_beats1[L - 1] : ((ldut.subsystem_sbus.fixer.d_first_counter[L - 1] - UInt<8>(0x1)).tail<1>())) : ldut.subsystem_sbus.fixer.d_first_counter[L - 1]);
+        for (int L = 1; L < 16; L++) ldut.subsystem_sbus.fixer.d_first_counter[L].val = static_cast<typename UInt<8>::scalar_t>((static_cast<uint16_t>((static_cast<uint16_t>(essent_select_word<uint32_t>(((static_cast<uint16_t>(_s_ldut$reset[L - 1].val) & 0x1u)) != 0, static_cast<uint32_t>((static_cast<uint16_t>(0x0u) & 0xffu)), static_cast<uint32_t>((static_cast<uint16_t>(essent_select_word<uint32_t>(((static_cast<uint16_t>(_s_ldut$subsystem_sbus$fixer$_d_first_T[L - 1].val) & 0x1u)) != 0, static_cast<uint32_t>((static_cast<uint16_t>(essent_select_word<uint32_t>(((static_cast<uint16_t>((static_cast<uint16_t>(((ldut.subsystem_sbus.fixer.d_first_counter[L - 1].val) == ((static_cast<uint16_t>(0x0u) & 0xffu)))) & 0x1u)) & 0x1u)) != 0, static_cast<uint32_t>(_s_ldut$subsystem_sbus$fixer$d_first_beats1[L - 1].val), static_cast<uint32_t>((static_cast<uint16_t>((static_cast<uint16_t>((static_cast<uint16_t>((static_cast<uint16_t>(ldut.subsystem_sbus.fixer.d_first_counter[L - 1].val) - static_cast<uint16_t>((static_cast<uint16_t>(0x1u) & 0xffu)))) & 0x1ffu)) & 0xffu)) & 0xffu)))) & 0xffu)), static_cast<uint32_t>(ldut.subsystem_sbus.fixer.d_first_counter[L - 1].val))) & 0xffu)))) & 0xffu)) & 0xffu));
       }
     }
     // [vec comb] 2 templates x 16 lanes
@@ -12765,7 +12714,7 @@
         ESSENT_LANE_LOOP
         for (int L = 0; L < 16; L++) ldut.subsystem_sbus.coupler_from_bus_named_subsystem_fbus.widget.repeat_count[L] = _gv;
       } else {
-        for (int L = 1; L < 16; L++) ldut.subsystem_sbus.coupler_from_bus_named_subsystem_fbus.widget.repeat_count[L] = (~_s_ldut$reset[L - 1]) & (_s_ldut$subsystem_sbus$coupler_from_bus_named_subsystem_fbus$widget$_repeat_T[L - 1] ? ((~((ldut.subsystem_sbus.coupler_from_bus_named_subsystem_fbus.widget.repeat_count[L - 1] == _s_ldut$subsystem_sbus$coupler_from_bus_named_subsystem_fbus$widget$repeat_limit[L - 1]) | _s_ldut$subsystem_sbus$coupler_from_bus_named_subsystem_fbus$widget$_repeat_last_T_1[L - 1])) & ((ldut.subsystem_sbus.coupler_from_bus_named_subsystem_fbus.widget.repeat_count[L - 1] + UInt<1>(0x1)).tail<1>())) : ldut.subsystem_sbus.coupler_from_bus_named_subsystem_fbus.widget.repeat_count[L - 1]);
+        for (int L = 1; L < 16; L++) ldut.subsystem_sbus.coupler_from_bus_named_subsystem_fbus.widget.repeat_count[L].val = static_cast<typename UInt<1>::scalar_t>((static_cast<uint8_t>((static_cast<uint8_t>((((static_cast<uint8_t>((~static_cast<uint8_t>(_s_ldut$reset[L - 1].val))) & 0x1u)) & ((static_cast<uint8_t>(essent_select_word<uint32_t>(((static_cast<uint8_t>(_s_ldut$subsystem_sbus$coupler_from_bus_named_subsystem_fbus$widget$_repeat_T[L - 1].val) & 0x1u)) != 0, static_cast<uint32_t>((static_cast<uint8_t>((((static_cast<uint8_t>((~static_cast<uint8_t>((static_cast<uint8_t>((((static_cast<uint8_t>(((ldut.subsystem_sbus.coupler_from_bus_named_subsystem_fbus.widget.repeat_count[L - 1].val) == (_s_ldut$subsystem_sbus$coupler_from_bus_named_subsystem_fbus$widget$repeat_limit[L - 1].val))) & 0x1u)) | (_s_ldut$subsystem_sbus$coupler_from_bus_named_subsystem_fbus$widget$_repeat_last_T_1[L - 1].val))) & 0x1u)))) & 0x1u)) & ((static_cast<uint8_t>((static_cast<uint8_t>((static_cast<uint8_t>((static_cast<uint8_t>(ldut.subsystem_sbus.coupler_from_bus_named_subsystem_fbus.widget.repeat_count[L - 1].val) + static_cast<uint8_t>((static_cast<uint8_t>(0x1u) & 0x1u)))) & 0x3u)) & 0x1u)) & 0x1u)))) & 0x1u)), static_cast<uint32_t>(ldut.subsystem_sbus.coupler_from_bus_named_subsystem_fbus.widget.repeat_count[L - 1].val))) & 0x1u)))) & 0x1u)) & 0x1u));
       }
     }
 
@@ -12831,7 +12780,7 @@
         _v2_sa_anyw |= (uint64_t)(essent_to_u64(_s_ldut$subsystem_fbus$buffer$bundleIn_0_d_q$io_enq_ready[G] & _s_ldut$subsystem_sbus$coupler_from_bus_named_subsystem_fbus$widget$repeated_repeater$io_deq_valid[G]) != 0) & (uint64_t)(essent_to_u64(UInt<1>(0x1)) != 0);
       }
       if (_v2_sa_anyw == 0) {
-        for (int L = 0; L < 16; L++) { _s_ldut$subsystem_fbus$buffer$bundleIn_0_d_q$ram_param$io_deq_bits_MPORT[L] = ldut.subsystem_fbus.buffer.bundleIn_0_d_q.ram_param[essent_to_u64(ldut.subsystem_fbus.buffer.bundleIn_0_d_q.value_1[L])]; }
+        essent_table_read<16, 2, false>(&_s_ldut$subsystem_fbus$buffer$bundleIn_0_d_q$ram_param$io_deq_bits_MPORT[0], &ldut.subsystem_fbus.buffer.bundleIn_0_d_q.ram_param[0], &ldut.subsystem_fbus.buffer.bundleIn_0_d_q.value_1[0]);
       } else {
       {
         // [state-read-dense] forwarding=branchless
@@ -12840,10 +12789,11 @@
         for (int L = 0; L < 16; L++) {
           const uint64_t _v2_sa_addr = essent_to_u64(ldut.subsystem_fbus.buffer.bundleIn_0_d_q.value_1[L]);
           UInt<2> _v2_sa_value = ldut.subsystem_fbus.buffer.bundleIn_0_d_q.ram_param[_v2_sa_addr];
+          // [branchless-forward] select a valid source before loading data
           const int _v2_sa_prev_code = _v2_sa_last[_v2_sa_addr];
-          const uint64_t _v2_sa_prev_valid = (uint64_t)(_v2_sa_prev_code >= 0);
+          const bool _v2_sa_prev_valid = _v2_sa_prev_code >= 0;
           [[maybe_unused]] const int _v2_sa_prev_lane = _v2_sa_prev_code & -static_cast<int>(_v2_sa_prev_valid);
-          _v2_sa_value = essent_mux(UInt<1>(_v2_sa_prev_valid), _s_ldut$subsystem_sbus$coupler_from_bus_named_subsystem_fbus$widget$repeated_repeater$io_deq_bits_param[_v2_sa_prev_lane], _v2_sa_value);
+          _v2_sa_value = *essent_select_ptr(_v2_sa_prev_valid, &(_s_ldut$subsystem_sbus$coupler_from_bus_named_subsystem_fbus$widget$repeated_repeater$io_deq_bits_param[_v2_sa_prev_lane]), &_v2_sa_value);
           _s_ldut$subsystem_fbus$buffer$bundleIn_0_d_q$ram_param$io_deq_bits_MPORT[L] = _v2_sa_value;
           const uint64_t _v2_sa_write_addr_0 = essent_to_u64(ldut.subsystem_fbus.buffer.bundleIn_0_d_q.value[L]);
           const uint64_t _v2_sa_write_take_0 = (uint64_t)(essent_to_u64(_s_ldut$subsystem_fbus$buffer$bundleIn_0_d_q$io_enq_ready[L] & _s_ldut$subsystem_sbus$coupler_from_bus_named_subsystem_fbus$widget$repeated_repeater$io_deq_valid[L]) != 0) & (uint64_t)(essent_to_u64(UInt<1>(0x1)) != 0);
@@ -12891,7 +12841,7 @@
         _v2_sa_anyw |= (uint64_t)(essent_to_u64(_s_ldut$subsystem_fbus$buffer$bundleIn_0_d_q$io_enq_ready[G] & _s_ldut$subsystem_sbus$coupler_from_bus_named_subsystem_fbus$widget$repeated_repeater$io_deq_valid[G]) != 0) & (uint64_t)(essent_to_u64(UInt<1>(0x1)) != 0);
       }
       if (_v2_sa_anyw == 0) {
-        for (int L = 0; L < 16; L++) { _s_ldut$subsystem_fbus$buffer$bundleIn_0_d_q$ram_source$io_deq_bits_MPORT[L] = ldut.subsystem_fbus.buffer.bundleIn_0_d_q.ram_source[essent_to_u64(ldut.subsystem_fbus.buffer.bundleIn_0_d_q.value_1[L])]; }
+        essent_table_read<16, 2, false>(&_s_ldut$subsystem_fbus$buffer$bundleIn_0_d_q$ram_source$io_deq_bits_MPORT[0], &ldut.subsystem_fbus.buffer.bundleIn_0_d_q.ram_source[0], &ldut.subsystem_fbus.buffer.bundleIn_0_d_q.value_1[0]);
       } else {
       {
         // [state-read-dense] forwarding=branchless
@@ -12900,10 +12850,11 @@
         for (int L = 0; L < 16; L++) {
           const uint64_t _v2_sa_addr = essent_to_u64(ldut.subsystem_fbus.buffer.bundleIn_0_d_q.value_1[L]);
           UInt<4> _v2_sa_value = ldut.subsystem_fbus.buffer.bundleIn_0_d_q.ram_source[_v2_sa_addr];
+          // [branchless-forward] select a valid source before loading data
           const int _v2_sa_prev_code = _v2_sa_last[_v2_sa_addr];
-          const uint64_t _v2_sa_prev_valid = (uint64_t)(_v2_sa_prev_code >= 0);
+          const bool _v2_sa_prev_valid = _v2_sa_prev_code >= 0;
           [[maybe_unused]] const int _v2_sa_prev_lane = _v2_sa_prev_code & -static_cast<int>(_v2_sa_prev_valid);
-          _v2_sa_value = essent_mux(UInt<1>(_v2_sa_prev_valid), _s_ldut$subsystem_sbus$coupler_from_bus_named_subsystem_fbus$widget$repeated_repeater$io_deq_bits_source[_v2_sa_prev_lane], _v2_sa_value);
+          _v2_sa_value = *essent_select_ptr(_v2_sa_prev_valid, &(_s_ldut$subsystem_sbus$coupler_from_bus_named_subsystem_fbus$widget$repeated_repeater$io_deq_bits_source[_v2_sa_prev_lane]), &_v2_sa_value);
           _s_ldut$subsystem_fbus$buffer$bundleIn_0_d_q$ram_source$io_deq_bits_MPORT[L] = _v2_sa_value;
           const uint64_t _v2_sa_write_addr_0 = essent_to_u64(ldut.subsystem_fbus.buffer.bundleIn_0_d_q.value[L]);
           const uint64_t _v2_sa_write_take_0 = (uint64_t)(essent_to_u64(_s_ldut$subsystem_fbus$buffer$bundleIn_0_d_q$io_enq_ready[L] & _s_ldut$subsystem_sbus$coupler_from_bus_named_subsystem_fbus$widget$repeated_repeater$io_deq_valid[L]) != 0) & (uint64_t)(essent_to_u64(UInt<1>(0x1)) != 0);
@@ -12951,7 +12902,7 @@
         _v2_sa_anyw |= (uint64_t)(essent_to_u64(_s_ldut$subsystem_fbus$buffer$bundleIn_0_d_q$io_enq_ready[G] & _s_ldut$subsystem_sbus$coupler_from_bus_named_subsystem_fbus$widget$repeated_repeater$io_deq_valid[G]) != 0) & (uint64_t)(essent_to_u64(UInt<1>(0x1)) != 0);
       }
       if (_v2_sa_anyw == 0) {
-        for (int L = 0; L < 16; L++) { _s_ldut$subsystem_fbus$buffer$bundleIn_0_d_q$ram_sink$io_deq_bits_MPORT[L] = ldut.subsystem_fbus.buffer.bundleIn_0_d_q.ram_sink[essent_to_u64(ldut.subsystem_fbus.buffer.bundleIn_0_d_q.value_1[L])]; }
+        essent_table_read<16, 2, false>(&_s_ldut$subsystem_fbus$buffer$bundleIn_0_d_q$ram_sink$io_deq_bits_MPORT[0], &ldut.subsystem_fbus.buffer.bundleIn_0_d_q.ram_sink[0], &ldut.subsystem_fbus.buffer.bundleIn_0_d_q.value_1[0]);
       } else {
       {
         // [state-read-dense] forwarding=branchless
@@ -12960,10 +12911,11 @@
         for (int L = 0; L < 16; L++) {
           const uint64_t _v2_sa_addr = essent_to_u64(ldut.subsystem_fbus.buffer.bundleIn_0_d_q.value_1[L]);
           UInt<2> _v2_sa_value = ldut.subsystem_fbus.buffer.bundleIn_0_d_q.ram_sink[_v2_sa_addr];
+          // [branchless-forward] select a valid source before loading data
           const int _v2_sa_prev_code = _v2_sa_last[_v2_sa_addr];
-          const uint64_t _v2_sa_prev_valid = (uint64_t)(_v2_sa_prev_code >= 0);
+          const bool _v2_sa_prev_valid = _v2_sa_prev_code >= 0;
           [[maybe_unused]] const int _v2_sa_prev_lane = _v2_sa_prev_code & -static_cast<int>(_v2_sa_prev_valid);
-          _v2_sa_value = essent_mux(UInt<1>(_v2_sa_prev_valid), _s_ldut$subsystem_sbus$coupler_from_bus_named_subsystem_fbus$widget$repeated_repeater$io_deq_bits_sink[_v2_sa_prev_lane], _v2_sa_value);
+          _v2_sa_value = *essent_select_ptr(_v2_sa_prev_valid, &(_s_ldut$subsystem_sbus$coupler_from_bus_named_subsystem_fbus$widget$repeated_repeater$io_deq_bits_sink[_v2_sa_prev_lane]), &_v2_sa_value);
           _s_ldut$subsystem_fbus$buffer$bundleIn_0_d_q$ram_sink$io_deq_bits_MPORT[L] = _v2_sa_value;
           const uint64_t _v2_sa_write_addr_0 = essent_to_u64(ldut.subsystem_fbus.buffer.bundleIn_0_d_q.value[L]);
           const uint64_t _v2_sa_write_take_0 = (uint64_t)(essent_to_u64(_s_ldut$subsystem_fbus$buffer$bundleIn_0_d_q$io_enq_ready[L] & _s_ldut$subsystem_sbus$coupler_from_bus_named_subsystem_fbus$widget$repeated_repeater$io_deq_valid[L]) != 0) & (uint64_t)(essent_to_u64(UInt<1>(0x1)) != 0);
@@ -12997,7 +12949,7 @@
         ESSENT_LANE_LOOP
         for (int L = 0; L < 16; L++) ldut.subsystem_sbus.coupler_to_port_named_mmio_port_axi4.axi4deint.pending_count[L] = _gv;
       } else {
-        for (int L = 1; L < 16; L++) ldut.subsystem_sbus.coupler_to_port_named_mmio_port_axi4.axi4deint.pending_count[L] = _s_ldut$reset[L - 1] ? UInt<4>(0x0) : ((((ldut.subsystem_sbus.coupler_to_port_named_mmio_port_axi4.axi4deint.pending_count[L - 1] + _s_ldut$subsystem_sbus$coupler_to_port_named_mmio_port_axi4$axi4deint$_GEN_114[L - 1]).tail<1>()) - _s_ldut$subsystem_sbus$coupler_to_port_named_mmio_port_axi4$axi4deint$_GEN_115[L - 1]).tail<1>());
+        for (int L = 1; L < 16; L++) ldut.subsystem_sbus.coupler_to_port_named_mmio_port_axi4.axi4deint.pending_count[L].val = static_cast<typename UInt<4>::scalar_t>((static_cast<uint8_t>((static_cast<uint8_t>(essent_select_word<uint32_t>(((static_cast<uint8_t>(_s_ldut$reset[L - 1].val) & 0x1u)) != 0, static_cast<uint32_t>((static_cast<uint8_t>(0x0u) & 0xfu)), static_cast<uint32_t>((static_cast<uint8_t>((static_cast<uint8_t>((static_cast<uint8_t>((static_cast<uint8_t>((static_cast<uint8_t>((static_cast<uint8_t>((static_cast<uint8_t>((static_cast<uint8_t>(ldut.subsystem_sbus.coupler_to_port_named_mmio_port_axi4.axi4deint.pending_count[L - 1].val) + static_cast<uint8_t>(_s_ldut$subsystem_sbus$coupler_to_port_named_mmio_port_axi4$axi4deint$_GEN_114[L - 1].val))) & 0x1fu)) & 0xfu)) & 0xfu)) - static_cast<uint8_t>(_s_ldut$subsystem_sbus$coupler_to_port_named_mmio_port_axi4$axi4deint$_GEN_115[L - 1].val))) & 0x1fu)) & 0xfu)) & 0xfu)))) & 0xfu)) & 0xfu));
       }
     }
     // [vec comb] 1 templates x 16 lanes
@@ -13023,7 +12975,7 @@
         ESSENT_LANE_LOOP
         for (int L = 0; L < 16; L++) ldut.subsystem_sbus.coupler_to_port_named_mmio_port_axi4.axi4deint.pending_count_1[L] = _gv;
       } else {
-        for (int L = 1; L < 16; L++) ldut.subsystem_sbus.coupler_to_port_named_mmio_port_axi4.axi4deint.pending_count_1[L] = _s_ldut$reset[L - 1] ? UInt<4>(0x0) : ((((ldut.subsystem_sbus.coupler_to_port_named_mmio_port_axi4.axi4deint.pending_count_1[L - 1] + _s_ldut$subsystem_sbus$coupler_to_port_named_mmio_port_axi4$axi4deint$_GEN_116[L - 1]).tail<1>()) - _s_ldut$subsystem_sbus$coupler_to_port_named_mmio_port_axi4$axi4deint$_GEN_117[L - 1]).tail<1>());
+        for (int L = 1; L < 16; L++) ldut.subsystem_sbus.coupler_to_port_named_mmio_port_axi4.axi4deint.pending_count_1[L].val = static_cast<typename UInt<4>::scalar_t>((static_cast<uint8_t>((static_cast<uint8_t>(essent_select_word<uint32_t>(((static_cast<uint8_t>(_s_ldut$reset[L - 1].val) & 0x1u)) != 0, static_cast<uint32_t>((static_cast<uint8_t>(0x0u) & 0xfu)), static_cast<uint32_t>((static_cast<uint8_t>((static_cast<uint8_t>((static_cast<uint8_t>((static_cast<uint8_t>((static_cast<uint8_t>((static_cast<uint8_t>((static_cast<uint8_t>((static_cast<uint8_t>(ldut.subsystem_sbus.coupler_to_port_named_mmio_port_axi4.axi4deint.pending_count_1[L - 1].val) + static_cast<uint8_t>(_s_ldut$subsystem_sbus$coupler_to_port_named_mmio_port_axi4$axi4deint$_GEN_116[L - 1].val))) & 0x1fu)) & 0xfu)) & 0xfu)) - static_cast<uint8_t>(_s_ldut$subsystem_sbus$coupler_to_port_named_mmio_port_axi4$axi4deint$_GEN_117[L - 1].val))) & 0x1fu)) & 0xfu)) & 0xfu)))) & 0xfu)) & 0xfu));
       }
     }
 
@@ -13051,7 +13003,7 @@
         ESSENT_LANE_LOOP
         for (int L = 0; L < 16; L++) ldut.subsystem_sbus.coupler_to_port_named_mmio_port_axi4.axi4deint.pending_count_2[L] = _gv;
       } else {
-        for (int L = 1; L < 16; L++) ldut.subsystem_sbus.coupler_to_port_named_mmio_port_axi4.axi4deint.pending_count_2[L] = _s_ldut$reset[L - 1] ? UInt<4>(0x0) : ((((ldut.subsystem_sbus.coupler_to_port_named_mmio_port_axi4.axi4deint.pending_count_2[L - 1] + _s_ldut$subsystem_sbus$coupler_to_port_named_mmio_port_axi4$axi4deint$_GEN_118[L - 1]).tail<1>()) - _s_ldut$subsystem_sbus$coupler_to_port_named_mmio_port_axi4$axi4deint$_GEN_119[L - 1]).tail<1>());
+        for (int L = 1; L < 16; L++) ldut.subsystem_sbus.coupler_to_port_named_mmio_port_axi4.axi4deint.pending_count_2[L].val = static_cast<typename UInt<4>::scalar_t>((static_cast<uint8_t>((static_cast<uint8_t>(essent_select_word<uint32_t>(((static_cast<uint8_t>(_s_ldut$reset[L - 1].val) & 0x1u)) != 0, static_cast<uint32_t>((static_cast<uint8_t>(0x0u) & 0xfu)), static_cast<uint32_t>((static_cast<uint8_t>((static_cast<uint8_t>((static_cast<uint8_t>((static_cast<uint8_t>((static_cast<uint8_t>((static_cast<uint8_t>((static_cast<uint8_t>((static_cast<uint8_t>(ldut.subsystem_sbus.coupler_to_port_named_mmio_port_axi4.axi4deint.pending_count_2[L - 1].val) + static_cast<uint8_t>(_s_ldut$subsystem_sbus$coupler_to_port_named_mmio_port_axi4$axi4deint$_GEN_118[L - 1].val))) & 0x1fu)) & 0xfu)) & 0xfu)) - static_cast<uint8_t>(_s_ldut$subsystem_sbus$coupler_to_port_named_mmio_port_axi4$axi4deint$_GEN_119[L - 1].val))) & 0x1fu)) & 0xfu)) & 0xfu)))) & 0xfu)) & 0xfu));
       }
     }
     // [vec comb] 1 templates x 16 lanes
@@ -13077,7 +13029,7 @@
         ESSENT_LANE_LOOP
         for (int L = 0; L < 16; L++) ldut.subsystem_sbus.coupler_to_port_named_mmio_port_axi4.axi4deint.pending_count_3[L] = _gv;
       } else {
-        for (int L = 1; L < 16; L++) ldut.subsystem_sbus.coupler_to_port_named_mmio_port_axi4.axi4deint.pending_count_3[L] = _s_ldut$reset[L - 1] ? UInt<4>(0x0) : ((((ldut.subsystem_sbus.coupler_to_port_named_mmio_port_axi4.axi4deint.pending_count_3[L - 1] + _s_ldut$subsystem_sbus$coupler_to_port_named_mmio_port_axi4$axi4deint$_GEN_120[L - 1]).tail<1>()) - _s_ldut$subsystem_sbus$coupler_to_port_named_mmio_port_axi4$axi4deint$_GEN_121[L - 1]).tail<1>());
+        for (int L = 1; L < 16; L++) ldut.subsystem_sbus.coupler_to_port_named_mmio_port_axi4.axi4deint.pending_count_3[L].val = static_cast<typename UInt<4>::scalar_t>((static_cast<uint8_t>((static_cast<uint8_t>(essent_select_word<uint32_t>(((static_cast<uint8_t>(_s_ldut$reset[L - 1].val) & 0x1u)) != 0, static_cast<uint32_t>((static_cast<uint8_t>(0x0u) & 0xfu)), static_cast<uint32_t>((static_cast<uint8_t>((static_cast<uint8_t>((static_cast<uint8_t>((static_cast<uint8_t>((static_cast<uint8_t>((static_cast<uint8_t>((static_cast<uint8_t>((static_cast<uint8_t>(ldut.subsystem_sbus.coupler_to_port_named_mmio_port_axi4.axi4deint.pending_count_3[L - 1].val) + static_cast<uint8_t>(_s_ldut$subsystem_sbus$coupler_to_port_named_mmio_port_axi4$axi4deint$_GEN_120[L - 1].val))) & 0x1fu)) & 0xfu)) & 0xfu)) - static_cast<uint8_t>(_s_ldut$subsystem_sbus$coupler_to_port_named_mmio_port_axi4$axi4deint$_GEN_121[L - 1].val))) & 0x1fu)) & 0xfu)) & 0xfu)))) & 0xfu)) & 0xfu));
       }
     }
     // [vec comb] 1 templates x 16 lanes
@@ -13103,7 +13055,7 @@
         ESSENT_LANE_LOOP
         for (int L = 0; L < 16; L++) ldut.subsystem_sbus.coupler_to_port_named_mmio_port_axi4.axi4deint.pending_count_4[L] = _gv;
       } else {
-        for (int L = 1; L < 16; L++) ldut.subsystem_sbus.coupler_to_port_named_mmio_port_axi4.axi4deint.pending_count_4[L] = _s_ldut$reset[L - 1] ? UInt<4>(0x0) : ((((ldut.subsystem_sbus.coupler_to_port_named_mmio_port_axi4.axi4deint.pending_count_4[L - 1] + _s_ldut$subsystem_sbus$coupler_to_port_named_mmio_port_axi4$axi4deint$_GEN_122[L - 1]).tail<1>()) - _s_ldut$subsystem_sbus$coupler_to_port_named_mmio_port_axi4$axi4deint$_GEN_123[L - 1]).tail<1>());
+        for (int L = 1; L < 16; L++) ldut.subsystem_sbus.coupler_to_port_named_mmio_port_axi4.axi4deint.pending_count_4[L].val = static_cast<typename UInt<4>::scalar_t>((static_cast<uint8_t>((static_cast<uint8_t>(essent_select_word<uint32_t>(((static_cast<uint8_t>(_s_ldut$reset[L - 1].val) & 0x1u)) != 0, static_cast<uint32_t>((static_cast<uint8_t>(0x0u) & 0xfu)), static_cast<uint32_t>((static_cast<uint8_t>((static_cast<uint8_t>((static_cast<uint8_t>((static_cast<uint8_t>((static_cast<uint8_t>((static_cast<uint8_t>((static_cast<uint8_t>((static_cast<uint8_t>(ldut.subsystem_sbus.coupler_to_port_named_mmio_port_axi4.axi4deint.pending_count_4[L - 1].val) + static_cast<uint8_t>(_s_ldut$subsystem_sbus$coupler_to_port_named_mmio_port_axi4$axi4deint$_GEN_122[L - 1].val))) & 0x1fu)) & 0xfu)) & 0xfu)) - static_cast<uint8_t>(_s_ldut$subsystem_sbus$coupler_to_port_named_mmio_port_axi4$axi4deint$_GEN_123[L - 1].val))) & 0x1fu)) & 0xfu)) & 0xfu)))) & 0xfu)) & 0xfu));
       }
     }
     // [vec comb] 1 templates x 16 lanes
@@ -13129,7 +13081,7 @@
         ESSENT_LANE_LOOP
         for (int L = 0; L < 16; L++) ldut.subsystem_sbus.coupler_to_port_named_mmio_port_axi4.axi4deint.pending_count_5[L] = _gv;
       } else {
-        for (int L = 1; L < 16; L++) ldut.subsystem_sbus.coupler_to_port_named_mmio_port_axi4.axi4deint.pending_count_5[L] = _s_ldut$reset[L - 1] ? UInt<4>(0x0) : ((((ldut.subsystem_sbus.coupler_to_port_named_mmio_port_axi4.axi4deint.pending_count_5[L - 1] + _s_ldut$subsystem_sbus$coupler_to_port_named_mmio_port_axi4$axi4deint$_GEN_124[L - 1]).tail<1>()) - _s_ldut$subsystem_sbus$coupler_to_port_named_mmio_port_axi4$axi4deint$_GEN_125[L - 1]).tail<1>());
+        for (int L = 1; L < 16; L++) ldut.subsystem_sbus.coupler_to_port_named_mmio_port_axi4.axi4deint.pending_count_5[L].val = static_cast<typename UInt<4>::scalar_t>((static_cast<uint8_t>((static_cast<uint8_t>(essent_select_word<uint32_t>(((static_cast<uint8_t>(_s_ldut$reset[L - 1].val) & 0x1u)) != 0, static_cast<uint32_t>((static_cast<uint8_t>(0x0u) & 0xfu)), static_cast<uint32_t>((static_cast<uint8_t>((static_cast<uint8_t>((static_cast<uint8_t>((static_cast<uint8_t>((static_cast<uint8_t>((static_cast<uint8_t>((static_cast<uint8_t>((static_cast<uint8_t>(ldut.subsystem_sbus.coupler_to_port_named_mmio_port_axi4.axi4deint.pending_count_5[L - 1].val) + static_cast<uint8_t>(_s_ldut$subsystem_sbus$coupler_to_port_named_mmio_port_axi4$axi4deint$_GEN_124[L - 1].val))) & 0x1fu)) & 0xfu)) & 0xfu)) - static_cast<uint8_t>(_s_ldut$subsystem_sbus$coupler_to_port_named_mmio_port_axi4$axi4deint$_GEN_125[L - 1].val))) & 0x1fu)) & 0xfu)) & 0xfu)))) & 0xfu)) & 0xfu));
       }
     }
     // [vec comb] 1 templates x 16 lanes
@@ -13155,7 +13107,7 @@
         ESSENT_LANE_LOOP
         for (int L = 0; L < 16; L++) ldut.subsystem_sbus.coupler_to_port_named_mmio_port_axi4.axi4deint.pending_count_6[L] = _gv;
       } else {
-        for (int L = 1; L < 16; L++) ldut.subsystem_sbus.coupler_to_port_named_mmio_port_axi4.axi4deint.pending_count_6[L] = _s_ldut$reset[L - 1] ? UInt<4>(0x0) : ((((ldut.subsystem_sbus.coupler_to_port_named_mmio_port_axi4.axi4deint.pending_count_6[L - 1] + _s_ldut$subsystem_sbus$coupler_to_port_named_mmio_port_axi4$axi4deint$_GEN_126[L - 1]).tail<1>()) - _s_ldut$subsystem_sbus$coupler_to_port_named_mmio_port_axi4$axi4deint$_GEN_127[L - 1]).tail<1>());
+        for (int L = 1; L < 16; L++) ldut.subsystem_sbus.coupler_to_port_named_mmio_port_axi4.axi4deint.pending_count_6[L].val = static_cast<typename UInt<4>::scalar_t>((static_cast<uint8_t>((static_cast<uint8_t>(essent_select_word<uint32_t>(((static_cast<uint8_t>(_s_ldut$reset[L - 1].val) & 0x1u)) != 0, static_cast<uint32_t>((static_cast<uint8_t>(0x0u) & 0xfu)), static_cast<uint32_t>((static_cast<uint8_t>((static_cast<uint8_t>((static_cast<uint8_t>((static_cast<uint8_t>((static_cast<uint8_t>((static_cast<uint8_t>((static_cast<uint8_t>((static_cast<uint8_t>(ldut.subsystem_sbus.coupler_to_port_named_mmio_port_axi4.axi4deint.pending_count_6[L - 1].val) + static_cast<uint8_t>(_s_ldut$subsystem_sbus$coupler_to_port_named_mmio_port_axi4$axi4deint$_GEN_126[L - 1].val))) & 0x1fu)) & 0xfu)) & 0xfu)) - static_cast<uint8_t>(_s_ldut$subsystem_sbus$coupler_to_port_named_mmio_port_axi4$axi4deint$_GEN_127[L - 1].val))) & 0x1fu)) & 0xfu)) & 0xfu)))) & 0xfu)) & 0xfu));
       }
     }
     // [vec comb] 1 templates x 16 lanes
@@ -13181,7 +13133,7 @@
         ESSENT_LANE_LOOP
         for (int L = 0; L < 16; L++) ldut.subsystem_sbus.coupler_to_port_named_mmio_port_axi4.axi4deint.pending_count_7[L] = _gv;
       } else {
-        for (int L = 1; L < 16; L++) ldut.subsystem_sbus.coupler_to_port_named_mmio_port_axi4.axi4deint.pending_count_7[L] = _s_ldut$reset[L - 1] ? UInt<4>(0x0) : ((((ldut.subsystem_sbus.coupler_to_port_named_mmio_port_axi4.axi4deint.pending_count_7[L - 1] + _s_ldut$subsystem_sbus$coupler_to_port_named_mmio_port_axi4$axi4deint$_GEN_128[L - 1]).tail<1>()) - _s_ldut$subsystem_sbus$coupler_to_port_named_mmio_port_axi4$axi4deint$_GEN_129[L - 1]).tail<1>());
+        for (int L = 1; L < 16; L++) ldut.subsystem_sbus.coupler_to_port_named_mmio_port_axi4.axi4deint.pending_count_7[L].val = static_cast<typename UInt<4>::scalar_t>((static_cast<uint8_t>((static_cast<uint8_t>(essent_select_word<uint32_t>(((static_cast<uint8_t>(_s_ldut$reset[L - 1].val) & 0x1u)) != 0, static_cast<uint32_t>((static_cast<uint8_t>(0x0u) & 0xfu)), static_cast<uint32_t>((static_cast<uint8_t>((static_cast<uint8_t>((static_cast<uint8_t>((static_cast<uint8_t>((static_cast<uint8_t>((static_cast<uint8_t>((static_cast<uint8_t>((static_cast<uint8_t>(ldut.subsystem_sbus.coupler_to_port_named_mmio_port_axi4.axi4deint.pending_count_7[L - 1].val) + static_cast<uint8_t>(_s_ldut$subsystem_sbus$coupler_to_port_named_mmio_port_axi4$axi4deint$_GEN_128[L - 1].val))) & 0x1fu)) & 0xfu)) & 0xfu)) - static_cast<uint8_t>(_s_ldut$subsystem_sbus$coupler_to_port_named_mmio_port_axi4$axi4deint$_GEN_129[L - 1].val))) & 0x1fu)) & 0xfu)) & 0xfu)))) & 0xfu)) & 0xfu));
       }
     }
     // [vec comb] 1 templates x 16 lanes
@@ -13207,7 +13159,7 @@
         ESSENT_LANE_LOOP
         for (int L = 0; L < 16; L++) ldut.subsystem_sbus.coupler_to_port_named_mmio_port_axi4.axi4deint.pending_count_8[L] = _gv;
       } else {
-        for (int L = 1; L < 16; L++) ldut.subsystem_sbus.coupler_to_port_named_mmio_port_axi4.axi4deint.pending_count_8[L] = _s_ldut$reset[L - 1] ? UInt<4>(0x0) : ((((ldut.subsystem_sbus.coupler_to_port_named_mmio_port_axi4.axi4deint.pending_count_8[L - 1] + _s_ldut$subsystem_sbus$coupler_to_port_named_mmio_port_axi4$axi4deint$_GEN_130[L - 1]).tail<1>()) - _s_ldut$subsystem_sbus$coupler_to_port_named_mmio_port_axi4$axi4deint$_GEN_131[L - 1]).tail<1>());
+        for (int L = 1; L < 16; L++) ldut.subsystem_sbus.coupler_to_port_named_mmio_port_axi4.axi4deint.pending_count_8[L].val = static_cast<typename UInt<4>::scalar_t>((static_cast<uint8_t>((static_cast<uint8_t>(essent_select_word<uint32_t>(((static_cast<uint8_t>(_s_ldut$reset[L - 1].val) & 0x1u)) != 0, static_cast<uint32_t>((static_cast<uint8_t>(0x0u) & 0xfu)), static_cast<uint32_t>((static_cast<uint8_t>((static_cast<uint8_t>((static_cast<uint8_t>((static_cast<uint8_t>((static_cast<uint8_t>((static_cast<uint8_t>((static_cast<uint8_t>((static_cast<uint8_t>(ldut.subsystem_sbus.coupler_to_port_named_mmio_port_axi4.axi4deint.pending_count_8[L - 1].val) + static_cast<uint8_t>(_s_ldut$subsystem_sbus$coupler_to_port_named_mmio_port_axi4$axi4deint$_GEN_130[L - 1].val))) & 0x1fu)) & 0xfu)) & 0xfu)) - static_cast<uint8_t>(_s_ldut$subsystem_sbus$coupler_to_port_named_mmio_port_axi4$axi4deint$_GEN_131[L - 1].val))) & 0x1fu)) & 0xfu)) & 0xfu)))) & 0xfu)) & 0xfu));
       }
     }
     // [vec comb] 15 templates x 16 lanes
@@ -13259,35 +13211,35 @@
     }
     // [serial scc=193] 1 templates (0 comb), regs=[r_first]
     // [serial scc=193 lane=1]
-    ldut.subsystem_sbus.coupler_to_port_named_mmio_port_axi4.tl2axi4.r_first[1] = _s_ldut$reset[1 - 1] | (_s_ldut$subsystem_sbus$coupler_to_port_named_mmio_port_axi4$tl2axi4$_T_2[1 - 1] ? _s_ldut$subsystem_sbus$coupler_to_port_named_mmio_port_axi4$axi4deint$auto_in_r_bits_last[1 - 1] : ldut.subsystem_sbus.coupler_to_port_named_mmio_port_axi4.tl2axi4.r_first[1 - 1]);
+    ldut.subsystem_sbus.coupler_to_port_named_mmio_port_axi4.tl2axi4.r_first[1].val = static_cast<typename UInt<1>::scalar_t>((static_cast<uint8_t>((static_cast<uint8_t>(((_s_ldut$reset[1 - 1].val) | ((static_cast<uint8_t>(essent_select_word<uint32_t>(((static_cast<uint8_t>(_s_ldut$subsystem_sbus$coupler_to_port_named_mmio_port_axi4$tl2axi4$_T_2[1 - 1].val) & 0x1u)) != 0, static_cast<uint32_t>(_s_ldut$subsystem_sbus$coupler_to_port_named_mmio_port_axi4$axi4deint$auto_in_r_bits_last[1 - 1].val), static_cast<uint32_t>(ldut.subsystem_sbus.coupler_to_port_named_mmio_port_axi4.tl2axi4.r_first[1 - 1].val))) & 0x1u)))) & 0x1u)) & 0x1u));
     // [serial scc=193 lane=2]
-    ldut.subsystem_sbus.coupler_to_port_named_mmio_port_axi4.tl2axi4.r_first[2] = _s_ldut$reset[2 - 1] | (_s_ldut$subsystem_sbus$coupler_to_port_named_mmio_port_axi4$tl2axi4$_T_2[2 - 1] ? _s_ldut$subsystem_sbus$coupler_to_port_named_mmio_port_axi4$axi4deint$auto_in_r_bits_last[2 - 1] : ldut.subsystem_sbus.coupler_to_port_named_mmio_port_axi4.tl2axi4.r_first[2 - 1]);
+    ldut.subsystem_sbus.coupler_to_port_named_mmio_port_axi4.tl2axi4.r_first[2].val = static_cast<typename UInt<1>::scalar_t>((static_cast<uint8_t>((static_cast<uint8_t>(((_s_ldut$reset[2 - 1].val) | ((static_cast<uint8_t>(essent_select_word<uint32_t>(((static_cast<uint8_t>(_s_ldut$subsystem_sbus$coupler_to_port_named_mmio_port_axi4$tl2axi4$_T_2[2 - 1].val) & 0x1u)) != 0, static_cast<uint32_t>(_s_ldut$subsystem_sbus$coupler_to_port_named_mmio_port_axi4$axi4deint$auto_in_r_bits_last[2 - 1].val), static_cast<uint32_t>(ldut.subsystem_sbus.coupler_to_port_named_mmio_port_axi4.tl2axi4.r_first[2 - 1].val))) & 0x1u)))) & 0x1u)) & 0x1u));
     // [serial scc=193 lane=3]
-    ldut.subsystem_sbus.coupler_to_port_named_mmio_port_axi4.tl2axi4.r_first[3] = _s_ldut$reset[3 - 1] | (_s_ldut$subsystem_sbus$coupler_to_port_named_mmio_port_axi4$tl2axi4$_T_2[3 - 1] ? _s_ldut$subsystem_sbus$coupler_to_port_named_mmio_port_axi4$axi4deint$auto_in_r_bits_last[3 - 1] : ldut.subsystem_sbus.coupler_to_port_named_mmio_port_axi4.tl2axi4.r_first[3 - 1]);
+    ldut.subsystem_sbus.coupler_to_port_named_mmio_port_axi4.tl2axi4.r_first[3].val = static_cast<typename UInt<1>::scalar_t>((static_cast<uint8_t>((static_cast<uint8_t>(((_s_ldut$reset[3 - 1].val) | ((static_cast<uint8_t>(essent_select_word<uint32_t>(((static_cast<uint8_t>(_s_ldut$subsystem_sbus$coupler_to_port_named_mmio_port_axi4$tl2axi4$_T_2[3 - 1].val) & 0x1u)) != 0, static_cast<uint32_t>(_s_ldut$subsystem_sbus$coupler_to_port_named_mmio_port_axi4$axi4deint$auto_in_r_bits_last[3 - 1].val), static_cast<uint32_t>(ldut.subsystem_sbus.coupler_to_port_named_mmio_port_axi4.tl2axi4.r_first[3 - 1].val))) & 0x1u)))) & 0x1u)) & 0x1u));
     // [serial scc=193 lane=4]
-    ldut.subsystem_sbus.coupler_to_port_named_mmio_port_axi4.tl2axi4.r_first[4] = _s_ldut$reset[4 - 1] | (_s_ldut$subsystem_sbus$coupler_to_port_named_mmio_port_axi4$tl2axi4$_T_2[4 - 1] ? _s_ldut$subsystem_sbus$coupler_to_port_named_mmio_port_axi4$axi4deint$auto_in_r_bits_last[4 - 1] : ldut.subsystem_sbus.coupler_to_port_named_mmio_port_axi4.tl2axi4.r_first[4 - 1]);
+    ldut.subsystem_sbus.coupler_to_port_named_mmio_port_axi4.tl2axi4.r_first[4].val = static_cast<typename UInt<1>::scalar_t>((static_cast<uint8_t>((static_cast<uint8_t>(((_s_ldut$reset[4 - 1].val) | ((static_cast<uint8_t>(essent_select_word<uint32_t>(((static_cast<uint8_t>(_s_ldut$subsystem_sbus$coupler_to_port_named_mmio_port_axi4$tl2axi4$_T_2[4 - 1].val) & 0x1u)) != 0, static_cast<uint32_t>(_s_ldut$subsystem_sbus$coupler_to_port_named_mmio_port_axi4$axi4deint$auto_in_r_bits_last[4 - 1].val), static_cast<uint32_t>(ldut.subsystem_sbus.coupler_to_port_named_mmio_port_axi4.tl2axi4.r_first[4 - 1].val))) & 0x1u)))) & 0x1u)) & 0x1u));
     // [serial scc=193 lane=5]
-    ldut.subsystem_sbus.coupler_to_port_named_mmio_port_axi4.tl2axi4.r_first[5] = _s_ldut$reset[5 - 1] | (_s_ldut$subsystem_sbus$coupler_to_port_named_mmio_port_axi4$tl2axi4$_T_2[5 - 1] ? _s_ldut$subsystem_sbus$coupler_to_port_named_mmio_port_axi4$axi4deint$auto_in_r_bits_last[5 - 1] : ldut.subsystem_sbus.coupler_to_port_named_mmio_port_axi4.tl2axi4.r_first[5 - 1]);
+    ldut.subsystem_sbus.coupler_to_port_named_mmio_port_axi4.tl2axi4.r_first[5].val = static_cast<typename UInt<1>::scalar_t>((static_cast<uint8_t>((static_cast<uint8_t>(((_s_ldut$reset[5 - 1].val) | ((static_cast<uint8_t>(essent_select_word<uint32_t>(((static_cast<uint8_t>(_s_ldut$subsystem_sbus$coupler_to_port_named_mmio_port_axi4$tl2axi4$_T_2[5 - 1].val) & 0x1u)) != 0, static_cast<uint32_t>(_s_ldut$subsystem_sbus$coupler_to_port_named_mmio_port_axi4$axi4deint$auto_in_r_bits_last[5 - 1].val), static_cast<uint32_t>(ldut.subsystem_sbus.coupler_to_port_named_mmio_port_axi4.tl2axi4.r_first[5 - 1].val))) & 0x1u)))) & 0x1u)) & 0x1u));
     // [serial scc=193 lane=6]
-    ldut.subsystem_sbus.coupler_to_port_named_mmio_port_axi4.tl2axi4.r_first[6] = _s_ldut$reset[6 - 1] | (_s_ldut$subsystem_sbus$coupler_to_port_named_mmio_port_axi4$tl2axi4$_T_2[6 - 1] ? _s_ldut$subsystem_sbus$coupler_to_port_named_mmio_port_axi4$axi4deint$auto_in_r_bits_last[6 - 1] : ldut.subsystem_sbus.coupler_to_port_named_mmio_port_axi4.tl2axi4.r_first[6 - 1]);
+    ldut.subsystem_sbus.coupler_to_port_named_mmio_port_axi4.tl2axi4.r_first[6].val = static_cast<typename UInt<1>::scalar_t>((static_cast<uint8_t>((static_cast<uint8_t>(((_s_ldut$reset[6 - 1].val) | ((static_cast<uint8_t>(essent_select_word<uint32_t>(((static_cast<uint8_t>(_s_ldut$subsystem_sbus$coupler_to_port_named_mmio_port_axi4$tl2axi4$_T_2[6 - 1].val) & 0x1u)) != 0, static_cast<uint32_t>(_s_ldut$subsystem_sbus$coupler_to_port_named_mmio_port_axi4$axi4deint$auto_in_r_bits_last[6 - 1].val), static_cast<uint32_t>(ldut.subsystem_sbus.coupler_to_port_named_mmio_port_axi4.tl2axi4.r_first[6 - 1].val))) & 0x1u)))) & 0x1u)) & 0x1u));
     // [serial scc=193 lane=7]
-    ldut.subsystem_sbus.coupler_to_port_named_mmio_port_axi4.tl2axi4.r_first[7] = _s_ldut$reset[7 - 1] | (_s_ldut$subsystem_sbus$coupler_to_port_named_mmio_port_axi4$tl2axi4$_T_2[7 - 1] ? _s_ldut$subsystem_sbus$coupler_to_port_named_mmio_port_axi4$axi4deint$auto_in_r_bits_last[7 - 1] : ldut.subsystem_sbus.coupler_to_port_named_mmio_port_axi4.tl2axi4.r_first[7 - 1]);
+    ldut.subsystem_sbus.coupler_to_port_named_mmio_port_axi4.tl2axi4.r_first[7].val = static_cast<typename UInt<1>::scalar_t>((static_cast<uint8_t>((static_cast<uint8_t>(((_s_ldut$reset[7 - 1].val) | ((static_cast<uint8_t>(essent_select_word<uint32_t>(((static_cast<uint8_t>(_s_ldut$subsystem_sbus$coupler_to_port_named_mmio_port_axi4$tl2axi4$_T_2[7 - 1].val) & 0x1u)) != 0, static_cast<uint32_t>(_s_ldut$subsystem_sbus$coupler_to_port_named_mmio_port_axi4$axi4deint$auto_in_r_bits_last[7 - 1].val), static_cast<uint32_t>(ldut.subsystem_sbus.coupler_to_port_named_mmio_port_axi4.tl2axi4.r_first[7 - 1].val))) & 0x1u)))) & 0x1u)) & 0x1u));
     // [serial scc=193 lane=8]
-    ldut.subsystem_sbus.coupler_to_port_named_mmio_port_axi4.tl2axi4.r_first[8] = _s_ldut$reset[8 - 1] | (_s_ldut$subsystem_sbus$coupler_to_port_named_mmio_port_axi4$tl2axi4$_T_2[8 - 1] ? _s_ldut$subsystem_sbus$coupler_to_port_named_mmio_port_axi4$axi4deint$auto_in_r_bits_last[8 - 1] : ldut.subsystem_sbus.coupler_to_port_named_mmio_port_axi4.tl2axi4.r_first[8 - 1]);
+    ldut.subsystem_sbus.coupler_to_port_named_mmio_port_axi4.tl2axi4.r_first[8].val = static_cast<typename UInt<1>::scalar_t>((static_cast<uint8_t>((static_cast<uint8_t>(((_s_ldut$reset[8 - 1].val) | ((static_cast<uint8_t>(essent_select_word<uint32_t>(((static_cast<uint8_t>(_s_ldut$subsystem_sbus$coupler_to_port_named_mmio_port_axi4$tl2axi4$_T_2[8 - 1].val) & 0x1u)) != 0, static_cast<uint32_t>(_s_ldut$subsystem_sbus$coupler_to_port_named_mmio_port_axi4$axi4deint$auto_in_r_bits_last[8 - 1].val), static_cast<uint32_t>(ldut.subsystem_sbus.coupler_to_port_named_mmio_port_axi4.tl2axi4.r_first[8 - 1].val))) & 0x1u)))) & 0x1u)) & 0x1u));
     // [serial scc=193 lane=9]
-    ldut.subsystem_sbus.coupler_to_port_named_mmio_port_axi4.tl2axi4.r_first[9] = _s_ldut$reset[9 - 1] | (_s_ldut$subsystem_sbus$coupler_to_port_named_mmio_port_axi4$tl2axi4$_T_2[9 - 1] ? _s_ldut$subsystem_sbus$coupler_to_port_named_mmio_port_axi4$axi4deint$auto_in_r_bits_last[9 - 1] : ldut.subsystem_sbus.coupler_to_port_named_mmio_port_axi4.tl2axi4.r_first[9 - 1]);
+    ldut.subsystem_sbus.coupler_to_port_named_mmio_port_axi4.tl2axi4.r_first[9].val = static_cast<typename UInt<1>::scalar_t>((static_cast<uint8_t>((static_cast<uint8_t>(((_s_ldut$reset[9 - 1].val) | ((static_cast<uint8_t>(essent_select_word<uint32_t>(((static_cast<uint8_t>(_s_ldut$subsystem_sbus$coupler_to_port_named_mmio_port_axi4$tl2axi4$_T_2[9 - 1].val) & 0x1u)) != 0, static_cast<uint32_t>(_s_ldut$subsystem_sbus$coupler_to_port_named_mmio_port_axi4$axi4deint$auto_in_r_bits_last[9 - 1].val), static_cast<uint32_t>(ldut.subsystem_sbus.coupler_to_port_named_mmio_port_axi4.tl2axi4.r_first[9 - 1].val))) & 0x1u)))) & 0x1u)) & 0x1u));
     // [serial scc=193 lane=10]
-    ldut.subsystem_sbus.coupler_to_port_named_mmio_port_axi4.tl2axi4.r_first[10] = _s_ldut$reset[10 - 1] | (_s_ldut$subsystem_sbus$coupler_to_port_named_mmio_port_axi4$tl2axi4$_T_2[10 - 1] ? _s_ldut$subsystem_sbus$coupler_to_port_named_mmio_port_axi4$axi4deint$auto_in_r_bits_last[10 - 1] : ldut.subsystem_sbus.coupler_to_port_named_mmio_port_axi4.tl2axi4.r_first[10 - 1]);
+    ldut.subsystem_sbus.coupler_to_port_named_mmio_port_axi4.tl2axi4.r_first[10].val = static_cast<typename UInt<1>::scalar_t>((static_cast<uint8_t>((static_cast<uint8_t>(((_s_ldut$reset[10 - 1].val) | ((static_cast<uint8_t>(essent_select_word<uint32_t>(((static_cast<uint8_t>(_s_ldut$subsystem_sbus$coupler_to_port_named_mmio_port_axi4$tl2axi4$_T_2[10 - 1].val) & 0x1u)) != 0, static_cast<uint32_t>(_s_ldut$subsystem_sbus$coupler_to_port_named_mmio_port_axi4$axi4deint$auto_in_r_bits_last[10 - 1].val), static_cast<uint32_t>(ldut.subsystem_sbus.coupler_to_port_named_mmio_port_axi4.tl2axi4.r_first[10 - 1].val))) & 0x1u)))) & 0x1u)) & 0x1u));
     // [serial scc=193 lane=11]
-    ldut.subsystem_sbus.coupler_to_port_named_mmio_port_axi4.tl2axi4.r_first[11] = _s_ldut$reset[11 - 1] | (_s_ldut$subsystem_sbus$coupler_to_port_named_mmio_port_axi4$tl2axi4$_T_2[11 - 1] ? _s_ldut$subsystem_sbus$coupler_to_port_named_mmio_port_axi4$axi4deint$auto_in_r_bits_last[11 - 1] : ldut.subsystem_sbus.coupler_to_port_named_mmio_port_axi4.tl2axi4.r_first[11 - 1]);
+    ldut.subsystem_sbus.coupler_to_port_named_mmio_port_axi4.tl2axi4.r_first[11].val = static_cast<typename UInt<1>::scalar_t>((static_cast<uint8_t>((static_cast<uint8_t>(((_s_ldut$reset[11 - 1].val) | ((static_cast<uint8_t>(essent_select_word<uint32_t>(((static_cast<uint8_t>(_s_ldut$subsystem_sbus$coupler_to_port_named_mmio_port_axi4$tl2axi4$_T_2[11 - 1].val) & 0x1u)) != 0, static_cast<uint32_t>(_s_ldut$subsystem_sbus$coupler_to_port_named_mmio_port_axi4$axi4deint$auto_in_r_bits_last[11 - 1].val), static_cast<uint32_t>(ldut.subsystem_sbus.coupler_to_port_named_mmio_port_axi4.tl2axi4.r_first[11 - 1].val))) & 0x1u)))) & 0x1u)) & 0x1u));
     // [serial scc=193 lane=12]
-    ldut.subsystem_sbus.coupler_to_port_named_mmio_port_axi4.tl2axi4.r_first[12] = _s_ldut$reset[12 - 1] | (_s_ldut$subsystem_sbus$coupler_to_port_named_mmio_port_axi4$tl2axi4$_T_2[12 - 1] ? _s_ldut$subsystem_sbus$coupler_to_port_named_mmio_port_axi4$axi4deint$auto_in_r_bits_last[12 - 1] : ldut.subsystem_sbus.coupler_to_port_named_mmio_port_axi4.tl2axi4.r_first[12 - 1]);
+    ldut.subsystem_sbus.coupler_to_port_named_mmio_port_axi4.tl2axi4.r_first[12].val = static_cast<typename UInt<1>::scalar_t>((static_cast<uint8_t>((static_cast<uint8_t>(((_s_ldut$reset[12 - 1].val) | ((static_cast<uint8_t>(essent_select_word<uint32_t>(((static_cast<uint8_t>(_s_ldut$subsystem_sbus$coupler_to_port_named_mmio_port_axi4$tl2axi4$_T_2[12 - 1].val) & 0x1u)) != 0, static_cast<uint32_t>(_s_ldut$subsystem_sbus$coupler_to_port_named_mmio_port_axi4$axi4deint$auto_in_r_bits_last[12 - 1].val), static_cast<uint32_t>(ldut.subsystem_sbus.coupler_to_port_named_mmio_port_axi4.tl2axi4.r_first[12 - 1].val))) & 0x1u)))) & 0x1u)) & 0x1u));
     // [serial scc=193 lane=13]
-    ldut.subsystem_sbus.coupler_to_port_named_mmio_port_axi4.tl2axi4.r_first[13] = _s_ldut$reset[13 - 1] | (_s_ldut$subsystem_sbus$coupler_to_port_named_mmio_port_axi4$tl2axi4$_T_2[13 - 1] ? _s_ldut$subsystem_sbus$coupler_to_port_named_mmio_port_axi4$axi4deint$auto_in_r_bits_last[13 - 1] : ldut.subsystem_sbus.coupler_to_port_named_mmio_port_axi4.tl2axi4.r_first[13 - 1]);
+    ldut.subsystem_sbus.coupler_to_port_named_mmio_port_axi4.tl2axi4.r_first[13].val = static_cast<typename UInt<1>::scalar_t>((static_cast<uint8_t>((static_cast<uint8_t>(((_s_ldut$reset[13 - 1].val) | ((static_cast<uint8_t>(essent_select_word<uint32_t>(((static_cast<uint8_t>(_s_ldut$subsystem_sbus$coupler_to_port_named_mmio_port_axi4$tl2axi4$_T_2[13 - 1].val) & 0x1u)) != 0, static_cast<uint32_t>(_s_ldut$subsystem_sbus$coupler_to_port_named_mmio_port_axi4$axi4deint$auto_in_r_bits_last[13 - 1].val), static_cast<uint32_t>(ldut.subsystem_sbus.coupler_to_port_named_mmio_port_axi4.tl2axi4.r_first[13 - 1].val))) & 0x1u)))) & 0x1u)) & 0x1u));
     // [serial scc=193 lane=14]
-    ldut.subsystem_sbus.coupler_to_port_named_mmio_port_axi4.tl2axi4.r_first[14] = _s_ldut$reset[14 - 1] | (_s_ldut$subsystem_sbus$coupler_to_port_named_mmio_port_axi4$tl2axi4$_T_2[14 - 1] ? _s_ldut$subsystem_sbus$coupler_to_port_named_mmio_port_axi4$axi4deint$auto_in_r_bits_last[14 - 1] : ldut.subsystem_sbus.coupler_to_port_named_mmio_port_axi4.tl2axi4.r_first[14 - 1]);
+    ldut.subsystem_sbus.coupler_to_port_named_mmio_port_axi4.tl2axi4.r_first[14].val = static_cast<typename UInt<1>::scalar_t>((static_cast<uint8_t>((static_cast<uint8_t>(((_s_ldut$reset[14 - 1].val) | ((static_cast<uint8_t>(essent_select_word<uint32_t>(((static_cast<uint8_t>(_s_ldut$subsystem_sbus$coupler_to_port_named_mmio_port_axi4$tl2axi4$_T_2[14 - 1].val) & 0x1u)) != 0, static_cast<uint32_t>(_s_ldut$subsystem_sbus$coupler_to_port_named_mmio_port_axi4$axi4deint$auto_in_r_bits_last[14 - 1].val), static_cast<uint32_t>(ldut.subsystem_sbus.coupler_to_port_named_mmio_port_axi4.tl2axi4.r_first[14 - 1].val))) & 0x1u)))) & 0x1u)) & 0x1u));
     // [serial scc=193 lane=15]
-    ldut.subsystem_sbus.coupler_to_port_named_mmio_port_axi4.tl2axi4.r_first[15] = _s_ldut$reset[15 - 1] | (_s_ldut$subsystem_sbus$coupler_to_port_named_mmio_port_axi4$tl2axi4$_T_2[15 - 1] ? _s_ldut$subsystem_sbus$coupler_to_port_named_mmio_port_axi4$axi4deint$auto_in_r_bits_last[15 - 1] : ldut.subsystem_sbus.coupler_to_port_named_mmio_port_axi4.tl2axi4.r_first[15 - 1]);
+    ldut.subsystem_sbus.coupler_to_port_named_mmio_port_axi4.tl2axi4.r_first[15].val = static_cast<typename UInt<1>::scalar_t>((static_cast<uint8_t>((static_cast<uint8_t>(((_s_ldut$reset[15 - 1].val) | ((static_cast<uint8_t>(essent_select_word<uint32_t>(((static_cast<uint8_t>(_s_ldut$subsystem_sbus$coupler_to_port_named_mmio_port_axi4$tl2axi4$_T_2[15 - 1].val) & 0x1u)) != 0, static_cast<uint32_t>(_s_ldut$subsystem_sbus$coupler_to_port_named_mmio_port_axi4$axi4deint$auto_in_r_bits_last[15 - 1].val), static_cast<uint32_t>(ldut.subsystem_sbus.coupler_to_port_named_mmio_port_axi4.tl2axi4.r_first[15 - 1].val))) & 0x1u)))) & 0x1u)) & 0x1u));
     }();
     if (partition_task_poll) partition_task_poll(partition_task_context, 0, true, 7);
     // [v2 eval chunk 8]
@@ -13369,7 +13321,7 @@
         _v2_sa_anyw |= (uint64_t)(essent_to_u64(_s_ldut$subsystem_fbus$buffer$bundleIn_0_d_q$io_enq_ready[G] & _s_ldut$subsystem_sbus$coupler_from_bus_named_subsystem_fbus$widget$repeated_repeater$io_deq_valid[G]) != 0) & (uint64_t)(essent_to_u64(UInt<1>(0x1)) != 0);
       }
       if (_v2_sa_anyw == 0) {
-        for (int L = 0; L < 16; L++) { _s_ldut$subsystem_fbus$buffer$bundleIn_0_d_q$ram_denied$io_deq_bits_MPORT[L] = ldut.subsystem_fbus.buffer.bundleIn_0_d_q.ram_denied[essent_to_u64(ldut.subsystem_fbus.buffer.bundleIn_0_d_q.value_1[L])]; }
+        essent_table_read<16, 2, false>(&_s_ldut$subsystem_fbus$buffer$bundleIn_0_d_q$ram_denied$io_deq_bits_MPORT[0], &ldut.subsystem_fbus.buffer.bundleIn_0_d_q.ram_denied[0], &ldut.subsystem_fbus.buffer.bundleIn_0_d_q.value_1[0]);
       } else {
       {
         // [state-read-dense] forwarding=branchless
@@ -13378,10 +13330,11 @@
         for (int L = 0; L < 16; L++) {
           const uint64_t _v2_sa_addr = essent_to_u64(ldut.subsystem_fbus.buffer.bundleIn_0_d_q.value_1[L]);
           UInt<1> _v2_sa_value = ldut.subsystem_fbus.buffer.bundleIn_0_d_q.ram_denied[_v2_sa_addr];
+          // [branchless-forward] select a valid source before loading data
           const int _v2_sa_prev_code = _v2_sa_last[_v2_sa_addr];
-          const uint64_t _v2_sa_prev_valid = (uint64_t)(_v2_sa_prev_code >= 0);
+          const bool _v2_sa_prev_valid = _v2_sa_prev_code >= 0;
           [[maybe_unused]] const int _v2_sa_prev_lane = _v2_sa_prev_code & -static_cast<int>(_v2_sa_prev_valid);
-          _v2_sa_value = essent_mux(UInt<1>(_v2_sa_prev_valid), _s_ldut$subsystem_sbus$coupler_from_bus_named_subsystem_fbus$widget$repeated_repeater$io_deq_bits_denied[_v2_sa_prev_lane], _v2_sa_value);
+          _v2_sa_value = *essent_select_ptr(_v2_sa_prev_valid, &(_s_ldut$subsystem_sbus$coupler_from_bus_named_subsystem_fbus$widget$repeated_repeater$io_deq_bits_denied[_v2_sa_prev_lane]), &_v2_sa_value);
           _s_ldut$subsystem_fbus$buffer$bundleIn_0_d_q$ram_denied$io_deq_bits_MPORT[L] = _v2_sa_value;
           const uint64_t _v2_sa_write_addr_0 = essent_to_u64(ldut.subsystem_fbus.buffer.bundleIn_0_d_q.value[L]);
           const uint64_t _v2_sa_write_take_0 = (uint64_t)(essent_to_u64(_s_ldut$subsystem_fbus$buffer$bundleIn_0_d_q$io_enq_ready[L] & _s_ldut$subsystem_sbus$coupler_from_bus_named_subsystem_fbus$widget$repeated_repeater$io_deq_valid[L]) != 0) & (uint64_t)(essent_to_u64(UInt<1>(0x1)) != 0);
@@ -13415,7 +13368,7 @@
         ESSENT_LANE_LOOP
         for (int L = 0; L < 16; L++) ldut.subsystem_sbus.coupler_to_port_named_mmio_port_axi4.widget.corrupt_reg[L] = _gv;
       } else {
-        for (int L = 1; L < 16; L++) ldut.subsystem_sbus.coupler_to_port_named_mmio_port_axi4.widget.corrupt_reg[L] = (~_s_ldut$reset[L - 1]) & (_s_ldut$subsystem_sbus$coupler_to_port_named_mmio_port_axi4$widget$_T[L - 1] ? ((~_s_ldut$subsystem_sbus$coupler_to_port_named_mmio_port_axi4$widget$last[L - 1]) & (_s_ldut$subsystem_sbus$coupler_to_port_named_mmio_port_axi4$tl2axi4$auto_in_d_bits_corrupt[L - 1] | ldut.subsystem_sbus.coupler_to_port_named_mmio_port_axi4.widget.corrupt_reg[L - 1])) : ldut.subsystem_sbus.coupler_to_port_named_mmio_port_axi4.widget.corrupt_reg[L - 1]);
+        for (int L = 1; L < 16; L++) ldut.subsystem_sbus.coupler_to_port_named_mmio_port_axi4.widget.corrupt_reg[L].val = static_cast<typename UInt<1>::scalar_t>((static_cast<uint8_t>((static_cast<uint8_t>((((static_cast<uint8_t>((~static_cast<uint8_t>(_s_ldut$reset[L - 1].val))) & 0x1u)) & ((static_cast<uint8_t>(essent_select_word<uint32_t>(((static_cast<uint8_t>(_s_ldut$subsystem_sbus$coupler_to_port_named_mmio_port_axi4$widget$_T[L - 1].val) & 0x1u)) != 0, static_cast<uint32_t>((static_cast<uint8_t>((((static_cast<uint8_t>((~static_cast<uint8_t>(_s_ldut$subsystem_sbus$coupler_to_port_named_mmio_port_axi4$widget$last[L - 1].val))) & 0x1u)) & ((static_cast<uint8_t>(((_s_ldut$subsystem_sbus$coupler_to_port_named_mmio_port_axi4$tl2axi4$auto_in_d_bits_corrupt[L - 1].val) | (ldut.subsystem_sbus.coupler_to_port_named_mmio_port_axi4.widget.corrupt_reg[L - 1].val))) & 0x1u)))) & 0x1u)), static_cast<uint32_t>(ldut.subsystem_sbus.coupler_to_port_named_mmio_port_axi4.widget.corrupt_reg[L - 1].val))) & 0x1u)))) & 0x1u)) & 0x1u));
       }
     }
     // [vec comb] 3 templates x 16 lanes
@@ -13477,7 +13430,7 @@
         _v2_sa_anyw |= (uint64_t)(essent_to_u64(_s_ldut$subsystem_fbus$buffer$bundleIn_0_d_q$io_enq_ready[G] & _s_ldut$subsystem_sbus$coupler_from_bus_named_subsystem_fbus$widget$repeated_repeater$io_deq_valid[G]) != 0) & (uint64_t)(essent_to_u64(UInt<1>(0x1)) != 0);
       }
       if (_v2_sa_anyw == 0) {
-        for (int L = 0; L < 16; L++) { _s_ldut$subsystem_fbus$buffer$bundleIn_0_d_q$ram_corrupt$io_deq_bits_MPORT[L] = ldut.subsystem_fbus.buffer.bundleIn_0_d_q.ram_corrupt[essent_to_u64(ldut.subsystem_fbus.buffer.bundleIn_0_d_q.value_1[L])]; }
+        essent_table_read<16, 2, false>(&_s_ldut$subsystem_fbus$buffer$bundleIn_0_d_q$ram_corrupt$io_deq_bits_MPORT[0], &ldut.subsystem_fbus.buffer.bundleIn_0_d_q.ram_corrupt[0], &ldut.subsystem_fbus.buffer.bundleIn_0_d_q.value_1[0]);
       } else {
       {
         // [state-read-dense] forwarding=branchless
@@ -13486,10 +13439,11 @@
         for (int L = 0; L < 16; L++) {
           const uint64_t _v2_sa_addr = essent_to_u64(ldut.subsystem_fbus.buffer.bundleIn_0_d_q.value_1[L]);
           UInt<1> _v2_sa_value = ldut.subsystem_fbus.buffer.bundleIn_0_d_q.ram_corrupt[_v2_sa_addr];
+          // [branchless-forward] select a valid source before loading data
           const int _v2_sa_prev_code = _v2_sa_last[_v2_sa_addr];
-          const uint64_t _v2_sa_prev_valid = (uint64_t)(_v2_sa_prev_code >= 0);
+          const bool _v2_sa_prev_valid = _v2_sa_prev_code >= 0;
           [[maybe_unused]] const int _v2_sa_prev_lane = _v2_sa_prev_code & -static_cast<int>(_v2_sa_prev_valid);
-          _v2_sa_value = essent_mux(UInt<1>(_v2_sa_prev_valid), _s_ldut$subsystem_sbus$coupler_from_bus_named_subsystem_fbus$widget$repeated_repeater$io_deq_bits_corrupt[_v2_sa_prev_lane], _v2_sa_value);
+          _v2_sa_value = *essent_select_ptr(_v2_sa_prev_valid, &(_s_ldut$subsystem_sbus$coupler_from_bus_named_subsystem_fbus$widget$repeated_repeater$io_deq_bits_corrupt[_v2_sa_prev_lane]), &_v2_sa_value);
           _s_ldut$subsystem_fbus$buffer$bundleIn_0_d_q$ram_corrupt$io_deq_bits_MPORT[L] = _v2_sa_value;
           const uint64_t _v2_sa_write_addr_0 = essent_to_u64(ldut.subsystem_fbus.buffer.bundleIn_0_d_q.value[L]);
           const uint64_t _v2_sa_write_take_0 = (uint64_t)(essent_to_u64(_s_ldut$subsystem_fbus$buffer$bundleIn_0_d_q$io_enq_ready[L] & _s_ldut$subsystem_sbus$coupler_from_bus_named_subsystem_fbus$widget$repeated_repeater$io_deq_valid[L]) != 0) & (uint64_t)(essent_to_u64(UInt<1>(0x1)) != 0);
@@ -13644,7 +13598,7 @@
         ESSENT_LANE_LOOP
         for (int L = 0; L < 16; L++) ldut.subsystem_sbus.coupler_to_bus_named_subsystem_l2.widget.repeat_count[L] = _gv;
       } else {
-        for (int L = 1; L < 16; L++) ldut.subsystem_sbus.coupler_to_bus_named_subsystem_l2.widget.repeat_count[L] = (~_s_ldut$reset[L - 1]) & (_s_ldut$subsystem_sbus$coupler_to_bus_named_subsystem_l2$widget$_repeat_T[L - 1] ? ((~((ldut.subsystem_sbus.coupler_to_bus_named_subsystem_l2.widget.repeat_count[L - 1] == _s_ldut$subsystem_sbus$coupler_to_bus_named_subsystem_l2$widget$repeat_limit[L - 1]) | _s_ldut$subsystem_sbus$coupler_to_bus_named_subsystem_l2$widget$_repeat_last_T_1[L - 1])) & ((ldut.subsystem_sbus.coupler_to_bus_named_subsystem_l2.widget.repeat_count[L - 1] + UInt<1>(0x1)).tail<1>())) : ldut.subsystem_sbus.coupler_to_bus_named_subsystem_l2.widget.repeat_count[L - 1]);
+        for (int L = 1; L < 16; L++) ldut.subsystem_sbus.coupler_to_bus_named_subsystem_l2.widget.repeat_count[L].val = static_cast<typename UInt<1>::scalar_t>((static_cast<uint8_t>((static_cast<uint8_t>((((static_cast<uint8_t>((~static_cast<uint8_t>(_s_ldut$reset[L - 1].val))) & 0x1u)) & ((static_cast<uint8_t>(essent_select_word<uint32_t>(((static_cast<uint8_t>(_s_ldut$subsystem_sbus$coupler_to_bus_named_subsystem_l2$widget$_repeat_T[L - 1].val) & 0x1u)) != 0, static_cast<uint32_t>((static_cast<uint8_t>((((static_cast<uint8_t>((~static_cast<uint8_t>((static_cast<uint8_t>((((static_cast<uint8_t>(((ldut.subsystem_sbus.coupler_to_bus_named_subsystem_l2.widget.repeat_count[L - 1].val) == (_s_ldut$subsystem_sbus$coupler_to_bus_named_subsystem_l2$widget$repeat_limit[L - 1].val))) & 0x1u)) | (_s_ldut$subsystem_sbus$coupler_to_bus_named_subsystem_l2$widget$_repeat_last_T_1[L - 1].val))) & 0x1u)))) & 0x1u)) & ((static_cast<uint8_t>((static_cast<uint8_t>((static_cast<uint8_t>((static_cast<uint8_t>(ldut.subsystem_sbus.coupler_to_bus_named_subsystem_l2.widget.repeat_count[L - 1].val) + static_cast<uint8_t>((static_cast<uint8_t>(0x1u) & 0x1u)))) & 0x3u)) & 0x1u)) & 0x1u)))) & 0x1u)), static_cast<uint32_t>(ldut.subsystem_sbus.coupler_to_bus_named_subsystem_l2.widget.repeat_count[L - 1].val))) & 0x1u)))) & 0x1u)) & 0x1u));
       }
     }
     // [vec comb] 3 templates x 16 lanes
@@ -13662,6 +13616,8 @@
     { const int L = 15;
       _s_ldut$subsystem_sbus$coupler_to_bus_named_subsystem_l2$widget$repeat_count$next[((L) == 0 ? 0 : 1)].val = static_cast<typename UInt<1>::scalar_t>((static_cast<uint8_t>((static_cast<uint8_t>((((static_cast<uint8_t>((~static_cast<uint8_t>(_s_ldut$reset[L].val))) & 0x1u)) & ((static_cast<uint8_t>((((static_cast<uint8_t>(((_s_ldut$subsystem_sbus$coupler_to_bus_named_subsystem_l2$widget$_repeat_T[L].val) & ((static_cast<uint8_t>((((static_cast<uint8_t>((~static_cast<uint8_t>(_s_ldut$subsystem_sbus$coupler_to_bus_named_subsystem_l2$widget$repeat_last[L].val))) & 0x1u)) & ((static_cast<uint8_t>((static_cast<uint8_t>((static_cast<uint8_t>((static_cast<uint8_t>(ldut.subsystem_sbus.coupler_to_bus_named_subsystem_l2.widget.repeat_count[L].val) + static_cast<uint8_t>((static_cast<uint8_t>(0x1u) & 0x1u)))) & 0x3u)) & 0x1u)) & 0x1u)))) & 0x1u)))) & 0x1u)) | ((static_cast<uint8_t>((((static_cast<uint8_t>((~static_cast<uint8_t>(_s_ldut$subsystem_sbus$coupler_to_bus_named_subsystem_l2$widget$_repeat_T[L].val))) & 0x1u)) & (ldut.subsystem_sbus.coupler_to_bus_named_subsystem_l2.widget.repeat_count[L].val))) & 0x1u)))) & 0x1u)))) & 0x1u)) & 0x1u));
     }
+
+    if (partition_task_poll) partition_task_poll(partition_task_context, 0, true, 8);
     // [vec comb] 8 templates x 16 lanes
     ESSENT_LANE_LOOP
     for (int L = 0; L < 16; L++) {
@@ -13681,8 +13637,6 @@
     // [serial scc=176 chain-loop]
     essent_condhold_index_fwd<16>(_v2_cond_idx_5, _s_ldut$subsystem_sbus$coupler_to_bus_named_subsystem_l2$widget$repeated_repeater$saved_param$wen);
     essent_condhold_apply_fwd<16>(ldut.subsystem_sbus.coupler_to_bus_named_subsystem_l2.widget.repeated_repeater.saved_param, _v2_cond_idx_5, _s_ldut$subsystem_sbus$coupler_to_bus_named_subsystem_l2$widget$repeated_repeater$saved_param$wdata);
-
-    if (partition_task_poll) partition_task_poll(partition_task_context, 0, true, 8);
     // [vec comb] 1 templates x 16 lanes
     ESSENT_LANE_LOOP
     for (int L = 0; L < 16; L++) {
@@ -13802,6 +13756,8 @@
       _s_ldut$subsystem_sbus$system_bus_xbar$auto_out_2_a_bits_user_amba_prot_privileged[L].val = static_cast<typename UInt<1>::scalar_t>((static_cast<uint8_t>((static_cast<uint8_t>((((static_cast<uint8_t>(((_s_ldut$subsystem_sbus$system_bus_xbar$muxStateEarly_2_0[L].val) & (_s_ldut$subsystem_fbus$buffer$bundleOut_0_a_q$ram_user_amba_prot_privileged$io_deq_bits_MPORT[L].val))) & 0x1u)) | (_s_ldut$subsystem_sbus$system_bus_xbar$muxStateEarly_2_1[L].val))) & 0x1u)) & 0x1u));
       _s_ldut$subsystem_sbus$system_bus_xbar$auto_out_2_a_bits_user_amba_prot_secure[L].val = static_cast<typename UInt<1>::scalar_t>((static_cast<uint8_t>((static_cast<uint8_t>((((static_cast<uint8_t>(((_s_ldut$subsystem_sbus$system_bus_xbar$muxStateEarly_2_0[L].val) & (_s_ldut$subsystem_fbus$buffer$bundleOut_0_a_q$ram_user_amba_prot_secure$io_deq_bits_MPORT[L].val))) & 0x1u)) | (_s_ldut$subsystem_sbus$system_bus_xbar$muxStateEarly_2_1[L].val))) & 0x1u)) & 0x1u));
     }
+
+    if (partition_task_poll) partition_task_poll(partition_task_context, 0, true, 8);
     // [vec boundary-next] 1 templates x 16 lanes
     // [boundary next] 1 templates, two retained lanes
     { const int L = 0;
@@ -13823,7 +13779,7 @@
         _v2_sa_anyw |= (uint64_t)(essent_to_u64(_s_ldut$subsystem_sbus$coupler_to_port_named_mmio_port_axi4$axi4buf$bundleOut_0_w_deq$io_enq_ready[G] & _s_ldut$subsystem_sbus$coupler_to_port_named_mmio_port_axi4$tl2axi4$deq$io_deq_valid[G]) != 0) & (uint64_t)(essent_to_u64(UInt<1>(0x1)) != 0);
       }
       if (_v2_sa_anyw == 0) {
-        for (int L = 0; L < 16; L++) { _s_ldut$subsystem_sbus$coupler_to_port_named_mmio_port_axi4$axi4buf$bundleOut_0_w_deq$ram_last$io_deq_bits_MPORT$rtl[L] = ldut.subsystem_sbus.coupler_to_port_named_mmio_port_axi4.axi4buf.bundleOut_0_w_deq.ram_last[essent_to_u64(ldut.subsystem_sbus.coupler_to_port_named_mmio_port_axi4.axi4buf.bundleOut_0_w_deq.value_1[L])]; }
+        essent_table_read<16, 2, false>(&_s_ldut$subsystem_sbus$coupler_to_port_named_mmio_port_axi4$axi4buf$bundleOut_0_w_deq$ram_last$io_deq_bits_MPORT$rtl[0], &ldut.subsystem_sbus.coupler_to_port_named_mmio_port_axi4.axi4buf.bundleOut_0_w_deq.ram_last[0], &ldut.subsystem_sbus.coupler_to_port_named_mmio_port_axi4.axi4buf.bundleOut_0_w_deq.value_1[0]);
       } else {
       {
         // [state-read-dense] forwarding=branchless
@@ -13832,10 +13788,11 @@
         for (int L = 0; L < 16; L++) {
           const uint64_t _v2_sa_addr = essent_to_u64(ldut.subsystem_sbus.coupler_to_port_named_mmio_port_axi4.axi4buf.bundleOut_0_w_deq.value_1[L]);
           UInt<1> _v2_sa_value = ldut.subsystem_sbus.coupler_to_port_named_mmio_port_axi4.axi4buf.bundleOut_0_w_deq.ram_last[_v2_sa_addr];
+          // [branchless-forward] select a valid source before loading data
           const int _v2_sa_prev_code = _v2_sa_last[_v2_sa_addr];
-          const uint64_t _v2_sa_prev_valid = (uint64_t)(_v2_sa_prev_code >= 0);
+          const bool _v2_sa_prev_valid = _v2_sa_prev_code >= 0;
           [[maybe_unused]] const int _v2_sa_prev_lane = _v2_sa_prev_code & -static_cast<int>(_v2_sa_prev_valid);
-          _v2_sa_value = essent_mux(UInt<1>(_v2_sa_prev_valid), _s_ldut$subsystem_sbus$coupler_to_port_named_mmio_port_axi4$tl2axi4$deq$io_deq_bits_last[_v2_sa_prev_lane], _v2_sa_value);
+          _v2_sa_value = *essent_select_ptr(_v2_sa_prev_valid, &(_s_ldut$subsystem_sbus$coupler_to_port_named_mmio_port_axi4$tl2axi4$deq$io_deq_bits_last[_v2_sa_prev_lane]), &_v2_sa_value);
           _s_ldut$subsystem_sbus$coupler_to_port_named_mmio_port_axi4$axi4buf$bundleOut_0_w_deq$ram_last$io_deq_bits_MPORT$rtl[L] = _v2_sa_value;
           const uint64_t _v2_sa_write_addr_0 = essent_to_u64(ldut.subsystem_sbus.coupler_to_port_named_mmio_port_axi4.axi4buf.bundleOut_0_w_deq.value[L]);
           const uint64_t _v2_sa_write_take_0 = (uint64_t)(essent_to_u64(_s_ldut$subsystem_sbus$coupler_to_port_named_mmio_port_axi4$axi4buf$bundleOut_0_w_deq$io_enq_ready[L] & _s_ldut$subsystem_sbus$coupler_to_port_named_mmio_port_axi4$tl2axi4$deq$io_deq_valid[L]) != 0) & (uint64_t)(essent_to_u64(UInt<1>(0x1)) != 0);
@@ -13849,8 +13806,6 @@
     #endif
     // [vec comb] 18 templates x 16 lanes
     _v2_cshare_32();
-
-    if (partition_task_poll) partition_task_poll(partition_task_context, 0, true, 8);
     // [vec state-read] 6 templates x 16 lanes
     #if ESSENT_ORACLE_VERIFY // [extern-read] verify-only recompute: ldut.subsystem_sbus.coupler_to_port_named_mmio_port_axi4.axi4buf.bundleOut_0_aw_deq.ram_id.io_deq_bits_MPORT$rtl
     {
@@ -13860,15 +13815,12 @@
         _v2_sa_anyw |= (uint64_t)(essent_to_u64(_s_ldut$subsystem_sbus$coupler_to_port_named_mmio_port_axi4$axi4buf$bundleOut_0_aw_deq$io_enq_ready[G] & _s_ldut$subsystem_sbus$coupler_to_port_named_mmio_port_axi4$axi4yank$auto_out_aw_valid[G]) != 0) & (uint64_t)(essent_to_u64(UInt<1>(0x1)) != 0);
       }
       if (_v2_sa_anyw == 0) {
-        for (int L = 0; L < 16; L++) {
-          const uint64_t _v2_sa_field_addr = essent_to_u64(ldut.subsystem_sbus.coupler_to_port_named_mmio_port_axi4.axi4buf.bundleOut_0_aw_deq.value_1[L]);
-          _s_ldut$subsystem_sbus$coupler_to_port_named_mmio_port_axi4$axi4buf$bundleOut_0_aw_deq$ram_id$io_deq_bits_MPORT$rtl[L] = ldut.subsystem_sbus.coupler_to_port_named_mmio_port_axi4.axi4buf.bundleOut_0_aw_deq.ram_id[_v2_sa_field_addr];
-          _s_ldut$subsystem_sbus$coupler_to_port_named_mmio_port_axi4$axi4buf$bundleOut_0_aw_deq$ram_len$io_deq_bits_MPORT$rtl[L] = ldut.subsystem_sbus.coupler_to_port_named_mmio_port_axi4.axi4buf.bundleOut_0_aw_deq.ram_len[_v2_sa_field_addr];
-          _s_ldut$subsystem_sbus$coupler_to_port_named_mmio_port_axi4$axi4buf$bundleOut_0_aw_deq$ram_size$io_deq_bits_MPORT$rtl[L] = ldut.subsystem_sbus.coupler_to_port_named_mmio_port_axi4.axi4buf.bundleOut_0_aw_deq.ram_size[_v2_sa_field_addr];
-          _s_ldut$subsystem_sbus$coupler_to_port_named_mmio_port_axi4$axi4buf$bundleOut_0_aw_deq$ram_burst$io_deq_bits_MPORT$rtl[L] = ldut.subsystem_sbus.coupler_to_port_named_mmio_port_axi4.axi4buf.bundleOut_0_aw_deq.ram_burst[_v2_sa_field_addr];
-          _s_ldut$subsystem_sbus$coupler_to_port_named_mmio_port_axi4$axi4buf$bundleOut_0_aw_deq$ram_lock$io_deq_bits_MPORT$rtl[L] = ldut.subsystem_sbus.coupler_to_port_named_mmio_port_axi4.axi4buf.bundleOut_0_aw_deq.ram_lock[_v2_sa_field_addr];
-          _s_ldut$subsystem_sbus$coupler_to_port_named_mmio_port_axi4$axi4buf$bundleOut_0_aw_deq$ram_qos$io_deq_bits_MPORT$rtl[L] = ldut.subsystem_sbus.coupler_to_port_named_mmio_port_axi4.axi4buf.bundleOut_0_aw_deq.ram_qos[_v2_sa_field_addr];
-        }
+        essent_table_read<16, 2, false>(&_s_ldut$subsystem_sbus$coupler_to_port_named_mmio_port_axi4$axi4buf$bundleOut_0_aw_deq$ram_id$io_deq_bits_MPORT$rtl[0], &ldut.subsystem_sbus.coupler_to_port_named_mmio_port_axi4.axi4buf.bundleOut_0_aw_deq.ram_id[0], &ldut.subsystem_sbus.coupler_to_port_named_mmio_port_axi4.axi4buf.bundleOut_0_aw_deq.value_1[0]);
+        essent_table_read<16, 2, false>(&_s_ldut$subsystem_sbus$coupler_to_port_named_mmio_port_axi4$axi4buf$bundleOut_0_aw_deq$ram_len$io_deq_bits_MPORT$rtl[0], &ldut.subsystem_sbus.coupler_to_port_named_mmio_port_axi4.axi4buf.bundleOut_0_aw_deq.ram_len[0], &ldut.subsystem_sbus.coupler_to_port_named_mmio_port_axi4.axi4buf.bundleOut_0_aw_deq.value_1[0]);
+        essent_table_read<16, 2, false>(&_s_ldut$subsystem_sbus$coupler_to_port_named_mmio_port_axi4$axi4buf$bundleOut_0_aw_deq$ram_size$io_deq_bits_MPORT$rtl[0], &ldut.subsystem_sbus.coupler_to_port_named_mmio_port_axi4.axi4buf.bundleOut_0_aw_deq.ram_size[0], &ldut.subsystem_sbus.coupler_to_port_named_mmio_port_axi4.axi4buf.bundleOut_0_aw_deq.value_1[0]);
+        essent_table_read<16, 2, false>(&_s_ldut$subsystem_sbus$coupler_to_port_named_mmio_port_axi4$axi4buf$bundleOut_0_aw_deq$ram_burst$io_deq_bits_MPORT$rtl[0], &ldut.subsystem_sbus.coupler_to_port_named_mmio_port_axi4.axi4buf.bundleOut_0_aw_deq.ram_burst[0], &ldut.subsystem_sbus.coupler_to_port_named_mmio_port_axi4.axi4buf.bundleOut_0_aw_deq.value_1[0]);
+        essent_table_read<16, 2, false>(&_s_ldut$subsystem_sbus$coupler_to_port_named_mmio_port_axi4$axi4buf$bundleOut_0_aw_deq$ram_lock$io_deq_bits_MPORT$rtl[0], &ldut.subsystem_sbus.coupler_to_port_named_mmio_port_axi4.axi4buf.bundleOut_0_aw_deq.ram_lock[0], &ldut.subsystem_sbus.coupler_to_port_named_mmio_port_axi4.axi4buf.bundleOut_0_aw_deq.value_1[0]);
+        essent_table_read<16, 2, false>(&_s_ldut$subsystem_sbus$coupler_to_port_named_mmio_port_axi4$axi4buf$bundleOut_0_aw_deq$ram_qos$io_deq_bits_MPORT$rtl[0], &ldut.subsystem_sbus.coupler_to_port_named_mmio_port_axi4.axi4buf.bundleOut_0_aw_deq.ram_qos[0], &ldut.subsystem_sbus.coupler_to_port_named_mmio_port_axi4.axi4buf.bundleOut_0_aw_deq.value_1[0]);
       } else {
       {
         // [state-field-read-fused] 6 arrays share one access scan, mode=dense-branchless
@@ -13924,15 +13876,12 @@
         _v2_sa_anyw |= (uint64_t)(essent_to_u64(_s_ldut$subsystem_sbus$coupler_to_port_named_mmio_port_axi4$axi4buf$bundleOut_0_ar_deq$io_enq_ready[G] & _s_ldut$subsystem_sbus$coupler_to_port_named_mmio_port_axi4$axi4yank$auto_out_ar_valid[G]) != 0) & (uint64_t)(essent_to_u64(UInt<1>(0x1)) != 0);
       }
       if (_v2_sa_anyw == 0) {
-        for (int L = 0; L < 16; L++) {
-          const uint64_t _v2_sa_field_addr = essent_to_u64(ldut.subsystem_sbus.coupler_to_port_named_mmio_port_axi4.axi4buf.bundleOut_0_ar_deq.value_1[L]);
-          _s_ldut$subsystem_sbus$coupler_to_port_named_mmio_port_axi4$axi4buf$bundleOut_0_ar_deq$ram_id$io_deq_bits_MPORT$rtl[L] = ldut.subsystem_sbus.coupler_to_port_named_mmio_port_axi4.axi4buf.bundleOut_0_ar_deq.ram_id[_v2_sa_field_addr];
-          _s_ldut$subsystem_sbus$coupler_to_port_named_mmio_port_axi4$axi4buf$bundleOut_0_ar_deq$ram_len$io_deq_bits_MPORT$rtl[L] = ldut.subsystem_sbus.coupler_to_port_named_mmio_port_axi4.axi4buf.bundleOut_0_ar_deq.ram_len[_v2_sa_field_addr];
-          _s_ldut$subsystem_sbus$coupler_to_port_named_mmio_port_axi4$axi4buf$bundleOut_0_ar_deq$ram_size$io_deq_bits_MPORT$rtl[L] = ldut.subsystem_sbus.coupler_to_port_named_mmio_port_axi4.axi4buf.bundleOut_0_ar_deq.ram_size[_v2_sa_field_addr];
-          _s_ldut$subsystem_sbus$coupler_to_port_named_mmio_port_axi4$axi4buf$bundleOut_0_ar_deq$ram_burst$io_deq_bits_MPORT$rtl[L] = ldut.subsystem_sbus.coupler_to_port_named_mmio_port_axi4.axi4buf.bundleOut_0_ar_deq.ram_burst[_v2_sa_field_addr];
-          _s_ldut$subsystem_sbus$coupler_to_port_named_mmio_port_axi4$axi4buf$bundleOut_0_ar_deq$ram_lock$io_deq_bits_MPORT$rtl[L] = ldut.subsystem_sbus.coupler_to_port_named_mmio_port_axi4.axi4buf.bundleOut_0_ar_deq.ram_lock[_v2_sa_field_addr];
-          _s_ldut$subsystem_sbus$coupler_to_port_named_mmio_port_axi4$axi4buf$bundleOut_0_ar_deq$ram_qos$io_deq_bits_MPORT$rtl[L] = ldut.subsystem_sbus.coupler_to_port_named_mmio_port_axi4.axi4buf.bundleOut_0_ar_deq.ram_qos[_v2_sa_field_addr];
-        }
+        essent_table_read<16, 2, false>(&_s_ldut$subsystem_sbus$coupler_to_port_named_mmio_port_axi4$axi4buf$bundleOut_0_ar_deq$ram_id$io_deq_bits_MPORT$rtl[0], &ldut.subsystem_sbus.coupler_to_port_named_mmio_port_axi4.axi4buf.bundleOut_0_ar_deq.ram_id[0], &ldut.subsystem_sbus.coupler_to_port_named_mmio_port_axi4.axi4buf.bundleOut_0_ar_deq.value_1[0]);
+        essent_table_read<16, 2, false>(&_s_ldut$subsystem_sbus$coupler_to_port_named_mmio_port_axi4$axi4buf$bundleOut_0_ar_deq$ram_len$io_deq_bits_MPORT$rtl[0], &ldut.subsystem_sbus.coupler_to_port_named_mmio_port_axi4.axi4buf.bundleOut_0_ar_deq.ram_len[0], &ldut.subsystem_sbus.coupler_to_port_named_mmio_port_axi4.axi4buf.bundleOut_0_ar_deq.value_1[0]);
+        essent_table_read<16, 2, false>(&_s_ldut$subsystem_sbus$coupler_to_port_named_mmio_port_axi4$axi4buf$bundleOut_0_ar_deq$ram_size$io_deq_bits_MPORT$rtl[0], &ldut.subsystem_sbus.coupler_to_port_named_mmio_port_axi4.axi4buf.bundleOut_0_ar_deq.ram_size[0], &ldut.subsystem_sbus.coupler_to_port_named_mmio_port_axi4.axi4buf.bundleOut_0_ar_deq.value_1[0]);
+        essent_table_read<16, 2, false>(&_s_ldut$subsystem_sbus$coupler_to_port_named_mmio_port_axi4$axi4buf$bundleOut_0_ar_deq$ram_burst$io_deq_bits_MPORT$rtl[0], &ldut.subsystem_sbus.coupler_to_port_named_mmio_port_axi4.axi4buf.bundleOut_0_ar_deq.ram_burst[0], &ldut.subsystem_sbus.coupler_to_port_named_mmio_port_axi4.axi4buf.bundleOut_0_ar_deq.value_1[0]);
+        essent_table_read<16, 2, false>(&_s_ldut$subsystem_sbus$coupler_to_port_named_mmio_port_axi4$axi4buf$bundleOut_0_ar_deq$ram_lock$io_deq_bits_MPORT$rtl[0], &ldut.subsystem_sbus.coupler_to_port_named_mmio_port_axi4.axi4buf.bundleOut_0_ar_deq.ram_lock[0], &ldut.subsystem_sbus.coupler_to_port_named_mmio_port_axi4.axi4buf.bundleOut_0_ar_deq.value_1[0]);
+        essent_table_read<16, 2, false>(&_s_ldut$subsystem_sbus$coupler_to_port_named_mmio_port_axi4$axi4buf$bundleOut_0_ar_deq$ram_qos$io_deq_bits_MPORT$rtl[0], &ldut.subsystem_sbus.coupler_to_port_named_mmio_port_axi4.axi4buf.bundleOut_0_ar_deq.ram_qos[0], &ldut.subsystem_sbus.coupler_to_port_named_mmio_port_axi4.axi4buf.bundleOut_0_ar_deq.value_1[0]);
       } else {
       {
         // [state-field-read-fused] 6 arrays share one access scan, mode=dense-branchless
@@ -14016,6 +13965,8 @@
     for (int L = 0; L < 16; L++) {
       _s_ldut$subsystem_sbus$coupler_to_port_named_mmio_port_axi4$axi4yank$QueueCompatibility_2$$inst$do_enq[L].val = static_cast<typename UInt<1>::scalar_t>((static_cast<uint8_t>((static_cast<uint8_t>(((_s_ldut$subsystem_sbus$coupler_to_port_named_mmio_port_axi4$axi4yank$QueueCompatibility_2$$inst$io_enq_ready[L].val) & (_s_ldut$subsystem_sbus$coupler_to_port_named_mmio_port_axi4$axi4yank$QueueCompatibility_2$$inst$io_enq_valid[L].val))) & 0x1u)) & 0x1u));
     }
+
+    if (partition_task_poll) partition_task_poll(partition_task_context, 0, true, 8);
     // [vec state-read] 1 templates x 16 lanes
     #if ESSENT_ORACLE_VERIFY // [extern-read] verify-only recompute: ldut.subsystem_sbus.coupler_to_port_named_mmio_port_axi4.axi4yank.QueueCompatibility_2$$inst.ram_tl_state_size.io_deq_bits_MPORT$rtl
     {
@@ -14025,7 +13976,7 @@
         _v2_sa_anyw |= (uint64_t)(essent_to_u64(_s_ldut$subsystem_sbus$coupler_to_port_named_mmio_port_axi4$axi4yank$QueueCompatibility_2$$inst$io_enq_ready[G] & _s_ldut$subsystem_sbus$coupler_to_port_named_mmio_port_axi4$axi4yank$QueueCompatibility_2$$inst$io_enq_valid[G]) != 0) & (uint64_t)(essent_to_u64(UInt<1>(0x1)) != 0);
       }
       if (_v2_sa_anyw == 0) {
-        for (int L = 0; L < 16; L++) { _s_ldut$subsystem_sbus$coupler_to_port_named_mmio_port_axi4$axi4yank$QueueCompatibility_2$$inst$ram_tl_state_size$io_deq_bits_MPORT$rtl[L] = ldut.subsystem_sbus.coupler_to_port_named_mmio_port_axi4.axi4yank.QueueCompatibility_2$$inst.ram_tl_state_size[essent_to_u64(ldut.subsystem_sbus.coupler_to_port_named_mmio_port_axi4.axi4yank.QueueCompatibility_2$$inst.deq_ptr_value[L])]; }
+        essent_table_read<16, 8, false>(&_s_ldut$subsystem_sbus$coupler_to_port_named_mmio_port_axi4$axi4yank$QueueCompatibility_2$$inst$ram_tl_state_size$io_deq_bits_MPORT$rtl[0], &ldut.subsystem_sbus.coupler_to_port_named_mmio_port_axi4.axi4yank.QueueCompatibility_2$$inst.ram_tl_state_size[0], &ldut.subsystem_sbus.coupler_to_port_named_mmio_port_axi4.axi4yank.QueueCompatibility_2$$inst.deq_ptr_value[0]);
       } else {
       {
         // [state-read-dense] forwarding=branchless
@@ -14034,10 +13985,11 @@
         for (int L = 0; L < 16; L++) {
           const uint64_t _v2_sa_addr = essent_to_u64(ldut.subsystem_sbus.coupler_to_port_named_mmio_port_axi4.axi4yank.QueueCompatibility_2$$inst.deq_ptr_value[L]);
           UInt<4> _v2_sa_value = ldut.subsystem_sbus.coupler_to_port_named_mmio_port_axi4.axi4yank.QueueCompatibility_2$$inst.ram_tl_state_size[_v2_sa_addr];
+          // [branchless-forward] select a valid source before loading data
           const int _v2_sa_prev_code = _v2_sa_last[_v2_sa_addr];
-          const uint64_t _v2_sa_prev_valid = (uint64_t)(_v2_sa_prev_code >= 0);
+          const bool _v2_sa_prev_valid = _v2_sa_prev_code >= 0;
           [[maybe_unused]] const int _v2_sa_prev_lane = _v2_sa_prev_code & -static_cast<int>(_v2_sa_prev_valid);
-          _v2_sa_value = essent_mux(UInt<1>(_v2_sa_prev_valid), _s_ldut$subsystem_sbus$coupler_to_port_named_mmio_port_axi4$tl2axi4$queue_arw_deq$io_deq_bits_echo_tl_state_size[_v2_sa_prev_lane], _v2_sa_value);
+          _v2_sa_value = *essent_select_ptr(_v2_sa_prev_valid, &(_s_ldut$subsystem_sbus$coupler_to_port_named_mmio_port_axi4$tl2axi4$queue_arw_deq$io_deq_bits_echo_tl_state_size[_v2_sa_prev_lane]), &_v2_sa_value);
           _s_ldut$subsystem_sbus$coupler_to_port_named_mmio_port_axi4$axi4yank$QueueCompatibility_2$$inst$ram_tl_state_size$io_deq_bits_MPORT$rtl[L] = _v2_sa_value;
           const uint64_t _v2_sa_write_addr_0 = essent_to_u64(ldut.subsystem_sbus.coupler_to_port_named_mmio_port_axi4.axi4yank.QueueCompatibility_2$$inst.enq_ptr_value[L]);
           const uint64_t _v2_sa_write_take_0 = (uint64_t)(essent_to_u64(_s_ldut$subsystem_sbus$coupler_to_port_named_mmio_port_axi4$axi4yank$QueueCompatibility_2$$inst$io_enq_ready[L] & _s_ldut$subsystem_sbus$coupler_to_port_named_mmio_port_axi4$axi4yank$QueueCompatibility_2$$inst$io_enq_valid[L]) != 0) & (uint64_t)(essent_to_u64(UInt<1>(0x1)) != 0);
@@ -14056,8 +14008,6 @@
       _s_ldut$subsystem_sbus$coupler_to_port_named_mmio_port_axi4$axi4yank$QueueCompatibility_2$$inst$maybe_full$next[L].val = static_cast<typename UInt<1>::scalar_t>((static_cast<uint8_t>((static_cast<uint8_t>((((static_cast<uint8_t>((~static_cast<uint8_t>(_s_ldut$reset[L].val))) & 0x1u)) & ((static_cast<uint8_t>((((static_cast<uint8_t>((((static_cast<uint8_t>(((_s_ldut$subsystem_sbus$coupler_to_port_named_mmio_port_axi4$axi4yank$QueueCompatibility_2$$inst$do_enq[L].val) != (_s_ldut$subsystem_sbus$coupler_to_port_named_mmio_port_axi4$axi4yank$QueueCompatibility_2$$inst$do_deq[L].val))) & 0x1u)) & (_s_ldut$subsystem_sbus$coupler_to_port_named_mmio_port_axi4$axi4yank$QueueCompatibility_2$$inst$do_enq[L].val))) & 0x1u)) | ((static_cast<uint8_t>((((static_cast<uint8_t>((~static_cast<uint8_t>((static_cast<uint8_t>(((_s_ldut$subsystem_sbus$coupler_to_port_named_mmio_port_axi4$axi4yank$QueueCompatibility_2$$inst$do_enq[L].val) != (_s_ldut$subsystem_sbus$coupler_to_port_named_mmio_port_axi4$axi4yank$QueueCompatibility_2$$inst$do_deq[L].val))) & 0x1u)))) & 0x1u)) & (ldut.subsystem_sbus.coupler_to_port_named_mmio_port_axi4.axi4yank.QueueCompatibility_2$$inst.maybe_full[L].val))) & 0x1u)))) & 0x1u)))) & 0x1u)) & 0x1u));
       _s_ldut$subsystem_sbus$coupler_to_port_named_mmio_port_axi4$axi4yank$QueueCompatibility_3$do_enq[L].val = static_cast<typename UInt<1>::scalar_t>((static_cast<uint8_t>((static_cast<uint8_t>(((_s_ldut$subsystem_sbus$coupler_to_port_named_mmio_port_axi4$axi4yank$QueueCompatibility_3$io_enq_ready[L].val) & (_s_ldut$subsystem_sbus$coupler_to_port_named_mmio_port_axi4$axi4yank$QueueCompatibility_3$io_enq_valid[L].val))) & 0x1u)) & 0x1u));
     }
-
-    if (partition_task_poll) partition_task_poll(partition_task_context, 0, true, 8);
     // [vec state-read] 1 templates x 16 lanes
     #if ESSENT_ORACLE_VERIFY // [extern-read] verify-only recompute: ldut.subsystem_sbus.coupler_to_port_named_mmio_port_axi4.axi4yank.QueueCompatibility_3.ram_tl_state_size.io_deq_bits_MPORT$rtl
     {
@@ -14067,7 +14017,7 @@
         _v2_sa_anyw |= (uint64_t)(essent_to_u64(_s_ldut$subsystem_sbus$coupler_to_port_named_mmio_port_axi4$axi4yank$QueueCompatibility_3$io_enq_ready[G] & _s_ldut$subsystem_sbus$coupler_to_port_named_mmio_port_axi4$axi4yank$QueueCompatibility_3$io_enq_valid[G]) != 0) & (uint64_t)(essent_to_u64(UInt<1>(0x1)) != 0);
       }
       if (_v2_sa_anyw == 0) {
-        for (int L = 0; L < 16; L++) { _s_ldut$subsystem_sbus$coupler_to_port_named_mmio_port_axi4$axi4yank$QueueCompatibility_3$ram_tl_state_size$io_deq_bits_MPORT$rtl[L] = ldut.subsystem_sbus.coupler_to_port_named_mmio_port_axi4.axi4yank.QueueCompatibility_3.ram_tl_state_size[essent_to_u64(ldut.subsystem_sbus.coupler_to_port_named_mmio_port_axi4.axi4yank.QueueCompatibility_3.deq_ptr_value[L])]; }
+        essent_table_read<16, 8, false>(&_s_ldut$subsystem_sbus$coupler_to_port_named_mmio_port_axi4$axi4yank$QueueCompatibility_3$ram_tl_state_size$io_deq_bits_MPORT$rtl[0], &ldut.subsystem_sbus.coupler_to_port_named_mmio_port_axi4.axi4yank.QueueCompatibility_3.ram_tl_state_size[0], &ldut.subsystem_sbus.coupler_to_port_named_mmio_port_axi4.axi4yank.QueueCompatibility_3.deq_ptr_value[0]);
       } else {
       {
         // [state-read-dense] forwarding=branchless
@@ -14076,10 +14026,11 @@
         for (int L = 0; L < 16; L++) {
           const uint64_t _v2_sa_addr = essent_to_u64(ldut.subsystem_sbus.coupler_to_port_named_mmio_port_axi4.axi4yank.QueueCompatibility_3.deq_ptr_value[L]);
           UInt<4> _v2_sa_value = ldut.subsystem_sbus.coupler_to_port_named_mmio_port_axi4.axi4yank.QueueCompatibility_3.ram_tl_state_size[_v2_sa_addr];
+          // [branchless-forward] select a valid source before loading data
           const int _v2_sa_prev_code = _v2_sa_last[_v2_sa_addr];
-          const uint64_t _v2_sa_prev_valid = (uint64_t)(_v2_sa_prev_code >= 0);
+          const bool _v2_sa_prev_valid = _v2_sa_prev_code >= 0;
           [[maybe_unused]] const int _v2_sa_prev_lane = _v2_sa_prev_code & -static_cast<int>(_v2_sa_prev_valid);
-          _v2_sa_value = essent_mux(UInt<1>(_v2_sa_prev_valid), _s_ldut$subsystem_sbus$coupler_to_port_named_mmio_port_axi4$tl2axi4$queue_arw_deq$io_deq_bits_echo_tl_state_size[_v2_sa_prev_lane], _v2_sa_value);
+          _v2_sa_value = *essent_select_ptr(_v2_sa_prev_valid, &(_s_ldut$subsystem_sbus$coupler_to_port_named_mmio_port_axi4$tl2axi4$queue_arw_deq$io_deq_bits_echo_tl_state_size[_v2_sa_prev_lane]), &_v2_sa_value);
           _s_ldut$subsystem_sbus$coupler_to_port_named_mmio_port_axi4$axi4yank$QueueCompatibility_3$ram_tl_state_size$io_deq_bits_MPORT$rtl[L] = _v2_sa_value;
           const uint64_t _v2_sa_write_addr_0 = essent_to_u64(ldut.subsystem_sbus.coupler_to_port_named_mmio_port_axi4.axi4yank.QueueCompatibility_3.enq_ptr_value[L]);
           const uint64_t _v2_sa_write_take_0 = (uint64_t)(essent_to_u64(_s_ldut$subsystem_sbus$coupler_to_port_named_mmio_port_axi4$axi4yank$QueueCompatibility_3$io_enq_ready[L] & _s_ldut$subsystem_sbus$coupler_to_port_named_mmio_port_axi4$axi4yank$QueueCompatibility_3$io_enq_valid[L]) != 0) & (uint64_t)(essent_to_u64(UInt<1>(0x1)) != 0);
@@ -14141,7 +14092,7 @@
         _v2_sa_anyw |= (uint64_t)(essent_to_u64(_s_ldut$subsystem_sbus$coupler_to_port_named_mmio_port_axi4$axi4yank$QueueCompatibility_11$io_enq_ready[G] & _s_ldut$subsystem_sbus$coupler_to_port_named_mmio_port_axi4$axi4yank$QueueCompatibility_11$io_enq_valid[G]) != 0) & (uint64_t)(essent_to_u64(UInt<1>(0x1)) != 0);
       }
       if (_v2_sa_anyw == 0) {
-        for (int L = 0; L < 16; L++) { _s_ldut$subsystem_sbus$coupler_to_port_named_mmio_port_axi4$axi4yank$QueueCompatibility_11$ram_tl_state_size$io_deq_bits_MPORT$rtl[L] = ldut.subsystem_sbus.coupler_to_port_named_mmio_port_axi4.axi4yank.QueueCompatibility_11.ram_tl_state_size[essent_to_u64(ldut.subsystem_sbus.coupler_to_port_named_mmio_port_axi4.axi4yank.QueueCompatibility_11.deq_ptr_value[L])]; }
+        essent_table_read<16, 8, false>(&_s_ldut$subsystem_sbus$coupler_to_port_named_mmio_port_axi4$axi4yank$QueueCompatibility_11$ram_tl_state_size$io_deq_bits_MPORT$rtl[0], &ldut.subsystem_sbus.coupler_to_port_named_mmio_port_axi4.axi4yank.QueueCompatibility_11.ram_tl_state_size[0], &ldut.subsystem_sbus.coupler_to_port_named_mmio_port_axi4.axi4yank.QueueCompatibility_11.deq_ptr_value[0]);
       } else {
       {
         // [state-read-dense] forwarding=branchless
@@ -14150,10 +14101,11 @@
         for (int L = 0; L < 16; L++) {
           const uint64_t _v2_sa_addr = essent_to_u64(ldut.subsystem_sbus.coupler_to_port_named_mmio_port_axi4.axi4yank.QueueCompatibility_11.deq_ptr_value[L]);
           UInt<4> _v2_sa_value = ldut.subsystem_sbus.coupler_to_port_named_mmio_port_axi4.axi4yank.QueueCompatibility_11.ram_tl_state_size[_v2_sa_addr];
+          // [branchless-forward] select a valid source before loading data
           const int _v2_sa_prev_code = _v2_sa_last[_v2_sa_addr];
-          const uint64_t _v2_sa_prev_valid = (uint64_t)(_v2_sa_prev_code >= 0);
+          const bool _v2_sa_prev_valid = _v2_sa_prev_code >= 0;
           [[maybe_unused]] const int _v2_sa_prev_lane = _v2_sa_prev_code & -static_cast<int>(_v2_sa_prev_valid);
-          _v2_sa_value = essent_mux(UInt<1>(_v2_sa_prev_valid), _s_ldut$subsystem_sbus$coupler_to_port_named_mmio_port_axi4$tl2axi4$queue_arw_deq$io_deq_bits_echo_tl_state_size[_v2_sa_prev_lane], _v2_sa_value);
+          _v2_sa_value = *essent_select_ptr(_v2_sa_prev_valid, &(_s_ldut$subsystem_sbus$coupler_to_port_named_mmio_port_axi4$tl2axi4$queue_arw_deq$io_deq_bits_echo_tl_state_size[_v2_sa_prev_lane]), &_v2_sa_value);
           _s_ldut$subsystem_sbus$coupler_to_port_named_mmio_port_axi4$axi4yank$QueueCompatibility_11$ram_tl_state_size$io_deq_bits_MPORT$rtl[L] = _v2_sa_value;
           const uint64_t _v2_sa_write_addr_0 = essent_to_u64(ldut.subsystem_sbus.coupler_to_port_named_mmio_port_axi4.axi4yank.QueueCompatibility_11.enq_ptr_value[L]);
           const uint64_t _v2_sa_write_take_0 = (uint64_t)(essent_to_u64(_s_ldut$subsystem_sbus$coupler_to_port_named_mmio_port_axi4$axi4yank$QueueCompatibility_11$io_enq_ready[L] & _s_ldut$subsystem_sbus$coupler_to_port_named_mmio_port_axi4$axi4yank$QueueCompatibility_11$io_enq_valid[L]) != 0) & (uint64_t)(essent_to_u64(UInt<1>(0x1)) != 0);
@@ -14181,7 +14133,7 @@
         _v2_sa_anyw |= (uint64_t)(essent_to_u64(_s_ldut$subsystem_sbus$coupler_to_port_named_mmio_port_axi4$axi4yank$QueueCompatibility_12$io_enq_ready[G] & _s_ldut$subsystem_sbus$coupler_to_port_named_mmio_port_axi4$axi4yank$QueueCompatibility_12$io_enq_valid[G]) != 0) & (uint64_t)(essent_to_u64(UInt<1>(0x1)) != 0);
       }
       if (_v2_sa_anyw == 0) {
-        for (int L = 0; L < 16; L++) { _s_ldut$subsystem_sbus$coupler_to_port_named_mmio_port_axi4$axi4yank$QueueCompatibility_12$ram_tl_state_size$io_deq_bits_MPORT$rtl[L] = ldut.subsystem_sbus.coupler_to_port_named_mmio_port_axi4.axi4yank.QueueCompatibility_12.ram_tl_state_size[essent_to_u64(ldut.subsystem_sbus.coupler_to_port_named_mmio_port_axi4.axi4yank.QueueCompatibility_12.deq_ptr_value[L])]; }
+        essent_table_read<16, 8, false>(&_s_ldut$subsystem_sbus$coupler_to_port_named_mmio_port_axi4$axi4yank$QueueCompatibility_12$ram_tl_state_size$io_deq_bits_MPORT$rtl[0], &ldut.subsystem_sbus.coupler_to_port_named_mmio_port_axi4.axi4yank.QueueCompatibility_12.ram_tl_state_size[0], &ldut.subsystem_sbus.coupler_to_port_named_mmio_port_axi4.axi4yank.QueueCompatibility_12.deq_ptr_value[0]);
       } else {
       {
         // [state-read-dense] forwarding=branchless
@@ -14190,10 +14142,11 @@
         for (int L = 0; L < 16; L++) {
           const uint64_t _v2_sa_addr = essent_to_u64(ldut.subsystem_sbus.coupler_to_port_named_mmio_port_axi4.axi4yank.QueueCompatibility_12.deq_ptr_value[L]);
           UInt<4> _v2_sa_value = ldut.subsystem_sbus.coupler_to_port_named_mmio_port_axi4.axi4yank.QueueCompatibility_12.ram_tl_state_size[_v2_sa_addr];
+          // [branchless-forward] select a valid source before loading data
           const int _v2_sa_prev_code = _v2_sa_last[_v2_sa_addr];
-          const uint64_t _v2_sa_prev_valid = (uint64_t)(_v2_sa_prev_code >= 0);
+          const bool _v2_sa_prev_valid = _v2_sa_prev_code >= 0;
           [[maybe_unused]] const int _v2_sa_prev_lane = _v2_sa_prev_code & -static_cast<int>(_v2_sa_prev_valid);
-          _v2_sa_value = essent_mux(UInt<1>(_v2_sa_prev_valid), _s_ldut$subsystem_sbus$coupler_to_port_named_mmio_port_axi4$tl2axi4$queue_arw_deq$io_deq_bits_echo_tl_state_size[_v2_sa_prev_lane], _v2_sa_value);
+          _v2_sa_value = *essent_select_ptr(_v2_sa_prev_valid, &(_s_ldut$subsystem_sbus$coupler_to_port_named_mmio_port_axi4$tl2axi4$queue_arw_deq$io_deq_bits_echo_tl_state_size[_v2_sa_prev_lane]), &_v2_sa_value);
           _s_ldut$subsystem_sbus$coupler_to_port_named_mmio_port_axi4$axi4yank$QueueCompatibility_12$ram_tl_state_size$io_deq_bits_MPORT$rtl[L] = _v2_sa_value;
           const uint64_t _v2_sa_write_addr_0 = essent_to_u64(ldut.subsystem_sbus.coupler_to_port_named_mmio_port_axi4.axi4yank.QueueCompatibility_12.enq_ptr_value[L]);
           const uint64_t _v2_sa_write_take_0 = (uint64_t)(essent_to_u64(_s_ldut$subsystem_sbus$coupler_to_port_named_mmio_port_axi4$axi4yank$QueueCompatibility_12$io_enq_ready[L] & _s_ldut$subsystem_sbus$coupler_to_port_named_mmio_port_axi4$axi4yank$QueueCompatibility_12$io_enq_valid[L]) != 0) & (uint64_t)(essent_to_u64(UInt<1>(0x1)) != 0);
@@ -14252,7 +14205,7 @@
         _v2_sa_anyw |= (uint64_t)(essent_to_u64(_s_ldut$subsystem_sbus$coupler_to_port_named_mmio_port_axi4$axi4yank$QueueCompatibility_2$$inst$io_enq_ready[G] & _s_ldut$subsystem_sbus$coupler_to_port_named_mmio_port_axi4$axi4yank$QueueCompatibility_2$$inst$io_enq_valid[G]) != 0) & (uint64_t)(essent_to_u64(UInt<1>(0x1)) != 0);
       }
       if (_v2_sa_anyw == 0) {
-        for (int L = 0; L < 16; L++) { _s_ldut$subsystem_sbus$coupler_to_port_named_mmio_port_axi4$axi4yank$QueueCompatibility_2$$inst$ram_tl_state_source$io_deq_bits_MPORT$rtl[L] = ldut.subsystem_sbus.coupler_to_port_named_mmio_port_axi4.axi4yank.QueueCompatibility_2$$inst.ram_tl_state_source[essent_to_u64(ldut.subsystem_sbus.coupler_to_port_named_mmio_port_axi4.axi4yank.QueueCompatibility_2$$inst.deq_ptr_value[L])]; }
+        essent_table_read<16, 8, false>(&_s_ldut$subsystem_sbus$coupler_to_port_named_mmio_port_axi4$axi4yank$QueueCompatibility_2$$inst$ram_tl_state_source$io_deq_bits_MPORT$rtl[0], &ldut.subsystem_sbus.coupler_to_port_named_mmio_port_axi4.axi4yank.QueueCompatibility_2$$inst.ram_tl_state_source[0], &ldut.subsystem_sbus.coupler_to_port_named_mmio_port_axi4.axi4yank.QueueCompatibility_2$$inst.deq_ptr_value[0]);
       } else {
       {
         // [state-read-dense] forwarding=branchless
@@ -14261,10 +14214,11 @@
         for (int L = 0; L < 16; L++) {
           const uint64_t _v2_sa_addr = essent_to_u64(ldut.subsystem_sbus.coupler_to_port_named_mmio_port_axi4.axi4yank.QueueCompatibility_2$$inst.deq_ptr_value[L]);
           UInt<5> _v2_sa_value = ldut.subsystem_sbus.coupler_to_port_named_mmio_port_axi4.axi4yank.QueueCompatibility_2$$inst.ram_tl_state_source[_v2_sa_addr];
+          // [branchless-forward] select a valid source before loading data
           const int _v2_sa_prev_code = _v2_sa_last[_v2_sa_addr];
-          const uint64_t _v2_sa_prev_valid = (uint64_t)(_v2_sa_prev_code >= 0);
+          const bool _v2_sa_prev_valid = _v2_sa_prev_code >= 0;
           [[maybe_unused]] const int _v2_sa_prev_lane = _v2_sa_prev_code & -static_cast<int>(_v2_sa_prev_valid);
-          _v2_sa_value = essent_mux(UInt<1>(_v2_sa_prev_valid), _s_ldut$subsystem_sbus$coupler_to_port_named_mmio_port_axi4$tl2axi4$queue_arw_deq$io_deq_bits_echo_tl_state_source[_v2_sa_prev_lane], _v2_sa_value);
+          _v2_sa_value = *essent_select_ptr(_v2_sa_prev_valid, &(_s_ldut$subsystem_sbus$coupler_to_port_named_mmio_port_axi4$tl2axi4$queue_arw_deq$io_deq_bits_echo_tl_state_source[_v2_sa_prev_lane]), &_v2_sa_value);
           _s_ldut$subsystem_sbus$coupler_to_port_named_mmio_port_axi4$axi4yank$QueueCompatibility_2$$inst$ram_tl_state_source$io_deq_bits_MPORT$rtl[L] = _v2_sa_value;
           const uint64_t _v2_sa_write_addr_0 = essent_to_u64(ldut.subsystem_sbus.coupler_to_port_named_mmio_port_axi4.axi4yank.QueueCompatibility_2$$inst.enq_ptr_value[L]);
           const uint64_t _v2_sa_write_take_0 = (uint64_t)(essent_to_u64(_s_ldut$subsystem_sbus$coupler_to_port_named_mmio_port_axi4$axi4yank$QueueCompatibility_2$$inst$io_enq_ready[L] & _s_ldut$subsystem_sbus$coupler_to_port_named_mmio_port_axi4$axi4yank$QueueCompatibility_2$$inst$io_enq_valid[L]) != 0) & (uint64_t)(essent_to_u64(UInt<1>(0x1)) != 0);
@@ -14284,7 +14238,7 @@
         _v2_sa_anyw |= (uint64_t)(essent_to_u64(_s_ldut$subsystem_sbus$coupler_to_port_named_mmio_port_axi4$axi4yank$QueueCompatibility_3$io_enq_ready[G] & _s_ldut$subsystem_sbus$coupler_to_port_named_mmio_port_axi4$axi4yank$QueueCompatibility_3$io_enq_valid[G]) != 0) & (uint64_t)(essent_to_u64(UInt<1>(0x1)) != 0);
       }
       if (_v2_sa_anyw == 0) {
-        for (int L = 0; L < 16; L++) { _s_ldut$subsystem_sbus$coupler_to_port_named_mmio_port_axi4$axi4yank$QueueCompatibility_3$ram_tl_state_source$io_deq_bits_MPORT$rtl[L] = ldut.subsystem_sbus.coupler_to_port_named_mmio_port_axi4.axi4yank.QueueCompatibility_3.ram_tl_state_source[essent_to_u64(ldut.subsystem_sbus.coupler_to_port_named_mmio_port_axi4.axi4yank.QueueCompatibility_3.deq_ptr_value[L])]; }
+        essent_table_read<16, 8, false>(&_s_ldut$subsystem_sbus$coupler_to_port_named_mmio_port_axi4$axi4yank$QueueCompatibility_3$ram_tl_state_source$io_deq_bits_MPORT$rtl[0], &ldut.subsystem_sbus.coupler_to_port_named_mmio_port_axi4.axi4yank.QueueCompatibility_3.ram_tl_state_source[0], &ldut.subsystem_sbus.coupler_to_port_named_mmio_port_axi4.axi4yank.QueueCompatibility_3.deq_ptr_value[0]);
       } else {
       {
         // [state-read-dense] forwarding=branchless
@@ -14293,10 +14247,11 @@
         for (int L = 0; L < 16; L++) {
           const uint64_t _v2_sa_addr = essent_to_u64(ldut.subsystem_sbus.coupler_to_port_named_mmio_port_axi4.axi4yank.QueueCompatibility_3.deq_ptr_value[L]);
           UInt<5> _v2_sa_value = ldut.subsystem_sbus.coupler_to_port_named_mmio_port_axi4.axi4yank.QueueCompatibility_3.ram_tl_state_source[_v2_sa_addr];
+          // [branchless-forward] select a valid source before loading data
           const int _v2_sa_prev_code = _v2_sa_last[_v2_sa_addr];
-          const uint64_t _v2_sa_prev_valid = (uint64_t)(_v2_sa_prev_code >= 0);
+          const bool _v2_sa_prev_valid = _v2_sa_prev_code >= 0;
           [[maybe_unused]] const int _v2_sa_prev_lane = _v2_sa_prev_code & -static_cast<int>(_v2_sa_prev_valid);
-          _v2_sa_value = essent_mux(UInt<1>(_v2_sa_prev_valid), _s_ldut$subsystem_sbus$coupler_to_port_named_mmio_port_axi4$tl2axi4$queue_arw_deq$io_deq_bits_echo_tl_state_source[_v2_sa_prev_lane], _v2_sa_value);
+          _v2_sa_value = *essent_select_ptr(_v2_sa_prev_valid, &(_s_ldut$subsystem_sbus$coupler_to_port_named_mmio_port_axi4$tl2axi4$queue_arw_deq$io_deq_bits_echo_tl_state_source[_v2_sa_prev_lane]), &_v2_sa_value);
           _s_ldut$subsystem_sbus$coupler_to_port_named_mmio_port_axi4$axi4yank$QueueCompatibility_3$ram_tl_state_source$io_deq_bits_MPORT$rtl[L] = _v2_sa_value;
           const uint64_t _v2_sa_write_addr_0 = essent_to_u64(ldut.subsystem_sbus.coupler_to_port_named_mmio_port_axi4.axi4yank.QueueCompatibility_3.enq_ptr_value[L]);
           const uint64_t _v2_sa_write_take_0 = (uint64_t)(essent_to_u64(_s_ldut$subsystem_sbus$coupler_to_port_named_mmio_port_axi4$axi4yank$QueueCompatibility_3$io_enq_ready[L] & _s_ldut$subsystem_sbus$coupler_to_port_named_mmio_port_axi4$axi4yank$QueueCompatibility_3$io_enq_valid[L]) != 0) & (uint64_t)(essent_to_u64(UInt<1>(0x1)) != 0);
@@ -14316,7 +14271,7 @@
         _v2_sa_anyw |= (uint64_t)(essent_to_u64(_s_ldut$subsystem_sbus$coupler_to_port_named_mmio_port_axi4$axi4yank$QueueCompatibility_11$io_enq_ready[G] & _s_ldut$subsystem_sbus$coupler_to_port_named_mmio_port_axi4$axi4yank$QueueCompatibility_11$io_enq_valid[G]) != 0) & (uint64_t)(essent_to_u64(UInt<1>(0x1)) != 0);
       }
       if (_v2_sa_anyw == 0) {
-        for (int L = 0; L < 16; L++) { _s_ldut$subsystem_sbus$coupler_to_port_named_mmio_port_axi4$axi4yank$QueueCompatibility_11$ram_tl_state_source$io_deq_bits_MPORT$rtl[L] = ldut.subsystem_sbus.coupler_to_port_named_mmio_port_axi4.axi4yank.QueueCompatibility_11.ram_tl_state_source[essent_to_u64(ldut.subsystem_sbus.coupler_to_port_named_mmio_port_axi4.axi4yank.QueueCompatibility_11.deq_ptr_value[L])]; }
+        essent_table_read<16, 8, false>(&_s_ldut$subsystem_sbus$coupler_to_port_named_mmio_port_axi4$axi4yank$QueueCompatibility_11$ram_tl_state_source$io_deq_bits_MPORT$rtl[0], &ldut.subsystem_sbus.coupler_to_port_named_mmio_port_axi4.axi4yank.QueueCompatibility_11.ram_tl_state_source[0], &ldut.subsystem_sbus.coupler_to_port_named_mmio_port_axi4.axi4yank.QueueCompatibility_11.deq_ptr_value[0]);
       } else {
       {
         // [state-read-dense] forwarding=branchless
@@ -14325,10 +14280,11 @@
         for (int L = 0; L < 16; L++) {
           const uint64_t _v2_sa_addr = essent_to_u64(ldut.subsystem_sbus.coupler_to_port_named_mmio_port_axi4.axi4yank.QueueCompatibility_11.deq_ptr_value[L]);
           UInt<5> _v2_sa_value = ldut.subsystem_sbus.coupler_to_port_named_mmio_port_axi4.axi4yank.QueueCompatibility_11.ram_tl_state_source[_v2_sa_addr];
+          // [branchless-forward] select a valid source before loading data
           const int _v2_sa_prev_code = _v2_sa_last[_v2_sa_addr];
-          const uint64_t _v2_sa_prev_valid = (uint64_t)(_v2_sa_prev_code >= 0);
+          const bool _v2_sa_prev_valid = _v2_sa_prev_code >= 0;
           [[maybe_unused]] const int _v2_sa_prev_lane = _v2_sa_prev_code & -static_cast<int>(_v2_sa_prev_valid);
-          _v2_sa_value = essent_mux(UInt<1>(_v2_sa_prev_valid), _s_ldut$subsystem_sbus$coupler_to_port_named_mmio_port_axi4$tl2axi4$queue_arw_deq$io_deq_bits_echo_tl_state_source[_v2_sa_prev_lane], _v2_sa_value);
+          _v2_sa_value = *essent_select_ptr(_v2_sa_prev_valid, &(_s_ldut$subsystem_sbus$coupler_to_port_named_mmio_port_axi4$tl2axi4$queue_arw_deq$io_deq_bits_echo_tl_state_source[_v2_sa_prev_lane]), &_v2_sa_value);
           _s_ldut$subsystem_sbus$coupler_to_port_named_mmio_port_axi4$axi4yank$QueueCompatibility_11$ram_tl_state_source$io_deq_bits_MPORT$rtl[L] = _v2_sa_value;
           const uint64_t _v2_sa_write_addr_0 = essent_to_u64(ldut.subsystem_sbus.coupler_to_port_named_mmio_port_axi4.axi4yank.QueueCompatibility_11.enq_ptr_value[L]);
           const uint64_t _v2_sa_write_take_0 = (uint64_t)(essent_to_u64(_s_ldut$subsystem_sbus$coupler_to_port_named_mmio_port_axi4$axi4yank$QueueCompatibility_11$io_enq_ready[L] & _s_ldut$subsystem_sbus$coupler_to_port_named_mmio_port_axi4$axi4yank$QueueCompatibility_11$io_enq_valid[L]) != 0) & (uint64_t)(essent_to_u64(UInt<1>(0x1)) != 0);
@@ -14348,7 +14304,7 @@
         _v2_sa_anyw |= (uint64_t)(essent_to_u64(_s_ldut$subsystem_sbus$coupler_to_port_named_mmio_port_axi4$axi4yank$QueueCompatibility_12$io_enq_ready[G] & _s_ldut$subsystem_sbus$coupler_to_port_named_mmio_port_axi4$axi4yank$QueueCompatibility_12$io_enq_valid[G]) != 0) & (uint64_t)(essent_to_u64(UInt<1>(0x1)) != 0);
       }
       if (_v2_sa_anyw == 0) {
-        for (int L = 0; L < 16; L++) { _s_ldut$subsystem_sbus$coupler_to_port_named_mmio_port_axi4$axi4yank$QueueCompatibility_12$ram_tl_state_source$io_deq_bits_MPORT$rtl[L] = ldut.subsystem_sbus.coupler_to_port_named_mmio_port_axi4.axi4yank.QueueCompatibility_12.ram_tl_state_source[essent_to_u64(ldut.subsystem_sbus.coupler_to_port_named_mmio_port_axi4.axi4yank.QueueCompatibility_12.deq_ptr_value[L])]; }
+        essent_table_read<16, 8, false>(&_s_ldut$subsystem_sbus$coupler_to_port_named_mmio_port_axi4$axi4yank$QueueCompatibility_12$ram_tl_state_source$io_deq_bits_MPORT$rtl[0], &ldut.subsystem_sbus.coupler_to_port_named_mmio_port_axi4.axi4yank.QueueCompatibility_12.ram_tl_state_source[0], &ldut.subsystem_sbus.coupler_to_port_named_mmio_port_axi4.axi4yank.QueueCompatibility_12.deq_ptr_value[0]);
       } else {
       {
         // [state-read-dense] forwarding=branchless
@@ -14357,10 +14313,11 @@
         for (int L = 0; L < 16; L++) {
           const uint64_t _v2_sa_addr = essent_to_u64(ldut.subsystem_sbus.coupler_to_port_named_mmio_port_axi4.axi4yank.QueueCompatibility_12.deq_ptr_value[L]);
           UInt<5> _v2_sa_value = ldut.subsystem_sbus.coupler_to_port_named_mmio_port_axi4.axi4yank.QueueCompatibility_12.ram_tl_state_source[_v2_sa_addr];
+          // [branchless-forward] select a valid source before loading data
           const int _v2_sa_prev_code = _v2_sa_last[_v2_sa_addr];
-          const uint64_t _v2_sa_prev_valid = (uint64_t)(_v2_sa_prev_code >= 0);
+          const bool _v2_sa_prev_valid = _v2_sa_prev_code >= 0;
           [[maybe_unused]] const int _v2_sa_prev_lane = _v2_sa_prev_code & -static_cast<int>(_v2_sa_prev_valid);
-          _v2_sa_value = essent_mux(UInt<1>(_v2_sa_prev_valid), _s_ldut$subsystem_sbus$coupler_to_port_named_mmio_port_axi4$tl2axi4$queue_arw_deq$io_deq_bits_echo_tl_state_source[_v2_sa_prev_lane], _v2_sa_value);
+          _v2_sa_value = *essent_select_ptr(_v2_sa_prev_valid, &(_s_ldut$subsystem_sbus$coupler_to_port_named_mmio_port_axi4$tl2axi4$queue_arw_deq$io_deq_bits_echo_tl_state_source[_v2_sa_prev_lane]), &_v2_sa_value);
           _s_ldut$subsystem_sbus$coupler_to_port_named_mmio_port_axi4$axi4yank$QueueCompatibility_12$ram_tl_state_source$io_deq_bits_MPORT$rtl[L] = _v2_sa_value;
           const uint64_t _v2_sa_write_addr_0 = essent_to_u64(ldut.subsystem_sbus.coupler_to_port_named_mmio_port_axi4.axi4yank.QueueCompatibility_12.enq_ptr_value[L]);
           const uint64_t _v2_sa_write_take_0 = (uint64_t)(essent_to_u64(_s_ldut$subsystem_sbus$coupler_to_port_named_mmio_port_axi4$axi4yank$QueueCompatibility_12$io_enq_ready[L] & _s_ldut$subsystem_sbus$coupler_to_port_named_mmio_port_axi4$axi4yank$QueueCompatibility_12$io_enq_valid[L]) != 0) & (uint64_t)(essent_to_u64(UInt<1>(0x1)) != 0);
@@ -14489,7 +14446,7 @@
         ESSENT_LANE_LOOP
         for (int L = 0; L < 16; L++) ldut.subsystem_sbus.coupler_from_bus_named_subsystem_fbus.widget.corrupt_reg[L] = _gv;
       } else {
-        for (int L = 1; L < 16; L++) ldut.subsystem_sbus.coupler_from_bus_named_subsystem_fbus.widget.corrupt_reg[L] = (~_s_ldut$reset[L - 1]) & (_s_ldut$subsystem_sbus$coupler_from_bus_named_subsystem_fbus$widget$_T[L - 1] ? ((~_s_ldut$subsystem_sbus$coupler_from_bus_named_subsystem_fbus$widget$last[L - 1]) & (_s_ldut$subsystem_fbus$buffer$bundleOut_0_a_q$ram_corrupt$io_deq_bits_MPORT[L - 1] | ldut.subsystem_sbus.coupler_from_bus_named_subsystem_fbus.widget.corrupt_reg[L - 1])) : ldut.subsystem_sbus.coupler_from_bus_named_subsystem_fbus.widget.corrupt_reg[L - 1]);
+        for (int L = 1; L < 16; L++) ldut.subsystem_sbus.coupler_from_bus_named_subsystem_fbus.widget.corrupt_reg[L].val = static_cast<typename UInt<1>::scalar_t>((static_cast<uint8_t>((static_cast<uint8_t>((((static_cast<uint8_t>((~static_cast<uint8_t>(_s_ldut$reset[L - 1].val))) & 0x1u)) & ((static_cast<uint8_t>(essent_select_word<uint32_t>(((static_cast<uint8_t>(_s_ldut$subsystem_sbus$coupler_from_bus_named_subsystem_fbus$widget$_T[L - 1].val) & 0x1u)) != 0, static_cast<uint32_t>((static_cast<uint8_t>((((static_cast<uint8_t>((~static_cast<uint8_t>(_s_ldut$subsystem_sbus$coupler_from_bus_named_subsystem_fbus$widget$last[L - 1].val))) & 0x1u)) & ((static_cast<uint8_t>(((_s_ldut$subsystem_fbus$buffer$bundleOut_0_a_q$ram_corrupt$io_deq_bits_MPORT[L - 1].val) | (ldut.subsystem_sbus.coupler_from_bus_named_subsystem_fbus.widget.corrupt_reg[L - 1].val))) & 0x1u)))) & 0x1u)), static_cast<uint32_t>(ldut.subsystem_sbus.coupler_from_bus_named_subsystem_fbus.widget.corrupt_reg[L - 1].val))) & 0x1u)))) & 0x1u)) & 0x1u));
       }
     }
     // [vec comb] 2 templates x 16 lanes
@@ -14552,7 +14509,7 @@
         _v2_sa_anyw |= (uint64_t)(essent_to_u64(_s_ldut$subsystem_cbus$buffer$bundleOut_0_a_q$io_enq_ready[G] & _s_ldut$subsystem_cbus$atomics$auto_out_a_valid[G]) != 0) & (uint64_t)(essent_to_u64(UInt<1>(0x1)) != 0);
       }
       if (_v2_sa_anyw == 0) {
-        for (int L = 0; L < 16; L++) { _s_ldut$subsystem_cbus$buffer$bundleOut_0_a_q$ram_corrupt$io_deq_bits_MPORT[L] = ldut.subsystem_cbus.buffer.bundleOut_0_a_q.ram_corrupt[essent_to_u64(ldut.subsystem_cbus.buffer.bundleOut_0_a_q.value_1[L])]; }
+        essent_table_read<16, 2, false>(&_s_ldut$subsystem_cbus$buffer$bundleOut_0_a_q$ram_corrupt$io_deq_bits_MPORT[0], &ldut.subsystem_cbus.buffer.bundleOut_0_a_q.ram_corrupt[0], &ldut.subsystem_cbus.buffer.bundleOut_0_a_q.value_1[0]);
       } else {
       {
         // [state-read-dense] forwarding=branchless
@@ -14561,10 +14518,11 @@
         for (int L = 0; L < 16; L++) {
           const uint64_t _v2_sa_addr = essent_to_u64(ldut.subsystem_cbus.buffer.bundleOut_0_a_q.value_1[L]);
           UInt<1> _v2_sa_value = ldut.subsystem_cbus.buffer.bundleOut_0_a_q.ram_corrupt[_v2_sa_addr];
+          // [branchless-forward] select a valid source before loading data
           const int _v2_sa_prev_code = _v2_sa_last[_v2_sa_addr];
-          const uint64_t _v2_sa_prev_valid = (uint64_t)(_v2_sa_prev_code >= 0);
+          const bool _v2_sa_prev_valid = _v2_sa_prev_code >= 0;
           [[maybe_unused]] const int _v2_sa_prev_lane = _v2_sa_prev_code & -static_cast<int>(_v2_sa_prev_valid);
-          _v2_sa_value = essent_mux(UInt<1>(_v2_sa_prev_valid), _s_ldut$subsystem_cbus$atomics$auto_out_a_bits_corrupt[_v2_sa_prev_lane], _v2_sa_value);
+          _v2_sa_value = *essent_select_ptr(_v2_sa_prev_valid, &(_s_ldut$subsystem_cbus$atomics$auto_out_a_bits_corrupt[_v2_sa_prev_lane]), &_v2_sa_value);
           _s_ldut$subsystem_cbus$buffer$bundleOut_0_a_q$ram_corrupt$io_deq_bits_MPORT[L] = _v2_sa_value;
           const uint64_t _v2_sa_write_addr_0 = essent_to_u64(ldut.subsystem_cbus.buffer.bundleOut_0_a_q.value[L]);
           const uint64_t _v2_sa_write_take_0 = (uint64_t)(essent_to_u64(_s_ldut$subsystem_cbus$buffer$bundleOut_0_a_q$io_enq_ready[L] & _s_ldut$subsystem_cbus$atomics$auto_out_a_valid[L]) != 0) & (uint64_t)(essent_to_u64(UInt<1>(0x1)) != 0);
@@ -14701,7 +14659,7 @@
         _v2_sa_anyw |= (uint64_t)(essent_to_u64(_s_ldut$subsystem_l2_wrapper$broadcast_1$TLBroadcastTracker$$inst$o_data$io_enq_ready[G] & _s_ldut$subsystem_l2_wrapper$broadcast_1$TLBroadcastTracker$$inst$o_data$io_enq_valid[G]) != 0) & (uint64_t)(essent_to_u64(UInt<1>(0x1)) != 0);
       }
       if (_v2_sa_anyw == 0) {
-        for (int L = 0; L < 16; L++) { _s_ldut$subsystem_l2_wrapper$broadcast_1$TLBroadcastTracker$$inst$o_data$ram_data$io_deq_bits_MPORT[L] = ldut.subsystem_l2_wrapper.broadcast_1.TLBroadcastTracker$$inst.o_data.ram_data[essent_to_u64(ldut.subsystem_l2_wrapper.broadcast_1.TLBroadcastTracker$$inst.o_data.value_1[L])]; }
+        essent_table_read<16, 8, false>(&_s_ldut$subsystem_l2_wrapper$broadcast_1$TLBroadcastTracker$$inst$o_data$ram_data$io_deq_bits_MPORT[0], &ldut.subsystem_l2_wrapper.broadcast_1.TLBroadcastTracker$$inst.o_data.ram_data[0], &ldut.subsystem_l2_wrapper.broadcast_1.TLBroadcastTracker$$inst.o_data.value_1[0]);
       } else {
       {
         // [state-read-dense] forwarding=branchless
@@ -14710,10 +14668,11 @@
         for (int L = 0; L < 16; L++) {
           const uint64_t _v2_sa_addr = essent_to_u64(ldut.subsystem_l2_wrapper.broadcast_1.TLBroadcastTracker$$inst.o_data.value_1[L]);
           UInt<64> _v2_sa_value = ldut.subsystem_l2_wrapper.broadcast_1.TLBroadcastTracker$$inst.o_data.ram_data[_v2_sa_addr];
+          // [branchless-forward] select a valid source before loading data
           const int _v2_sa_prev_code = _v2_sa_last[_v2_sa_addr];
-          const uint64_t _v2_sa_prev_valid = (uint64_t)(_v2_sa_prev_code >= 0);
+          const bool _v2_sa_prev_valid = _v2_sa_prev_code >= 0;
           [[maybe_unused]] const int _v2_sa_prev_lane = _v2_sa_prev_code & -static_cast<int>(_v2_sa_prev_valid);
-          _v2_sa_value = essent_mux(UInt<1>(_v2_sa_prev_valid), _s_ldut$subsystem_sbus$coupler_to_bus_named_subsystem_l2$widget$auto_out_a_bits_data[_v2_sa_prev_lane], _v2_sa_value);
+          _v2_sa_value = *essent_select_ptr(_v2_sa_prev_valid, &(_s_ldut$subsystem_sbus$coupler_to_bus_named_subsystem_l2$widget$auto_out_a_bits_data[_v2_sa_prev_lane]), &_v2_sa_value);
           _s_ldut$subsystem_l2_wrapper$broadcast_1$TLBroadcastTracker$$inst$o_data$ram_data$io_deq_bits_MPORT[L] = _v2_sa_value;
           const uint64_t _v2_sa_write_addr_0 = essent_to_u64(ldut.subsystem_l2_wrapper.broadcast_1.TLBroadcastTracker$$inst.o_data.value[L]);
           const uint64_t _v2_sa_write_take_0 = (uint64_t)(essent_to_u64(_s_ldut$subsystem_l2_wrapper$broadcast_1$TLBroadcastTracker$$inst$o_data$io_enq_ready[L] & _s_ldut$subsystem_l2_wrapper$broadcast_1$TLBroadcastTracker$$inst$o_data$io_enq_valid[L]) != 0) & (uint64_t)(essent_to_u64(UInt<1>(0x1)) != 0);
@@ -14731,7 +14690,7 @@
         _v2_sa_anyw |= (uint64_t)(essent_to_u64(_s_ldut$subsystem_l2_wrapper$broadcast_1$TLBroadcastTracker_1$$inst$o_data$io_enq_ready[G] & _s_ldut$subsystem_l2_wrapper$broadcast_1$TLBroadcastTracker_1$$inst$o_data$io_enq_valid[G]) != 0) & (uint64_t)(essent_to_u64(UInt<1>(0x1)) != 0);
       }
       if (_v2_sa_anyw == 0) {
-        for (int L = 0; L < 16; L++) { _s_ldut$subsystem_l2_wrapper$broadcast_1$TLBroadcastTracker_1$$inst$o_data$ram_data$io_deq_bits_MPORT[L] = ldut.subsystem_l2_wrapper.broadcast_1.TLBroadcastTracker_1$$inst.o_data.ram_data[essent_to_u64(ldut.subsystem_l2_wrapper.broadcast_1.TLBroadcastTracker_1$$inst.o_data.value_1[L])]; }
+        essent_table_read<16, 8, false>(&_s_ldut$subsystem_l2_wrapper$broadcast_1$TLBroadcastTracker_1$$inst$o_data$ram_data$io_deq_bits_MPORT[0], &ldut.subsystem_l2_wrapper.broadcast_1.TLBroadcastTracker_1$$inst.o_data.ram_data[0], &ldut.subsystem_l2_wrapper.broadcast_1.TLBroadcastTracker_1$$inst.o_data.value_1[0]);
       } else {
       {
         // [state-read-dense] forwarding=branchless
@@ -14740,10 +14699,11 @@
         for (int L = 0; L < 16; L++) {
           const uint64_t _v2_sa_addr = essent_to_u64(ldut.subsystem_l2_wrapper.broadcast_1.TLBroadcastTracker_1$$inst.o_data.value_1[L]);
           UInt<64> _v2_sa_value = ldut.subsystem_l2_wrapper.broadcast_1.TLBroadcastTracker_1$$inst.o_data.ram_data[_v2_sa_addr];
+          // [branchless-forward] select a valid source before loading data
           const int _v2_sa_prev_code = _v2_sa_last[_v2_sa_addr];
-          const uint64_t _v2_sa_prev_valid = (uint64_t)(_v2_sa_prev_code >= 0);
+          const bool _v2_sa_prev_valid = _v2_sa_prev_code >= 0;
           [[maybe_unused]] const int _v2_sa_prev_lane = _v2_sa_prev_code & -static_cast<int>(_v2_sa_prev_valid);
-          _v2_sa_value = essent_mux(UInt<1>(_v2_sa_prev_valid), _s_ldut$subsystem_sbus$coupler_to_bus_named_subsystem_l2$widget$auto_out_a_bits_data[_v2_sa_prev_lane], _v2_sa_value);
+          _v2_sa_value = *essent_select_ptr(_v2_sa_prev_valid, &(_s_ldut$subsystem_sbus$coupler_to_bus_named_subsystem_l2$widget$auto_out_a_bits_data[_v2_sa_prev_lane]), &_v2_sa_value);
           _s_ldut$subsystem_l2_wrapper$broadcast_1$TLBroadcastTracker_1$$inst$o_data$ram_data$io_deq_bits_MPORT[L] = _v2_sa_value;
           const uint64_t _v2_sa_write_addr_0 = essent_to_u64(ldut.subsystem_l2_wrapper.broadcast_1.TLBroadcastTracker_1$$inst.o_data.value[L]);
           const uint64_t _v2_sa_write_take_0 = (uint64_t)(essent_to_u64(_s_ldut$subsystem_l2_wrapper$broadcast_1$TLBroadcastTracker_1$$inst$o_data$io_enq_ready[L] & _s_ldut$subsystem_l2_wrapper$broadcast_1$TLBroadcastTracker_1$$inst$o_data$io_enq_valid[L]) != 0) & (uint64_t)(essent_to_u64(UInt<1>(0x1)) != 0);
@@ -14761,7 +14721,7 @@
         _v2_sa_anyw |= (uint64_t)(essent_to_u64(_s_ldut$subsystem_l2_wrapper$broadcast_1$TLBroadcastTracker_2$$inst$o_data$io_enq_ready[G] & _s_ldut$subsystem_l2_wrapper$broadcast_1$TLBroadcastTracker_2$$inst$o_data$io_enq_valid[G]) != 0) & (uint64_t)(essent_to_u64(UInt<1>(0x1)) != 0);
       }
       if (_v2_sa_anyw == 0) {
-        for (int L = 0; L < 16; L++) { _s_ldut$subsystem_l2_wrapper$broadcast_1$TLBroadcastTracker_2$$inst$o_data$ram_data$io_deq_bits_MPORT[L] = ldut.subsystem_l2_wrapper.broadcast_1.TLBroadcastTracker_2$$inst.o_data.ram_data[essent_to_u64(ldut.subsystem_l2_wrapper.broadcast_1.TLBroadcastTracker_2$$inst.o_data.value_1[L])]; }
+        essent_table_read<16, 8, false>(&_s_ldut$subsystem_l2_wrapper$broadcast_1$TLBroadcastTracker_2$$inst$o_data$ram_data$io_deq_bits_MPORT[0], &ldut.subsystem_l2_wrapper.broadcast_1.TLBroadcastTracker_2$$inst.o_data.ram_data[0], &ldut.subsystem_l2_wrapper.broadcast_1.TLBroadcastTracker_2$$inst.o_data.value_1[0]);
       } else {
       {
         // [state-read-dense] forwarding=branchless
@@ -14770,10 +14730,11 @@
         for (int L = 0; L < 16; L++) {
           const uint64_t _v2_sa_addr = essent_to_u64(ldut.subsystem_l2_wrapper.broadcast_1.TLBroadcastTracker_2$$inst.o_data.value_1[L]);
           UInt<64> _v2_sa_value = ldut.subsystem_l2_wrapper.broadcast_1.TLBroadcastTracker_2$$inst.o_data.ram_data[_v2_sa_addr];
+          // [branchless-forward] select a valid source before loading data
           const int _v2_sa_prev_code = _v2_sa_last[_v2_sa_addr];
-          const uint64_t _v2_sa_prev_valid = (uint64_t)(_v2_sa_prev_code >= 0);
+          const bool _v2_sa_prev_valid = _v2_sa_prev_code >= 0;
           [[maybe_unused]] const int _v2_sa_prev_lane = _v2_sa_prev_code & -static_cast<int>(_v2_sa_prev_valid);
-          _v2_sa_value = essent_mux(UInt<1>(_v2_sa_prev_valid), _s_ldut$subsystem_sbus$coupler_to_bus_named_subsystem_l2$widget$auto_out_a_bits_data[_v2_sa_prev_lane], _v2_sa_value);
+          _v2_sa_value = *essent_select_ptr(_v2_sa_prev_valid, &(_s_ldut$subsystem_sbus$coupler_to_bus_named_subsystem_l2$widget$auto_out_a_bits_data[_v2_sa_prev_lane]), &_v2_sa_value);
           _s_ldut$subsystem_l2_wrapper$broadcast_1$TLBroadcastTracker_2$$inst$o_data$ram_data$io_deq_bits_MPORT[L] = _v2_sa_value;
           const uint64_t _v2_sa_write_addr_0 = essent_to_u64(ldut.subsystem_l2_wrapper.broadcast_1.TLBroadcastTracker_2$$inst.o_data.value[L]);
           const uint64_t _v2_sa_write_take_0 = (uint64_t)(essent_to_u64(_s_ldut$subsystem_l2_wrapper$broadcast_1$TLBroadcastTracker_2$$inst$o_data$io_enq_ready[L] & _s_ldut$subsystem_l2_wrapper$broadcast_1$TLBroadcastTracker_2$$inst$o_data$io_enq_valid[L]) != 0) & (uint64_t)(essent_to_u64(UInt<1>(0x1)) != 0);
@@ -14791,7 +14752,7 @@
         _v2_sa_anyw |= (uint64_t)(essent_to_u64(_s_ldut$subsystem_l2_wrapper$broadcast_1$TLBroadcastTracker_3$$inst$o_data$io_enq_ready[G] & _s_ldut$subsystem_l2_wrapper$broadcast_1$TLBroadcastTracker_3$$inst$o_data$io_enq_valid[G]) != 0) & (uint64_t)(essent_to_u64(UInt<1>(0x1)) != 0);
       }
       if (_v2_sa_anyw == 0) {
-        for (int L = 0; L < 16; L++) { _s_ldut$subsystem_l2_wrapper$broadcast_1$TLBroadcastTracker_3$$inst$o_data$ram_data$io_deq_bits_MPORT[L] = ldut.subsystem_l2_wrapper.broadcast_1.TLBroadcastTracker_3$$inst.o_data.ram_data[essent_to_u64(ldut.subsystem_l2_wrapper.broadcast_1.TLBroadcastTracker_3$$inst.o_data.value_1[L])]; }
+        essent_table_read<16, 8, false>(&_s_ldut$subsystem_l2_wrapper$broadcast_1$TLBroadcastTracker_3$$inst$o_data$ram_data$io_deq_bits_MPORT[0], &ldut.subsystem_l2_wrapper.broadcast_1.TLBroadcastTracker_3$$inst.o_data.ram_data[0], &ldut.subsystem_l2_wrapper.broadcast_1.TLBroadcastTracker_3$$inst.o_data.value_1[0]);
       } else {
       {
         // [state-read-dense] forwarding=branchless
@@ -14800,10 +14761,11 @@
         for (int L = 0; L < 16; L++) {
           const uint64_t _v2_sa_addr = essent_to_u64(ldut.subsystem_l2_wrapper.broadcast_1.TLBroadcastTracker_3$$inst.o_data.value_1[L]);
           UInt<64> _v2_sa_value = ldut.subsystem_l2_wrapper.broadcast_1.TLBroadcastTracker_3$$inst.o_data.ram_data[_v2_sa_addr];
+          // [branchless-forward] select a valid source before loading data
           const int _v2_sa_prev_code = _v2_sa_last[_v2_sa_addr];
-          const uint64_t _v2_sa_prev_valid = (uint64_t)(_v2_sa_prev_code >= 0);
+          const bool _v2_sa_prev_valid = _v2_sa_prev_code >= 0;
           [[maybe_unused]] const int _v2_sa_prev_lane = _v2_sa_prev_code & -static_cast<int>(_v2_sa_prev_valid);
-          _v2_sa_value = essent_mux(UInt<1>(_v2_sa_prev_valid), _s_ldut$subsystem_sbus$coupler_to_bus_named_subsystem_l2$widget$auto_out_a_bits_data[_v2_sa_prev_lane], _v2_sa_value);
+          _v2_sa_value = *essent_select_ptr(_v2_sa_prev_valid, &(_s_ldut$subsystem_sbus$coupler_to_bus_named_subsystem_l2$widget$auto_out_a_bits_data[_v2_sa_prev_lane]), &_v2_sa_value);
           _s_ldut$subsystem_l2_wrapper$broadcast_1$TLBroadcastTracker_3$$inst$o_data$ram_data$io_deq_bits_MPORT[L] = _v2_sa_value;
           const uint64_t _v2_sa_write_addr_0 = essent_to_u64(ldut.subsystem_l2_wrapper.broadcast_1.TLBroadcastTracker_3$$inst.o_data.value[L]);
           const uint64_t _v2_sa_write_take_0 = (uint64_t)(essent_to_u64(_s_ldut$subsystem_l2_wrapper$broadcast_1$TLBroadcastTracker_3$$inst$o_data$io_enq_ready[L] & _s_ldut$subsystem_l2_wrapper$broadcast_1$TLBroadcastTracker_3$$inst$o_data$io_enq_valid[L]) != 0) & (uint64_t)(essent_to_u64(UInt<1>(0x1)) != 0);
@@ -14959,7 +14921,7 @@
         _v2_sa_anyw |= (uint64_t)(essent_to_u64(_s_ldut$subsystem_cbus$buffer$bundleOut_0_a_q$io_enq_ready[G] & _s_ldut$subsystem_cbus$atomics$auto_out_a_valid[G]) != 0) & (uint64_t)(essent_to_u64(UInt<1>(0x1)) != 0);
       }
       if (_v2_sa_anyw == 0) {
-        for (int L = 0; L < 16; L++) { _s_ldut$subsystem_cbus$buffer$bundleOut_0_a_q$ram_mask$io_deq_bits_MPORT[L] = ldut.subsystem_cbus.buffer.bundleOut_0_a_q.ram_mask[essent_to_u64(ldut.subsystem_cbus.buffer.bundleOut_0_a_q.value_1[L])]; }
+        essent_table_read<16, 2, false>(&_s_ldut$subsystem_cbus$buffer$bundleOut_0_a_q$ram_mask$io_deq_bits_MPORT[0], &ldut.subsystem_cbus.buffer.bundleOut_0_a_q.ram_mask[0], &ldut.subsystem_cbus.buffer.bundleOut_0_a_q.value_1[0]);
       } else {
       {
         // [state-read-dense] forwarding=branchless
@@ -14968,10 +14930,11 @@
         for (int L = 0; L < 16; L++) {
           const uint64_t _v2_sa_addr = essent_to_u64(ldut.subsystem_cbus.buffer.bundleOut_0_a_q.value_1[L]);
           UInt<8> _v2_sa_value = ldut.subsystem_cbus.buffer.bundleOut_0_a_q.ram_mask[_v2_sa_addr];
+          // [branchless-forward] select a valid source before loading data
           const int _v2_sa_prev_code = _v2_sa_last[_v2_sa_addr];
-          const uint64_t _v2_sa_prev_valid = (uint64_t)(_v2_sa_prev_code >= 0);
+          const bool _v2_sa_prev_valid = _v2_sa_prev_code >= 0;
           [[maybe_unused]] const int _v2_sa_prev_lane = _v2_sa_prev_code & -static_cast<int>(_v2_sa_prev_valid);
-          _v2_sa_value = essent_mux(UInt<1>(_v2_sa_prev_valid), _s_ldut$subsystem_cbus$atomics$auto_out_a_bits_mask[_v2_sa_prev_lane], _v2_sa_value);
+          _v2_sa_value = *essent_select_ptr(_v2_sa_prev_valid, &(_s_ldut$subsystem_cbus$atomics$auto_out_a_bits_mask[_v2_sa_prev_lane]), &_v2_sa_value);
           _s_ldut$subsystem_cbus$buffer$bundleOut_0_a_q$ram_mask$io_deq_bits_MPORT[L] = _v2_sa_value;
           const uint64_t _v2_sa_write_addr_0 = essent_to_u64(ldut.subsystem_cbus.buffer.bundleOut_0_a_q.value[L]);
           const uint64_t _v2_sa_write_take_0 = (uint64_t)(essent_to_u64(_s_ldut$subsystem_cbus$buffer$bundleOut_0_a_q$io_enq_ready[L] & _s_ldut$subsystem_cbus$atomics$auto_out_a_valid[L]) != 0) & (uint64_t)(essent_to_u64(UInt<1>(0x1)) != 0);
@@ -15276,7 +15239,7 @@
         ESSENT_LANE_LOOP
         for (int L = 0; L < 16; L++) ldut.debug_1.dmOuter.dmiBypass.bar.flight[L] = _gv;
       } else {
-        for (int L = 1; L < 16; L++) ldut.debug_1.dmOuter.dmiBypass.bar.flight[L] = reset ? UInt<2>(0x0) : ((((ldut.debug_1.dmOuter.dmiBypass.bar.flight[L - 1] + _s_ldut$debug_1$dmOuter$dmiBypass$bar$_next_flight_T_2[L - 1]).tail<1>()) - _s_ldut$debug_1$dmOuter$dmiBypass$bar$_next_flight_T_8[L - 1]).tail<1>());
+        for (int L = 1; L < 16; L++) ldut.debug_1.dmOuter.dmiBypass.bar.flight[L].val = static_cast<typename UInt<2>::scalar_t>((static_cast<uint8_t>((static_cast<uint8_t>(essent_select_word<uint32_t>(((static_cast<uint8_t>(reset.val) & 0x1u)) != 0, static_cast<uint32_t>((static_cast<uint8_t>(0x0u) & 0x3u)), static_cast<uint32_t>((static_cast<uint8_t>((static_cast<uint8_t>((static_cast<uint8_t>((static_cast<uint8_t>((static_cast<uint8_t>((static_cast<uint8_t>((static_cast<uint8_t>((static_cast<uint8_t>(ldut.debug_1.dmOuter.dmiBypass.bar.flight[L - 1].val) + static_cast<uint8_t>(_s_ldut$debug_1$dmOuter$dmiBypass$bar$_next_flight_T_2[L - 1].val))) & 0x7u)) & 0x3u)) & 0x3u)) - static_cast<uint8_t>(_s_ldut$debug_1$dmOuter$dmiBypass$bar$_next_flight_T_8[L - 1].val))) & 0x7u)) & 0x3u)) & 0x3u)))) & 0x3u)) & 0x3u));
       }
     }
     // [vec comb] 2 templates x 16 lanes
@@ -15297,35 +15260,37 @@
     }
     // [serial scc=4] 1 templates (0 comb), regs=[hrDebugIntReg_0]
     // [serial scc=4 lane=1]
-    ldut.debug_1.dmInner.dmInner.hrDebugIntReg_0[1] = clock_en[1 - 1] ? ((~_s_ldut$debug_reset[1 - 1]) & ((~_s_ldut$debug_1$dmInner$dmInner$_T_1[1 - 1]) & (ldut.debug_1.dmInner.dmInner.hrmaskReg_0[1 - 1] & (ldut.debug_1.dmInner.dmInner.hartIsInResetSync_0_debug_hartReset_0.output_chain.sync_0[1 - 1] | (ldut.debug_1.dmInner.dmInner.hrDebugIntReg_0[1 - 1] & _s_ldut$debug_1$dmInner$dmInner$_T_10[1 - 1]))))) : ldut.debug_1.dmInner.dmInner.hrDebugIntReg_0[1 - 1];
+    ldut.debug_1.dmInner.dmInner.hrDebugIntReg_0[1].val = static_cast<typename UInt<1>::scalar_t>((static_cast<uint8_t>((static_cast<uint8_t>(essent_select_word<uint32_t>(((static_cast<uint8_t>(clock_en[1 - 1].val) & 0x1u)) != 0, static_cast<uint32_t>((static_cast<uint8_t>((((static_cast<uint8_t>((~static_cast<uint8_t>(_s_ldut$debug_reset[1 - 1].val))) & 0x1u)) & ((static_cast<uint8_t>((((static_cast<uint8_t>((~static_cast<uint8_t>(_s_ldut$debug_1$dmInner$dmInner$_T_1[1 - 1].val))) & 0x1u)) & ((static_cast<uint8_t>(((ldut.debug_1.dmInner.dmInner.hrmaskReg_0[1 - 1].val) & ((static_cast<uint8_t>(((ldut.debug_1.dmInner.dmInner.hartIsInResetSync_0_debug_hartReset_0.output_chain.sync_0[1 - 1].val) | ((static_cast<uint8_t>(((ldut.debug_1.dmInner.dmInner.hrDebugIntReg_0[1 - 1].val) & (_s_ldut$debug_1$dmInner$dmInner$_T_10[1 - 1].val))) & 0x1u)))) & 0x1u)))) & 0x1u)))) & 0x1u)))) & 0x1u)), static_cast<uint32_t>(ldut.debug_1.dmInner.dmInner.hrDebugIntReg_0[1 - 1].val))) & 0x1u)) & 0x1u));
     // [serial scc=4 lane=2]
-    ldut.debug_1.dmInner.dmInner.hrDebugIntReg_0[2] = clock_en[2 - 1] ? ((~_s_ldut$debug_reset[2 - 1]) & ((~_s_ldut$debug_1$dmInner$dmInner$_T_1[2 - 1]) & (ldut.debug_1.dmInner.dmInner.hrmaskReg_0[2 - 1] & (ldut.debug_1.dmInner.dmInner.hartIsInResetSync_0_debug_hartReset_0.output_chain.sync_0[2 - 1] | (ldut.debug_1.dmInner.dmInner.hrDebugIntReg_0[2 - 1] & _s_ldut$debug_1$dmInner$dmInner$_T_10[2 - 1]))))) : ldut.debug_1.dmInner.dmInner.hrDebugIntReg_0[2 - 1];
+    ldut.debug_1.dmInner.dmInner.hrDebugIntReg_0[2].val = static_cast<typename UInt<1>::scalar_t>((static_cast<uint8_t>((static_cast<uint8_t>(essent_select_word<uint32_t>(((static_cast<uint8_t>(clock_en[2 - 1].val) & 0x1u)) != 0, static_cast<uint32_t>((static_cast<uint8_t>((((static_cast<uint8_t>((~static_cast<uint8_t>(_s_ldut$debug_reset[2 - 1].val))) & 0x1u)) & ((static_cast<uint8_t>((((static_cast<uint8_t>((~static_cast<uint8_t>(_s_ldut$debug_1$dmInner$dmInner$_T_1[2 - 1].val))) & 0x1u)) & ((static_cast<uint8_t>(((ldut.debug_1.dmInner.dmInner.hrmaskReg_0[2 - 1].val) & ((static_cast<uint8_t>(((ldut.debug_1.dmInner.dmInner.hartIsInResetSync_0_debug_hartReset_0.output_chain.sync_0[2 - 1].val) | ((static_cast<uint8_t>(((ldut.debug_1.dmInner.dmInner.hrDebugIntReg_0[2 - 1].val) & (_s_ldut$debug_1$dmInner$dmInner$_T_10[2 - 1].val))) & 0x1u)))) & 0x1u)))) & 0x1u)))) & 0x1u)))) & 0x1u)), static_cast<uint32_t>(ldut.debug_1.dmInner.dmInner.hrDebugIntReg_0[2 - 1].val))) & 0x1u)) & 0x1u));
     // [serial scc=4 lane=3]
-    ldut.debug_1.dmInner.dmInner.hrDebugIntReg_0[3] = clock_en[3 - 1] ? ((~_s_ldut$debug_reset[3 - 1]) & ((~_s_ldut$debug_1$dmInner$dmInner$_T_1[3 - 1]) & (ldut.debug_1.dmInner.dmInner.hrmaskReg_0[3 - 1] & (ldut.debug_1.dmInner.dmInner.hartIsInResetSync_0_debug_hartReset_0.output_chain.sync_0[3 - 1] | (ldut.debug_1.dmInner.dmInner.hrDebugIntReg_0[3 - 1] & _s_ldut$debug_1$dmInner$dmInner$_T_10[3 - 1]))))) : ldut.debug_1.dmInner.dmInner.hrDebugIntReg_0[3 - 1];
+    ldut.debug_1.dmInner.dmInner.hrDebugIntReg_0[3].val = static_cast<typename UInt<1>::scalar_t>((static_cast<uint8_t>((static_cast<uint8_t>(essent_select_word<uint32_t>(((static_cast<uint8_t>(clock_en[3 - 1].val) & 0x1u)) != 0, static_cast<uint32_t>((static_cast<uint8_t>((((static_cast<uint8_t>((~static_cast<uint8_t>(_s_ldut$debug_reset[3 - 1].val))) & 0x1u)) & ((static_cast<uint8_t>((((static_cast<uint8_t>((~static_cast<uint8_t>(_s_ldut$debug_1$dmInner$dmInner$_T_1[3 - 1].val))) & 0x1u)) & ((static_cast<uint8_t>(((ldut.debug_1.dmInner.dmInner.hrmaskReg_0[3 - 1].val) & ((static_cast<uint8_t>(((ldut.debug_1.dmInner.dmInner.hartIsInResetSync_0_debug_hartReset_0.output_chain.sync_0[3 - 1].val) | ((static_cast<uint8_t>(((ldut.debug_1.dmInner.dmInner.hrDebugIntReg_0[3 - 1].val) & (_s_ldut$debug_1$dmInner$dmInner$_T_10[3 - 1].val))) & 0x1u)))) & 0x1u)))) & 0x1u)))) & 0x1u)))) & 0x1u)), static_cast<uint32_t>(ldut.debug_1.dmInner.dmInner.hrDebugIntReg_0[3 - 1].val))) & 0x1u)) & 0x1u));
     // [serial scc=4 lane=4]
-    ldut.debug_1.dmInner.dmInner.hrDebugIntReg_0[4] = clock_en[4 - 1] ? ((~_s_ldut$debug_reset[4 - 1]) & ((~_s_ldut$debug_1$dmInner$dmInner$_T_1[4 - 1]) & (ldut.debug_1.dmInner.dmInner.hrmaskReg_0[4 - 1] & (ldut.debug_1.dmInner.dmInner.hartIsInResetSync_0_debug_hartReset_0.output_chain.sync_0[4 - 1] | (ldut.debug_1.dmInner.dmInner.hrDebugIntReg_0[4 - 1] & _s_ldut$debug_1$dmInner$dmInner$_T_10[4 - 1]))))) : ldut.debug_1.dmInner.dmInner.hrDebugIntReg_0[4 - 1];
+    ldut.debug_1.dmInner.dmInner.hrDebugIntReg_0[4].val = static_cast<typename UInt<1>::scalar_t>((static_cast<uint8_t>((static_cast<uint8_t>(essent_select_word<uint32_t>(((static_cast<uint8_t>(clock_en[4 - 1].val) & 0x1u)) != 0, static_cast<uint32_t>((static_cast<uint8_t>((((static_cast<uint8_t>((~static_cast<uint8_t>(_s_ldut$debug_reset[4 - 1].val))) & 0x1u)) & ((static_cast<uint8_t>((((static_cast<uint8_t>((~static_cast<uint8_t>(_s_ldut$debug_1$dmInner$dmInner$_T_1[4 - 1].val))) & 0x1u)) & ((static_cast<uint8_t>(((ldut.debug_1.dmInner.dmInner.hrmaskReg_0[4 - 1].val) & ((static_cast<uint8_t>(((ldut.debug_1.dmInner.dmInner.hartIsInResetSync_0_debug_hartReset_0.output_chain.sync_0[4 - 1].val) | ((static_cast<uint8_t>(((ldut.debug_1.dmInner.dmInner.hrDebugIntReg_0[4 - 1].val) & (_s_ldut$debug_1$dmInner$dmInner$_T_10[4 - 1].val))) & 0x1u)))) & 0x1u)))) & 0x1u)))) & 0x1u)))) & 0x1u)), static_cast<uint32_t>(ldut.debug_1.dmInner.dmInner.hrDebugIntReg_0[4 - 1].val))) & 0x1u)) & 0x1u));
     // [serial scc=4 lane=5]
-    ldut.debug_1.dmInner.dmInner.hrDebugIntReg_0[5] = clock_en[5 - 1] ? ((~_s_ldut$debug_reset[5 - 1]) & ((~_s_ldut$debug_1$dmInner$dmInner$_T_1[5 - 1]) & (ldut.debug_1.dmInner.dmInner.hrmaskReg_0[5 - 1] & (ldut.debug_1.dmInner.dmInner.hartIsInResetSync_0_debug_hartReset_0.output_chain.sync_0[5 - 1] | (ldut.debug_1.dmInner.dmInner.hrDebugIntReg_0[5 - 1] & _s_ldut$debug_1$dmInner$dmInner$_T_10[5 - 1]))))) : ldut.debug_1.dmInner.dmInner.hrDebugIntReg_0[5 - 1];
+    ldut.debug_1.dmInner.dmInner.hrDebugIntReg_0[5].val = static_cast<typename UInt<1>::scalar_t>((static_cast<uint8_t>((static_cast<uint8_t>(essent_select_word<uint32_t>(((static_cast<uint8_t>(clock_en[5 - 1].val) & 0x1u)) != 0, static_cast<uint32_t>((static_cast<uint8_t>((((static_cast<uint8_t>((~static_cast<uint8_t>(_s_ldut$debug_reset[5 - 1].val))) & 0x1u)) & ((static_cast<uint8_t>((((static_cast<uint8_t>((~static_cast<uint8_t>(_s_ldut$debug_1$dmInner$dmInner$_T_1[5 - 1].val))) & 0x1u)) & ((static_cast<uint8_t>(((ldut.debug_1.dmInner.dmInner.hrmaskReg_0[5 - 1].val) & ((static_cast<uint8_t>(((ldut.debug_1.dmInner.dmInner.hartIsInResetSync_0_debug_hartReset_0.output_chain.sync_0[5 - 1].val) | ((static_cast<uint8_t>(((ldut.debug_1.dmInner.dmInner.hrDebugIntReg_0[5 - 1].val) & (_s_ldut$debug_1$dmInner$dmInner$_T_10[5 - 1].val))) & 0x1u)))) & 0x1u)))) & 0x1u)))) & 0x1u)))) & 0x1u)), static_cast<uint32_t>(ldut.debug_1.dmInner.dmInner.hrDebugIntReg_0[5 - 1].val))) & 0x1u)) & 0x1u));
     // [serial scc=4 lane=6]
-    ldut.debug_1.dmInner.dmInner.hrDebugIntReg_0[6] = clock_en[6 - 1] ? ((~_s_ldut$debug_reset[6 - 1]) & ((~_s_ldut$debug_1$dmInner$dmInner$_T_1[6 - 1]) & (ldut.debug_1.dmInner.dmInner.hrmaskReg_0[6 - 1] & (ldut.debug_1.dmInner.dmInner.hartIsInResetSync_0_debug_hartReset_0.output_chain.sync_0[6 - 1] | (ldut.debug_1.dmInner.dmInner.hrDebugIntReg_0[6 - 1] & _s_ldut$debug_1$dmInner$dmInner$_T_10[6 - 1]))))) : ldut.debug_1.dmInner.dmInner.hrDebugIntReg_0[6 - 1];
+    ldut.debug_1.dmInner.dmInner.hrDebugIntReg_0[6].val = static_cast<typename UInt<1>::scalar_t>((static_cast<uint8_t>((static_cast<uint8_t>(essent_select_word<uint32_t>(((static_cast<uint8_t>(clock_en[6 - 1].val) & 0x1u)) != 0, static_cast<uint32_t>((static_cast<uint8_t>((((static_cast<uint8_t>((~static_cast<uint8_t>(_s_ldut$debug_reset[6 - 1].val))) & 0x1u)) & ((static_cast<uint8_t>((((static_cast<uint8_t>((~static_cast<uint8_t>(_s_ldut$debug_1$dmInner$dmInner$_T_1[6 - 1].val))) & 0x1u)) & ((static_cast<uint8_t>(((ldut.debug_1.dmInner.dmInner.hrmaskReg_0[6 - 1].val) & ((static_cast<uint8_t>(((ldut.debug_1.dmInner.dmInner.hartIsInResetSync_0_debug_hartReset_0.output_chain.sync_0[6 - 1].val) | ((static_cast<uint8_t>(((ldut.debug_1.dmInner.dmInner.hrDebugIntReg_0[6 - 1].val) & (_s_ldut$debug_1$dmInner$dmInner$_T_10[6 - 1].val))) & 0x1u)))) & 0x1u)))) & 0x1u)))) & 0x1u)))) & 0x1u)), static_cast<uint32_t>(ldut.debug_1.dmInner.dmInner.hrDebugIntReg_0[6 - 1].val))) & 0x1u)) & 0x1u));
     // [serial scc=4 lane=7]
-    ldut.debug_1.dmInner.dmInner.hrDebugIntReg_0[7] = clock_en[7 - 1] ? ((~_s_ldut$debug_reset[7 - 1]) & ((~_s_ldut$debug_1$dmInner$dmInner$_T_1[7 - 1]) & (ldut.debug_1.dmInner.dmInner.hrmaskReg_0[7 - 1] & (ldut.debug_1.dmInner.dmInner.hartIsInResetSync_0_debug_hartReset_0.output_chain.sync_0[7 - 1] | (ldut.debug_1.dmInner.dmInner.hrDebugIntReg_0[7 - 1] & _s_ldut$debug_1$dmInner$dmInner$_T_10[7 - 1]))))) : ldut.debug_1.dmInner.dmInner.hrDebugIntReg_0[7 - 1];
+    ldut.debug_1.dmInner.dmInner.hrDebugIntReg_0[7].val = static_cast<typename UInt<1>::scalar_t>((static_cast<uint8_t>((static_cast<uint8_t>(essent_select_word<uint32_t>(((static_cast<uint8_t>(clock_en[7 - 1].val) & 0x1u)) != 0, static_cast<uint32_t>((static_cast<uint8_t>((((static_cast<uint8_t>((~static_cast<uint8_t>(_s_ldut$debug_reset[7 - 1].val))) & 0x1u)) & ((static_cast<uint8_t>((((static_cast<uint8_t>((~static_cast<uint8_t>(_s_ldut$debug_1$dmInner$dmInner$_T_1[7 - 1].val))) & 0x1u)) & ((static_cast<uint8_t>(((ldut.debug_1.dmInner.dmInner.hrmaskReg_0[7 - 1].val) & ((static_cast<uint8_t>(((ldut.debug_1.dmInner.dmInner.hartIsInResetSync_0_debug_hartReset_0.output_chain.sync_0[7 - 1].val) | ((static_cast<uint8_t>(((ldut.debug_1.dmInner.dmInner.hrDebugIntReg_0[7 - 1].val) & (_s_ldut$debug_1$dmInner$dmInner$_T_10[7 - 1].val))) & 0x1u)))) & 0x1u)))) & 0x1u)))) & 0x1u)))) & 0x1u)), static_cast<uint32_t>(ldut.debug_1.dmInner.dmInner.hrDebugIntReg_0[7 - 1].val))) & 0x1u)) & 0x1u));
     // [serial scc=4 lane=8]
-    ldut.debug_1.dmInner.dmInner.hrDebugIntReg_0[8] = clock_en[8 - 1] ? ((~_s_ldut$debug_reset[8 - 1]) & ((~_s_ldut$debug_1$dmInner$dmInner$_T_1[8 - 1]) & (ldut.debug_1.dmInner.dmInner.hrmaskReg_0[8 - 1] & (ldut.debug_1.dmInner.dmInner.hartIsInResetSync_0_debug_hartReset_0.output_chain.sync_0[8 - 1] | (ldut.debug_1.dmInner.dmInner.hrDebugIntReg_0[8 - 1] & _s_ldut$debug_1$dmInner$dmInner$_T_10[8 - 1]))))) : ldut.debug_1.dmInner.dmInner.hrDebugIntReg_0[8 - 1];
+    ldut.debug_1.dmInner.dmInner.hrDebugIntReg_0[8].val = static_cast<typename UInt<1>::scalar_t>((static_cast<uint8_t>((static_cast<uint8_t>(essent_select_word<uint32_t>(((static_cast<uint8_t>(clock_en[8 - 1].val) & 0x1u)) != 0, static_cast<uint32_t>((static_cast<uint8_t>((((static_cast<uint8_t>((~static_cast<uint8_t>(_s_ldut$debug_reset[8 - 1].val))) & 0x1u)) & ((static_cast<uint8_t>((((static_cast<uint8_t>((~static_cast<uint8_t>(_s_ldut$debug_1$dmInner$dmInner$_T_1[8 - 1].val))) & 0x1u)) & ((static_cast<uint8_t>(((ldut.debug_1.dmInner.dmInner.hrmaskReg_0[8 - 1].val) & ((static_cast<uint8_t>(((ldut.debug_1.dmInner.dmInner.hartIsInResetSync_0_debug_hartReset_0.output_chain.sync_0[8 - 1].val) | ((static_cast<uint8_t>(((ldut.debug_1.dmInner.dmInner.hrDebugIntReg_0[8 - 1].val) & (_s_ldut$debug_1$dmInner$dmInner$_T_10[8 - 1].val))) & 0x1u)))) & 0x1u)))) & 0x1u)))) & 0x1u)))) & 0x1u)), static_cast<uint32_t>(ldut.debug_1.dmInner.dmInner.hrDebugIntReg_0[8 - 1].val))) & 0x1u)) & 0x1u));
     // [serial scc=4 lane=9]
-    ldut.debug_1.dmInner.dmInner.hrDebugIntReg_0[9] = clock_en[9 - 1] ? ((~_s_ldut$debug_reset[9 - 1]) & ((~_s_ldut$debug_1$dmInner$dmInner$_T_1[9 - 1]) & (ldut.debug_1.dmInner.dmInner.hrmaskReg_0[9 - 1] & (ldut.debug_1.dmInner.dmInner.hartIsInResetSync_0_debug_hartReset_0.output_chain.sync_0[9 - 1] | (ldut.debug_1.dmInner.dmInner.hrDebugIntReg_0[9 - 1] & _s_ldut$debug_1$dmInner$dmInner$_T_10[9 - 1]))))) : ldut.debug_1.dmInner.dmInner.hrDebugIntReg_0[9 - 1];
+    ldut.debug_1.dmInner.dmInner.hrDebugIntReg_0[9].val = static_cast<typename UInt<1>::scalar_t>((static_cast<uint8_t>((static_cast<uint8_t>(essent_select_word<uint32_t>(((static_cast<uint8_t>(clock_en[9 - 1].val) & 0x1u)) != 0, static_cast<uint32_t>((static_cast<uint8_t>((((static_cast<uint8_t>((~static_cast<uint8_t>(_s_ldut$debug_reset[9 - 1].val))) & 0x1u)) & ((static_cast<uint8_t>((((static_cast<uint8_t>((~static_cast<uint8_t>(_s_ldut$debug_1$dmInner$dmInner$_T_1[9 - 1].val))) & 0x1u)) & ((static_cast<uint8_t>(((ldut.debug_1.dmInner.dmInner.hrmaskReg_0[9 - 1].val) & ((static_cast<uint8_t>(((ldut.debug_1.dmInner.dmInner.hartIsInResetSync_0_debug_hartReset_0.output_chain.sync_0[9 - 1].val) | ((static_cast<uint8_t>(((ldut.debug_1.dmInner.dmInner.hrDebugIntReg_0[9 - 1].val) & (_s_ldut$debug_1$dmInner$dmInner$_T_10[9 - 1].val))) & 0x1u)))) & 0x1u)))) & 0x1u)))) & 0x1u)))) & 0x1u)), static_cast<uint32_t>(ldut.debug_1.dmInner.dmInner.hrDebugIntReg_0[9 - 1].val))) & 0x1u)) & 0x1u));
     // [serial scc=4 lane=10]
-    ldut.debug_1.dmInner.dmInner.hrDebugIntReg_0[10] = clock_en[10 - 1] ? ((~_s_ldut$debug_reset[10 - 1]) & ((~_s_ldut$debug_1$dmInner$dmInner$_T_1[10 - 1]) & (ldut.debug_1.dmInner.dmInner.hrmaskReg_0[10 - 1] & (ldut.debug_1.dmInner.dmInner.hartIsInResetSync_0_debug_hartReset_0.output_chain.sync_0[10 - 1] | (ldut.debug_1.dmInner.dmInner.hrDebugIntReg_0[10 - 1] & _s_ldut$debug_1$dmInner$dmInner$_T_10[10 - 1]))))) : ldut.debug_1.dmInner.dmInner.hrDebugIntReg_0[10 - 1];
+    ldut.debug_1.dmInner.dmInner.hrDebugIntReg_0[10].val = static_cast<typename UInt<1>::scalar_t>((static_cast<uint8_t>((static_cast<uint8_t>(essent_select_word<uint32_t>(((static_cast<uint8_t>(clock_en[10 - 1].val) & 0x1u)) != 0, static_cast<uint32_t>((static_cast<uint8_t>((((static_cast<uint8_t>((~static_cast<uint8_t>(_s_ldut$debug_reset[10 - 1].val))) & 0x1u)) & ((static_cast<uint8_t>((((static_cast<uint8_t>((~static_cast<uint8_t>(_s_ldut$debug_1$dmInner$dmInner$_T_1[10 - 1].val))) & 0x1u)) & ((static_cast<uint8_t>(((ldut.debug_1.dmInner.dmInner.hrmaskReg_0[10 - 1].val) & ((static_cast<uint8_t>(((ldut.debug_1.dmInner.dmInner.hartIsInResetSync_0_debug_hartReset_0.output_chain.sync_0[10 - 1].val) | ((static_cast<uint8_t>(((ldut.debug_1.dmInner.dmInner.hrDebugIntReg_0[10 - 1].val) & (_s_ldut$debug_1$dmInner$dmInner$_T_10[10 - 1].val))) & 0x1u)))) & 0x1u)))) & 0x1u)))) & 0x1u)))) & 0x1u)), static_cast<uint32_t>(ldut.debug_1.dmInner.dmInner.hrDebugIntReg_0[10 - 1].val))) & 0x1u)) & 0x1u));
     // [serial scc=4 lane=11]
-    ldut.debug_1.dmInner.dmInner.hrDebugIntReg_0[11] = clock_en[11 - 1] ? ((~_s_ldut$debug_reset[11 - 1]) & ((~_s_ldut$debug_1$dmInner$dmInner$_T_1[11 - 1]) & (ldut.debug_1.dmInner.dmInner.hrmaskReg_0[11 - 1] & (ldut.debug_1.dmInner.dmInner.hartIsInResetSync_0_debug_hartReset_0.output_chain.sync_0[11 - 1] | (ldut.debug_1.dmInner.dmInner.hrDebugIntReg_0[11 - 1] & _s_ldut$debug_1$dmInner$dmInner$_T_10[11 - 1]))))) : ldut.debug_1.dmInner.dmInner.hrDebugIntReg_0[11 - 1];
+    ldut.debug_1.dmInner.dmInner.hrDebugIntReg_0[11].val = static_cast<typename UInt<1>::scalar_t>((static_cast<uint8_t>((static_cast<uint8_t>(essent_select_word<uint32_t>(((static_cast<uint8_t>(clock_en[11 - 1].val) & 0x1u)) != 0, static_cast<uint32_t>((static_cast<uint8_t>((((static_cast<uint8_t>((~static_cast<uint8_t>(_s_ldut$debug_reset[11 - 1].val))) & 0x1u)) & ((static_cast<uint8_t>((((static_cast<uint8_t>((~static_cast<uint8_t>(_s_ldut$debug_1$dmInner$dmInner$_T_1[11 - 1].val))) & 0x1u)) & ((static_cast<uint8_t>(((ldut.debug_1.dmInner.dmInner.hrmaskReg_0[11 - 1].val) & ((static_cast<uint8_t>(((ldut.debug_1.dmInner.dmInner.hartIsInResetSync_0_debug_hartReset_0.output_chain.sync_0[11 - 1].val) | ((static_cast<uint8_t>(((ldut.debug_1.dmInner.dmInner.hrDebugIntReg_0[11 - 1].val) & (_s_ldut$debug_1$dmInner$dmInner$_T_10[11 - 1].val))) & 0x1u)))) & 0x1u)))) & 0x1u)))) & 0x1u)))) & 0x1u)), static_cast<uint32_t>(ldut.debug_1.dmInner.dmInner.hrDebugIntReg_0[11 - 1].val))) & 0x1u)) & 0x1u));
     // [serial scc=4 lane=12]
-    ldut.debug_1.dmInner.dmInner.hrDebugIntReg_0[12] = clock_en[12 - 1] ? ((~_s_ldut$debug_reset[12 - 1]) & ((~_s_ldut$debug_1$dmInner$dmInner$_T_1[12 - 1]) & (ldut.debug_1.dmInner.dmInner.hrmaskReg_0[12 - 1] & (ldut.debug_1.dmInner.dmInner.hartIsInResetSync_0_debug_hartReset_0.output_chain.sync_0[12 - 1] | (ldut.debug_1.dmInner.dmInner.hrDebugIntReg_0[12 - 1] & _s_ldut$debug_1$dmInner$dmInner$_T_10[12 - 1]))))) : ldut.debug_1.dmInner.dmInner.hrDebugIntReg_0[12 - 1];
+    ldut.debug_1.dmInner.dmInner.hrDebugIntReg_0[12].val = static_cast<typename UInt<1>::scalar_t>((static_cast<uint8_t>((static_cast<uint8_t>(essent_select_word<uint32_t>(((static_cast<uint8_t>(clock_en[12 - 1].val) & 0x1u)) != 0, static_cast<uint32_t>((static_cast<uint8_t>((((static_cast<uint8_t>((~static_cast<uint8_t>(_s_ldut$debug_reset[12 - 1].val))) & 0x1u)) & ((static_cast<uint8_t>((((static_cast<uint8_t>((~static_cast<uint8_t>(_s_ldut$debug_1$dmInner$dmInner$_T_1[12 - 1].val))) & 0x1u)) & ((static_cast<uint8_t>(((ldut.debug_1.dmInner.dmInner.hrmaskReg_0[12 - 1].val) & ((static_cast<uint8_t>(((ldut.debug_1.dmInner.dmInner.hartIsInResetSync_0_debug_hartReset_0.output_chain.sync_0[12 - 1].val) | ((static_cast<uint8_t>(((ldut.debug_1.dmInner.dmInner.hrDebugIntReg_0[12 - 1].val) & (_s_ldut$debug_1$dmInner$dmInner$_T_10[12 - 1].val))) & 0x1u)))) & 0x1u)))) & 0x1u)))) & 0x1u)))) & 0x1u)), static_cast<uint32_t>(ldut.debug_1.dmInner.dmInner.hrDebugIntReg_0[12 - 1].val))) & 0x1u)) & 0x1u));
     // [serial scc=4 lane=13]
-    ldut.debug_1.dmInner.dmInner.hrDebugIntReg_0[13] = clock_en[13 - 1] ? ((~_s_ldut$debug_reset[13 - 1]) & ((~_s_ldut$debug_1$dmInner$dmInner$_T_1[13 - 1]) & (ldut.debug_1.dmInner.dmInner.hrmaskReg_0[13 - 1] & (ldut.debug_1.dmInner.dmInner.hartIsInResetSync_0_debug_hartReset_0.output_chain.sync_0[13 - 1] | (ldut.debug_1.dmInner.dmInner.hrDebugIntReg_0[13 - 1] & _s_ldut$debug_1$dmInner$dmInner$_T_10[13 - 1]))))) : ldut.debug_1.dmInner.dmInner.hrDebugIntReg_0[13 - 1];
+    ldut.debug_1.dmInner.dmInner.hrDebugIntReg_0[13].val = static_cast<typename UInt<1>::scalar_t>((static_cast<uint8_t>((static_cast<uint8_t>(essent_select_word<uint32_t>(((static_cast<uint8_t>(clock_en[13 - 1].val) & 0x1u)) != 0, static_cast<uint32_t>((static_cast<uint8_t>((((static_cast<uint8_t>((~static_cast<uint8_t>(_s_ldut$debug_reset[13 - 1].val))) & 0x1u)) & ((static_cast<uint8_t>((((static_cast<uint8_t>((~static_cast<uint8_t>(_s_ldut$debug_1$dmInner$dmInner$_T_1[13 - 1].val))) & 0x1u)) & ((static_cast<uint8_t>(((ldut.debug_1.dmInner.dmInner.hrmaskReg_0[13 - 1].val) & ((static_cast<uint8_t>(((ldut.debug_1.dmInner.dmInner.hartIsInResetSync_0_debug_hartReset_0.output_chain.sync_0[13 - 1].val) | ((static_cast<uint8_t>(((ldut.debug_1.dmInner.dmInner.hrDebugIntReg_0[13 - 1].val) & (_s_ldut$debug_1$dmInner$dmInner$_T_10[13 - 1].val))) & 0x1u)))) & 0x1u)))) & 0x1u)))) & 0x1u)))) & 0x1u)), static_cast<uint32_t>(ldut.debug_1.dmInner.dmInner.hrDebugIntReg_0[13 - 1].val))) & 0x1u)) & 0x1u));
     // [serial scc=4 lane=14]
-    ldut.debug_1.dmInner.dmInner.hrDebugIntReg_0[14] = clock_en[14 - 1] ? ((~_s_ldut$debug_reset[14 - 1]) & ((~_s_ldut$debug_1$dmInner$dmInner$_T_1[14 - 1]) & (ldut.debug_1.dmInner.dmInner.hrmaskReg_0[14 - 1] & (ldut.debug_1.dmInner.dmInner.hartIsInResetSync_0_debug_hartReset_0.output_chain.sync_0[14 - 1] | (ldut.debug_1.dmInner.dmInner.hrDebugIntReg_0[14 - 1] & _s_ldut$debug_1$dmInner$dmInner$_T_10[14 - 1]))))) : ldut.debug_1.dmInner.dmInner.hrDebugIntReg_0[14 - 1];
+    ldut.debug_1.dmInner.dmInner.hrDebugIntReg_0[14].val = static_cast<typename UInt<1>::scalar_t>((static_cast<uint8_t>((static_cast<uint8_t>(essent_select_word<uint32_t>(((static_cast<uint8_t>(clock_en[14 - 1].val) & 0x1u)) != 0, static_cast<uint32_t>((static_cast<uint8_t>((((static_cast<uint8_t>((~static_cast<uint8_t>(_s_ldut$debug_reset[14 - 1].val))) & 0x1u)) & ((static_cast<uint8_t>((((static_cast<uint8_t>((~static_cast<uint8_t>(_s_ldut$debug_1$dmInner$dmInner$_T_1[14 - 1].val))) & 0x1u)) & ((static_cast<uint8_t>(((ldut.debug_1.dmInner.dmInner.hrmaskReg_0[14 - 1].val) & ((static_cast<uint8_t>(((ldut.debug_1.dmInner.dmInner.hartIsInResetSync_0_debug_hartReset_0.output_chain.sync_0[14 - 1].val) | ((static_cast<uint8_t>(((ldut.debug_1.dmInner.dmInner.hrDebugIntReg_0[14 - 1].val) & (_s_ldut$debug_1$dmInner$dmInner$_T_10[14 - 1].val))) & 0x1u)))) & 0x1u)))) & 0x1u)))) & 0x1u)))) & 0x1u)), static_cast<uint32_t>(ldut.debug_1.dmInner.dmInner.hrDebugIntReg_0[14 - 1].val))) & 0x1u)) & 0x1u));
     // [serial scc=4 lane=15]
-    ldut.debug_1.dmInner.dmInner.hrDebugIntReg_0[15] = clock_en[15 - 1] ? ((~_s_ldut$debug_reset[15 - 1]) & ((~_s_ldut$debug_1$dmInner$dmInner$_T_1[15 - 1]) & (ldut.debug_1.dmInner.dmInner.hrmaskReg_0[15 - 1] & (ldut.debug_1.dmInner.dmInner.hartIsInResetSync_0_debug_hartReset_0.output_chain.sync_0[15 - 1] | (ldut.debug_1.dmInner.dmInner.hrDebugIntReg_0[15 - 1] & _s_ldut$debug_1$dmInner$dmInner$_T_10[15 - 1]))))) : ldut.debug_1.dmInner.dmInner.hrDebugIntReg_0[15 - 1];
+    ldut.debug_1.dmInner.dmInner.hrDebugIntReg_0[15].val = static_cast<typename UInt<1>::scalar_t>((static_cast<uint8_t>((static_cast<uint8_t>(essent_select_word<uint32_t>(((static_cast<uint8_t>(clock_en[15 - 1].val) & 0x1u)) != 0, static_cast<uint32_t>((static_cast<uint8_t>((((static_cast<uint8_t>((~static_cast<uint8_t>(_s_ldut$debug_reset[15 - 1].val))) & 0x1u)) & ((static_cast<uint8_t>((((static_cast<uint8_t>((~static_cast<uint8_t>(_s_ldut$debug_1$dmInner$dmInner$_T_1[15 - 1].val))) & 0x1u)) & ((static_cast<uint8_t>(((ldut.debug_1.dmInner.dmInner.hrmaskReg_0[15 - 1].val) & ((static_cast<uint8_t>(((ldut.debug_1.dmInner.dmInner.hartIsInResetSync_0_debug_hartReset_0.output_chain.sync_0[15 - 1].val) | ((static_cast<uint8_t>(((ldut.debug_1.dmInner.dmInner.hrDebugIntReg_0[15 - 1].val) & (_s_ldut$debug_1$dmInner$dmInner$_T_10[15 - 1].val))) & 0x1u)))) & 0x1u)))) & 0x1u)))) & 0x1u)))) & 0x1u)), static_cast<uint32_t>(ldut.debug_1.dmInner.dmInner.hrDebugIntReg_0[15 - 1].val))) & 0x1u)) & 0x1u));
+
+    if (partition_task_poll) partition_task_poll(partition_task_context, 0, true, 9);
     // [vec comb] 2 templates x 16 lanes
     ESSENT_LANE_LOOP
     for (int L = 0; L < 16; L++) {
@@ -15391,8 +15356,6 @@
       _v2_local_5299_0.val = static_cast<typename UInt<16>::scalar_t>((static_cast<uint16_t>(_v2_local_6129_0.val) & 0xffffu));
       _s_ldut$subsystem_sbus$coupler_to_bus_named_subsystem_l2$widget$auto_out_a_bits_mask[L].val = static_cast<typename UInt<8>::scalar_t>((static_cast<uint16_t>((static_cast<uint16_t>(((((static_cast<uint16_t>(((static_cast<uint16_t>(_v2_local_5299_0.val) >> 8) & 0xffu)) & 0xffu)) & ((uint16_t)0 - (uint16_t)(((static_cast<uint16_t>(_s_ldut$subsystem_sbus$coupler_to_bus_named_subsystem_l2$widget$repeat_index[L].val) & 0x1u)) != 0))) | (((static_cast<uint16_t>(((static_cast<uint16_t>(_v2_local_5299_0.val) >> 0) & 0xffu)) & 0xffu)) & ~((uint16_t)0 - (uint16_t)(((static_cast<uint16_t>(_s_ldut$subsystem_sbus$coupler_to_bus_named_subsystem_l2$widget$repeat_index[L].val) & 0x1u)) != 0))))) & 0xffu)) & 0xffu));
     }
-
-    if (partition_task_poll) partition_task_poll(partition_task_context, 0, true, 9);
     // [vec boundary-next] 1 templates x 16 lanes
     // [boundary next] 1 templates, two retained lanes
     { const int L = 0;
@@ -15409,7 +15372,7 @@
         _v2_sa_anyw |= (uint64_t)(essent_to_u64(_s_ldut$subsystem_l2_wrapper$broadcast_1$TLBroadcastTracker$$inst$o_data$io_enq_ready[G] & _s_ldut$subsystem_l2_wrapper$broadcast_1$TLBroadcastTracker$$inst$o_data$io_enq_valid[G]) != 0) & (uint64_t)(essent_to_u64(UInt<1>(0x1)) != 0);
       }
       if (_v2_sa_anyw == 0) {
-        for (int L = 0; L < 16; L++) { _s_ldut$subsystem_l2_wrapper$broadcast_1$TLBroadcastTracker$$inst$o_data$ram_mask$io_deq_bits_MPORT[L] = ldut.subsystem_l2_wrapper.broadcast_1.TLBroadcastTracker$$inst.o_data.ram_mask[essent_to_u64(ldut.subsystem_l2_wrapper.broadcast_1.TLBroadcastTracker$$inst.o_data.value_1[L])]; }
+        essent_table_read<16, 8, false>(&_s_ldut$subsystem_l2_wrapper$broadcast_1$TLBroadcastTracker$$inst$o_data$ram_mask$io_deq_bits_MPORT[0], &ldut.subsystem_l2_wrapper.broadcast_1.TLBroadcastTracker$$inst.o_data.ram_mask[0], &ldut.subsystem_l2_wrapper.broadcast_1.TLBroadcastTracker$$inst.o_data.value_1[0]);
       } else {
       {
         // [state-read-dense] forwarding=branchless
@@ -15418,10 +15381,11 @@
         for (int L = 0; L < 16; L++) {
           const uint64_t _v2_sa_addr = essent_to_u64(ldut.subsystem_l2_wrapper.broadcast_1.TLBroadcastTracker$$inst.o_data.value_1[L]);
           UInt<8> _v2_sa_value = ldut.subsystem_l2_wrapper.broadcast_1.TLBroadcastTracker$$inst.o_data.ram_mask[_v2_sa_addr];
+          // [branchless-forward] select a valid source before loading data
           const int _v2_sa_prev_code = _v2_sa_last[_v2_sa_addr];
-          const uint64_t _v2_sa_prev_valid = (uint64_t)(_v2_sa_prev_code >= 0);
+          const bool _v2_sa_prev_valid = _v2_sa_prev_code >= 0;
           [[maybe_unused]] const int _v2_sa_prev_lane = _v2_sa_prev_code & -static_cast<int>(_v2_sa_prev_valid);
-          _v2_sa_value = essent_mux(UInt<1>(_v2_sa_prev_valid), _s_ldut$subsystem_sbus$coupler_to_bus_named_subsystem_l2$widget$auto_out_a_bits_mask[_v2_sa_prev_lane], _v2_sa_value);
+          _v2_sa_value = *essent_select_ptr(_v2_sa_prev_valid, &(_s_ldut$subsystem_sbus$coupler_to_bus_named_subsystem_l2$widget$auto_out_a_bits_mask[_v2_sa_prev_lane]), &_v2_sa_value);
           _s_ldut$subsystem_l2_wrapper$broadcast_1$TLBroadcastTracker$$inst$o_data$ram_mask$io_deq_bits_MPORT[L] = _v2_sa_value;
           const uint64_t _v2_sa_write_addr_0 = essent_to_u64(ldut.subsystem_l2_wrapper.broadcast_1.TLBroadcastTracker$$inst.o_data.value[L]);
           const uint64_t _v2_sa_write_take_0 = (uint64_t)(essent_to_u64(_s_ldut$subsystem_l2_wrapper$broadcast_1$TLBroadcastTracker$$inst$o_data$io_enq_ready[L] & _s_ldut$subsystem_l2_wrapper$broadcast_1$TLBroadcastTracker$$inst$o_data$io_enq_valid[L]) != 0) & (uint64_t)(essent_to_u64(UInt<1>(0x1)) != 0);
@@ -15439,7 +15403,7 @@
         _v2_sa_anyw |= (uint64_t)(essent_to_u64(_s_ldut$subsystem_l2_wrapper$broadcast_1$TLBroadcastTracker_1$$inst$o_data$io_enq_ready[G] & _s_ldut$subsystem_l2_wrapper$broadcast_1$TLBroadcastTracker_1$$inst$o_data$io_enq_valid[G]) != 0) & (uint64_t)(essent_to_u64(UInt<1>(0x1)) != 0);
       }
       if (_v2_sa_anyw == 0) {
-        for (int L = 0; L < 16; L++) { _s_ldut$subsystem_l2_wrapper$broadcast_1$TLBroadcastTracker_1$$inst$o_data$ram_mask$io_deq_bits_MPORT[L] = ldut.subsystem_l2_wrapper.broadcast_1.TLBroadcastTracker_1$$inst.o_data.ram_mask[essent_to_u64(ldut.subsystem_l2_wrapper.broadcast_1.TLBroadcastTracker_1$$inst.o_data.value_1[L])]; }
+        essent_table_read<16, 8, false>(&_s_ldut$subsystem_l2_wrapper$broadcast_1$TLBroadcastTracker_1$$inst$o_data$ram_mask$io_deq_bits_MPORT[0], &ldut.subsystem_l2_wrapper.broadcast_1.TLBroadcastTracker_1$$inst.o_data.ram_mask[0], &ldut.subsystem_l2_wrapper.broadcast_1.TLBroadcastTracker_1$$inst.o_data.value_1[0]);
       } else {
       {
         // [state-read-dense] forwarding=branchless
@@ -15448,10 +15412,11 @@
         for (int L = 0; L < 16; L++) {
           const uint64_t _v2_sa_addr = essent_to_u64(ldut.subsystem_l2_wrapper.broadcast_1.TLBroadcastTracker_1$$inst.o_data.value_1[L]);
           UInt<8> _v2_sa_value = ldut.subsystem_l2_wrapper.broadcast_1.TLBroadcastTracker_1$$inst.o_data.ram_mask[_v2_sa_addr];
+          // [branchless-forward] select a valid source before loading data
           const int _v2_sa_prev_code = _v2_sa_last[_v2_sa_addr];
-          const uint64_t _v2_sa_prev_valid = (uint64_t)(_v2_sa_prev_code >= 0);
+          const bool _v2_sa_prev_valid = _v2_sa_prev_code >= 0;
           [[maybe_unused]] const int _v2_sa_prev_lane = _v2_sa_prev_code & -static_cast<int>(_v2_sa_prev_valid);
-          _v2_sa_value = essent_mux(UInt<1>(_v2_sa_prev_valid), _s_ldut$subsystem_sbus$coupler_to_bus_named_subsystem_l2$widget$auto_out_a_bits_mask[_v2_sa_prev_lane], _v2_sa_value);
+          _v2_sa_value = *essent_select_ptr(_v2_sa_prev_valid, &(_s_ldut$subsystem_sbus$coupler_to_bus_named_subsystem_l2$widget$auto_out_a_bits_mask[_v2_sa_prev_lane]), &_v2_sa_value);
           _s_ldut$subsystem_l2_wrapper$broadcast_1$TLBroadcastTracker_1$$inst$o_data$ram_mask$io_deq_bits_MPORT[L] = _v2_sa_value;
           const uint64_t _v2_sa_write_addr_0 = essent_to_u64(ldut.subsystem_l2_wrapper.broadcast_1.TLBroadcastTracker_1$$inst.o_data.value[L]);
           const uint64_t _v2_sa_write_take_0 = (uint64_t)(essent_to_u64(_s_ldut$subsystem_l2_wrapper$broadcast_1$TLBroadcastTracker_1$$inst$o_data$io_enq_ready[L] & _s_ldut$subsystem_l2_wrapper$broadcast_1$TLBroadcastTracker_1$$inst$o_data$io_enq_valid[L]) != 0) & (uint64_t)(essent_to_u64(UInt<1>(0x1)) != 0);
@@ -15469,7 +15434,7 @@
         _v2_sa_anyw |= (uint64_t)(essent_to_u64(_s_ldut$subsystem_l2_wrapper$broadcast_1$TLBroadcastTracker_2$$inst$o_data$io_enq_ready[G] & _s_ldut$subsystem_l2_wrapper$broadcast_1$TLBroadcastTracker_2$$inst$o_data$io_enq_valid[G]) != 0) & (uint64_t)(essent_to_u64(UInt<1>(0x1)) != 0);
       }
       if (_v2_sa_anyw == 0) {
-        for (int L = 0; L < 16; L++) { _s_ldut$subsystem_l2_wrapper$broadcast_1$TLBroadcastTracker_2$$inst$o_data$ram_mask$io_deq_bits_MPORT[L] = ldut.subsystem_l2_wrapper.broadcast_1.TLBroadcastTracker_2$$inst.o_data.ram_mask[essent_to_u64(ldut.subsystem_l2_wrapper.broadcast_1.TLBroadcastTracker_2$$inst.o_data.value_1[L])]; }
+        essent_table_read<16, 8, false>(&_s_ldut$subsystem_l2_wrapper$broadcast_1$TLBroadcastTracker_2$$inst$o_data$ram_mask$io_deq_bits_MPORT[0], &ldut.subsystem_l2_wrapper.broadcast_1.TLBroadcastTracker_2$$inst.o_data.ram_mask[0], &ldut.subsystem_l2_wrapper.broadcast_1.TLBroadcastTracker_2$$inst.o_data.value_1[0]);
       } else {
       {
         // [state-read-dense] forwarding=branchless
@@ -15478,10 +15443,11 @@
         for (int L = 0; L < 16; L++) {
           const uint64_t _v2_sa_addr = essent_to_u64(ldut.subsystem_l2_wrapper.broadcast_1.TLBroadcastTracker_2$$inst.o_data.value_1[L]);
           UInt<8> _v2_sa_value = ldut.subsystem_l2_wrapper.broadcast_1.TLBroadcastTracker_2$$inst.o_data.ram_mask[_v2_sa_addr];
+          // [branchless-forward] select a valid source before loading data
           const int _v2_sa_prev_code = _v2_sa_last[_v2_sa_addr];
-          const uint64_t _v2_sa_prev_valid = (uint64_t)(_v2_sa_prev_code >= 0);
+          const bool _v2_sa_prev_valid = _v2_sa_prev_code >= 0;
           [[maybe_unused]] const int _v2_sa_prev_lane = _v2_sa_prev_code & -static_cast<int>(_v2_sa_prev_valid);
-          _v2_sa_value = essent_mux(UInt<1>(_v2_sa_prev_valid), _s_ldut$subsystem_sbus$coupler_to_bus_named_subsystem_l2$widget$auto_out_a_bits_mask[_v2_sa_prev_lane], _v2_sa_value);
+          _v2_sa_value = *essent_select_ptr(_v2_sa_prev_valid, &(_s_ldut$subsystem_sbus$coupler_to_bus_named_subsystem_l2$widget$auto_out_a_bits_mask[_v2_sa_prev_lane]), &_v2_sa_value);
           _s_ldut$subsystem_l2_wrapper$broadcast_1$TLBroadcastTracker_2$$inst$o_data$ram_mask$io_deq_bits_MPORT[L] = _v2_sa_value;
           const uint64_t _v2_sa_write_addr_0 = essent_to_u64(ldut.subsystem_l2_wrapper.broadcast_1.TLBroadcastTracker_2$$inst.o_data.value[L]);
           const uint64_t _v2_sa_write_take_0 = (uint64_t)(essent_to_u64(_s_ldut$subsystem_l2_wrapper$broadcast_1$TLBroadcastTracker_2$$inst$o_data$io_enq_ready[L] & _s_ldut$subsystem_l2_wrapper$broadcast_1$TLBroadcastTracker_2$$inst$o_data$io_enq_valid[L]) != 0) & (uint64_t)(essent_to_u64(UInt<1>(0x1)) != 0);
@@ -15499,7 +15465,7 @@
         _v2_sa_anyw |= (uint64_t)(essent_to_u64(_s_ldut$subsystem_l2_wrapper$broadcast_1$TLBroadcastTracker_3$$inst$o_data$io_enq_ready[G] & _s_ldut$subsystem_l2_wrapper$broadcast_1$TLBroadcastTracker_3$$inst$o_data$io_enq_valid[G]) != 0) & (uint64_t)(essent_to_u64(UInt<1>(0x1)) != 0);
       }
       if (_v2_sa_anyw == 0) {
-        for (int L = 0; L < 16; L++) { _s_ldut$subsystem_l2_wrapper$broadcast_1$TLBroadcastTracker_3$$inst$o_data$ram_mask$io_deq_bits_MPORT[L] = ldut.subsystem_l2_wrapper.broadcast_1.TLBroadcastTracker_3$$inst.o_data.ram_mask[essent_to_u64(ldut.subsystem_l2_wrapper.broadcast_1.TLBroadcastTracker_3$$inst.o_data.value_1[L])]; }
+        essent_table_read<16, 8, false>(&_s_ldut$subsystem_l2_wrapper$broadcast_1$TLBroadcastTracker_3$$inst$o_data$ram_mask$io_deq_bits_MPORT[0], &ldut.subsystem_l2_wrapper.broadcast_1.TLBroadcastTracker_3$$inst.o_data.ram_mask[0], &ldut.subsystem_l2_wrapper.broadcast_1.TLBroadcastTracker_3$$inst.o_data.value_1[0]);
       } else {
       {
         // [state-read-dense] forwarding=branchless
@@ -15508,10 +15474,11 @@
         for (int L = 0; L < 16; L++) {
           const uint64_t _v2_sa_addr = essent_to_u64(ldut.subsystem_l2_wrapper.broadcast_1.TLBroadcastTracker_3$$inst.o_data.value_1[L]);
           UInt<8> _v2_sa_value = ldut.subsystem_l2_wrapper.broadcast_1.TLBroadcastTracker_3$$inst.o_data.ram_mask[_v2_sa_addr];
+          // [branchless-forward] select a valid source before loading data
           const int _v2_sa_prev_code = _v2_sa_last[_v2_sa_addr];
-          const uint64_t _v2_sa_prev_valid = (uint64_t)(_v2_sa_prev_code >= 0);
+          const bool _v2_sa_prev_valid = _v2_sa_prev_code >= 0;
           [[maybe_unused]] const int _v2_sa_prev_lane = _v2_sa_prev_code & -static_cast<int>(_v2_sa_prev_valid);
-          _v2_sa_value = essent_mux(UInt<1>(_v2_sa_prev_valid), _s_ldut$subsystem_sbus$coupler_to_bus_named_subsystem_l2$widget$auto_out_a_bits_mask[_v2_sa_prev_lane], _v2_sa_value);
+          _v2_sa_value = *essent_select_ptr(_v2_sa_prev_valid, &(_s_ldut$subsystem_sbus$coupler_to_bus_named_subsystem_l2$widget$auto_out_a_bits_mask[_v2_sa_prev_lane]), &_v2_sa_value);
           _s_ldut$subsystem_l2_wrapper$broadcast_1$TLBroadcastTracker_3$$inst$o_data$ram_mask$io_deq_bits_MPORT[L] = _v2_sa_value;
           const uint64_t _v2_sa_write_addr_0 = essent_to_u64(ldut.subsystem_l2_wrapper.broadcast_1.TLBroadcastTracker_3$$inst.o_data.value[L]);
           const uint64_t _v2_sa_write_take_0 = (uint64_t)(essent_to_u64(_s_ldut$subsystem_l2_wrapper$broadcast_1$TLBroadcastTracker_3$$inst$o_data$io_enq_ready[L] & _s_ldut$subsystem_l2_wrapper$broadcast_1$TLBroadcastTracker_3$$inst$o_data$io_enq_valid[L]) != 0) & (uint64_t)(essent_to_u64(UInt<1>(0x1)) != 0);
@@ -15560,7 +15527,7 @@
         ESSENT_LANE_LOOP
         for (int L = 0; L < 16; L++) ldut.subsystem_sbus.coupler_to_port_named_mmio_port_axi4.widget.repeat_count[L] = _gv;
       } else {
-        for (int L = 1; L < 16; L++) ldut.subsystem_sbus.coupler_to_port_named_mmio_port_axi4.widget.repeat_count[L] = (~_s_ldut$reset[L - 1]) & (_s_ldut$subsystem_sbus$coupler_to_port_named_mmio_port_axi4$widget$_repeat_T[L - 1] ? ((~((ldut.subsystem_sbus.coupler_to_port_named_mmio_port_axi4.widget.repeat_count[L - 1] == _s_ldut$subsystem_sbus$coupler_to_port_named_mmio_port_axi4$widget$repeat_limit[L - 1]) | _s_ldut$subsystem_sbus$coupler_to_port_named_mmio_port_axi4$widget$_repeat_last_T_1[L - 1])) & ((ldut.subsystem_sbus.coupler_to_port_named_mmio_port_axi4.widget.repeat_count[L - 1] + UInt<1>(0x1)).tail<1>())) : ldut.subsystem_sbus.coupler_to_port_named_mmio_port_axi4.widget.repeat_count[L - 1]);
+        for (int L = 1; L < 16; L++) ldut.subsystem_sbus.coupler_to_port_named_mmio_port_axi4.widget.repeat_count[L].val = static_cast<typename UInt<1>::scalar_t>((static_cast<uint8_t>((static_cast<uint8_t>((((static_cast<uint8_t>((~static_cast<uint8_t>(_s_ldut$reset[L - 1].val))) & 0x1u)) & ((static_cast<uint8_t>(essent_select_word<uint32_t>(((static_cast<uint8_t>(_s_ldut$subsystem_sbus$coupler_to_port_named_mmio_port_axi4$widget$_repeat_T[L - 1].val) & 0x1u)) != 0, static_cast<uint32_t>((static_cast<uint8_t>((((static_cast<uint8_t>((~static_cast<uint8_t>((static_cast<uint8_t>((((static_cast<uint8_t>(((ldut.subsystem_sbus.coupler_to_port_named_mmio_port_axi4.widget.repeat_count[L - 1].val) == (_s_ldut$subsystem_sbus$coupler_to_port_named_mmio_port_axi4$widget$repeat_limit[L - 1].val))) & 0x1u)) | (_s_ldut$subsystem_sbus$coupler_to_port_named_mmio_port_axi4$widget$_repeat_last_T_1[L - 1].val))) & 0x1u)))) & 0x1u)) & ((static_cast<uint8_t>((static_cast<uint8_t>((static_cast<uint8_t>((static_cast<uint8_t>(ldut.subsystem_sbus.coupler_to_port_named_mmio_port_axi4.widget.repeat_count[L - 1].val) + static_cast<uint8_t>((static_cast<uint8_t>(0x1u) & 0x1u)))) & 0x3u)) & 0x1u)) & 0x1u)))) & 0x1u)), static_cast<uint32_t>(ldut.subsystem_sbus.coupler_to_port_named_mmio_port_axi4.widget.repeat_count[L - 1].val))) & 0x1u)))) & 0x1u)) & 0x1u));
       }
     }
     // [vec comb] 2 templates x 16 lanes
@@ -15586,6 +15553,8 @@
       _s_ldut$subsystem_sbus$coupler_to_port_named_mmio_port_axi4$widget$repeated_repeater$saved_size$next[L].val = static_cast<typename UInt<4>::scalar_t>((static_cast<uint8_t>((static_cast<uint8_t>((((_s_ldut$subsystem_sbus$system_bus_xbar$auto_out_2_a_bits_size[L].val) & ((uint8_t)0 - (uint8_t)(((static_cast<uint8_t>(_s_ldut$subsystem_sbus$coupler_to_port_named_mmio_port_axi4$widget$repeated_repeater$_T_1[L].val) & 0x1u)) != 0))) | ((ldut.subsystem_sbus.coupler_to_port_named_mmio_port_axi4.widget.repeated_repeater.saved_size[L].val) & ~((uint8_t)0 - (uint8_t)(((static_cast<uint8_t>(_s_ldut$subsystem_sbus$coupler_to_port_named_mmio_port_axi4$widget$repeated_repeater$_T_1[L].val) & 0x1u)) != 0))))) & 0xfu)) & 0xfu));
       _s_ldut$subsystem_sbus$coupler_to_port_named_mmio_port_axi4$widget$repeated_repeater$saved_source$next[L].val = static_cast<typename UInt<5>::scalar_t>((static_cast<uint8_t>((static_cast<uint8_t>((((_s_ldut$subsystem_sbus$system_bus_xbar$auto_out_2_a_bits_source[L].val) & ((uint8_t)0 - (uint8_t)(((static_cast<uint8_t>(_s_ldut$subsystem_sbus$coupler_to_port_named_mmio_port_axi4$widget$repeated_repeater$_T_1[L].val) & 0x1u)) != 0))) | ((ldut.subsystem_sbus.coupler_to_port_named_mmio_port_axi4.widget.repeated_repeater.saved_source[L].val) & ~((uint8_t)0 - (uint8_t)(((static_cast<uint8_t>(_s_ldut$subsystem_sbus$coupler_to_port_named_mmio_port_axi4$widget$repeated_repeater$_T_1[L].val) & 0x1u)) != 0))))) & 0x1fu)) & 0x1fu));
     }
+
+    if (partition_task_poll) partition_task_poll(partition_task_context, 0, true, 9);
     // [vec comb-wide] 1 templates (compiler-selected vector width)
     for (int L = 0; L < 16; L++) {
       { const uint64_t _v2_word_0 = static_cast<uint64_t>((((static_cast<uint64_t>((_s_ldut$subsystem_sbus$system_bus_xbar$auto_out_2_a_bits_data[L].val[0] >> 0))) & ((uint64_t)0 - (uint64_t)(((static_cast<uint64_t>(_s_ldut$subsystem_sbus$coupler_to_port_named_mmio_port_axi4$widget$repeated_repeater$_T_1[L].val) & 0x1ULL)) != 0))) | ((static_cast<uint64_t>((ldut.subsystem_sbus.coupler_to_port_named_mmio_port_axi4.widget.repeated_repeater.saved_data[L].val[0] >> 0))) & ~((uint64_t)0 - (uint64_t)(((static_cast<uint64_t>(_s_ldut$subsystem_sbus$coupler_to_port_named_mmio_port_axi4$widget$repeated_repeater$_T_1[L].val) & 0x1ULL)) != 0))))); const uint64_t _v2_word_1 = static_cast<uint64_t>((((static_cast<uint64_t>((_s_ldut$subsystem_sbus$system_bus_xbar$auto_out_2_a_bits_data[L].val[1] >> 0))) & ((uint64_t)0 - (uint64_t)(((static_cast<uint64_t>(_s_ldut$subsystem_sbus$coupler_to_port_named_mmio_port_axi4$widget$repeated_repeater$_T_1[L].val) & 0x1ULL)) != 0))) | ((static_cast<uint64_t>((ldut.subsystem_sbus.coupler_to_port_named_mmio_port_axi4.widget.repeated_repeater.saved_data[L].val[1] >> 0))) & ~((uint64_t)0 - (uint64_t)(((static_cast<uint64_t>(_s_ldut$subsystem_sbus$coupler_to_port_named_mmio_port_axi4$widget$repeated_repeater$_T_1[L].val) & 0x1ULL)) != 0))))); _s_ldut$subsystem_sbus$coupler_to_port_named_mmio_port_axi4$widget$repeated_repeater$saved_data$next[L].val[0] = _v2_word_0; _s_ldut$subsystem_sbus$coupler_to_port_named_mmio_port_axi4$widget$repeated_repeater$saved_data$next[L].val[1] = _v2_word_1; }
@@ -15634,8 +15603,6 @@
       _s_ldut$subsystem_sbus$coupler_to_port_named_mmio_port_axi4$widget$repeated_repeater$io_deq_bits_address[L].val = static_cast<typename UInt<31>::scalar_t>((static_cast<uint32_t>((static_cast<uint32_t>((((ldut.subsystem_sbus.coupler_to_port_named_mmio_port_axi4.widget.repeated_repeater.saved_address[L].val) & ((uint32_t)0 - (uint32_t)(((static_cast<uint32_t>(ldut.subsystem_sbus.coupler_to_port_named_mmio_port_axi4.widget.repeated_repeater.full[L].val) & 0x1u)) != 0))) | ((_s_ldut$subsystem_sbus$system_bus_xbar$auto_out_2_a_bits_address[L].val) & ~((uint32_t)0 - (uint32_t)(((static_cast<uint32_t>(ldut.subsystem_sbus.coupler_to_port_named_mmio_port_axi4.widget.repeated_repeater.full[L].val) & 0x1u)) != 0))))) & 0x7fffffffu)) & 0x7fffffffu));
       _s_ldut$subsystem_sbus$coupler_to_port_named_mmio_port_axi4$tl2axi4$queue_arw_deq$io_deq_bits_addr[L].val = static_cast<typename UInt<31>::scalar_t>((static_cast<uint64_t>((static_cast<uint64_t>((((_s_ldut$subsystem_sbus$coupler_to_port_named_mmio_port_axi4$widget$repeated_repeater$io_deq_bits_address[L].val) & ((uint64_t)0 - (uint64_t)(((static_cast<uint64_t>(_s_ldut$subsystem_sbus$coupler_to_port_named_mmio_port_axi4$tl2axi4$queue_arw_deq$empty[L].val) & 0x1ULL)) != 0))) | (((static_cast<uint64_t>(((static_cast<uint64_t>(_v2_bank_ldut$subsystem_sbus$coupler_to_port_named_mmio_port_axi4$tl2axi4$queue_arw_deq$ram__v2_bank_0_0[L].val) >> 29) & 0x7fffffffULL)) & 0x7fffffffULL)) & ~((uint64_t)0 - (uint64_t)(((static_cast<uint64_t>(_s_ldut$subsystem_sbus$coupler_to_port_named_mmio_port_axi4$tl2axi4$queue_arw_deq$empty[L].val) & 0x1ULL)) != 0))))) & 0x7fffffffULL)) & 0x7fffffffULL));
     }
-
-    if (partition_task_poll) partition_task_poll(partition_task_context, 0, true, 9);
     // [vec state-read] 2 templates x 16 lanes
     #if ESSENT_ORACLE_VERIFY // [extern-read] verify-only recompute: ldut.subsystem_sbus.coupler_to_port_named_mmio_port_axi4.axi4buf.bundleOut_0_aw_deq.ram_addr.io_deq_bits_MPORT$rtl
     {
@@ -15645,7 +15612,7 @@
         _v2_sa_anyw |= (uint64_t)(essent_to_u64(_s_ldut$subsystem_sbus$coupler_to_port_named_mmio_port_axi4$axi4buf$bundleOut_0_aw_deq$io_enq_ready[G] & _s_ldut$subsystem_sbus$coupler_to_port_named_mmio_port_axi4$axi4yank$auto_out_aw_valid[G]) != 0) & (uint64_t)(essent_to_u64(UInt<1>(0x1)) != 0);
       }
       if (_v2_sa_anyw == 0) {
-        for (int L = 0; L < 16; L++) { _s_ldut$subsystem_sbus$coupler_to_port_named_mmio_port_axi4$axi4buf$bundleOut_0_aw_deq$ram_addr$io_deq_bits_MPORT$rtl[L] = ldut.subsystem_sbus.coupler_to_port_named_mmio_port_axi4.axi4buf.bundleOut_0_aw_deq.ram_addr[essent_to_u64(ldut.subsystem_sbus.coupler_to_port_named_mmio_port_axi4.axi4buf.bundleOut_0_aw_deq.value_1[L])]; }
+        essent_table_read<16, 2, false>(&_s_ldut$subsystem_sbus$coupler_to_port_named_mmio_port_axi4$axi4buf$bundleOut_0_aw_deq$ram_addr$io_deq_bits_MPORT$rtl[0], &ldut.subsystem_sbus.coupler_to_port_named_mmio_port_axi4.axi4buf.bundleOut_0_aw_deq.ram_addr[0], &ldut.subsystem_sbus.coupler_to_port_named_mmio_port_axi4.axi4buf.bundleOut_0_aw_deq.value_1[0]);
       } else {
       {
         // [state-read-dense] forwarding=branchless
@@ -15654,10 +15621,11 @@
         for (int L = 0; L < 16; L++) {
           const uint64_t _v2_sa_addr = essent_to_u64(ldut.subsystem_sbus.coupler_to_port_named_mmio_port_axi4.axi4buf.bundleOut_0_aw_deq.value_1[L]);
           UInt<31> _v2_sa_value = ldut.subsystem_sbus.coupler_to_port_named_mmio_port_axi4.axi4buf.bundleOut_0_aw_deq.ram_addr[_v2_sa_addr];
+          // [branchless-forward] select a valid source before loading data
           const int _v2_sa_prev_code = _v2_sa_last[_v2_sa_addr];
-          const uint64_t _v2_sa_prev_valid = (uint64_t)(_v2_sa_prev_code >= 0);
+          const bool _v2_sa_prev_valid = _v2_sa_prev_code >= 0;
           [[maybe_unused]] const int _v2_sa_prev_lane = _v2_sa_prev_code & -static_cast<int>(_v2_sa_prev_valid);
-          _v2_sa_value = essent_mux(UInt<1>(_v2_sa_prev_valid), _s_ldut$subsystem_sbus$coupler_to_port_named_mmio_port_axi4$tl2axi4$queue_arw_deq$io_deq_bits_addr[_v2_sa_prev_lane], _v2_sa_value);
+          _v2_sa_value = *essent_select_ptr(_v2_sa_prev_valid, &(_s_ldut$subsystem_sbus$coupler_to_port_named_mmio_port_axi4$tl2axi4$queue_arw_deq$io_deq_bits_addr[_v2_sa_prev_lane]), &_v2_sa_value);
           _s_ldut$subsystem_sbus$coupler_to_port_named_mmio_port_axi4$axi4buf$bundleOut_0_aw_deq$ram_addr$io_deq_bits_MPORT$rtl[L] = _v2_sa_value;
           const uint64_t _v2_sa_write_addr_0 = essent_to_u64(ldut.subsystem_sbus.coupler_to_port_named_mmio_port_axi4.axi4buf.bundleOut_0_aw_deq.value[L]);
           const uint64_t _v2_sa_write_take_0 = (uint64_t)(essent_to_u64(_s_ldut$subsystem_sbus$coupler_to_port_named_mmio_port_axi4$axi4buf$bundleOut_0_aw_deq$io_enq_ready[L] & _s_ldut$subsystem_sbus$coupler_to_port_named_mmio_port_axi4$axi4yank$auto_out_aw_valid[L]) != 0) & (uint64_t)(essent_to_u64(UInt<1>(0x1)) != 0);
@@ -15677,7 +15645,7 @@
         _v2_sa_anyw |= (uint64_t)(essent_to_u64(_s_ldut$subsystem_sbus$coupler_to_port_named_mmio_port_axi4$axi4buf$bundleOut_0_ar_deq$io_enq_ready[G] & _s_ldut$subsystem_sbus$coupler_to_port_named_mmio_port_axi4$axi4yank$auto_out_ar_valid[G]) != 0) & (uint64_t)(essent_to_u64(UInt<1>(0x1)) != 0);
       }
       if (_v2_sa_anyw == 0) {
-        for (int L = 0; L < 16; L++) { _s_ldut$subsystem_sbus$coupler_to_port_named_mmio_port_axi4$axi4buf$bundleOut_0_ar_deq$ram_addr$io_deq_bits_MPORT$rtl[L] = ldut.subsystem_sbus.coupler_to_port_named_mmio_port_axi4.axi4buf.bundleOut_0_ar_deq.ram_addr[essent_to_u64(ldut.subsystem_sbus.coupler_to_port_named_mmio_port_axi4.axi4buf.bundleOut_0_ar_deq.value_1[L])]; }
+        essent_table_read<16, 2, false>(&_s_ldut$subsystem_sbus$coupler_to_port_named_mmio_port_axi4$axi4buf$bundleOut_0_ar_deq$ram_addr$io_deq_bits_MPORT$rtl[0], &ldut.subsystem_sbus.coupler_to_port_named_mmio_port_axi4.axi4buf.bundleOut_0_ar_deq.ram_addr[0], &ldut.subsystem_sbus.coupler_to_port_named_mmio_port_axi4.axi4buf.bundleOut_0_ar_deq.value_1[0]);
       } else {
       {
         // [state-read-dense] forwarding=branchless
@@ -15686,10 +15654,11 @@
         for (int L = 0; L < 16; L++) {
           const uint64_t _v2_sa_addr = essent_to_u64(ldut.subsystem_sbus.coupler_to_port_named_mmio_port_axi4.axi4buf.bundleOut_0_ar_deq.value_1[L]);
           UInt<31> _v2_sa_value = ldut.subsystem_sbus.coupler_to_port_named_mmio_port_axi4.axi4buf.bundleOut_0_ar_deq.ram_addr[_v2_sa_addr];
+          // [branchless-forward] select a valid source before loading data
           const int _v2_sa_prev_code = _v2_sa_last[_v2_sa_addr];
-          const uint64_t _v2_sa_prev_valid = (uint64_t)(_v2_sa_prev_code >= 0);
+          const bool _v2_sa_prev_valid = _v2_sa_prev_code >= 0;
           [[maybe_unused]] const int _v2_sa_prev_lane = _v2_sa_prev_code & -static_cast<int>(_v2_sa_prev_valid);
-          _v2_sa_value = essent_mux(UInt<1>(_v2_sa_prev_valid), _s_ldut$subsystem_sbus$coupler_to_port_named_mmio_port_axi4$tl2axi4$queue_arw_deq$io_deq_bits_addr[_v2_sa_prev_lane], _v2_sa_value);
+          _v2_sa_value = *essent_select_ptr(_v2_sa_prev_valid, &(_s_ldut$subsystem_sbus$coupler_to_port_named_mmio_port_axi4$tl2axi4$queue_arw_deq$io_deq_bits_addr[_v2_sa_prev_lane]), &_v2_sa_value);
           _s_ldut$subsystem_sbus$coupler_to_port_named_mmio_port_axi4$axi4buf$bundleOut_0_ar_deq$ram_addr$io_deq_bits_MPORT$rtl[L] = _v2_sa_value;
           const uint64_t _v2_sa_write_addr_0 = essent_to_u64(ldut.subsystem_sbus.coupler_to_port_named_mmio_port_axi4.axi4buf.bundleOut_0_ar_deq.value[L]);
           const uint64_t _v2_sa_write_take_0 = (uint64_t)(essent_to_u64(_s_ldut$subsystem_sbus$coupler_to_port_named_mmio_port_axi4$axi4buf$bundleOut_0_ar_deq$io_enq_ready[L] & _s_ldut$subsystem_sbus$coupler_to_port_named_mmio_port_axi4$axi4yank$auto_out_ar_valid[L]) != 0) & (uint64_t)(essent_to_u64(UInt<1>(0x1)) != 0);
@@ -15717,7 +15686,7 @@
         _v2_sa_anyw |= (uint64_t)(essent_to_u64(_s_ldut$subsystem_sbus$coupler_to_port_named_mmio_port_axi4$axi4buf$bundleOut_0_w_deq$io_enq_ready[G] & _s_ldut$subsystem_sbus$coupler_to_port_named_mmio_port_axi4$tl2axi4$deq$io_deq_valid[G]) != 0) & (uint64_t)(essent_to_u64(UInt<1>(0x1)) != 0);
       }
       if (_v2_sa_anyw == 0) {
-        for (int L = 0; L < 16; L++) { _s_ldut$subsystem_sbus$coupler_to_port_named_mmio_port_axi4$axi4buf$bundleOut_0_w_deq$ram_strb$io_deq_bits_MPORT$rtl[L] = ldut.subsystem_sbus.coupler_to_port_named_mmio_port_axi4.axi4buf.bundleOut_0_w_deq.ram_strb[essent_to_u64(ldut.subsystem_sbus.coupler_to_port_named_mmio_port_axi4.axi4buf.bundleOut_0_w_deq.value_1[L])]; }
+        essent_table_read<16, 2, false>(&_s_ldut$subsystem_sbus$coupler_to_port_named_mmio_port_axi4$axi4buf$bundleOut_0_w_deq$ram_strb$io_deq_bits_MPORT$rtl[0], &ldut.subsystem_sbus.coupler_to_port_named_mmio_port_axi4.axi4buf.bundleOut_0_w_deq.ram_strb[0], &ldut.subsystem_sbus.coupler_to_port_named_mmio_port_axi4.axi4buf.bundleOut_0_w_deq.value_1[0]);
       } else {
       {
         // [state-read-dense] forwarding=branchless
@@ -15726,10 +15695,11 @@
         for (int L = 0; L < 16; L++) {
           const uint64_t _v2_sa_addr = essent_to_u64(ldut.subsystem_sbus.coupler_to_port_named_mmio_port_axi4.axi4buf.bundleOut_0_w_deq.value_1[L]);
           UInt<8> _v2_sa_value = ldut.subsystem_sbus.coupler_to_port_named_mmio_port_axi4.axi4buf.bundleOut_0_w_deq.ram_strb[_v2_sa_addr];
+          // [branchless-forward] select a valid source before loading data
           const int _v2_sa_prev_code = _v2_sa_last[_v2_sa_addr];
-          const uint64_t _v2_sa_prev_valid = (uint64_t)(_v2_sa_prev_code >= 0);
+          const bool _v2_sa_prev_valid = _v2_sa_prev_code >= 0;
           [[maybe_unused]] const int _v2_sa_prev_lane = _v2_sa_prev_code & -static_cast<int>(_v2_sa_prev_valid);
-          _v2_sa_value = essent_mux(UInt<1>(_v2_sa_prev_valid), _s_ldut$subsystem_sbus$coupler_to_port_named_mmio_port_axi4$tl2axi4$deq$io_deq_bits_strb[_v2_sa_prev_lane], _v2_sa_value);
+          _v2_sa_value = *essent_select_ptr(_v2_sa_prev_valid, &(_s_ldut$subsystem_sbus$coupler_to_port_named_mmio_port_axi4$tl2axi4$deq$io_deq_bits_strb[_v2_sa_prev_lane]), &_v2_sa_value);
           _s_ldut$subsystem_sbus$coupler_to_port_named_mmio_port_axi4$axi4buf$bundleOut_0_w_deq$ram_strb$io_deq_bits_MPORT$rtl[L] = _v2_sa_value;
           const uint64_t _v2_sa_write_addr_0 = essent_to_u64(ldut.subsystem_sbus.coupler_to_port_named_mmio_port_axi4.axi4buf.bundleOut_0_w_deq.value[L]);
           const uint64_t _v2_sa_write_take_0 = (uint64_t)(essent_to_u64(_s_ldut$subsystem_sbus$coupler_to_port_named_mmio_port_axi4$axi4buf$bundleOut_0_w_deq$io_enq_ready[L] & _s_ldut$subsystem_sbus$coupler_to_port_named_mmio_port_axi4$tl2axi4$deq$io_deq_valid[L]) != 0) & (uint64_t)(essent_to_u64(UInt<1>(0x1)) != 0);
@@ -15756,7 +15726,7 @@
         _v2_sa_anyw |= (uint64_t)(essent_to_u64(_s_ldut$subsystem_sbus$coupler_to_port_named_mmio_port_axi4$axi4buf$bundleOut_0_w_deq$io_enq_ready[G] & _s_ldut$subsystem_sbus$coupler_to_port_named_mmio_port_axi4$tl2axi4$deq$io_deq_valid[G]) != 0) & (uint64_t)(essent_to_u64(UInt<1>(0x1)) != 0);
       }
       if (_v2_sa_anyw == 0) {
-        for (int L = 0; L < 16; L++) { _s_ldut$subsystem_sbus$coupler_to_port_named_mmio_port_axi4$axi4buf$bundleOut_0_w_deq$ram_data$io_deq_bits_MPORT$rtl[L] = ldut.subsystem_sbus.coupler_to_port_named_mmio_port_axi4.axi4buf.bundleOut_0_w_deq.ram_data[essent_to_u64(ldut.subsystem_sbus.coupler_to_port_named_mmio_port_axi4.axi4buf.bundleOut_0_w_deq.value_1[L])]; }
+        essent_table_read<16, 2, false>(&_s_ldut$subsystem_sbus$coupler_to_port_named_mmio_port_axi4$axi4buf$bundleOut_0_w_deq$ram_data$io_deq_bits_MPORT$rtl[0], &ldut.subsystem_sbus.coupler_to_port_named_mmio_port_axi4.axi4buf.bundleOut_0_w_deq.ram_data[0], &ldut.subsystem_sbus.coupler_to_port_named_mmio_port_axi4.axi4buf.bundleOut_0_w_deq.value_1[0]);
       } else {
       {
         // [state-read-dense] forwarding=branchless
@@ -15765,10 +15735,11 @@
         for (int L = 0; L < 16; L++) {
           const uint64_t _v2_sa_addr = essent_to_u64(ldut.subsystem_sbus.coupler_to_port_named_mmio_port_axi4.axi4buf.bundleOut_0_w_deq.value_1[L]);
           UInt<64> _v2_sa_value = ldut.subsystem_sbus.coupler_to_port_named_mmio_port_axi4.axi4buf.bundleOut_0_w_deq.ram_data[_v2_sa_addr];
+          // [branchless-forward] select a valid source before loading data
           const int _v2_sa_prev_code = _v2_sa_last[_v2_sa_addr];
-          const uint64_t _v2_sa_prev_valid = (uint64_t)(_v2_sa_prev_code >= 0);
+          const bool _v2_sa_prev_valid = _v2_sa_prev_code >= 0;
           [[maybe_unused]] const int _v2_sa_prev_lane = _v2_sa_prev_code & -static_cast<int>(_v2_sa_prev_valid);
-          _v2_sa_value = essent_mux(UInt<1>(_v2_sa_prev_valid), _s_ldut$subsystem_sbus$coupler_to_port_named_mmio_port_axi4$tl2axi4$deq$io_deq_bits_data[_v2_sa_prev_lane], _v2_sa_value);
+          _v2_sa_value = *essent_select_ptr(_v2_sa_prev_valid, &(_s_ldut$subsystem_sbus$coupler_to_port_named_mmio_port_axi4$tl2axi4$deq$io_deq_bits_data[_v2_sa_prev_lane]), &_v2_sa_value);
           _s_ldut$subsystem_sbus$coupler_to_port_named_mmio_port_axi4$axi4buf$bundleOut_0_w_deq$ram_data$io_deq_bits_MPORT$rtl[L] = _v2_sa_value;
           const uint64_t _v2_sa_write_addr_0 = essent_to_u64(ldut.subsystem_sbus.coupler_to_port_named_mmio_port_axi4.axi4buf.bundleOut_0_w_deq.value[L]);
           const uint64_t _v2_sa_write_take_0 = (uint64_t)(essent_to_u64(_s_ldut$subsystem_sbus$coupler_to_port_named_mmio_port_axi4$axi4buf$bundleOut_0_w_deq$io_enq_ready[L] & _s_ldut$subsystem_sbus$coupler_to_port_named_mmio_port_axi4$tl2axi4$deq$io_deq_valid[L]) != 0) & (uint64_t)(essent_to_u64(UInt<1>(0x1)) != 0);
@@ -15832,6 +15803,8 @@
     // [serial scc=195] 1 templates (0 comb), regs=[saved_user_amba_prot_bufferable]
     // [serial scc=195 chain-loop]
     essent_condhold_apply_fwd<16>(ldut.subsystem_sbus.coupler_to_port_named_mmio_port_axi4.widget.repeated_repeater.saved_user_amba_prot_bufferable, _v2_cond_idx_6, _s_ldut$subsystem_sbus$coupler_to_port_named_mmio_port_axi4$widget$repeated_repeater$saved_user_amba_prot_bufferable$wdata);
+
+    if (partition_task_poll) partition_task_poll(partition_task_context, 0, true, 9);
     // [vec comb] 1 templates x 16 lanes
     ESSENT_LANE_LOOP
     for (int L = 0; L < 16; L++) {
@@ -15880,8 +15853,6 @@
     // [serial scc=198] 1 templates (0 comb), regs=[saved_user_amba_prot_writealloc]
     // [serial scc=198 chain-loop]
     essent_condhold_apply_fwd<16>(ldut.subsystem_sbus.coupler_to_port_named_mmio_port_axi4.widget.repeated_repeater.saved_user_amba_prot_writealloc, _v2_cond_idx_6, _s_ldut$subsystem_sbus$coupler_to_port_named_mmio_port_axi4$widget$repeated_repeater$saved_user_amba_prot_writealloc$wdata);
-
-    if (partition_task_poll) partition_task_poll(partition_task_context, 0, true, 9);
     // [vec comb] 3 templates x 16 lanes
     ESSENT_LANE_LOOP
     for (int L = 0; L < 16; L++) {
@@ -15900,7 +15871,7 @@
         _v2_sa_anyw |= (uint64_t)(essent_to_u64(_s_ldut$subsystem_sbus$coupler_to_port_named_mmio_port_axi4$axi4buf$bundleOut_0_aw_deq$io_enq_ready[G] & _s_ldut$subsystem_sbus$coupler_to_port_named_mmio_port_axi4$axi4yank$auto_out_aw_valid[G]) != 0) & (uint64_t)(essent_to_u64(UInt<1>(0x1)) != 0);
       }
       if (_v2_sa_anyw == 0) {
-        for (int L = 0; L < 16; L++) { _s_ldut$subsystem_sbus$coupler_to_port_named_mmio_port_axi4$axi4buf$bundleOut_0_aw_deq$ram_cache$io_deq_bits_MPORT$rtl[L] = ldut.subsystem_sbus.coupler_to_port_named_mmio_port_axi4.axi4buf.bundleOut_0_aw_deq.ram_cache[essent_to_u64(ldut.subsystem_sbus.coupler_to_port_named_mmio_port_axi4.axi4buf.bundleOut_0_aw_deq.value_1[L])]; }
+        essent_table_read<16, 2, false>(&_s_ldut$subsystem_sbus$coupler_to_port_named_mmio_port_axi4$axi4buf$bundleOut_0_aw_deq$ram_cache$io_deq_bits_MPORT$rtl[0], &ldut.subsystem_sbus.coupler_to_port_named_mmio_port_axi4.axi4buf.bundleOut_0_aw_deq.ram_cache[0], &ldut.subsystem_sbus.coupler_to_port_named_mmio_port_axi4.axi4buf.bundleOut_0_aw_deq.value_1[0]);
       } else {
       {
         // [state-read-dense] forwarding=branchless
@@ -15909,10 +15880,11 @@
         for (int L = 0; L < 16; L++) {
           const uint64_t _v2_sa_addr = essent_to_u64(ldut.subsystem_sbus.coupler_to_port_named_mmio_port_axi4.axi4buf.bundleOut_0_aw_deq.value_1[L]);
           UInt<4> _v2_sa_value = ldut.subsystem_sbus.coupler_to_port_named_mmio_port_axi4.axi4buf.bundleOut_0_aw_deq.ram_cache[_v2_sa_addr];
+          // [branchless-forward] select a valid source before loading data
           const int _v2_sa_prev_code = _v2_sa_last[_v2_sa_addr];
-          const uint64_t _v2_sa_prev_valid = (uint64_t)(_v2_sa_prev_code >= 0);
+          const bool _v2_sa_prev_valid = _v2_sa_prev_code >= 0;
           [[maybe_unused]] const int _v2_sa_prev_lane = _v2_sa_prev_code & -static_cast<int>(_v2_sa_prev_valid);
-          _v2_sa_value = essent_mux(UInt<1>(_v2_sa_prev_valid), _s_ldut$subsystem_sbus$coupler_to_port_named_mmio_port_axi4$tl2axi4$queue_arw_deq$io_deq_bits_cache[_v2_sa_prev_lane], _v2_sa_value);
+          _v2_sa_value = *essent_select_ptr(_v2_sa_prev_valid, &(_s_ldut$subsystem_sbus$coupler_to_port_named_mmio_port_axi4$tl2axi4$queue_arw_deq$io_deq_bits_cache[_v2_sa_prev_lane]), &_v2_sa_value);
           _s_ldut$subsystem_sbus$coupler_to_port_named_mmio_port_axi4$axi4buf$bundleOut_0_aw_deq$ram_cache$io_deq_bits_MPORT$rtl[L] = _v2_sa_value;
           const uint64_t _v2_sa_write_addr_0 = essent_to_u64(ldut.subsystem_sbus.coupler_to_port_named_mmio_port_axi4.axi4buf.bundleOut_0_aw_deq.value[L]);
           const uint64_t _v2_sa_write_take_0 = (uint64_t)(essent_to_u64(_s_ldut$subsystem_sbus$coupler_to_port_named_mmio_port_axi4$axi4buf$bundleOut_0_aw_deq$io_enq_ready[L] & _s_ldut$subsystem_sbus$coupler_to_port_named_mmio_port_axi4$axi4yank$auto_out_aw_valid[L]) != 0) & (uint64_t)(essent_to_u64(UInt<1>(0x1)) != 0);
@@ -15932,7 +15904,7 @@
         _v2_sa_anyw |= (uint64_t)(essent_to_u64(_s_ldut$subsystem_sbus$coupler_to_port_named_mmio_port_axi4$axi4buf$bundleOut_0_ar_deq$io_enq_ready[G] & _s_ldut$subsystem_sbus$coupler_to_port_named_mmio_port_axi4$axi4yank$auto_out_ar_valid[G]) != 0) & (uint64_t)(essent_to_u64(UInt<1>(0x1)) != 0);
       }
       if (_v2_sa_anyw == 0) {
-        for (int L = 0; L < 16; L++) { _s_ldut$subsystem_sbus$coupler_to_port_named_mmio_port_axi4$axi4buf$bundleOut_0_ar_deq$ram_cache$io_deq_bits_MPORT$rtl[L] = ldut.subsystem_sbus.coupler_to_port_named_mmio_port_axi4.axi4buf.bundleOut_0_ar_deq.ram_cache[essent_to_u64(ldut.subsystem_sbus.coupler_to_port_named_mmio_port_axi4.axi4buf.bundleOut_0_ar_deq.value_1[L])]; }
+        essent_table_read<16, 2, false>(&_s_ldut$subsystem_sbus$coupler_to_port_named_mmio_port_axi4$axi4buf$bundleOut_0_ar_deq$ram_cache$io_deq_bits_MPORT$rtl[0], &ldut.subsystem_sbus.coupler_to_port_named_mmio_port_axi4.axi4buf.bundleOut_0_ar_deq.ram_cache[0], &ldut.subsystem_sbus.coupler_to_port_named_mmio_port_axi4.axi4buf.bundleOut_0_ar_deq.value_1[0]);
       } else {
       {
         // [state-read-dense] forwarding=branchless
@@ -15941,10 +15913,11 @@
         for (int L = 0; L < 16; L++) {
           const uint64_t _v2_sa_addr = essent_to_u64(ldut.subsystem_sbus.coupler_to_port_named_mmio_port_axi4.axi4buf.bundleOut_0_ar_deq.value_1[L]);
           UInt<4> _v2_sa_value = ldut.subsystem_sbus.coupler_to_port_named_mmio_port_axi4.axi4buf.bundleOut_0_ar_deq.ram_cache[_v2_sa_addr];
+          // [branchless-forward] select a valid source before loading data
           const int _v2_sa_prev_code = _v2_sa_last[_v2_sa_addr];
-          const uint64_t _v2_sa_prev_valid = (uint64_t)(_v2_sa_prev_code >= 0);
+          const bool _v2_sa_prev_valid = _v2_sa_prev_code >= 0;
           [[maybe_unused]] const int _v2_sa_prev_lane = _v2_sa_prev_code & -static_cast<int>(_v2_sa_prev_valid);
-          _v2_sa_value = essent_mux(UInt<1>(_v2_sa_prev_valid), _s_ldut$subsystem_sbus$coupler_to_port_named_mmio_port_axi4$tl2axi4$queue_arw_deq$io_deq_bits_cache[_v2_sa_prev_lane], _v2_sa_value);
+          _v2_sa_value = *essent_select_ptr(_v2_sa_prev_valid, &(_s_ldut$subsystem_sbus$coupler_to_port_named_mmio_port_axi4$tl2axi4$queue_arw_deq$io_deq_bits_cache[_v2_sa_prev_lane]), &_v2_sa_value);
           _s_ldut$subsystem_sbus$coupler_to_port_named_mmio_port_axi4$axi4buf$bundleOut_0_ar_deq$ram_cache$io_deq_bits_MPORT$rtl[L] = _v2_sa_value;
           const uint64_t _v2_sa_write_addr_0 = essent_to_u64(ldut.subsystem_sbus.coupler_to_port_named_mmio_port_axi4.axi4buf.bundleOut_0_ar_deq.value[L]);
           const uint64_t _v2_sa_write_take_0 = (uint64_t)(essent_to_u64(_s_ldut$subsystem_sbus$coupler_to_port_named_mmio_port_axi4$axi4buf$bundleOut_0_ar_deq$io_enq_ready[L] & _s_ldut$subsystem_sbus$coupler_to_port_named_mmio_port_axi4$axi4yank$auto_out_ar_valid[L]) != 0) & (uint64_t)(essent_to_u64(UInt<1>(0x1)) != 0);
@@ -16039,7 +16012,7 @@
         _v2_sa_anyw |= (uint64_t)(essent_to_u64(_s_ldut$subsystem_sbus$coupler_to_port_named_mmio_port_axi4$axi4buf$bundleOut_0_aw_deq$io_enq_ready[G] & _s_ldut$subsystem_sbus$coupler_to_port_named_mmio_port_axi4$axi4yank$auto_out_aw_valid[G]) != 0) & (uint64_t)(essent_to_u64(UInt<1>(0x1)) != 0);
       }
       if (_v2_sa_anyw == 0) {
-        for (int L = 0; L < 16; L++) { _s_ldut$subsystem_sbus$coupler_to_port_named_mmio_port_axi4$axi4buf$bundleOut_0_aw_deq$ram_prot$io_deq_bits_MPORT$rtl[L] = ldut.subsystem_sbus.coupler_to_port_named_mmio_port_axi4.axi4buf.bundleOut_0_aw_deq.ram_prot[essent_to_u64(ldut.subsystem_sbus.coupler_to_port_named_mmio_port_axi4.axi4buf.bundleOut_0_aw_deq.value_1[L])]; }
+        essent_table_read<16, 2, false>(&_s_ldut$subsystem_sbus$coupler_to_port_named_mmio_port_axi4$axi4buf$bundleOut_0_aw_deq$ram_prot$io_deq_bits_MPORT$rtl[0], &ldut.subsystem_sbus.coupler_to_port_named_mmio_port_axi4.axi4buf.bundleOut_0_aw_deq.ram_prot[0], &ldut.subsystem_sbus.coupler_to_port_named_mmio_port_axi4.axi4buf.bundleOut_0_aw_deq.value_1[0]);
       } else {
       {
         // [state-read-dense] forwarding=branchless
@@ -16048,10 +16021,11 @@
         for (int L = 0; L < 16; L++) {
           const uint64_t _v2_sa_addr = essent_to_u64(ldut.subsystem_sbus.coupler_to_port_named_mmio_port_axi4.axi4buf.bundleOut_0_aw_deq.value_1[L]);
           UInt<3> _v2_sa_value = ldut.subsystem_sbus.coupler_to_port_named_mmio_port_axi4.axi4buf.bundleOut_0_aw_deq.ram_prot[_v2_sa_addr];
+          // [branchless-forward] select a valid source before loading data
           const int _v2_sa_prev_code = _v2_sa_last[_v2_sa_addr];
-          const uint64_t _v2_sa_prev_valid = (uint64_t)(_v2_sa_prev_code >= 0);
+          const bool _v2_sa_prev_valid = _v2_sa_prev_code >= 0;
           [[maybe_unused]] const int _v2_sa_prev_lane = _v2_sa_prev_code & -static_cast<int>(_v2_sa_prev_valid);
-          _v2_sa_value = essent_mux(UInt<1>(_v2_sa_prev_valid), _s_ldut$subsystem_sbus$coupler_to_port_named_mmio_port_axi4$tl2axi4$queue_arw_deq$io_deq_bits_prot[_v2_sa_prev_lane], _v2_sa_value);
+          _v2_sa_value = *essent_select_ptr(_v2_sa_prev_valid, &(_s_ldut$subsystem_sbus$coupler_to_port_named_mmio_port_axi4$tl2axi4$queue_arw_deq$io_deq_bits_prot[_v2_sa_prev_lane]), &_v2_sa_value);
           _s_ldut$subsystem_sbus$coupler_to_port_named_mmio_port_axi4$axi4buf$bundleOut_0_aw_deq$ram_prot$io_deq_bits_MPORT$rtl[L] = _v2_sa_value;
           const uint64_t _v2_sa_write_addr_0 = essent_to_u64(ldut.subsystem_sbus.coupler_to_port_named_mmio_port_axi4.axi4buf.bundleOut_0_aw_deq.value[L]);
           const uint64_t _v2_sa_write_take_0 = (uint64_t)(essent_to_u64(_s_ldut$subsystem_sbus$coupler_to_port_named_mmio_port_axi4$axi4buf$bundleOut_0_aw_deq$io_enq_ready[L] & _s_ldut$subsystem_sbus$coupler_to_port_named_mmio_port_axi4$axi4yank$auto_out_aw_valid[L]) != 0) & (uint64_t)(essent_to_u64(UInt<1>(0x1)) != 0);
@@ -16071,7 +16045,7 @@
         _v2_sa_anyw |= (uint64_t)(essent_to_u64(_s_ldut$subsystem_sbus$coupler_to_port_named_mmio_port_axi4$axi4buf$bundleOut_0_ar_deq$io_enq_ready[G] & _s_ldut$subsystem_sbus$coupler_to_port_named_mmio_port_axi4$axi4yank$auto_out_ar_valid[G]) != 0) & (uint64_t)(essent_to_u64(UInt<1>(0x1)) != 0);
       }
       if (_v2_sa_anyw == 0) {
-        for (int L = 0; L < 16; L++) { _s_ldut$subsystem_sbus$coupler_to_port_named_mmio_port_axi4$axi4buf$bundleOut_0_ar_deq$ram_prot$io_deq_bits_MPORT$rtl[L] = ldut.subsystem_sbus.coupler_to_port_named_mmio_port_axi4.axi4buf.bundleOut_0_ar_deq.ram_prot[essent_to_u64(ldut.subsystem_sbus.coupler_to_port_named_mmio_port_axi4.axi4buf.bundleOut_0_ar_deq.value_1[L])]; }
+        essent_table_read<16, 2, false>(&_s_ldut$subsystem_sbus$coupler_to_port_named_mmio_port_axi4$axi4buf$bundleOut_0_ar_deq$ram_prot$io_deq_bits_MPORT$rtl[0], &ldut.subsystem_sbus.coupler_to_port_named_mmio_port_axi4.axi4buf.bundleOut_0_ar_deq.ram_prot[0], &ldut.subsystem_sbus.coupler_to_port_named_mmio_port_axi4.axi4buf.bundleOut_0_ar_deq.value_1[0]);
       } else {
       {
         // [state-read-dense] forwarding=branchless
@@ -16080,10 +16054,11 @@
         for (int L = 0; L < 16; L++) {
           const uint64_t _v2_sa_addr = essent_to_u64(ldut.subsystem_sbus.coupler_to_port_named_mmio_port_axi4.axi4buf.bundleOut_0_ar_deq.value_1[L]);
           UInt<3> _v2_sa_value = ldut.subsystem_sbus.coupler_to_port_named_mmio_port_axi4.axi4buf.bundleOut_0_ar_deq.ram_prot[_v2_sa_addr];
+          // [branchless-forward] select a valid source before loading data
           const int _v2_sa_prev_code = _v2_sa_last[_v2_sa_addr];
-          const uint64_t _v2_sa_prev_valid = (uint64_t)(_v2_sa_prev_code >= 0);
+          const bool _v2_sa_prev_valid = _v2_sa_prev_code >= 0;
           [[maybe_unused]] const int _v2_sa_prev_lane = _v2_sa_prev_code & -static_cast<int>(_v2_sa_prev_valid);
-          _v2_sa_value = essent_mux(UInt<1>(_v2_sa_prev_valid), _s_ldut$subsystem_sbus$coupler_to_port_named_mmio_port_axi4$tl2axi4$queue_arw_deq$io_deq_bits_prot[_v2_sa_prev_lane], _v2_sa_value);
+          _v2_sa_value = *essent_select_ptr(_v2_sa_prev_valid, &(_s_ldut$subsystem_sbus$coupler_to_port_named_mmio_port_axi4$tl2axi4$queue_arw_deq$io_deq_bits_prot[_v2_sa_prev_lane]), &_v2_sa_value);
           _s_ldut$subsystem_sbus$coupler_to_port_named_mmio_port_axi4$axi4buf$bundleOut_0_ar_deq$ram_prot$io_deq_bits_MPORT$rtl[L] = _v2_sa_value;
           const uint64_t _v2_sa_write_addr_0 = essent_to_u64(ldut.subsystem_sbus.coupler_to_port_named_mmio_port_axi4.axi4buf.bundleOut_0_ar_deq.value[L]);
           const uint64_t _v2_sa_write_take_0 = (uint64_t)(essent_to_u64(_s_ldut$subsystem_sbus$coupler_to_port_named_mmio_port_axi4$axi4buf$bundleOut_0_ar_deq$io_enq_ready[L] & _s_ldut$subsystem_sbus$coupler_to_port_named_mmio_port_axi4$axi4yank$auto_out_ar_valid[L]) != 0) & (uint64_t)(essent_to_u64(UInt<1>(0x1)) != 0);
@@ -16103,13 +16078,13 @@
     { const int L = 15;
       _s_ldut$subsystem_sbus$coupler_to_port_named_mmio_port_axi4$widget$repeated_repeater$saved_user_amba_prot_fetch$next[((L) == 0 ? 0 : 1)].val = static_cast<typename UInt<1>::scalar_t>((static_cast<uint8_t>((static_cast<uint8_t>((((static_cast<uint8_t>(((_s_ldut$subsystem_sbus$coupler_to_port_named_mmio_port_axi4$widget$repeated_repeater$_T_1[L].val) & (_s_ldut$subsystem_sbus$system_bus_xbar$auto_out_2_a_bits_user_amba_prot_fetch[L].val))) & 0x1u)) | ((static_cast<uint8_t>((((static_cast<uint8_t>((~static_cast<uint8_t>(_s_ldut$subsystem_sbus$coupler_to_port_named_mmio_port_axi4$widget$repeated_repeater$_T_1[L].val))) & 0x1u)) & (ldut.subsystem_sbus.coupler_to_port_named_mmio_port_axi4.widget.repeated_repeater.saved_user_amba_prot_fetch[L].val))) & 0x1u)))) & 0x1u)) & 0x1u));
     }
+
+    if (partition_task_poll) partition_task_poll(partition_task_context, 0, true, 9);
     // [vec comb] 1 templates x 16 lanes
     ESSENT_LANE_LOOP
     for (int L = 0; L < 16; L++) {
       _s_ldut$subsystem_sbus$coupler_to_port_named_mmio_port_axi4$tl2axi4$queue_arw_deq$ram__v2_bank_0_0$next[L].val = static_cast<typename UInt<64>::scalar_t>(static_cast<uint64_t>(static_cast<uint64_t>((((static_cast<uint64_t>(((static_cast<uint64_t>((static_cast<uint64_t>(((static_cast<uint64_t>((static_cast<uint64_t>(((static_cast<uint64_t>((static_cast<uint64_t>(((static_cast<uint64_t>((static_cast<uint64_t>(((static_cast<uint64_t>((static_cast<uint64_t>(((static_cast<uint64_t>((static_cast<uint64_t>(((static_cast<uint64_t>((static_cast<uint64_t>(((static_cast<uint64_t>((static_cast<uint64_t>(((static_cast<uint64_t>(_s_ldut$subsystem_sbus$coupler_to_port_named_mmio_port_axi4$tl2axi4$queue_arw_deq$io_enq_bits_id[L].val) << 31) | (static_cast<uint64_t>(_s_ldut$subsystem_sbus$coupler_to_port_named_mmio_port_axi4$widget$repeated_repeater$io_deq_bits_address[L].val) & 0x7fffffffULL))) & 0x7ffffffffULL)) << 8) | (static_cast<uint64_t>(_s_ldut$subsystem_sbus$coupler_to_port_named_mmio_port_axi4$tl2axi4$queue_arw_deq$io_enq_bits_len[L].val) & 0xffULL))) & 0x7ffffffffffULL)) << 3) | (static_cast<uint64_t>(_s_ldut$subsystem_sbus$coupler_to_port_named_mmio_port_axi4$tl2axi4$queue_arw_deq$io_enq_bits_size[L].val) & 0x7ULL))) & 0x3fffffffffffULL)) << 2) | (static_cast<uint64_t>((static_cast<uint64_t>(0x1ULL) & 0x3ULL)) & 0x3ULL))) & 0xffffffffffffULL)) << 1) | (static_cast<uint64_t>((static_cast<uint64_t>(0x0ULL) & 0x1ULL)) & 0x1ULL))) & 0x1ffffffffffffULL)) << 4) | (static_cast<uint64_t>(_s_ldut$subsystem_sbus$coupler_to_port_named_mmio_port_axi4$tl2axi4$queue_arw_deq$io_enq_bits_cache[L].val) & 0xfULL))) & 0x1fffffffffffffULL)) << 3) | (static_cast<uint64_t>(_s_ldut$subsystem_sbus$coupler_to_port_named_mmio_port_axi4$tl2axi4$queue_arw_deq$io_enq_bits_prot[L].val) & 0x7ULL))) & 0xffffffffffffffULL)) << 4) | (static_cast<uint64_t>((static_cast<uint64_t>(0x0ULL) & 0xfULL)) & 0xfULL))) & 0xfffffffffffffffULL)) << 4) | (static_cast<uint64_t>(_s_ldut$subsystem_sbus$coupler_to_port_named_mmio_port_axi4$widget$repeated_repeater$io_deq_bits_size[L].val) & 0xfULL)))) & ((uint64_t)0 - (uint64_t)(((static_cast<uint64_t>((static_cast<uint64_t>((((static_cast<uint64_t>(((_s_ldut$subsystem_sbus$coupler_to_port_named_mmio_port_axi4$tl2axi4$queue_arw_deq$empty[L].val) & (_s_ldut$subsystem_sbus$coupler_to_port_named_mmio_port_axi4$tl2axi4$queue_arw_deq$_GEN_18[L].val))) & 0x1ULL)) | ((static_cast<uint64_t>((((static_cast<uint64_t>((~static_cast<uint64_t>(_s_ldut$subsystem_sbus$coupler_to_port_named_mmio_port_axi4$tl2axi4$queue_arw_deq$empty[L].val))) & 0x1ULL)) & (_s_ldut$subsystem_sbus$coupler_to_port_named_mmio_port_axi4$tl2axi4$queue_arw_deq$_do_enq_T[L].val))) & 0x1ULL)))) & 0x1ULL)) & 0x1ULL)) != 0))) | ((_v2_bank_ldut$subsystem_sbus$coupler_to_port_named_mmio_port_axi4$tl2axi4$queue_arw_deq$ram__v2_bank_0_0[L].val) & ~((uint64_t)0 - (uint64_t)(((static_cast<uint64_t>((static_cast<uint64_t>((((static_cast<uint64_t>(((_s_ldut$subsystem_sbus$coupler_to_port_named_mmio_port_axi4$tl2axi4$queue_arw_deq$empty[L].val) & (_s_ldut$subsystem_sbus$coupler_to_port_named_mmio_port_axi4$tl2axi4$queue_arw_deq$_GEN_18[L].val))) & 0x1ULL)) | ((static_cast<uint64_t>((((static_cast<uint64_t>((~static_cast<uint64_t>(_s_ldut$subsystem_sbus$coupler_to_port_named_mmio_port_axi4$tl2axi4$queue_arw_deq$empty[L].val))) & 0x1ULL)) & (_s_ldut$subsystem_sbus$coupler_to_port_named_mmio_port_axi4$tl2axi4$queue_arw_deq$_do_enq_T[L].val))) & 0x1ULL)))) & 0x1ULL)) & 0x1ULL)) != 0)))))));
     }
-
-    if (partition_task_poll) partition_task_poll(partition_task_context, 0, true, 9);
     // [vec state-commit] 2 templates x 16 lanes
     #if ESSENT_ORACLE_VERIFY // [extern-read] commits of fully-externalized arrays
     if (update_registers) {
@@ -16234,6 +16209,8 @@
     // [serial scc=453] 1 templates (0 comb), regs=[repeat_sel_sel_sources_9]
     // [serial scc=453 chain-loop]
     essent_condhold_scan_fwd<16>(ldut.subsystem_sbus.coupler_from_bus_named_subsystem_fbus.widget.repeat_sel_sel_sources_9, _s_ldut$subsystem_sbus$coupler_from_bus_named_subsystem_fbus$widget$repeat_sel_sel_sources_9$wen, _s_ldut$subsystem_sbus$coupler_from_bus_named_subsystem_fbus$widget$repeat_sel_sel_sources_9$wdata);
+
+    if (partition_task_poll) partition_task_poll(partition_task_context, 0, true, 9);
     // [vec boundary-next] 1 templates x 16 lanes
     // [boundary next] 1 templates, two retained lanes
     { const int L = 0;
@@ -16245,8 +16222,6 @@
     // [serial scc=454] 1 templates (0 comb), regs=[repeat_sel_sel_sources_10]
     // [serial scc=454 chain-loop]
     essent_condhold_scan_fwd<16>(ldut.subsystem_sbus.coupler_from_bus_named_subsystem_fbus.widget.repeat_sel_sel_sources_10, _s_ldut$subsystem_sbus$coupler_from_bus_named_subsystem_fbus$widget$repeat_sel_sel_sources_10$wen, _s_ldut$subsystem_sbus$coupler_from_bus_named_subsystem_fbus$widget$repeat_sel_sel_sources_10$wdata);
-
-    if (partition_task_poll) partition_task_poll(partition_task_context, 0, true, 9);
     // [vec boundary-next] 1 templates x 16 lanes
     // [boundary next] 1 templates, two retained lanes
     { const int L = 0;
@@ -16349,7 +16324,7 @@
         _v2_sa_anyw |= (uint64_t)(essent_to_u64(_s_ldut$subsystem_fbus$buffer$bundleIn_0_d_q$io_enq_ready[G] & _s_ldut$subsystem_sbus$coupler_from_bus_named_subsystem_fbus$widget$repeated_repeater$io_deq_valid[G]) != 0) & (uint64_t)(essent_to_u64(UInt<1>(0x1)) != 0);
       }
       if (_v2_sa_anyw == 0) {
-        for (int L = 0; L < 16; L++) { _s_ldut$subsystem_fbus$buffer$bundleIn_0_d_q$ram_data$io_deq_bits_MPORT[L] = ldut.subsystem_fbus.buffer.bundleIn_0_d_q.ram_data[essent_to_u64(ldut.subsystem_fbus.buffer.bundleIn_0_d_q.value_1[L])]; }
+        essent_table_read<16, 2, false>(&_s_ldut$subsystem_fbus$buffer$bundleIn_0_d_q$ram_data$io_deq_bits_MPORT[0], &ldut.subsystem_fbus.buffer.bundleIn_0_d_q.ram_data[0], &ldut.subsystem_fbus.buffer.bundleIn_0_d_q.value_1[0]);
       } else {
       {
         // [state-read-dense] forwarding=branchless
@@ -16358,10 +16333,11 @@
         for (int L = 0; L < 16; L++) {
           const uint64_t _v2_sa_addr = essent_to_u64(ldut.subsystem_fbus.buffer.bundleIn_0_d_q.value_1[L]);
           UInt<64> _v2_sa_value = ldut.subsystem_fbus.buffer.bundleIn_0_d_q.ram_data[_v2_sa_addr];
+          // [branchless-forward] select a valid source before loading data
           const int _v2_sa_prev_code = _v2_sa_last[_v2_sa_addr];
-          const uint64_t _v2_sa_prev_valid = (uint64_t)(_v2_sa_prev_code >= 0);
+          const bool _v2_sa_prev_valid = _v2_sa_prev_code >= 0;
           [[maybe_unused]] const int _v2_sa_prev_lane = _v2_sa_prev_code & -static_cast<int>(_v2_sa_prev_valid);
-          _v2_sa_value = essent_mux(UInt<1>(_v2_sa_prev_valid), _s_ldut$subsystem_sbus$coupler_from_bus_named_subsystem_fbus$widget$auto_in_d_bits_data[_v2_sa_prev_lane], _v2_sa_value);
+          _v2_sa_value = *essent_select_ptr(_v2_sa_prev_valid, &(_s_ldut$subsystem_sbus$coupler_from_bus_named_subsystem_fbus$widget$auto_in_d_bits_data[_v2_sa_prev_lane]), &_v2_sa_value);
           _s_ldut$subsystem_fbus$buffer$bundleIn_0_d_q$ram_data$io_deq_bits_MPORT[L] = _v2_sa_value;
           const uint64_t _v2_sa_write_addr_0 = essent_to_u64(ldut.subsystem_fbus.buffer.bundleIn_0_d_q.value[L]);
           const uint64_t _v2_sa_write_take_0 = (uint64_t)(essent_to_u64(_s_ldut$subsystem_fbus$buffer$bundleIn_0_d_q$io_enq_ready[L] & _s_ldut$subsystem_sbus$coupler_from_bus_named_subsystem_fbus$widget$repeated_repeater$io_deq_valid[L]) != 0) & (uint64_t)(essent_to_u64(UInt<1>(0x1)) != 0);
@@ -16575,7 +16551,7 @@
         ESSENT_LANE_LOOP
         for (int L = 0; L < 16; L++) ldut.subsystem_mbus.coupler_to_memory_controller_port_named_axi4.tl2axi4.counter[L] = _gv;
       } else {
-        for (int L = 1; L < 16; L++) ldut.subsystem_mbus.coupler_to_memory_controller_port_named_axi4.tl2axi4.counter[L] = _s_ldut$reset[L - 1] ? UInt<3>(0x0) : ((((~(_s_ldut$subsystem_mbus$coupler_to_memory_controller_port_named_axi4$tl2axi4$_GEN_257[L - 1] & (ldut.subsystem_mbus.coupler_to_memory_controller_port_named_axi4.tl2axi4.counter[L - 1] == UInt<3>(0x0)))) & _s_ldut$subsystem_mbus$coupler_to_memory_controller_port_named_axi4$tl2axi4$_bundleIn_0_a_ready_T_3[L - 1]) & _s_ldut$subsystem_l2_wrapper$broadcast_1$auto_out_a_valid[L - 1]) ? ((ldut.subsystem_mbus.coupler_to_memory_controller_port_named_axi4.tl2axi4.counter[L - 1] == UInt<3>(0x0)) ? _s_ldut$subsystem_mbus$coupler_to_memory_controller_port_named_axi4$tl2axi4$beats1[L - 1] : ((ldut.subsystem_mbus.coupler_to_memory_controller_port_named_axi4.tl2axi4.counter[L - 1] - UInt<3>(0x1)).tail<1>())) : ldut.subsystem_mbus.coupler_to_memory_controller_port_named_axi4.tl2axi4.counter[L - 1]);
+        for (int L = 1; L < 16; L++) ldut.subsystem_mbus.coupler_to_memory_controller_port_named_axi4.tl2axi4.counter[L].val = static_cast<typename UInt<3>::scalar_t>((static_cast<uint8_t>((static_cast<uint8_t>(essent_select_word<uint32_t>(((static_cast<uint8_t>(_s_ldut$reset[L - 1].val) & 0x1u)) != 0, static_cast<uint32_t>((static_cast<uint8_t>(0x0u) & 0x7u)), static_cast<uint32_t>((static_cast<uint8_t>(essent_select_word<uint32_t>(((static_cast<uint8_t>((static_cast<uint8_t>((((static_cast<uint8_t>((((static_cast<uint8_t>((~static_cast<uint8_t>((static_cast<uint8_t>(((_s_ldut$subsystem_mbus$coupler_to_memory_controller_port_named_axi4$tl2axi4$_GEN_257[L - 1].val) & ((static_cast<uint8_t>(((ldut.subsystem_mbus.coupler_to_memory_controller_port_named_axi4.tl2axi4.counter[L - 1].val) == ((static_cast<uint8_t>(0x0u) & 0x7u)))) & 0x1u)))) & 0x1u)))) & 0x1u)) & (_s_ldut$subsystem_mbus$coupler_to_memory_controller_port_named_axi4$tl2axi4$_bundleIn_0_a_ready_T_3[L - 1].val))) & 0x1u)) & (_s_ldut$subsystem_l2_wrapper$broadcast_1$auto_out_a_valid[L - 1].val))) & 0x1u)) & 0x1u)) != 0, static_cast<uint32_t>((static_cast<uint8_t>(essent_select_word<uint32_t>(((static_cast<uint8_t>((static_cast<uint8_t>(((ldut.subsystem_mbus.coupler_to_memory_controller_port_named_axi4.tl2axi4.counter[L - 1].val) == ((static_cast<uint8_t>(0x0u) & 0x7u)))) & 0x1u)) & 0x1u)) != 0, static_cast<uint32_t>(_s_ldut$subsystem_mbus$coupler_to_memory_controller_port_named_axi4$tl2axi4$beats1[L - 1].val), static_cast<uint32_t>((static_cast<uint8_t>((static_cast<uint8_t>((static_cast<uint8_t>((static_cast<uint8_t>(ldut.subsystem_mbus.coupler_to_memory_controller_port_named_axi4.tl2axi4.counter[L - 1].val) - static_cast<uint8_t>((static_cast<uint8_t>(0x1u) & 0x7u)))) & 0xfu)) & 0x7u)) & 0x7u)))) & 0x7u)), static_cast<uint32_t>(ldut.subsystem_mbus.coupler_to_memory_controller_port_named_axi4.tl2axi4.counter[L - 1].val))) & 0x7u)))) & 0x7u)) & 0x7u));
       }
     }
     // [vec comb] 9 templates x 16 lanes
@@ -16673,12 +16649,9 @@
         _v2_sa_anyw |= (uint64_t)(essent_to_u64(_s_ldut$subsystem_mbus$coupler_to_memory_controller_port_named_axi4$axi4yank$QueueCompatibility_16$io_enq_ready[G] & _s_ldut$subsystem_mbus$coupler_to_memory_controller_port_named_axi4$axi4yank$QueueCompatibility_16$io_enq_valid[G]) != 0) & (uint64_t)(essent_to_u64(UInt<1>(0x1)) != 0);
       }
       if (_v2_sa_anyw == 0) {
-        for (int L = 0; L < 16; L++) {
-          const uint64_t _v2_sa_field_addr = essent_to_u64(ldut.subsystem_mbus.coupler_to_memory_controller_port_named_axi4.axi4yank.QueueCompatibility_16.deq_ptr_value[L]);
-          _s_ldut$subsystem_mbus$coupler_to_memory_controller_port_named_axi4$axi4yank$QueueCompatibility_16$ram_tl_state_size$io_deq_bits_MPORT$rtl[L] = ldut.subsystem_mbus.coupler_to_memory_controller_port_named_axi4.axi4yank.QueueCompatibility_16.ram_tl_state_size[_v2_sa_field_addr];
-          _s_ldut$subsystem_mbus$coupler_to_memory_controller_port_named_axi4$axi4yank$QueueCompatibility_16$ram_tl_state_source$io_deq_bits_MPORT$rtl[L] = ldut.subsystem_mbus.coupler_to_memory_controller_port_named_axi4.axi4yank.QueueCompatibility_16.ram_tl_state_source[_v2_sa_field_addr];
-          _s_ldut$subsystem_mbus$coupler_to_memory_controller_port_named_axi4$axi4yank$QueueCompatibility_16$ram_extra_id$io_deq_bits_MPORT$rtl[L] = ldut.subsystem_mbus.coupler_to_memory_controller_port_named_axi4.axi4yank.QueueCompatibility_16.ram_extra_id[_v2_sa_field_addr];
-        }
+        essent_table_read<16, 8, false>(&_s_ldut$subsystem_mbus$coupler_to_memory_controller_port_named_axi4$axi4yank$QueueCompatibility_16$ram_tl_state_size$io_deq_bits_MPORT$rtl[0], &ldut.subsystem_mbus.coupler_to_memory_controller_port_named_axi4.axi4yank.QueueCompatibility_16.ram_tl_state_size[0], &ldut.subsystem_mbus.coupler_to_memory_controller_port_named_axi4.axi4yank.QueueCompatibility_16.deq_ptr_value[0]);
+        essent_table_read<16, 8, false>(&_s_ldut$subsystem_mbus$coupler_to_memory_controller_port_named_axi4$axi4yank$QueueCompatibility_16$ram_tl_state_source$io_deq_bits_MPORT$rtl[0], &ldut.subsystem_mbus.coupler_to_memory_controller_port_named_axi4.axi4yank.QueueCompatibility_16.ram_tl_state_source[0], &ldut.subsystem_mbus.coupler_to_memory_controller_port_named_axi4.axi4yank.QueueCompatibility_16.deq_ptr_value[0]);
+        essent_table_read<16, 8, false>(&_s_ldut$subsystem_mbus$coupler_to_memory_controller_port_named_axi4$axi4yank$QueueCompatibility_16$ram_extra_id$io_deq_bits_MPORT$rtl[0], &ldut.subsystem_mbus.coupler_to_memory_controller_port_named_axi4.axi4yank.QueueCompatibility_16.ram_extra_id[0], &ldut.subsystem_mbus.coupler_to_memory_controller_port_named_axi4.axi4yank.QueueCompatibility_16.deq_ptr_value[0]);
       } else {
       {
         // [state-field-read-fused] 3 arrays share one access scan, mode=dense-branchless
@@ -16724,12 +16697,9 @@
         _v2_sa_anyw |= (uint64_t)(essent_to_u64(_s_ldut$subsystem_mbus$coupler_to_memory_controller_port_named_axi4$axi4yank$QueueCompatibility_17$io_enq_ready[G] & _s_ldut$subsystem_mbus$coupler_to_memory_controller_port_named_axi4$axi4yank$QueueCompatibility_17$io_enq_valid[G]) != 0) & (uint64_t)(essent_to_u64(UInt<1>(0x1)) != 0);
       }
       if (_v2_sa_anyw == 0) {
-        for (int L = 0; L < 16; L++) {
-          const uint64_t _v2_sa_field_addr = essent_to_u64(ldut.subsystem_mbus.coupler_to_memory_controller_port_named_axi4.axi4yank.QueueCompatibility_17.deq_ptr_value[L]);
-          _s_ldut$subsystem_mbus$coupler_to_memory_controller_port_named_axi4$axi4yank$QueueCompatibility_17$ram_tl_state_size$io_deq_bits_MPORT$rtl[L] = ldut.subsystem_mbus.coupler_to_memory_controller_port_named_axi4.axi4yank.QueueCompatibility_17.ram_tl_state_size[_v2_sa_field_addr];
-          _s_ldut$subsystem_mbus$coupler_to_memory_controller_port_named_axi4$axi4yank$QueueCompatibility_17$ram_tl_state_source$io_deq_bits_MPORT$rtl[L] = ldut.subsystem_mbus.coupler_to_memory_controller_port_named_axi4.axi4yank.QueueCompatibility_17.ram_tl_state_source[_v2_sa_field_addr];
-          _s_ldut$subsystem_mbus$coupler_to_memory_controller_port_named_axi4$axi4yank$QueueCompatibility_17$ram_extra_id$io_deq_bits_MPORT$rtl[L] = ldut.subsystem_mbus.coupler_to_memory_controller_port_named_axi4.axi4yank.QueueCompatibility_17.ram_extra_id[_v2_sa_field_addr];
-        }
+        essent_table_read<16, 8, false>(&_s_ldut$subsystem_mbus$coupler_to_memory_controller_port_named_axi4$axi4yank$QueueCompatibility_17$ram_tl_state_size$io_deq_bits_MPORT$rtl[0], &ldut.subsystem_mbus.coupler_to_memory_controller_port_named_axi4.axi4yank.QueueCompatibility_17.ram_tl_state_size[0], &ldut.subsystem_mbus.coupler_to_memory_controller_port_named_axi4.axi4yank.QueueCompatibility_17.deq_ptr_value[0]);
+        essent_table_read<16, 8, false>(&_s_ldut$subsystem_mbus$coupler_to_memory_controller_port_named_axi4$axi4yank$QueueCompatibility_17$ram_tl_state_source$io_deq_bits_MPORT$rtl[0], &ldut.subsystem_mbus.coupler_to_memory_controller_port_named_axi4.axi4yank.QueueCompatibility_17.ram_tl_state_source[0], &ldut.subsystem_mbus.coupler_to_memory_controller_port_named_axi4.axi4yank.QueueCompatibility_17.deq_ptr_value[0]);
+        essent_table_read<16, 8, false>(&_s_ldut$subsystem_mbus$coupler_to_memory_controller_port_named_axi4$axi4yank$QueueCompatibility_17$ram_extra_id$io_deq_bits_MPORT$rtl[0], &ldut.subsystem_mbus.coupler_to_memory_controller_port_named_axi4.axi4yank.QueueCompatibility_17.ram_extra_id[0], &ldut.subsystem_mbus.coupler_to_memory_controller_port_named_axi4.axi4yank.QueueCompatibility_17.deq_ptr_value[0]);
       } else {
       {
         // [state-field-read-fused] 3 arrays share one access scan, mode=dense-branchless
@@ -16775,12 +16745,9 @@
         _v2_sa_anyw |= (uint64_t)(essent_to_u64(_s_ldut$subsystem_mbus$coupler_to_memory_controller_port_named_axi4$axi4yank$QueueCompatibility_18$$inst$io_enq_ready[G] & _s_ldut$subsystem_mbus$coupler_to_memory_controller_port_named_axi4$axi4yank$QueueCompatibility_18$$inst$io_enq_valid[G]) != 0) & (uint64_t)(essent_to_u64(UInt<1>(0x1)) != 0);
       }
       if (_v2_sa_anyw == 0) {
-        for (int L = 0; L < 16; L++) {
-          const uint64_t _v2_sa_field_addr = essent_to_u64(ldut.subsystem_mbus.coupler_to_memory_controller_port_named_axi4.axi4yank.QueueCompatibility_18$$inst.deq_ptr_value[L]);
-          _s_ldut$subsystem_mbus$coupler_to_memory_controller_port_named_axi4$axi4yank$QueueCompatibility_18$$inst$ram_tl_state_size$io_deq_bits_MPORT$rtl[L] = ldut.subsystem_mbus.coupler_to_memory_controller_port_named_axi4.axi4yank.QueueCompatibility_18$$inst.ram_tl_state_size[_v2_sa_field_addr];
-          _s_ldut$subsystem_mbus$coupler_to_memory_controller_port_named_axi4$axi4yank$QueueCompatibility_18$$inst$ram_tl_state_source$io_deq_bits_MPORT$rtl[L] = ldut.subsystem_mbus.coupler_to_memory_controller_port_named_axi4.axi4yank.QueueCompatibility_18$$inst.ram_tl_state_source[_v2_sa_field_addr];
-          _s_ldut$subsystem_mbus$coupler_to_memory_controller_port_named_axi4$axi4yank$QueueCompatibility_18$$inst$ram_extra_id$io_deq_bits_MPORT$rtl[L] = ldut.subsystem_mbus.coupler_to_memory_controller_port_named_axi4.axi4yank.QueueCompatibility_18$$inst.ram_extra_id[_v2_sa_field_addr];
-        }
+        essent_table_read<16, 8, false>(&_s_ldut$subsystem_mbus$coupler_to_memory_controller_port_named_axi4$axi4yank$QueueCompatibility_18$$inst$ram_tl_state_size$io_deq_bits_MPORT$rtl[0], &ldut.subsystem_mbus.coupler_to_memory_controller_port_named_axi4.axi4yank.QueueCompatibility_18$$inst.ram_tl_state_size[0], &ldut.subsystem_mbus.coupler_to_memory_controller_port_named_axi4.axi4yank.QueueCompatibility_18$$inst.deq_ptr_value[0]);
+        essent_table_read<16, 8, false>(&_s_ldut$subsystem_mbus$coupler_to_memory_controller_port_named_axi4$axi4yank$QueueCompatibility_18$$inst$ram_tl_state_source$io_deq_bits_MPORT$rtl[0], &ldut.subsystem_mbus.coupler_to_memory_controller_port_named_axi4.axi4yank.QueueCompatibility_18$$inst.ram_tl_state_source[0], &ldut.subsystem_mbus.coupler_to_memory_controller_port_named_axi4.axi4yank.QueueCompatibility_18$$inst.deq_ptr_value[0]);
+        essent_table_read<16, 8, false>(&_s_ldut$subsystem_mbus$coupler_to_memory_controller_port_named_axi4$axi4yank$QueueCompatibility_18$$inst$ram_extra_id$io_deq_bits_MPORT$rtl[0], &ldut.subsystem_mbus.coupler_to_memory_controller_port_named_axi4.axi4yank.QueueCompatibility_18$$inst.ram_extra_id[0], &ldut.subsystem_mbus.coupler_to_memory_controller_port_named_axi4.axi4yank.QueueCompatibility_18$$inst.deq_ptr_value[0]);
       } else {
       {
         // [state-field-read-fused] 3 arrays share one access scan, mode=dense-branchless
@@ -16826,12 +16793,9 @@
         _v2_sa_anyw |= (uint64_t)(essent_to_u64(_s_ldut$subsystem_mbus$coupler_to_memory_controller_port_named_axi4$axi4yank$QueueCompatibility_19$io_enq_ready[G] & _s_ldut$subsystem_mbus$coupler_to_memory_controller_port_named_axi4$axi4yank$QueueCompatibility_19$io_enq_valid[G]) != 0) & (uint64_t)(essent_to_u64(UInt<1>(0x1)) != 0);
       }
       if (_v2_sa_anyw == 0) {
-        for (int L = 0; L < 16; L++) {
-          const uint64_t _v2_sa_field_addr = essent_to_u64(ldut.subsystem_mbus.coupler_to_memory_controller_port_named_axi4.axi4yank.QueueCompatibility_19.deq_ptr_value[L]);
-          _s_ldut$subsystem_mbus$coupler_to_memory_controller_port_named_axi4$axi4yank$QueueCompatibility_19$ram_tl_state_size$io_deq_bits_MPORT$rtl[L] = ldut.subsystem_mbus.coupler_to_memory_controller_port_named_axi4.axi4yank.QueueCompatibility_19.ram_tl_state_size[_v2_sa_field_addr];
-          _s_ldut$subsystem_mbus$coupler_to_memory_controller_port_named_axi4$axi4yank$QueueCompatibility_19$ram_tl_state_source$io_deq_bits_MPORT$rtl[L] = ldut.subsystem_mbus.coupler_to_memory_controller_port_named_axi4.axi4yank.QueueCompatibility_19.ram_tl_state_source[_v2_sa_field_addr];
-          _s_ldut$subsystem_mbus$coupler_to_memory_controller_port_named_axi4$axi4yank$QueueCompatibility_19$ram_extra_id$io_deq_bits_MPORT$rtl[L] = ldut.subsystem_mbus.coupler_to_memory_controller_port_named_axi4.axi4yank.QueueCompatibility_19.ram_extra_id[_v2_sa_field_addr];
-        }
+        essent_table_read<16, 8, false>(&_s_ldut$subsystem_mbus$coupler_to_memory_controller_port_named_axi4$axi4yank$QueueCompatibility_19$ram_tl_state_size$io_deq_bits_MPORT$rtl[0], &ldut.subsystem_mbus.coupler_to_memory_controller_port_named_axi4.axi4yank.QueueCompatibility_19.ram_tl_state_size[0], &ldut.subsystem_mbus.coupler_to_memory_controller_port_named_axi4.axi4yank.QueueCompatibility_19.deq_ptr_value[0]);
+        essent_table_read<16, 8, false>(&_s_ldut$subsystem_mbus$coupler_to_memory_controller_port_named_axi4$axi4yank$QueueCompatibility_19$ram_tl_state_source$io_deq_bits_MPORT$rtl[0], &ldut.subsystem_mbus.coupler_to_memory_controller_port_named_axi4.axi4yank.QueueCompatibility_19.ram_tl_state_source[0], &ldut.subsystem_mbus.coupler_to_memory_controller_port_named_axi4.axi4yank.QueueCompatibility_19.deq_ptr_value[0]);
+        essent_table_read<16, 8, false>(&_s_ldut$subsystem_mbus$coupler_to_memory_controller_port_named_axi4$axi4yank$QueueCompatibility_19$ram_extra_id$io_deq_bits_MPORT$rtl[0], &ldut.subsystem_mbus.coupler_to_memory_controller_port_named_axi4.axi4yank.QueueCompatibility_19.ram_extra_id[0], &ldut.subsystem_mbus.coupler_to_memory_controller_port_named_axi4.axi4yank.QueueCompatibility_19.deq_ptr_value[0]);
       } else {
       {
         // [state-field-read-fused] 3 arrays share one access scan, mode=dense-branchless
@@ -16879,12 +16843,9 @@
         _v2_sa_anyw |= (uint64_t)(essent_to_u64(_s_ldut$subsystem_mbus$coupler_to_memory_controller_port_named_axi4$axi4yank$QueueCompatibility_20$io_enq_ready[G] & _s_ldut$subsystem_mbus$coupler_to_memory_controller_port_named_axi4$axi4yank$QueueCompatibility_20$io_enq_valid[G]) != 0) & (uint64_t)(essent_to_u64(UInt<1>(0x1)) != 0);
       }
       if (_v2_sa_anyw == 0) {
-        for (int L = 0; L < 16; L++) {
-          const uint64_t _v2_sa_field_addr = essent_to_u64(ldut.subsystem_mbus.coupler_to_memory_controller_port_named_axi4.axi4yank.QueueCompatibility_20.deq_ptr_value[L]);
-          _s_ldut$subsystem_mbus$coupler_to_memory_controller_port_named_axi4$axi4yank$QueueCompatibility_20$ram_tl_state_size$io_deq_bits_MPORT$rtl[L] = ldut.subsystem_mbus.coupler_to_memory_controller_port_named_axi4.axi4yank.QueueCompatibility_20.ram_tl_state_size[_v2_sa_field_addr];
-          _s_ldut$subsystem_mbus$coupler_to_memory_controller_port_named_axi4$axi4yank$QueueCompatibility_20$ram_tl_state_source$io_deq_bits_MPORT$rtl[L] = ldut.subsystem_mbus.coupler_to_memory_controller_port_named_axi4.axi4yank.QueueCompatibility_20.ram_tl_state_source[_v2_sa_field_addr];
-          _s_ldut$subsystem_mbus$coupler_to_memory_controller_port_named_axi4$axi4yank$QueueCompatibility_20$ram_extra_id$io_deq_bits_MPORT$rtl[L] = ldut.subsystem_mbus.coupler_to_memory_controller_port_named_axi4.axi4yank.QueueCompatibility_20.ram_extra_id[_v2_sa_field_addr];
-        }
+        essent_table_read<16, 8, false>(&_s_ldut$subsystem_mbus$coupler_to_memory_controller_port_named_axi4$axi4yank$QueueCompatibility_20$ram_tl_state_size$io_deq_bits_MPORT$rtl[0], &ldut.subsystem_mbus.coupler_to_memory_controller_port_named_axi4.axi4yank.QueueCompatibility_20.ram_tl_state_size[0], &ldut.subsystem_mbus.coupler_to_memory_controller_port_named_axi4.axi4yank.QueueCompatibility_20.deq_ptr_value[0]);
+        essent_table_read<16, 8, false>(&_s_ldut$subsystem_mbus$coupler_to_memory_controller_port_named_axi4$axi4yank$QueueCompatibility_20$ram_tl_state_source$io_deq_bits_MPORT$rtl[0], &ldut.subsystem_mbus.coupler_to_memory_controller_port_named_axi4.axi4yank.QueueCompatibility_20.ram_tl_state_source[0], &ldut.subsystem_mbus.coupler_to_memory_controller_port_named_axi4.axi4yank.QueueCompatibility_20.deq_ptr_value[0]);
+        essent_table_read<16, 8, false>(&_s_ldut$subsystem_mbus$coupler_to_memory_controller_port_named_axi4$axi4yank$QueueCompatibility_20$ram_extra_id$io_deq_bits_MPORT$rtl[0], &ldut.subsystem_mbus.coupler_to_memory_controller_port_named_axi4.axi4yank.QueueCompatibility_20.ram_extra_id[0], &ldut.subsystem_mbus.coupler_to_memory_controller_port_named_axi4.axi4yank.QueueCompatibility_20.deq_ptr_value[0]);
       } else {
       {
         // [state-field-read-fused] 3 arrays share one access scan, mode=dense-branchless
@@ -16930,12 +16891,9 @@
         _v2_sa_anyw |= (uint64_t)(essent_to_u64(_s_ldut$subsystem_mbus$coupler_to_memory_controller_port_named_axi4$axi4yank$QueueCompatibility_21$io_enq_ready[G] & _s_ldut$subsystem_mbus$coupler_to_memory_controller_port_named_axi4$axi4yank$QueueCompatibility_21$io_enq_valid[G]) != 0) & (uint64_t)(essent_to_u64(UInt<1>(0x1)) != 0);
       }
       if (_v2_sa_anyw == 0) {
-        for (int L = 0; L < 16; L++) {
-          const uint64_t _v2_sa_field_addr = essent_to_u64(ldut.subsystem_mbus.coupler_to_memory_controller_port_named_axi4.axi4yank.QueueCompatibility_21.deq_ptr_value[L]);
-          _s_ldut$subsystem_mbus$coupler_to_memory_controller_port_named_axi4$axi4yank$QueueCompatibility_21$ram_tl_state_size$io_deq_bits_MPORT$rtl[L] = ldut.subsystem_mbus.coupler_to_memory_controller_port_named_axi4.axi4yank.QueueCompatibility_21.ram_tl_state_size[_v2_sa_field_addr];
-          _s_ldut$subsystem_mbus$coupler_to_memory_controller_port_named_axi4$axi4yank$QueueCompatibility_21$ram_tl_state_source$io_deq_bits_MPORT$rtl[L] = ldut.subsystem_mbus.coupler_to_memory_controller_port_named_axi4.axi4yank.QueueCompatibility_21.ram_tl_state_source[_v2_sa_field_addr];
-          _s_ldut$subsystem_mbus$coupler_to_memory_controller_port_named_axi4$axi4yank$QueueCompatibility_21$ram_extra_id$io_deq_bits_MPORT$rtl[L] = ldut.subsystem_mbus.coupler_to_memory_controller_port_named_axi4.axi4yank.QueueCompatibility_21.ram_extra_id[_v2_sa_field_addr];
-        }
+        essent_table_read<16, 8, false>(&_s_ldut$subsystem_mbus$coupler_to_memory_controller_port_named_axi4$axi4yank$QueueCompatibility_21$ram_tl_state_size$io_deq_bits_MPORT$rtl[0], &ldut.subsystem_mbus.coupler_to_memory_controller_port_named_axi4.axi4yank.QueueCompatibility_21.ram_tl_state_size[0], &ldut.subsystem_mbus.coupler_to_memory_controller_port_named_axi4.axi4yank.QueueCompatibility_21.deq_ptr_value[0]);
+        essent_table_read<16, 8, false>(&_s_ldut$subsystem_mbus$coupler_to_memory_controller_port_named_axi4$axi4yank$QueueCompatibility_21$ram_tl_state_source$io_deq_bits_MPORT$rtl[0], &ldut.subsystem_mbus.coupler_to_memory_controller_port_named_axi4.axi4yank.QueueCompatibility_21.ram_tl_state_source[0], &ldut.subsystem_mbus.coupler_to_memory_controller_port_named_axi4.axi4yank.QueueCompatibility_21.deq_ptr_value[0]);
+        essent_table_read<16, 8, false>(&_s_ldut$subsystem_mbus$coupler_to_memory_controller_port_named_axi4$axi4yank$QueueCompatibility_21$ram_extra_id$io_deq_bits_MPORT$rtl[0], &ldut.subsystem_mbus.coupler_to_memory_controller_port_named_axi4.axi4yank.QueueCompatibility_21.ram_extra_id[0], &ldut.subsystem_mbus.coupler_to_memory_controller_port_named_axi4.axi4yank.QueueCompatibility_21.deq_ptr_value[0]);
       } else {
       {
         // [state-field-read-fused] 3 arrays share one access scan, mode=dense-branchless
@@ -16981,12 +16939,9 @@
         _v2_sa_anyw |= (uint64_t)(essent_to_u64(_s_ldut$subsystem_mbus$coupler_to_memory_controller_port_named_axi4$axi4yank$QueueCompatibility_22$$inst$io_enq_ready[G] & _s_ldut$subsystem_mbus$coupler_to_memory_controller_port_named_axi4$axi4yank$QueueCompatibility_22$$inst$io_enq_valid[G]) != 0) & (uint64_t)(essent_to_u64(UInt<1>(0x1)) != 0);
       }
       if (_v2_sa_anyw == 0) {
-        for (int L = 0; L < 16; L++) {
-          const uint64_t _v2_sa_field_addr = essent_to_u64(ldut.subsystem_mbus.coupler_to_memory_controller_port_named_axi4.axi4yank.QueueCompatibility_22$$inst.deq_ptr_value[L]);
-          _s_ldut$subsystem_mbus$coupler_to_memory_controller_port_named_axi4$axi4yank$QueueCompatibility_22$$inst$ram_tl_state_size$io_deq_bits_MPORT$rtl[L] = ldut.subsystem_mbus.coupler_to_memory_controller_port_named_axi4.axi4yank.QueueCompatibility_22$$inst.ram_tl_state_size[_v2_sa_field_addr];
-          _s_ldut$subsystem_mbus$coupler_to_memory_controller_port_named_axi4$axi4yank$QueueCompatibility_22$$inst$ram_tl_state_source$io_deq_bits_MPORT$rtl[L] = ldut.subsystem_mbus.coupler_to_memory_controller_port_named_axi4.axi4yank.QueueCompatibility_22$$inst.ram_tl_state_source[_v2_sa_field_addr];
-          _s_ldut$subsystem_mbus$coupler_to_memory_controller_port_named_axi4$axi4yank$QueueCompatibility_22$$inst$ram_extra_id$io_deq_bits_MPORT$rtl[L] = ldut.subsystem_mbus.coupler_to_memory_controller_port_named_axi4.axi4yank.QueueCompatibility_22$$inst.ram_extra_id[_v2_sa_field_addr];
-        }
+        essent_table_read<16, 8, false>(&_s_ldut$subsystem_mbus$coupler_to_memory_controller_port_named_axi4$axi4yank$QueueCompatibility_22$$inst$ram_tl_state_size$io_deq_bits_MPORT$rtl[0], &ldut.subsystem_mbus.coupler_to_memory_controller_port_named_axi4.axi4yank.QueueCompatibility_22$$inst.ram_tl_state_size[0], &ldut.subsystem_mbus.coupler_to_memory_controller_port_named_axi4.axi4yank.QueueCompatibility_22$$inst.deq_ptr_value[0]);
+        essent_table_read<16, 8, false>(&_s_ldut$subsystem_mbus$coupler_to_memory_controller_port_named_axi4$axi4yank$QueueCompatibility_22$$inst$ram_tl_state_source$io_deq_bits_MPORT$rtl[0], &ldut.subsystem_mbus.coupler_to_memory_controller_port_named_axi4.axi4yank.QueueCompatibility_22$$inst.ram_tl_state_source[0], &ldut.subsystem_mbus.coupler_to_memory_controller_port_named_axi4.axi4yank.QueueCompatibility_22$$inst.deq_ptr_value[0]);
+        essent_table_read<16, 8, false>(&_s_ldut$subsystem_mbus$coupler_to_memory_controller_port_named_axi4$axi4yank$QueueCompatibility_22$$inst$ram_extra_id$io_deq_bits_MPORT$rtl[0], &ldut.subsystem_mbus.coupler_to_memory_controller_port_named_axi4.axi4yank.QueueCompatibility_22$$inst.ram_extra_id[0], &ldut.subsystem_mbus.coupler_to_memory_controller_port_named_axi4.axi4yank.QueueCompatibility_22$$inst.deq_ptr_value[0]);
       } else {
       {
         // [state-field-read-fused] 3 arrays share one access scan, mode=dense-branchless
@@ -17032,12 +16987,9 @@
         _v2_sa_anyw |= (uint64_t)(essent_to_u64(_s_ldut$subsystem_mbus$coupler_to_memory_controller_port_named_axi4$axi4yank$QueueCompatibility_23$io_enq_ready[G] & _s_ldut$subsystem_mbus$coupler_to_memory_controller_port_named_axi4$axi4yank$QueueCompatibility_23$io_enq_valid[G]) != 0) & (uint64_t)(essent_to_u64(UInt<1>(0x1)) != 0);
       }
       if (_v2_sa_anyw == 0) {
-        for (int L = 0; L < 16; L++) {
-          const uint64_t _v2_sa_field_addr = essent_to_u64(ldut.subsystem_mbus.coupler_to_memory_controller_port_named_axi4.axi4yank.QueueCompatibility_23.deq_ptr_value[L]);
-          _s_ldut$subsystem_mbus$coupler_to_memory_controller_port_named_axi4$axi4yank$QueueCompatibility_23$ram_tl_state_size$io_deq_bits_MPORT$rtl[L] = ldut.subsystem_mbus.coupler_to_memory_controller_port_named_axi4.axi4yank.QueueCompatibility_23.ram_tl_state_size[_v2_sa_field_addr];
-          _s_ldut$subsystem_mbus$coupler_to_memory_controller_port_named_axi4$axi4yank$QueueCompatibility_23$ram_tl_state_source$io_deq_bits_MPORT$rtl[L] = ldut.subsystem_mbus.coupler_to_memory_controller_port_named_axi4.axi4yank.QueueCompatibility_23.ram_tl_state_source[_v2_sa_field_addr];
-          _s_ldut$subsystem_mbus$coupler_to_memory_controller_port_named_axi4$axi4yank$QueueCompatibility_23$ram_extra_id$io_deq_bits_MPORT$rtl[L] = ldut.subsystem_mbus.coupler_to_memory_controller_port_named_axi4.axi4yank.QueueCompatibility_23.ram_extra_id[_v2_sa_field_addr];
-        }
+        essent_table_read<16, 8, false>(&_s_ldut$subsystem_mbus$coupler_to_memory_controller_port_named_axi4$axi4yank$QueueCompatibility_23$ram_tl_state_size$io_deq_bits_MPORT$rtl[0], &ldut.subsystem_mbus.coupler_to_memory_controller_port_named_axi4.axi4yank.QueueCompatibility_23.ram_tl_state_size[0], &ldut.subsystem_mbus.coupler_to_memory_controller_port_named_axi4.axi4yank.QueueCompatibility_23.deq_ptr_value[0]);
+        essent_table_read<16, 8, false>(&_s_ldut$subsystem_mbus$coupler_to_memory_controller_port_named_axi4$axi4yank$QueueCompatibility_23$ram_tl_state_source$io_deq_bits_MPORT$rtl[0], &ldut.subsystem_mbus.coupler_to_memory_controller_port_named_axi4.axi4yank.QueueCompatibility_23.ram_tl_state_source[0], &ldut.subsystem_mbus.coupler_to_memory_controller_port_named_axi4.axi4yank.QueueCompatibility_23.deq_ptr_value[0]);
+        essent_table_read<16, 8, false>(&_s_ldut$subsystem_mbus$coupler_to_memory_controller_port_named_axi4$axi4yank$QueueCompatibility_23$ram_extra_id$io_deq_bits_MPORT$rtl[0], &ldut.subsystem_mbus.coupler_to_memory_controller_port_named_axi4.axi4yank.QueueCompatibility_23.ram_extra_id[0], &ldut.subsystem_mbus.coupler_to_memory_controller_port_named_axi4.axi4yank.QueueCompatibility_23.deq_ptr_value[0]);
       } else {
       {
         // [state-field-read-fused] 3 arrays share one access scan, mode=dense-branchless
@@ -17085,12 +17037,9 @@
         _v2_sa_anyw |= (uint64_t)(essent_to_u64(_s_ldut$subsystem_mbus$coupler_to_memory_controller_port_named_axi4$axi4yank$QueueCompatibility_24$io_enq_ready[G] & _s_ldut$subsystem_mbus$coupler_to_memory_controller_port_named_axi4$axi4yank$QueueCompatibility_24$io_enq_valid[G]) != 0) & (uint64_t)(essent_to_u64(UInt<1>(0x1)) != 0);
       }
       if (_v2_sa_anyw == 0) {
-        for (int L = 0; L < 16; L++) {
-          const uint64_t _v2_sa_field_addr = essent_to_u64(ldut.subsystem_mbus.coupler_to_memory_controller_port_named_axi4.axi4yank.QueueCompatibility_24.deq_ptr_value[L]);
-          _s_ldut$subsystem_mbus$coupler_to_memory_controller_port_named_axi4$axi4yank$QueueCompatibility_24$ram_tl_state_size$io_deq_bits_MPORT$rtl[L] = ldut.subsystem_mbus.coupler_to_memory_controller_port_named_axi4.axi4yank.QueueCompatibility_24.ram_tl_state_size[_v2_sa_field_addr];
-          _s_ldut$subsystem_mbus$coupler_to_memory_controller_port_named_axi4$axi4yank$QueueCompatibility_24$ram_tl_state_source$io_deq_bits_MPORT$rtl[L] = ldut.subsystem_mbus.coupler_to_memory_controller_port_named_axi4.axi4yank.QueueCompatibility_24.ram_tl_state_source[_v2_sa_field_addr];
-          _s_ldut$subsystem_mbus$coupler_to_memory_controller_port_named_axi4$axi4yank$QueueCompatibility_24$ram_extra_id$io_deq_bits_MPORT$rtl[L] = ldut.subsystem_mbus.coupler_to_memory_controller_port_named_axi4.axi4yank.QueueCompatibility_24.ram_extra_id[_v2_sa_field_addr];
-        }
+        essent_table_read<16, 8, false>(&_s_ldut$subsystem_mbus$coupler_to_memory_controller_port_named_axi4$axi4yank$QueueCompatibility_24$ram_tl_state_size$io_deq_bits_MPORT$rtl[0], &ldut.subsystem_mbus.coupler_to_memory_controller_port_named_axi4.axi4yank.QueueCompatibility_24.ram_tl_state_size[0], &ldut.subsystem_mbus.coupler_to_memory_controller_port_named_axi4.axi4yank.QueueCompatibility_24.deq_ptr_value[0]);
+        essent_table_read<16, 8, false>(&_s_ldut$subsystem_mbus$coupler_to_memory_controller_port_named_axi4$axi4yank$QueueCompatibility_24$ram_tl_state_source$io_deq_bits_MPORT$rtl[0], &ldut.subsystem_mbus.coupler_to_memory_controller_port_named_axi4.axi4yank.QueueCompatibility_24.ram_tl_state_source[0], &ldut.subsystem_mbus.coupler_to_memory_controller_port_named_axi4.axi4yank.QueueCompatibility_24.deq_ptr_value[0]);
+        essent_table_read<16, 8, false>(&_s_ldut$subsystem_mbus$coupler_to_memory_controller_port_named_axi4$axi4yank$QueueCompatibility_24$ram_extra_id$io_deq_bits_MPORT$rtl[0], &ldut.subsystem_mbus.coupler_to_memory_controller_port_named_axi4.axi4yank.QueueCompatibility_24.ram_extra_id[0], &ldut.subsystem_mbus.coupler_to_memory_controller_port_named_axi4.axi4yank.QueueCompatibility_24.deq_ptr_value[0]);
       } else {
       {
         // [state-field-read-fused] 3 arrays share one access scan, mode=dense-branchless
@@ -17136,12 +17085,9 @@
         _v2_sa_anyw |= (uint64_t)(essent_to_u64(_s_ldut$subsystem_mbus$coupler_to_memory_controller_port_named_axi4$axi4yank$QueueCompatibility_25$io_enq_ready[G] & _s_ldut$subsystem_mbus$coupler_to_memory_controller_port_named_axi4$axi4yank$QueueCompatibility_25$io_enq_valid[G]) != 0) & (uint64_t)(essent_to_u64(UInt<1>(0x1)) != 0);
       }
       if (_v2_sa_anyw == 0) {
-        for (int L = 0; L < 16; L++) {
-          const uint64_t _v2_sa_field_addr = essent_to_u64(ldut.subsystem_mbus.coupler_to_memory_controller_port_named_axi4.axi4yank.QueueCompatibility_25.deq_ptr_value[L]);
-          _s_ldut$subsystem_mbus$coupler_to_memory_controller_port_named_axi4$axi4yank$QueueCompatibility_25$ram_tl_state_size$io_deq_bits_MPORT$rtl[L] = ldut.subsystem_mbus.coupler_to_memory_controller_port_named_axi4.axi4yank.QueueCompatibility_25.ram_tl_state_size[_v2_sa_field_addr];
-          _s_ldut$subsystem_mbus$coupler_to_memory_controller_port_named_axi4$axi4yank$QueueCompatibility_25$ram_tl_state_source$io_deq_bits_MPORT$rtl[L] = ldut.subsystem_mbus.coupler_to_memory_controller_port_named_axi4.axi4yank.QueueCompatibility_25.ram_tl_state_source[_v2_sa_field_addr];
-          _s_ldut$subsystem_mbus$coupler_to_memory_controller_port_named_axi4$axi4yank$QueueCompatibility_25$ram_extra_id$io_deq_bits_MPORT$rtl[L] = ldut.subsystem_mbus.coupler_to_memory_controller_port_named_axi4.axi4yank.QueueCompatibility_25.ram_extra_id[_v2_sa_field_addr];
-        }
+        essent_table_read<16, 8, false>(&_s_ldut$subsystem_mbus$coupler_to_memory_controller_port_named_axi4$axi4yank$QueueCompatibility_25$ram_tl_state_size$io_deq_bits_MPORT$rtl[0], &ldut.subsystem_mbus.coupler_to_memory_controller_port_named_axi4.axi4yank.QueueCompatibility_25.ram_tl_state_size[0], &ldut.subsystem_mbus.coupler_to_memory_controller_port_named_axi4.axi4yank.QueueCompatibility_25.deq_ptr_value[0]);
+        essent_table_read<16, 8, false>(&_s_ldut$subsystem_mbus$coupler_to_memory_controller_port_named_axi4$axi4yank$QueueCompatibility_25$ram_tl_state_source$io_deq_bits_MPORT$rtl[0], &ldut.subsystem_mbus.coupler_to_memory_controller_port_named_axi4.axi4yank.QueueCompatibility_25.ram_tl_state_source[0], &ldut.subsystem_mbus.coupler_to_memory_controller_port_named_axi4.axi4yank.QueueCompatibility_25.deq_ptr_value[0]);
+        essent_table_read<16, 8, false>(&_s_ldut$subsystem_mbus$coupler_to_memory_controller_port_named_axi4$axi4yank$QueueCompatibility_25$ram_extra_id$io_deq_bits_MPORT$rtl[0], &ldut.subsystem_mbus.coupler_to_memory_controller_port_named_axi4.axi4yank.QueueCompatibility_25.ram_extra_id[0], &ldut.subsystem_mbus.coupler_to_memory_controller_port_named_axi4.axi4yank.QueueCompatibility_25.deq_ptr_value[0]);
       } else {
       {
         // [state-field-read-fused] 3 arrays share one access scan, mode=dense-branchless
@@ -17187,12 +17133,9 @@
         _v2_sa_anyw |= (uint64_t)(essent_to_u64(_s_ldut$subsystem_mbus$coupler_to_memory_controller_port_named_axi4$axi4yank$QueueCompatibility_26$io_enq_ready[G] & _s_ldut$subsystem_mbus$coupler_to_memory_controller_port_named_axi4$axi4yank$QueueCompatibility_26$io_enq_valid[G]) != 0) & (uint64_t)(essent_to_u64(UInt<1>(0x1)) != 0);
       }
       if (_v2_sa_anyw == 0) {
-        for (int L = 0; L < 16; L++) {
-          const uint64_t _v2_sa_field_addr = essent_to_u64(ldut.subsystem_mbus.coupler_to_memory_controller_port_named_axi4.axi4yank.QueueCompatibility_26.deq_ptr_value[L]);
-          _s_ldut$subsystem_mbus$coupler_to_memory_controller_port_named_axi4$axi4yank$QueueCompatibility_26$ram_tl_state_size$io_deq_bits_MPORT$rtl[L] = ldut.subsystem_mbus.coupler_to_memory_controller_port_named_axi4.axi4yank.QueueCompatibility_26.ram_tl_state_size[_v2_sa_field_addr];
-          _s_ldut$subsystem_mbus$coupler_to_memory_controller_port_named_axi4$axi4yank$QueueCompatibility_26$ram_tl_state_source$io_deq_bits_MPORT$rtl[L] = ldut.subsystem_mbus.coupler_to_memory_controller_port_named_axi4.axi4yank.QueueCompatibility_26.ram_tl_state_source[_v2_sa_field_addr];
-          _s_ldut$subsystem_mbus$coupler_to_memory_controller_port_named_axi4$axi4yank$QueueCompatibility_26$ram_extra_id$io_deq_bits_MPORT$rtl[L] = ldut.subsystem_mbus.coupler_to_memory_controller_port_named_axi4.axi4yank.QueueCompatibility_26.ram_extra_id[_v2_sa_field_addr];
-        }
+        essent_table_read<16, 8, false>(&_s_ldut$subsystem_mbus$coupler_to_memory_controller_port_named_axi4$axi4yank$QueueCompatibility_26$ram_tl_state_size$io_deq_bits_MPORT$rtl[0], &ldut.subsystem_mbus.coupler_to_memory_controller_port_named_axi4.axi4yank.QueueCompatibility_26.ram_tl_state_size[0], &ldut.subsystem_mbus.coupler_to_memory_controller_port_named_axi4.axi4yank.QueueCompatibility_26.deq_ptr_value[0]);
+        essent_table_read<16, 8, false>(&_s_ldut$subsystem_mbus$coupler_to_memory_controller_port_named_axi4$axi4yank$QueueCompatibility_26$ram_tl_state_source$io_deq_bits_MPORT$rtl[0], &ldut.subsystem_mbus.coupler_to_memory_controller_port_named_axi4.axi4yank.QueueCompatibility_26.ram_tl_state_source[0], &ldut.subsystem_mbus.coupler_to_memory_controller_port_named_axi4.axi4yank.QueueCompatibility_26.deq_ptr_value[0]);
+        essent_table_read<16, 8, false>(&_s_ldut$subsystem_mbus$coupler_to_memory_controller_port_named_axi4$axi4yank$QueueCompatibility_26$ram_extra_id$io_deq_bits_MPORT$rtl[0], &ldut.subsystem_mbus.coupler_to_memory_controller_port_named_axi4.axi4yank.QueueCompatibility_26.ram_extra_id[0], &ldut.subsystem_mbus.coupler_to_memory_controller_port_named_axi4.axi4yank.QueueCompatibility_26.deq_ptr_value[0]);
       } else {
       {
         // [state-field-read-fused] 3 arrays share one access scan, mode=dense-branchless
@@ -17238,12 +17181,9 @@
         _v2_sa_anyw |= (uint64_t)(essent_to_u64(_s_ldut$subsystem_mbus$coupler_to_memory_controller_port_named_axi4$axi4yank$QueueCompatibility_27$io_enq_ready[G] & _s_ldut$subsystem_mbus$coupler_to_memory_controller_port_named_axi4$axi4yank$QueueCompatibility_27$io_enq_valid[G]) != 0) & (uint64_t)(essent_to_u64(UInt<1>(0x1)) != 0);
       }
       if (_v2_sa_anyw == 0) {
-        for (int L = 0; L < 16; L++) {
-          const uint64_t _v2_sa_field_addr = essent_to_u64(ldut.subsystem_mbus.coupler_to_memory_controller_port_named_axi4.axi4yank.QueueCompatibility_27.deq_ptr_value[L]);
-          _s_ldut$subsystem_mbus$coupler_to_memory_controller_port_named_axi4$axi4yank$QueueCompatibility_27$ram_tl_state_size$io_deq_bits_MPORT$rtl[L] = ldut.subsystem_mbus.coupler_to_memory_controller_port_named_axi4.axi4yank.QueueCompatibility_27.ram_tl_state_size[_v2_sa_field_addr];
-          _s_ldut$subsystem_mbus$coupler_to_memory_controller_port_named_axi4$axi4yank$QueueCompatibility_27$ram_tl_state_source$io_deq_bits_MPORT$rtl[L] = ldut.subsystem_mbus.coupler_to_memory_controller_port_named_axi4.axi4yank.QueueCompatibility_27.ram_tl_state_source[_v2_sa_field_addr];
-          _s_ldut$subsystem_mbus$coupler_to_memory_controller_port_named_axi4$axi4yank$QueueCompatibility_27$ram_extra_id$io_deq_bits_MPORT$rtl[L] = ldut.subsystem_mbus.coupler_to_memory_controller_port_named_axi4.axi4yank.QueueCompatibility_27.ram_extra_id[_v2_sa_field_addr];
-        }
+        essent_table_read<16, 8, false>(&_s_ldut$subsystem_mbus$coupler_to_memory_controller_port_named_axi4$axi4yank$QueueCompatibility_27$ram_tl_state_size$io_deq_bits_MPORT$rtl[0], &ldut.subsystem_mbus.coupler_to_memory_controller_port_named_axi4.axi4yank.QueueCompatibility_27.ram_tl_state_size[0], &ldut.subsystem_mbus.coupler_to_memory_controller_port_named_axi4.axi4yank.QueueCompatibility_27.deq_ptr_value[0]);
+        essent_table_read<16, 8, false>(&_s_ldut$subsystem_mbus$coupler_to_memory_controller_port_named_axi4$axi4yank$QueueCompatibility_27$ram_tl_state_source$io_deq_bits_MPORT$rtl[0], &ldut.subsystem_mbus.coupler_to_memory_controller_port_named_axi4.axi4yank.QueueCompatibility_27.ram_tl_state_source[0], &ldut.subsystem_mbus.coupler_to_memory_controller_port_named_axi4.axi4yank.QueueCompatibility_27.deq_ptr_value[0]);
+        essent_table_read<16, 8, false>(&_s_ldut$subsystem_mbus$coupler_to_memory_controller_port_named_axi4$axi4yank$QueueCompatibility_27$ram_extra_id$io_deq_bits_MPORT$rtl[0], &ldut.subsystem_mbus.coupler_to_memory_controller_port_named_axi4.axi4yank.QueueCompatibility_27.ram_extra_id[0], &ldut.subsystem_mbus.coupler_to_memory_controller_port_named_axi4.axi4yank.QueueCompatibility_27.deq_ptr_value[0]);
       } else {
       {
         // [state-field-read-fused] 3 arrays share one access scan, mode=dense-branchless
@@ -17291,12 +17231,9 @@
         _v2_sa_anyw |= (uint64_t)(essent_to_u64(_s_ldut$subsystem_mbus$coupler_to_memory_controller_port_named_axi4$axi4yank$QueueCompatibility_28$io_enq_ready[G] & _s_ldut$subsystem_mbus$coupler_to_memory_controller_port_named_axi4$axi4yank$QueueCompatibility_28$io_enq_valid[G]) != 0) & (uint64_t)(essent_to_u64(UInt<1>(0x1)) != 0);
       }
       if (_v2_sa_anyw == 0) {
-        for (int L = 0; L < 16; L++) {
-          const uint64_t _v2_sa_field_addr = essent_to_u64(ldut.subsystem_mbus.coupler_to_memory_controller_port_named_axi4.axi4yank.QueueCompatibility_28.deq_ptr_value[L]);
-          _s_ldut$subsystem_mbus$coupler_to_memory_controller_port_named_axi4$axi4yank$QueueCompatibility_28$ram_tl_state_size$io_deq_bits_MPORT$rtl[L] = ldut.subsystem_mbus.coupler_to_memory_controller_port_named_axi4.axi4yank.QueueCompatibility_28.ram_tl_state_size[_v2_sa_field_addr];
-          _s_ldut$subsystem_mbus$coupler_to_memory_controller_port_named_axi4$axi4yank$QueueCompatibility_28$ram_tl_state_source$io_deq_bits_MPORT$rtl[L] = ldut.subsystem_mbus.coupler_to_memory_controller_port_named_axi4.axi4yank.QueueCompatibility_28.ram_tl_state_source[_v2_sa_field_addr];
-          _s_ldut$subsystem_mbus$coupler_to_memory_controller_port_named_axi4$axi4yank$QueueCompatibility_28$ram_extra_id$io_deq_bits_MPORT$rtl[L] = ldut.subsystem_mbus.coupler_to_memory_controller_port_named_axi4.axi4yank.QueueCompatibility_28.ram_extra_id[_v2_sa_field_addr];
-        }
+        essent_table_read<16, 8, false>(&_s_ldut$subsystem_mbus$coupler_to_memory_controller_port_named_axi4$axi4yank$QueueCompatibility_28$ram_tl_state_size$io_deq_bits_MPORT$rtl[0], &ldut.subsystem_mbus.coupler_to_memory_controller_port_named_axi4.axi4yank.QueueCompatibility_28.ram_tl_state_size[0], &ldut.subsystem_mbus.coupler_to_memory_controller_port_named_axi4.axi4yank.QueueCompatibility_28.deq_ptr_value[0]);
+        essent_table_read<16, 8, false>(&_s_ldut$subsystem_mbus$coupler_to_memory_controller_port_named_axi4$axi4yank$QueueCompatibility_28$ram_tl_state_source$io_deq_bits_MPORT$rtl[0], &ldut.subsystem_mbus.coupler_to_memory_controller_port_named_axi4.axi4yank.QueueCompatibility_28.ram_tl_state_source[0], &ldut.subsystem_mbus.coupler_to_memory_controller_port_named_axi4.axi4yank.QueueCompatibility_28.deq_ptr_value[0]);
+        essent_table_read<16, 8, false>(&_s_ldut$subsystem_mbus$coupler_to_memory_controller_port_named_axi4$axi4yank$QueueCompatibility_28$ram_extra_id$io_deq_bits_MPORT$rtl[0], &ldut.subsystem_mbus.coupler_to_memory_controller_port_named_axi4.axi4yank.QueueCompatibility_28.ram_extra_id[0], &ldut.subsystem_mbus.coupler_to_memory_controller_port_named_axi4.axi4yank.QueueCompatibility_28.deq_ptr_value[0]);
       } else {
       {
         // [state-field-read-fused] 3 arrays share one access scan, mode=dense-branchless
@@ -17342,12 +17279,9 @@
         _v2_sa_anyw |= (uint64_t)(essent_to_u64(_s_ldut$subsystem_mbus$coupler_to_memory_controller_port_named_axi4$axi4yank$QueueCompatibility_29$io_enq_ready[G] & _s_ldut$subsystem_mbus$coupler_to_memory_controller_port_named_axi4$axi4yank$QueueCompatibility_29$io_enq_valid[G]) != 0) & (uint64_t)(essent_to_u64(UInt<1>(0x1)) != 0);
       }
       if (_v2_sa_anyw == 0) {
-        for (int L = 0; L < 16; L++) {
-          const uint64_t _v2_sa_field_addr = essent_to_u64(ldut.subsystem_mbus.coupler_to_memory_controller_port_named_axi4.axi4yank.QueueCompatibility_29.deq_ptr_value[L]);
-          _s_ldut$subsystem_mbus$coupler_to_memory_controller_port_named_axi4$axi4yank$QueueCompatibility_29$ram_tl_state_size$io_deq_bits_MPORT$rtl[L] = ldut.subsystem_mbus.coupler_to_memory_controller_port_named_axi4.axi4yank.QueueCompatibility_29.ram_tl_state_size[_v2_sa_field_addr];
-          _s_ldut$subsystem_mbus$coupler_to_memory_controller_port_named_axi4$axi4yank$QueueCompatibility_29$ram_tl_state_source$io_deq_bits_MPORT$rtl[L] = ldut.subsystem_mbus.coupler_to_memory_controller_port_named_axi4.axi4yank.QueueCompatibility_29.ram_tl_state_source[_v2_sa_field_addr];
-          _s_ldut$subsystem_mbus$coupler_to_memory_controller_port_named_axi4$axi4yank$QueueCompatibility_29$ram_extra_id$io_deq_bits_MPORT$rtl[L] = ldut.subsystem_mbus.coupler_to_memory_controller_port_named_axi4.axi4yank.QueueCompatibility_29.ram_extra_id[_v2_sa_field_addr];
-        }
+        essent_table_read<16, 8, false>(&_s_ldut$subsystem_mbus$coupler_to_memory_controller_port_named_axi4$axi4yank$QueueCompatibility_29$ram_tl_state_size$io_deq_bits_MPORT$rtl[0], &ldut.subsystem_mbus.coupler_to_memory_controller_port_named_axi4.axi4yank.QueueCompatibility_29.ram_tl_state_size[0], &ldut.subsystem_mbus.coupler_to_memory_controller_port_named_axi4.axi4yank.QueueCompatibility_29.deq_ptr_value[0]);
+        essent_table_read<16, 8, false>(&_s_ldut$subsystem_mbus$coupler_to_memory_controller_port_named_axi4$axi4yank$QueueCompatibility_29$ram_tl_state_source$io_deq_bits_MPORT$rtl[0], &ldut.subsystem_mbus.coupler_to_memory_controller_port_named_axi4.axi4yank.QueueCompatibility_29.ram_tl_state_source[0], &ldut.subsystem_mbus.coupler_to_memory_controller_port_named_axi4.axi4yank.QueueCompatibility_29.deq_ptr_value[0]);
+        essent_table_read<16, 8, false>(&_s_ldut$subsystem_mbus$coupler_to_memory_controller_port_named_axi4$axi4yank$QueueCompatibility_29$ram_extra_id$io_deq_bits_MPORT$rtl[0], &ldut.subsystem_mbus.coupler_to_memory_controller_port_named_axi4.axi4yank.QueueCompatibility_29.ram_extra_id[0], &ldut.subsystem_mbus.coupler_to_memory_controller_port_named_axi4.axi4yank.QueueCompatibility_29.deq_ptr_value[0]);
       } else {
       {
         // [state-field-read-fused] 3 arrays share one access scan, mode=dense-branchless
@@ -17393,12 +17327,9 @@
         _v2_sa_anyw |= (uint64_t)(essent_to_u64(_s_ldut$subsystem_mbus$coupler_to_memory_controller_port_named_axi4$axi4yank$QueueCompatibility_30$io_enq_ready[G] & _s_ldut$subsystem_mbus$coupler_to_memory_controller_port_named_axi4$axi4yank$QueueCompatibility_30$io_enq_valid[G]) != 0) & (uint64_t)(essent_to_u64(UInt<1>(0x1)) != 0);
       }
       if (_v2_sa_anyw == 0) {
-        for (int L = 0; L < 16; L++) {
-          const uint64_t _v2_sa_field_addr = essent_to_u64(ldut.subsystem_mbus.coupler_to_memory_controller_port_named_axi4.axi4yank.QueueCompatibility_30.deq_ptr_value[L]);
-          _s_ldut$subsystem_mbus$coupler_to_memory_controller_port_named_axi4$axi4yank$QueueCompatibility_30$ram_tl_state_size$io_deq_bits_MPORT$rtl[L] = ldut.subsystem_mbus.coupler_to_memory_controller_port_named_axi4.axi4yank.QueueCompatibility_30.ram_tl_state_size[_v2_sa_field_addr];
-          _s_ldut$subsystem_mbus$coupler_to_memory_controller_port_named_axi4$axi4yank$QueueCompatibility_30$ram_tl_state_source$io_deq_bits_MPORT$rtl[L] = ldut.subsystem_mbus.coupler_to_memory_controller_port_named_axi4.axi4yank.QueueCompatibility_30.ram_tl_state_source[_v2_sa_field_addr];
-          _s_ldut$subsystem_mbus$coupler_to_memory_controller_port_named_axi4$axi4yank$QueueCompatibility_30$ram_extra_id$io_deq_bits_MPORT$rtl[L] = ldut.subsystem_mbus.coupler_to_memory_controller_port_named_axi4.axi4yank.QueueCompatibility_30.ram_extra_id[_v2_sa_field_addr];
-        }
+        essent_table_read<16, 8, false>(&_s_ldut$subsystem_mbus$coupler_to_memory_controller_port_named_axi4$axi4yank$QueueCompatibility_30$ram_tl_state_size$io_deq_bits_MPORT$rtl[0], &ldut.subsystem_mbus.coupler_to_memory_controller_port_named_axi4.axi4yank.QueueCompatibility_30.ram_tl_state_size[0], &ldut.subsystem_mbus.coupler_to_memory_controller_port_named_axi4.axi4yank.QueueCompatibility_30.deq_ptr_value[0]);
+        essent_table_read<16, 8, false>(&_s_ldut$subsystem_mbus$coupler_to_memory_controller_port_named_axi4$axi4yank$QueueCompatibility_30$ram_tl_state_source$io_deq_bits_MPORT$rtl[0], &ldut.subsystem_mbus.coupler_to_memory_controller_port_named_axi4.axi4yank.QueueCompatibility_30.ram_tl_state_source[0], &ldut.subsystem_mbus.coupler_to_memory_controller_port_named_axi4.axi4yank.QueueCompatibility_30.deq_ptr_value[0]);
+        essent_table_read<16, 8, false>(&_s_ldut$subsystem_mbus$coupler_to_memory_controller_port_named_axi4$axi4yank$QueueCompatibility_30$ram_extra_id$io_deq_bits_MPORT$rtl[0], &ldut.subsystem_mbus.coupler_to_memory_controller_port_named_axi4.axi4yank.QueueCompatibility_30.ram_extra_id[0], &ldut.subsystem_mbus.coupler_to_memory_controller_port_named_axi4.axi4yank.QueueCompatibility_30.deq_ptr_value[0]);
       } else {
       {
         // [state-field-read-fused] 3 arrays share one access scan, mode=dense-branchless
@@ -17444,12 +17375,9 @@
         _v2_sa_anyw |= (uint64_t)(essent_to_u64(_s_ldut$subsystem_mbus$coupler_to_memory_controller_port_named_axi4$axi4yank$QueueCompatibility_31$io_enq_ready[G] & _s_ldut$subsystem_mbus$coupler_to_memory_controller_port_named_axi4$axi4yank$QueueCompatibility_31$io_enq_valid[G]) != 0) & (uint64_t)(essent_to_u64(UInt<1>(0x1)) != 0);
       }
       if (_v2_sa_anyw == 0) {
-        for (int L = 0; L < 16; L++) {
-          const uint64_t _v2_sa_field_addr = essent_to_u64(ldut.subsystem_mbus.coupler_to_memory_controller_port_named_axi4.axi4yank.QueueCompatibility_31.deq_ptr_value[L]);
-          _s_ldut$subsystem_mbus$coupler_to_memory_controller_port_named_axi4$axi4yank$QueueCompatibility_31$ram_tl_state_size$io_deq_bits_MPORT$rtl[L] = ldut.subsystem_mbus.coupler_to_memory_controller_port_named_axi4.axi4yank.QueueCompatibility_31.ram_tl_state_size[_v2_sa_field_addr];
-          _s_ldut$subsystem_mbus$coupler_to_memory_controller_port_named_axi4$axi4yank$QueueCompatibility_31$ram_tl_state_source$io_deq_bits_MPORT$rtl[L] = ldut.subsystem_mbus.coupler_to_memory_controller_port_named_axi4.axi4yank.QueueCompatibility_31.ram_tl_state_source[_v2_sa_field_addr];
-          _s_ldut$subsystem_mbus$coupler_to_memory_controller_port_named_axi4$axi4yank$QueueCompatibility_31$ram_extra_id$io_deq_bits_MPORT$rtl[L] = ldut.subsystem_mbus.coupler_to_memory_controller_port_named_axi4.axi4yank.QueueCompatibility_31.ram_extra_id[_v2_sa_field_addr];
-        }
+        essent_table_read<16, 8, false>(&_s_ldut$subsystem_mbus$coupler_to_memory_controller_port_named_axi4$axi4yank$QueueCompatibility_31$ram_tl_state_size$io_deq_bits_MPORT$rtl[0], &ldut.subsystem_mbus.coupler_to_memory_controller_port_named_axi4.axi4yank.QueueCompatibility_31.ram_tl_state_size[0], &ldut.subsystem_mbus.coupler_to_memory_controller_port_named_axi4.axi4yank.QueueCompatibility_31.deq_ptr_value[0]);
+        essent_table_read<16, 8, false>(&_s_ldut$subsystem_mbus$coupler_to_memory_controller_port_named_axi4$axi4yank$QueueCompatibility_31$ram_tl_state_source$io_deq_bits_MPORT$rtl[0], &ldut.subsystem_mbus.coupler_to_memory_controller_port_named_axi4.axi4yank.QueueCompatibility_31.ram_tl_state_source[0], &ldut.subsystem_mbus.coupler_to_memory_controller_port_named_axi4.axi4yank.QueueCompatibility_31.deq_ptr_value[0]);
+        essent_table_read<16, 8, false>(&_s_ldut$subsystem_mbus$coupler_to_memory_controller_port_named_axi4$axi4yank$QueueCompatibility_31$ram_extra_id$io_deq_bits_MPORT$rtl[0], &ldut.subsystem_mbus.coupler_to_memory_controller_port_named_axi4.axi4yank.QueueCompatibility_31.ram_extra_id[0], &ldut.subsystem_mbus.coupler_to_memory_controller_port_named_axi4.axi4yank.QueueCompatibility_31.deq_ptr_value[0]);
       } else {
       {
         // [state-field-read-fused] 3 arrays share one access scan, mode=dense-branchless
@@ -17527,12 +17455,9 @@
         _v2_sa_anyw |= (uint64_t)(essent_to_u64(_s_ldut$subsystem_mbus$coupler_to_memory_controller_port_named_axi4$axi4yank$QueueCompatibility$$inst$io_enq_ready[G] & _s_ldut$subsystem_mbus$coupler_to_memory_controller_port_named_axi4$axi4yank$QueueCompatibility$$inst$io_enq_valid[G]) != 0) & (uint64_t)(essent_to_u64(UInt<1>(0x1)) != 0);
       }
       if (_v2_sa_anyw == 0) {
-        for (int L = 0; L < 16; L++) {
-          const uint64_t _v2_sa_field_addr = essent_to_u64(ldut.subsystem_mbus.coupler_to_memory_controller_port_named_axi4.axi4yank.QueueCompatibility$$inst.deq_ptr_value[L]);
-          _s_ldut$subsystem_mbus$coupler_to_memory_controller_port_named_axi4$axi4yank$QueueCompatibility$$inst$ram_tl_state_size$io_deq_bits_MPORT$rtl[L] = ldut.subsystem_mbus.coupler_to_memory_controller_port_named_axi4.axi4yank.QueueCompatibility$$inst.ram_tl_state_size[_v2_sa_field_addr];
-          _s_ldut$subsystem_mbus$coupler_to_memory_controller_port_named_axi4$axi4yank$QueueCompatibility$$inst$ram_tl_state_source$io_deq_bits_MPORT$rtl[L] = ldut.subsystem_mbus.coupler_to_memory_controller_port_named_axi4.axi4yank.QueueCompatibility$$inst.ram_tl_state_source[_v2_sa_field_addr];
-          _s_ldut$subsystem_mbus$coupler_to_memory_controller_port_named_axi4$axi4yank$QueueCompatibility$$inst$ram_extra_id$io_deq_bits_MPORT$rtl[L] = ldut.subsystem_mbus.coupler_to_memory_controller_port_named_axi4.axi4yank.QueueCompatibility$$inst.ram_extra_id[_v2_sa_field_addr];
-        }
+        essent_table_read<16, 8, false>(&_s_ldut$subsystem_mbus$coupler_to_memory_controller_port_named_axi4$axi4yank$QueueCompatibility$$inst$ram_tl_state_size$io_deq_bits_MPORT$rtl[0], &ldut.subsystem_mbus.coupler_to_memory_controller_port_named_axi4.axi4yank.QueueCompatibility$$inst.ram_tl_state_size[0], &ldut.subsystem_mbus.coupler_to_memory_controller_port_named_axi4.axi4yank.QueueCompatibility$$inst.deq_ptr_value[0]);
+        essent_table_read<16, 8, false>(&_s_ldut$subsystem_mbus$coupler_to_memory_controller_port_named_axi4$axi4yank$QueueCompatibility$$inst$ram_tl_state_source$io_deq_bits_MPORT$rtl[0], &ldut.subsystem_mbus.coupler_to_memory_controller_port_named_axi4.axi4yank.QueueCompatibility$$inst.ram_tl_state_source[0], &ldut.subsystem_mbus.coupler_to_memory_controller_port_named_axi4.axi4yank.QueueCompatibility$$inst.deq_ptr_value[0]);
+        essent_table_read<16, 8, false>(&_s_ldut$subsystem_mbus$coupler_to_memory_controller_port_named_axi4$axi4yank$QueueCompatibility$$inst$ram_extra_id$io_deq_bits_MPORT$rtl[0], &ldut.subsystem_mbus.coupler_to_memory_controller_port_named_axi4.axi4yank.QueueCompatibility$$inst.ram_extra_id[0], &ldut.subsystem_mbus.coupler_to_memory_controller_port_named_axi4.axi4yank.QueueCompatibility$$inst.deq_ptr_value[0]);
       } else {
       {
         // [state-field-read-fused] 3 arrays share one access scan, mode=dense-branchless
@@ -17578,12 +17503,9 @@
         _v2_sa_anyw |= (uint64_t)(essent_to_u64(_s_ldut$subsystem_mbus$coupler_to_memory_controller_port_named_axi4$axi4yank$QueueCompatibility_1$io_enq_ready[G] & _s_ldut$subsystem_mbus$coupler_to_memory_controller_port_named_axi4$axi4yank$QueueCompatibility_1$io_enq_valid[G]) != 0) & (uint64_t)(essent_to_u64(UInt<1>(0x1)) != 0);
       }
       if (_v2_sa_anyw == 0) {
-        for (int L = 0; L < 16; L++) {
-          const uint64_t _v2_sa_field_addr = essent_to_u64(ldut.subsystem_mbus.coupler_to_memory_controller_port_named_axi4.axi4yank.QueueCompatibility_1.deq_ptr_value[L]);
-          _s_ldut$subsystem_mbus$coupler_to_memory_controller_port_named_axi4$axi4yank$QueueCompatibility_1$ram_tl_state_size$io_deq_bits_MPORT$rtl[L] = ldut.subsystem_mbus.coupler_to_memory_controller_port_named_axi4.axi4yank.QueueCompatibility_1.ram_tl_state_size[_v2_sa_field_addr];
-          _s_ldut$subsystem_mbus$coupler_to_memory_controller_port_named_axi4$axi4yank$QueueCompatibility_1$ram_tl_state_source$io_deq_bits_MPORT$rtl[L] = ldut.subsystem_mbus.coupler_to_memory_controller_port_named_axi4.axi4yank.QueueCompatibility_1.ram_tl_state_source[_v2_sa_field_addr];
-          _s_ldut$subsystem_mbus$coupler_to_memory_controller_port_named_axi4$axi4yank$QueueCompatibility_1$ram_extra_id$io_deq_bits_MPORT$rtl[L] = ldut.subsystem_mbus.coupler_to_memory_controller_port_named_axi4.axi4yank.QueueCompatibility_1.ram_extra_id[_v2_sa_field_addr];
-        }
+        essent_table_read<16, 8, false>(&_s_ldut$subsystem_mbus$coupler_to_memory_controller_port_named_axi4$axi4yank$QueueCompatibility_1$ram_tl_state_size$io_deq_bits_MPORT$rtl[0], &ldut.subsystem_mbus.coupler_to_memory_controller_port_named_axi4.axi4yank.QueueCompatibility_1.ram_tl_state_size[0], &ldut.subsystem_mbus.coupler_to_memory_controller_port_named_axi4.axi4yank.QueueCompatibility_1.deq_ptr_value[0]);
+        essent_table_read<16, 8, false>(&_s_ldut$subsystem_mbus$coupler_to_memory_controller_port_named_axi4$axi4yank$QueueCompatibility_1$ram_tl_state_source$io_deq_bits_MPORT$rtl[0], &ldut.subsystem_mbus.coupler_to_memory_controller_port_named_axi4.axi4yank.QueueCompatibility_1.ram_tl_state_source[0], &ldut.subsystem_mbus.coupler_to_memory_controller_port_named_axi4.axi4yank.QueueCompatibility_1.deq_ptr_value[0]);
+        essent_table_read<16, 8, false>(&_s_ldut$subsystem_mbus$coupler_to_memory_controller_port_named_axi4$axi4yank$QueueCompatibility_1$ram_extra_id$io_deq_bits_MPORT$rtl[0], &ldut.subsystem_mbus.coupler_to_memory_controller_port_named_axi4.axi4yank.QueueCompatibility_1.ram_extra_id[0], &ldut.subsystem_mbus.coupler_to_memory_controller_port_named_axi4.axi4yank.QueueCompatibility_1.deq_ptr_value[0]);
       } else {
       {
         // [state-field-read-fused] 3 arrays share one access scan, mode=dense-branchless
@@ -17629,12 +17551,9 @@
         _v2_sa_anyw |= (uint64_t)(essent_to_u64(_s_ldut$subsystem_mbus$coupler_to_memory_controller_port_named_axi4$axi4yank$QueueCompatibility_2$$inst$io_enq_ready[G] & _s_ldut$subsystem_mbus$coupler_to_memory_controller_port_named_axi4$axi4yank$QueueCompatibility_2$$inst$io_enq_valid[G]) != 0) & (uint64_t)(essent_to_u64(UInt<1>(0x1)) != 0);
       }
       if (_v2_sa_anyw == 0) {
-        for (int L = 0; L < 16; L++) {
-          const uint64_t _v2_sa_field_addr = essent_to_u64(ldut.subsystem_mbus.coupler_to_memory_controller_port_named_axi4.axi4yank.QueueCompatibility_2$$inst.deq_ptr_value[L]);
-          _s_ldut$subsystem_mbus$coupler_to_memory_controller_port_named_axi4$axi4yank$QueueCompatibility_2$$inst$ram_tl_state_size$io_deq_bits_MPORT$rtl[L] = ldut.subsystem_mbus.coupler_to_memory_controller_port_named_axi4.axi4yank.QueueCompatibility_2$$inst.ram_tl_state_size[_v2_sa_field_addr];
-          _s_ldut$subsystem_mbus$coupler_to_memory_controller_port_named_axi4$axi4yank$QueueCompatibility_2$$inst$ram_tl_state_source$io_deq_bits_MPORT$rtl[L] = ldut.subsystem_mbus.coupler_to_memory_controller_port_named_axi4.axi4yank.QueueCompatibility_2$$inst.ram_tl_state_source[_v2_sa_field_addr];
-          _s_ldut$subsystem_mbus$coupler_to_memory_controller_port_named_axi4$axi4yank$QueueCompatibility_2$$inst$ram_extra_id$io_deq_bits_MPORT$rtl[L] = ldut.subsystem_mbus.coupler_to_memory_controller_port_named_axi4.axi4yank.QueueCompatibility_2$$inst.ram_extra_id[_v2_sa_field_addr];
-        }
+        essent_table_read<16, 8, false>(&_s_ldut$subsystem_mbus$coupler_to_memory_controller_port_named_axi4$axi4yank$QueueCompatibility_2$$inst$ram_tl_state_size$io_deq_bits_MPORT$rtl[0], &ldut.subsystem_mbus.coupler_to_memory_controller_port_named_axi4.axi4yank.QueueCompatibility_2$$inst.ram_tl_state_size[0], &ldut.subsystem_mbus.coupler_to_memory_controller_port_named_axi4.axi4yank.QueueCompatibility_2$$inst.deq_ptr_value[0]);
+        essent_table_read<16, 8, false>(&_s_ldut$subsystem_mbus$coupler_to_memory_controller_port_named_axi4$axi4yank$QueueCompatibility_2$$inst$ram_tl_state_source$io_deq_bits_MPORT$rtl[0], &ldut.subsystem_mbus.coupler_to_memory_controller_port_named_axi4.axi4yank.QueueCompatibility_2$$inst.ram_tl_state_source[0], &ldut.subsystem_mbus.coupler_to_memory_controller_port_named_axi4.axi4yank.QueueCompatibility_2$$inst.deq_ptr_value[0]);
+        essent_table_read<16, 8, false>(&_s_ldut$subsystem_mbus$coupler_to_memory_controller_port_named_axi4$axi4yank$QueueCompatibility_2$$inst$ram_extra_id$io_deq_bits_MPORT$rtl[0], &ldut.subsystem_mbus.coupler_to_memory_controller_port_named_axi4.axi4yank.QueueCompatibility_2$$inst.ram_extra_id[0], &ldut.subsystem_mbus.coupler_to_memory_controller_port_named_axi4.axi4yank.QueueCompatibility_2$$inst.deq_ptr_value[0]);
       } else {
       {
         // [state-field-read-fused] 3 arrays share one access scan, mode=dense-branchless
@@ -17680,12 +17599,9 @@
         _v2_sa_anyw |= (uint64_t)(essent_to_u64(_s_ldut$subsystem_mbus$coupler_to_memory_controller_port_named_axi4$axi4yank$QueueCompatibility_3$io_enq_ready[G] & _s_ldut$subsystem_mbus$coupler_to_memory_controller_port_named_axi4$axi4yank$QueueCompatibility_3$io_enq_valid[G]) != 0) & (uint64_t)(essent_to_u64(UInt<1>(0x1)) != 0);
       }
       if (_v2_sa_anyw == 0) {
-        for (int L = 0; L < 16; L++) {
-          const uint64_t _v2_sa_field_addr = essent_to_u64(ldut.subsystem_mbus.coupler_to_memory_controller_port_named_axi4.axi4yank.QueueCompatibility_3.deq_ptr_value[L]);
-          _s_ldut$subsystem_mbus$coupler_to_memory_controller_port_named_axi4$axi4yank$QueueCompatibility_3$ram_tl_state_size$io_deq_bits_MPORT$rtl[L] = ldut.subsystem_mbus.coupler_to_memory_controller_port_named_axi4.axi4yank.QueueCompatibility_3.ram_tl_state_size[_v2_sa_field_addr];
-          _s_ldut$subsystem_mbus$coupler_to_memory_controller_port_named_axi4$axi4yank$QueueCompatibility_3$ram_tl_state_source$io_deq_bits_MPORT$rtl[L] = ldut.subsystem_mbus.coupler_to_memory_controller_port_named_axi4.axi4yank.QueueCompatibility_3.ram_tl_state_source[_v2_sa_field_addr];
-          _s_ldut$subsystem_mbus$coupler_to_memory_controller_port_named_axi4$axi4yank$QueueCompatibility_3$ram_extra_id$io_deq_bits_MPORT$rtl[L] = ldut.subsystem_mbus.coupler_to_memory_controller_port_named_axi4.axi4yank.QueueCompatibility_3.ram_extra_id[_v2_sa_field_addr];
-        }
+        essent_table_read<16, 8, false>(&_s_ldut$subsystem_mbus$coupler_to_memory_controller_port_named_axi4$axi4yank$QueueCompatibility_3$ram_tl_state_size$io_deq_bits_MPORT$rtl[0], &ldut.subsystem_mbus.coupler_to_memory_controller_port_named_axi4.axi4yank.QueueCompatibility_3.ram_tl_state_size[0], &ldut.subsystem_mbus.coupler_to_memory_controller_port_named_axi4.axi4yank.QueueCompatibility_3.deq_ptr_value[0]);
+        essent_table_read<16, 8, false>(&_s_ldut$subsystem_mbus$coupler_to_memory_controller_port_named_axi4$axi4yank$QueueCompatibility_3$ram_tl_state_source$io_deq_bits_MPORT$rtl[0], &ldut.subsystem_mbus.coupler_to_memory_controller_port_named_axi4.axi4yank.QueueCompatibility_3.ram_tl_state_source[0], &ldut.subsystem_mbus.coupler_to_memory_controller_port_named_axi4.axi4yank.QueueCompatibility_3.deq_ptr_value[0]);
+        essent_table_read<16, 8, false>(&_s_ldut$subsystem_mbus$coupler_to_memory_controller_port_named_axi4$axi4yank$QueueCompatibility_3$ram_extra_id$io_deq_bits_MPORT$rtl[0], &ldut.subsystem_mbus.coupler_to_memory_controller_port_named_axi4.axi4yank.QueueCompatibility_3.ram_extra_id[0], &ldut.subsystem_mbus.coupler_to_memory_controller_port_named_axi4.axi4yank.QueueCompatibility_3.deq_ptr_value[0]);
       } else {
       {
         // [state-field-read-fused] 3 arrays share one access scan, mode=dense-branchless
@@ -17733,12 +17649,9 @@
         _v2_sa_anyw |= (uint64_t)(essent_to_u64(_s_ldut$subsystem_mbus$coupler_to_memory_controller_port_named_axi4$axi4yank$QueueCompatibility_4$io_enq_ready[G] & _s_ldut$subsystem_mbus$coupler_to_memory_controller_port_named_axi4$axi4yank$QueueCompatibility_4$io_enq_valid[G]) != 0) & (uint64_t)(essent_to_u64(UInt<1>(0x1)) != 0);
       }
       if (_v2_sa_anyw == 0) {
-        for (int L = 0; L < 16; L++) {
-          const uint64_t _v2_sa_field_addr = essent_to_u64(ldut.subsystem_mbus.coupler_to_memory_controller_port_named_axi4.axi4yank.QueueCompatibility_4.deq_ptr_value[L]);
-          _s_ldut$subsystem_mbus$coupler_to_memory_controller_port_named_axi4$axi4yank$QueueCompatibility_4$ram_tl_state_size$io_deq_bits_MPORT$rtl[L] = ldut.subsystem_mbus.coupler_to_memory_controller_port_named_axi4.axi4yank.QueueCompatibility_4.ram_tl_state_size[_v2_sa_field_addr];
-          _s_ldut$subsystem_mbus$coupler_to_memory_controller_port_named_axi4$axi4yank$QueueCompatibility_4$ram_tl_state_source$io_deq_bits_MPORT$rtl[L] = ldut.subsystem_mbus.coupler_to_memory_controller_port_named_axi4.axi4yank.QueueCompatibility_4.ram_tl_state_source[_v2_sa_field_addr];
-          _s_ldut$subsystem_mbus$coupler_to_memory_controller_port_named_axi4$axi4yank$QueueCompatibility_4$ram_extra_id$io_deq_bits_MPORT$rtl[L] = ldut.subsystem_mbus.coupler_to_memory_controller_port_named_axi4.axi4yank.QueueCompatibility_4.ram_extra_id[_v2_sa_field_addr];
-        }
+        essent_table_read<16, 8, false>(&_s_ldut$subsystem_mbus$coupler_to_memory_controller_port_named_axi4$axi4yank$QueueCompatibility_4$ram_tl_state_size$io_deq_bits_MPORT$rtl[0], &ldut.subsystem_mbus.coupler_to_memory_controller_port_named_axi4.axi4yank.QueueCompatibility_4.ram_tl_state_size[0], &ldut.subsystem_mbus.coupler_to_memory_controller_port_named_axi4.axi4yank.QueueCompatibility_4.deq_ptr_value[0]);
+        essent_table_read<16, 8, false>(&_s_ldut$subsystem_mbus$coupler_to_memory_controller_port_named_axi4$axi4yank$QueueCompatibility_4$ram_tl_state_source$io_deq_bits_MPORT$rtl[0], &ldut.subsystem_mbus.coupler_to_memory_controller_port_named_axi4.axi4yank.QueueCompatibility_4.ram_tl_state_source[0], &ldut.subsystem_mbus.coupler_to_memory_controller_port_named_axi4.axi4yank.QueueCompatibility_4.deq_ptr_value[0]);
+        essent_table_read<16, 8, false>(&_s_ldut$subsystem_mbus$coupler_to_memory_controller_port_named_axi4$axi4yank$QueueCompatibility_4$ram_extra_id$io_deq_bits_MPORT$rtl[0], &ldut.subsystem_mbus.coupler_to_memory_controller_port_named_axi4.axi4yank.QueueCompatibility_4.ram_extra_id[0], &ldut.subsystem_mbus.coupler_to_memory_controller_port_named_axi4.axi4yank.QueueCompatibility_4.deq_ptr_value[0]);
       } else {
       {
         // [state-field-read-fused] 3 arrays share one access scan, mode=dense-branchless
@@ -17784,12 +17697,9 @@
         _v2_sa_anyw |= (uint64_t)(essent_to_u64(_s_ldut$subsystem_mbus$coupler_to_memory_controller_port_named_axi4$axi4yank$QueueCompatibility_5$io_enq_ready[G] & _s_ldut$subsystem_mbus$coupler_to_memory_controller_port_named_axi4$axi4yank$QueueCompatibility_5$io_enq_valid[G]) != 0) & (uint64_t)(essent_to_u64(UInt<1>(0x1)) != 0);
       }
       if (_v2_sa_anyw == 0) {
-        for (int L = 0; L < 16; L++) {
-          const uint64_t _v2_sa_field_addr = essent_to_u64(ldut.subsystem_mbus.coupler_to_memory_controller_port_named_axi4.axi4yank.QueueCompatibility_5.deq_ptr_value[L]);
-          _s_ldut$subsystem_mbus$coupler_to_memory_controller_port_named_axi4$axi4yank$QueueCompatibility_5$ram_tl_state_size$io_deq_bits_MPORT$rtl[L] = ldut.subsystem_mbus.coupler_to_memory_controller_port_named_axi4.axi4yank.QueueCompatibility_5.ram_tl_state_size[_v2_sa_field_addr];
-          _s_ldut$subsystem_mbus$coupler_to_memory_controller_port_named_axi4$axi4yank$QueueCompatibility_5$ram_tl_state_source$io_deq_bits_MPORT$rtl[L] = ldut.subsystem_mbus.coupler_to_memory_controller_port_named_axi4.axi4yank.QueueCompatibility_5.ram_tl_state_source[_v2_sa_field_addr];
-          _s_ldut$subsystem_mbus$coupler_to_memory_controller_port_named_axi4$axi4yank$QueueCompatibility_5$ram_extra_id$io_deq_bits_MPORT$rtl[L] = ldut.subsystem_mbus.coupler_to_memory_controller_port_named_axi4.axi4yank.QueueCompatibility_5.ram_extra_id[_v2_sa_field_addr];
-        }
+        essent_table_read<16, 8, false>(&_s_ldut$subsystem_mbus$coupler_to_memory_controller_port_named_axi4$axi4yank$QueueCompatibility_5$ram_tl_state_size$io_deq_bits_MPORT$rtl[0], &ldut.subsystem_mbus.coupler_to_memory_controller_port_named_axi4.axi4yank.QueueCompatibility_5.ram_tl_state_size[0], &ldut.subsystem_mbus.coupler_to_memory_controller_port_named_axi4.axi4yank.QueueCompatibility_5.deq_ptr_value[0]);
+        essent_table_read<16, 8, false>(&_s_ldut$subsystem_mbus$coupler_to_memory_controller_port_named_axi4$axi4yank$QueueCompatibility_5$ram_tl_state_source$io_deq_bits_MPORT$rtl[0], &ldut.subsystem_mbus.coupler_to_memory_controller_port_named_axi4.axi4yank.QueueCompatibility_5.ram_tl_state_source[0], &ldut.subsystem_mbus.coupler_to_memory_controller_port_named_axi4.axi4yank.QueueCompatibility_5.deq_ptr_value[0]);
+        essent_table_read<16, 8, false>(&_s_ldut$subsystem_mbus$coupler_to_memory_controller_port_named_axi4$axi4yank$QueueCompatibility_5$ram_extra_id$io_deq_bits_MPORT$rtl[0], &ldut.subsystem_mbus.coupler_to_memory_controller_port_named_axi4.axi4yank.QueueCompatibility_5.ram_extra_id[0], &ldut.subsystem_mbus.coupler_to_memory_controller_port_named_axi4.axi4yank.QueueCompatibility_5.deq_ptr_value[0]);
       } else {
       {
         // [state-field-read-fused] 3 arrays share one access scan, mode=dense-branchless
@@ -17835,12 +17745,9 @@
         _v2_sa_anyw |= (uint64_t)(essent_to_u64(_s_ldut$subsystem_mbus$coupler_to_memory_controller_port_named_axi4$axi4yank$QueueCompatibility_6$io_enq_ready[G] & _s_ldut$subsystem_mbus$coupler_to_memory_controller_port_named_axi4$axi4yank$QueueCompatibility_6$io_enq_valid[G]) != 0) & (uint64_t)(essent_to_u64(UInt<1>(0x1)) != 0);
       }
       if (_v2_sa_anyw == 0) {
-        for (int L = 0; L < 16; L++) {
-          const uint64_t _v2_sa_field_addr = essent_to_u64(ldut.subsystem_mbus.coupler_to_memory_controller_port_named_axi4.axi4yank.QueueCompatibility_6.deq_ptr_value[L]);
-          _s_ldut$subsystem_mbus$coupler_to_memory_controller_port_named_axi4$axi4yank$QueueCompatibility_6$ram_tl_state_size$io_deq_bits_MPORT$rtl[L] = ldut.subsystem_mbus.coupler_to_memory_controller_port_named_axi4.axi4yank.QueueCompatibility_6.ram_tl_state_size[_v2_sa_field_addr];
-          _s_ldut$subsystem_mbus$coupler_to_memory_controller_port_named_axi4$axi4yank$QueueCompatibility_6$ram_tl_state_source$io_deq_bits_MPORT$rtl[L] = ldut.subsystem_mbus.coupler_to_memory_controller_port_named_axi4.axi4yank.QueueCompatibility_6.ram_tl_state_source[_v2_sa_field_addr];
-          _s_ldut$subsystem_mbus$coupler_to_memory_controller_port_named_axi4$axi4yank$QueueCompatibility_6$ram_extra_id$io_deq_bits_MPORT$rtl[L] = ldut.subsystem_mbus.coupler_to_memory_controller_port_named_axi4.axi4yank.QueueCompatibility_6.ram_extra_id[_v2_sa_field_addr];
-        }
+        essent_table_read<16, 8, false>(&_s_ldut$subsystem_mbus$coupler_to_memory_controller_port_named_axi4$axi4yank$QueueCompatibility_6$ram_tl_state_size$io_deq_bits_MPORT$rtl[0], &ldut.subsystem_mbus.coupler_to_memory_controller_port_named_axi4.axi4yank.QueueCompatibility_6.ram_tl_state_size[0], &ldut.subsystem_mbus.coupler_to_memory_controller_port_named_axi4.axi4yank.QueueCompatibility_6.deq_ptr_value[0]);
+        essent_table_read<16, 8, false>(&_s_ldut$subsystem_mbus$coupler_to_memory_controller_port_named_axi4$axi4yank$QueueCompatibility_6$ram_tl_state_source$io_deq_bits_MPORT$rtl[0], &ldut.subsystem_mbus.coupler_to_memory_controller_port_named_axi4.axi4yank.QueueCompatibility_6.ram_tl_state_source[0], &ldut.subsystem_mbus.coupler_to_memory_controller_port_named_axi4.axi4yank.QueueCompatibility_6.deq_ptr_value[0]);
+        essent_table_read<16, 8, false>(&_s_ldut$subsystem_mbus$coupler_to_memory_controller_port_named_axi4$axi4yank$QueueCompatibility_6$ram_extra_id$io_deq_bits_MPORT$rtl[0], &ldut.subsystem_mbus.coupler_to_memory_controller_port_named_axi4.axi4yank.QueueCompatibility_6.ram_extra_id[0], &ldut.subsystem_mbus.coupler_to_memory_controller_port_named_axi4.axi4yank.QueueCompatibility_6.deq_ptr_value[0]);
       } else {
       {
         // [state-field-read-fused] 3 arrays share one access scan, mode=dense-branchless
@@ -17886,12 +17793,9 @@
         _v2_sa_anyw |= (uint64_t)(essent_to_u64(_s_ldut$subsystem_mbus$coupler_to_memory_controller_port_named_axi4$axi4yank$QueueCompatibility_7$io_enq_ready[G] & _s_ldut$subsystem_mbus$coupler_to_memory_controller_port_named_axi4$axi4yank$QueueCompatibility_7$io_enq_valid[G]) != 0) & (uint64_t)(essent_to_u64(UInt<1>(0x1)) != 0);
       }
       if (_v2_sa_anyw == 0) {
-        for (int L = 0; L < 16; L++) {
-          const uint64_t _v2_sa_field_addr = essent_to_u64(ldut.subsystem_mbus.coupler_to_memory_controller_port_named_axi4.axi4yank.QueueCompatibility_7.deq_ptr_value[L]);
-          _s_ldut$subsystem_mbus$coupler_to_memory_controller_port_named_axi4$axi4yank$QueueCompatibility_7$ram_tl_state_size$io_deq_bits_MPORT$rtl[L] = ldut.subsystem_mbus.coupler_to_memory_controller_port_named_axi4.axi4yank.QueueCompatibility_7.ram_tl_state_size[_v2_sa_field_addr];
-          _s_ldut$subsystem_mbus$coupler_to_memory_controller_port_named_axi4$axi4yank$QueueCompatibility_7$ram_tl_state_source$io_deq_bits_MPORT$rtl[L] = ldut.subsystem_mbus.coupler_to_memory_controller_port_named_axi4.axi4yank.QueueCompatibility_7.ram_tl_state_source[_v2_sa_field_addr];
-          _s_ldut$subsystem_mbus$coupler_to_memory_controller_port_named_axi4$axi4yank$QueueCompatibility_7$ram_extra_id$io_deq_bits_MPORT$rtl[L] = ldut.subsystem_mbus.coupler_to_memory_controller_port_named_axi4.axi4yank.QueueCompatibility_7.ram_extra_id[_v2_sa_field_addr];
-        }
+        essent_table_read<16, 8, false>(&_s_ldut$subsystem_mbus$coupler_to_memory_controller_port_named_axi4$axi4yank$QueueCompatibility_7$ram_tl_state_size$io_deq_bits_MPORT$rtl[0], &ldut.subsystem_mbus.coupler_to_memory_controller_port_named_axi4.axi4yank.QueueCompatibility_7.ram_tl_state_size[0], &ldut.subsystem_mbus.coupler_to_memory_controller_port_named_axi4.axi4yank.QueueCompatibility_7.deq_ptr_value[0]);
+        essent_table_read<16, 8, false>(&_s_ldut$subsystem_mbus$coupler_to_memory_controller_port_named_axi4$axi4yank$QueueCompatibility_7$ram_tl_state_source$io_deq_bits_MPORT$rtl[0], &ldut.subsystem_mbus.coupler_to_memory_controller_port_named_axi4.axi4yank.QueueCompatibility_7.ram_tl_state_source[0], &ldut.subsystem_mbus.coupler_to_memory_controller_port_named_axi4.axi4yank.QueueCompatibility_7.deq_ptr_value[0]);
+        essent_table_read<16, 8, false>(&_s_ldut$subsystem_mbus$coupler_to_memory_controller_port_named_axi4$axi4yank$QueueCompatibility_7$ram_extra_id$io_deq_bits_MPORT$rtl[0], &ldut.subsystem_mbus.coupler_to_memory_controller_port_named_axi4.axi4yank.QueueCompatibility_7.ram_extra_id[0], &ldut.subsystem_mbus.coupler_to_memory_controller_port_named_axi4.axi4yank.QueueCompatibility_7.deq_ptr_value[0]);
       } else {
       {
         // [state-field-read-fused] 3 arrays share one access scan, mode=dense-branchless
@@ -17939,12 +17843,9 @@
         _v2_sa_anyw |= (uint64_t)(essent_to_u64(_s_ldut$subsystem_mbus$coupler_to_memory_controller_port_named_axi4$axi4yank$QueueCompatibility_8$io_enq_ready[G] & _s_ldut$subsystem_mbus$coupler_to_memory_controller_port_named_axi4$axi4yank$QueueCompatibility_8$io_enq_valid[G]) != 0) & (uint64_t)(essent_to_u64(UInt<1>(0x1)) != 0);
       }
       if (_v2_sa_anyw == 0) {
-        for (int L = 0; L < 16; L++) {
-          const uint64_t _v2_sa_field_addr = essent_to_u64(ldut.subsystem_mbus.coupler_to_memory_controller_port_named_axi4.axi4yank.QueueCompatibility_8.deq_ptr_value[L]);
-          _s_ldut$subsystem_mbus$coupler_to_memory_controller_port_named_axi4$axi4yank$QueueCompatibility_8$ram_tl_state_size$io_deq_bits_MPORT$rtl[L] = ldut.subsystem_mbus.coupler_to_memory_controller_port_named_axi4.axi4yank.QueueCompatibility_8.ram_tl_state_size[_v2_sa_field_addr];
-          _s_ldut$subsystem_mbus$coupler_to_memory_controller_port_named_axi4$axi4yank$QueueCompatibility_8$ram_tl_state_source$io_deq_bits_MPORT$rtl[L] = ldut.subsystem_mbus.coupler_to_memory_controller_port_named_axi4.axi4yank.QueueCompatibility_8.ram_tl_state_source[_v2_sa_field_addr];
-          _s_ldut$subsystem_mbus$coupler_to_memory_controller_port_named_axi4$axi4yank$QueueCompatibility_8$ram_extra_id$io_deq_bits_MPORT$rtl[L] = ldut.subsystem_mbus.coupler_to_memory_controller_port_named_axi4.axi4yank.QueueCompatibility_8.ram_extra_id[_v2_sa_field_addr];
-        }
+        essent_table_read<16, 8, false>(&_s_ldut$subsystem_mbus$coupler_to_memory_controller_port_named_axi4$axi4yank$QueueCompatibility_8$ram_tl_state_size$io_deq_bits_MPORT$rtl[0], &ldut.subsystem_mbus.coupler_to_memory_controller_port_named_axi4.axi4yank.QueueCompatibility_8.ram_tl_state_size[0], &ldut.subsystem_mbus.coupler_to_memory_controller_port_named_axi4.axi4yank.QueueCompatibility_8.deq_ptr_value[0]);
+        essent_table_read<16, 8, false>(&_s_ldut$subsystem_mbus$coupler_to_memory_controller_port_named_axi4$axi4yank$QueueCompatibility_8$ram_tl_state_source$io_deq_bits_MPORT$rtl[0], &ldut.subsystem_mbus.coupler_to_memory_controller_port_named_axi4.axi4yank.QueueCompatibility_8.ram_tl_state_source[0], &ldut.subsystem_mbus.coupler_to_memory_controller_port_named_axi4.axi4yank.QueueCompatibility_8.deq_ptr_value[0]);
+        essent_table_read<16, 8, false>(&_s_ldut$subsystem_mbus$coupler_to_memory_controller_port_named_axi4$axi4yank$QueueCompatibility_8$ram_extra_id$io_deq_bits_MPORT$rtl[0], &ldut.subsystem_mbus.coupler_to_memory_controller_port_named_axi4.axi4yank.QueueCompatibility_8.ram_extra_id[0], &ldut.subsystem_mbus.coupler_to_memory_controller_port_named_axi4.axi4yank.QueueCompatibility_8.deq_ptr_value[0]);
       } else {
       {
         // [state-field-read-fused] 3 arrays share one access scan, mode=dense-branchless
@@ -17990,12 +17891,9 @@
         _v2_sa_anyw |= (uint64_t)(essent_to_u64(_s_ldut$subsystem_mbus$coupler_to_memory_controller_port_named_axi4$axi4yank$QueueCompatibility_9$io_enq_ready[G] & _s_ldut$subsystem_mbus$coupler_to_memory_controller_port_named_axi4$axi4yank$QueueCompatibility_9$io_enq_valid[G]) != 0) & (uint64_t)(essent_to_u64(UInt<1>(0x1)) != 0);
       }
       if (_v2_sa_anyw == 0) {
-        for (int L = 0; L < 16; L++) {
-          const uint64_t _v2_sa_field_addr = essent_to_u64(ldut.subsystem_mbus.coupler_to_memory_controller_port_named_axi4.axi4yank.QueueCompatibility_9.deq_ptr_value[L]);
-          _s_ldut$subsystem_mbus$coupler_to_memory_controller_port_named_axi4$axi4yank$QueueCompatibility_9$ram_tl_state_size$io_deq_bits_MPORT$rtl[L] = ldut.subsystem_mbus.coupler_to_memory_controller_port_named_axi4.axi4yank.QueueCompatibility_9.ram_tl_state_size[_v2_sa_field_addr];
-          _s_ldut$subsystem_mbus$coupler_to_memory_controller_port_named_axi4$axi4yank$QueueCompatibility_9$ram_tl_state_source$io_deq_bits_MPORT$rtl[L] = ldut.subsystem_mbus.coupler_to_memory_controller_port_named_axi4.axi4yank.QueueCompatibility_9.ram_tl_state_source[_v2_sa_field_addr];
-          _s_ldut$subsystem_mbus$coupler_to_memory_controller_port_named_axi4$axi4yank$QueueCompatibility_9$ram_extra_id$io_deq_bits_MPORT$rtl[L] = ldut.subsystem_mbus.coupler_to_memory_controller_port_named_axi4.axi4yank.QueueCompatibility_9.ram_extra_id[_v2_sa_field_addr];
-        }
+        essent_table_read<16, 8, false>(&_s_ldut$subsystem_mbus$coupler_to_memory_controller_port_named_axi4$axi4yank$QueueCompatibility_9$ram_tl_state_size$io_deq_bits_MPORT$rtl[0], &ldut.subsystem_mbus.coupler_to_memory_controller_port_named_axi4.axi4yank.QueueCompatibility_9.ram_tl_state_size[0], &ldut.subsystem_mbus.coupler_to_memory_controller_port_named_axi4.axi4yank.QueueCompatibility_9.deq_ptr_value[0]);
+        essent_table_read<16, 8, false>(&_s_ldut$subsystem_mbus$coupler_to_memory_controller_port_named_axi4$axi4yank$QueueCompatibility_9$ram_tl_state_source$io_deq_bits_MPORT$rtl[0], &ldut.subsystem_mbus.coupler_to_memory_controller_port_named_axi4.axi4yank.QueueCompatibility_9.ram_tl_state_source[0], &ldut.subsystem_mbus.coupler_to_memory_controller_port_named_axi4.axi4yank.QueueCompatibility_9.deq_ptr_value[0]);
+        essent_table_read<16, 8, false>(&_s_ldut$subsystem_mbus$coupler_to_memory_controller_port_named_axi4$axi4yank$QueueCompatibility_9$ram_extra_id$io_deq_bits_MPORT$rtl[0], &ldut.subsystem_mbus.coupler_to_memory_controller_port_named_axi4.axi4yank.QueueCompatibility_9.ram_extra_id[0], &ldut.subsystem_mbus.coupler_to_memory_controller_port_named_axi4.axi4yank.QueueCompatibility_9.deq_ptr_value[0]);
       } else {
       {
         // [state-field-read-fused] 3 arrays share one access scan, mode=dense-branchless
@@ -18041,12 +17939,9 @@
         _v2_sa_anyw |= (uint64_t)(essent_to_u64(_s_ldut$subsystem_mbus$coupler_to_memory_controller_port_named_axi4$axi4yank$QueueCompatibility_10$io_enq_ready[G] & _s_ldut$subsystem_mbus$coupler_to_memory_controller_port_named_axi4$axi4yank$QueueCompatibility_10$io_enq_valid[G]) != 0) & (uint64_t)(essent_to_u64(UInt<1>(0x1)) != 0);
       }
       if (_v2_sa_anyw == 0) {
-        for (int L = 0; L < 16; L++) {
-          const uint64_t _v2_sa_field_addr = essent_to_u64(ldut.subsystem_mbus.coupler_to_memory_controller_port_named_axi4.axi4yank.QueueCompatibility_10.deq_ptr_value[L]);
-          _s_ldut$subsystem_mbus$coupler_to_memory_controller_port_named_axi4$axi4yank$QueueCompatibility_10$ram_tl_state_size$io_deq_bits_MPORT$rtl[L] = ldut.subsystem_mbus.coupler_to_memory_controller_port_named_axi4.axi4yank.QueueCompatibility_10.ram_tl_state_size[_v2_sa_field_addr];
-          _s_ldut$subsystem_mbus$coupler_to_memory_controller_port_named_axi4$axi4yank$QueueCompatibility_10$ram_tl_state_source$io_deq_bits_MPORT$rtl[L] = ldut.subsystem_mbus.coupler_to_memory_controller_port_named_axi4.axi4yank.QueueCompatibility_10.ram_tl_state_source[_v2_sa_field_addr];
-          _s_ldut$subsystem_mbus$coupler_to_memory_controller_port_named_axi4$axi4yank$QueueCompatibility_10$ram_extra_id$io_deq_bits_MPORT$rtl[L] = ldut.subsystem_mbus.coupler_to_memory_controller_port_named_axi4.axi4yank.QueueCompatibility_10.ram_extra_id[_v2_sa_field_addr];
-        }
+        essent_table_read<16, 8, false>(&_s_ldut$subsystem_mbus$coupler_to_memory_controller_port_named_axi4$axi4yank$QueueCompatibility_10$ram_tl_state_size$io_deq_bits_MPORT$rtl[0], &ldut.subsystem_mbus.coupler_to_memory_controller_port_named_axi4.axi4yank.QueueCompatibility_10.ram_tl_state_size[0], &ldut.subsystem_mbus.coupler_to_memory_controller_port_named_axi4.axi4yank.QueueCompatibility_10.deq_ptr_value[0]);
+        essent_table_read<16, 8, false>(&_s_ldut$subsystem_mbus$coupler_to_memory_controller_port_named_axi4$axi4yank$QueueCompatibility_10$ram_tl_state_source$io_deq_bits_MPORT$rtl[0], &ldut.subsystem_mbus.coupler_to_memory_controller_port_named_axi4.axi4yank.QueueCompatibility_10.ram_tl_state_source[0], &ldut.subsystem_mbus.coupler_to_memory_controller_port_named_axi4.axi4yank.QueueCompatibility_10.deq_ptr_value[0]);
+        essent_table_read<16, 8, false>(&_s_ldut$subsystem_mbus$coupler_to_memory_controller_port_named_axi4$axi4yank$QueueCompatibility_10$ram_extra_id$io_deq_bits_MPORT$rtl[0], &ldut.subsystem_mbus.coupler_to_memory_controller_port_named_axi4.axi4yank.QueueCompatibility_10.ram_extra_id[0], &ldut.subsystem_mbus.coupler_to_memory_controller_port_named_axi4.axi4yank.QueueCompatibility_10.deq_ptr_value[0]);
       } else {
       {
         // [state-field-read-fused] 3 arrays share one access scan, mode=dense-branchless
@@ -18092,12 +17987,9 @@
         _v2_sa_anyw |= (uint64_t)(essent_to_u64(_s_ldut$subsystem_mbus$coupler_to_memory_controller_port_named_axi4$axi4yank$QueueCompatibility_11$io_enq_ready[G] & _s_ldut$subsystem_mbus$coupler_to_memory_controller_port_named_axi4$axi4yank$QueueCompatibility_11$io_enq_valid[G]) != 0) & (uint64_t)(essent_to_u64(UInt<1>(0x1)) != 0);
       }
       if (_v2_sa_anyw == 0) {
-        for (int L = 0; L < 16; L++) {
-          const uint64_t _v2_sa_field_addr = essent_to_u64(ldut.subsystem_mbus.coupler_to_memory_controller_port_named_axi4.axi4yank.QueueCompatibility_11.deq_ptr_value[L]);
-          _s_ldut$subsystem_mbus$coupler_to_memory_controller_port_named_axi4$axi4yank$QueueCompatibility_11$ram_tl_state_size$io_deq_bits_MPORT$rtl[L] = ldut.subsystem_mbus.coupler_to_memory_controller_port_named_axi4.axi4yank.QueueCompatibility_11.ram_tl_state_size[_v2_sa_field_addr];
-          _s_ldut$subsystem_mbus$coupler_to_memory_controller_port_named_axi4$axi4yank$QueueCompatibility_11$ram_tl_state_source$io_deq_bits_MPORT$rtl[L] = ldut.subsystem_mbus.coupler_to_memory_controller_port_named_axi4.axi4yank.QueueCompatibility_11.ram_tl_state_source[_v2_sa_field_addr];
-          _s_ldut$subsystem_mbus$coupler_to_memory_controller_port_named_axi4$axi4yank$QueueCompatibility_11$ram_extra_id$io_deq_bits_MPORT$rtl[L] = ldut.subsystem_mbus.coupler_to_memory_controller_port_named_axi4.axi4yank.QueueCompatibility_11.ram_extra_id[_v2_sa_field_addr];
-        }
+        essent_table_read<16, 8, false>(&_s_ldut$subsystem_mbus$coupler_to_memory_controller_port_named_axi4$axi4yank$QueueCompatibility_11$ram_tl_state_size$io_deq_bits_MPORT$rtl[0], &ldut.subsystem_mbus.coupler_to_memory_controller_port_named_axi4.axi4yank.QueueCompatibility_11.ram_tl_state_size[0], &ldut.subsystem_mbus.coupler_to_memory_controller_port_named_axi4.axi4yank.QueueCompatibility_11.deq_ptr_value[0]);
+        essent_table_read<16, 8, false>(&_s_ldut$subsystem_mbus$coupler_to_memory_controller_port_named_axi4$axi4yank$QueueCompatibility_11$ram_tl_state_source$io_deq_bits_MPORT$rtl[0], &ldut.subsystem_mbus.coupler_to_memory_controller_port_named_axi4.axi4yank.QueueCompatibility_11.ram_tl_state_source[0], &ldut.subsystem_mbus.coupler_to_memory_controller_port_named_axi4.axi4yank.QueueCompatibility_11.deq_ptr_value[0]);
+        essent_table_read<16, 8, false>(&_s_ldut$subsystem_mbus$coupler_to_memory_controller_port_named_axi4$axi4yank$QueueCompatibility_11$ram_extra_id$io_deq_bits_MPORT$rtl[0], &ldut.subsystem_mbus.coupler_to_memory_controller_port_named_axi4.axi4yank.QueueCompatibility_11.ram_extra_id[0], &ldut.subsystem_mbus.coupler_to_memory_controller_port_named_axi4.axi4yank.QueueCompatibility_11.deq_ptr_value[0]);
       } else {
       {
         // [state-field-read-fused] 3 arrays share one access scan, mode=dense-branchless
@@ -18145,12 +18037,9 @@
         _v2_sa_anyw |= (uint64_t)(essent_to_u64(_s_ldut$subsystem_mbus$coupler_to_memory_controller_port_named_axi4$axi4yank$QueueCompatibility_12$io_enq_ready[G] & _s_ldut$subsystem_mbus$coupler_to_memory_controller_port_named_axi4$axi4yank$QueueCompatibility_12$io_enq_valid[G]) != 0) & (uint64_t)(essent_to_u64(UInt<1>(0x1)) != 0);
       }
       if (_v2_sa_anyw == 0) {
-        for (int L = 0; L < 16; L++) {
-          const uint64_t _v2_sa_field_addr = essent_to_u64(ldut.subsystem_mbus.coupler_to_memory_controller_port_named_axi4.axi4yank.QueueCompatibility_12.deq_ptr_value[L]);
-          _s_ldut$subsystem_mbus$coupler_to_memory_controller_port_named_axi4$axi4yank$QueueCompatibility_12$ram_tl_state_size$io_deq_bits_MPORT$rtl[L] = ldut.subsystem_mbus.coupler_to_memory_controller_port_named_axi4.axi4yank.QueueCompatibility_12.ram_tl_state_size[_v2_sa_field_addr];
-          _s_ldut$subsystem_mbus$coupler_to_memory_controller_port_named_axi4$axi4yank$QueueCompatibility_12$ram_tl_state_source$io_deq_bits_MPORT$rtl[L] = ldut.subsystem_mbus.coupler_to_memory_controller_port_named_axi4.axi4yank.QueueCompatibility_12.ram_tl_state_source[_v2_sa_field_addr];
-          _s_ldut$subsystem_mbus$coupler_to_memory_controller_port_named_axi4$axi4yank$QueueCompatibility_12$ram_extra_id$io_deq_bits_MPORT$rtl[L] = ldut.subsystem_mbus.coupler_to_memory_controller_port_named_axi4.axi4yank.QueueCompatibility_12.ram_extra_id[_v2_sa_field_addr];
-        }
+        essent_table_read<16, 8, false>(&_s_ldut$subsystem_mbus$coupler_to_memory_controller_port_named_axi4$axi4yank$QueueCompatibility_12$ram_tl_state_size$io_deq_bits_MPORT$rtl[0], &ldut.subsystem_mbus.coupler_to_memory_controller_port_named_axi4.axi4yank.QueueCompatibility_12.ram_tl_state_size[0], &ldut.subsystem_mbus.coupler_to_memory_controller_port_named_axi4.axi4yank.QueueCompatibility_12.deq_ptr_value[0]);
+        essent_table_read<16, 8, false>(&_s_ldut$subsystem_mbus$coupler_to_memory_controller_port_named_axi4$axi4yank$QueueCompatibility_12$ram_tl_state_source$io_deq_bits_MPORT$rtl[0], &ldut.subsystem_mbus.coupler_to_memory_controller_port_named_axi4.axi4yank.QueueCompatibility_12.ram_tl_state_source[0], &ldut.subsystem_mbus.coupler_to_memory_controller_port_named_axi4.axi4yank.QueueCompatibility_12.deq_ptr_value[0]);
+        essent_table_read<16, 8, false>(&_s_ldut$subsystem_mbus$coupler_to_memory_controller_port_named_axi4$axi4yank$QueueCompatibility_12$ram_extra_id$io_deq_bits_MPORT$rtl[0], &ldut.subsystem_mbus.coupler_to_memory_controller_port_named_axi4.axi4yank.QueueCompatibility_12.ram_extra_id[0], &ldut.subsystem_mbus.coupler_to_memory_controller_port_named_axi4.axi4yank.QueueCompatibility_12.deq_ptr_value[0]);
       } else {
       {
         // [state-field-read-fused] 3 arrays share one access scan, mode=dense-branchless
@@ -18196,12 +18085,9 @@
         _v2_sa_anyw |= (uint64_t)(essent_to_u64(_s_ldut$subsystem_mbus$coupler_to_memory_controller_port_named_axi4$axi4yank$QueueCompatibility_13$io_enq_ready[G] & _s_ldut$subsystem_mbus$coupler_to_memory_controller_port_named_axi4$axi4yank$QueueCompatibility_13$io_enq_valid[G]) != 0) & (uint64_t)(essent_to_u64(UInt<1>(0x1)) != 0);
       }
       if (_v2_sa_anyw == 0) {
-        for (int L = 0; L < 16; L++) {
-          const uint64_t _v2_sa_field_addr = essent_to_u64(ldut.subsystem_mbus.coupler_to_memory_controller_port_named_axi4.axi4yank.QueueCompatibility_13.deq_ptr_value[L]);
-          _s_ldut$subsystem_mbus$coupler_to_memory_controller_port_named_axi4$axi4yank$QueueCompatibility_13$ram_tl_state_size$io_deq_bits_MPORT$rtl[L] = ldut.subsystem_mbus.coupler_to_memory_controller_port_named_axi4.axi4yank.QueueCompatibility_13.ram_tl_state_size[_v2_sa_field_addr];
-          _s_ldut$subsystem_mbus$coupler_to_memory_controller_port_named_axi4$axi4yank$QueueCompatibility_13$ram_tl_state_source$io_deq_bits_MPORT$rtl[L] = ldut.subsystem_mbus.coupler_to_memory_controller_port_named_axi4.axi4yank.QueueCompatibility_13.ram_tl_state_source[_v2_sa_field_addr];
-          _s_ldut$subsystem_mbus$coupler_to_memory_controller_port_named_axi4$axi4yank$QueueCompatibility_13$ram_extra_id$io_deq_bits_MPORT$rtl[L] = ldut.subsystem_mbus.coupler_to_memory_controller_port_named_axi4.axi4yank.QueueCompatibility_13.ram_extra_id[_v2_sa_field_addr];
-        }
+        essent_table_read<16, 8, false>(&_s_ldut$subsystem_mbus$coupler_to_memory_controller_port_named_axi4$axi4yank$QueueCompatibility_13$ram_tl_state_size$io_deq_bits_MPORT$rtl[0], &ldut.subsystem_mbus.coupler_to_memory_controller_port_named_axi4.axi4yank.QueueCompatibility_13.ram_tl_state_size[0], &ldut.subsystem_mbus.coupler_to_memory_controller_port_named_axi4.axi4yank.QueueCompatibility_13.deq_ptr_value[0]);
+        essent_table_read<16, 8, false>(&_s_ldut$subsystem_mbus$coupler_to_memory_controller_port_named_axi4$axi4yank$QueueCompatibility_13$ram_tl_state_source$io_deq_bits_MPORT$rtl[0], &ldut.subsystem_mbus.coupler_to_memory_controller_port_named_axi4.axi4yank.QueueCompatibility_13.ram_tl_state_source[0], &ldut.subsystem_mbus.coupler_to_memory_controller_port_named_axi4.axi4yank.QueueCompatibility_13.deq_ptr_value[0]);
+        essent_table_read<16, 8, false>(&_s_ldut$subsystem_mbus$coupler_to_memory_controller_port_named_axi4$axi4yank$QueueCompatibility_13$ram_extra_id$io_deq_bits_MPORT$rtl[0], &ldut.subsystem_mbus.coupler_to_memory_controller_port_named_axi4.axi4yank.QueueCompatibility_13.ram_extra_id[0], &ldut.subsystem_mbus.coupler_to_memory_controller_port_named_axi4.axi4yank.QueueCompatibility_13.deq_ptr_value[0]);
       } else {
       {
         // [state-field-read-fused] 3 arrays share one access scan, mode=dense-branchless
@@ -18247,12 +18133,9 @@
         _v2_sa_anyw |= (uint64_t)(essent_to_u64(_s_ldut$subsystem_mbus$coupler_to_memory_controller_port_named_axi4$axi4yank$QueueCompatibility_14$io_enq_ready[G] & _s_ldut$subsystem_mbus$coupler_to_memory_controller_port_named_axi4$axi4yank$QueueCompatibility_14$io_enq_valid[G]) != 0) & (uint64_t)(essent_to_u64(UInt<1>(0x1)) != 0);
       }
       if (_v2_sa_anyw == 0) {
-        for (int L = 0; L < 16; L++) {
-          const uint64_t _v2_sa_field_addr = essent_to_u64(ldut.subsystem_mbus.coupler_to_memory_controller_port_named_axi4.axi4yank.QueueCompatibility_14.deq_ptr_value[L]);
-          _s_ldut$subsystem_mbus$coupler_to_memory_controller_port_named_axi4$axi4yank$QueueCompatibility_14$ram_tl_state_size$io_deq_bits_MPORT$rtl[L] = ldut.subsystem_mbus.coupler_to_memory_controller_port_named_axi4.axi4yank.QueueCompatibility_14.ram_tl_state_size[_v2_sa_field_addr];
-          _s_ldut$subsystem_mbus$coupler_to_memory_controller_port_named_axi4$axi4yank$QueueCompatibility_14$ram_tl_state_source$io_deq_bits_MPORT$rtl[L] = ldut.subsystem_mbus.coupler_to_memory_controller_port_named_axi4.axi4yank.QueueCompatibility_14.ram_tl_state_source[_v2_sa_field_addr];
-          _s_ldut$subsystem_mbus$coupler_to_memory_controller_port_named_axi4$axi4yank$QueueCompatibility_14$ram_extra_id$io_deq_bits_MPORT$rtl[L] = ldut.subsystem_mbus.coupler_to_memory_controller_port_named_axi4.axi4yank.QueueCompatibility_14.ram_extra_id[_v2_sa_field_addr];
-        }
+        essent_table_read<16, 8, false>(&_s_ldut$subsystem_mbus$coupler_to_memory_controller_port_named_axi4$axi4yank$QueueCompatibility_14$ram_tl_state_size$io_deq_bits_MPORT$rtl[0], &ldut.subsystem_mbus.coupler_to_memory_controller_port_named_axi4.axi4yank.QueueCompatibility_14.ram_tl_state_size[0], &ldut.subsystem_mbus.coupler_to_memory_controller_port_named_axi4.axi4yank.QueueCompatibility_14.deq_ptr_value[0]);
+        essent_table_read<16, 8, false>(&_s_ldut$subsystem_mbus$coupler_to_memory_controller_port_named_axi4$axi4yank$QueueCompatibility_14$ram_tl_state_source$io_deq_bits_MPORT$rtl[0], &ldut.subsystem_mbus.coupler_to_memory_controller_port_named_axi4.axi4yank.QueueCompatibility_14.ram_tl_state_source[0], &ldut.subsystem_mbus.coupler_to_memory_controller_port_named_axi4.axi4yank.QueueCompatibility_14.deq_ptr_value[0]);
+        essent_table_read<16, 8, false>(&_s_ldut$subsystem_mbus$coupler_to_memory_controller_port_named_axi4$axi4yank$QueueCompatibility_14$ram_extra_id$io_deq_bits_MPORT$rtl[0], &ldut.subsystem_mbus.coupler_to_memory_controller_port_named_axi4.axi4yank.QueueCompatibility_14.ram_extra_id[0], &ldut.subsystem_mbus.coupler_to_memory_controller_port_named_axi4.axi4yank.QueueCompatibility_14.deq_ptr_value[0]);
       } else {
       {
         // [state-field-read-fused] 3 arrays share one access scan, mode=dense-branchless
@@ -18298,12 +18181,9 @@
         _v2_sa_anyw |= (uint64_t)(essent_to_u64(_s_ldut$subsystem_mbus$coupler_to_memory_controller_port_named_axi4$axi4yank$QueueCompatibility_15$io_enq_ready[G] & _s_ldut$subsystem_mbus$coupler_to_memory_controller_port_named_axi4$axi4yank$QueueCompatibility_15$io_enq_valid[G]) != 0) & (uint64_t)(essent_to_u64(UInt<1>(0x1)) != 0);
       }
       if (_v2_sa_anyw == 0) {
-        for (int L = 0; L < 16; L++) {
-          const uint64_t _v2_sa_field_addr = essent_to_u64(ldut.subsystem_mbus.coupler_to_memory_controller_port_named_axi4.axi4yank.QueueCompatibility_15.deq_ptr_value[L]);
-          _s_ldut$subsystem_mbus$coupler_to_memory_controller_port_named_axi4$axi4yank$QueueCompatibility_15$ram_tl_state_size$io_deq_bits_MPORT$rtl[L] = ldut.subsystem_mbus.coupler_to_memory_controller_port_named_axi4.axi4yank.QueueCompatibility_15.ram_tl_state_size[_v2_sa_field_addr];
-          _s_ldut$subsystem_mbus$coupler_to_memory_controller_port_named_axi4$axi4yank$QueueCompatibility_15$ram_tl_state_source$io_deq_bits_MPORT$rtl[L] = ldut.subsystem_mbus.coupler_to_memory_controller_port_named_axi4.axi4yank.QueueCompatibility_15.ram_tl_state_source[_v2_sa_field_addr];
-          _s_ldut$subsystem_mbus$coupler_to_memory_controller_port_named_axi4$axi4yank$QueueCompatibility_15$ram_extra_id$io_deq_bits_MPORT$rtl[L] = ldut.subsystem_mbus.coupler_to_memory_controller_port_named_axi4.axi4yank.QueueCompatibility_15.ram_extra_id[_v2_sa_field_addr];
-        }
+        essent_table_read<16, 8, false>(&_s_ldut$subsystem_mbus$coupler_to_memory_controller_port_named_axi4$axi4yank$QueueCompatibility_15$ram_tl_state_size$io_deq_bits_MPORT$rtl[0], &ldut.subsystem_mbus.coupler_to_memory_controller_port_named_axi4.axi4yank.QueueCompatibility_15.ram_tl_state_size[0], &ldut.subsystem_mbus.coupler_to_memory_controller_port_named_axi4.axi4yank.QueueCompatibility_15.deq_ptr_value[0]);
+        essent_table_read<16, 8, false>(&_s_ldut$subsystem_mbus$coupler_to_memory_controller_port_named_axi4$axi4yank$QueueCompatibility_15$ram_tl_state_source$io_deq_bits_MPORT$rtl[0], &ldut.subsystem_mbus.coupler_to_memory_controller_port_named_axi4.axi4yank.QueueCompatibility_15.ram_tl_state_source[0], &ldut.subsystem_mbus.coupler_to_memory_controller_port_named_axi4.axi4yank.QueueCompatibility_15.deq_ptr_value[0]);
+        essent_table_read<16, 8, false>(&_s_ldut$subsystem_mbus$coupler_to_memory_controller_port_named_axi4$axi4yank$QueueCompatibility_15$ram_extra_id$io_deq_bits_MPORT$rtl[0], &ldut.subsystem_mbus.coupler_to_memory_controller_port_named_axi4.axi4yank.QueueCompatibility_15.ram_extra_id[0], &ldut.subsystem_mbus.coupler_to_memory_controller_port_named_axi4.axi4yank.QueueCompatibility_15.deq_ptr_value[0]);
       } else {
       {
         // [state-field-read-fused] 3 arrays share one access scan, mode=dense-branchless
@@ -18372,12 +18252,9 @@
         _v2_sa_anyw |= (uint64_t)(essent_to_u64(_s_mem$axi4buf$bundleOut_0_ar_deq$io_enq_ready[G] & _s_mem$axi4frag$deq$io_deq_valid[G]) != 0) & (uint64_t)(essent_to_u64(UInt<1>(0x1)) != 0);
       }
       if (_v2_sa_anyw == 0) {
-        for (int L = 0; L < 16; L++) {
-          const uint64_t _v2_sa_field_addr = essent_to_u64(mem.axi4buf.bundleOut_0_ar_deq.value_1[L]);
-          _s_mem$axi4buf$bundleOut_0_ar_deq$ram_id$io_deq_bits_MPORT$rtl[L] = mem.axi4buf.bundleOut_0_ar_deq.ram_id[_v2_sa_field_addr];
-          _s_mem$axi4buf$bundleOut_0_ar_deq$ram_addr$io_deq_bits_MPORT$rtl[L] = mem.axi4buf.bundleOut_0_ar_deq.ram_addr[_v2_sa_field_addr];
-          _s_mem$axi4buf$bundleOut_0_ar_deq$ram_echo_real_last$io_deq_bits_MPORT$rtl[L] = mem.axi4buf.bundleOut_0_ar_deq.ram_echo_real_last[_v2_sa_field_addr];
-        }
+        essent_table_read<16, 2, false>(&_s_mem$axi4buf$bundleOut_0_ar_deq$ram_id$io_deq_bits_MPORT$rtl[0], &mem.axi4buf.bundleOut_0_ar_deq.ram_id[0], &mem.axi4buf.bundleOut_0_ar_deq.value_1[0]);
+        essent_table_read<16, 2, false>(&_s_mem$axi4buf$bundleOut_0_ar_deq$ram_addr$io_deq_bits_MPORT$rtl[0], &mem.axi4buf.bundleOut_0_ar_deq.ram_addr[0], &mem.axi4buf.bundleOut_0_ar_deq.value_1[0]);
+        essent_table_read<16, 2, false>(&_s_mem$axi4buf$bundleOut_0_ar_deq$ram_echo_real_last$io_deq_bits_MPORT$rtl[0], &mem.axi4buf.bundleOut_0_ar_deq.ram_echo_real_last[0], &mem.axi4buf.bundleOut_0_ar_deq.value_1[0]);
       } else {
       {
         // [state-field-read-fused] 3 arrays share one access scan, mode=dense-branchless
@@ -18876,7 +18753,7 @@
         ESSENT_LANE_LOOP
         for (int L = 0; L < 16; L++) ldut.subsystem_sbus.coupler_to_bus_named_subsystem_l2.widget.repeat_count_1[L] = _gv;
       } else {
-        for (int L = 1; L < 16; L++) ldut.subsystem_sbus.coupler_to_bus_named_subsystem_l2.widget.repeat_count_1[L] = (~_s_ldut$reset[L - 1]) & (_s_ldut$subsystem_sbus$coupler_to_bus_named_subsystem_l2$widget$_repeat_T_2[L - 1] ? ((~((ldut.subsystem_sbus.coupler_to_bus_named_subsystem_l2.widget.repeat_count_1[L - 1] == _s_ldut$subsystem_sbus$coupler_to_bus_named_subsystem_l2$widget$repeat_limit_1[L - 1]) | _s_ldut$subsystem_sbus$coupler_to_bus_named_subsystem_l2$widget$_repeat_last_T_3[L - 1])) & ((ldut.subsystem_sbus.coupler_to_bus_named_subsystem_l2.widget.repeat_count_1[L - 1] + UInt<1>(0x1)).tail<1>())) : ldut.subsystem_sbus.coupler_to_bus_named_subsystem_l2.widget.repeat_count_1[L - 1]);
+        for (int L = 1; L < 16; L++) ldut.subsystem_sbus.coupler_to_bus_named_subsystem_l2.widget.repeat_count_1[L].val = static_cast<typename UInt<1>::scalar_t>((static_cast<uint8_t>((static_cast<uint8_t>((((static_cast<uint8_t>((~static_cast<uint8_t>(_s_ldut$reset[L - 1].val))) & 0x1u)) & ((static_cast<uint8_t>(essent_select_word<uint32_t>(((static_cast<uint8_t>(_s_ldut$subsystem_sbus$coupler_to_bus_named_subsystem_l2$widget$_repeat_T_2[L - 1].val) & 0x1u)) != 0, static_cast<uint32_t>((static_cast<uint8_t>((((static_cast<uint8_t>((~static_cast<uint8_t>((static_cast<uint8_t>((((static_cast<uint8_t>(((ldut.subsystem_sbus.coupler_to_bus_named_subsystem_l2.widget.repeat_count_1[L - 1].val) == (_s_ldut$subsystem_sbus$coupler_to_bus_named_subsystem_l2$widget$repeat_limit_1[L - 1].val))) & 0x1u)) | (_s_ldut$subsystem_sbus$coupler_to_bus_named_subsystem_l2$widget$_repeat_last_T_3[L - 1].val))) & 0x1u)))) & 0x1u)) & ((static_cast<uint8_t>((static_cast<uint8_t>((static_cast<uint8_t>((static_cast<uint8_t>(ldut.subsystem_sbus.coupler_to_bus_named_subsystem_l2.widget.repeat_count_1[L - 1].val) + static_cast<uint8_t>((static_cast<uint8_t>(0x1u) & 0x1u)))) & 0x3u)) & 0x1u)) & 0x1u)))) & 0x1u)), static_cast<uint32_t>(ldut.subsystem_sbus.coupler_to_bus_named_subsystem_l2.widget.repeat_count_1[L - 1].val))) & 0x1u)))) & 0x1u)) & 0x1u));
       }
     }
 
@@ -18966,7 +18843,7 @@
         ESSENT_LANE_LOOP
         for (int L = 0; L < 16; L++) _v2_bank_ldut$subsystem_mbus$coupler_to_memory_controller_port_named_axi4$tl2axi4$__v2_indexed_count_bank_0[L] = _gv;
       } else {
-        for (int L = 1; L < 16; L++) _v2_bank_ldut$subsystem_mbus$coupler_to_memory_controller_port_named_axi4$tl2axi4$__v2_indexed_count_bank_0[L] = _s_ldut$reset[L - 1] ? UInt<64>(0x0) : ((_v2_bank_ldut$subsystem_mbus$coupler_to_memory_controller_port_named_axi4$tl2axi4$__v2_indexed_count_bank_0[L - 1] ^ _s_ldut$subsystem_mbus$coupler_to_memory_controller_port_named_axi4$tl2axi4$_GEN_390[L - 1]) ^ _s_ldut$subsystem_mbus$coupler_to_memory_controller_port_named_axi4$tl2axi4$_GEN_394[L - 1]);
+        for (int L = 1; L < 16; L++) _v2_bank_ldut$subsystem_mbus$coupler_to_memory_controller_port_named_axi4$tl2axi4$__v2_indexed_count_bank_0[L].val = static_cast<typename UInt<64>::scalar_t>(static_cast<uint64_t>(static_cast<uint64_t>(essent_select_word<uint64_t>(((static_cast<uint64_t>(_s_ldut$reset[L - 1].val) & 0x1ULL)) != 0, static_cast<uint64_t>(static_cast<uint64_t>(0x0ULL)), static_cast<uint64_t>(static_cast<uint64_t>(((static_cast<uint64_t>(((_v2_bank_ldut$subsystem_mbus$coupler_to_memory_controller_port_named_axi4$tl2axi4$__v2_indexed_count_bank_0[L - 1].val) ^ (_s_ldut$subsystem_mbus$coupler_to_memory_controller_port_named_axi4$tl2axi4$_GEN_390[L - 1].val)))) ^ (_s_ldut$subsystem_mbus$coupler_to_memory_controller_port_named_axi4$tl2axi4$_GEN_394[L - 1].val))))))));
       }
     }
     // [vec comb] 3 templates x 16 lanes
@@ -19098,12 +18975,9 @@
         _v2_sa_anyw |= (uint64_t)(essent_to_u64(_s_mem$axi4buf$bundleOut_0_aw_deq$io_enq_ready[G] & _s_mem$axi4frag$auto_out_aw_valid[G]) != 0) & (uint64_t)(essent_to_u64(UInt<1>(0x1)) != 0);
       }
       if (_v2_sa_anyw == 0) {
-        for (int L = 0; L < 16; L++) {
-          const uint64_t _v2_sa_field_addr = essent_to_u64(mem.axi4buf.bundleOut_0_aw_deq.value_1[L]);
-          _s_mem$axi4buf$bundleOut_0_aw_deq$ram_id$io_deq_bits_MPORT$rtl[L] = mem.axi4buf.bundleOut_0_aw_deq.ram_id[_v2_sa_field_addr];
-          _s_mem$axi4buf$bundleOut_0_aw_deq$ram_addr$io_deq_bits_MPORT$rtl[L] = mem.axi4buf.bundleOut_0_aw_deq.ram_addr[_v2_sa_field_addr];
-          _s_mem$axi4buf$bundleOut_0_aw_deq$ram_echo_real_last$io_deq_bits_MPORT$rtl[L] = mem.axi4buf.bundleOut_0_aw_deq.ram_echo_real_last[_v2_sa_field_addr];
-        }
+        essent_table_read<16, 2, false>(&_s_mem$axi4buf$bundleOut_0_aw_deq$ram_id$io_deq_bits_MPORT$rtl[0], &mem.axi4buf.bundleOut_0_aw_deq.ram_id[0], &mem.axi4buf.bundleOut_0_aw_deq.value_1[0]);
+        essent_table_read<16, 2, false>(&_s_mem$axi4buf$bundleOut_0_aw_deq$ram_addr$io_deq_bits_MPORT$rtl[0], &mem.axi4buf.bundleOut_0_aw_deq.ram_addr[0], &mem.axi4buf.bundleOut_0_aw_deq.value_1[0]);
+        essent_table_read<16, 2, false>(&_s_mem$axi4buf$bundleOut_0_aw_deq$ram_echo_real_last$io_deq_bits_MPORT$rtl[0], &mem.axi4buf.bundleOut_0_aw_deq.ram_echo_real_last[0], &mem.axi4buf.bundleOut_0_aw_deq.value_1[0]);
       } else {
       {
         // [state-field-read-fused] 3 arrays share one access scan, mode=dense-branchless
@@ -19250,12 +19124,9 @@
         _v2_sa_anyw |= (uint64_t)(essent_to_u64(_s_mem$axi4buf$bundleOut_0_w_deq$io_enq_ready[G] & _s_mem$axi4frag$auto_out_w_valid[G]) != 0) & (uint64_t)(essent_to_u64(UInt<1>(0x1)) != 0);
       }
       if (_v2_sa_anyw == 0) {
-        for (int L = 0; L < 16; L++) {
-          const uint64_t _v2_sa_field_addr = essent_to_u64(mem.axi4buf.bundleOut_0_w_deq.value_1[L]);
-          _s_mem$axi4buf$bundleOut_0_w_deq$ram_data$io_deq_bits_MPORT$rtl[L] = mem.axi4buf.bundleOut_0_w_deq.ram_data[_v2_sa_field_addr];
-          _s_mem$axi4buf$bundleOut_0_w_deq$ram_strb$io_deq_bits_MPORT$rtl[L] = mem.axi4buf.bundleOut_0_w_deq.ram_strb[_v2_sa_field_addr];
-          _s_mem$axi4buf$bundleOut_0_w_deq$ram_last$io_deq_bits_MPORT$rtl[L] = mem.axi4buf.bundleOut_0_w_deq.ram_last[_v2_sa_field_addr];
-        }
+        essent_table_read<16, 2, false>(&_s_mem$axi4buf$bundleOut_0_w_deq$ram_data$io_deq_bits_MPORT$rtl[0], &mem.axi4buf.bundleOut_0_w_deq.ram_data[0], &mem.axi4buf.bundleOut_0_w_deq.value_1[0]);
+        essent_table_read<16, 2, false>(&_s_mem$axi4buf$bundleOut_0_w_deq$ram_strb$io_deq_bits_MPORT$rtl[0], &mem.axi4buf.bundleOut_0_w_deq.ram_strb[0], &mem.axi4buf.bundleOut_0_w_deq.value_1[0]);
+        essent_table_read<16, 2, false>(&_s_mem$axi4buf$bundleOut_0_w_deq$ram_last$io_deq_bits_MPORT$rtl[0], &mem.axi4buf.bundleOut_0_w_deq.ram_last[0], &mem.axi4buf.bundleOut_0_w_deq.value_1[0]);
       } else {
       {
         // [state-field-read-fused] 3 arrays share one access scan, mode=dense-branchless
@@ -19408,7 +19279,7 @@
         _v2_sa_anyw |= (uint64_t)(essent_to_u64(_s_mem$axi4buf$bundleIn_0_b_deq$io_enq_ready[G] & mem.srams.w_full[G]) != 0) & (uint64_t)(essent_to_u64(UInt<1>(0x1)) != 0);
       }
       if (_v2_sa_anyw == 0) {
-        for (int L = 0; L < 16; L++) { _s_mem$axi4buf$bundleIn_0_b_deq$ram_id$io_deq_bits_MPORT$rtl[L] = mem.axi4buf.bundleIn_0_b_deq.ram_id[essent_to_u64(mem.axi4buf.bundleIn_0_b_deq.value_1[L])]; }
+        essent_table_read<16, 2, false>(&_s_mem$axi4buf$bundleIn_0_b_deq$ram_id$io_deq_bits_MPORT$rtl[0], &mem.axi4buf.bundleIn_0_b_deq.ram_id[0], &mem.axi4buf.bundleIn_0_b_deq.value_1[0]);
       } else {
       {
         // [state-read-dense] forwarding=branchless
@@ -19417,10 +19288,11 @@
         for (int L = 0; L < 16; L++) {
           const uint64_t _v2_sa_addr = essent_to_u64(mem.axi4buf.bundleIn_0_b_deq.value_1[L]);
           UInt<4> _v2_sa_value = mem.axi4buf.bundleIn_0_b_deq.ram_id[_v2_sa_addr];
+          // [branchless-forward] select a valid source before loading data
           const int _v2_sa_prev_code = _v2_sa_last[_v2_sa_addr];
-          const uint64_t _v2_sa_prev_valid = (uint64_t)(_v2_sa_prev_code >= 0);
+          const bool _v2_sa_prev_valid = _v2_sa_prev_code >= 0;
           [[maybe_unused]] const int _v2_sa_prev_lane = _v2_sa_prev_code & -static_cast<int>(_v2_sa_prev_valid);
-          _v2_sa_value = essent_mux(UInt<1>(_v2_sa_prev_valid), mem.srams.w_id[_v2_sa_prev_lane], _v2_sa_value);
+          _v2_sa_value = *essent_select_ptr(_v2_sa_prev_valid, &(mem.srams.w_id[_v2_sa_prev_lane]), &_v2_sa_value);
           _s_mem$axi4buf$bundleIn_0_b_deq$ram_id$io_deq_bits_MPORT$rtl[L] = _v2_sa_value;
           const uint64_t _v2_sa_write_addr_0 = essent_to_u64(mem.axi4buf.bundleIn_0_b_deq.value[L]);
           const uint64_t _v2_sa_write_take_0 = (uint64_t)(essent_to_u64(_s_mem$axi4buf$bundleIn_0_b_deq$io_enq_ready[L] & mem.srams.w_full[L]) != 0) & (uint64_t)(essent_to_u64(UInt<1>(0x1)) != 0);
@@ -19467,7 +19339,7 @@
         _v2_sa_anyw |= (uint64_t)(essent_to_u64(_s_mem$axi4buf$bundleIn_0_b_deq$io_enq_ready[G] & mem.srams.w_full[G]) != 0) & (uint64_t)(essent_to_u64(UInt<1>(0x1)) != 0);
       }
       if (_v2_sa_anyw == 0) {
-        for (int L = 0; L < 16; L++) { _s_mem$axi4buf$bundleIn_0_b_deq$ram_echo_real_last$io_deq_bits_MPORT$rtl[L] = mem.axi4buf.bundleIn_0_b_deq.ram_echo_real_last[essent_to_u64(mem.axi4buf.bundleIn_0_b_deq.value_1[L])]; }
+        essent_table_read<16, 2, false>(&_s_mem$axi4buf$bundleIn_0_b_deq$ram_echo_real_last$io_deq_bits_MPORT$rtl[0], &mem.axi4buf.bundleIn_0_b_deq.ram_echo_real_last[0], &mem.axi4buf.bundleIn_0_b_deq.value_1[0]);
       } else {
       {
         // [state-read-dense] forwarding=branchless
@@ -19476,10 +19348,11 @@
         for (int L = 0; L < 16; L++) {
           const uint64_t _v2_sa_addr = essent_to_u64(mem.axi4buf.bundleIn_0_b_deq.value_1[L]);
           UInt<1> _v2_sa_value = mem.axi4buf.bundleIn_0_b_deq.ram_echo_real_last[_v2_sa_addr];
+          // [branchless-forward] select a valid source before loading data
           const int _v2_sa_prev_code = _v2_sa_last[_v2_sa_addr];
-          const uint64_t _v2_sa_prev_valid = (uint64_t)(_v2_sa_prev_code >= 0);
+          const bool _v2_sa_prev_valid = _v2_sa_prev_code >= 0;
           [[maybe_unused]] const int _v2_sa_prev_lane = _v2_sa_prev_code & -static_cast<int>(_v2_sa_prev_valid);
-          _v2_sa_value = essent_mux(UInt<1>(_v2_sa_prev_valid), mem.srams.w_echo_real_last[_v2_sa_prev_lane], _v2_sa_value);
+          _v2_sa_value = *essent_select_ptr(_v2_sa_prev_valid, &(mem.srams.w_echo_real_last[_v2_sa_prev_lane]), &_v2_sa_value);
           _s_mem$axi4buf$bundleIn_0_b_deq$ram_echo_real_last$io_deq_bits_MPORT$rtl[L] = _v2_sa_value;
           const uint64_t _v2_sa_write_addr_0 = essent_to_u64(mem.axi4buf.bundleIn_0_b_deq.value[L]);
           const uint64_t _v2_sa_write_take_0 = (uint64_t)(essent_to_u64(_s_mem$axi4buf$bundleIn_0_b_deq$io_enq_ready[L] & mem.srams.w_full[L]) != 0) & (uint64_t)(essent_to_u64(UInt<1>(0x1)) != 0);
@@ -19539,7 +19412,7 @@
         _v2_sa_anyw |= (uint64_t)(essent_to_u64(_s_mem$axi4buf$bundleIn_0_b_deq$io_enq_ready[G] & mem.srams.w_full[G]) != 0) & (uint64_t)(essent_to_u64(UInt<1>(0x1)) != 0);
       }
       if (_v2_sa_anyw == 0) {
-        for (int L = 0; L < 16; L++) { _s_mem$axi4buf$bundleIn_0_b_deq$ram_resp$io_deq_bits_MPORT$rtl[L] = mem.axi4buf.bundleIn_0_b_deq.ram_resp[essent_to_u64(mem.axi4buf.bundleIn_0_b_deq.value_1[L])]; }
+        essent_table_read<16, 2, false>(&_s_mem$axi4buf$bundleIn_0_b_deq$ram_resp$io_deq_bits_MPORT$rtl[0], &mem.axi4buf.bundleIn_0_b_deq.ram_resp[0], &mem.axi4buf.bundleIn_0_b_deq.value_1[0]);
       } else {
       {
         // [state-read-dense] forwarding=branchless
@@ -19548,10 +19421,11 @@
         for (int L = 0; L < 16; L++) {
           const uint64_t _v2_sa_addr = essent_to_u64(mem.axi4buf.bundleIn_0_b_deq.value_1[L]);
           UInt<2> _v2_sa_value = mem.axi4buf.bundleIn_0_b_deq.ram_resp[_v2_sa_addr];
+          // [branchless-forward] select a valid source before loading data
           const int _v2_sa_prev_code = _v2_sa_last[_v2_sa_addr];
-          const uint64_t _v2_sa_prev_valid = (uint64_t)(_v2_sa_prev_code >= 0);
+          const bool _v2_sa_prev_valid = _v2_sa_prev_code >= 0;
           [[maybe_unused]] const int _v2_sa_prev_lane = _v2_sa_prev_code & -static_cast<int>(_v2_sa_prev_valid);
-          _v2_sa_value = essent_mux(UInt<1>(_v2_sa_prev_valid), _s_mem$srams$auto_in_b_bits_resp[_v2_sa_prev_lane], _v2_sa_value);
+          _v2_sa_value = *essent_select_ptr(_v2_sa_prev_valid, &(_s_mem$srams$auto_in_b_bits_resp[_v2_sa_prev_lane]), &_v2_sa_value);
           _s_mem$axi4buf$bundleIn_0_b_deq$ram_resp$io_deq_bits_MPORT$rtl[L] = _v2_sa_value;
           const uint64_t _v2_sa_write_addr_0 = essent_to_u64(mem.axi4buf.bundleIn_0_b_deq.value[L]);
           const uint64_t _v2_sa_write_take_0 = (uint64_t)(essent_to_u64(_s_mem$axi4buf$bundleIn_0_b_deq$io_enq_ready[L] & mem.srams.w_full[L]) != 0) & (uint64_t)(essent_to_u64(UInt<1>(0x1)) != 0);
@@ -19788,17 +19662,14 @@
         _v2_sa_anyw |= (uint64_t)(essent_to_u64(_s_ldut$subsystem_fbus$coupler_from_port_named_slave_port_axi4$buffer$bundleIn_0_d_q$io_enq_ready[G] & _s_ldut$subsystem_fbus$buffer$bundleIn_0_d_q$io_deq_valid[G]) != 0) & (uint64_t)(essent_to_u64(UInt<1>(0x1)) != 0);
       }
       if (_v2_sa_anyw == 0) {
-        for (int L = 0; L < 16; L++) {
-          const uint64_t _v2_sa_field_addr = essent_to_u64(ldut.subsystem_fbus.coupler_from_port_named_slave_port_axi4.buffer.bundleIn_0_d_q.value_1[L]);
-          _s_ldut$subsystem_fbus$coupler_from_port_named_slave_port_axi4$buffer$bundleIn_0_d_q$ram_opcode$io_deq_bits_MPORT$rtl[L] = ldut.subsystem_fbus.coupler_from_port_named_slave_port_axi4.buffer.bundleIn_0_d_q.ram_opcode[_v2_sa_field_addr];
-          _s_ldut$subsystem_fbus$coupler_from_port_named_slave_port_axi4$buffer$bundleIn_0_d_q$ram_param$io_deq_bits_MPORT$rtl[L] = ldut.subsystem_fbus.coupler_from_port_named_slave_port_axi4.buffer.bundleIn_0_d_q.ram_param[_v2_sa_field_addr];
-          _s_ldut$subsystem_fbus$coupler_from_port_named_slave_port_axi4$buffer$bundleIn_0_d_q$ram_size$io_deq_bits_MPORT$rtl[L] = ldut.subsystem_fbus.coupler_from_port_named_slave_port_axi4.buffer.bundleIn_0_d_q.ram_size[_v2_sa_field_addr];
-          _s_ldut$subsystem_fbus$coupler_from_port_named_slave_port_axi4$buffer$bundleIn_0_d_q$ram_source$io_deq_bits_MPORT$rtl[L] = ldut.subsystem_fbus.coupler_from_port_named_slave_port_axi4.buffer.bundleIn_0_d_q.ram_source[_v2_sa_field_addr];
-          _s_ldut$subsystem_fbus$coupler_from_port_named_slave_port_axi4$buffer$bundleIn_0_d_q$ram_sink$io_deq_bits_MPORT$rtl[L] = ldut.subsystem_fbus.coupler_from_port_named_slave_port_axi4.buffer.bundleIn_0_d_q.ram_sink[_v2_sa_field_addr];
-          _s_ldut$subsystem_fbus$coupler_from_port_named_slave_port_axi4$buffer$bundleIn_0_d_q$ram_denied$io_deq_bits_MPORT$rtl[L] = ldut.subsystem_fbus.coupler_from_port_named_slave_port_axi4.buffer.bundleIn_0_d_q.ram_denied[_v2_sa_field_addr];
-          _s_ldut$subsystem_fbus$coupler_from_port_named_slave_port_axi4$buffer$bundleIn_0_d_q$ram_data$io_deq_bits_MPORT$rtl[L] = ldut.subsystem_fbus.coupler_from_port_named_slave_port_axi4.buffer.bundleIn_0_d_q.ram_data[_v2_sa_field_addr];
-          _s_ldut$subsystem_fbus$coupler_from_port_named_slave_port_axi4$buffer$bundleIn_0_d_q$ram_corrupt$io_deq_bits_MPORT$rtl[L] = ldut.subsystem_fbus.coupler_from_port_named_slave_port_axi4.buffer.bundleIn_0_d_q.ram_corrupt[_v2_sa_field_addr];
-        }
+        essent_table_read<16, 2, false>(&_s_ldut$subsystem_fbus$coupler_from_port_named_slave_port_axi4$buffer$bundleIn_0_d_q$ram_opcode$io_deq_bits_MPORT$rtl[0], &ldut.subsystem_fbus.coupler_from_port_named_slave_port_axi4.buffer.bundleIn_0_d_q.ram_opcode[0], &ldut.subsystem_fbus.coupler_from_port_named_slave_port_axi4.buffer.bundleIn_0_d_q.value_1[0]);
+        essent_table_read<16, 2, false>(&_s_ldut$subsystem_fbus$coupler_from_port_named_slave_port_axi4$buffer$bundleIn_0_d_q$ram_param$io_deq_bits_MPORT$rtl[0], &ldut.subsystem_fbus.coupler_from_port_named_slave_port_axi4.buffer.bundleIn_0_d_q.ram_param[0], &ldut.subsystem_fbus.coupler_from_port_named_slave_port_axi4.buffer.bundleIn_0_d_q.value_1[0]);
+        essent_table_read<16, 2, false>(&_s_ldut$subsystem_fbus$coupler_from_port_named_slave_port_axi4$buffer$bundleIn_0_d_q$ram_size$io_deq_bits_MPORT$rtl[0], &ldut.subsystem_fbus.coupler_from_port_named_slave_port_axi4.buffer.bundleIn_0_d_q.ram_size[0], &ldut.subsystem_fbus.coupler_from_port_named_slave_port_axi4.buffer.bundleIn_0_d_q.value_1[0]);
+        essent_table_read<16, 2, false>(&_s_ldut$subsystem_fbus$coupler_from_port_named_slave_port_axi4$buffer$bundleIn_0_d_q$ram_source$io_deq_bits_MPORT$rtl[0], &ldut.subsystem_fbus.coupler_from_port_named_slave_port_axi4.buffer.bundleIn_0_d_q.ram_source[0], &ldut.subsystem_fbus.coupler_from_port_named_slave_port_axi4.buffer.bundleIn_0_d_q.value_1[0]);
+        essent_table_read<16, 2, false>(&_s_ldut$subsystem_fbus$coupler_from_port_named_slave_port_axi4$buffer$bundleIn_0_d_q$ram_sink$io_deq_bits_MPORT$rtl[0], &ldut.subsystem_fbus.coupler_from_port_named_slave_port_axi4.buffer.bundleIn_0_d_q.ram_sink[0], &ldut.subsystem_fbus.coupler_from_port_named_slave_port_axi4.buffer.bundleIn_0_d_q.value_1[0]);
+        essent_table_read<16, 2, false>(&_s_ldut$subsystem_fbus$coupler_from_port_named_slave_port_axi4$buffer$bundleIn_0_d_q$ram_denied$io_deq_bits_MPORT$rtl[0], &ldut.subsystem_fbus.coupler_from_port_named_slave_port_axi4.buffer.bundleIn_0_d_q.ram_denied[0], &ldut.subsystem_fbus.coupler_from_port_named_slave_port_axi4.buffer.bundleIn_0_d_q.value_1[0]);
+        essent_table_read<16, 2, false>(&_s_ldut$subsystem_fbus$coupler_from_port_named_slave_port_axi4$buffer$bundleIn_0_d_q$ram_data$io_deq_bits_MPORT$rtl[0], &ldut.subsystem_fbus.coupler_from_port_named_slave_port_axi4.buffer.bundleIn_0_d_q.ram_data[0], &ldut.subsystem_fbus.coupler_from_port_named_slave_port_axi4.buffer.bundleIn_0_d_q.value_1[0]);
+        essent_table_read<16, 2, false>(&_s_ldut$subsystem_fbus$coupler_from_port_named_slave_port_axi4$buffer$bundleIn_0_d_q$ram_corrupt$io_deq_bits_MPORT$rtl[0], &ldut.subsystem_fbus.coupler_from_port_named_slave_port_axi4.buffer.bundleIn_0_d_q.ram_corrupt[0], &ldut.subsystem_fbus.coupler_from_port_named_slave_port_axi4.buffer.bundleIn_0_d_q.value_1[0]);
       } else {
       {
         // [state-field-read-fused] 8 arrays share one access scan, mode=dense-branchless
@@ -19917,7 +19788,7 @@
         ESSENT_LANE_LOOP
         for (int L = 0; L < 16; L++) ldut.subsystem_fbus.coupler_from_port_named_slave_port_axi4.fixer.d_first_counter[L] = _gv;
       } else {
-        for (int L = 1; L < 16; L++) ldut.subsystem_fbus.coupler_from_port_named_slave_port_axi4.fixer.d_first_counter[L] = _s_ldut$reset[L - 1] ? UInt<9>(0x0) : (_s_ldut$subsystem_fbus$coupler_from_port_named_slave_port_axi4$buffer$monitor$_d_first_T[L - 1] ? ((ldut.subsystem_fbus.coupler_from_port_named_slave_port_axi4.fixer.d_first_counter[L - 1] == UInt<9>(0x0)) ? _s_ldut$subsystem_fbus$coupler_from_port_named_slave_port_axi4$fixer$d_first_beats1[L - 1] : ((ldut.subsystem_fbus.coupler_from_port_named_slave_port_axi4.fixer.d_first_counter[L - 1] - UInt<9>(0x1)).tail<1>())) : ldut.subsystem_fbus.coupler_from_port_named_slave_port_axi4.fixer.d_first_counter[L - 1]);
+        for (int L = 1; L < 16; L++) ldut.subsystem_fbus.coupler_from_port_named_slave_port_axi4.fixer.d_first_counter[L].val = static_cast<typename UInt<9>::scalar_t>((static_cast<uint16_t>((static_cast<uint16_t>(essent_select_word<uint32_t>(((static_cast<uint16_t>(_s_ldut$reset[L - 1].val) & 0x1u)) != 0, static_cast<uint32_t>((static_cast<uint16_t>(0x0u) & 0x1ffu)), static_cast<uint32_t>((static_cast<uint16_t>(essent_select_word<uint32_t>(((static_cast<uint16_t>(_s_ldut$subsystem_fbus$coupler_from_port_named_slave_port_axi4$buffer$monitor$_d_first_T[L - 1].val) & 0x1u)) != 0, static_cast<uint32_t>((static_cast<uint16_t>(essent_select_word<uint32_t>(((static_cast<uint16_t>((static_cast<uint16_t>(((ldut.subsystem_fbus.coupler_from_port_named_slave_port_axi4.fixer.d_first_counter[L - 1].val) == ((static_cast<uint16_t>(0x0u) & 0x1ffu)))) & 0x1u)) & 0x1u)) != 0, static_cast<uint32_t>(_s_ldut$subsystem_fbus$coupler_from_port_named_slave_port_axi4$fixer$d_first_beats1[L - 1].val), static_cast<uint32_t>((static_cast<uint16_t>((static_cast<uint16_t>((static_cast<uint16_t>((static_cast<uint16_t>(ldut.subsystem_fbus.coupler_from_port_named_slave_port_axi4.fixer.d_first_counter[L - 1].val) - static_cast<uint16_t>((static_cast<uint16_t>(0x1u) & 0x1ffu)))) & 0x3ffu)) & 0x1ffu)) & 0x1ffu)))) & 0x1ffu)), static_cast<uint32_t>(ldut.subsystem_fbus.coupler_from_port_named_slave_port_axi4.fixer.d_first_counter[L - 1].val))) & 0x1ffu)))) & 0x1ffu)) & 0x1ffu));
       }
     }
     // [vec comb] 2 templates x 16 lanes
@@ -19949,7 +19820,7 @@
         ESSENT_LANE_LOOP
         for (int L = 0; L < 16; L++) ldut.subsystem_fbus.coupler_from_port_named_slave_port_axi4.axi42tl.d_last_counter[L] = _gv;
       } else {
-        for (int L = 1; L < 16; L++) ldut.subsystem_fbus.coupler_from_port_named_slave_port_axi4.axi42tl.d_last_counter[L] = _s_ldut$reset[L - 1] ? UInt<9>(0x0) : (_s_ldut$subsystem_fbus$coupler_from_port_named_slave_port_axi4$axi42tl$_d_last_T[L - 1] ? ((ldut.subsystem_fbus.coupler_from_port_named_slave_port_axi4.axi42tl.d_last_counter[L - 1] == UInt<9>(0x0)) ? _s_ldut$subsystem_fbus$coupler_from_port_named_slave_port_axi4$axi42tl$d_last_beats1[L - 1] : ((ldut.subsystem_fbus.coupler_from_port_named_slave_port_axi4.axi42tl.d_last_counter[L - 1] - UInt<9>(0x1)).tail<1>())) : ldut.subsystem_fbus.coupler_from_port_named_slave_port_axi4.axi42tl.d_last_counter[L - 1]);
+        for (int L = 1; L < 16; L++) ldut.subsystem_fbus.coupler_from_port_named_slave_port_axi4.axi42tl.d_last_counter[L].val = static_cast<typename UInt<9>::scalar_t>((static_cast<uint16_t>((static_cast<uint16_t>(essent_select_word<uint32_t>(((static_cast<uint16_t>(_s_ldut$reset[L - 1].val) & 0x1u)) != 0, static_cast<uint32_t>((static_cast<uint16_t>(0x0u) & 0x1ffu)), static_cast<uint32_t>((static_cast<uint16_t>(essent_select_word<uint32_t>(((static_cast<uint16_t>(_s_ldut$subsystem_fbus$coupler_from_port_named_slave_port_axi4$axi42tl$_d_last_T[L - 1].val) & 0x1u)) != 0, static_cast<uint32_t>((static_cast<uint16_t>(essent_select_word<uint32_t>(((static_cast<uint16_t>((static_cast<uint16_t>(((ldut.subsystem_fbus.coupler_from_port_named_slave_port_axi4.axi42tl.d_last_counter[L - 1].val) == ((static_cast<uint16_t>(0x0u) & 0x1ffu)))) & 0x1u)) & 0x1u)) != 0, static_cast<uint32_t>(_s_ldut$subsystem_fbus$coupler_from_port_named_slave_port_axi4$axi42tl$d_last_beats1[L - 1].val), static_cast<uint32_t>((static_cast<uint16_t>((static_cast<uint16_t>((static_cast<uint16_t>((static_cast<uint16_t>(ldut.subsystem_fbus.coupler_from_port_named_slave_port_axi4.axi42tl.d_last_counter[L - 1].val) - static_cast<uint16_t>((static_cast<uint16_t>(0x1u) & 0x1ffu)))) & 0x3ffu)) & 0x1ffu)) & 0x1ffu)))) & 0x1ffu)), static_cast<uint32_t>(ldut.subsystem_fbus.coupler_from_port_named_slave_port_axi4.axi42tl.d_last_counter[L - 1].val))) & 0x1ffu)))) & 0x1ffu)) & 0x1ffu));
       }
     }
 
@@ -19995,7 +19866,7 @@
         ESSENT_LANE_LOOP
         for (int L = 0; L < 16; L++) ldut.subsystem_fbus.coupler_from_port_named_slave_port_axi4.axi42tl.b_count_0[L] = _gv;
       } else {
-        for (int L = 1; L < 16; L++) ldut.subsystem_fbus.coupler_from_port_named_slave_port_axi4.axi42tl.b_count_0[L] = _s_ldut$reset[L - 1] ? UInt<3>(0x0) : (((_s_ldut$subsystem_fbus$coupler_from_port_named_slave_port_axi4$axi4frag$auto_out_b_ready[L - 1] & (_s_ldut$subsystem_fbus$coupler_from_port_named_slave_port_axi4$axi42tl$q_b_valid[L - 1] & ((_s_ldut$subsystem_fbus$coupler_from_port_named_slave_port_axi4$axi42tl$q_b_deq$io_deq_bits_id[L - 1] ? ldut.subsystem_fbus.coupler_from_port_named_slave_port_axi4.axi42tl.b_count_1[L - 1] : ldut.subsystem_fbus.coupler_from_port_named_slave_port_axi4.axi42tl.b_count_0[L - 1]) != _s_ldut$subsystem_fbus$coupler_from_port_named_slave_port_axi4$axi42tl$_GEN_13[L - 1]))) & _s_ldut$subsystem_fbus$coupler_from_port_named_slave_port_axi4$axi42tl$_T_109[L - 1]) ? ((ldut.subsystem_fbus.coupler_from_port_named_slave_port_axi4.axi42tl.b_count_0[L - 1] + UInt<3>(0x1)).tail<1>()) : ldut.subsystem_fbus.coupler_from_port_named_slave_port_axi4.axi42tl.b_count_0[L - 1]);
+        for (int L = 1; L < 16; L++) ldut.subsystem_fbus.coupler_from_port_named_slave_port_axi4.axi42tl.b_count_0[L].val = static_cast<typename UInt<3>::scalar_t>((static_cast<uint8_t>((static_cast<uint8_t>(essent_select_word<uint32_t>(((static_cast<uint8_t>(_s_ldut$reset[L - 1].val) & 0x1u)) != 0, static_cast<uint32_t>((static_cast<uint8_t>(0x0u) & 0x7u)), static_cast<uint32_t>((static_cast<uint8_t>(essent_select_word<uint32_t>(((static_cast<uint8_t>((static_cast<uint8_t>((((static_cast<uint8_t>(((_s_ldut$subsystem_fbus$coupler_from_port_named_slave_port_axi4$axi4frag$auto_out_b_ready[L - 1].val) & ((static_cast<uint8_t>(((_s_ldut$subsystem_fbus$coupler_from_port_named_slave_port_axi4$axi42tl$q_b_valid[L - 1].val) & ((static_cast<uint8_t>((((static_cast<uint8_t>(essent_select_word<uint32_t>(((static_cast<uint8_t>(_s_ldut$subsystem_fbus$coupler_from_port_named_slave_port_axi4$axi42tl$q_b_deq$io_deq_bits_id[L - 1].val) & 0x1u)) != 0, static_cast<uint32_t>(ldut.subsystem_fbus.coupler_from_port_named_slave_port_axi4.axi42tl.b_count_1[L - 1].val), static_cast<uint32_t>(ldut.subsystem_fbus.coupler_from_port_named_slave_port_axi4.axi42tl.b_count_0[L - 1].val))) & 0x7u)) != (_s_ldut$subsystem_fbus$coupler_from_port_named_slave_port_axi4$axi42tl$_GEN_13[L - 1].val))) & 0x1u)))) & 0x1u)))) & 0x1u)) & (_s_ldut$subsystem_fbus$coupler_from_port_named_slave_port_axi4$axi42tl$_T_109[L - 1].val))) & 0x1u)) & 0x1u)) != 0, static_cast<uint32_t>((static_cast<uint8_t>((static_cast<uint8_t>((static_cast<uint8_t>((static_cast<uint8_t>(ldut.subsystem_fbus.coupler_from_port_named_slave_port_axi4.axi42tl.b_count_0[L - 1].val) + static_cast<uint8_t>((static_cast<uint8_t>(0x1u) & 0x7u)))) & 0xfu)) & 0x7u)) & 0x7u)), static_cast<uint32_t>(ldut.subsystem_fbus.coupler_from_port_named_slave_port_axi4.axi42tl.b_count_0[L - 1].val))) & 0x7u)))) & 0x7u)) & 0x7u));
       }
     }
     // [vec comb] 4 templates x 16 lanes
@@ -20119,7 +19990,7 @@
         _v2_sa_anyw |= (uint64_t)(essent_to_u64(_s_ldut$subsystem_cbus$buffer$bundleOut_0_a_q$io_enq_ready[G] & _s_ldut$subsystem_cbus$atomics$auto_out_a_valid[G]) != 0) & (uint64_t)(essent_to_u64(UInt<1>(0x1)) != 0);
       }
       if (_v2_sa_anyw == 0) {
-        for (int L = 0; L < 16; L++) { _s_ldut$subsystem_cbus$buffer$bundleOut_0_a_q$ram_data$io_deq_bits_MPORT[L] = ldut.subsystem_cbus.buffer.bundleOut_0_a_q.ram_data[essent_to_u64(ldut.subsystem_cbus.buffer.bundleOut_0_a_q.value_1[L])]; }
+        essent_table_read<16, 2, false>(&_s_ldut$subsystem_cbus$buffer$bundleOut_0_a_q$ram_data$io_deq_bits_MPORT[0], &ldut.subsystem_cbus.buffer.bundleOut_0_a_q.ram_data[0], &ldut.subsystem_cbus.buffer.bundleOut_0_a_q.value_1[0]);
       } else {
       {
         // [state-read-dense] forwarding=branchless
@@ -20128,10 +19999,11 @@
         for (int L = 0; L < 16; L++) {
           const uint64_t _v2_sa_addr = essent_to_u64(ldut.subsystem_cbus.buffer.bundleOut_0_a_q.value_1[L]);
           UInt<64> _v2_sa_value = ldut.subsystem_cbus.buffer.bundleOut_0_a_q.ram_data[_v2_sa_addr];
+          // [branchless-forward] select a valid source before loading data
           const int _v2_sa_prev_code = _v2_sa_last[_v2_sa_addr];
-          const uint64_t _v2_sa_prev_valid = (uint64_t)(_v2_sa_prev_code >= 0);
+          const bool _v2_sa_prev_valid = _v2_sa_prev_code >= 0;
           [[maybe_unused]] const int _v2_sa_prev_lane = _v2_sa_prev_code & -static_cast<int>(_v2_sa_prev_valid);
-          _v2_sa_value = essent_mux(UInt<1>(_v2_sa_prev_valid), _s_ldut$subsystem_cbus$atomics$auto_out_a_bits_data[_v2_sa_prev_lane], _v2_sa_value);
+          _v2_sa_value = *essent_select_ptr(_v2_sa_prev_valid, &(_s_ldut$subsystem_cbus$atomics$auto_out_a_bits_data[_v2_sa_prev_lane]), &_v2_sa_value);
           _s_ldut$subsystem_cbus$buffer$bundleOut_0_a_q$ram_data$io_deq_bits_MPORT[L] = _v2_sa_value;
           const uint64_t _v2_sa_write_addr_0 = essent_to_u64(ldut.subsystem_cbus.buffer.bundleOut_0_a_q.value[L]);
           const uint64_t _v2_sa_write_take_0 = (uint64_t)(essent_to_u64(_s_ldut$subsystem_cbus$buffer$bundleOut_0_a_q$io_enq_ready[L] & _s_ldut$subsystem_cbus$atomics$auto_out_a_valid[L]) != 0) & (uint64_t)(essent_to_u64(UInt<1>(0x1)) != 0);
@@ -20268,12 +20140,9 @@
         _v2_sa_anyw |= (uint64_t)(essent_to_u64(_s_mmio_mem$axi4buf$bundleOut_0_w_deq$io_enq_ready[G] & _s_mmio_mem$axi4frag$auto_out_w_valid[G]) != 0) & (uint64_t)(essent_to_u64(UInt<1>(0x1)) != 0);
       }
       if (_v2_sa_anyw == 0) {
-        for (int L = 0; L < 16; L++) {
-          const uint64_t _v2_sa_field_addr = essent_to_u64(mmio_mem.axi4buf.bundleOut_0_w_deq.value_1[L]);
-          _s_mmio_mem$axi4buf$bundleOut_0_w_deq$ram_data$io_deq_bits_MPORT$rtl[L] = mmio_mem.axi4buf.bundleOut_0_w_deq.ram_data[_v2_sa_field_addr];
-          _s_mmio_mem$axi4buf$bundleOut_0_w_deq$ram_strb$io_deq_bits_MPORT$rtl[L] = mmio_mem.axi4buf.bundleOut_0_w_deq.ram_strb[_v2_sa_field_addr];
-          _s_mmio_mem$axi4buf$bundleOut_0_w_deq$ram_last$io_deq_bits_MPORT$rtl[L] = mmio_mem.axi4buf.bundleOut_0_w_deq.ram_last[_v2_sa_field_addr];
-        }
+        essent_table_read<16, 2, false>(&_s_mmio_mem$axi4buf$bundleOut_0_w_deq$ram_data$io_deq_bits_MPORT$rtl[0], &mmio_mem.axi4buf.bundleOut_0_w_deq.ram_data[0], &mmio_mem.axi4buf.bundleOut_0_w_deq.value_1[0]);
+        essent_table_read<16, 2, false>(&_s_mmio_mem$axi4buf$bundleOut_0_w_deq$ram_strb$io_deq_bits_MPORT$rtl[0], &mmio_mem.axi4buf.bundleOut_0_w_deq.ram_strb[0], &mmio_mem.axi4buf.bundleOut_0_w_deq.value_1[0]);
+        essent_table_read<16, 2, false>(&_s_mmio_mem$axi4buf$bundleOut_0_w_deq$ram_last$io_deq_bits_MPORT$rtl[0], &mmio_mem.axi4buf.bundleOut_0_w_deq.ram_last[0], &mmio_mem.axi4buf.bundleOut_0_w_deq.value_1[0]);
       } else {
       {
         // [state-field-read-fused] 3 arrays share one access scan, mode=dense-branchless
@@ -20490,12 +20359,9 @@
         _v2_sa_anyw |= (uint64_t)(essent_to_u64(_s_mmio_mem$axi4buf$bundleOut_0_aw_deq$io_enq_ready[G] & _s_mmio_mem$axi4frag$auto_out_aw_valid[G]) != 0) & (uint64_t)(essent_to_u64(UInt<1>(0x1)) != 0);
       }
       if (_v2_sa_anyw == 0) {
-        for (int L = 0; L < 16; L++) {
-          const uint64_t _v2_sa_field_addr = essent_to_u64(mmio_mem.axi4buf.bundleOut_0_aw_deq.value_1[L]);
-          _s_mmio_mem$axi4buf$bundleOut_0_aw_deq$ram_id$io_deq_bits_MPORT$rtl[L] = mmio_mem.axi4buf.bundleOut_0_aw_deq.ram_id[_v2_sa_field_addr];
-          _s_mmio_mem$axi4buf$bundleOut_0_aw_deq$ram_addr$io_deq_bits_MPORT$rtl[L] = mmio_mem.axi4buf.bundleOut_0_aw_deq.ram_addr[_v2_sa_field_addr];
-          _s_mmio_mem$axi4buf$bundleOut_0_aw_deq$ram_echo_real_last$io_deq_bits_MPORT$rtl[L] = mmio_mem.axi4buf.bundleOut_0_aw_deq.ram_echo_real_last[_v2_sa_field_addr];
-        }
+        essent_table_read<16, 2, false>(&_s_mmio_mem$axi4buf$bundleOut_0_aw_deq$ram_id$io_deq_bits_MPORT$rtl[0], &mmio_mem.axi4buf.bundleOut_0_aw_deq.ram_id[0], &mmio_mem.axi4buf.bundleOut_0_aw_deq.value_1[0]);
+        essent_table_read<16, 2, false>(&_s_mmio_mem$axi4buf$bundleOut_0_aw_deq$ram_addr$io_deq_bits_MPORT$rtl[0], &mmio_mem.axi4buf.bundleOut_0_aw_deq.ram_addr[0], &mmio_mem.axi4buf.bundleOut_0_aw_deq.value_1[0]);
+        essent_table_read<16, 2, false>(&_s_mmio_mem$axi4buf$bundleOut_0_aw_deq$ram_echo_real_last$io_deq_bits_MPORT$rtl[0], &mmio_mem.axi4buf.bundleOut_0_aw_deq.ram_echo_real_last[0], &mmio_mem.axi4buf.bundleOut_0_aw_deq.value_1[0]);
       } else {
       {
         // [state-field-read-fused] 3 arrays share one access scan, mode=dense-branchless
@@ -20599,7 +20465,7 @@
         _v2_sa_anyw |= (uint64_t)(essent_to_u64(_s_mmio_mem$axi4buf$bundleIn_0_b_deq$io_enq_ready[G] & mmio_mem.srams.w_full[G]) != 0) & (uint64_t)(essent_to_u64(UInt<1>(0x1)) != 0);
       }
       if (_v2_sa_anyw == 0) {
-        for (int L = 0; L < 16; L++) { _s_mmio_mem$axi4buf$bundleIn_0_b_deq$ram_id$io_deq_bits_MPORT$rtl[L] = mmio_mem.axi4buf.bundleIn_0_b_deq.ram_id[essent_to_u64(mmio_mem.axi4buf.bundleIn_0_b_deq.value_1[L])]; }
+        essent_table_read<16, 2, false>(&_s_mmio_mem$axi4buf$bundleIn_0_b_deq$ram_id$io_deq_bits_MPORT$rtl[0], &mmio_mem.axi4buf.bundleIn_0_b_deq.ram_id[0], &mmio_mem.axi4buf.bundleIn_0_b_deq.value_1[0]);
       } else {
       {
         // [state-read-dense] forwarding=branchless
@@ -20608,10 +20474,11 @@
         for (int L = 0; L < 16; L++) {
           const uint64_t _v2_sa_addr = essent_to_u64(mmio_mem.axi4buf.bundleIn_0_b_deq.value_1[L]);
           UInt<4> _v2_sa_value = mmio_mem.axi4buf.bundleIn_0_b_deq.ram_id[_v2_sa_addr];
+          // [branchless-forward] select a valid source before loading data
           const int _v2_sa_prev_code = _v2_sa_last[_v2_sa_addr];
-          const uint64_t _v2_sa_prev_valid = (uint64_t)(_v2_sa_prev_code >= 0);
+          const bool _v2_sa_prev_valid = _v2_sa_prev_code >= 0;
           [[maybe_unused]] const int _v2_sa_prev_lane = _v2_sa_prev_code & -static_cast<int>(_v2_sa_prev_valid);
-          _v2_sa_value = essent_mux(UInt<1>(_v2_sa_prev_valid), mmio_mem.srams.w_id[_v2_sa_prev_lane], _v2_sa_value);
+          _v2_sa_value = *essent_select_ptr(_v2_sa_prev_valid, &(mmio_mem.srams.w_id[_v2_sa_prev_lane]), &_v2_sa_value);
           _s_mmio_mem$axi4buf$bundleIn_0_b_deq$ram_id$io_deq_bits_MPORT$rtl[L] = _v2_sa_value;
           const uint64_t _v2_sa_write_addr_0 = essent_to_u64(mmio_mem.axi4buf.bundleIn_0_b_deq.value[L]);
           const uint64_t _v2_sa_write_take_0 = (uint64_t)(essent_to_u64(_s_mmio_mem$axi4buf$bundleIn_0_b_deq$io_enq_ready[L] & mmio_mem.srams.w_full[L]) != 0) & (uint64_t)(essent_to_u64(UInt<1>(0x1)) != 0);
@@ -20673,7 +20540,7 @@
         _v2_sa_anyw |= (uint64_t)(essent_to_u64(_s_mmio_mem$axi4buf$bundleIn_0_b_deq$io_enq_ready[G] & mmio_mem.srams.w_full[G]) != 0) & (uint64_t)(essent_to_u64(UInt<1>(0x1)) != 0);
       }
       if (_v2_sa_anyw == 0) {
-        for (int L = 0; L < 16; L++) { _s_mmio_mem$axi4buf$bundleIn_0_b_deq$ram_resp$io_deq_bits_MPORT$rtl[L] = mmio_mem.axi4buf.bundleIn_0_b_deq.ram_resp[essent_to_u64(mmio_mem.axi4buf.bundleIn_0_b_deq.value_1[L])]; }
+        essent_table_read<16, 2, false>(&_s_mmio_mem$axi4buf$bundleIn_0_b_deq$ram_resp$io_deq_bits_MPORT$rtl[0], &mmio_mem.axi4buf.bundleIn_0_b_deq.ram_resp[0], &mmio_mem.axi4buf.bundleIn_0_b_deq.value_1[0]);
       } else {
       {
         // [state-read-dense] forwarding=branchless
@@ -20682,10 +20549,11 @@
         for (int L = 0; L < 16; L++) {
           const uint64_t _v2_sa_addr = essent_to_u64(mmio_mem.axi4buf.bundleIn_0_b_deq.value_1[L]);
           UInt<2> _v2_sa_value = mmio_mem.axi4buf.bundleIn_0_b_deq.ram_resp[_v2_sa_addr];
+          // [branchless-forward] select a valid source before loading data
           const int _v2_sa_prev_code = _v2_sa_last[_v2_sa_addr];
-          const uint64_t _v2_sa_prev_valid = (uint64_t)(_v2_sa_prev_code >= 0);
+          const bool _v2_sa_prev_valid = _v2_sa_prev_code >= 0;
           [[maybe_unused]] const int _v2_sa_prev_lane = _v2_sa_prev_code & -static_cast<int>(_v2_sa_prev_valid);
-          _v2_sa_value = essent_mux(UInt<1>(_v2_sa_prev_valid), _s_mmio_mem$srams$auto_in_b_bits_resp[_v2_sa_prev_lane], _v2_sa_value);
+          _v2_sa_value = *essent_select_ptr(_v2_sa_prev_valid, &(_s_mmio_mem$srams$auto_in_b_bits_resp[_v2_sa_prev_lane]), &_v2_sa_value);
           _s_mmio_mem$axi4buf$bundleIn_0_b_deq$ram_resp$io_deq_bits_MPORT$rtl[L] = _v2_sa_value;
           const uint64_t _v2_sa_write_addr_0 = essent_to_u64(mmio_mem.axi4buf.bundleIn_0_b_deq.value[L]);
           const uint64_t _v2_sa_write_take_0 = (uint64_t)(essent_to_u64(_s_mmio_mem$axi4buf$bundleIn_0_b_deq$io_enq_ready[L] & mmio_mem.srams.w_full[L]) != 0) & (uint64_t)(essent_to_u64(UInt<1>(0x1)) != 0);
@@ -20816,7 +20684,7 @@
         ESSENT_LANE_LOOP
         for (int L = 0; L < 16; L++) mmio_mem.axi4frag.error_0[L] = _gv;
       } else {
-        for (int L = 1; L < 16; L++) mmio_mem.axi4frag.error_0[L] = reset ? UInt<2>(0x0) : (_s_mmio_mem$axi4frag$_T_41[L - 1] ? (_s_mmio_mem$axi4buf$bundleIn_0_b_deq$ram_echo_real_last$io_deq_bits_MPORT[L - 1] ? UInt<2>(0x0) : (mmio_mem.axi4frag.error_0[L - 1] | _s_mmio_mem$axi4buf$bundleIn_0_b_deq$ram_resp$io_deq_bits_MPORT[L - 1])) : mmio_mem.axi4frag.error_0[L - 1]);
+        for (int L = 1; L < 16; L++) mmio_mem.axi4frag.error_0[L].val = static_cast<typename UInt<2>::scalar_t>((static_cast<uint8_t>((static_cast<uint8_t>(essent_select_word<uint32_t>(((static_cast<uint8_t>(reset.val) & 0x1u)) != 0, static_cast<uint32_t>((static_cast<uint8_t>(0x0u) & 0x3u)), static_cast<uint32_t>((static_cast<uint8_t>(essent_select_word<uint32_t>(((static_cast<uint8_t>(_s_mmio_mem$axi4frag$_T_41[L - 1].val) & 0x1u)) != 0, static_cast<uint32_t>((static_cast<uint8_t>(essent_select_word<uint32_t>(((static_cast<uint8_t>(_s_mmio_mem$axi4buf$bundleIn_0_b_deq$ram_echo_real_last$io_deq_bits_MPORT[L - 1].val) & 0x1u)) != 0, static_cast<uint32_t>((static_cast<uint8_t>(0x0u) & 0x3u)), static_cast<uint32_t>((static_cast<uint8_t>(((mmio_mem.axi4frag.error_0[L - 1].val) | (_s_mmio_mem$axi4buf$bundleIn_0_b_deq$ram_resp$io_deq_bits_MPORT[L - 1].val))) & 0x3u)))) & 0x3u)), static_cast<uint32_t>(mmio_mem.axi4frag.error_0[L - 1].val))) & 0x3u)))) & 0x3u)) & 0x3u));
       }
     }
     // [vec comb] 1 templates x 16 lanes [cold-guarded base: quiet drops 0, specializes 1]
@@ -20839,7 +20707,7 @@
         ESSENT_LANE_LOOP
         for (int L = 0; L < 16; L++) mmio_mem.axi4frag.error_1[L] = _gv;
       } else {
-        for (int L = 1; L < 16; L++) mmio_mem.axi4frag.error_1[L] = reset ? UInt<2>(0x0) : (_s_mmio_mem$axi4frag$_T_43[L - 1] ? (_s_mmio_mem$axi4buf$bundleIn_0_b_deq$ram_echo_real_last$io_deq_bits_MPORT[L - 1] ? UInt<2>(0x0) : (mmio_mem.axi4frag.error_1[L - 1] | _s_mmio_mem$axi4buf$bundleIn_0_b_deq$ram_resp$io_deq_bits_MPORT[L - 1])) : mmio_mem.axi4frag.error_1[L - 1]);
+        for (int L = 1; L < 16; L++) mmio_mem.axi4frag.error_1[L].val = static_cast<typename UInt<2>::scalar_t>((static_cast<uint8_t>((static_cast<uint8_t>(essent_select_word<uint32_t>(((static_cast<uint8_t>(reset.val) & 0x1u)) != 0, static_cast<uint32_t>((static_cast<uint8_t>(0x0u) & 0x3u)), static_cast<uint32_t>((static_cast<uint8_t>(essent_select_word<uint32_t>(((static_cast<uint8_t>(_s_mmio_mem$axi4frag$_T_43[L - 1].val) & 0x1u)) != 0, static_cast<uint32_t>((static_cast<uint8_t>(essent_select_word<uint32_t>(((static_cast<uint8_t>(_s_mmio_mem$axi4buf$bundleIn_0_b_deq$ram_echo_real_last$io_deq_bits_MPORT[L - 1].val) & 0x1u)) != 0, static_cast<uint32_t>((static_cast<uint8_t>(0x0u) & 0x3u)), static_cast<uint32_t>((static_cast<uint8_t>(((mmio_mem.axi4frag.error_1[L - 1].val) | (_s_mmio_mem$axi4buf$bundleIn_0_b_deq$ram_resp$io_deq_bits_MPORT[L - 1].val))) & 0x3u)))) & 0x3u)), static_cast<uint32_t>(mmio_mem.axi4frag.error_1[L - 1].val))) & 0x3u)))) & 0x3u)) & 0x3u));
       }
     }
     // [vec comb] 1 templates x 16 lanes [cold-guarded base: quiet drops 0, specializes 1]
@@ -20862,7 +20730,7 @@
         ESSENT_LANE_LOOP
         for (int L = 0; L < 16; L++) mmio_mem.axi4frag.error_2[L] = _gv;
       } else {
-        for (int L = 1; L < 16; L++) mmio_mem.axi4frag.error_2[L] = reset ? UInt<2>(0x0) : (_s_mmio_mem$axi4frag$_T_45[L - 1] ? (_s_mmio_mem$axi4buf$bundleIn_0_b_deq$ram_echo_real_last$io_deq_bits_MPORT[L - 1] ? UInt<2>(0x0) : (mmio_mem.axi4frag.error_2[L - 1] | _s_mmio_mem$axi4buf$bundleIn_0_b_deq$ram_resp$io_deq_bits_MPORT[L - 1])) : mmio_mem.axi4frag.error_2[L - 1]);
+        for (int L = 1; L < 16; L++) mmio_mem.axi4frag.error_2[L].val = static_cast<typename UInt<2>::scalar_t>((static_cast<uint8_t>((static_cast<uint8_t>(essent_select_word<uint32_t>(((static_cast<uint8_t>(reset.val) & 0x1u)) != 0, static_cast<uint32_t>((static_cast<uint8_t>(0x0u) & 0x3u)), static_cast<uint32_t>((static_cast<uint8_t>(essent_select_word<uint32_t>(((static_cast<uint8_t>(_s_mmio_mem$axi4frag$_T_45[L - 1].val) & 0x1u)) != 0, static_cast<uint32_t>((static_cast<uint8_t>(essent_select_word<uint32_t>(((static_cast<uint8_t>(_s_mmio_mem$axi4buf$bundleIn_0_b_deq$ram_echo_real_last$io_deq_bits_MPORT[L - 1].val) & 0x1u)) != 0, static_cast<uint32_t>((static_cast<uint8_t>(0x0u) & 0x3u)), static_cast<uint32_t>((static_cast<uint8_t>(((mmio_mem.axi4frag.error_2[L - 1].val) | (_s_mmio_mem$axi4buf$bundleIn_0_b_deq$ram_resp$io_deq_bits_MPORT[L - 1].val))) & 0x3u)))) & 0x3u)), static_cast<uint32_t>(mmio_mem.axi4frag.error_2[L - 1].val))) & 0x3u)))) & 0x3u)) & 0x3u));
       }
     }
     // [vec comb] 1 templates x 16 lanes [cold-guarded base: quiet drops 0, specializes 1]
@@ -20885,7 +20753,7 @@
         ESSENT_LANE_LOOP
         for (int L = 0; L < 16; L++) mmio_mem.axi4frag.error_3[L] = _gv;
       } else {
-        for (int L = 1; L < 16; L++) mmio_mem.axi4frag.error_3[L] = reset ? UInt<2>(0x0) : (_s_mmio_mem$axi4frag$_T_47[L - 1] ? (_s_mmio_mem$axi4buf$bundleIn_0_b_deq$ram_echo_real_last$io_deq_bits_MPORT[L - 1] ? UInt<2>(0x0) : (mmio_mem.axi4frag.error_3[L - 1] | _s_mmio_mem$axi4buf$bundleIn_0_b_deq$ram_resp$io_deq_bits_MPORT[L - 1])) : mmio_mem.axi4frag.error_3[L - 1]);
+        for (int L = 1; L < 16; L++) mmio_mem.axi4frag.error_3[L].val = static_cast<typename UInt<2>::scalar_t>((static_cast<uint8_t>((static_cast<uint8_t>(essent_select_word<uint32_t>(((static_cast<uint8_t>(reset.val) & 0x1u)) != 0, static_cast<uint32_t>((static_cast<uint8_t>(0x0u) & 0x3u)), static_cast<uint32_t>((static_cast<uint8_t>(essent_select_word<uint32_t>(((static_cast<uint8_t>(_s_mmio_mem$axi4frag$_T_47[L - 1].val) & 0x1u)) != 0, static_cast<uint32_t>((static_cast<uint8_t>(essent_select_word<uint32_t>(((static_cast<uint8_t>(_s_mmio_mem$axi4buf$bundleIn_0_b_deq$ram_echo_real_last$io_deq_bits_MPORT[L - 1].val) & 0x1u)) != 0, static_cast<uint32_t>((static_cast<uint8_t>(0x0u) & 0x3u)), static_cast<uint32_t>((static_cast<uint8_t>(((mmio_mem.axi4frag.error_3[L - 1].val) | (_s_mmio_mem$axi4buf$bundleIn_0_b_deq$ram_resp$io_deq_bits_MPORT[L - 1].val))) & 0x3u)))) & 0x3u)), static_cast<uint32_t>(mmio_mem.axi4frag.error_3[L - 1].val))) & 0x3u)))) & 0x3u)) & 0x3u));
       }
     }
     // [vec comb] 1 templates x 16 lanes [cold-guarded base: quiet drops 0, specializes 1]
@@ -20908,7 +20776,7 @@
         ESSENT_LANE_LOOP
         for (int L = 0; L < 16; L++) mmio_mem.axi4frag.error_4[L] = _gv;
       } else {
-        for (int L = 1; L < 16; L++) mmio_mem.axi4frag.error_4[L] = reset ? UInt<2>(0x0) : (_s_mmio_mem$axi4frag$_T_49[L - 1] ? (_s_mmio_mem$axi4buf$bundleIn_0_b_deq$ram_echo_real_last$io_deq_bits_MPORT[L - 1] ? UInt<2>(0x0) : (mmio_mem.axi4frag.error_4[L - 1] | _s_mmio_mem$axi4buf$bundleIn_0_b_deq$ram_resp$io_deq_bits_MPORT[L - 1])) : mmio_mem.axi4frag.error_4[L - 1]);
+        for (int L = 1; L < 16; L++) mmio_mem.axi4frag.error_4[L].val = static_cast<typename UInt<2>::scalar_t>((static_cast<uint8_t>((static_cast<uint8_t>(essent_select_word<uint32_t>(((static_cast<uint8_t>(reset.val) & 0x1u)) != 0, static_cast<uint32_t>((static_cast<uint8_t>(0x0u) & 0x3u)), static_cast<uint32_t>((static_cast<uint8_t>(essent_select_word<uint32_t>(((static_cast<uint8_t>(_s_mmio_mem$axi4frag$_T_49[L - 1].val) & 0x1u)) != 0, static_cast<uint32_t>((static_cast<uint8_t>(essent_select_word<uint32_t>(((static_cast<uint8_t>(_s_mmio_mem$axi4buf$bundleIn_0_b_deq$ram_echo_real_last$io_deq_bits_MPORT[L - 1].val) & 0x1u)) != 0, static_cast<uint32_t>((static_cast<uint8_t>(0x0u) & 0x3u)), static_cast<uint32_t>((static_cast<uint8_t>(((mmio_mem.axi4frag.error_4[L - 1].val) | (_s_mmio_mem$axi4buf$bundleIn_0_b_deq$ram_resp$io_deq_bits_MPORT[L - 1].val))) & 0x3u)))) & 0x3u)), static_cast<uint32_t>(mmio_mem.axi4frag.error_4[L - 1].val))) & 0x3u)))) & 0x3u)) & 0x3u));
       }
     }
     // [vec comb] 1 templates x 16 lanes [cold-guarded base: quiet drops 0, specializes 1]
@@ -20931,9 +20799,11 @@
         ESSENT_LANE_LOOP
         for (int L = 0; L < 16; L++) mmio_mem.axi4frag.error_5[L] = _gv;
       } else {
-        for (int L = 1; L < 16; L++) mmio_mem.axi4frag.error_5[L] = reset ? UInt<2>(0x0) : (_s_mmio_mem$axi4frag$_T_51[L - 1] ? (_s_mmio_mem$axi4buf$bundleIn_0_b_deq$ram_echo_real_last$io_deq_bits_MPORT[L - 1] ? UInt<2>(0x0) : (mmio_mem.axi4frag.error_5[L - 1] | _s_mmio_mem$axi4buf$bundleIn_0_b_deq$ram_resp$io_deq_bits_MPORT[L - 1])) : mmio_mem.axi4frag.error_5[L - 1]);
+        for (int L = 1; L < 16; L++) mmio_mem.axi4frag.error_5[L].val = static_cast<typename UInt<2>::scalar_t>((static_cast<uint8_t>((static_cast<uint8_t>(essent_select_word<uint32_t>(((static_cast<uint8_t>(reset.val) & 0x1u)) != 0, static_cast<uint32_t>((static_cast<uint8_t>(0x0u) & 0x3u)), static_cast<uint32_t>((static_cast<uint8_t>(essent_select_word<uint32_t>(((static_cast<uint8_t>(_s_mmio_mem$axi4frag$_T_51[L - 1].val) & 0x1u)) != 0, static_cast<uint32_t>((static_cast<uint8_t>(essent_select_word<uint32_t>(((static_cast<uint8_t>(_s_mmio_mem$axi4buf$bundleIn_0_b_deq$ram_echo_real_last$io_deq_bits_MPORT[L - 1].val) & 0x1u)) != 0, static_cast<uint32_t>((static_cast<uint8_t>(0x0u) & 0x3u)), static_cast<uint32_t>((static_cast<uint8_t>(((mmio_mem.axi4frag.error_5[L - 1].val) | (_s_mmio_mem$axi4buf$bundleIn_0_b_deq$ram_resp$io_deq_bits_MPORT[L - 1].val))) & 0x3u)))) & 0x3u)), static_cast<uint32_t>(mmio_mem.axi4frag.error_5[L - 1].val))) & 0x3u)))) & 0x3u)) & 0x3u));
       }
     }
+
+    if (partition_task_poll) partition_task_poll(partition_task_context, 0, true, 12);
     // [vec comb] 1 templates x 16 lanes [cold-guarded base: quiet drops 0, specializes 1]
     if (UNLIKELY(!_v2_quiet_base)) {
       _v2_cold_comb_full(119);
@@ -20954,11 +20824,9 @@
         ESSENT_LANE_LOOP
         for (int L = 0; L < 16; L++) mmio_mem.axi4frag.error_6[L] = _gv;
       } else {
-        for (int L = 1; L < 16; L++) mmio_mem.axi4frag.error_6[L] = reset ? UInt<2>(0x0) : (_s_mmio_mem$axi4frag$_T_53[L - 1] ? (_s_mmio_mem$axi4buf$bundleIn_0_b_deq$ram_echo_real_last$io_deq_bits_MPORT[L - 1] ? UInt<2>(0x0) : (mmio_mem.axi4frag.error_6[L - 1] | _s_mmio_mem$axi4buf$bundleIn_0_b_deq$ram_resp$io_deq_bits_MPORT[L - 1])) : mmio_mem.axi4frag.error_6[L - 1]);
+        for (int L = 1; L < 16; L++) mmio_mem.axi4frag.error_6[L].val = static_cast<typename UInt<2>::scalar_t>((static_cast<uint8_t>((static_cast<uint8_t>(essent_select_word<uint32_t>(((static_cast<uint8_t>(reset.val) & 0x1u)) != 0, static_cast<uint32_t>((static_cast<uint8_t>(0x0u) & 0x3u)), static_cast<uint32_t>((static_cast<uint8_t>(essent_select_word<uint32_t>(((static_cast<uint8_t>(_s_mmio_mem$axi4frag$_T_53[L - 1].val) & 0x1u)) != 0, static_cast<uint32_t>((static_cast<uint8_t>(essent_select_word<uint32_t>(((static_cast<uint8_t>(_s_mmio_mem$axi4buf$bundleIn_0_b_deq$ram_echo_real_last$io_deq_bits_MPORT[L - 1].val) & 0x1u)) != 0, static_cast<uint32_t>((static_cast<uint8_t>(0x0u) & 0x3u)), static_cast<uint32_t>((static_cast<uint8_t>(((mmio_mem.axi4frag.error_6[L - 1].val) | (_s_mmio_mem$axi4buf$bundleIn_0_b_deq$ram_resp$io_deq_bits_MPORT[L - 1].val))) & 0x3u)))) & 0x3u)), static_cast<uint32_t>(mmio_mem.axi4frag.error_6[L - 1].val))) & 0x3u)))) & 0x3u)) & 0x3u));
       }
     }
-
-    if (partition_task_poll) partition_task_poll(partition_task_context, 0, true, 12);
     // [vec comb] 1 templates x 16 lanes [cold-guarded base: quiet drops 0, specializes 1]
     if (UNLIKELY(!_v2_quiet_base)) {
       _v2_cold_comb_full(120);
@@ -20979,7 +20847,7 @@
         ESSENT_LANE_LOOP
         for (int L = 0; L < 16; L++) mmio_mem.axi4frag.error_7[L] = _gv;
       } else {
-        for (int L = 1; L < 16; L++) mmio_mem.axi4frag.error_7[L] = reset ? UInt<2>(0x0) : (_s_mmio_mem$axi4frag$_T_55[L - 1] ? (_s_mmio_mem$axi4buf$bundleIn_0_b_deq$ram_echo_real_last$io_deq_bits_MPORT[L - 1] ? UInt<2>(0x0) : (mmio_mem.axi4frag.error_7[L - 1] | _s_mmio_mem$axi4buf$bundleIn_0_b_deq$ram_resp$io_deq_bits_MPORT[L - 1])) : mmio_mem.axi4frag.error_7[L - 1]);
+        for (int L = 1; L < 16; L++) mmio_mem.axi4frag.error_7[L].val = static_cast<typename UInt<2>::scalar_t>((static_cast<uint8_t>((static_cast<uint8_t>(essent_select_word<uint32_t>(((static_cast<uint8_t>(reset.val) & 0x1u)) != 0, static_cast<uint32_t>((static_cast<uint8_t>(0x0u) & 0x3u)), static_cast<uint32_t>((static_cast<uint8_t>(essent_select_word<uint32_t>(((static_cast<uint8_t>(_s_mmio_mem$axi4frag$_T_55[L - 1].val) & 0x1u)) != 0, static_cast<uint32_t>((static_cast<uint8_t>(essent_select_word<uint32_t>(((static_cast<uint8_t>(_s_mmio_mem$axi4buf$bundleIn_0_b_deq$ram_echo_real_last$io_deq_bits_MPORT[L - 1].val) & 0x1u)) != 0, static_cast<uint32_t>((static_cast<uint8_t>(0x0u) & 0x3u)), static_cast<uint32_t>((static_cast<uint8_t>(((mmio_mem.axi4frag.error_7[L - 1].val) | (_s_mmio_mem$axi4buf$bundleIn_0_b_deq$ram_resp$io_deq_bits_MPORT[L - 1].val))) & 0x3u)))) & 0x3u)), static_cast<uint32_t>(mmio_mem.axi4frag.error_7[L - 1].val))) & 0x3u)))) & 0x3u)) & 0x3u));
       }
     }
     // [vec comb] 1 templates x 16 lanes [cold-guarded base: quiet drops 0, specializes 1]
@@ -21002,7 +20870,7 @@
         ESSENT_LANE_LOOP
         for (int L = 0; L < 16; L++) mmio_mem.axi4frag.error_8[L] = _gv;
       } else {
-        for (int L = 1; L < 16; L++) mmio_mem.axi4frag.error_8[L] = reset ? UInt<2>(0x0) : (_s_mmio_mem$axi4frag$_T_57[L - 1] ? (_s_mmio_mem$axi4buf$bundleIn_0_b_deq$ram_echo_real_last$io_deq_bits_MPORT[L - 1] ? UInt<2>(0x0) : (mmio_mem.axi4frag.error_8[L - 1] | _s_mmio_mem$axi4buf$bundleIn_0_b_deq$ram_resp$io_deq_bits_MPORT[L - 1])) : mmio_mem.axi4frag.error_8[L - 1]);
+        for (int L = 1; L < 16; L++) mmio_mem.axi4frag.error_8[L].val = static_cast<typename UInt<2>::scalar_t>((static_cast<uint8_t>((static_cast<uint8_t>(essent_select_word<uint32_t>(((static_cast<uint8_t>(reset.val) & 0x1u)) != 0, static_cast<uint32_t>((static_cast<uint8_t>(0x0u) & 0x3u)), static_cast<uint32_t>((static_cast<uint8_t>(essent_select_word<uint32_t>(((static_cast<uint8_t>(_s_mmio_mem$axi4frag$_T_57[L - 1].val) & 0x1u)) != 0, static_cast<uint32_t>((static_cast<uint8_t>(essent_select_word<uint32_t>(((static_cast<uint8_t>(_s_mmio_mem$axi4buf$bundleIn_0_b_deq$ram_echo_real_last$io_deq_bits_MPORT[L - 1].val) & 0x1u)) != 0, static_cast<uint32_t>((static_cast<uint8_t>(0x0u) & 0x3u)), static_cast<uint32_t>((static_cast<uint8_t>(((mmio_mem.axi4frag.error_8[L - 1].val) | (_s_mmio_mem$axi4buf$bundleIn_0_b_deq$ram_resp$io_deq_bits_MPORT[L - 1].val))) & 0x3u)))) & 0x3u)), static_cast<uint32_t>(mmio_mem.axi4frag.error_8[L - 1].val))) & 0x3u)))) & 0x3u)) & 0x3u));
       }
     }
     // [vec comb] 1 templates x 16 lanes [cold-guarded base: quiet drops 0, specializes 1]
@@ -21025,7 +20893,7 @@
         ESSENT_LANE_LOOP
         for (int L = 0; L < 16; L++) mmio_mem.axi4frag.error_9[L] = _gv;
       } else {
-        for (int L = 1; L < 16; L++) mmio_mem.axi4frag.error_9[L] = reset ? UInt<2>(0x0) : (_s_mmio_mem$axi4frag$_T_59[L - 1] ? (_s_mmio_mem$axi4buf$bundleIn_0_b_deq$ram_echo_real_last$io_deq_bits_MPORT[L - 1] ? UInt<2>(0x0) : (mmio_mem.axi4frag.error_9[L - 1] | _s_mmio_mem$axi4buf$bundleIn_0_b_deq$ram_resp$io_deq_bits_MPORT[L - 1])) : mmio_mem.axi4frag.error_9[L - 1]);
+        for (int L = 1; L < 16; L++) mmio_mem.axi4frag.error_9[L].val = static_cast<typename UInt<2>::scalar_t>((static_cast<uint8_t>((static_cast<uint8_t>(essent_select_word<uint32_t>(((static_cast<uint8_t>(reset.val) & 0x1u)) != 0, static_cast<uint32_t>((static_cast<uint8_t>(0x0u) & 0x3u)), static_cast<uint32_t>((static_cast<uint8_t>(essent_select_word<uint32_t>(((static_cast<uint8_t>(_s_mmio_mem$axi4frag$_T_59[L - 1].val) & 0x1u)) != 0, static_cast<uint32_t>((static_cast<uint8_t>(essent_select_word<uint32_t>(((static_cast<uint8_t>(_s_mmio_mem$axi4buf$bundleIn_0_b_deq$ram_echo_real_last$io_deq_bits_MPORT[L - 1].val) & 0x1u)) != 0, static_cast<uint32_t>((static_cast<uint8_t>(0x0u) & 0x3u)), static_cast<uint32_t>((static_cast<uint8_t>(((mmio_mem.axi4frag.error_9[L - 1].val) | (_s_mmio_mem$axi4buf$bundleIn_0_b_deq$ram_resp$io_deq_bits_MPORT[L - 1].val))) & 0x3u)))) & 0x3u)), static_cast<uint32_t>(mmio_mem.axi4frag.error_9[L - 1].val))) & 0x3u)))) & 0x3u)) & 0x3u));
       }
     }
     // [vec comb] 1 templates x 16 lanes [cold-guarded base: quiet drops 0, specializes 1]
@@ -21048,7 +20916,7 @@
         ESSENT_LANE_LOOP
         for (int L = 0; L < 16; L++) mmio_mem.axi4frag.error_10[L] = _gv;
       } else {
-        for (int L = 1; L < 16; L++) mmio_mem.axi4frag.error_10[L] = reset ? UInt<2>(0x0) : (_s_mmio_mem$axi4frag$_T_61[L - 1] ? (_s_mmio_mem$axi4buf$bundleIn_0_b_deq$ram_echo_real_last$io_deq_bits_MPORT[L - 1] ? UInt<2>(0x0) : (mmio_mem.axi4frag.error_10[L - 1] | _s_mmio_mem$axi4buf$bundleIn_0_b_deq$ram_resp$io_deq_bits_MPORT[L - 1])) : mmio_mem.axi4frag.error_10[L - 1]);
+        for (int L = 1; L < 16; L++) mmio_mem.axi4frag.error_10[L].val = static_cast<typename UInt<2>::scalar_t>((static_cast<uint8_t>((static_cast<uint8_t>(essent_select_word<uint32_t>(((static_cast<uint8_t>(reset.val) & 0x1u)) != 0, static_cast<uint32_t>((static_cast<uint8_t>(0x0u) & 0x3u)), static_cast<uint32_t>((static_cast<uint8_t>(essent_select_word<uint32_t>(((static_cast<uint8_t>(_s_mmio_mem$axi4frag$_T_61[L - 1].val) & 0x1u)) != 0, static_cast<uint32_t>((static_cast<uint8_t>(essent_select_word<uint32_t>(((static_cast<uint8_t>(_s_mmio_mem$axi4buf$bundleIn_0_b_deq$ram_echo_real_last$io_deq_bits_MPORT[L - 1].val) & 0x1u)) != 0, static_cast<uint32_t>((static_cast<uint8_t>(0x0u) & 0x3u)), static_cast<uint32_t>((static_cast<uint8_t>(((mmio_mem.axi4frag.error_10[L - 1].val) | (_s_mmio_mem$axi4buf$bundleIn_0_b_deq$ram_resp$io_deq_bits_MPORT[L - 1].val))) & 0x3u)))) & 0x3u)), static_cast<uint32_t>(mmio_mem.axi4frag.error_10[L - 1].val))) & 0x3u)))) & 0x3u)) & 0x3u));
       }
     }
     // [vec comb] 1 templates x 16 lanes [cold-guarded base: quiet drops 0, specializes 1]
@@ -21071,7 +20939,7 @@
         ESSENT_LANE_LOOP
         for (int L = 0; L < 16; L++) mmio_mem.axi4frag.error_11[L] = _gv;
       } else {
-        for (int L = 1; L < 16; L++) mmio_mem.axi4frag.error_11[L] = reset ? UInt<2>(0x0) : (_s_mmio_mem$axi4frag$_T_63[L - 1] ? (_s_mmio_mem$axi4buf$bundleIn_0_b_deq$ram_echo_real_last$io_deq_bits_MPORT[L - 1] ? UInt<2>(0x0) : (mmio_mem.axi4frag.error_11[L - 1] | _s_mmio_mem$axi4buf$bundleIn_0_b_deq$ram_resp$io_deq_bits_MPORT[L - 1])) : mmio_mem.axi4frag.error_11[L - 1]);
+        for (int L = 1; L < 16; L++) mmio_mem.axi4frag.error_11[L].val = static_cast<typename UInt<2>::scalar_t>((static_cast<uint8_t>((static_cast<uint8_t>(essent_select_word<uint32_t>(((static_cast<uint8_t>(reset.val) & 0x1u)) != 0, static_cast<uint32_t>((static_cast<uint8_t>(0x0u) & 0x3u)), static_cast<uint32_t>((static_cast<uint8_t>(essent_select_word<uint32_t>(((static_cast<uint8_t>(_s_mmio_mem$axi4frag$_T_63[L - 1].val) & 0x1u)) != 0, static_cast<uint32_t>((static_cast<uint8_t>(essent_select_word<uint32_t>(((static_cast<uint8_t>(_s_mmio_mem$axi4buf$bundleIn_0_b_deq$ram_echo_real_last$io_deq_bits_MPORT[L - 1].val) & 0x1u)) != 0, static_cast<uint32_t>((static_cast<uint8_t>(0x0u) & 0x3u)), static_cast<uint32_t>((static_cast<uint8_t>(((mmio_mem.axi4frag.error_11[L - 1].val) | (_s_mmio_mem$axi4buf$bundleIn_0_b_deq$ram_resp$io_deq_bits_MPORT[L - 1].val))) & 0x3u)))) & 0x3u)), static_cast<uint32_t>(mmio_mem.axi4frag.error_11[L - 1].val))) & 0x3u)))) & 0x3u)) & 0x3u));
       }
     }
     // [vec comb] 1 templates x 16 lanes [cold-guarded base: quiet drops 0, specializes 1]
@@ -21094,7 +20962,7 @@
         ESSENT_LANE_LOOP
         for (int L = 0; L < 16; L++) mmio_mem.axi4frag.error_12[L] = _gv;
       } else {
-        for (int L = 1; L < 16; L++) mmio_mem.axi4frag.error_12[L] = reset ? UInt<2>(0x0) : (_s_mmio_mem$axi4frag$_T_65[L - 1] ? (_s_mmio_mem$axi4buf$bundleIn_0_b_deq$ram_echo_real_last$io_deq_bits_MPORT[L - 1] ? UInt<2>(0x0) : (mmio_mem.axi4frag.error_12[L - 1] | _s_mmio_mem$axi4buf$bundleIn_0_b_deq$ram_resp$io_deq_bits_MPORT[L - 1])) : mmio_mem.axi4frag.error_12[L - 1]);
+        for (int L = 1; L < 16; L++) mmio_mem.axi4frag.error_12[L].val = static_cast<typename UInt<2>::scalar_t>((static_cast<uint8_t>((static_cast<uint8_t>(essent_select_word<uint32_t>(((static_cast<uint8_t>(reset.val) & 0x1u)) != 0, static_cast<uint32_t>((static_cast<uint8_t>(0x0u) & 0x3u)), static_cast<uint32_t>((static_cast<uint8_t>(essent_select_word<uint32_t>(((static_cast<uint8_t>(_s_mmio_mem$axi4frag$_T_65[L - 1].val) & 0x1u)) != 0, static_cast<uint32_t>((static_cast<uint8_t>(essent_select_word<uint32_t>(((static_cast<uint8_t>(_s_mmio_mem$axi4buf$bundleIn_0_b_deq$ram_echo_real_last$io_deq_bits_MPORT[L - 1].val) & 0x1u)) != 0, static_cast<uint32_t>((static_cast<uint8_t>(0x0u) & 0x3u)), static_cast<uint32_t>((static_cast<uint8_t>(((mmio_mem.axi4frag.error_12[L - 1].val) | (_s_mmio_mem$axi4buf$bundleIn_0_b_deq$ram_resp$io_deq_bits_MPORT[L - 1].val))) & 0x3u)))) & 0x3u)), static_cast<uint32_t>(mmio_mem.axi4frag.error_12[L - 1].val))) & 0x3u)))) & 0x3u)) & 0x3u));
       }
     }
     // [vec comb] 1 templates x 16 lanes [cold-guarded base: quiet drops 0, specializes 1]
@@ -21117,7 +20985,7 @@
         ESSENT_LANE_LOOP
         for (int L = 0; L < 16; L++) mmio_mem.axi4frag.error_13[L] = _gv;
       } else {
-        for (int L = 1; L < 16; L++) mmio_mem.axi4frag.error_13[L] = reset ? UInt<2>(0x0) : (_s_mmio_mem$axi4frag$_T_67[L - 1] ? (_s_mmio_mem$axi4buf$bundleIn_0_b_deq$ram_echo_real_last$io_deq_bits_MPORT[L - 1] ? UInt<2>(0x0) : (mmio_mem.axi4frag.error_13[L - 1] | _s_mmio_mem$axi4buf$bundleIn_0_b_deq$ram_resp$io_deq_bits_MPORT[L - 1])) : mmio_mem.axi4frag.error_13[L - 1]);
+        for (int L = 1; L < 16; L++) mmio_mem.axi4frag.error_13[L].val = static_cast<typename UInt<2>::scalar_t>((static_cast<uint8_t>((static_cast<uint8_t>(essent_select_word<uint32_t>(((static_cast<uint8_t>(reset.val) & 0x1u)) != 0, static_cast<uint32_t>((static_cast<uint8_t>(0x0u) & 0x3u)), static_cast<uint32_t>((static_cast<uint8_t>(essent_select_word<uint32_t>(((static_cast<uint8_t>(_s_mmio_mem$axi4frag$_T_67[L - 1].val) & 0x1u)) != 0, static_cast<uint32_t>((static_cast<uint8_t>(essent_select_word<uint32_t>(((static_cast<uint8_t>(_s_mmio_mem$axi4buf$bundleIn_0_b_deq$ram_echo_real_last$io_deq_bits_MPORT[L - 1].val) & 0x1u)) != 0, static_cast<uint32_t>((static_cast<uint8_t>(0x0u) & 0x3u)), static_cast<uint32_t>((static_cast<uint8_t>(((mmio_mem.axi4frag.error_13[L - 1].val) | (_s_mmio_mem$axi4buf$bundleIn_0_b_deq$ram_resp$io_deq_bits_MPORT[L - 1].val))) & 0x3u)))) & 0x3u)), static_cast<uint32_t>(mmio_mem.axi4frag.error_13[L - 1].val))) & 0x3u)))) & 0x3u)) & 0x3u));
       }
     }
     // [vec comb] 1 templates x 16 lanes [cold-guarded base: quiet drops 0, specializes 1]
@@ -21140,7 +21008,7 @@
         ESSENT_LANE_LOOP
         for (int L = 0; L < 16; L++) mmio_mem.axi4frag.error_14[L] = _gv;
       } else {
-        for (int L = 1; L < 16; L++) mmio_mem.axi4frag.error_14[L] = reset ? UInt<2>(0x0) : (_s_mmio_mem$axi4frag$_T_69[L - 1] ? (_s_mmio_mem$axi4buf$bundleIn_0_b_deq$ram_echo_real_last$io_deq_bits_MPORT[L - 1] ? UInt<2>(0x0) : (mmio_mem.axi4frag.error_14[L - 1] | _s_mmio_mem$axi4buf$bundleIn_0_b_deq$ram_resp$io_deq_bits_MPORT[L - 1])) : mmio_mem.axi4frag.error_14[L - 1]);
+        for (int L = 1; L < 16; L++) mmio_mem.axi4frag.error_14[L].val = static_cast<typename UInt<2>::scalar_t>((static_cast<uint8_t>((static_cast<uint8_t>(essent_select_word<uint32_t>(((static_cast<uint8_t>(reset.val) & 0x1u)) != 0, static_cast<uint32_t>((static_cast<uint8_t>(0x0u) & 0x3u)), static_cast<uint32_t>((static_cast<uint8_t>(essent_select_word<uint32_t>(((static_cast<uint8_t>(_s_mmio_mem$axi4frag$_T_69[L - 1].val) & 0x1u)) != 0, static_cast<uint32_t>((static_cast<uint8_t>(essent_select_word<uint32_t>(((static_cast<uint8_t>(_s_mmio_mem$axi4buf$bundleIn_0_b_deq$ram_echo_real_last$io_deq_bits_MPORT[L - 1].val) & 0x1u)) != 0, static_cast<uint32_t>((static_cast<uint8_t>(0x0u) & 0x3u)), static_cast<uint32_t>((static_cast<uint8_t>(((mmio_mem.axi4frag.error_14[L - 1].val) | (_s_mmio_mem$axi4buf$bundleIn_0_b_deq$ram_resp$io_deq_bits_MPORT[L - 1].val))) & 0x3u)))) & 0x3u)), static_cast<uint32_t>(mmio_mem.axi4frag.error_14[L - 1].val))) & 0x3u)))) & 0x3u)) & 0x3u));
       }
     }
     // [vec comb] 1 templates x 16 lanes [cold-guarded base: quiet drops 0, specializes 1]
@@ -21163,7 +21031,7 @@
         ESSENT_LANE_LOOP
         for (int L = 0; L < 16; L++) mmio_mem.axi4frag.error_15[L] = _gv;
       } else {
-        for (int L = 1; L < 16; L++) mmio_mem.axi4frag.error_15[L] = reset ? UInt<2>(0x0) : (_s_mmio_mem$axi4frag$_T_71[L - 1] ? (_s_mmio_mem$axi4buf$bundleIn_0_b_deq$ram_echo_real_last$io_deq_bits_MPORT[L - 1] ? UInt<2>(0x0) : (mmio_mem.axi4frag.error_15[L - 1] | _s_mmio_mem$axi4buf$bundleIn_0_b_deq$ram_resp$io_deq_bits_MPORT[L - 1])) : mmio_mem.axi4frag.error_15[L - 1]);
+        for (int L = 1; L < 16; L++) mmio_mem.axi4frag.error_15[L].val = static_cast<typename UInt<2>::scalar_t>((static_cast<uint8_t>((static_cast<uint8_t>(essent_select_word<uint32_t>(((static_cast<uint8_t>(reset.val) & 0x1u)) != 0, static_cast<uint32_t>((static_cast<uint8_t>(0x0u) & 0x3u)), static_cast<uint32_t>((static_cast<uint8_t>(essent_select_word<uint32_t>(((static_cast<uint8_t>(_s_mmio_mem$axi4frag$_T_71[L - 1].val) & 0x1u)) != 0, static_cast<uint32_t>((static_cast<uint8_t>(essent_select_word<uint32_t>(((static_cast<uint8_t>(_s_mmio_mem$axi4buf$bundleIn_0_b_deq$ram_echo_real_last$io_deq_bits_MPORT[L - 1].val) & 0x1u)) != 0, static_cast<uint32_t>((static_cast<uint8_t>(0x0u) & 0x3u)), static_cast<uint32_t>((static_cast<uint8_t>(((mmio_mem.axi4frag.error_15[L - 1].val) | (_s_mmio_mem$axi4buf$bundleIn_0_b_deq$ram_resp$io_deq_bits_MPORT[L - 1].val))) & 0x3u)))) & 0x3u)), static_cast<uint32_t>(mmio_mem.axi4frag.error_15[L - 1].val))) & 0x3u)))) & 0x3u)) & 0x3u));
       }
     }
     // [vec comb] 1 templates x 16 lanes
@@ -21171,6 +21039,8 @@
     for (int L = 0; L < 16; L++) {
       _s_mmio_mem$axi4frag$auto_in_b_bits_resp[L].val = static_cast<typename UInt<2>::scalar_t>((static_cast<uint8_t>((static_cast<uint8_t>(((_s_mmio_mem$axi4buf$bundleIn_0_b_deq$ram_resp$io_deq_bits_MPORT[L].val) | ((static_cast<uint8_t>((((mmio_mem.axi4frag.error_15[L].val) & ((uint8_t)0 - (uint8_t)(((static_cast<uint8_t>((static_cast<uint8_t>((((static_cast<uint8_t>(0xfu) & 0xfu)) == (_s_mmio_mem$axi4buf$bundleIn_0_b_deq$ram_id$io_deq_bits_MPORT[L].val))) & 0x1u)) & 0x1u)) != 0))) | (((static_cast<uint8_t>((((mmio_mem.axi4frag.error_14[L].val) & ((uint8_t)0 - (uint8_t)(((static_cast<uint8_t>((static_cast<uint8_t>((((static_cast<uint8_t>(0xeu) & 0xfu)) == (_s_mmio_mem$axi4buf$bundleIn_0_b_deq$ram_id$io_deq_bits_MPORT[L].val))) & 0x1u)) & 0x1u)) != 0))) | (((static_cast<uint8_t>((((mmio_mem.axi4frag.error_13[L].val) & ((uint8_t)0 - (uint8_t)(((static_cast<uint8_t>((static_cast<uint8_t>((((static_cast<uint8_t>(0xdu) & 0xfu)) == (_s_mmio_mem$axi4buf$bundleIn_0_b_deq$ram_id$io_deq_bits_MPORT[L].val))) & 0x1u)) & 0x1u)) != 0))) | (((static_cast<uint8_t>((((mmio_mem.axi4frag.error_12[L].val) & ((uint8_t)0 - (uint8_t)(((static_cast<uint8_t>((static_cast<uint8_t>((((static_cast<uint8_t>(0xcu) & 0xfu)) == (_s_mmio_mem$axi4buf$bundleIn_0_b_deq$ram_id$io_deq_bits_MPORT[L].val))) & 0x1u)) & 0x1u)) != 0))) | (((static_cast<uint8_t>((((mmio_mem.axi4frag.error_11[L].val) & ((uint8_t)0 - (uint8_t)(((static_cast<uint8_t>((static_cast<uint8_t>((((static_cast<uint8_t>(0xbu) & 0xfu)) == (_s_mmio_mem$axi4buf$bundleIn_0_b_deq$ram_id$io_deq_bits_MPORT[L].val))) & 0x1u)) & 0x1u)) != 0))) | (((static_cast<uint8_t>((((mmio_mem.axi4frag.error_10[L].val) & ((uint8_t)0 - (uint8_t)(((static_cast<uint8_t>((static_cast<uint8_t>((((static_cast<uint8_t>(0xau) & 0xfu)) == (_s_mmio_mem$axi4buf$bundleIn_0_b_deq$ram_id$io_deq_bits_MPORT[L].val))) & 0x1u)) & 0x1u)) != 0))) | (((static_cast<uint8_t>((((mmio_mem.axi4frag.error_9[L].val) & ((uint8_t)0 - (uint8_t)(((static_cast<uint8_t>((static_cast<uint8_t>((((static_cast<uint8_t>(0x9u) & 0xfu)) == (_s_mmio_mem$axi4buf$bundleIn_0_b_deq$ram_id$io_deq_bits_MPORT[L].val))) & 0x1u)) & 0x1u)) != 0))) | (((static_cast<uint8_t>((((mmio_mem.axi4frag.error_8[L].val) & ((uint8_t)0 - (uint8_t)(((static_cast<uint8_t>((static_cast<uint8_t>((((static_cast<uint8_t>(0x8u) & 0xfu)) == (_s_mmio_mem$axi4buf$bundleIn_0_b_deq$ram_id$io_deq_bits_MPORT[L].val))) & 0x1u)) & 0x1u)) != 0))) | (((static_cast<uint8_t>((((mmio_mem.axi4frag.error_7[L].val) & ((uint8_t)0 - (uint8_t)(((static_cast<uint8_t>((static_cast<uint8_t>((((static_cast<uint8_t>(0x7u) & 0xfu)) == (_s_mmio_mem$axi4buf$bundleIn_0_b_deq$ram_id$io_deq_bits_MPORT[L].val))) & 0x1u)) & 0x1u)) != 0))) | (((static_cast<uint8_t>((((mmio_mem.axi4frag.error_6[L].val) & ((uint8_t)0 - (uint8_t)(((static_cast<uint8_t>((static_cast<uint8_t>((((static_cast<uint8_t>(0x6u) & 0xfu)) == (_s_mmio_mem$axi4buf$bundleIn_0_b_deq$ram_id$io_deq_bits_MPORT[L].val))) & 0x1u)) & 0x1u)) != 0))) | (((static_cast<uint8_t>((((mmio_mem.axi4frag.error_5[L].val) & ((uint8_t)0 - (uint8_t)(((static_cast<uint8_t>((static_cast<uint8_t>((((static_cast<uint8_t>(0x5u) & 0xfu)) == (_s_mmio_mem$axi4buf$bundleIn_0_b_deq$ram_id$io_deq_bits_MPORT[L].val))) & 0x1u)) & 0x1u)) != 0))) | (((static_cast<uint8_t>((((mmio_mem.axi4frag.error_4[L].val) & ((uint8_t)0 - (uint8_t)(((static_cast<uint8_t>((static_cast<uint8_t>((((static_cast<uint8_t>(0x4u) & 0xfu)) == (_s_mmio_mem$axi4buf$bundleIn_0_b_deq$ram_id$io_deq_bits_MPORT[L].val))) & 0x1u)) & 0x1u)) != 0))) | (((static_cast<uint8_t>((((mmio_mem.axi4frag.error_3[L].val) & ((uint8_t)0 - (uint8_t)(((static_cast<uint8_t>((static_cast<uint8_t>((((static_cast<uint8_t>(0x3u) & 0xfu)) == (_s_mmio_mem$axi4buf$bundleIn_0_b_deq$ram_id$io_deq_bits_MPORT[L].val))) & 0x1u)) & 0x1u)) != 0))) | (((static_cast<uint8_t>((((mmio_mem.axi4frag.error_2[L].val) & ((uint8_t)0 - (uint8_t)(((static_cast<uint8_t>((static_cast<uint8_t>((((static_cast<uint8_t>(0x2u) & 0xfu)) == (_s_mmio_mem$axi4buf$bundleIn_0_b_deq$ram_id$io_deq_bits_MPORT[L].val))) & 0x1u)) & 0x1u)) != 0))) | (((static_cast<uint8_t>((((mmio_mem.axi4frag.error_1[L].val) & ((uint8_t)0 - (uint8_t)(((static_cast<uint8_t>((static_cast<uint8_t>((((static_cast<uint8_t>(0x1u) & 0xfu)) == (_s_mmio_mem$axi4buf$bundleIn_0_b_deq$ram_id$io_deq_bits_MPORT[L].val))) & 0x1u)) & 0x1u)) != 0))) | ((mmio_mem.axi4frag.error_0[L].val) & ~((uint8_t)0 - (uint8_t)(((static_cast<uint8_t>((static_cast<uint8_t>((((static_cast<uint8_t>(0x1u) & 0xfu)) == (_s_mmio_mem$axi4buf$bundleIn_0_b_deq$ram_id$io_deq_bits_MPORT[L].val))) & 0x1u)) & 0x1u)) != 0))))) & 0x3u)) & ~((uint8_t)0 - (uint8_t)(((static_cast<uint8_t>((static_cast<uint8_t>((((static_cast<uint8_t>(0x2u) & 0xfu)) == (_s_mmio_mem$axi4buf$bundleIn_0_b_deq$ram_id$io_deq_bits_MPORT[L].val))) & 0x1u)) & 0x1u)) != 0))))) & 0x3u)) & ~((uint8_t)0 - (uint8_t)(((static_cast<uint8_t>((static_cast<uint8_t>((((static_cast<uint8_t>(0x3u) & 0xfu)) == (_s_mmio_mem$axi4buf$bundleIn_0_b_deq$ram_id$io_deq_bits_MPORT[L].val))) & 0x1u)) & 0x1u)) != 0))))) & 0x3u)) & ~((uint8_t)0 - (uint8_t)(((static_cast<uint8_t>((static_cast<uint8_t>((((static_cast<uint8_t>(0x4u) & 0xfu)) == (_s_mmio_mem$axi4buf$bundleIn_0_b_deq$ram_id$io_deq_bits_MPORT[L].val))) & 0x1u)) & 0x1u)) != 0))))) & 0x3u)) & ~((uint8_t)0 - (uint8_t)(((static_cast<uint8_t>((static_cast<uint8_t>((((static_cast<uint8_t>(0x5u) & 0xfu)) == (_s_mmio_mem$axi4buf$bundleIn_0_b_deq$ram_id$io_deq_bits_MPORT[L].val))) & 0x1u)) & 0x1u)) != 0))))) & 0x3u)) & ~((uint8_t)0 - (uint8_t)(((static_cast<uint8_t>((static_cast<uint8_t>((((static_cast<uint8_t>(0x6u) & 0xfu)) == (_s_mmio_mem$axi4buf$bundleIn_0_b_deq$ram_id$io_deq_bits_MPORT[L].val))) & 0x1u)) & 0x1u)) != 0))))) & 0x3u)) & ~((uint8_t)0 - (uint8_t)(((static_cast<uint8_t>((static_cast<uint8_t>((((static_cast<uint8_t>(0x7u) & 0xfu)) == (_s_mmio_mem$axi4buf$bundleIn_0_b_deq$ram_id$io_deq_bits_MPORT[L].val))) & 0x1u)) & 0x1u)) != 0))))) & 0x3u)) & ~((uint8_t)0 - (uint8_t)(((static_cast<uint8_t>((static_cast<uint8_t>((((static_cast<uint8_t>(0x8u) & 0xfu)) == (_s_mmio_mem$axi4buf$bundleIn_0_b_deq$ram_id$io_deq_bits_MPORT[L].val))) & 0x1u)) & 0x1u)) != 0))))) & 0x3u)) & ~((uint8_t)0 - (uint8_t)(((static_cast<uint8_t>((static_cast<uint8_t>((((static_cast<uint8_t>(0x9u) & 0xfu)) == (_s_mmio_mem$axi4buf$bundleIn_0_b_deq$ram_id$io_deq_bits_MPORT[L].val))) & 0x1u)) & 0x1u)) != 0))))) & 0x3u)) & ~((uint8_t)0 - (uint8_t)(((static_cast<uint8_t>((static_cast<uint8_t>((((static_cast<uint8_t>(0xau) & 0xfu)) == (_s_mmio_mem$axi4buf$bundleIn_0_b_deq$ram_id$io_deq_bits_MPORT[L].val))) & 0x1u)) & 0x1u)) != 0))))) & 0x3u)) & ~((uint8_t)0 - (uint8_t)(((static_cast<uint8_t>((static_cast<uint8_t>((((static_cast<uint8_t>(0xbu) & 0xfu)) == (_s_mmio_mem$axi4buf$bundleIn_0_b_deq$ram_id$io_deq_bits_MPORT[L].val))) & 0x1u)) & 0x1u)) != 0))))) & 0x3u)) & ~((uint8_t)0 - (uint8_t)(((static_cast<uint8_t>((static_cast<uint8_t>((((static_cast<uint8_t>(0xcu) & 0xfu)) == (_s_mmio_mem$axi4buf$bundleIn_0_b_deq$ram_id$io_deq_bits_MPORT[L].val))) & 0x1u)) & 0x1u)) != 0))))) & 0x3u)) & ~((uint8_t)0 - (uint8_t)(((static_cast<uint8_t>((static_cast<uint8_t>((((static_cast<uint8_t>(0xdu) & 0xfu)) == (_s_mmio_mem$axi4buf$bundleIn_0_b_deq$ram_id$io_deq_bits_MPORT[L].val))) & 0x1u)) & 0x1u)) != 0))))) & 0x3u)) & ~((uint8_t)0 - (uint8_t)(((static_cast<uint8_t>((static_cast<uint8_t>((((static_cast<uint8_t>(0xeu) & 0xfu)) == (_s_mmio_mem$axi4buf$bundleIn_0_b_deq$ram_id$io_deq_bits_MPORT[L].val))) & 0x1u)) & 0x1u)) != 0))))) & 0x3u)) & ~((uint8_t)0 - (uint8_t)(((static_cast<uint8_t>((static_cast<uint8_t>((((static_cast<uint8_t>(0xfu) & 0xfu)) == (_s_mmio_mem$axi4buf$bundleIn_0_b_deq$ram_id$io_deq_bits_MPORT[L].val))) & 0x1u)) & 0x1u)) != 0))))) & 0x3u)))) & 0x3u)) & 0x3u));
     }
+
+    if (partition_task_poll) partition_task_poll(partition_task_context, 0, true, 12);
     // [vec state-read] 1 templates x 16 lanes
     #if ESSENT_ORACLE_VERIFY // [extern-read] verify-only recompute: ldut.subsystem_sbus.coupler_to_port_named_mmio_port_axi4.axi4buf.bundleIn_0_b_deq.ram_resp.io_deq_bits_MPORT$rtl
     {
@@ -21180,7 +21050,7 @@
         _v2_sa_anyw |= (uint64_t)(essent_to_u64(_s_ldut$subsystem_sbus$coupler_to_port_named_mmio_port_axi4$axi4buf$bundleIn_0_b_deq$io_enq_ready[G] & _s_mmio_mem$axi4frag$auto_in_b_valid[G]) != 0) & (uint64_t)(essent_to_u64(UInt<1>(0x1)) != 0);
       }
       if (_v2_sa_anyw == 0) {
-        for (int L = 0; L < 16; L++) { _s_ldut$subsystem_sbus$coupler_to_port_named_mmio_port_axi4$axi4buf$bundleIn_0_b_deq$ram_resp$io_deq_bits_MPORT$rtl[L] = ldut.subsystem_sbus.coupler_to_port_named_mmio_port_axi4.axi4buf.bundleIn_0_b_deq.ram_resp[essent_to_u64(ldut.subsystem_sbus.coupler_to_port_named_mmio_port_axi4.axi4buf.bundleIn_0_b_deq.value_1[L])]; }
+        essent_table_read<16, 2, false>(&_s_ldut$subsystem_sbus$coupler_to_port_named_mmio_port_axi4$axi4buf$bundleIn_0_b_deq$ram_resp$io_deq_bits_MPORT$rtl[0], &ldut.subsystem_sbus.coupler_to_port_named_mmio_port_axi4.axi4buf.bundleIn_0_b_deq.ram_resp[0], &ldut.subsystem_sbus.coupler_to_port_named_mmio_port_axi4.axi4buf.bundleIn_0_b_deq.value_1[0]);
       } else {
       {
         // [state-read-dense] forwarding=branchless
@@ -21189,10 +21059,11 @@
         for (int L = 0; L < 16; L++) {
           const uint64_t _v2_sa_addr = essent_to_u64(ldut.subsystem_sbus.coupler_to_port_named_mmio_port_axi4.axi4buf.bundleIn_0_b_deq.value_1[L]);
           UInt<2> _v2_sa_value = ldut.subsystem_sbus.coupler_to_port_named_mmio_port_axi4.axi4buf.bundleIn_0_b_deq.ram_resp[_v2_sa_addr];
+          // [branchless-forward] select a valid source before loading data
           const int _v2_sa_prev_code = _v2_sa_last[_v2_sa_addr];
-          const uint64_t _v2_sa_prev_valid = (uint64_t)(_v2_sa_prev_code >= 0);
+          const bool _v2_sa_prev_valid = _v2_sa_prev_code >= 0;
           [[maybe_unused]] const int _v2_sa_prev_lane = _v2_sa_prev_code & -static_cast<int>(_v2_sa_prev_valid);
-          _v2_sa_value = essent_mux(UInt<1>(_v2_sa_prev_valid), _s_mmio_mem$axi4frag$auto_in_b_bits_resp[_v2_sa_prev_lane], _v2_sa_value);
+          _v2_sa_value = *essent_select_ptr(_v2_sa_prev_valid, &(_s_mmio_mem$axi4frag$auto_in_b_bits_resp[_v2_sa_prev_lane]), &_v2_sa_value);
           _s_ldut$subsystem_sbus$coupler_to_port_named_mmio_port_axi4$axi4buf$bundleIn_0_b_deq$ram_resp$io_deq_bits_MPORT$rtl[L] = _v2_sa_value;
           const uint64_t _v2_sa_write_addr_0 = essent_to_u64(ldut.subsystem_sbus.coupler_to_port_named_mmio_port_axi4.axi4buf.bundleIn_0_b_deq.value[L]);
           const uint64_t _v2_sa_write_take_0 = (uint64_t)(essent_to_u64(_s_ldut$subsystem_sbus$coupler_to_port_named_mmio_port_axi4$axi4buf$bundleIn_0_b_deq$io_enq_ready[L] & _s_mmio_mem$axi4frag$auto_in_b_valid[L]) != 0) & (uint64_t)(essent_to_u64(UInt<1>(0x1)) != 0);
@@ -21262,8 +21133,6 @@
       }
       }
     }
-
-    if (partition_task_poll) partition_task_poll(partition_task_context, 0, true, 12);
     // [vec comb] 1 templates x 16 lanes
     ESSENT_LANE_LOOP
     for (int L = 0; L < 16; L++) {
@@ -21560,6 +21429,8 @@
       }
       }
     }
+
+    if (partition_task_poll) partition_task_poll(partition_task_context, 0, true, 12);
     // [vec boundary-next] 1 templates x 16 lanes
     // [boundary next] 1 templates, two retained lanes
     { const int L = 0;
@@ -21601,8 +21472,6 @@
     for (int L = 0; L < 16; L++) {
       _s_mem$srams$auto_in_r_bits_data[L].val = static_cast<typename UInt<64>::scalar_t>(static_cast<uint64_t>(static_cast<uint64_t>(((static_cast<uint64_t>((static_cast<uint64_t>(((static_cast<uint64_t>((static_cast<uint64_t>(((static_cast<uint64_t>((static_cast<uint64_t>((((_s_mem$srams$mem_7$rdata_MPORT[L].val) & ((uint64_t)0 - (uint64_t)(((static_cast<uint64_t>(mem.srams.rdata_REG[L].val) & 0x1ULL)) != 0))) | (((static_cast<uint64_t>(((static_cast<uint64_t>(_v2_bank_mem$srams$rdata_r__v2_bank_0_0[L].val) >> 0) & 0xffULL)) & 0xffULL)) & ~((uint64_t)0 - (uint64_t)(((static_cast<uint64_t>(mem.srams.rdata_REG[L].val) & 0x1ULL)) != 0))))) & 0xffULL)) << 8) | (static_cast<uint64_t>((static_cast<uint64_t>((((_s_mem$srams$mem_6$rdata_MPORT[L].val) & ((uint64_t)0 - (uint64_t)(((static_cast<uint64_t>(mem.srams.rdata_REG[L].val) & 0x1ULL)) != 0))) | (((static_cast<uint64_t>(((static_cast<uint64_t>(_v2_bank_mem$srams$rdata_r__v2_bank_0_0[L].val) >> 8) & 0xffULL)) & 0xffULL)) & ~((uint64_t)0 - (uint64_t)(((static_cast<uint64_t>(mem.srams.rdata_REG[L].val) & 0x1ULL)) != 0))))) & 0xffULL)) & 0xffULL))) & 0xffffULL)) << 16) | (static_cast<uint64_t>((static_cast<uint64_t>(((static_cast<uint64_t>((static_cast<uint64_t>((((_s_mem$srams$mem_5$rdata_MPORT[L].val) & ((uint64_t)0 - (uint64_t)(((static_cast<uint64_t>(mem.srams.rdata_REG[L].val) & 0x1ULL)) != 0))) | (((static_cast<uint64_t>(((static_cast<uint64_t>(_v2_bank_mem$srams$rdata_r__v2_bank_0_0[L].val) >> 16) & 0xffULL)) & 0xffULL)) & ~((uint64_t)0 - (uint64_t)(((static_cast<uint64_t>(mem.srams.rdata_REG[L].val) & 0x1ULL)) != 0))))) & 0xffULL)) << 8) | (static_cast<uint64_t>((static_cast<uint64_t>((((_s_mem$srams$mem_4$rdata_MPORT[L].val) & ((uint64_t)0 - (uint64_t)(((static_cast<uint64_t>(mem.srams.rdata_REG[L].val) & 0x1ULL)) != 0))) | (((static_cast<uint64_t>(((static_cast<uint64_t>(_v2_bank_mem$srams$rdata_r__v2_bank_0_0[L].val) >> 24) & 0xffULL)) & 0xffULL)) & ~((uint64_t)0 - (uint64_t)(((static_cast<uint64_t>(mem.srams.rdata_REG[L].val) & 0x1ULL)) != 0))))) & 0xffULL)) & 0xffULL))) & 0xffffULL)) & 0xffffULL))) & 0xffffffffULL)) << 32) | (static_cast<uint64_t>((static_cast<uint64_t>(((static_cast<uint64_t>((static_cast<uint64_t>(((static_cast<uint64_t>((static_cast<uint64_t>((((_s_mem$srams$mem_3$rdata_MPORT[L].val) & ((uint64_t)0 - (uint64_t)(((static_cast<uint64_t>(mem.srams.rdata_REG[L].val) & 0x1ULL)) != 0))) | (((static_cast<uint64_t>(((static_cast<uint64_t>(_v2_bank_mem$srams$rdata_r__v2_bank_0_0[L].val) >> 32) & 0xffULL)) & 0xffULL)) & ~((uint64_t)0 - (uint64_t)(((static_cast<uint64_t>(mem.srams.rdata_REG[L].val) & 0x1ULL)) != 0))))) & 0xffULL)) << 8) | (static_cast<uint64_t>((static_cast<uint64_t>((((_s_mem$srams$mem_2$rdata_MPORT[L].val) & ((uint64_t)0 - (uint64_t)(((static_cast<uint64_t>(mem.srams.rdata_REG[L].val) & 0x1ULL)) != 0))) | (((static_cast<uint64_t>(((static_cast<uint64_t>(_v2_bank_mem$srams$rdata_r__v2_bank_0_0[L].val) >> 40) & 0xffULL)) & 0xffULL)) & ~((uint64_t)0 - (uint64_t)(((static_cast<uint64_t>(mem.srams.rdata_REG[L].val) & 0x1ULL)) != 0))))) & 0xffULL)) & 0xffULL))) & 0xffffULL)) << 16) | (static_cast<uint64_t>((static_cast<uint64_t>(((static_cast<uint64_t>((static_cast<uint64_t>((((_s_mem$srams$mem_1$rdata_MPORT[L].val) & ((uint64_t)0 - (uint64_t)(((static_cast<uint64_t>(mem.srams.rdata_REG[L].val) & 0x1ULL)) != 0))) | (((static_cast<uint64_t>(((static_cast<uint64_t>(_v2_bank_mem$srams$rdata_r__v2_bank_0_0[L].val) >> 48) & 0xffULL)) & 0xffULL)) & ~((uint64_t)0 - (uint64_t)(((static_cast<uint64_t>(mem.srams.rdata_REG[L].val) & 0x1ULL)) != 0))))) & 0xffULL)) << 8) | (static_cast<uint64_t>((static_cast<uint64_t>((((_s_mem$srams$mem_0$rdata_MPORT[L].val) & ((uint64_t)0 - (uint64_t)(((static_cast<uint64_t>(mem.srams.rdata_REG[L].val) & 0x1ULL)) != 0))) | (((static_cast<uint64_t>(((static_cast<uint64_t>(_v2_bank_mem$srams$rdata_r__v2_bank_0_0[L].val) >> 56) & 0xffULL)) & 0xffULL)) & ~((uint64_t)0 - (uint64_t)(((static_cast<uint64_t>(mem.srams.rdata_REG[L].val) & 0x1ULL)) != 0))))) & 0xffULL)) & 0xffULL))) & 0xffffULL)) & 0xffffULL))) & 0xffffffffULL)) & 0xffffffffULL)))));
     }
-
-    if (partition_task_poll) partition_task_poll(partition_task_context, 0, true, 12);
     // [vec state-read] 1 templates x 16 lanes
     #if ESSENT_ORACLE_VERIFY // [extern-read] verify-only recompute: mem.axi4buf.bundleIn_0_r_deq.ram_data.io_deq_bits_MPORT$rtl
     {
@@ -21612,7 +21481,7 @@
         _v2_sa_anyw |= (uint64_t)(essent_to_u64(_s_mem$axi4buf$bundleIn_0_r_deq$io_enq_ready[G] & mem.srams.r_full[G]) != 0) & (uint64_t)(essent_to_u64(UInt<1>(0x1)) != 0);
       }
       if (_v2_sa_anyw == 0) {
-        for (int L = 0; L < 16; L++) { _s_mem$axi4buf$bundleIn_0_r_deq$ram_data$io_deq_bits_MPORT$rtl[L] = mem.axi4buf.bundleIn_0_r_deq.ram_data[essent_to_u64(mem.axi4buf.bundleIn_0_r_deq.value_1[L])]; }
+        essent_table_read<16, 2, false>(&_s_mem$axi4buf$bundleIn_0_r_deq$ram_data$io_deq_bits_MPORT$rtl[0], &mem.axi4buf.bundleIn_0_r_deq.ram_data[0], &mem.axi4buf.bundleIn_0_r_deq.value_1[0]);
       } else {
       {
         // [state-read-dense] forwarding=branchless
@@ -21621,10 +21490,11 @@
         for (int L = 0; L < 16; L++) {
           const uint64_t _v2_sa_addr = essent_to_u64(mem.axi4buf.bundleIn_0_r_deq.value_1[L]);
           UInt<64> _v2_sa_value = mem.axi4buf.bundleIn_0_r_deq.ram_data[_v2_sa_addr];
+          // [branchless-forward] select a valid source before loading data
           const int _v2_sa_prev_code = _v2_sa_last[_v2_sa_addr];
-          const uint64_t _v2_sa_prev_valid = (uint64_t)(_v2_sa_prev_code >= 0);
+          const bool _v2_sa_prev_valid = _v2_sa_prev_code >= 0;
           [[maybe_unused]] const int _v2_sa_prev_lane = _v2_sa_prev_code & -static_cast<int>(_v2_sa_prev_valid);
-          _v2_sa_value = essent_mux(UInt<1>(_v2_sa_prev_valid), _s_mem$srams$auto_in_r_bits_data[_v2_sa_prev_lane], _v2_sa_value);
+          _v2_sa_value = *essent_select_ptr(_v2_sa_prev_valid, &(_s_mem$srams$auto_in_r_bits_data[_v2_sa_prev_lane]), &_v2_sa_value);
           _s_mem$axi4buf$bundleIn_0_r_deq$ram_data$io_deq_bits_MPORT$rtl[L] = _v2_sa_value;
           const uint64_t _v2_sa_write_addr_0 = essent_to_u64(mem.axi4buf.bundleIn_0_r_deq.value[L]);
           const uint64_t _v2_sa_write_take_0 = (uint64_t)(essent_to_u64(_s_mem$axi4buf$bundleIn_0_r_deq$io_enq_ready[L] & mem.srams.r_full[L]) != 0) & (uint64_t)(essent_to_u64(UInt<1>(0x1)) != 0);
@@ -21685,7 +21555,7 @@
         _v2_sa_anyw |= (uint64_t)(essent_to_u64(_s_mem$axi4buf$bundleIn_0_r_deq$io_enq_ready[G] & mem.srams.r_full[G]) != 0) & (uint64_t)(essent_to_u64(UInt<1>(0x1)) != 0);
       }
       if (_v2_sa_anyw == 0) {
-        for (int L = 0; L < 16; L++) { _s_mem$axi4buf$bundleIn_0_r_deq$ram_resp$io_deq_bits_MPORT$rtl[L] = mem.axi4buf.bundleIn_0_r_deq.ram_resp[essent_to_u64(mem.axi4buf.bundleIn_0_r_deq.value_1[L])]; }
+        essent_table_read<16, 2, false>(&_s_mem$axi4buf$bundleIn_0_r_deq$ram_resp$io_deq_bits_MPORT$rtl[0], &mem.axi4buf.bundleIn_0_r_deq.ram_resp[0], &mem.axi4buf.bundleIn_0_r_deq.value_1[0]);
       } else {
       {
         // [state-read-dense] forwarding=branchless
@@ -21694,10 +21564,11 @@
         for (int L = 0; L < 16; L++) {
           const uint64_t _v2_sa_addr = essent_to_u64(mem.axi4buf.bundleIn_0_r_deq.value_1[L]);
           UInt<2> _v2_sa_value = mem.axi4buf.bundleIn_0_r_deq.ram_resp[_v2_sa_addr];
+          // [branchless-forward] select a valid source before loading data
           const int _v2_sa_prev_code = _v2_sa_last[_v2_sa_addr];
-          const uint64_t _v2_sa_prev_valid = (uint64_t)(_v2_sa_prev_code >= 0);
+          const bool _v2_sa_prev_valid = _v2_sa_prev_code >= 0;
           [[maybe_unused]] const int _v2_sa_prev_lane = _v2_sa_prev_code & -static_cast<int>(_v2_sa_prev_valid);
-          _v2_sa_value = essent_mux(UInt<1>(_v2_sa_prev_valid), _s_mem$srams$auto_in_r_bits_resp[_v2_sa_prev_lane], _v2_sa_value);
+          _v2_sa_value = *essent_select_ptr(_v2_sa_prev_valid, &(_s_mem$srams$auto_in_r_bits_resp[_v2_sa_prev_lane]), &_v2_sa_value);
           _s_mem$axi4buf$bundleIn_0_r_deq$ram_resp$io_deq_bits_MPORT$rtl[L] = _v2_sa_value;
           const uint64_t _v2_sa_write_addr_0 = essent_to_u64(mem.axi4buf.bundleIn_0_r_deq.value[L]);
           const uint64_t _v2_sa_write_take_0 = (uint64_t)(essent_to_u64(_s_mem$axi4buf$bundleIn_0_r_deq$io_enq_ready[L] & mem.srams.r_full[L]) != 0) & (uint64_t)(essent_to_u64(UInt<1>(0x1)) != 0);
@@ -21736,7 +21607,7 @@
         _v2_sa_anyw |= (uint64_t)(essent_to_u64(_s_mem$axi4buf$bundleIn_0_r_deq$io_enq_ready[G] & mem.srams.r_full[G]) != 0) & (uint64_t)(essent_to_u64(UInt<1>(0x1)) != 0);
       }
       if (_v2_sa_anyw == 0) {
-        for (int L = 0; L < 16; L++) { _s_mem$axi4buf$bundleIn_0_r_deq$ram_id$io_deq_bits_MPORT$rtl[L] = mem.axi4buf.bundleIn_0_r_deq.ram_id[essent_to_u64(mem.axi4buf.bundleIn_0_r_deq.value_1[L])]; }
+        essent_table_read<16, 2, false>(&_s_mem$axi4buf$bundleIn_0_r_deq$ram_id$io_deq_bits_MPORT$rtl[0], &mem.axi4buf.bundleIn_0_r_deq.ram_id[0], &mem.axi4buf.bundleIn_0_r_deq.value_1[0]);
       } else {
       {
         // [state-read-dense] forwarding=branchless
@@ -21745,10 +21616,11 @@
         for (int L = 0; L < 16; L++) {
           const uint64_t _v2_sa_addr = essent_to_u64(mem.axi4buf.bundleIn_0_r_deq.value_1[L]);
           UInt<4> _v2_sa_value = mem.axi4buf.bundleIn_0_r_deq.ram_id[_v2_sa_addr];
+          // [branchless-forward] select a valid source before loading data
           const int _v2_sa_prev_code = _v2_sa_last[_v2_sa_addr];
-          const uint64_t _v2_sa_prev_valid = (uint64_t)(_v2_sa_prev_code >= 0);
+          const bool _v2_sa_prev_valid = _v2_sa_prev_code >= 0;
           [[maybe_unused]] const int _v2_sa_prev_lane = _v2_sa_prev_code & -static_cast<int>(_v2_sa_prev_valid);
-          _v2_sa_value = essent_mux(UInt<1>(_v2_sa_prev_valid), mem.srams.r_id[_v2_sa_prev_lane], _v2_sa_value);
+          _v2_sa_value = *essent_select_ptr(_v2_sa_prev_valid, &(mem.srams.r_id[_v2_sa_prev_lane]), &_v2_sa_value);
           _s_mem$axi4buf$bundleIn_0_r_deq$ram_id$io_deq_bits_MPORT$rtl[L] = _v2_sa_value;
           const uint64_t _v2_sa_write_addr_0 = essent_to_u64(mem.axi4buf.bundleIn_0_r_deq.value[L]);
           const uint64_t _v2_sa_write_take_0 = (uint64_t)(essent_to_u64(_s_mem$axi4buf$bundleIn_0_r_deq$io_enq_ready[L] & mem.srams.r_full[L]) != 0) & (uint64_t)(essent_to_u64(UInt<1>(0x1)) != 0);
@@ -21795,7 +21667,7 @@
         _v2_sa_anyw |= (uint64_t)(essent_to_u64(_s_mem$axi4buf$bundleIn_0_r_deq$io_enq_ready[G] & mem.srams.r_full[G]) != 0) & (uint64_t)(essent_to_u64(UInt<1>(0x1)) != 0);
       }
       if (_v2_sa_anyw == 0) {
-        for (int L = 0; L < 16; L++) { _s_mem$axi4buf$bundleIn_0_r_deq$ram_echo_real_last$io_deq_bits_MPORT$rtl[L] = mem.axi4buf.bundleIn_0_r_deq.ram_echo_real_last[essent_to_u64(mem.axi4buf.bundleIn_0_r_deq.value_1[L])]; }
+        essent_table_read<16, 2, false>(&_s_mem$axi4buf$bundleIn_0_r_deq$ram_echo_real_last$io_deq_bits_MPORT$rtl[0], &mem.axi4buf.bundleIn_0_r_deq.ram_echo_real_last[0], &mem.axi4buf.bundleIn_0_r_deq.value_1[0]);
       } else {
       {
         // [state-read-dense] forwarding=branchless
@@ -21804,10 +21676,11 @@
         for (int L = 0; L < 16; L++) {
           const uint64_t _v2_sa_addr = essent_to_u64(mem.axi4buf.bundleIn_0_r_deq.value_1[L]);
           UInt<1> _v2_sa_value = mem.axi4buf.bundleIn_0_r_deq.ram_echo_real_last[_v2_sa_addr];
+          // [branchless-forward] select a valid source before loading data
           const int _v2_sa_prev_code = _v2_sa_last[_v2_sa_addr];
-          const uint64_t _v2_sa_prev_valid = (uint64_t)(_v2_sa_prev_code >= 0);
+          const bool _v2_sa_prev_valid = _v2_sa_prev_code >= 0;
           [[maybe_unused]] const int _v2_sa_prev_lane = _v2_sa_prev_code & -static_cast<int>(_v2_sa_prev_valid);
-          _v2_sa_value = essent_mux(UInt<1>(_v2_sa_prev_valid), mem.srams.r_echo_real_last[_v2_sa_prev_lane], _v2_sa_value);
+          _v2_sa_value = *essent_select_ptr(_v2_sa_prev_valid, &(mem.srams.r_echo_real_last[_v2_sa_prev_lane]), &_v2_sa_value);
           _s_mem$axi4buf$bundleIn_0_r_deq$ram_echo_real_last$io_deq_bits_MPORT$rtl[L] = _v2_sa_value;
           const uint64_t _v2_sa_write_addr_0 = essent_to_u64(mem.axi4buf.bundleIn_0_r_deq.value[L]);
           const uint64_t _v2_sa_write_take_0 = (uint64_t)(essent_to_u64(_s_mem$axi4buf$bundleIn_0_r_deq$io_enq_ready[L] & mem.srams.r_full[L]) != 0) & (uint64_t)(essent_to_u64(UInt<1>(0x1)) != 0);
@@ -21878,6 +21751,8 @@
     { const int L = 15;
       _s_mmio_mem$srams$mem_7_rdata_MPORT_addr_pipe_0$next[((L) == 0 ? 0 : 1)].val = static_cast<typename UInt<9>::scalar_t>((static_cast<uint16_t>((static_cast<uint16_t>(((((static_cast<uint16_t>(((static_cast<uint16_t>(_s_mmio_mem$srams$r_addr_hi[L].val) << 4) | (static_cast<uint16_t>(_s_mmio_mem$srams$r_addr_lo[L].val) & 0xfu))) & 0x1ffu)) & ((uint16_t)0 - (uint16_t)(((static_cast<uint16_t>((static_cast<uint16_t>(((_s_mmio_mem$srams$in_ar_ready[L].val) & (_s_mmio_mem$axi4buf$bundleOut_0_ar_deq$io_deq_valid[L].val))) & 0x1u)) & 0x1u)) != 0))) | ((mmio_mem.srams.mem_7_rdata_MPORT_addr_pipe_0[L].val) & ~((uint16_t)0 - (uint16_t)(((static_cast<uint16_t>((static_cast<uint16_t>(((_s_mmio_mem$srams$in_ar_ready[L].val) & (_s_mmio_mem$axi4buf$bundleOut_0_ar_deq$io_deq_valid[L].val))) & 0x1u)) & 0x1u)) != 0))))) & 0x1ffu)) & 0x1ffu));
     }
+
+    if (partition_task_poll) partition_task_poll(partition_task_context, 0, true, 12);
     // [vec state-commit] 1 templates x 16 lanes
     if (update_registers) {
       // [state-commit-any-guard] 1 array(s), 1 condition(s)
@@ -22171,7 +22046,7 @@
         _v2_sa_anyw |= (uint64_t)(essent_to_u64(_s_mmio_mem$axi4buf$bundleIn_0_r_deq$io_enq_ready[G] & mmio_mem.srams.r_full[G]) != 0) & (uint64_t)(essent_to_u64(UInt<1>(0x1)) != 0);
       }
       if (_v2_sa_anyw == 0) {
-        for (int L = 0; L < 16; L++) { _s_mmio_mem$axi4buf$bundleIn_0_r_deq$ram_data$io_deq_bits_MPORT$rtl[L] = mmio_mem.axi4buf.bundleIn_0_r_deq.ram_data[essent_to_u64(mmio_mem.axi4buf.bundleIn_0_r_deq.value_1[L])]; }
+        essent_table_read<16, 2, false>(&_s_mmio_mem$axi4buf$bundleIn_0_r_deq$ram_data$io_deq_bits_MPORT$rtl[0], &mmio_mem.axi4buf.bundleIn_0_r_deq.ram_data[0], &mmio_mem.axi4buf.bundleIn_0_r_deq.value_1[0]);
       } else {
       {
         // [state-read-dense] forwarding=branchless
@@ -22180,10 +22055,11 @@
         for (int L = 0; L < 16; L++) {
           const uint64_t _v2_sa_addr = essent_to_u64(mmio_mem.axi4buf.bundleIn_0_r_deq.value_1[L]);
           UInt<64> _v2_sa_value = mmio_mem.axi4buf.bundleIn_0_r_deq.ram_data[_v2_sa_addr];
+          // [branchless-forward] select a valid source before loading data
           const int _v2_sa_prev_code = _v2_sa_last[_v2_sa_addr];
-          const uint64_t _v2_sa_prev_valid = (uint64_t)(_v2_sa_prev_code >= 0);
+          const bool _v2_sa_prev_valid = _v2_sa_prev_code >= 0;
           [[maybe_unused]] const int _v2_sa_prev_lane = _v2_sa_prev_code & -static_cast<int>(_v2_sa_prev_valid);
-          _v2_sa_value = essent_mux(UInt<1>(_v2_sa_prev_valid), _s_mmio_mem$srams$auto_in_r_bits_data[_v2_sa_prev_lane], _v2_sa_value);
+          _v2_sa_value = *essent_select_ptr(_v2_sa_prev_valid, &(_s_mmio_mem$srams$auto_in_r_bits_data[_v2_sa_prev_lane]), &_v2_sa_value);
           _s_mmio_mem$axi4buf$bundleIn_0_r_deq$ram_data$io_deq_bits_MPORT$rtl[L] = _v2_sa_value;
           const uint64_t _v2_sa_write_addr_0 = essent_to_u64(mmio_mem.axi4buf.bundleIn_0_r_deq.value[L]);
           const uint64_t _v2_sa_write_take_0 = (uint64_t)(essent_to_u64(_s_mmio_mem$axi4buf$bundleIn_0_r_deq$io_enq_ready[L] & mmio_mem.srams.r_full[L]) != 0) & (uint64_t)(essent_to_u64(UInt<1>(0x1)) != 0);
@@ -22244,7 +22120,7 @@
         _v2_sa_anyw |= (uint64_t)(essent_to_u64(_s_mmio_mem$axi4buf$bundleIn_0_r_deq$io_enq_ready[G] & mmio_mem.srams.r_full[G]) != 0) & (uint64_t)(essent_to_u64(UInt<1>(0x1)) != 0);
       }
       if (_v2_sa_anyw == 0) {
-        for (int L = 0; L < 16; L++) { _s_mmio_mem$axi4buf$bundleIn_0_r_deq$ram_resp$io_deq_bits_MPORT$rtl[L] = mmio_mem.axi4buf.bundleIn_0_r_deq.ram_resp[essent_to_u64(mmio_mem.axi4buf.bundleIn_0_r_deq.value_1[L])]; }
+        essent_table_read<16, 2, false>(&_s_mmio_mem$axi4buf$bundleIn_0_r_deq$ram_resp$io_deq_bits_MPORT$rtl[0], &mmio_mem.axi4buf.bundleIn_0_r_deq.ram_resp[0], &mmio_mem.axi4buf.bundleIn_0_r_deq.value_1[0]);
       } else {
       {
         // [state-read-dense] forwarding=branchless
@@ -22253,10 +22129,11 @@
         for (int L = 0; L < 16; L++) {
           const uint64_t _v2_sa_addr = essent_to_u64(mmio_mem.axi4buf.bundleIn_0_r_deq.value_1[L]);
           UInt<2> _v2_sa_value = mmio_mem.axi4buf.bundleIn_0_r_deq.ram_resp[_v2_sa_addr];
+          // [branchless-forward] select a valid source before loading data
           const int _v2_sa_prev_code = _v2_sa_last[_v2_sa_addr];
-          const uint64_t _v2_sa_prev_valid = (uint64_t)(_v2_sa_prev_code >= 0);
+          const bool _v2_sa_prev_valid = _v2_sa_prev_code >= 0;
           [[maybe_unused]] const int _v2_sa_prev_lane = _v2_sa_prev_code & -static_cast<int>(_v2_sa_prev_valid);
-          _v2_sa_value = essent_mux(UInt<1>(_v2_sa_prev_valid), _s_mmio_mem$srams$auto_in_r_bits_resp[_v2_sa_prev_lane], _v2_sa_value);
+          _v2_sa_value = *essent_select_ptr(_v2_sa_prev_valid, &(_s_mmio_mem$srams$auto_in_r_bits_resp[_v2_sa_prev_lane]), &_v2_sa_value);
           _s_mmio_mem$axi4buf$bundleIn_0_r_deq$ram_resp$io_deq_bits_MPORT$rtl[L] = _v2_sa_value;
           const uint64_t _v2_sa_write_addr_0 = essent_to_u64(mmio_mem.axi4buf.bundleIn_0_r_deq.value[L]);
           const uint64_t _v2_sa_write_take_0 = (uint64_t)(essent_to_u64(_s_mmio_mem$axi4buf$bundleIn_0_r_deq$io_enq_ready[L] & mmio_mem.srams.r_full[L]) != 0) & (uint64_t)(essent_to_u64(UInt<1>(0x1)) != 0);
@@ -22297,7 +22174,7 @@
         _v2_sa_anyw |= (uint64_t)(essent_to_u64(_s_mmio_mem$axi4buf$bundleIn_0_r_deq$io_enq_ready[G] & mmio_mem.srams.r_full[G]) != 0) & (uint64_t)(essent_to_u64(UInt<1>(0x1)) != 0);
       }
       if (_v2_sa_anyw == 0) {
-        for (int L = 0; L < 16; L++) { _s_mmio_mem$axi4buf$bundleIn_0_r_deq$ram_echo_real_last$io_deq_bits_MPORT$rtl[L] = mmio_mem.axi4buf.bundleIn_0_r_deq.ram_echo_real_last[essent_to_u64(mmio_mem.axi4buf.bundleIn_0_r_deq.value_1[L])]; }
+        essent_table_read<16, 2, false>(&_s_mmio_mem$axi4buf$bundleIn_0_r_deq$ram_echo_real_last$io_deq_bits_MPORT$rtl[0], &mmio_mem.axi4buf.bundleIn_0_r_deq.ram_echo_real_last[0], &mmio_mem.axi4buf.bundleIn_0_r_deq.value_1[0]);
       } else {
       {
         // [state-read-dense] forwarding=branchless
@@ -22306,10 +22183,11 @@
         for (int L = 0; L < 16; L++) {
           const uint64_t _v2_sa_addr = essent_to_u64(mmio_mem.axi4buf.bundleIn_0_r_deq.value_1[L]);
           UInt<1> _v2_sa_value = mmio_mem.axi4buf.bundleIn_0_r_deq.ram_echo_real_last[_v2_sa_addr];
+          // [branchless-forward] select a valid source before loading data
           const int _v2_sa_prev_code = _v2_sa_last[_v2_sa_addr];
-          const uint64_t _v2_sa_prev_valid = (uint64_t)(_v2_sa_prev_code >= 0);
+          const bool _v2_sa_prev_valid = _v2_sa_prev_code >= 0;
           [[maybe_unused]] const int _v2_sa_prev_lane = _v2_sa_prev_code & -static_cast<int>(_v2_sa_prev_valid);
-          _v2_sa_value = essent_mux(UInt<1>(_v2_sa_prev_valid), mmio_mem.srams.r_echo_real_last[_v2_sa_prev_lane], _v2_sa_value);
+          _v2_sa_value = *essent_select_ptr(_v2_sa_prev_valid, &(mmio_mem.srams.r_echo_real_last[_v2_sa_prev_lane]), &_v2_sa_value);
           _s_mmio_mem$axi4buf$bundleIn_0_r_deq$ram_echo_real_last$io_deq_bits_MPORT$rtl[L] = _v2_sa_value;
           const uint64_t _v2_sa_write_addr_0 = essent_to_u64(mmio_mem.axi4buf.bundleIn_0_r_deq.value[L]);
           const uint64_t _v2_sa_write_take_0 = (uint64_t)(essent_to_u64(_s_mmio_mem$axi4buf$bundleIn_0_r_deq$io_enq_ready[L] & mmio_mem.srams.r_full[L]) != 0) & (uint64_t)(essent_to_u64(UInt<1>(0x1)) != 0);

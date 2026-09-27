@@ -304,6 +304,44 @@ object EmitV2 {
     if (!stateAddressCanEscape(depth)) s"$table[$address]"
     else s"(($address) < (uint64_t)$depth ? $table[$address] : -1)"
 
+  /** Any-guard fast reads as one table lookup (V2_TABLE_READ=1, default off
+    * like the other lowering switches; the helpers are emitted only then).
+    * When no write of the array fires in the window, every lane reads the
+    * persistent image at its own address.  A table of at most 128 bytes fits
+    * in one or two vector registers, and essent_table_read replaces the
+    * scalar load/load/store per lane with one permute per 64 output bytes.
+    * Only reads whose output and address are plain lane arrays qualify, with
+    * a one-byte address.  A non-power-of-two depth keeps the zero guard of
+    * stateReadExpr; a power-of-two depth must cover every address value, so
+    * no lane can index outside the table. */
+  private def tableReadEnabled: Boolean =
+    sys.props.get("V2_TABLE_READ").orElse(sys.env.get("V2_TABLE_READ"))
+      .exists(v => Set("1", "true", "yes", "on")(v.trim.toLowerCase))
+  private val plainLaneArray = """^([A-Za-z_$][\w$.]*)\[L\]$""".r
+
+  private def tableReadCall(table: String, tpe: Type, depth: Int, out: String,
+      address: Expression, addressL: String, W: Int): Option[String] = {
+    val elemBytes = tpe match {
+      case UIntType(IntWidth(width)) if width >= 1 && width <= 64 => Some(width.toInt)
+      case SIntType(IntWidth(width)) if width >= 1 && width <= 64 => Some(width.toInt)
+      case _ => None
+    }
+    val addressBits = address.tpe match {
+      case UIntType(IntWidth(width)) => width.toInt
+      case _ => 0
+    }
+    val guard = stateAddressCanEscape(depth)
+    (elemBytes.map(bits => if (bits <= 8) 1 else if (bits <= 16) 2 else if (bits <= 32) 4 else 8),
+      out, addressL) match {
+      case (Some(bytes), plainLaneArray(outArray), plainLaneArray(addressArray))
+          if tableReadEnabled && depth >= 1 && depth * bytes <= 128 &&
+            addressBits >= 1 && addressBits <= 8 &&
+            (guard || (1 << addressBits) <= depth) =>
+        Some(s"essent_table_read<$W, $depth, $guard>(&$outArray[0], &$table[0], &$addressArray[0]);")
+      case _ => None
+    }
+  }
+
   /** Adjacent full-width state commits have already been proven mutually
     * independent by the scheduler: they target distinct persistent arrays
     * and all of their write data has been computed before this schedule run.
@@ -1396,6 +1434,7 @@ object EmitV2 {
     w.writeLines(0, s"static constexpr int ORACLE_KERNEL_MIRRORED = ${if (premirror) 1 else 0};")
     emitCondHoldHelpers(w)
     emitAffineScanHelpers(w)
+    if (tableReadEnabled) emitTableReadHelpers(w)
     if (staticScratch) emitStaticScratchArrays(res, W, scratchReuse, w)
     emitLookupTables(res, w)
 
@@ -1851,6 +1890,89 @@ static inline void essent_affine_scan_rev(UInt<BW>* __restrict r, const UInt<1>*
 """
     w.writeLines(0, code.split("\n").toSeq)
   }
+
+  private def emitTableReadHelpers(w: Writer): Unit =
+    w.writeLines(0, ("\n" + """// ---- any-guard state reads as one table lookup ----
+// out[L] = table[idx[L]] for every lane.  A table of at most 128 bytes sits
+// in one or two vector registers, so the whole lane loop becomes one permute
+// per 64 output bytes.  Guard: an index >= D reads zero, as stateReadExpr.
+// All index vectors are loaded before any result is stored, so an output
+// array that shares storage with the index array still reads every index.
+#if defined(__AVX512F__) && defined(__AVX512BW__) && defined(__AVX512VL__) && defined(__AVX512VBMI__)
+#define ESSENT_TABLE_READ_VECTOR 1
+template <int B>
+static inline __m512i essent_table_bytes(const void* p) {
+  if constexpr (B == 64) return _mm512_loadu_si512(p);
+  else return _mm512_maskz_loadu_epi8((__mmask64)((1ull << B) - 1ull), p);
+}
+// n one-byte indexes, widened to E bytes each.
+template <int n, int E>
+static inline __m512i essent_table_index(const uint8_t* p) {
+  if constexpr (E == 1) {
+    if constexpr (n == 64) return _mm512_loadu_si512(p);
+    else if constexpr (n == 32) return _mm512_zextsi256_si512(_mm256_loadu_si256(reinterpret_cast<const __m256i*>(p)));
+    else if constexpr (n == 16) return _mm512_zextsi128_si512(_mm_loadu_si128(reinterpret_cast<const __m128i*>(p)));
+    else return _mm512_zextsi128_si512(_mm_loadl_epi64(reinterpret_cast<const __m128i*>(p)));
+  } else if constexpr (E == 2) {
+    if constexpr (n == 32) return _mm512_cvtepu8_epi16(_mm256_loadu_si256(reinterpret_cast<const __m256i*>(p)));
+    else if constexpr (n == 16) return _mm512_cvtepu8_epi16(_mm256_zextsi128_si256(_mm_loadu_si128(reinterpret_cast<const __m128i*>(p))));
+    else return _mm512_cvtepu8_epi16(_mm256_zextsi128_si256(_mm_loadl_epi64(reinterpret_cast<const __m128i*>(p))));
+  } else if constexpr (E == 4) {
+    if constexpr (n == 16) return _mm512_cvtepu8_epi32(_mm_loadu_si128(reinterpret_cast<const __m128i*>(p)));
+    else return _mm512_cvtepu8_epi32(_mm_loadl_epi64(reinterpret_cast<const __m128i*>(p)));
+  } else {
+    return _mm512_cvtepu8_epi64(_mm_loadl_epi64(reinterpret_cast<const __m128i*>(p)));
+  }
+}
+template <int D, bool Guard, int E>
+static inline __m512i essent_table_lookup(__m512i i, __m512i t0, __m512i t1) {
+  constexpr bool two = D * E > 64;
+  if constexpr (E == 1) {
+    const __mmask64 k = Guard ? _mm512_cmplt_epu8_mask(i, _mm512_set1_epi8(static_cast<char>(D))) : ~0ull;
+    return two ? _mm512_maskz_permutex2var_epi8(k, t0, i, t1) : _mm512_maskz_permutexvar_epi8(k, i, t0);
+  } else if constexpr (E == 2) {
+    const __mmask32 k = Guard ? _mm512_cmplt_epu16_mask(i, _mm512_set1_epi16(D)) : ~0u;
+    return two ? _mm512_maskz_permutex2var_epi16(k, t0, i, t1) : _mm512_maskz_permutexvar_epi16(k, i, t0);
+  } else if constexpr (E == 4) {
+    const __mmask16 k = Guard ? _mm512_cmplt_epu32_mask(i, _mm512_set1_epi32(D)) : 0xffff;
+    return two ? _mm512_maskz_permutex2var_epi32(k, t0, i, t1) : _mm512_maskz_permutexvar_epi32(k, i, t0);
+  } else {
+    const __mmask8 k = Guard ? _mm512_cmplt_epu64_mask(i, _mm512_set1_epi64(D)) : 0xff;
+    return two ? _mm512_maskz_permutex2var_epi64(k, t0, i, t1) : _mm512_maskz_permutexvar_epi64(k, i, t0);
+  }
+}
+template <int B>
+static inline void essent_table_store(void* p, __m512i v) {
+  if constexpr (B == 64) _mm512_storeu_si512(p, v);
+  else if constexpr (B == 32) _mm256_storeu_si256(reinterpret_cast<__m256i*>(p), _mm512_castsi512_si256(v));
+  else if constexpr (B == 16) _mm_storeu_si128(reinterpret_cast<__m128i*>(p), _mm512_castsi512_si128(v));
+  else _mm_storel_epi64(reinterpret_cast<__m128i*>(p), _mm512_castsi512_si128(v));
+}
+#endif
+template <int W, int D, bool Guard, typename T, typename I>
+static inline void essent_table_read(T* out, const T* table, const I* idx) {
+  static_assert(sizeof(I) == 1, "table-read indexes are one-byte lanes");
+#if defined(ESSENT_TABLE_READ_VECTOR)
+  constexpr int E = static_cast<int>(sizeof(T));
+  if constexpr ((E == 1 || E == 2 || E == 4 || E == 8) && D * E <= 128 && W >= 8 && W <= 64 && (W & (W - 1)) == 0) {
+    constexpr int N = 64 / E, n = W < N ? W : N, C = W / n;
+    const uint8_t* ip = reinterpret_cast<const uint8_t*>(idx);
+    const __m512i t0 = essent_table_bytes<(D * E < 64 ? D * E : 64)>(table);
+    __m512i t1 = _mm512_setzero_si512();
+    if constexpr (D * E > 64) t1 = essent_table_bytes<D * E - 64>(reinterpret_cast<const char*>(table) + 64);
+    __m512i r[C];
+    for (int c = 0; c < C; c++) r[c] = essent_table_index<n, E>(ip + c * n);
+    for (int c = 0; c < C; c++) r[c] = essent_table_lookup<D, Guard, E>(r[c], t0, t1);
+    for (int c = 0; c < C; c++) essent_table_store<n * E>(reinterpret_cast<char*>(out) + c * n * E, r[c]);
+    return;
+  }
+#endif
+  for (int L = 0; L < W; L++) {
+    const uint64_t a = static_cast<uint64_t>(idx[L].val);
+    out[L] = (!Guard || a < static_cast<uint64_t>(D)) ? table[a] : T();
+  }
+}
+""").split("\n").toSeq)
 
   private def emitCondHoldHelpers(w: Writer): Unit = {
     w.writeLines(0, Seq(
@@ -3777,7 +3899,9 @@ static inline void essent_affine_scan_rev(UInt<BW>* __restrict r, const UInt<1>*
         s"    _v2_sa_anyw |= (uint64_t)(essent_to_u64($wen) != 0) & " +
           s"(uint64_t)(essent_to_u64($mask) != 0);"
       }
-      val fastRead = if (!stateAddressCanEscape(si.depth)) Seq(
+      val tableRead = tableReadCall(si.name, si.tpe, si.depth, out, readAddr, addrL, W)
+      val fastRead = if (tableRead.isDefined) Seq(s"    ${tableRead.get}")
+      else if (!stateAddressCanEscape(si.depth)) Seq(
         s"    $laneLoop { $out = ${si.name}[essent_to_u64($addrL)]; }")
       else Seq(
         s"    $laneLoop {",
@@ -3880,28 +4004,43 @@ static inline void essent_affine_scan_rev(UInt<BW>* __restrict r, const UInt<1>*
         s"    _v2_sa_anyw |= (uint64_t)(essent_to_u64($wen) != 0) & " +
           s"(uint64_t)(essent_to_u64($mask) != 0);"
       }
-      val fastReads = tids.zipWithIndex.flatMap { case (tid, readIndex) =>
+      // Reads stay in schedule order: a table lookup completes every lane
+      // before the next read, and the remaining reads keep one lane loop per
+      // consecutive run, so a later address may still use an earlier read.
+      val fastReads: Seq[Either[String, Seq[String]]] = tids.zipWithIndex.map { case (tid, readIndex) =>
         val (d, readAddr) = stateReadParts(res, tid)
         val out = rn.emitForLane(d.name, "L")
         val addr = withLaneVar("L") { emitExpr(readAddr) }
-        if (!stateAddressCanEscape(si.depth))
-          Seq(s"      $out = ${si.name}[essent_to_u64($addr)];")
-        else {
-          val addressName = s"_v2_sa_fast_group_addr_$readIndex"
-          Seq(
-            s"      const uint64_t $addressName = essent_to_u64($addr);",
-            s"      $out = ${stateReadExpr(si.name, si.tpe, addressName, si.depth)};")
-        }
+        tableReadCall(si.name, si.tpe, si.depth, out, readAddr, addr, W).map(Left(_)).getOrElse(Right(
+          if (!stateAddressCanEscape(si.depth))
+            Seq(s"      $out = ${si.name}[essent_to_u64($addr)];")
+          else {
+            val addressName = s"_v2_sa_fast_group_addr_$readIndex"
+            Seq(
+              s"      const uint64_t $addressName = essent_to_u64($addr);",
+              s"      $out = ${stateReadExpr(si.name, si.tpe, addressName, si.depth)};")
+          }))
       }
+      val fastBody = ArrayBuffer[String]()
+      val pendingLoop = ArrayBuffer[String]()
+      def flushLoop(): Unit = if (pendingLoop.nonEmpty) {
+        fastBody += s"    $laneLoop {"
+        fastBody ++= pendingLoop
+        fastBody += "    }"
+        pendingLoop.clear()
+      }
+      fastReads.foreach {
+        case Left(call) => flushLoop(); fastBody += s"    $call"
+        case Right(lines) => pendingLoop ++= lines
+      }
+      flushLoop()
       Seq(
         "{",
         "  // [state-read-any-guard]",
         "  uint64_t _v2_sa_anyw = 0;",
         s"  for (int G = 0; G < $W; G++) {") ++ guardTerms ++ Seq(
         "  }",
-        "  if (_v2_sa_anyw == 0) {",
-        s"    $laneLoop {") ++ fastReads ++ Seq(
-        "    }",
+        "  if (_v2_sa_anyw == 0) {") ++ fastBody ++ Seq(
         "  } else {") ++ fullPath.map("  " + _) ++ Seq(
         "  }",
         "}")
@@ -4098,21 +4237,29 @@ static inline void essent_affine_scan_rev(UInt<BW>* __restrict r, const UInt<1>*
         s"    _v2_sa_anyw |= (uint64_t)(essent_to_u64($wen) != 0) & " +
           s"(uint64_t)(essent_to_u64($mask) != 0);"
       }
-      val fastReads = entries.map { case (field, definition, info, _) =>
+      // Fields are distinct arrays read at one shared address; each field
+      // that qualifies becomes its own table lookup.  This path has no
+      // escape guard, so only power-of-two depths are converted.
+      val tableReads = entries.map { case (_, definition, info, _) =>
+        if (stateAddressCanEscape(key.depth)) None
+        else tableReadCall(info.name, info.tpe, info.depth,
+          rn.emitForLane(definition.name, "L"), leaderAddress, address, W)
+      }
+      val fastReads = entries.zip(tableReads).collect { case ((field, definition, info, _), None) =>
         s"      ${rn.emitForLane(definition.name, "L")} = " +
           s"${info.name}[_v2_sa_field_addr];"
       }
+      val fastLoop = if (fastReads.isEmpty) Seq.empty else Seq(
+        s"    $laneLoop {",
+        s"      const uint64_t _v2_sa_field_addr = essent_to_u64($address);") ++
+        fastReads ++ Seq("    }")
       Seq(
         "{",
         "  // [state-read-any-guard]",
         "  uint64_t _v2_sa_anyw = 0;",
         s"  for (int G = 0; G < $W; G++) {") ++ guardTerms ++ Seq(
         "  }",
-        "  if (_v2_sa_anyw == 0) {",
-        s"    $laneLoop {",
-        s"      const uint64_t _v2_sa_field_addr = essent_to_u64($address);") ++
-        fastReads ++ Seq(
-        "    }",
+        "  if (_v2_sa_anyw == 0) {") ++ tableReads.flatten.map("    " + _) ++ fastLoop ++ Seq(
         "  } else {") ++ fullPath.map("  " + _) ++ Seq(
         "  }",
         "}")

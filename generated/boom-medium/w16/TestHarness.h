@@ -13,6 +13,7 @@
 #endif
 #include <memory>
 #include "sint_pod_v2.h"
+#include "branch_select.h"
 #include "oracle_data.h"
 #define UNLIKELY(condition) __builtin_expect(static_cast<bool>(condition), 0)
 #if defined(__clang__) || defined(__INTEL_LLVM_COMPILER)
@@ -210,22 +211,22 @@ template <int W, typename T>
 static ESSENT_NOINLINE void essent_condhold_apply_fwd(T* __restrict r, const int16_t* __restrict idx, const T* __restrict wdata) {
   const T seed = r[0];
   if (idx[W - 1] < 0) { for (int L = 1; L < W; ++L) r[L] = seed; return; }
-
+  if (essent_hold_permute<W>(r, idx, wdata, seed)) return;
   ESSENT_LANE_LOOP
   for (int L = 1; L < W; L++) {
     const int I = idx[L];
-    r[L] = I < 0 ? seed : wdata[I];
+    r[L] = essent_index_or_seed(I, wdata, seed);
   }
 }
 template <int W, typename T>
 static ESSENT_NOINLINE void essent_condhold_apply_rev(T* __restrict r, const int16_t* __restrict idx, const T* __restrict wdata) {
   const T seed = r[W - 1];
   if (idx[0] < 0) { for (int L = 0; L < W - 1; ++L) r[L] = seed; return; }
-
+  if (essent_hold_permute<W>(r, idx, wdata, seed)) return;
   ESSENT_LANE_LOOP
   for (int L = W - 2; L >= 0; L--) {
     const int I = idx[L];
-    r[L] = I < 0 ? seed : wdata[I];
+    r[L] = essent_index_or_seed(I, wdata, seed);
   }
 }
 template <int W, int BW>
@@ -830,6 +831,87 @@ static inline void essent_affine_scan_rev(UInt<BW>* __restrict r, const UInt<1>*
   }
 #endif
   for (int L = W - 2; L >= 0; L--) r[L].val = static_cast<S>((keep[L + 1].val ? static_cast<S>(r[L + 1].val + add[L + 1].val) : add[L + 1].val) & M);
+}
+
+// ---- any-guard state reads as one table lookup ----
+// out[L] = table[idx[L]] for every lane.  A table of at most 128 bytes sits
+// in one or two vector registers, so the whole lane loop becomes one permute
+// per 64 output bytes.  Guard: an index >= D reads zero, as stateReadExpr.
+// All index vectors are loaded before any result is stored, so an output
+// array that shares storage with the index array still reads every index.
+#if defined(__AVX512F__) && defined(__AVX512BW__) && defined(__AVX512VL__) && defined(__AVX512VBMI__)
+#define ESSENT_TABLE_READ_VECTOR 1
+template <int B>
+static inline __m512i essent_table_bytes(const void* p) {
+  if constexpr (B == 64) return _mm512_loadu_si512(p);
+  else return _mm512_maskz_loadu_epi8((__mmask64)((1ull << B) - 1ull), p);
+}
+// n one-byte indexes, widened to E bytes each.
+template <int n, int E>
+static inline __m512i essent_table_index(const uint8_t* p) {
+  if constexpr (E == 1) {
+    if constexpr (n == 64) return _mm512_loadu_si512(p);
+    else if constexpr (n == 32) return _mm512_zextsi256_si512(_mm256_loadu_si256(reinterpret_cast<const __m256i*>(p)));
+    else if constexpr (n == 16) return _mm512_zextsi128_si512(_mm_loadu_si128(reinterpret_cast<const __m128i*>(p)));
+    else return _mm512_zextsi128_si512(_mm_loadl_epi64(reinterpret_cast<const __m128i*>(p)));
+  } else if constexpr (E == 2) {
+    if constexpr (n == 32) return _mm512_cvtepu8_epi16(_mm256_loadu_si256(reinterpret_cast<const __m256i*>(p)));
+    else if constexpr (n == 16) return _mm512_cvtepu8_epi16(_mm256_zextsi128_si256(_mm_loadu_si128(reinterpret_cast<const __m128i*>(p))));
+    else return _mm512_cvtepu8_epi16(_mm256_zextsi128_si256(_mm_loadl_epi64(reinterpret_cast<const __m128i*>(p))));
+  } else if constexpr (E == 4) {
+    if constexpr (n == 16) return _mm512_cvtepu8_epi32(_mm_loadu_si128(reinterpret_cast<const __m128i*>(p)));
+    else return _mm512_cvtepu8_epi32(_mm_loadl_epi64(reinterpret_cast<const __m128i*>(p)));
+  } else {
+    return _mm512_cvtepu8_epi64(_mm_loadl_epi64(reinterpret_cast<const __m128i*>(p)));
+  }
+}
+template <int D, bool Guard, int E>
+static inline __m512i essent_table_lookup(__m512i i, __m512i t0, __m512i t1) {
+  constexpr bool two = D * E > 64;
+  if constexpr (E == 1) {
+    const __mmask64 k = Guard ? _mm512_cmplt_epu8_mask(i, _mm512_set1_epi8(static_cast<char>(D))) : ~0ull;
+    return two ? _mm512_maskz_permutex2var_epi8(k, t0, i, t1) : _mm512_maskz_permutexvar_epi8(k, i, t0);
+  } else if constexpr (E == 2) {
+    const __mmask32 k = Guard ? _mm512_cmplt_epu16_mask(i, _mm512_set1_epi16(D)) : ~0u;
+    return two ? _mm512_maskz_permutex2var_epi16(k, t0, i, t1) : _mm512_maskz_permutexvar_epi16(k, i, t0);
+  } else if constexpr (E == 4) {
+    const __mmask16 k = Guard ? _mm512_cmplt_epu32_mask(i, _mm512_set1_epi32(D)) : 0xffff;
+    return two ? _mm512_maskz_permutex2var_epi32(k, t0, i, t1) : _mm512_maskz_permutexvar_epi32(k, i, t0);
+  } else {
+    const __mmask8 k = Guard ? _mm512_cmplt_epu64_mask(i, _mm512_set1_epi64(D)) : 0xff;
+    return two ? _mm512_maskz_permutex2var_epi64(k, t0, i, t1) : _mm512_maskz_permutexvar_epi64(k, i, t0);
+  }
+}
+template <int B>
+static inline void essent_table_store(void* p, __m512i v) {
+  if constexpr (B == 64) _mm512_storeu_si512(p, v);
+  else if constexpr (B == 32) _mm256_storeu_si256(reinterpret_cast<__m256i*>(p), _mm512_castsi512_si256(v));
+  else if constexpr (B == 16) _mm_storeu_si128(reinterpret_cast<__m128i*>(p), _mm512_castsi512_si128(v));
+  else _mm_storel_epi64(reinterpret_cast<__m128i*>(p), _mm512_castsi512_si128(v));
+}
+#endif
+template <int W, int D, bool Guard, typename T, typename I>
+static inline void essent_table_read(T* out, const T* table, const I* idx) {
+  static_assert(sizeof(I) == 1, "table-read indexes are one-byte lanes");
+#if defined(ESSENT_TABLE_READ_VECTOR)
+  constexpr int E = static_cast<int>(sizeof(T));
+  if constexpr ((E == 1 || E == 2 || E == 4 || E == 8) && D * E <= 128 && W >= 8 && W <= 64 && (W & (W - 1)) == 0) {
+    constexpr int N = 64 / E, n = W < N ? W : N, C = W / n;
+    const uint8_t* ip = reinterpret_cast<const uint8_t*>(idx);
+    const __m512i t0 = essent_table_bytes<(D * E < 64 ? D * E : 64)>(table);
+    __m512i t1 = _mm512_setzero_si512();
+    if constexpr (D * E > 64) t1 = essent_table_bytes<D * E - 64>(reinterpret_cast<const char*>(table) + 64);
+    __m512i r[C];
+    for (int c = 0; c < C; c++) r[c] = essent_table_index<n, E>(ip + c * n);
+    for (int c = 0; c < C; c++) r[c] = essent_table_lookup<D, Guard, E>(r[c], t0, t1);
+    for (int c = 0; c < C; c++) essent_table_store<n * E>(reinterpret_cast<char*>(out) + c * n * E, r[c]);
+    return;
+  }
+#endif
+  for (int L = 0; L < W; L++) {
+    const uint64_t a = static_cast<uint64_t>(idx[L].val);
+    out[L] = (!Guard || a < static_cast<uint64_t>(D)) ? table[a] : T();
+  }
 }
 
 // v2 produced-local scratch, file-scope static (29491 arrays).
@@ -53600,14 +53682,394 @@ typedef struct TestHarness {
   UInt<1> _v2_bcarry_ldut_tile_prci_domain_tile_reset_domain_boom_tile_core_fp_pipeline_fpiu_unit_fpu_fpu_fpmu_inPipe_bits_wflags;
   UInt<65> _v2_bcarry_ldut_tile_prci_domain_tile_reset_domain_boom_tile_core_fp_pipeline_fpiu_unit_fpu_fpu_fpmu_inPipe_bits_in2;
 
+  // [v2 shared-comb-regions] 190 helpers
   void eval_forward(bool update_registers, bool verbose, bool done_reset);
 
   void eval_reverse(bool update_registers, bool verbose, bool done_reset);
-
   void eval(bool update_registers, bool verbose, bool done_reset) {
     eval_forward(update_registers, verbose, done_reset);
     eval_reverse(update_registers, verbose, done_reset);
   }
+
+  ESSENT_NOINLINE void _v2_comb_region_0(bool _forward, bool update_registers, bool verbose, bool done_reset, bool& _v2_quiet_base);
+
+  ESSENT_NOINLINE void _v2_comb_region_1(bool _forward, bool update_registers, bool verbose, bool done_reset, bool& _v2_quiet_base);
+
+  ESSENT_NOINLINE void _v2_comb_region_2(bool _forward, bool update_registers, bool verbose, bool done_reset, bool& _v2_quiet_base);
+
+  ESSENT_NOINLINE void _v2_comb_region_3(bool _forward, bool update_registers, bool verbose, bool done_reset, bool& _v2_quiet_base);
+
+  ESSENT_NOINLINE void _v2_comb_region_4(bool _forward, bool update_registers, bool verbose, bool done_reset, bool& _v2_quiet_base);
+
+  ESSENT_NOINLINE void _v2_comb_region_5(bool _forward, bool update_registers, bool verbose, bool done_reset, bool& _v2_quiet_base);
+
+  ESSENT_NOINLINE void _v2_comb_region_6(bool _forward, bool update_registers, bool verbose, bool done_reset, bool& _v2_quiet_base);
+
+  ESSENT_NOINLINE void _v2_comb_region_7(bool _forward, bool update_registers, bool verbose, bool done_reset, bool& _v2_quiet_base);
+
+  ESSENT_NOINLINE void _v2_comb_region_8(bool _forward, bool update_registers, bool verbose, bool done_reset, bool& _v2_quiet_base);
+
+  ESSENT_NOINLINE void _v2_comb_region_9(bool _forward, bool update_registers, bool verbose, bool done_reset, bool& _v2_quiet_base);
+
+  ESSENT_NOINLINE void _v2_comb_region_10(bool _forward, bool update_registers, bool verbose, bool done_reset, bool& _v2_quiet_base);
+
+  ESSENT_NOINLINE void _v2_comb_region_11(bool _forward, bool update_registers, bool verbose, bool done_reset, bool& _v2_quiet_base);
+
+  ESSENT_NOINLINE void _v2_comb_region_12(bool _forward, bool update_registers, bool verbose, bool done_reset, bool& _v2_quiet_base);
+
+  ESSENT_NOINLINE void _v2_comb_region_13(bool _forward, bool update_registers, bool verbose, bool done_reset, bool& _v2_quiet_base);
+
+  ESSENT_NOINLINE void _v2_comb_region_14(bool _forward, bool update_registers, bool verbose, bool done_reset, bool& _v2_quiet_base);
+
+  ESSENT_NOINLINE void _v2_comb_region_15(bool _forward, bool update_registers, bool verbose, bool done_reset, bool& _v2_quiet_base);
+
+  ESSENT_NOINLINE void _v2_comb_region_16(bool _forward, bool update_registers, bool verbose, bool done_reset, bool& _v2_quiet_base);
+
+  ESSENT_NOINLINE void _v2_comb_region_17(bool _forward, bool update_registers, bool verbose, bool done_reset, bool& _v2_quiet_base);
+
+  ESSENT_NOINLINE void _v2_comb_region_18(bool _forward, bool update_registers, bool verbose, bool done_reset, bool& _v2_quiet_base);
+
+  ESSENT_NOINLINE void _v2_comb_region_19(bool _forward, bool update_registers, bool verbose, bool done_reset, bool& _v2_quiet_base);
+
+  ESSENT_NOINLINE void _v2_comb_region_20(bool _forward, bool update_registers, bool verbose, bool done_reset, bool& _v2_quiet_base);
+
+  ESSENT_NOINLINE void _v2_comb_region_21(bool _forward, bool update_registers, bool verbose, bool done_reset, bool& _v2_quiet_base);
+
+  ESSENT_NOINLINE void _v2_comb_region_22(bool _forward, bool update_registers, bool verbose, bool done_reset, bool& _v2_quiet_base);
+
+  ESSENT_NOINLINE void _v2_comb_region_23(bool _forward, bool update_registers, bool verbose, bool done_reset, bool& _v2_quiet_base);
+
+  ESSENT_NOINLINE void _v2_comb_region_24(bool _forward, bool update_registers, bool verbose, bool done_reset, bool& _v2_quiet_base);
+
+  ESSENT_NOINLINE void _v2_comb_region_25(bool _forward, bool update_registers, bool verbose, bool done_reset, bool& _v2_quiet_base);
+
+  ESSENT_NOINLINE void _v2_comb_region_26(bool _forward, bool update_registers, bool verbose, bool done_reset, bool& _v2_quiet_base);
+
+  ESSENT_NOINLINE void _v2_comb_region_27(bool _forward, bool update_registers, bool verbose, bool done_reset, bool& _v2_quiet_base);
+
+  ESSENT_NOINLINE void _v2_comb_region_28(bool _forward, bool update_registers, bool verbose, bool done_reset, bool& _v2_quiet_base);
+
+  ESSENT_NOINLINE void _v2_comb_region_29(bool _forward, bool update_registers, bool verbose, bool done_reset, bool& _v2_quiet_base);
+
+  ESSENT_NOINLINE void _v2_comb_region_30(bool _forward, bool update_registers, bool verbose, bool done_reset, bool& _v2_quiet_base);
+
+  ESSENT_NOINLINE void _v2_comb_region_31(bool _forward, bool update_registers, bool verbose, bool done_reset, bool& _v2_quiet_base);
+
+  ESSENT_NOINLINE void _v2_comb_region_32(bool _forward, bool update_registers, bool verbose, bool done_reset, bool& _v2_quiet_base);
+
+  ESSENT_NOINLINE void _v2_comb_region_33(bool _forward, bool update_registers, bool verbose, bool done_reset, bool& _v2_quiet_base);
+
+  ESSENT_NOINLINE void _v2_comb_region_34(bool _forward, bool update_registers, bool verbose, bool done_reset, bool& _v2_quiet_base);
+
+  ESSENT_NOINLINE void _v2_comb_region_35(bool _forward, bool update_registers, bool verbose, bool done_reset, bool& _v2_quiet_base);
+
+  ESSENT_NOINLINE void _v2_comb_region_36(bool _forward, bool update_registers, bool verbose, bool done_reset, bool& _v2_quiet_base);
+
+  ESSENT_NOINLINE void _v2_comb_region_37(bool _forward, bool update_registers, bool verbose, bool done_reset, bool& _v2_quiet_base);
+
+  ESSENT_NOINLINE void _v2_comb_region_38(bool _forward, bool update_registers, bool verbose, bool done_reset, bool& _v2_quiet_base);
+
+  ESSENT_NOINLINE void _v2_comb_region_39(bool _forward, bool update_registers, bool verbose, bool done_reset, bool& _v2_quiet_base);
+
+  ESSENT_NOINLINE void _v2_comb_region_40(bool _forward, bool update_registers, bool verbose, bool done_reset, bool& _v2_quiet_base);
+
+  ESSENT_NOINLINE void _v2_comb_region_41(bool _forward, bool update_registers, bool verbose, bool done_reset, bool& _v2_quiet_base);
+
+  ESSENT_NOINLINE void _v2_comb_region_42(bool _forward, bool update_registers, bool verbose, bool done_reset, bool& _v2_quiet_base);
+
+  ESSENT_NOINLINE void _v2_comb_region_43(bool _forward, bool update_registers, bool verbose, bool done_reset, bool& _v2_quiet_base);
+
+  ESSENT_NOINLINE void _v2_comb_region_44(bool _forward, bool update_registers, bool verbose, bool done_reset, bool& _v2_quiet_base);
+
+  ESSENT_NOINLINE void _v2_comb_region_45(bool _forward, bool update_registers, bool verbose, bool done_reset, bool& _v2_quiet_base);
+
+  ESSENT_NOINLINE void _v2_comb_region_46(bool _forward, bool update_registers, bool verbose, bool done_reset, bool& _v2_quiet_base);
+
+  ESSENT_NOINLINE void _v2_comb_region_47(bool _forward, bool update_registers, bool verbose, bool done_reset, bool& _v2_quiet_base);
+
+  ESSENT_NOINLINE void _v2_comb_region_48(bool _forward, bool update_registers, bool verbose, bool done_reset, bool& _v2_quiet_base);
+
+  ESSENT_NOINLINE void _v2_comb_region_49(bool _forward, bool update_registers, bool verbose, bool done_reset, bool& _v2_quiet_base);
+
+  ESSENT_NOINLINE void _v2_comb_region_50(bool _forward, bool update_registers, bool verbose, bool done_reset, bool& _v2_quiet_base);
+
+  ESSENT_NOINLINE void _v2_comb_region_51(bool _forward, bool update_registers, bool verbose, bool done_reset, bool& _v2_quiet_base);
+
+  ESSENT_NOINLINE void _v2_comb_region_52(bool _forward, bool update_registers, bool verbose, bool done_reset, bool& _v2_quiet_base);
+
+  ESSENT_NOINLINE void _v2_comb_region_53(bool _forward, bool update_registers, bool verbose, bool done_reset, bool& _v2_quiet_base);
+
+  ESSENT_NOINLINE void _v2_comb_region_54(bool _forward, bool update_registers, bool verbose, bool done_reset, bool& _v2_quiet_base);
+
+  ESSENT_NOINLINE void _v2_comb_region_55(bool _forward, bool update_registers, bool verbose, bool done_reset, bool& _v2_quiet_base);
+
+  ESSENT_NOINLINE void _v2_comb_region_56(bool _forward, bool update_registers, bool verbose, bool done_reset, bool& _v2_quiet_base);
+
+  ESSENT_NOINLINE void _v2_comb_region_57(bool _forward, bool update_registers, bool verbose, bool done_reset, bool& _v2_quiet_base);
+
+  ESSENT_NOINLINE void _v2_comb_region_58(bool _forward, bool update_registers, bool verbose, bool done_reset, bool& _v2_quiet_base);
+
+  ESSENT_NOINLINE void _v2_comb_region_59(bool _forward, bool update_registers, bool verbose, bool done_reset, bool& _v2_quiet_base);
+
+  ESSENT_NOINLINE void _v2_comb_region_60(bool _forward, bool update_registers, bool verbose, bool done_reset, bool& _v2_quiet_base);
+
+  ESSENT_NOINLINE void _v2_comb_region_61(bool _forward, bool update_registers, bool verbose, bool done_reset, bool& _v2_quiet_base);
+
+  ESSENT_NOINLINE void _v2_comb_region_62(bool _forward, bool update_registers, bool verbose, bool done_reset, bool& _v2_quiet_base);
+
+  ESSENT_NOINLINE void _v2_comb_region_63(bool _forward, bool update_registers, bool verbose, bool done_reset, bool& _v2_quiet_base);
+
+  ESSENT_NOINLINE void _v2_comb_region_64(bool _forward, bool update_registers, bool verbose, bool done_reset, bool& _v2_quiet_base);
+
+  ESSENT_NOINLINE void _v2_comb_region_65(bool _forward, bool update_registers, bool verbose, bool done_reset, bool& _v2_quiet_base);
+
+  ESSENT_NOINLINE void _v2_comb_region_66(bool _forward, bool update_registers, bool verbose, bool done_reset, bool& _v2_quiet_base);
+
+  ESSENT_NOINLINE void _v2_comb_region_67(bool _forward, bool update_registers, bool verbose, bool done_reset, bool& _v2_quiet_base);
+
+  ESSENT_NOINLINE void _v2_comb_region_68(bool _forward, bool update_registers, bool verbose, bool done_reset, bool& _v2_quiet_base);
+
+  ESSENT_NOINLINE void _v2_comb_region_69(bool _forward, bool update_registers, bool verbose, bool done_reset, bool& _v2_quiet_base);
+
+  ESSENT_NOINLINE void _v2_comb_region_70(bool _forward, bool update_registers, bool verbose, bool done_reset, bool& _v2_quiet_base);
+
+  ESSENT_NOINLINE void _v2_comb_region_71(bool _forward, bool update_registers, bool verbose, bool done_reset, bool& _v2_quiet_base);
+
+  ESSENT_NOINLINE void _v2_comb_region_72(bool _forward, bool update_registers, bool verbose, bool done_reset, bool& _v2_quiet_base);
+
+  ESSENT_NOINLINE void _v2_comb_region_73(bool _forward, bool update_registers, bool verbose, bool done_reset, bool& _v2_quiet_base);
+
+  ESSENT_NOINLINE void _v2_comb_region_74(bool _forward, bool update_registers, bool verbose, bool done_reset, bool& _v2_quiet_base);
+
+  ESSENT_NOINLINE void _v2_comb_region_75(bool _forward, bool update_registers, bool verbose, bool done_reset, bool& _v2_quiet_base);
+
+  ESSENT_NOINLINE void _v2_comb_region_76(bool _forward, bool update_registers, bool verbose, bool done_reset, bool& _v2_quiet_base);
+
+  ESSENT_NOINLINE void _v2_comb_region_77(bool _forward, bool update_registers, bool verbose, bool done_reset, bool& _v2_quiet_base);
+
+  ESSENT_NOINLINE void _v2_comb_region_78(bool _forward, bool update_registers, bool verbose, bool done_reset, bool& _v2_quiet_base);
+
+  ESSENT_NOINLINE void _v2_comb_region_79(bool _forward, bool update_registers, bool verbose, bool done_reset, bool& _v2_quiet_base);
+
+  ESSENT_NOINLINE void _v2_comb_region_80(bool _forward, bool update_registers, bool verbose, bool done_reset, bool& _v2_quiet_base);
+
+  ESSENT_NOINLINE void _v2_comb_region_81(bool _forward, bool update_registers, bool verbose, bool done_reset, bool& _v2_quiet_base);
+
+  ESSENT_NOINLINE void _v2_comb_region_82(bool _forward, bool update_registers, bool verbose, bool done_reset, bool& _v2_quiet_base);
+
+  ESSENT_NOINLINE void _v2_comb_region_83(bool _forward, bool update_registers, bool verbose, bool done_reset, bool& _v2_quiet_base);
+
+  ESSENT_NOINLINE void _v2_comb_region_84(bool _forward, bool update_registers, bool verbose, bool done_reset, bool& _v2_quiet_base);
+
+  ESSENT_NOINLINE void _v2_comb_region_85(bool _forward, bool update_registers, bool verbose, bool done_reset, bool& _v2_quiet_base);
+
+  ESSENT_NOINLINE void _v2_comb_region_86(bool _forward, bool update_registers, bool verbose, bool done_reset, bool& _v2_quiet_base);
+
+  ESSENT_NOINLINE void _v2_comb_region_87(bool _forward, bool update_registers, bool verbose, bool done_reset, bool& _v2_quiet_base);
+
+  ESSENT_NOINLINE void _v2_comb_region_88(bool _forward, bool update_registers, bool verbose, bool done_reset, bool& _v2_quiet_base);
+
+  ESSENT_NOINLINE void _v2_comb_region_89(bool _forward, bool update_registers, bool verbose, bool done_reset, bool& _v2_quiet_base);
+
+  ESSENT_NOINLINE void _v2_comb_region_90(bool _forward, bool update_registers, bool verbose, bool done_reset, bool& _v2_quiet_base);
+
+  ESSENT_NOINLINE void _v2_comb_region_91(bool _forward, bool update_registers, bool verbose, bool done_reset, bool& _v2_quiet_base);
+
+  ESSENT_NOINLINE void _v2_comb_region_92(bool _forward, bool update_registers, bool verbose, bool done_reset, bool& _v2_quiet_base);
+
+  ESSENT_NOINLINE void _v2_comb_region_93(bool _forward, bool update_registers, bool verbose, bool done_reset, bool& _v2_quiet_base);
+
+  ESSENT_NOINLINE void _v2_comb_region_94(bool _forward, bool update_registers, bool verbose, bool done_reset, bool& _v2_quiet_base);
+
+  ESSENT_NOINLINE void _v2_comb_region_95(bool _forward, bool update_registers, bool verbose, bool done_reset, bool& _v2_quiet_base);
+
+  ESSENT_NOINLINE void _v2_comb_region_96(bool _forward, bool update_registers, bool verbose, bool done_reset, bool& _v2_quiet_base);
+
+  ESSENT_NOINLINE void _v2_comb_region_97(bool _forward, bool update_registers, bool verbose, bool done_reset, bool& _v2_quiet_base);
+
+  ESSENT_NOINLINE void _v2_comb_region_98(bool _forward, bool update_registers, bool verbose, bool done_reset, bool& _v2_quiet_base);
+
+  ESSENT_NOINLINE void _v2_comb_region_99(bool _forward, bool update_registers, bool verbose, bool done_reset, bool& _v2_quiet_base);
+
+  ESSENT_NOINLINE void _v2_comb_region_100(bool _forward, bool update_registers, bool verbose, bool done_reset, bool& _v2_quiet_base);
+
+  ESSENT_NOINLINE void _v2_comb_region_101(bool _forward, bool update_registers, bool verbose, bool done_reset, bool& _v2_quiet_base);
+
+  ESSENT_NOINLINE void _v2_comb_region_102(bool _forward, bool update_registers, bool verbose, bool done_reset, bool& _v2_quiet_base);
+
+  ESSENT_NOINLINE void _v2_comb_region_103(bool _forward, bool update_registers, bool verbose, bool done_reset, bool& _v2_quiet_base);
+
+  ESSENT_NOINLINE void _v2_comb_region_104(bool _forward, bool update_registers, bool verbose, bool done_reset, bool& _v2_quiet_base);
+
+  ESSENT_NOINLINE void _v2_comb_region_105(bool _forward, bool update_registers, bool verbose, bool done_reset, bool& _v2_quiet_base);
+
+  ESSENT_NOINLINE void _v2_comb_region_106(bool _forward, bool update_registers, bool verbose, bool done_reset, bool& _v2_quiet_base);
+
+  ESSENT_NOINLINE void _v2_comb_region_107(bool _forward, bool update_registers, bool verbose, bool done_reset, bool& _v2_quiet_base);
+
+  ESSENT_NOINLINE void _v2_comb_region_108(bool _forward, bool update_registers, bool verbose, bool done_reset, bool& _v2_quiet_base);
+
+  ESSENT_NOINLINE void _v2_comb_region_109(bool _forward, bool update_registers, bool verbose, bool done_reset, bool& _v2_quiet_base);
+
+  ESSENT_NOINLINE void _v2_comb_region_110(bool _forward, bool update_registers, bool verbose, bool done_reset, bool& _v2_quiet_base);
+
+  ESSENT_NOINLINE void _v2_comb_region_111(bool _forward, bool update_registers, bool verbose, bool done_reset, bool& _v2_quiet_base);
+
+  ESSENT_NOINLINE void _v2_comb_region_112(bool _forward, bool update_registers, bool verbose, bool done_reset, bool& _v2_quiet_base);
+
+  ESSENT_NOINLINE void _v2_comb_region_113(bool _forward, bool update_registers, bool verbose, bool done_reset, bool& _v2_quiet_base);
+
+  ESSENT_NOINLINE void _v2_comb_region_114(bool _forward, bool update_registers, bool verbose, bool done_reset, bool& _v2_quiet_base);
+
+  ESSENT_NOINLINE void _v2_comb_region_115(bool _forward, bool update_registers, bool verbose, bool done_reset, bool& _v2_quiet_base);
+
+  ESSENT_NOINLINE void _v2_comb_region_116(bool _forward, bool update_registers, bool verbose, bool done_reset, bool& _v2_quiet_base);
+
+  ESSENT_NOINLINE void _v2_comb_region_117(bool _forward, bool update_registers, bool verbose, bool done_reset, bool& _v2_quiet_base);
+
+  ESSENT_NOINLINE void _v2_comb_region_118(bool _forward, bool update_registers, bool verbose, bool done_reset, bool& _v2_quiet_base);
+
+  ESSENT_NOINLINE void _v2_comb_region_119(bool _forward, bool update_registers, bool verbose, bool done_reset, bool& _v2_quiet_base);
+
+  ESSENT_NOINLINE void _v2_comb_region_120(bool _forward, bool update_registers, bool verbose, bool done_reset, bool& _v2_quiet_base);
+
+  ESSENT_NOINLINE void _v2_comb_region_121(bool _forward, bool update_registers, bool verbose, bool done_reset, bool& _v2_quiet_base);
+
+  ESSENT_NOINLINE void _v2_comb_region_122(bool _forward, bool update_registers, bool verbose, bool done_reset, bool& _v2_quiet_base);
+
+  ESSENT_NOINLINE void _v2_comb_region_123(bool _forward, bool update_registers, bool verbose, bool done_reset, bool& _v2_quiet_base);
+
+  ESSENT_NOINLINE void _v2_comb_region_124(bool _forward, bool update_registers, bool verbose, bool done_reset, bool& _v2_quiet_base);
+
+  ESSENT_NOINLINE void _v2_comb_region_125(bool _forward, bool update_registers, bool verbose, bool done_reset, bool& _v2_quiet_base);
+
+  ESSENT_NOINLINE void _v2_comb_region_126(bool _forward, bool update_registers, bool verbose, bool done_reset, bool& _v2_quiet_base);
+
+  ESSENT_NOINLINE void _v2_comb_region_127(bool _forward, bool update_registers, bool verbose, bool done_reset, bool& _v2_quiet_base);
+
+  ESSENT_NOINLINE void _v2_comb_region_128(bool _forward, bool update_registers, bool verbose, bool done_reset, bool& _v2_quiet_base);
+
+  ESSENT_NOINLINE void _v2_comb_region_129(bool _forward, bool update_registers, bool verbose, bool done_reset, bool& _v2_quiet_base);
+
+  ESSENT_NOINLINE void _v2_comb_region_130(bool _forward, bool update_registers, bool verbose, bool done_reset, bool& _v2_quiet_base);
+
+  ESSENT_NOINLINE void _v2_comb_region_131(bool _forward, bool update_registers, bool verbose, bool done_reset, bool& _v2_quiet_base);
+
+  ESSENT_NOINLINE void _v2_comb_region_132(bool _forward, bool update_registers, bool verbose, bool done_reset, bool& _v2_quiet_base);
+
+  ESSENT_NOINLINE void _v2_comb_region_133(bool _forward, bool update_registers, bool verbose, bool done_reset, bool& _v2_quiet_base);
+
+  ESSENT_NOINLINE void _v2_comb_region_134(bool _forward, bool update_registers, bool verbose, bool done_reset, bool& _v2_quiet_base);
+
+  ESSENT_NOINLINE void _v2_comb_region_135(bool _forward, bool update_registers, bool verbose, bool done_reset, bool& _v2_quiet_base);
+
+  ESSENT_NOINLINE void _v2_comb_region_136(bool _forward, bool update_registers, bool verbose, bool done_reset, bool& _v2_quiet_base);
+
+  ESSENT_NOINLINE void _v2_comb_region_137(bool _forward, bool update_registers, bool verbose, bool done_reset, bool& _v2_quiet_base);
+
+  ESSENT_NOINLINE void _v2_comb_region_138(bool _forward, bool update_registers, bool verbose, bool done_reset, bool& _v2_quiet_base);
+
+  ESSENT_NOINLINE void _v2_comb_region_139(bool _forward, bool update_registers, bool verbose, bool done_reset, bool& _v2_quiet_base);
+
+  ESSENT_NOINLINE void _v2_comb_region_140(bool _forward, bool update_registers, bool verbose, bool done_reset, bool& _v2_quiet_base);
+
+  ESSENT_NOINLINE void _v2_comb_region_141(bool _forward, bool update_registers, bool verbose, bool done_reset, bool& _v2_quiet_base);
+
+  ESSENT_NOINLINE void _v2_comb_region_142(bool _forward, bool update_registers, bool verbose, bool done_reset, bool& _v2_quiet_base);
+
+  ESSENT_NOINLINE void _v2_comb_region_143(bool _forward, bool update_registers, bool verbose, bool done_reset, bool& _v2_quiet_base);
+
+  ESSENT_NOINLINE void _v2_comb_region_144(bool _forward, bool update_registers, bool verbose, bool done_reset, bool& _v2_quiet_base);
+
+  ESSENT_NOINLINE void _v2_comb_region_145(bool _forward, bool update_registers, bool verbose, bool done_reset, bool& _v2_quiet_base);
+
+  ESSENT_NOINLINE void _v2_comb_region_146(bool _forward, bool update_registers, bool verbose, bool done_reset, bool& _v2_quiet_base);
+
+  ESSENT_NOINLINE void _v2_comb_region_147(bool _forward, bool update_registers, bool verbose, bool done_reset, bool& _v2_quiet_base);
+
+  ESSENT_NOINLINE void _v2_comb_region_148(bool _forward, bool update_registers, bool verbose, bool done_reset, bool& _v2_quiet_base);
+
+  ESSENT_NOINLINE void _v2_comb_region_149(bool _forward, bool update_registers, bool verbose, bool done_reset, bool& _v2_quiet_base);
+
+  ESSENT_NOINLINE void _v2_comb_region_150(bool _forward, bool update_registers, bool verbose, bool done_reset, bool& _v2_quiet_base);
+
+  ESSENT_NOINLINE void _v2_comb_region_151(bool _forward, bool update_registers, bool verbose, bool done_reset, bool& _v2_quiet_base);
+
+  ESSENT_NOINLINE void _v2_comb_region_152(bool _forward, bool update_registers, bool verbose, bool done_reset, bool& _v2_quiet_base);
+
+  ESSENT_NOINLINE void _v2_comb_region_153(bool _forward, bool update_registers, bool verbose, bool done_reset, bool& _v2_quiet_base);
+
+  ESSENT_NOINLINE void _v2_comb_region_154(bool _forward, bool update_registers, bool verbose, bool done_reset, bool& _v2_quiet_base);
+
+  ESSENT_NOINLINE void _v2_comb_region_155(bool _forward, bool update_registers, bool verbose, bool done_reset, bool& _v2_quiet_base);
+
+  ESSENT_NOINLINE void _v2_comb_region_156(bool _forward, bool update_registers, bool verbose, bool done_reset, bool& _v2_quiet_base);
+
+  ESSENT_NOINLINE void _v2_comb_region_157(bool _forward, bool update_registers, bool verbose, bool done_reset, bool& _v2_quiet_base);
+
+  ESSENT_NOINLINE void _v2_comb_region_158(bool _forward, bool update_registers, bool verbose, bool done_reset, bool& _v2_quiet_base);
+
+  ESSENT_NOINLINE void _v2_comb_region_159(bool _forward, bool update_registers, bool verbose, bool done_reset, bool& _v2_quiet_base);
+
+  ESSENT_NOINLINE void _v2_comb_region_160(bool _forward, bool update_registers, bool verbose, bool done_reset, bool& _v2_quiet_base);
+
+  ESSENT_NOINLINE void _v2_comb_region_161(bool _forward, bool update_registers, bool verbose, bool done_reset, bool& _v2_quiet_base);
+
+  ESSENT_NOINLINE void _v2_comb_region_162(bool _forward, bool update_registers, bool verbose, bool done_reset, bool& _v2_quiet_base);
+
+  ESSENT_NOINLINE void _v2_comb_region_163(bool _forward, bool update_registers, bool verbose, bool done_reset, bool& _v2_quiet_base);
+
+  ESSENT_NOINLINE void _v2_comb_region_164(bool _forward, bool update_registers, bool verbose, bool done_reset, bool& _v2_quiet_base);
+
+  ESSENT_NOINLINE void _v2_comb_region_165(bool _forward, bool update_registers, bool verbose, bool done_reset, bool& _v2_quiet_base);
+
+  ESSENT_NOINLINE void _v2_comb_region_166(bool _forward, bool update_registers, bool verbose, bool done_reset, bool& _v2_quiet_base);
+
+  ESSENT_NOINLINE void _v2_comb_region_167(bool _forward, bool update_registers, bool verbose, bool done_reset, bool& _v2_quiet_base);
+
+  ESSENT_NOINLINE void _v2_comb_region_168(bool _forward, bool update_registers, bool verbose, bool done_reset, bool& _v2_quiet_base);
+
+  ESSENT_NOINLINE void _v2_comb_region_169(bool _forward, bool update_registers, bool verbose, bool done_reset, bool& _v2_quiet_base);
+
+  ESSENT_NOINLINE void _v2_comb_region_170(bool _forward, bool update_registers, bool verbose, bool done_reset, bool& _v2_quiet_base);
+
+  ESSENT_NOINLINE void _v2_comb_region_171(bool _forward, bool update_registers, bool verbose, bool done_reset, bool& _v2_quiet_base);
+
+  ESSENT_NOINLINE void _v2_comb_region_172(bool _forward, bool update_registers, bool verbose, bool done_reset, bool& _v2_quiet_base);
+
+  ESSENT_NOINLINE void _v2_comb_region_173(bool _forward, bool update_registers, bool verbose, bool done_reset, bool& _v2_quiet_base);
+
+  ESSENT_NOINLINE void _v2_comb_region_174(bool _forward, bool update_registers, bool verbose, bool done_reset, bool& _v2_quiet_base);
+
+  ESSENT_NOINLINE void _v2_comb_region_175(bool _forward, bool update_registers, bool verbose, bool done_reset, bool& _v2_quiet_base);
+
+  ESSENT_NOINLINE void _v2_comb_region_176(bool _forward, bool update_registers, bool verbose, bool done_reset, bool& _v2_quiet_base);
+
+  ESSENT_NOINLINE void _v2_comb_region_177(bool _forward, bool update_registers, bool verbose, bool done_reset, bool& _v2_quiet_base);
+
+  ESSENT_NOINLINE void _v2_comb_region_178(bool _forward, bool update_registers, bool verbose, bool done_reset, bool& _v2_quiet_base);
+
+  ESSENT_NOINLINE void _v2_comb_region_179(bool _forward, bool update_registers, bool verbose, bool done_reset, bool& _v2_quiet_base);
+
+  ESSENT_NOINLINE void _v2_comb_region_180(bool _forward, bool update_registers, bool verbose, bool done_reset, bool& _v2_quiet_base);
+
+  ESSENT_NOINLINE void _v2_comb_region_181(bool _forward, bool update_registers, bool verbose, bool done_reset, bool& _v2_quiet_base);
+
+  ESSENT_NOINLINE void _v2_comb_region_182(bool _forward, bool update_registers, bool verbose, bool done_reset, bool& _v2_quiet_base);
+
+  ESSENT_NOINLINE void _v2_comb_region_183(bool _forward, bool update_registers, bool verbose, bool done_reset, bool& _v2_quiet_base);
+
+  ESSENT_NOINLINE void _v2_comb_region_184(bool _forward, bool update_registers, bool verbose, bool done_reset, bool& _v2_quiet_base);
+
+  ESSENT_NOINLINE void _v2_comb_region_185(bool _forward, bool update_registers, bool verbose, bool done_reset, bool& _v2_quiet_base);
+
+  ESSENT_NOINLINE void _v2_comb_region_186(bool _forward, bool update_registers, bool verbose, bool done_reset, bool& _v2_quiet_base);
+
+  ESSENT_NOINLINE void _v2_comb_region_187(bool _forward, bool update_registers, bool verbose, bool done_reset, bool& _v2_quiet_base);
+
+  ESSENT_NOINLINE void _v2_comb_region_188(bool _forward, bool update_registers, bool verbose, bool done_reset, bool& _v2_quiet_base);
+
+  ESSENT_NOINLINE void _v2_comb_region_189(bool _forward, bool update_registers, bool verbose, bool done_reset, bool& _v2_quiet_base);
   static constexpr int ESSENT_PARTITIONS = 0;
 
   ESSENT_COLD_NOINLINE void _v2_cold_comb_full(int _v2_group);
@@ -63597,929 +64059,10 @@ typedef struct TestHarness {
 
   #if ESSENT_ORACLE_VERIFY
 
-  ESSENT_COLD_NOINLINE void _v2_verify_boundary_rescan(int _v2_group, bool _forward);
+  ESSENT_NOINLINE void _v2_verify_boundary_rescan(int _v2_group, bool _forward);
+  ESSENT_COLD_NOINLINE void _v2_verify_boundary_report(int _v2_group, bool _forward);
   #endif
 
-  // [v2 shared-comb] 460 groups called from both directions
-  ESSENT_NOINLINE void _v2_cshare_0();
-
-  ESSENT_NOINLINE void _v2_cshare_1();
-
-  ESSENT_NOINLINE void _v2_cshare_2();
-
-  ESSENT_NOINLINE void _v2_cshare_3();
-
-  ESSENT_NOINLINE void _v2_cshare_4();
-
-  ESSENT_NOINLINE void _v2_cshare_5();
-
-  ESSENT_NOINLINE void _v2_cshare_6();
-
-  ESSENT_NOINLINE void _v2_cshare_7();
-
-  ESSENT_NOINLINE void _v2_cshare_8();
-
-  ESSENT_NOINLINE void _v2_cshare_9();
-
-  ESSENT_NOINLINE void _v2_cshare_10();
-
-  ESSENT_NOINLINE void _v2_cshare_11();
-
-  ESSENT_NOINLINE void _v2_cshare_12();
-
-  ESSENT_NOINLINE void _v2_cshare_13();
-
-  ESSENT_NOINLINE void _v2_cshare_14();
-
-  ESSENT_NOINLINE void _v2_cshare_15();
-
-  ESSENT_NOINLINE void _v2_cshare_16();
-
-  ESSENT_NOINLINE void _v2_cshare_17();
-
-  ESSENT_NOINLINE void _v2_cshare_18();
-
-  ESSENT_NOINLINE void _v2_cshare_19();
-
-  ESSENT_NOINLINE void _v2_cshare_20();
-
-  ESSENT_NOINLINE void _v2_cshare_21();
-
-  ESSENT_NOINLINE void _v2_cshare_22();
-
-  ESSENT_NOINLINE void _v2_cshare_23();
-
-  ESSENT_NOINLINE void _v2_cshare_24();
-
-  ESSENT_NOINLINE void _v2_cshare_25();
-
-  ESSENT_NOINLINE void _v2_cshare_26();
-
-  ESSENT_NOINLINE void _v2_cshare_27();
-
-  ESSENT_NOINLINE void _v2_cshare_28();
-
-  ESSENT_NOINLINE void _v2_cshare_29();
-
-  ESSENT_NOINLINE void _v2_cshare_30();
-
-  ESSENT_NOINLINE void _v2_cshare_31();
-
-  ESSENT_NOINLINE void _v2_cshare_32();
-
-  ESSENT_NOINLINE void _v2_cshare_33();
-
-  ESSENT_NOINLINE void _v2_cshare_34();
-
-  ESSENT_NOINLINE void _v2_cshare_35();
-
-  ESSENT_NOINLINE void _v2_cshare_36();
-
-  ESSENT_NOINLINE void _v2_cshare_37();
-
-  ESSENT_NOINLINE void _v2_cshare_38();
-
-  ESSENT_NOINLINE void _v2_cshare_39();
-
-  ESSENT_NOINLINE void _v2_cshare_40();
-
-  ESSENT_NOINLINE void _v2_cshare_41();
-
-  ESSENT_NOINLINE void _v2_cshare_42();
-
-  ESSENT_NOINLINE void _v2_cshare_43();
-
-  ESSENT_NOINLINE void _v2_cshare_44();
-
-  ESSENT_NOINLINE void _v2_cshare_45();
-
-  ESSENT_NOINLINE void _v2_cshare_46();
-
-  ESSENT_NOINLINE void _v2_cshare_47();
-
-  ESSENT_NOINLINE void _v2_cshare_48();
-
-  ESSENT_NOINLINE void _v2_cshare_49();
-
-  ESSENT_NOINLINE void _v2_cshare_50();
-
-  ESSENT_NOINLINE void _v2_cshare_51();
-
-  ESSENT_NOINLINE void _v2_cshare_52();
-
-  ESSENT_NOINLINE void _v2_cshare_53();
-
-  ESSENT_NOINLINE void _v2_cshare_54();
-
-  ESSENT_NOINLINE void _v2_cshare_55();
-
-  ESSENT_NOINLINE void _v2_cshare_56();
-
-  ESSENT_NOINLINE void _v2_cshare_57();
-
-  ESSENT_NOINLINE void _v2_cshare_58();
-
-  ESSENT_NOINLINE void _v2_cshare_59();
-
-  ESSENT_NOINLINE void _v2_cshare_60();
-
-  ESSENT_NOINLINE void _v2_cshare_61();
-
-  ESSENT_NOINLINE void _v2_cshare_62();
-
-  ESSENT_NOINLINE void _v2_cshare_63();
-
-  ESSENT_NOINLINE void _v2_cshare_64();
-
-  ESSENT_NOINLINE void _v2_cshare_65();
-
-  ESSENT_NOINLINE void _v2_cshare_66();
-
-  ESSENT_NOINLINE void _v2_cshare_67();
-
-  ESSENT_NOINLINE void _v2_cshare_68();
-
-  ESSENT_NOINLINE void _v2_cshare_69();
-
-  ESSENT_NOINLINE void _v2_cshare_70();
-
-  ESSENT_NOINLINE void _v2_cshare_71();
-
-  ESSENT_NOINLINE void _v2_cshare_72();
-
-  ESSENT_NOINLINE void _v2_cshare_73();
-
-  ESSENT_NOINLINE void _v2_cshare_74();
-
-  ESSENT_NOINLINE void _v2_cshare_75();
-
-  ESSENT_NOINLINE void _v2_cshare_76();
-
-  ESSENT_NOINLINE void _v2_cshare_77();
-
-  ESSENT_NOINLINE void _v2_cshare_78();
-
-  ESSENT_NOINLINE void _v2_cshare_79();
-
-  ESSENT_NOINLINE void _v2_cshare_80();
-
-  ESSENT_NOINLINE void _v2_cshare_81();
-
-  ESSENT_NOINLINE void _v2_cshare_82();
-
-  ESSENT_NOINLINE void _v2_cshare_83();
-
-  ESSENT_NOINLINE void _v2_cshare_84();
-
-  ESSENT_NOINLINE void _v2_cshare_85();
-
-  ESSENT_NOINLINE void _v2_cshare_86();
-
-  ESSENT_NOINLINE void _v2_cshare_87();
-
-  ESSENT_NOINLINE void _v2_cshare_88();
-
-  ESSENT_NOINLINE void _v2_cshare_89();
-
-  ESSENT_NOINLINE void _v2_cshare_90();
-
-  ESSENT_NOINLINE void _v2_cshare_91();
-
-  ESSENT_NOINLINE void _v2_cshare_92();
-
-  ESSENT_NOINLINE void _v2_cshare_93();
-
-  ESSENT_NOINLINE void _v2_cshare_94();
-
-  ESSENT_NOINLINE void _v2_cshare_95();
-
-  ESSENT_NOINLINE void _v2_cshare_96();
-
-  ESSENT_NOINLINE void _v2_cshare_97();
-
-  ESSENT_NOINLINE void _v2_cshare_98();
-
-  ESSENT_NOINLINE void _v2_cshare_99();
-
-  ESSENT_NOINLINE void _v2_cshare_100();
-
-  ESSENT_NOINLINE void _v2_cshare_101();
-
-  ESSENT_NOINLINE void _v2_cshare_102();
-
-  ESSENT_NOINLINE void _v2_cshare_103();
-
-  ESSENT_NOINLINE void _v2_cshare_104();
-
-  ESSENT_NOINLINE void _v2_cshare_105();
-
-  ESSENT_NOINLINE void _v2_cshare_106();
-
-  ESSENT_NOINLINE void _v2_cshare_107();
-
-  ESSENT_NOINLINE void _v2_cshare_108();
-
-  ESSENT_NOINLINE void _v2_cshare_109();
-
-  ESSENT_NOINLINE void _v2_cshare_110();
-
-  ESSENT_NOINLINE void _v2_cshare_111();
-
-  ESSENT_NOINLINE void _v2_cshare_112();
-
-  ESSENT_NOINLINE void _v2_cshare_113();
-
-  ESSENT_NOINLINE void _v2_cshare_114();
-
-  ESSENT_NOINLINE void _v2_cshare_115();
-
-  ESSENT_NOINLINE void _v2_cshare_116();
-
-  ESSENT_NOINLINE void _v2_cshare_117();
-
-  ESSENT_NOINLINE void _v2_cshare_118();
-
-  ESSENT_NOINLINE void _v2_cshare_119();
-
-  ESSENT_NOINLINE void _v2_cshare_120();
-
-  ESSENT_NOINLINE void _v2_cshare_121();
-
-  ESSENT_NOINLINE void _v2_cshare_122();
-
-  ESSENT_NOINLINE void _v2_cshare_123();
-
-  ESSENT_NOINLINE void _v2_cshare_124();
-
-  ESSENT_NOINLINE void _v2_cshare_125();
-
-  ESSENT_NOINLINE void _v2_cshare_126();
-
-  ESSENT_NOINLINE void _v2_cshare_127();
-
-  ESSENT_NOINLINE void _v2_cshare_128();
-
-  ESSENT_NOINLINE void _v2_cshare_129();
-
-  ESSENT_NOINLINE void _v2_cshare_130();
-
-  ESSENT_NOINLINE void _v2_cshare_131();
-
-  ESSENT_NOINLINE void _v2_cshare_132();
-
-  ESSENT_NOINLINE void _v2_cshare_133();
-
-  ESSENT_NOINLINE void _v2_cshare_134();
-
-  ESSENT_NOINLINE void _v2_cshare_135();
-
-  ESSENT_NOINLINE void _v2_cshare_136();
-
-  ESSENT_NOINLINE void _v2_cshare_137();
-
-  ESSENT_NOINLINE void _v2_cshare_138();
-
-  ESSENT_NOINLINE void _v2_cshare_139();
-
-  ESSENT_NOINLINE void _v2_cshare_140();
-
-  ESSENT_NOINLINE void _v2_cshare_141();
-
-  ESSENT_NOINLINE void _v2_cshare_142();
-
-  ESSENT_NOINLINE void _v2_cshare_143();
-
-  ESSENT_NOINLINE void _v2_cshare_144();
-
-  ESSENT_NOINLINE void _v2_cshare_145();
-
-  ESSENT_NOINLINE void _v2_cshare_146();
-
-  ESSENT_NOINLINE void _v2_cshare_147();
-
-  ESSENT_NOINLINE void _v2_cshare_148();
-
-  ESSENT_NOINLINE void _v2_cshare_149();
-
-  ESSENT_NOINLINE void _v2_cshare_150();
-
-  ESSENT_NOINLINE void _v2_cshare_151();
-
-  ESSENT_NOINLINE void _v2_cshare_152();
-
-  ESSENT_NOINLINE void _v2_cshare_153();
-
-  ESSENT_NOINLINE void _v2_cshare_154();
-
-  ESSENT_NOINLINE void _v2_cshare_155();
-
-  ESSENT_NOINLINE void _v2_cshare_156();
-
-  ESSENT_NOINLINE void _v2_cshare_157();
-
-  ESSENT_NOINLINE void _v2_cshare_158();
-
-  ESSENT_NOINLINE void _v2_cshare_159();
-
-  ESSENT_NOINLINE void _v2_cshare_160();
-
-  ESSENT_NOINLINE void _v2_cshare_161();
-
-  ESSENT_NOINLINE void _v2_cshare_162();
-
-  ESSENT_NOINLINE void _v2_cshare_163();
-
-  ESSENT_NOINLINE void _v2_cshare_164();
-
-  ESSENT_NOINLINE void _v2_cshare_165();
-
-  ESSENT_NOINLINE void _v2_cshare_166();
-
-  ESSENT_NOINLINE void _v2_cshare_167();
-
-  ESSENT_NOINLINE void _v2_cshare_168();
-
-  ESSENT_NOINLINE void _v2_cshare_169();
-
-  ESSENT_NOINLINE void _v2_cshare_170();
-
-  ESSENT_NOINLINE void _v2_cshare_171();
-
-  ESSENT_NOINLINE void _v2_cshare_172();
-
-  ESSENT_NOINLINE void _v2_cshare_173();
-
-  ESSENT_NOINLINE void _v2_cshare_174();
-
-  ESSENT_NOINLINE void _v2_cshare_175();
-
-  ESSENT_NOINLINE void _v2_cshare_176();
-
-  ESSENT_NOINLINE void _v2_cshare_177();
-
-  ESSENT_NOINLINE void _v2_cshare_178();
-
-  ESSENT_NOINLINE void _v2_cshare_179();
-
-  ESSENT_NOINLINE void _v2_cshare_180();
-
-  ESSENT_NOINLINE void _v2_cshare_181();
-
-  ESSENT_NOINLINE void _v2_cshare_182();
-
-  ESSENT_NOINLINE void _v2_cshare_183();
-
-  ESSENT_NOINLINE void _v2_cshare_184();
-
-  ESSENT_NOINLINE void _v2_cshare_185();
-
-  ESSENT_NOINLINE void _v2_cshare_186();
-
-  ESSENT_NOINLINE void _v2_cshare_187();
-
-  ESSENT_NOINLINE void _v2_cshare_188();
-
-  ESSENT_NOINLINE void _v2_cshare_189();
-
-  ESSENT_NOINLINE void _v2_cshare_190();
-
-  ESSENT_NOINLINE void _v2_cshare_191();
-
-  ESSENT_NOINLINE void _v2_cshare_192();
-
-  ESSENT_NOINLINE void _v2_cshare_193();
-
-  ESSENT_NOINLINE void _v2_cshare_194();
-
-  ESSENT_NOINLINE void _v2_cshare_195();
-
-  ESSENT_NOINLINE void _v2_cshare_196();
-
-  ESSENT_NOINLINE void _v2_cshare_197();
-
-  ESSENT_NOINLINE void _v2_cshare_198();
-
-  ESSENT_NOINLINE void _v2_cshare_199();
-
-  ESSENT_NOINLINE void _v2_cshare_200();
-
-  ESSENT_NOINLINE void _v2_cshare_201();
-
-  ESSENT_NOINLINE void _v2_cshare_202();
-
-  ESSENT_NOINLINE void _v2_cshare_203();
-
-  ESSENT_NOINLINE void _v2_cshare_204();
-
-  ESSENT_NOINLINE void _v2_cshare_205();
-
-  ESSENT_NOINLINE void _v2_cshare_206();
-
-  ESSENT_NOINLINE void _v2_cshare_207();
-
-  ESSENT_NOINLINE void _v2_cshare_208();
-
-  ESSENT_NOINLINE void _v2_cshare_209();
-
-  ESSENT_NOINLINE void _v2_cshare_210();
-
-  ESSENT_NOINLINE void _v2_cshare_211();
-
-  ESSENT_NOINLINE void _v2_cshare_212();
-
-  ESSENT_NOINLINE void _v2_cshare_213();
-
-  ESSENT_NOINLINE void _v2_cshare_214();
-
-  ESSENT_NOINLINE void _v2_cshare_215();
-
-  ESSENT_NOINLINE void _v2_cshare_216();
-
-  ESSENT_NOINLINE void _v2_cshare_217();
-
-  ESSENT_NOINLINE void _v2_cshare_218();
-
-  ESSENT_NOINLINE void _v2_cshare_219();
-
-  ESSENT_NOINLINE void _v2_cshare_220();
-
-  ESSENT_NOINLINE void _v2_cshare_221();
-
-  ESSENT_NOINLINE void _v2_cshare_222();
-
-  ESSENT_NOINLINE void _v2_cshare_223();
-
-  ESSENT_NOINLINE void _v2_cshare_224();
-
-  ESSENT_NOINLINE void _v2_cshare_225();
-
-  ESSENT_NOINLINE void _v2_cshare_226();
-
-  ESSENT_NOINLINE void _v2_cshare_227();
-
-  ESSENT_NOINLINE void _v2_cshare_228();
-
-  ESSENT_NOINLINE void _v2_cshare_229();
-
-  ESSENT_NOINLINE void _v2_cshare_230();
-
-  ESSENT_NOINLINE void _v2_cshare_231();
-
-  ESSENT_NOINLINE void _v2_cshare_232();
-
-  ESSENT_NOINLINE void _v2_cshare_233();
-
-  ESSENT_NOINLINE void _v2_cshare_234();
-
-  ESSENT_NOINLINE void _v2_cshare_235();
-
-  ESSENT_NOINLINE void _v2_cshare_236();
-
-  ESSENT_NOINLINE void _v2_cshare_237();
-
-  ESSENT_NOINLINE void _v2_cshare_238();
-
-  ESSENT_NOINLINE void _v2_cshare_239();
-
-  ESSENT_NOINLINE void _v2_cshare_240();
-
-  ESSENT_NOINLINE void _v2_cshare_241();
-
-  ESSENT_NOINLINE void _v2_cshare_242();
-
-  ESSENT_NOINLINE void _v2_cshare_243();
-
-  ESSENT_NOINLINE void _v2_cshare_244();
-
-  ESSENT_NOINLINE void _v2_cshare_245();
-
-  ESSENT_NOINLINE void _v2_cshare_246();
-
-  ESSENT_NOINLINE void _v2_cshare_247();
-
-  ESSENT_NOINLINE void _v2_cshare_248();
-
-  ESSENT_NOINLINE void _v2_cshare_249();
-
-  ESSENT_NOINLINE void _v2_cshare_250();
-
-  ESSENT_NOINLINE void _v2_cshare_251();
-
-  ESSENT_NOINLINE void _v2_cshare_252();
-
-  ESSENT_NOINLINE void _v2_cshare_253();
-
-  ESSENT_NOINLINE void _v2_cshare_254();
-
-  ESSENT_NOINLINE void _v2_cshare_255();
-
-  ESSENT_NOINLINE void _v2_cshare_256();
-
-  ESSENT_NOINLINE void _v2_cshare_257();
-
-  ESSENT_NOINLINE void _v2_cshare_258();
-
-  ESSENT_NOINLINE void _v2_cshare_259();
-
-  ESSENT_NOINLINE void _v2_cshare_260();
-
-  ESSENT_NOINLINE void _v2_cshare_261();
-
-  ESSENT_NOINLINE void _v2_cshare_262();
-
-  ESSENT_NOINLINE void _v2_cshare_263();
-
-  ESSENT_NOINLINE void _v2_cshare_264();
-
-  ESSENT_NOINLINE void _v2_cshare_265();
-
-  ESSENT_NOINLINE void _v2_cshare_266();
-
-  ESSENT_NOINLINE void _v2_cshare_267();
-
-  ESSENT_NOINLINE void _v2_cshare_268();
-
-  ESSENT_NOINLINE void _v2_cshare_269();
-
-  ESSENT_NOINLINE void _v2_cshare_270();
-
-  ESSENT_NOINLINE void _v2_cshare_271();
-
-  ESSENT_NOINLINE void _v2_cshare_272();
-
-  ESSENT_NOINLINE void _v2_cshare_273();
-
-  ESSENT_NOINLINE void _v2_cshare_274();
-
-  ESSENT_NOINLINE void _v2_cshare_275();
-
-  ESSENT_NOINLINE void _v2_cshare_276();
-
-  ESSENT_NOINLINE void _v2_cshare_277();
-
-  ESSENT_NOINLINE void _v2_cshare_278();
-
-  ESSENT_NOINLINE void _v2_cshare_279();
-
-  ESSENT_NOINLINE void _v2_cshare_280();
-
-  ESSENT_NOINLINE void _v2_cshare_281();
-
-  ESSENT_NOINLINE void _v2_cshare_282();
-
-  ESSENT_NOINLINE void _v2_cshare_283();
-
-  ESSENT_NOINLINE void _v2_cshare_284();
-
-  ESSENT_NOINLINE void _v2_cshare_285();
-
-  ESSENT_NOINLINE void _v2_cshare_286();
-
-  ESSENT_NOINLINE void _v2_cshare_287();
-
-  ESSENT_NOINLINE void _v2_cshare_288();
-
-  ESSENT_NOINLINE void _v2_cshare_289();
-
-  ESSENT_NOINLINE void _v2_cshare_290();
-
-  ESSENT_NOINLINE void _v2_cshare_291();
-
-  ESSENT_NOINLINE void _v2_cshare_292();
-
-  ESSENT_NOINLINE void _v2_cshare_293();
-
-  ESSENT_NOINLINE void _v2_cshare_294();
-
-  ESSENT_NOINLINE void _v2_cshare_295();
-
-  ESSENT_NOINLINE void _v2_cshare_296();
-
-  ESSENT_NOINLINE void _v2_cshare_297();
-
-  ESSENT_NOINLINE void _v2_cshare_298();
-
-  ESSENT_NOINLINE void _v2_cshare_299();
-
-  ESSENT_NOINLINE void _v2_cshare_300();
-
-  ESSENT_NOINLINE void _v2_cshare_301();
-
-  ESSENT_NOINLINE void _v2_cshare_302();
-
-  ESSENT_NOINLINE void _v2_cshare_303();
-
-  ESSENT_NOINLINE void _v2_cshare_304();
-
-  ESSENT_NOINLINE void _v2_cshare_305();
-
-  ESSENT_NOINLINE void _v2_cshare_306();
-
-  ESSENT_NOINLINE void _v2_cshare_307();
-
-  ESSENT_NOINLINE void _v2_cshare_308();
-
-  ESSENT_NOINLINE void _v2_cshare_309();
-
-  ESSENT_NOINLINE void _v2_cshare_310();
-
-  ESSENT_NOINLINE void _v2_cshare_311();
-
-  ESSENT_NOINLINE void _v2_cshare_312();
-
-  ESSENT_NOINLINE void _v2_cshare_313();
-
-  ESSENT_NOINLINE void _v2_cshare_314();
-
-  ESSENT_NOINLINE void _v2_cshare_315();
-
-  ESSENT_NOINLINE void _v2_cshare_316();
-
-  ESSENT_NOINLINE void _v2_cshare_317();
-
-  ESSENT_NOINLINE void _v2_cshare_318();
-
-  ESSENT_NOINLINE void _v2_cshare_319();
-
-  ESSENT_NOINLINE void _v2_cshare_320();
-
-  ESSENT_NOINLINE void _v2_cshare_321();
-
-  ESSENT_NOINLINE void _v2_cshare_322();
-
-  ESSENT_NOINLINE void _v2_cshare_323();
-
-  ESSENT_NOINLINE void _v2_cshare_324();
-
-  ESSENT_NOINLINE void _v2_cshare_325();
-
-  ESSENT_NOINLINE void _v2_cshare_326();
-
-  ESSENT_NOINLINE void _v2_cshare_327();
-
-  ESSENT_NOINLINE void _v2_cshare_328();
-
-  ESSENT_NOINLINE void _v2_cshare_329();
-
-  ESSENT_NOINLINE void _v2_cshare_330();
-
-  ESSENT_NOINLINE void _v2_cshare_331();
-
-  ESSENT_NOINLINE void _v2_cshare_332();
-
-  ESSENT_NOINLINE void _v2_cshare_333();
-
-  ESSENT_NOINLINE void _v2_cshare_334();
-
-  ESSENT_NOINLINE void _v2_cshare_335();
-
-  ESSENT_NOINLINE void _v2_cshare_336();
-
-  ESSENT_NOINLINE void _v2_cshare_337();
-
-  ESSENT_NOINLINE void _v2_cshare_338();
-
-  ESSENT_NOINLINE void _v2_cshare_339();
-
-  ESSENT_NOINLINE void _v2_cshare_340();
-
-  ESSENT_NOINLINE void _v2_cshare_341();
-
-  ESSENT_NOINLINE void _v2_cshare_342();
-
-  ESSENT_NOINLINE void _v2_cshare_343();
-
-  ESSENT_NOINLINE void _v2_cshare_344();
-
-  ESSENT_NOINLINE void _v2_cshare_345();
-
-  ESSENT_NOINLINE void _v2_cshare_346();
-
-  ESSENT_NOINLINE void _v2_cshare_347();
-
-  ESSENT_NOINLINE void _v2_cshare_348();
-
-  ESSENT_NOINLINE void _v2_cshare_349();
-
-  ESSENT_NOINLINE void _v2_cshare_350();
-
-  ESSENT_NOINLINE void _v2_cshare_351();
-
-  ESSENT_NOINLINE void _v2_cshare_352();
-
-  ESSENT_NOINLINE void _v2_cshare_353();
-
-  ESSENT_NOINLINE void _v2_cshare_354();
-
-  ESSENT_NOINLINE void _v2_cshare_355();
-
-  ESSENT_NOINLINE void _v2_cshare_356();
-
-  ESSENT_NOINLINE void _v2_cshare_357();
-
-  ESSENT_NOINLINE void _v2_cshare_358();
-
-  ESSENT_NOINLINE void _v2_cshare_359();
-
-  ESSENT_NOINLINE void _v2_cshare_360();
-
-  ESSENT_NOINLINE void _v2_cshare_361();
-
-  ESSENT_NOINLINE void _v2_cshare_362();
-
-  ESSENT_NOINLINE void _v2_cshare_363();
-
-  ESSENT_NOINLINE void _v2_cshare_364();
-
-  ESSENT_NOINLINE void _v2_cshare_365();
-
-  ESSENT_NOINLINE void _v2_cshare_366();
-
-  ESSENT_NOINLINE void _v2_cshare_367();
-
-  ESSENT_NOINLINE void _v2_cshare_368();
-
-  ESSENT_NOINLINE void _v2_cshare_369();
-
-  ESSENT_NOINLINE void _v2_cshare_370();
-
-  ESSENT_NOINLINE void _v2_cshare_371();
-
-  ESSENT_NOINLINE void _v2_cshare_372();
-
-  ESSENT_NOINLINE void _v2_cshare_373();
-
-  ESSENT_NOINLINE void _v2_cshare_374();
-
-  ESSENT_NOINLINE void _v2_cshare_375();
-
-  ESSENT_NOINLINE void _v2_cshare_376();
-
-  ESSENT_NOINLINE void _v2_cshare_377();
-
-  ESSENT_NOINLINE void _v2_cshare_378();
-
-  ESSENT_NOINLINE void _v2_cshare_379();
-
-  ESSENT_NOINLINE void _v2_cshare_380();
-
-  ESSENT_NOINLINE void _v2_cshare_381();
-
-  ESSENT_NOINLINE void _v2_cshare_382();
-
-  ESSENT_NOINLINE void _v2_cshare_383();
-
-  ESSENT_NOINLINE void _v2_cshare_384();
-
-  ESSENT_NOINLINE void _v2_cshare_385();
-
-  ESSENT_NOINLINE void _v2_cshare_386();
-
-  ESSENT_NOINLINE void _v2_cshare_387();
-
-  ESSENT_NOINLINE void _v2_cshare_388();
-
-  ESSENT_NOINLINE void _v2_cshare_389();
-
-  ESSENT_NOINLINE void _v2_cshare_390();
-
-  ESSENT_NOINLINE void _v2_cshare_391();
-
-  ESSENT_NOINLINE void _v2_cshare_392();
-
-  ESSENT_NOINLINE void _v2_cshare_393();
-
-  ESSENT_NOINLINE void _v2_cshare_394();
-
-  ESSENT_NOINLINE void _v2_cshare_395();
-
-  ESSENT_NOINLINE void _v2_cshare_396();
-
-  ESSENT_NOINLINE void _v2_cshare_397();
-
-  ESSENT_NOINLINE void _v2_cshare_398();
-
-  ESSENT_NOINLINE void _v2_cshare_399();
-
-  ESSENT_NOINLINE void _v2_cshare_400();
-
-  ESSENT_NOINLINE void _v2_cshare_401();
-
-  ESSENT_NOINLINE void _v2_cshare_402();
-
-  ESSENT_NOINLINE void _v2_cshare_403();
-
-  ESSENT_NOINLINE void _v2_cshare_404();
-
-  ESSENT_NOINLINE void _v2_cshare_405();
-
-  ESSENT_NOINLINE void _v2_cshare_406();
-
-  ESSENT_NOINLINE void _v2_cshare_407();
-
-  ESSENT_NOINLINE void _v2_cshare_408();
-
-  ESSENT_NOINLINE void _v2_cshare_409();
-
-  ESSENT_NOINLINE void _v2_cshare_410();
-
-  ESSENT_NOINLINE void _v2_cshare_411();
-
-  ESSENT_NOINLINE void _v2_cshare_412();
-
-  ESSENT_NOINLINE void _v2_cshare_413();
-
-  ESSENT_NOINLINE void _v2_cshare_414();
-
-  ESSENT_NOINLINE void _v2_cshare_415();
-
-  ESSENT_NOINLINE void _v2_cshare_416();
-
-  ESSENT_NOINLINE void _v2_cshare_417();
-
-  ESSENT_NOINLINE void _v2_cshare_418();
-
-  ESSENT_NOINLINE void _v2_cshare_419();
-
-  ESSENT_NOINLINE void _v2_cshare_420();
-
-  ESSENT_NOINLINE void _v2_cshare_421();
-
-  ESSENT_NOINLINE void _v2_cshare_422();
-
-  ESSENT_NOINLINE void _v2_cshare_423();
-
-  ESSENT_NOINLINE void _v2_cshare_424();
-
-  ESSENT_NOINLINE void _v2_cshare_425();
-
-  ESSENT_NOINLINE void _v2_cshare_426();
-
-  ESSENT_NOINLINE void _v2_cshare_427();
-
-  ESSENT_NOINLINE void _v2_cshare_428();
-
-  ESSENT_NOINLINE void _v2_cshare_429();
-
-  ESSENT_NOINLINE void _v2_cshare_430();
-
-  ESSENT_NOINLINE void _v2_cshare_431();
-
-  ESSENT_NOINLINE void _v2_cshare_432();
-
-  ESSENT_NOINLINE void _v2_cshare_433();
-
-  ESSENT_NOINLINE void _v2_cshare_434();
-
-  ESSENT_NOINLINE void _v2_cshare_435();
-
-  ESSENT_NOINLINE void _v2_cshare_436();
-
-  ESSENT_NOINLINE void _v2_cshare_437();
-
-  ESSENT_NOINLINE void _v2_cshare_438();
-
-  ESSENT_NOINLINE void _v2_cshare_439();
-
-  ESSENT_NOINLINE void _v2_cshare_440();
-
-  ESSENT_NOINLINE void _v2_cshare_441();
-
-  ESSENT_NOINLINE void _v2_cshare_442();
-
-  ESSENT_NOINLINE void _v2_cshare_443();
-
-  ESSENT_NOINLINE void _v2_cshare_444();
-
-  ESSENT_NOINLINE void _v2_cshare_445();
-
-  ESSENT_NOINLINE void _v2_cshare_446();
-
-  ESSENT_NOINLINE void _v2_cshare_447();
-
-  ESSENT_NOINLINE void _v2_cshare_448();
-
-  ESSENT_NOINLINE void _v2_cshare_449();
-
-  ESSENT_NOINLINE void _v2_cshare_450();
-
-  ESSENT_NOINLINE void _v2_cshare_451();
-
-  ESSENT_NOINLINE void _v2_cshare_452();
-
-  ESSENT_NOINLINE void _v2_cshare_453();
-
-  ESSENT_NOINLINE void _v2_cshare_454();
-
-  ESSENT_NOINLINE void _v2_cshare_455();
-
-  ESSENT_NOINLINE void _v2_cshare_456();
-
-  ESSENT_NOINLINE void _v2_cshare_457();
-
-  ESSENT_NOINLINE void _v2_cshare_458();
-
-  ESSENT_NOINLINE void _v2_cshare_459();
 } TestHarness;
 
 #endif  // TESTHARNESS_H_

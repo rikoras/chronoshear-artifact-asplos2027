@@ -827,13 +827,13 @@ int main(int argc, char** argv) {
     // --producer-decode: one expansion buffer per ring slot. Slot w holds the
     // full window image (copy of slot w-1 plus window w's changes); the
     // producer writes it before publishing w, the consumer only reads it.
-    std::vector<std::vector<char>> expanded_ring;
+    std::vector<chisa::boom_system::OracleBlockBytes> expanded_ring;  // cache-line aligned, like the ring blocks
     const std::uint32_t split_lane = std::min<std::uint32_t>(
         options.image_transport ? 0xffffffffu : options.producer_decode_lanes,
         chisa::boom_system::kSystemOracleModeledStreams);
     chisa::boom_system::OracleDeltaDecoder consumer_decoder;  // lanes [split, N)
     if (options.producer_decode) {
-      expanded_ring.assign(kRing, std::vector<char>(kConsumerOracleBlockBytes, 0));
+      expanded_ring.assign(kRing, chisa::boom_system::OracleBlockBytes(kConsumerOracleBlockBytes, 0));
       oracle_decoder.set_lane_range(0, split_lane);
       consumer_decoder.set_lane_range(split_lane, chisa::boom_system::kSystemOracleModeledStreams);
     }

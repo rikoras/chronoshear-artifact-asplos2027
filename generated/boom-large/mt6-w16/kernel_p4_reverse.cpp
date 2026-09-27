@@ -3099,10 +3099,7 @@ void TestHarness::eval_reverse_p4(bool update_registers, bool verbose, bool done
         _v2_sa_anyw |= (uint64_t)(essent_to_u64(_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$core$fp_pipeline$fpiu_unit$BranchKillableQueue$$inst$io_empty[G] ? _s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$core$fp_pipeline$fpiu_unit$BranchKillableQueue$$inst$_GEN_1879[G] : _s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$core$fp_pipeline$fpiu_unit$BranchKillableQueue$$inst$_T_2[G]) != 0) & (uint64_t)(essent_to_u64(UInt<1>(0x1)) != 0);
       }
       if (_v2_sa_anyw == 0) {
-        for (int L = 15; L >= 0; L--) {
-          const uint64_t _v2_sa_fast_addr = essent_to_u64(ldut.tile_prci_domain.tile_reset_domain.boom_tile.core.fp_pipeline.fpiu_unit.BranchKillableQueue$$inst.value_1[L]);
-          _s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$core$fp_pipeline$fpiu_unit$BranchKillableQueue$$inst$ram_fflags_bits_uop_rob_idx$MPORT_1$rtl[L] = ((_v2_sa_fast_addr) < (uint64_t)7 ? ldut.tile_prci_domain.tile_reset_domain.boom_tile.core.fp_pipeline.fpiu_unit.BranchKillableQueue$$inst.ram_fflags_bits_uop_rob_idx[_v2_sa_fast_addr] : UInt<7>(0));
-        }
+        essent_table_read<16, 7, true>(&_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$core$fp_pipeline$fpiu_unit$BranchKillableQueue$$inst$ram_fflags_bits_uop_rob_idx$MPORT_1$rtl[0], &ldut.tile_prci_domain.tile_reset_domain.boom_tile.core.fp_pipeline.fpiu_unit.BranchKillableQueue$$inst.ram_fflags_bits_uop_rob_idx[0], &ldut.tile_prci_domain.tile_reset_domain.boom_tile.core.fp_pipeline.fpiu_unit.BranchKillableQueue$$inst.value_1[0]);
       } else {
       {
         // [state-read-dense] forwarding=branchless
@@ -3111,10 +3108,11 @@ void TestHarness::eval_reverse_p4(bool update_registers, bool verbose, bool done
         for (int L = 15; L >= 0; L--) {
           const uint64_t _v2_sa_addr = essent_to_u64(ldut.tile_prci_domain.tile_reset_domain.boom_tile.core.fp_pipeline.fpiu_unit.BranchKillableQueue$$inst.value_1[L]);
           UInt<7> _v2_sa_value = ((_v2_sa_addr) < (uint64_t)7 ? ldut.tile_prci_domain.tile_reset_domain.boom_tile.core.fp_pipeline.fpiu_unit.BranchKillableQueue$$inst.ram_fflags_bits_uop_rob_idx[_v2_sa_addr] : UInt<7>(0));
+          // [branchless-forward] select a valid source before loading data
           const int _v2_sa_prev_code = ((_v2_sa_addr) < (uint64_t)7 ? _v2_sa_last[_v2_sa_addr] : -1);
-          const uint64_t _v2_sa_prev_valid = (uint64_t)(_v2_sa_prev_code >= 0);
+          const bool _v2_sa_prev_valid = _v2_sa_prev_code >= 0;
           [[maybe_unused]] const int _v2_sa_prev_lane = _v2_sa_prev_code & -static_cast<int>(_v2_sa_prev_valid);
-          _v2_sa_value = essent_mux(UInt<1>(_v2_sa_prev_valid), ldut.tile_prci_domain.tile_reset_domain.boom_tile.core.fp_pipeline.fpiu_unit.fpu.REG_1_3_rob_idx[_v2_sa_prev_lane], _v2_sa_value);
+          _v2_sa_value = *essent_select_ptr(_v2_sa_prev_valid, &(ldut.tile_prci_domain.tile_reset_domain.boom_tile.core.fp_pipeline.fpiu_unit.fpu.REG_1_3_rob_idx[_v2_sa_prev_lane]), &_v2_sa_value);
           _s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$core$fp_pipeline$fpiu_unit$BranchKillableQueue$$inst$ram_fflags_bits_uop_rob_idx$MPORT_1$rtl[L] = _v2_sa_value;
           const uint64_t _v2_sa_write_addr_0 = essent_to_u64(ldut.tile_prci_domain.tile_reset_domain.boom_tile.core.fp_pipeline.fpiu_unit.BranchKillableQueue$$inst.value[L]);
           const uint64_t _v2_sa_write_take_0 = (uint64_t)(essent_to_u64(_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$core$fp_pipeline$fpiu_unit$BranchKillableQueue$$inst$io_empty[L] ? _s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$core$fp_pipeline$fpiu_unit$BranchKillableQueue$$inst$_GEN_1879[L] : _s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$core$fp_pipeline$fpiu_unit$BranchKillableQueue$$inst$_T_2[L]) != 0) & (uint64_t)(essent_to_u64(UInt<1>(0x1)) != 0) & (uint64_t)(_v2_sa_write_addr_0 < (uint64_t)7);
@@ -3154,10 +3152,7 @@ void TestHarness::eval_reverse_p4(bool update_registers, bool verbose, bool done
         _v2_sa_anyw |= (uint64_t)(essent_to_u64(_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$core$fp_pipeline$fpiu_unit$BranchKillableQueue_1$io_empty[G] ? _s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$core$fp_pipeline$fpiu_unit$BranchKillableQueue_1$_GEN_903[G] : _s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$core$fp_pipeline$fpiu_unit$BranchKillableQueue_1$_T_2[G]) != 0) & (uint64_t)(essent_to_u64(UInt<1>(0x1)) != 0);
       }
       if (_v2_sa_anyw == 0) {
-        for (int L = 15; L >= 0; L--) {
-          const uint64_t _v2_sa_fast_addr = essent_to_u64(ldut.tile_prci_domain.tile_reset_domain.boom_tile.core.fp_pipeline.fpiu_unit.BranchKillableQueue_1.value_1[L]);
-          _s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$core$fp_pipeline$fpiu_unit$BranchKillableQueue_1$ram_fflags_bits_uop_rob_idx$MPORT_1$rtl[L] = ((_v2_sa_fast_addr) < (uint64_t)3 ? ldut.tile_prci_domain.tile_reset_domain.boom_tile.core.fp_pipeline.fpiu_unit.BranchKillableQueue_1.ram_fflags_bits_uop_rob_idx[_v2_sa_fast_addr] : UInt<7>(0));
-        }
+        essent_table_read<16, 3, true>(&_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$core$fp_pipeline$fpiu_unit$BranchKillableQueue_1$ram_fflags_bits_uop_rob_idx$MPORT_1$rtl[0], &ldut.tile_prci_domain.tile_reset_domain.boom_tile.core.fp_pipeline.fpiu_unit.BranchKillableQueue_1.ram_fflags_bits_uop_rob_idx[0], &ldut.tile_prci_domain.tile_reset_domain.boom_tile.core.fp_pipeline.fpiu_unit.BranchKillableQueue_1.value_1[0]);
       } else {
       {
         // [state-read-dense] forwarding=branchless
@@ -3215,14 +3210,11 @@ void TestHarness::eval_reverse_p4(bool update_registers, bool verbose, bool done
         for (int L = 15; L >= 0; L--) {
           const uint64_t _v2_sa_addr = essent_to_u64(ldut.tile_prci_domain.tile_reset_domain.boom_tile.core.csr_exe_unit.BranchKillableQueue$$inst.value_1[L]);
           UInt<65> _v2_sa_value = ((_v2_sa_addr) < (uint64_t)5 ? ldut.tile_prci_domain.tile_reset_domain.boom_tile.core.csr_exe_unit.BranchKillableQueue$$inst.ram_data[_v2_sa_addr] : UInt<65>(0));
+          // [branchless-forward] select a valid source before loading data
           const int _v2_sa_prev_code = ((_v2_sa_addr) < (uint64_t)5 ? _v2_sa_last[_v2_sa_addr] : -1);
-          if (_v2_sa_prev_code >= 0) {
-            [[maybe_unused]] const int _v2_sa_prev_lane = _v2_sa_prev_code / 1;
-            switch (_v2_sa_prev_code % 1) {
-              case 0: _v2_sa_value = _s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$core$csr_exe_unit$ifpu$io_resp_bits_data[_v2_sa_prev_lane]; break;
-              default: __builtin_unreachable();
-            }
-          }
+          const bool _v2_sa_prev_valid = _v2_sa_prev_code >= 0;
+          [[maybe_unused]] const int _v2_sa_prev_lane = _v2_sa_prev_code & -static_cast<int>(_v2_sa_prev_valid);
+          _v2_sa_value = *essent_select_ptr(_v2_sa_prev_valid, &(_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$core$csr_exe_unit$ifpu$io_resp_bits_data[_v2_sa_prev_lane]), &_v2_sa_value);
           _s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$core$csr_exe_unit$BranchKillableQueue$$inst$ram_data$MPORT_1[L] = _v2_sa_value;
           if (essent_to_u64(_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$core$csr_exe_unit$BranchKillableQueue$$inst$io_empty[L] ? _s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$core$csr_exe_unit$BranchKillableQueue$$inst$_GEN_1391[L] : _s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$core$csr_exe_unit$BranchKillableQueue$$inst$_T_2[L]) && essent_to_u64(UInt<1>(0x1)) && essent_to_u64(ldut.tile_prci_domain.tile_reset_domain.boom_tile.core.csr_exe_unit.BranchKillableQueue$$inst.value[L]) < (uint64_t)5) _v2_sa_last[essent_to_u64(ldut.tile_prci_domain.tile_reset_domain.boom_tile.core.csr_exe_unit.BranchKillableQueue$$inst.value[L])] = L * 1 + 0;
         }
@@ -3709,7 +3701,7 @@ void TestHarness::eval_reverse_p4(bool update_registers, bool verbose, bool done
         ESSENT_LANE_LOOP
         for (int L = 0; L < 16; L++) ldut.tile_prci_domain.tile_reset_domain.boom_tile.core.fp_pipeline.fpiu_unit.fdivsqrt.divsqrt.ds.divSqrtRecF64ToRaw.cycleNum_E[L] = _gv;
       } else {
-        for (int L = 14; L >= 0; L--) ldut.tile_prci_domain.tile_reset_domain.boom_tile.core.fp_pipeline.fpiu_unit.fdivsqrt.divsqrt.ds.divSqrtRecF64ToRaw.cycleNum_E[L] = _s_ldut$reset[L + 1] ? UInt<3>(0x0) : ((_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$core$fp_pipeline$fpiu_unit$fdivsqrt$divsqrt$ds$divSqrtRecF64ToRaw$cyc_C1[L + 1] | (ldut.tile_prci_domain.tile_reset_domain.boom_tile.core.fp_pipeline.fpiu_unit.fdivsqrt.divsqrt.ds.divSqrtRecF64ToRaw.cycleNum_E[L + 1] != UInt<3>(0x0))) ? (_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$core$fp_pipeline$fpiu_unit$fdivsqrt$divsqrt$ds$divSqrtRecF64ToRaw$cyc_C1[L + 1] ? UInt<3>(0x4) : ((ldut.tile_prci_domain.tile_reset_domain.boom_tile.core.fp_pipeline.fpiu_unit.fdivsqrt.divsqrt.ds.divSqrtRecF64ToRaw.cycleNum_E[L + 1] - UInt<3>(0x1)).tail<1>())) : ldut.tile_prci_domain.tile_reset_domain.boom_tile.core.fp_pipeline.fpiu_unit.fdivsqrt.divsqrt.ds.divSqrtRecF64ToRaw.cycleNum_E[L + 1]);
+        for (int L = 14; L >= 0; L--) ldut.tile_prci_domain.tile_reset_domain.boom_tile.core.fp_pipeline.fpiu_unit.fdivsqrt.divsqrt.ds.divSqrtRecF64ToRaw.cycleNum_E[L].val = static_cast<typename UInt<3>::scalar_t>((static_cast<uint8_t>((static_cast<uint8_t>(essent_select_word<uint32_t>(((static_cast<uint8_t>(_s_ldut$reset[L + 1].val) & 0x1u)) != 0, static_cast<uint32_t>((static_cast<uint8_t>(0x0u) & 0x7u)), static_cast<uint32_t>((static_cast<uint8_t>(essent_select_word<uint32_t>(((static_cast<uint8_t>((static_cast<uint8_t>(((_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$core$fp_pipeline$fpiu_unit$fdivsqrt$divsqrt$ds$divSqrtRecF64ToRaw$cyc_C1[L + 1].val) | ((static_cast<uint8_t>(((ldut.tile_prci_domain.tile_reset_domain.boom_tile.core.fp_pipeline.fpiu_unit.fdivsqrt.divsqrt.ds.divSqrtRecF64ToRaw.cycleNum_E[L + 1].val) != ((static_cast<uint8_t>(0x0u) & 0x7u)))) & 0x1u)))) & 0x1u)) & 0x1u)) != 0, static_cast<uint32_t>((static_cast<uint8_t>(essent_select_word<uint32_t>(((static_cast<uint8_t>(_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$core$fp_pipeline$fpiu_unit$fdivsqrt$divsqrt$ds$divSqrtRecF64ToRaw$cyc_C1[L + 1].val) & 0x1u)) != 0, static_cast<uint32_t>((static_cast<uint8_t>(0x4u) & 0x7u)), static_cast<uint32_t>((static_cast<uint8_t>((static_cast<uint8_t>((static_cast<uint8_t>((static_cast<uint8_t>(ldut.tile_prci_domain.tile_reset_domain.boom_tile.core.fp_pipeline.fpiu_unit.fdivsqrt.divsqrt.ds.divSqrtRecF64ToRaw.cycleNum_E[L + 1].val) - static_cast<uint8_t>((static_cast<uint8_t>(0x1u) & 0x7u)))) & 0xfu)) & 0x7u)) & 0x7u)))) & 0x7u)), static_cast<uint32_t>(ldut.tile_prci_domain.tile_reset_domain.boom_tile.core.fp_pipeline.fpiu_unit.fdivsqrt.divsqrt.ds.divSqrtRecF64ToRaw.cycleNum_E[L + 1].val))) & 0x7u)))) & 0x7u)) & 0x7u));
       }
     }
     // [vec comb] 13 templates x 16 lanes
@@ -3856,7 +3848,7 @@ void TestHarness::eval_reverse_p4(bool update_registers, bool verbose, bool done
         ESSENT_LANE_LOOP
         for (int L = 0; L < 16; L++) ldut.tile_prci_domain.tile_reset_domain.boom_tile.core.fp_pipeline.fp_issue_unit.slots_23.p1[L] = _gv;
       } else {
-        for (int L = 14; L >= 0; L--) ldut.tile_prci_domain.tile_reset_domain.boom_tile.core.fp_pipeline.fp_issue_unit.slots_23.p1[L] = (~_s_ldut$reset[L + 1]) & (_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$core$fp_pipeline$fp_issue_unit$slots_23$_T_43[L + 1] | (_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$core$fp_pipeline$fp_issue_unit$slots_23$_T_37[L + 1] | (_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$core$fp_pipeline$fp_issue_unit$slots_23$io_in_uop_valid[L + 1] ? _s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$core$fp_pipeline$fp_issue_unit$slots_23$_T_22[L + 1] : ldut.tile_prci_domain.tile_reset_domain.boom_tile.core.fp_pipeline.fp_issue_unit.slots_23.p1[L + 1])));
+        for (int L = 14; L >= 0; L--) ldut.tile_prci_domain.tile_reset_domain.boom_tile.core.fp_pipeline.fp_issue_unit.slots_23.p1[L].val = static_cast<typename UInt<1>::scalar_t>((static_cast<uint8_t>((static_cast<uint8_t>((((static_cast<uint8_t>((~static_cast<uint8_t>(_s_ldut$reset[L + 1].val))) & 0x1u)) & ((static_cast<uint8_t>(((_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$core$fp_pipeline$fp_issue_unit$slots_23$_T_43[L + 1].val) | ((static_cast<uint8_t>(((_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$core$fp_pipeline$fp_issue_unit$slots_23$_T_37[L + 1].val) | ((static_cast<uint8_t>(essent_select_word<uint32_t>(((static_cast<uint8_t>(_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$core$fp_pipeline$fp_issue_unit$slots_23$io_in_uop_valid[L + 1].val) & 0x1u)) != 0, static_cast<uint32_t>(_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$core$fp_pipeline$fp_issue_unit$slots_23$_T_22[L + 1].val), static_cast<uint32_t>(ldut.tile_prci_domain.tile_reset_domain.boom_tile.core.fp_pipeline.fp_issue_unit.slots_23.p1[L + 1].val))) & 0x1u)))) & 0x1u)))) & 0x1u)))) & 0x1u)) & 0x1u));
       }
     }
 
@@ -3892,7 +3884,7 @@ void TestHarness::eval_reverse_p4(bool update_registers, bool verbose, bool done
         ESSENT_LANE_LOOP
         for (int L = 0; L < 16; L++) ldut.tile_prci_domain.tile_reset_domain.boom_tile.core.fp_pipeline.fp_issue_unit.slots_23.p2[L] = _gv;
       } else {
-        for (int L = 14; L >= 0; L--) ldut.tile_prci_domain.tile_reset_domain.boom_tile.core.fp_pipeline.fp_issue_unit.slots_23.p2[L] = (~_s_ldut$reset[L + 1]) & (_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$core$fp_pipeline$fp_issue_unit$slots_23$_T_45[L + 1] | (_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$core$fp_pipeline$fp_issue_unit$slots_23$_T_39[L + 1] | (_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$core$fp_pipeline$fp_issue_unit$slots_23$io_in_uop_valid[L + 1] ? _s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$core$fp_pipeline$fp_issue_unit$slots_23$_T_23[L + 1] : ldut.tile_prci_domain.tile_reset_domain.boom_tile.core.fp_pipeline.fp_issue_unit.slots_23.p2[L + 1])));
+        for (int L = 14; L >= 0; L--) ldut.tile_prci_domain.tile_reset_domain.boom_tile.core.fp_pipeline.fp_issue_unit.slots_23.p2[L].val = static_cast<typename UInt<1>::scalar_t>((static_cast<uint8_t>((static_cast<uint8_t>((((static_cast<uint8_t>((~static_cast<uint8_t>(_s_ldut$reset[L + 1].val))) & 0x1u)) & ((static_cast<uint8_t>(((_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$core$fp_pipeline$fp_issue_unit$slots_23$_T_45[L + 1].val) | ((static_cast<uint8_t>(((_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$core$fp_pipeline$fp_issue_unit$slots_23$_T_39[L + 1].val) | ((static_cast<uint8_t>(essent_select_word<uint32_t>(((static_cast<uint8_t>(_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$core$fp_pipeline$fp_issue_unit$slots_23$io_in_uop_valid[L + 1].val) & 0x1u)) != 0, static_cast<uint32_t>(_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$core$fp_pipeline$fp_issue_unit$slots_23$_T_23[L + 1].val), static_cast<uint32_t>(ldut.tile_prci_domain.tile_reset_domain.boom_tile.core.fp_pipeline.fp_issue_unit.slots_23.p2[L + 1].val))) & 0x1u)))) & 0x1u)))) & 0x1u)))) & 0x1u)) & 0x1u));
       }
     }
     // [vec comb] 6 templates x 16 lanes
@@ -3927,7 +3919,7 @@ void TestHarness::eval_reverse_p4(bool update_registers, bool verbose, bool done
         ESSENT_LANE_LOOP
         for (int L = 0; L < 16; L++) ldut.tile_prci_domain.tile_reset_domain.boom_tile.core.fp_pipeline.fp_issue_unit.slots_23.p3[L] = _gv;
       } else {
-        for (int L = 14; L >= 0; L--) ldut.tile_prci_domain.tile_reset_domain.boom_tile.core.fp_pipeline.fp_issue_unit.slots_23.p3[L] = (~_s_ldut$reset[L + 1]) & (_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$core$fp_pipeline$fp_issue_unit$slots_23$_T_47[L + 1] | (_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$core$fp_pipeline$fp_issue_unit$slots_23$_T_41[L + 1] | (_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$core$fp_pipeline$fp_issue_unit$slots_23$io_in_uop_valid[L + 1] ? _s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$core$fp_pipeline$fp_issue_unit$slots_23$_T_24[L + 1] : ldut.tile_prci_domain.tile_reset_domain.boom_tile.core.fp_pipeline.fp_issue_unit.slots_23.p3[L + 1])));
+        for (int L = 14; L >= 0; L--) ldut.tile_prci_domain.tile_reset_domain.boom_tile.core.fp_pipeline.fp_issue_unit.slots_23.p3[L].val = static_cast<typename UInt<1>::scalar_t>((static_cast<uint8_t>((static_cast<uint8_t>((((static_cast<uint8_t>((~static_cast<uint8_t>(_s_ldut$reset[L + 1].val))) & 0x1u)) & ((static_cast<uint8_t>(((_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$core$fp_pipeline$fp_issue_unit$slots_23$_T_47[L + 1].val) | ((static_cast<uint8_t>(((_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$core$fp_pipeline$fp_issue_unit$slots_23$_T_41[L + 1].val) | ((static_cast<uint8_t>(essent_select_word<uint32_t>(((static_cast<uint8_t>(_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$core$fp_pipeline$fp_issue_unit$slots_23$io_in_uop_valid[L + 1].val) & 0x1u)) != 0, static_cast<uint32_t>(_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$core$fp_pipeline$fp_issue_unit$slots_23$_T_24[L + 1].val), static_cast<uint32_t>(ldut.tile_prci_domain.tile_reset_domain.boom_tile.core.fp_pipeline.fp_issue_unit.slots_23.p3[L + 1].val))) & 0x1u)))) & 0x1u)))) & 0x1u)))) & 0x1u)) & 0x1u));
       }
     }
     // [vec comb] 5 templates x 16 lanes
@@ -6631,7 +6623,7 @@ void TestHarness::eval_reverse_p4(bool update_registers, bool verbose, bool done
         ESSENT_LANE_LOOP
         for (int L = 0; L < 16; L++) ldut.tile_prci_domain.tile_reset_domain.boom_tile.core.fp_pipeline.fpiu_unit.fdivsqrt.r_buffer_req_uop_br_mask[L] = _gv;
       } else {
-        for (int L = 14; L >= 0; L--) ldut.tile_prci_domain.tile_reset_domain.boom_tile.core.fp_pipeline.fpiu_unit.fdivsqrt.r_buffer_req_uop_br_mask[L] = _s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$core$fp_pipeline$fpiu_unit$fdivsqrt$_T_18[L + 1] ? _s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$core$fp_pipeline$fpiu_unit$fdivsqrt$_T_20[L + 1] : (ldut.tile_prci_domain.tile_reset_domain.boom_tile.core.fp_pipeline.fpiu_unit.fdivsqrt.r_buffer_req_uop_br_mask[L + 1] & _s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$core$fp_pipeline$fpiu_unit$fpu$_T_6[L + 1]);
+        for (int L = 14; L >= 0; L--) ldut.tile_prci_domain.tile_reset_domain.boom_tile.core.fp_pipeline.fpiu_unit.fdivsqrt.r_buffer_req_uop_br_mask[L].val = static_cast<typename UInt<16>::scalar_t>((static_cast<uint16_t>((static_cast<uint16_t>(essent_select_word<uint32_t>(((static_cast<uint16_t>(_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$core$fp_pipeline$fpiu_unit$fdivsqrt$_T_18[L + 1].val) & 0x1u)) != 0, static_cast<uint32_t>(_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$core$fp_pipeline$fpiu_unit$fdivsqrt$_T_20[L + 1].val), static_cast<uint32_t>((static_cast<uint16_t>(((ldut.tile_prci_domain.tile_reset_domain.boom_tile.core.fp_pipeline.fpiu_unit.fdivsqrt.r_buffer_req_uop_br_mask[L + 1].val) & (_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$core$fp_pipeline$fpiu_unit$fpu$_T_6[L + 1].val))) & 0xffffu)))) & 0xffffu)) & 0xffffu));
       }
     }
     // [vec comb] 3 templates x 16 lanes
@@ -6768,7 +6760,7 @@ void TestHarness::eval_reverse_p4(bool update_registers, bool verbose, bool done
         ESSENT_LANE_LOOP
         for (int L = 0; L < 16; L++) ldut.tile_prci_domain.tile_reset_domain.boom_tile.core.fp_pipeline.fpiu_unit.fdivsqrt.divsqrt.ds.divSqrtRecF64ToRaw.cycleNum_A[L] = _gv;
       } else {
-        for (int L = 14; L >= 0; L--) ldut.tile_prci_domain.tile_reset_domain.boom_tile.core.fp_pipeline.fpiu_unit.fdivsqrt.divsqrt.ds.divSqrtRecF64ToRaw.cycleNum_A[L] = _s_ldut$reset[L + 1] ? UInt<3>(0x0) : ((_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$core$fp_pipeline$fpiu_unit$fdivsqrt$divsqrt$ds$divSqrtRecF64ToRaw$entering_PA_normalCase[L + 1] | (ldut.tile_prci_domain.tile_reset_domain.boom_tile.core.fp_pipeline.fpiu_unit.fdivsqrt.divsqrt.ds.divSqrtRecF64ToRaw.cycleNum_A[L + 1] != UInt<3>(0x0))) ? (_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$core$fp_pipeline$fpiu_unit$fdivsqrt$divsqrt$ds$divSqrtRecF64ToRaw$_cycleNum_A_T_2[L + 1] | (_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$core$fp_pipeline$fpiu_unit$fdivsqrt$divsqrt$ds$divSqrtRecF64ToRaw$_cycleNum_A_T_3[L + 1] ? ((ldut.tile_prci_domain.tile_reset_domain.boom_tile.core.fp_pipeline.fpiu_unit.fdivsqrt.divsqrt.ds.divSqrtRecF64ToRaw.cycleNum_A[L + 1] - UInt<3>(0x1)).tail<1>()) : UInt<3>(0x0))) : ldut.tile_prci_domain.tile_reset_domain.boom_tile.core.fp_pipeline.fpiu_unit.fdivsqrt.divsqrt.ds.divSqrtRecF64ToRaw.cycleNum_A[L + 1]);
+        for (int L = 14; L >= 0; L--) ldut.tile_prci_domain.tile_reset_domain.boom_tile.core.fp_pipeline.fpiu_unit.fdivsqrt.divsqrt.ds.divSqrtRecF64ToRaw.cycleNum_A[L].val = static_cast<typename UInt<3>::scalar_t>((static_cast<uint8_t>((static_cast<uint8_t>(essent_select_word<uint32_t>(((static_cast<uint8_t>(_s_ldut$reset[L + 1].val) & 0x1u)) != 0, static_cast<uint32_t>((static_cast<uint8_t>(0x0u) & 0x7u)), static_cast<uint32_t>((static_cast<uint8_t>(essent_select_word<uint32_t>(((static_cast<uint8_t>((static_cast<uint8_t>(((_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$core$fp_pipeline$fpiu_unit$fdivsqrt$divsqrt$ds$divSqrtRecF64ToRaw$entering_PA_normalCase[L + 1].val) | ((static_cast<uint8_t>(((ldut.tile_prci_domain.tile_reset_domain.boom_tile.core.fp_pipeline.fpiu_unit.fdivsqrt.divsqrt.ds.divSqrtRecF64ToRaw.cycleNum_A[L + 1].val) != ((static_cast<uint8_t>(0x0u) & 0x7u)))) & 0x1u)))) & 0x1u)) & 0x1u)) != 0, static_cast<uint32_t>((static_cast<uint8_t>(((_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$core$fp_pipeline$fpiu_unit$fdivsqrt$divsqrt$ds$divSqrtRecF64ToRaw$_cycleNum_A_T_2[L + 1].val) | ((static_cast<uint8_t>(essent_select_word<uint32_t>(((static_cast<uint8_t>(_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$core$fp_pipeline$fpiu_unit$fdivsqrt$divsqrt$ds$divSqrtRecF64ToRaw$_cycleNum_A_T_3[L + 1].val) & 0x1u)) != 0, static_cast<uint32_t>((static_cast<uint8_t>((static_cast<uint8_t>((static_cast<uint8_t>((static_cast<uint8_t>(ldut.tile_prci_domain.tile_reset_domain.boom_tile.core.fp_pipeline.fpiu_unit.fdivsqrt.divsqrt.ds.divSqrtRecF64ToRaw.cycleNum_A[L + 1].val) - static_cast<uint8_t>((static_cast<uint8_t>(0x1u) & 0x7u)))) & 0xfu)) & 0x7u)) & 0x7u)), static_cast<uint32_t>((static_cast<uint8_t>(0x0u) & 0x7u)))) & 0x7u)))) & 0x7u)), static_cast<uint32_t>(ldut.tile_prci_domain.tile_reset_domain.boom_tile.core.fp_pipeline.fpiu_unit.fdivsqrt.divsqrt.ds.divSqrtRecF64ToRaw.cycleNum_A[L + 1].val))) & 0x7u)))) & 0x7u)) & 0x7u));
       }
     }
     // [vec comb] 16 templates x 16 lanes
@@ -6848,6 +6840,8 @@ void TestHarness::eval_reverse_p4(bool update_registers, bool verbose, bool done
     for (int L = 0; L < 16; L++) {
       _s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$core$fp_pipeline$fpiu_unit$fdivsqrt$divsqrt$ds$divSqrtRecF64ToRaw$_majorExc_PB_T[L].val = static_cast<typename UInt<1>::scalar_t>((static_cast<uint8_t>((static_cast<uint8_t>((((static_cast<uint8_t>(((ldut.tile_prci_domain.tile_reset_domain.boom_tile.core.fp_pipeline.fpiu_unit.fdivsqrt.divsqrt.ds.divSqrtRecF64ToRaw.valid_PA[L].val) & (ldut.tile_prci_domain.tile_reset_domain.boom_tile.core.fp_pipeline.fpiu_unit.fdivsqrt.divsqrt.ds.divSqrtRecF64ToRaw.majorExc_PA[L].val))) & 0x1u)) | ((static_cast<uint8_t>((((static_cast<uint8_t>((~static_cast<uint8_t>(ldut.tile_prci_domain.tile_reset_domain.boom_tile.core.fp_pipeline.fpiu_unit.fdivsqrt.divsqrt.ds.divSqrtRecF64ToRaw.valid_PA[L].val))) & 0x1u)) & (_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$core$fp_pipeline$fpiu_unit$fdivsqrt$divsqrt$ds$divSqrtRecF64ToRaw$majorExc_S[L].val))) & 0x1u)))) & 0x1u)) & 0x1u));
     }
+
+    if (partition_task_poll) partition_task_poll(partition_task_context, 4, false, 5);
     // [vec boundary-next] 1 templates x 16 lanes
     // [boundary next] 1 templates, two retained lanes
     { const int L = 0;
@@ -6856,8 +6850,6 @@ void TestHarness::eval_reverse_p4(bool update_registers, bool verbose, bool done
     { const int L = 15;
       _s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$core$fp_pipeline$fpiu_unit$fdivsqrt$divsqrt$ds$divSqrtRecF64ToRaw$majorExc_PA$next[((L) == 0 ? 0 : 1)].val = static_cast<typename UInt<1>::scalar_t>((static_cast<uint8_t>((static_cast<uint8_t>((((static_cast<uint8_t>(((_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$core$fp_pipeline$fpiu_unit$fdivsqrt$divsqrt$ds$divSqrtRecF64ToRaw$entering_PA[L].val) & (_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$core$fp_pipeline$fpiu_unit$fdivsqrt$divsqrt$ds$divSqrtRecF64ToRaw$majorExc_S[L].val))) & 0x1u)) | ((static_cast<uint8_t>((((static_cast<uint8_t>((~static_cast<uint8_t>(_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$core$fp_pipeline$fpiu_unit$fdivsqrt$divsqrt$ds$divSqrtRecF64ToRaw$entering_PA[L].val))) & 0x1u)) & (ldut.tile_prci_domain.tile_reset_domain.boom_tile.core.fp_pipeline.fpiu_unit.fdivsqrt.divsqrt.ds.divSqrtRecF64ToRaw.majorExc_PA[L].val))) & 0x1u)))) & 0x1u)) & 0x1u));
     }
-
-    if (partition_task_poll) partition_task_poll(partition_task_context, 4, false, 5);
     // [vec comb] 1 templates x 16 lanes
     ESSENT_LANE_LOOP
     for (int L = 0; L < 16; L++) {
@@ -6973,7 +6965,7 @@ void TestHarness::eval_reverse_p4(bool update_registers, bool verbose, bool done
         ESSENT_LANE_LOOP
         for (int L = 0; L < 16; L++) ldut.tile_prci_domain.tile_reset_domain.boom_tile.core.fp_pipeline.fpiu_unit.fdivsqrt.r_divsqrt_uop_br_mask[L] = _gv;
       } else {
-        for (int L = 14; L >= 0; L--) ldut.tile_prci_domain.tile_reset_domain.boom_tile.core.fp_pipeline.fpiu_unit.fdivsqrt.r_divsqrt_uop_br_mask[L] = _s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$core$fp_pipeline$fpiu_unit$fdivsqrt$_T_42[L + 1] ? _s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$core$fp_pipeline$fpiu_unit$fdivsqrt$_T_7[L + 1] : (ldut.tile_prci_domain.tile_reset_domain.boom_tile.core.fp_pipeline.fpiu_unit.fdivsqrt.r_divsqrt_uop_br_mask[L + 1] & _s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$core$fp_pipeline$fpiu_unit$fpu$_T_6[L + 1]);
+        for (int L = 14; L >= 0; L--) ldut.tile_prci_domain.tile_reset_domain.boom_tile.core.fp_pipeline.fpiu_unit.fdivsqrt.r_divsqrt_uop_br_mask[L].val = static_cast<typename UInt<16>::scalar_t>((static_cast<uint16_t>((static_cast<uint16_t>(essent_select_word<uint32_t>(((static_cast<uint16_t>(_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$core$fp_pipeline$fpiu_unit$fdivsqrt$_T_42[L + 1].val) & 0x1u)) != 0, static_cast<uint32_t>(_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$core$fp_pipeline$fpiu_unit$fdivsqrt$_T_7[L + 1].val), static_cast<uint32_t>((static_cast<uint16_t>(((ldut.tile_prci_domain.tile_reset_domain.boom_tile.core.fp_pipeline.fpiu_unit.fdivsqrt.r_divsqrt_uop_br_mask[L + 1].val) & (_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$core$fp_pipeline$fpiu_unit$fpu$_T_6[L + 1].val))) & 0xffffu)))) & 0xffffu)) & 0xffffu));
       }
     }
     // [vec comb] 2 templates x 16 lanes
@@ -7000,7 +6992,7 @@ void TestHarness::eval_reverse_p4(bool update_registers, bool verbose, bool done
         ESSENT_LANE_LOOP
         for (int L = 0; L < 16; L++) ldut.tile_prci_domain.tile_reset_domain.boom_tile.core.fp_pipeline.fpiu_unit.fdivsqrt.r_divsqrt_killed[L] = _gv;
       } else {
-        for (int L = 14; L >= 0; L--) ldut.tile_prci_domain.tile_reset_domain.boom_tile.core.fp_pipeline.fpiu_unit.fdivsqrt.r_divsqrt_killed[L] = _s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$core$fp_pipeline$fpiu_unit$fdivsqrt$_T_42[L + 1] ? _s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$core$fp_pipeline$fpiu_unit$fdivsqrt$_T_45[L + 1] : ((ldut.tile_prci_domain.tile_reset_domain.boom_tile.core.fp_pipeline.fpiu_unit.fdivsqrt.r_divsqrt_killed[L + 1] | _s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$core$fp_pipeline$fpiu_unit$fdivsqrt$_T_37[L + 1]) | ldut.tile_prci_domain.tile_reset_domain.boom_tile.core.REG_32[L + 1]);
+        for (int L = 14; L >= 0; L--) ldut.tile_prci_domain.tile_reset_domain.boom_tile.core.fp_pipeline.fpiu_unit.fdivsqrt.r_divsqrt_killed[L].val = static_cast<typename UInt<1>::scalar_t>((static_cast<uint8_t>((static_cast<uint8_t>(essent_select_word<uint32_t>(((static_cast<uint8_t>(_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$core$fp_pipeline$fpiu_unit$fdivsqrt$_T_42[L + 1].val) & 0x1u)) != 0, static_cast<uint32_t>(_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$core$fp_pipeline$fpiu_unit$fdivsqrt$_T_45[L + 1].val), static_cast<uint32_t>((static_cast<uint8_t>((((static_cast<uint8_t>(((ldut.tile_prci_domain.tile_reset_domain.boom_tile.core.fp_pipeline.fpiu_unit.fdivsqrt.r_divsqrt_killed[L + 1].val) | (_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$core$fp_pipeline$fpiu_unit$fdivsqrt$_T_37[L + 1].val))) & 0x1u)) | (ldut.tile_prci_domain.tile_reset_domain.boom_tile.core.REG_32[L + 1].val))) & 0x1u)))) & 0x1u)) & 0x1u));
       }
     }
     // [vec boundary-next] 1 templates x 16 lanes
@@ -7026,6 +7018,8 @@ void TestHarness::eval_reverse_p4(bool update_registers, bool verbose, bool done
     // [serial scc=389] 1 templates (0 comb), regs=[r_divsqrt_uop_pdst]
     // [serial scc=389 chain-loop]
     essent_condhold_apply_rev<16>(ldut.tile_prci_domain.tile_reset_domain.boom_tile.core.fp_pipeline.fpiu_unit.fdivsqrt.r_divsqrt_uop_pdst, _v2_cond_idx_51, _s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$core$fp_pipeline$fpiu_unit$fdivsqrt$r_divsqrt_uop_pdst$wdata);
+
+    if (partition_task_poll) partition_task_poll(partition_task_context, 4, false, 5);
     // [vec boundary-next] 1 templates x 16 lanes
     // [boundary next] 1 templates, two retained lanes
     { const int L = 0;
@@ -7037,8 +7031,6 @@ void TestHarness::eval_reverse_p4(bool update_registers, bool verbose, bool done
     // [serial scc=390] 1 templates (0 comb), regs=[r_divsqrt_uop_dst_rtype]
     // [serial scc=390 chain-loop]
     essent_condhold_apply_rev<16>(ldut.tile_prci_domain.tile_reset_domain.boom_tile.core.fp_pipeline.fpiu_unit.fdivsqrt.r_divsqrt_uop_dst_rtype, _v2_cond_idx_51, _s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$core$fp_pipeline$fpiu_unit$fdivsqrt$r_divsqrt_uop_dst_rtype$wdata);
-
-    if (partition_task_poll) partition_task_poll(partition_task_context, 4, false, 5);
     // [vec boundary-next] 1 templates x 16 lanes
     // [boundary next] 1 templates, two retained lanes
     { const int L = 0;
@@ -7144,6 +7136,8 @@ void TestHarness::eval_reverse_p4(bool update_registers, bool verbose, bool done
     // [serial scc=395 chain-loop]
     essent_condhold_index_rev<16>(_v2_cond_idx_53, _s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$core$fp_pipeline$fpiu_unit$fdivsqrt$divsqrt$ds$divSqrtRecF64ToRaw$sExp_PA$wen);
     essent_condhold_apply_rev<16>(ldut.tile_prci_domain.tile_reset_domain.boom_tile.core.fp_pipeline.fpiu_unit.fdivsqrt.divsqrt.ds.divSqrtRecF64ToRaw.sExp_PA, _v2_cond_idx_53, _s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$core$fp_pipeline$fpiu_unit$fdivsqrt$divsqrt$ds$divSqrtRecF64ToRaw$sExp_PA$wdata);
+
+    if (partition_task_poll) partition_task_poll(partition_task_context, 4, false, 5);
     // [vec comb] 3 templates x 16 lanes
     ESSENT_LANE_LOOP
     for (int L = 0; L < 16; L++) {
@@ -7151,8 +7145,6 @@ void TestHarness::eval_reverse_p4(bool update_registers, bool verbose, bool done
       _s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$core$fp_pipeline$fpiu_unit$fdivsqrt$divsqrt$ds$divSqrtRecF64ToRaw$_zQuadPiece_0_A6_sqrt_T_2[L].val = static_cast<typename UInt<1>::scalar_t>((static_cast<uint8_t>((static_cast<uint8_t>(((_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$core$fp_pipeline$fpiu_unit$fdivsqrt$divsqrt$ds$divSqrtRecF64ToRaw$cyc_A6_sqrt[L].val) & ((static_cast<uint8_t>((~static_cast<uint8_t>(_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$core$fp_pipeline$fpiu_unit$fdivsqrt$divsqrt$ds$divSqrtRecF64ToRaw$_zQuadPiece_0_A6_sqrt_T[L].val))) & 0x1u)))) & 0x1u)) & 0x1u));
       _s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$core$fp_pipeline$fpiu_unit$fdivsqrt$divsqrt$ds$divSqrtRecF64ToRaw$_zQuadPiece_2_A6_sqrt_T_1[L].val = static_cast<typename UInt<1>::scalar_t>((static_cast<uint8_t>((static_cast<uint8_t>(((_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$core$fp_pipeline$fpiu_unit$fdivsqrt$divsqrt$ds$divSqrtRecF64ToRaw$cyc_A6_sqrt[L].val) & (_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$core$fp_pipeline$fpiu_unit$fdivsqrt$divsqrt$ds$divSqrtRecF64ToRaw$_zQuadPiece_0_A6_sqrt_T[L].val))) & 0x1u)) & 0x1u));
     }
-
-    if (partition_task_poll) partition_task_poll(partition_task_context, 4, false, 5);
     // [vec boundary-next] 1 templates x 16 lanes
     // [boundary next] 1 templates, two retained lanes
     { const int L = 0;
@@ -7236,6 +7228,8 @@ void TestHarness::eval_reverse_p4(bool update_registers, bool verbose, bool done
     // [serial scc=397] 1 templates (0 comb), regs=[fractB_PB]
     // [serial scc=397 chain-loop]
     essent_condhold_apply_rev<16>(ldut.tile_prci_domain.tile_reset_domain.boom_tile.core.fp_pipeline.fpiu_unit.fdivsqrt.divsqrt.ds.divSqrtRecF64ToRaw.fractB_PB, _v2_cond_idx_55, _s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$core$fp_pipeline$fpiu_unit$fdivsqrt$divsqrt$ds$divSqrtRecF64ToRaw$fractB_PB$wdata);
+
+    if (partition_task_poll) partition_task_poll(partition_task_context, 4, false, 5);
     // [vec boundary-next] 1 templates x 16 lanes
     // [boundary next] 1 templates, two retained lanes
     { const int L = 0;
@@ -7244,8 +7238,6 @@ void TestHarness::eval_reverse_p4(bool update_registers, bool verbose, bool done
     { const int L = 15;
       _s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$core$fp_pipeline$fpiu_unit$fdivsqrt$divsqrt$ds$divSqrtRecF64ToRaw$fractB_PB$next[((L) == 0 ? 0 : 1)].val = static_cast<typename UInt<52>::scalar_t>((static_cast<uint64_t>((static_cast<uint64_t>((((ldut.tile_prci_domain.tile_reset_domain.boom_tile.core.fp_pipeline.fpiu_unit.fdivsqrt.divsqrt.ds.divSqrtRecF64ToRaw.fractB_PA[L].val) & ((uint64_t)0 - (uint64_t)(((static_cast<uint64_t>(_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$core$fp_pipeline$fpiu_unit$fdivsqrt$divsqrt$ds$divSqrtRecF64ToRaw$entering_PB_normalCase[L].val) & 0x1ULL)) != 0))) | ((ldut.tile_prci_domain.tile_reset_domain.boom_tile.core.fp_pipeline.fpiu_unit.fdivsqrt.divsqrt.ds.divSqrtRecF64ToRaw.fractB_PB[L].val) & ~((uint64_t)0 - (uint64_t)(((static_cast<uint64_t>(_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$core$fp_pipeline$fpiu_unit$fdivsqrt$divsqrt$ds$divSqrtRecF64ToRaw$entering_PB_normalCase[L].val) & 0x1ULL)) != 0))))) & 0xfffffffffffffULL)) & 0xfffffffffffffULL));
     }
-
-    if (partition_task_poll) partition_task_poll(partition_task_context, 4, false, 5);
     // [vec comb] 1 templates x 16 lanes
     ESSENT_LANE_LOOP
     for (int L = 0; L < 16; L++) {
@@ -7398,6 +7390,8 @@ void TestHarness::eval_reverse_p4(bool update_registers, bool verbose, bool done
     // [serial scc=831] 1 templates (0 comb), regs=[mulAddRecFNToRaw_postMul_io_fromPreMul_b_isSigNaNAny]
     // [serial scc=831 chain-loop]
     essent_condhold_apply_rev<16>(ldut.tile_prci_domain.tile_reset_domain.boom_tile.core.fp_pipeline.fpiu_unit.fpu.fpu.dfma.fma.mulAddRecFNToRaw_postMul_io_fromPreMul_b_isSigNaNAny, _v2_cond_idx_42, _s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$core$fp_pipeline$fpiu_unit$fpu$fpu$dfma$fma$mulAddRecFNToRaw_postMul_io_fromPreMul_b_isSigNaNAny$wdata);
+
+    if (partition_task_poll) partition_task_poll(partition_task_context, 4, false, 5);
     // [vec boundary-next] 1 templates x 16 lanes
     // [boundary next] 1 templates, two retained lanes
     { const int L = 0;
@@ -7409,8 +7403,6 @@ void TestHarness::eval_reverse_p4(bool update_registers, bool verbose, bool done
     // [serial scc=832] 1 templates (0 comb), regs=[mulAddRecFNToRaw_postMul_io_fromPreMul_b_isNaNAOrB]
     // [serial scc=832 chain-loop]
     essent_condhold_apply_rev<16>(ldut.tile_prci_domain.tile_reset_domain.boom_tile.core.fp_pipeline.fpiu_unit.fpu.fpu.dfma.fma.mulAddRecFNToRaw_postMul_io_fromPreMul_b_isNaNAOrB, _v2_cond_idx_42, _s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$core$fp_pipeline$fpiu_unit$fpu$fpu$dfma$fma$mulAddRecFNToRaw_postMul_io_fromPreMul_b_isNaNAOrB$wdata);
-
-    if (partition_task_poll) partition_task_poll(partition_task_context, 4, false, 5);
     // [vec boundary-next] 1 templates x 16 lanes
     // [boundary next] 1 templates, two retained lanes
     { const int L = 0;
