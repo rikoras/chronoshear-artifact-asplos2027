@@ -29,16 +29,16 @@ COMPILER_BAR_COLORS=(BLUE,GRAPHITE,CRIMSON)
 
 
 def configure_rc_params(plt,serif_fonts:Sequence[str]|None=None,*,font_size=9):
-    """Use the paper's Times font from the bundled font files."""
+    """Use the bundled Liberation Serif, a Times-compatible font under the SIL OFL."""
     from matplotlib import font_manager
     for font in (Path(__file__).resolve().parents[2]/'deps/fonts').glob('*.ttf'):
         font_manager.fontManager.addfont(str(font))
-    font_manager.findfont(font_manager.FontProperties(family='Times New Roman'),fallback_to_default=False)
+    font_manager.findfont(font_manager.FontProperties(family='Liberation Serif'),fallback_to_default=False)
     plt.rcParams.update({
-        'font.family':'Times New Roman','font.size':font_size,
-        'mathtext.fontset':'custom','mathtext.rm':'Times New Roman',
-        'mathtext.it':'Times New Roman:italic','mathtext.bf':'Times New Roman:bold',
-        'mathtext.cal':'Times New Roman',
+        'font.family':'Liberation Serif','font.size':font_size,
+        'mathtext.fontset':'custom','mathtext.rm':'Liberation Serif',
+        'mathtext.it':'Liberation Serif:italic','mathtext.bf':'Liberation Serif:bold',
+        'mathtext.cal':'Liberation Serif',
         'axes.labelsize':font_size+.5,'axes.titlesize':font_size+.5,'axes.titleweight':'normal',
         'axes.titlecolor':LABEL_COLOR,'axes.labelcolor':LABEL_COLOR,'text.color':TEXT_COLOR,
         'xtick.labelsize':font_size-.5,'ytick.labelsize':font_size-.5,

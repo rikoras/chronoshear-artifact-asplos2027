@@ -57,6 +57,8 @@ results/                Measurements, CSV summaries and figures
 .build/                 Objects and build logs, created when rebuilding
 BUILD.json              Compilation commands and compiler settings
 EXPERIMENTS.json        Workloads, simulation commands and checking criteria
+LICENSE                 License of ChronoShear (BSD 3-Clause)
+licenses/               Licenses of the included third-party components
 ```
 
 The DUT directory names are `aes`, `matmul`, `sodor`, `rocket`, `boom-small`,
@@ -159,7 +161,7 @@ The experiment scripts read executable and workload selections from
 `inputs/<dut>/`. AES and MatMul generate cipher inputs and matrices inside their
 drivers. Experiments write only their selected result directories; they do not
 recompile or change source, inputs or binaries. Plotting uses the paper's
-plotting functions, fonts and colors, with all dependencies included offline.
+plotting functions and colors, with all dependencies included offline.
 
 ### Overall performance — Figure 6
 

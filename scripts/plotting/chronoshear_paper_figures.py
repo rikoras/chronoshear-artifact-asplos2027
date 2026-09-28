@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Paper figure functions with the shared Times/blue-gray/crimson theme."""
+"""Paper figure functions with the shared serif, blue-gray and crimson theme."""
 import math
 import chronoshear_plot_theme as theme
 import matplotlib
