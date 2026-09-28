@@ -19,7 +19,7 @@ PROCESSORS = ('rocket', *BOOMS)
 def generate(dut):
     if dut not in PROCESSORS:
         raise ValueError('Architectural checks are available for Rocket and BOOM')
-    from chronoshear_verilator import run, remove_graph_dumps, generate as generate_baseline
+    from chronoshear_verilator import run, generate as generate_baseline
     if dut == 'rocket':
         if not (ROOT/'generated/rocket/verilator1/VTestHarness___024root.h').is_file():
             generate_baseline(dut)
@@ -45,12 +45,9 @@ def generate(dut):
     extras = [inputs/'blackboxes'/name for name in
               ('AsyncResetReg.v', 'EICG_wrapper.v', 'plusarg_reader.v', 'SimJTAG.v')
               if (inputs/'blackboxes'/name).is_file()]
-    try:
-        run([*binding(), runtime/'bin/verilator', *flags, output/'TestHarness.v',
-             output/'SimDTM.v', *extras], logs/'architecture-verilator.log', cwd=ROOT,
-            env={**os.environ, 'VERILATOR_ROOT':str(runtime)})
-    finally:
-        remove_graph_dumps()
+    run([*binding(), runtime/'bin/verilator', *flags, output/'TestHarness.v',
+         output/'SimDTM.v', *extras], logs/'architecture-verilator.log', cwd=ROOT,
+        env={**os.environ, 'VERILATOR_ROOT':str(runtime)})
     run([*prepare, '--root-header', output/'VTestHarness___024root.h'],
         logs/'architecture-fields.log', cwd=ROOT)
     print('ARCHITECTURE GENERATED', dut, flush=True)

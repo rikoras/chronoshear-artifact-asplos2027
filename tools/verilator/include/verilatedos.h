@@ -457,13 +457,11 @@ using ssize_t = uint32_t;  ///< signed size_t; returned from read()
 #define VL_NOT_FINAL
 
 // Declare a class as uncopyable; put after a private:
-//Rikora：禁止传入引用的深拷贝构造/赋值
 #define VL_UNCOPYABLE(Type) \
     Type(const Type& other) = delete; \
     Type& operator=(const Type&) = delete
 
 // Declare a class as unmovable; put after a private:
-//Rikora：禁止传入右值引用的深拷贝构造/赋值
 #define VL_UNMOVABLE(Type) \
     Type(Type&& other) = delete; \
     Type& operator=(Type&&) = delete
@@ -666,7 +664,6 @@ public:
     explicit DeltaWallTime(bool startit) {
         if (startit) start();
     }
-    //Rikora：m_start = member_start
     void start() VL_MT_SAFE { m_start = gettime(); }  // Start timer; record current time
     double deltaTime() const VL_MT_SAFE {  // Return time between now and start()
         return (m_start == 0.0) ? 0.0 : gettime() - m_start;

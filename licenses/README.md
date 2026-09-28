@@ -9,7 +9,7 @@ artifact are distributed under their own licenses:
 | --- | --- | --- | --- |
 | ESSENT and its firrtl-sig runtime headers | `source/compiler/`, `source/runtime/`, `tools/chronoshear.jar`, `bin/*-essent-1t` | BSD-3-Clause (LBNL) | `ESSENT.txt` |
 | RepCut (H. Wang and S. Beamer, [doi:10.5281/zenodo.7707389](https://doi.org/10.5281/zenodo.7707389)) | `bin/*-repcut-*`, `generated/boom-large/repcut*/` | [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/) | — |
-| Verilator | `tools/verilator/`, `generated/*/verilator*/`, `generated/*/architecture/`, `bin/*-verilator-*`, `bin/chronoshear-architecture-*` | Artistic-2.0 or LGPL-3.0-only | `Verilator-Artistic-2.0.txt`, `Verilator-LGPL-3.0.txt` |
+| Verilator (upstream commit [`5cca1b101`](https://github.com/verilator/verilator/tree/5cca1b101)) | `tools/verilator/`, `generated/*/verilator*/`, `generated/*/architecture/`, `bin/*-verilator-*`, `bin/chronoshear-architecture-*` | Artistic-2.0 or LGPL-3.0-only | `Verilator-Artistic-2.0.txt`, `Verilator-LGPL-3.0.txt` |
 | LLVM lld 19 | `tools/llvm/` | Apache-2.0 WITH LLVM-exception | `LLVM-lld.txt` |
 | Scala 2.13 | `deps/scala/`, `deps/compiler-libraries.jar` | Apache-2.0 | `Scala.txt`, `Scala-NOTICE.txt` |
 | FIRRTL, Chisel | `deps/compiler-libraries.jar` | Apache-2.0 | `FIRRTL.txt`, `Chisel.txt` |

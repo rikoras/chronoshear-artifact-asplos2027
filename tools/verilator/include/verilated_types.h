@@ -181,17 +181,9 @@ public:
     // Set all elements to false
     void clear() { m_flags.fill(0); }
 
-    // Reference to element at 'index'
-    bool at(size_t index) const { return m_flags.at(index); }
-
-    bool empty() const { return !any(); }
-
     // Word at given 'wordIndex'
     uint64_t word(size_t wordIndex) const { return m_flags[wordIndex]; }
 
-    void set(uint32_t index, bool value) { m_flags[index] = value; }
-
-    
     // Set specified word to given value
     void setWord(size_t wordIndex, uint64_t value) { m_flags[wordIndex] = value; }
 
