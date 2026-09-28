@@ -11,9 +11,6 @@ execute them in parallel and accelerate RTL simulation.
 
 ChronoShear is an RTL simulator that runs on x86 CPUs and uses AVX-512 instructions to accelerate simulation. A host CPU with AVX-512 support is therefore required. We recommend a system with at least 12 CPU cores to run the full artifact. We provide access to a T550 server with a copy of this repository and prebuilt binaries. Instructions for accessing the server are provided below.
 
-
-6:47
-
 ## Access to the prepared host
 
 
