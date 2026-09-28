@@ -39,7 +39,7 @@ static inline __attribute__((always_inline)) T essent_index_or_seed(
   return *essent_select_ptr(valid, values + safe_index, &seed);
 }
 
-// W32 scalar fields fit in one to four vector registers. Table permutation
+// W16/W32 scalar fields fit in one to four vector registers. Table permutation
 // avoids indexed loads and per-lane branches; negative indices select seed.
 // The boundary lane is written back with its original value.
 template<int W, typename T>
@@ -93,6 +93,46 @@ static inline bool essent_hold_permute(T* output, const int16_t* indices,
             _mm512_permutex2var_epi64(a, index, b), _mm512_permutex2var_epi64(c, index, d));
         _mm512_storeu_si512(output + base,
             _mm512_mask_mov_epi64(_mm512_set1_epi64(static_cast<long long>(bits)), valid, picked));
+      }
+      return true;
+    }
+  } else if constexpr (W == 16 && std::is_trivially_copyable<T>::value &&
+                       (sizeof(T) == 1 || sizeof(T) == 2 || sizeof(T) == 4 || sizeof(T) == 8)) {
+    // W16 fields: 16 to 128 bytes, one or two vector registers.
+    uint64_t bits = 0;
+    std::memcpy(&bits, &seed, sizeof(T));
+    const __m256i index = _mm256_loadu_si256(reinterpret_cast<const __m256i*>(indices));
+    const __mmask16 valid = _mm256_cmpge_epi16_mask(index, _mm256_setzero_si256());
+    if constexpr (sizeof(T) == 1) {
+#if defined(__AVX512VBMI__)
+      const __m128i picked = _mm_permutexvar_epi8(_mm256_cvtepi16_epi8(index),
+          _mm_loadu_si128(reinterpret_cast<const __m128i*>(values)));
+      _mm_storeu_si128(reinterpret_cast<__m128i*>(output),
+          _mm_mask_mov_epi8(_mm_set1_epi8(static_cast<char>(bits)), valid, picked));
+      return true;
+#endif
+    } else if constexpr (sizeof(T) == 2) {
+      const __m256i picked = _mm256_permutexvar_epi16(index,
+          _mm256_loadu_si256(reinterpret_cast<const __m256i*>(values)));
+      _mm256_storeu_si256(reinterpret_cast<__m256i*>(output),
+          _mm256_mask_mov_epi16(_mm256_set1_epi16(static_cast<short>(bits)), valid, picked));
+      return true;
+    } else if constexpr (sizeof(T) == 4) {
+      const __m512i picked = _mm512_permutexvar_epi32(_mm512_cvtepi16_epi32(index),
+          _mm512_loadu_si512(values));
+      _mm512_storeu_si512(output,
+          _mm512_mask_mov_epi32(_mm512_set1_epi32(static_cast<int>(bits)), valid, picked));
+      return true;
+    } else {
+      const __m512i a = _mm512_loadu_si512(values);
+      const __m512i b = _mm512_loadu_si512(values + 8);
+      for (int base = 0; base < 16; base += 8) {
+        const __m512i wide = _mm512_cvtepi16_epi64(
+            _mm_loadu_si128(reinterpret_cast<const __m128i*>(indices + base)));
+        const __mmask8 lanes = static_cast<__mmask8>(valid >> base);
+        _mm512_storeu_si512(output + base, _mm512_mask_mov_epi64(
+            _mm512_set1_epi64(static_cast<long long>(bits)), lanes,
+            _mm512_permutex2var_epi64(a, wide, b)));
       }
       return true;
     }

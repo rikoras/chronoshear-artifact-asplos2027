@@ -54114,7 +54114,7 @@ typedef struct TestHarness {
         const int64_t _end = _max < _hi ? _max : _hi;
         uint64_t _count = 0;
         uint64_t _chronoshear_signals = 0;
-        ESSENT_LANE_LOOP
+        ESSENT_TAIL_LOOP
         for (int64_t L = _begin; L < _end; ++L) {
           const int64_t _other = L + (_forward ? 1 : -1);
           const uint64_t _chronoshear_mismatch_0 = (uint64_t)(!(_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$core$rob$rob_pnr$next[L] == ldut.tile_prci_domain.tile_reset_domain.boom_tile.core.rob.rob_pnr[_other]));
@@ -54225,7 +54225,7 @@ typedef struct TestHarness {
         const int64_t _end = _max < _hi ? _max : _hi;
         uint64_t _count = 0;
         uint64_t _chronoshear_signals = 0;
-        ESSENT_LANE_LOOP
+        ESSENT_TAIL_LOOP
         for (int64_t L = _begin; L < _end; ++L) {
           const int64_t _other = L + (_forward ? 1 : -1);
           const uint64_t _chronoshear_mismatch_0 = (uint64_t)(!(_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$lsu$ldq__v2_bank_1_6$next[L] == _v2_bank_ldut$tile_prci_domain$tile_reset_domain$boom_tile$lsu$ldq__v2_bank_1_6[_other]));
@@ -54336,7 +54336,7 @@ typedef struct TestHarness {
         const int64_t _end = _max < _hi ? _max : _hi;
         uint64_t _count = 0;
         uint64_t _chronoshear_signals = 0;
-        ESSENT_LANE_LOOP
+        ESSENT_TAIL_LOOP
         for (int64_t L = _begin; L < _end; ++L) {
           const int64_t _other = L + (_forward ? 1 : -1);
           const uint64_t _chronoshear_mismatch_0 = (uint64_t)(!(_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$core$fp_rename_stage$REG_1_dst_rtype$next[L] == ldut.tile_prci_domain.tile_reset_domain.boom_tile.core.fp_rename_stage.REG_1_dst_rtype[_other]));
@@ -54447,7 +54447,7 @@ typedef struct TestHarness {
         const int64_t _end = _max < _hi ? _max : _hi;
         uint64_t _count = 0;
         uint64_t _chronoshear_signals = 0;
-        ESSENT_LANE_LOOP
+        ESSENT_TAIL_LOOP
         for (int64_t L = _begin; L < _end; ++L) {
           const int64_t _other = L + (_forward ? 1 : -1);
           const uint64_t _chronoshear_mismatch_0 = (uint64_t)(!(_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$core$rob$rob_val_1_9$next[L] == ldut.tile_prci_domain.tile_reset_domain.boom_tile.core.rob.rob_val_1_9[_other]));
@@ -54558,7 +54558,7 @@ typedef struct TestHarness {
         const int64_t _end = _max < _hi ? _max : _hi;
         uint64_t _count = 0;
         uint64_t _chronoshear_signals = 0;
-        ESSENT_LANE_LOOP
+        ESSENT_TAIL_LOOP
         for (int64_t L = _begin; L < _end; ++L) {
           const int64_t _other = L + (_forward ? 1 : -1);
           const uint64_t _chronoshear_mismatch_0 = (uint64_t)(!(_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$core$rob$rob_val_1_12$next[L] == ldut.tile_prci_domain.tile_reset_domain.boom_tile.core.rob.rob_val_1_12[_other]));
@@ -54669,7 +54669,7 @@ typedef struct TestHarness {
         const int64_t _end = _max < _hi ? _max : _hi;
         uint64_t _count = 0;
         uint64_t _chronoshear_signals = 0;
-        ESSENT_LANE_LOOP
+        ESSENT_TAIL_LOOP
         for (int64_t L = _begin; L < _end; ++L) {
           const int64_t _other = L + (_forward ? 1 : -1);
           const uint64_t _chronoshear_mismatch_0 = (uint64_t)(!(_s_ldut$subsystem_mbus$coupler_to_memory_controller_port_named_axi4$axi4yank$QueueCompatibility_9$deq_ptr_value$next[L] == ldut.subsystem_mbus.coupler_to_memory_controller_port_named_axi4.axi4yank.QueueCompatibility_9.deq_ptr_value[_other]));
@@ -54780,7 +54780,7 @@ typedef struct TestHarness {
         const int64_t _end = _max < _hi ? _max : _hi;
         uint64_t _count = 0;
         uint64_t _chronoshear_signals = 0;
-        ESSENT_LANE_LOOP
+        ESSENT_TAIL_LOOP
         for (int64_t L = _begin; L < _end; ++L) {
           const int64_t _other = L + (_forward ? 1 : -1);
           const uint64_t _chronoshear_mismatch_0 = (uint64_t)(!(_s_ldut$subsystem_mbus$coupler_to_memory_controller_port_named_axi4$axi4yank$QueueCompatibility_1$$inst$maybe_full$next[L] == ldut.subsystem_mbus.coupler_to_memory_controller_port_named_axi4.axi4yank.QueueCompatibility_1$$inst.maybe_full[_other]));
@@ -54891,7 +54891,7 @@ typedef struct TestHarness {
         const int64_t _end = _max < _hi ? _max : _hi;
         uint64_t _count = 0;
         uint64_t _chronoshear_signals = 0;
-        ESSENT_LANE_LOOP
+        ESSENT_TAIL_LOOP
         for (int64_t L = _begin; L < _end; ++L) {
           const int64_t _other = L + (_forward ? 1 : -1);
           const uint64_t _chronoshear_mismatch_0 = (uint64_t)(!(_s_ldut$subsystem_mbus$coupler_to_memory_controller_port_named_axi4$axi4yank$QueueCompatibility_20$deq_ptr_value$next[L] == ldut.subsystem_mbus.coupler_to_memory_controller_port_named_axi4.axi4yank.QueueCompatibility_20.deq_ptr_value[_other]));
@@ -55002,7 +55002,7 @@ typedef struct TestHarness {
         const int64_t _end = _max < _hi ? _max : _hi;
         uint64_t _count = 0;
         uint64_t _chronoshear_signals = 0;
-        ESSENT_LANE_LOOP
+        ESSENT_TAIL_LOOP
         for (int64_t L = _begin; L < _end; ++L) {
           const int64_t _other = L + (_forward ? 1 : -1);
           const uint64_t _chronoshear_mismatch_0 = (uint64_t)(!(_s_ldut$subsystem_sbus$coupler_to_port_named_mmio_port_axi4$axi4yank$QueueCompatibility_7$maybe_full$next[L] == ldut.subsystem_sbus.coupler_to_port_named_mmio_port_axi4.axi4yank.QueueCompatibility_7.maybe_full[_other]));
@@ -55113,7 +55113,7 @@ typedef struct TestHarness {
         const int64_t _end = _max < _hi ? _max : _hi;
         uint64_t _count = 0;
         uint64_t _chronoshear_signals = 0;
-        ESSENT_LANE_LOOP
+        ESSENT_TAIL_LOOP
         for (int64_t L = _begin; L < _end; ++L) {
           const int64_t _other = L + (_forward ? 1 : -1);
           const uint64_t _chronoshear_mismatch_0 = (uint64_t)(!(_s_ldut$subsystem_sbus$coupler_to_port_named_mmio_port_axi4$axi4deint$qs_queue_0$maybe_full$next[L] == ldut.subsystem_sbus.coupler_to_port_named_mmio_port_axi4.axi4deint.qs_queue_0.maybe_full[_other]));
@@ -55224,7 +55224,7 @@ typedef struct TestHarness {
         const int64_t _end = _max < _hi ? _max : _hi;
         uint64_t _count = 0;
         uint64_t _chronoshear_signals = 0;
-        ESSENT_LANE_LOOP
+        ESSENT_TAIL_LOOP
         for (int64_t L = _begin; L < _end; ++L) {
           const int64_t _other = L + (_forward ? 1 : -1);
           const uint64_t _chronoshear_mismatch_0 = (uint64_t)(!(_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$core$rename_stage$REG_1_fu_code$next[L] == ldut.tile_prci_domain.tile_reset_domain.boom_tile.core.rename_stage.REG_1_fu_code[_other]));
@@ -55335,7 +55335,7 @@ typedef struct TestHarness {
         const int64_t _end = _max < _hi ? _max : _hi;
         uint64_t _count = 0;
         uint64_t _chronoshear_signals = 0;
-        ESSENT_LANE_LOOP
+        ESSENT_TAIL_LOOP
         for (int64_t L = _begin; L < _end; ++L) {
           const int64_t _other = L + (_forward ? 1 : -1);
           const uint64_t _chronoshear_mismatch_0 = (uint64_t)(!(_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$core$rename_stage$REG_3_br_tag$next[L] == ldut.tile_prci_domain.tile_reset_domain.boom_tile.core.rename_stage.REG_3_br_tag[_other]));
@@ -55446,7 +55446,7 @@ typedef struct TestHarness {
         const int64_t _end = _max < _hi ? _max : _hi;
         uint64_t _count = 0;
         uint64_t _chronoshear_signals = 0;
-        ESSENT_LANE_LOOP
+        ESSENT_TAIL_LOOP
         for (int64_t L = _begin; L < _end; ++L) {
           const int64_t _other = L + (_forward ? 1 : -1);
           const uint64_t _chronoshear_mismatch_0 = (uint64_t)(!(_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$core$int_issue_unit$slots_16$p2$next[L] == ldut.tile_prci_domain.tile_reset_domain.boom_tile.core.int_issue_unit.slots_16.p2[_other]));
@@ -55557,7 +55557,7 @@ typedef struct TestHarness {
         const int64_t _end = _max < _hi ? _max : _hi;
         uint64_t _count = 0;
         uint64_t _chronoshear_signals = 0;
-        ESSENT_LANE_LOOP
+        ESSENT_TAIL_LOOP
         for (int64_t L = _begin; L < _end; ++L) {
           const int64_t _other = L + (_forward ? 1 : -1);
           const uint64_t _chronoshear_mismatch_0 = (uint64_t)(!(_s_ldut$subsystem_cbus$fixer$flight__v2_bank_0_0$next[L] == _v2_bank_ldut$subsystem_cbus$fixer$flight__v2_bank_0_0[_other]));
@@ -55668,7 +55668,7 @@ typedef struct TestHarness {
         const int64_t _end = _max < _hi ? _max : _hi;
         uint64_t _count = 0;
         uint64_t _chronoshear_signals = 0;
-        ESSENT_LANE_LOOP
+        ESSENT_TAIL_LOOP
         for (int64_t L = _begin; L < _end; ++L) {
           const int64_t _other = L + (_forward ? 1 : -1);
           const uint64_t _chronoshear_mismatch_0 = (uint64_t)(!(_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$core$int_issue_unit$slots_8$p1_poisoned$next[L] == ldut.tile_prci_domain.tile_reset_domain.boom_tile.core.int_issue_unit.slots_8.p1_poisoned[_other]));
@@ -55779,7 +55779,7 @@ typedef struct TestHarness {
         const int64_t _end = _max < _hi ? _max : _hi;
         uint64_t _count = 0;
         uint64_t _chronoshear_signals = 0;
-        ESSENT_LANE_LOOP
+        ESSENT_TAIL_LOOP
         for (int64_t L = _begin; L < _end; ++L) {
           const int64_t _other = L + (_forward ? 1 : -1);
           const uint64_t _chronoshear_mismatch_0 = (uint64_t)(!(_s_ldut$subsystem_cbus$coupler_to_bootrom$fragmenter$repeater$full$next[L] == ldut.subsystem_cbus.coupler_to_bootrom.fragmenter.repeater.full[_other]));
@@ -55890,7 +55890,7 @@ typedef struct TestHarness {
         const int64_t _end = _max < _hi ? _max : _hi;
         uint64_t _count = 0;
         uint64_t _chronoshear_signals = 0;
-        ESSENT_LANE_LOOP
+        ESSENT_TAIL_LOOP
         for (int64_t L = _begin; L < _end; ++L) {
           const int64_t _other = L + (_forward ? 1 : -1);
           const uint64_t _chronoshear_mismatch_0 = (uint64_t)(!(_s_ldut$subsystem_cbus$coupler_to_clint$fragmenter$gennum$next[L] == ldut.subsystem_cbus.coupler_to_clint.fragmenter.gennum[_other]));
@@ -56001,7 +56001,7 @@ typedef struct TestHarness {
         const int64_t _end = _max < _hi ? _max : _hi;
         uint64_t _count = 0;
         uint64_t _chronoshear_signals = 0;
-        ESSENT_LANE_LOOP
+        ESSENT_TAIL_LOOP
         for (int64_t L = _begin; L < _end; ++L) {
           const int64_t _other = L + (_forward ? 1 : -1);
           const uint64_t _chronoshear_mismatch_0 = (uint64_t)(!(_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$core$int_issue_unit$slots_5$state$next[L] == ldut.tile_prci_domain.tile_reset_domain.boom_tile.core.int_issue_unit.slots_5.state[_other]));
@@ -56112,7 +56112,7 @@ typedef struct TestHarness {
         const int64_t _end = _max < _hi ? _max : _hi;
         uint64_t _count = 0;
         uint64_t _chronoshear_signals = 0;
-        ESSENT_LANE_LOOP
+        ESSENT_TAIL_LOOP
         for (int64_t L = _begin; L < _end; ++L) {
           const int64_t _other = L + (_forward ? 1 : -1);
           const uint64_t _chronoshear_mismatch_0 = (uint64_t)(!(_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$core$csr$reg_pmp_4_addr$next[L] == ldut.tile_prci_domain.tile_reset_domain.boom_tile.core.csr.reg_pmp_4_addr[_other]));
@@ -56223,7 +56223,7 @@ typedef struct TestHarness {
         const int64_t _end = _max < _hi ? _max : _hi;
         uint64_t _count = 0;
         uint64_t _chronoshear_signals = 0;
-        ESSENT_LANE_LOOP
+        ESSENT_TAIL_LOOP
         for (int64_t L = _begin; L < _end; ++L) {
           const int64_t _other = L + (_forward ? 1 : -1);
           const uint64_t _chronoshear_mismatch_0 = (uint64_t)(!(_s_ldut$subsystem_sbus$coupler_to_port_named_mmio_port_axi4$axi4buf$bundleOut_0_ar_deq$maybe_full$next[L] == ldut.subsystem_sbus.coupler_to_port_named_mmio_port_axi4.axi4buf.bundleOut_0_ar_deq.maybe_full[_other]));
@@ -56334,7 +56334,7 @@ typedef struct TestHarness {
         const int64_t _end = _max < _hi ? _max : _hi;
         uint64_t _count = 0;
         uint64_t _chronoshear_signals = 0;
-        ESSENT_LANE_LOOP
+        ESSENT_TAIL_LOOP
         for (int64_t L = _begin; L < _end; ++L) {
           const int64_t _other = L + (_forward ? 1 : -1);
           const uint64_t _chronoshear_mismatch_0 = (uint64_t)(!(_s_ldut$subsystem_cbus$atomics$beatsLeft$next[L] == ldut.subsystem_cbus.atomics.beatsLeft[_other]));
@@ -56445,7 +56445,7 @@ typedef struct TestHarness {
         const int64_t _end = _max < _hi ? _max : _hi;
         uint64_t _count = 0;
         uint64_t _chronoshear_signals = 0;
-        ESSENT_LANE_LOOP
+        ESSENT_TAIL_LOOP
         for (int64_t L = _begin; L < _end; ++L) {
           const int64_t _other = L + (_forward ? 1 : -1);
           const uint64_t _chronoshear_mismatch_0 = (uint64_t)(!(_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$frontend$tlb$r_refill_tag$next[L] == ldut.tile_prci_domain.tile_reset_domain.boom_tile.frontend.tlb.r_refill_tag[_other]));
@@ -56556,7 +56556,7 @@ typedef struct TestHarness {
         const int64_t _end = _max < _hi ? _max : _hi;
         uint64_t _count = 0;
         uint64_t _chronoshear_signals = 0;
-        ESSENT_LANE_LOOP
+        ESSENT_TAIL_LOOP
         for (int64_t L = _begin; L < _end; ++L) {
           const int64_t _other = L + (_forward ? 1 : -1);
           const uint64_t _chronoshear_mismatch_0 = (uint64_t)(!(_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$core$int_issue_unit$slots_5$ppred$next[L] == ldut.tile_prci_domain.tile_reset_domain.boom_tile.core.int_issue_unit.slots_5.ppred[_other]));
@@ -56667,7 +56667,7 @@ typedef struct TestHarness {
         const int64_t _end = _max < _hi ? _max : _hi;
         uint64_t _count = 0;
         uint64_t _chronoshear_signals = 0;
-        ESSENT_LANE_LOOP
+        ESSENT_TAIL_LOOP
         for (int64_t L = _begin; L < _end; ++L) {
           const int64_t _other = L + (_forward ? 1 : -1);
           const uint64_t _chronoshear_mismatch_0 = (uint64_t)(!(_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$core$fp_pipeline$fp_issue_unit$slots_14$state$next[L] == ldut.tile_prci_domain.tile_reset_domain.boom_tile.core.fp_pipeline.fp_issue_unit.slots_14.state[_other]));
@@ -56778,7 +56778,7 @@ typedef struct TestHarness {
         const int64_t _end = _max < _hi ? _max : _hi;
         uint64_t _count = 0;
         uint64_t _chronoshear_signals = 0;
-        ESSENT_LANE_LOOP
+        ESSENT_TAIL_LOOP
         for (int64_t L = _begin; L < _end; ++L) {
           const int64_t _other = L + (_forward ? 1 : -1);
           const uint64_t _chronoshear_mismatch_0 = (uint64_t)(!(_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$core$mem_issue_unit$slots_10$p3$next[L] == ldut.tile_prci_domain.tile_reset_domain.boom_tile.core.mem_issue_unit.slots_10.p3[_other]));
@@ -56889,7 +56889,7 @@ typedef struct TestHarness {
         const int64_t _end = _max < _hi ? _max : _hi;
         uint64_t _count = 0;
         uint64_t _chronoshear_signals = 0;
-        ESSENT_LANE_LOOP
+        ESSENT_TAIL_LOOP
         for (int64_t L = _begin; L < _end; ++L) {
           const int64_t _other = L + (_forward ? 1 : -1);
           const uint64_t _chronoshear_mismatch_0 = (uint64_t)(!(_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$lsu$ldq__v2_bank_9_0$next[L] == _v2_bank_ldut$tile_prci_domain$tile_reset_domain$boom_tile$lsu$ldq__v2_bank_9_0[_other]));
@@ -57000,7 +57000,7 @@ typedef struct TestHarness {
         const int64_t _end = _max < _hi ? _max : _hi;
         uint64_t _count = 0;
         uint64_t _chronoshear_signals = 0;
-        ESSENT_LANE_LOOP
+        ESSENT_TAIL_LOOP
         for (int64_t L = _begin; L < _end; ++L) {
           const int64_t _other = L + (_forward ? 1 : -1);
           const uint64_t _chronoshear_mismatch_0 = (uint64_t)(!(_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$core$int_issue_unit$slots_0$ppred$next[L] == ldut.tile_prci_domain.tile_reset_domain.boom_tile.core.int_issue_unit.slots_0.ppred[_other]));
@@ -57111,7 +57111,7 @@ typedef struct TestHarness {
         const int64_t _end = _max < _hi ? _max : _hi;
         uint64_t _count = 0;
         uint64_t _chronoshear_signals = 0;
-        ESSENT_LANE_LOOP
+        ESSENT_TAIL_LOOP
         for (int64_t L = _begin; L < _end; ++L) {
           const int64_t _other = L + (_forward ? 1 : -1);
           const uint64_t _chronoshear_mismatch_0 = (uint64_t)(!(_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$core$csr$reg_pmp_2_cfg_r$next[L] == ldut.tile_prci_domain.tile_reset_domain.boom_tile.core.csr.reg_pmp_2_cfg_r[_other]));
@@ -57222,7 +57222,7 @@ typedef struct TestHarness {
         const int64_t _end = _max < _hi ? _max : _hi;
         uint64_t _count = 0;
         uint64_t _chronoshear_signals = 0;
-        ESSENT_LANE_LOOP
+        ESSENT_TAIL_LOOP
         for (int64_t L = _begin; L < _end; ++L) {
           const int64_t _other = L + (_forward ? 1 : -1);
           const uint64_t _chronoshear_mismatch_0 = (uint64_t)(!(_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$core$fp_pipeline$fp_issue_unit$slots_3$p1$next[L] == ldut.tile_prci_domain.tile_reset_domain.boom_tile.core.fp_pipeline.fp_issue_unit.slots_3.p1[_other]));
@@ -57333,7 +57333,7 @@ typedef struct TestHarness {
         const int64_t _end = _max < _hi ? _max : _hi;
         uint64_t _count = 0;
         uint64_t _chronoshear_signals = 0;
-        ESSENT_LANE_LOOP
+        ESSENT_TAIL_LOOP
         for (int64_t L = _begin; L < _end; ++L) {
           const int64_t _other = L + (_forward ? 1 : -1);
           const uint64_t _chronoshear_mismatch_0 = (uint64_t)(!(_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$core$fp_rename_stage$REG_1_is_br$next[L] == ldut.tile_prci_domain.tile_reset_domain.boom_tile.core.fp_rename_stage.REG_1_is_br[_other]));
@@ -57444,7 +57444,7 @@ typedef struct TestHarness {
         const int64_t _end = _max < _hi ? _max : _hi;
         uint64_t _count = 0;
         uint64_t _chronoshear_signals = 0;
-        ESSENT_LANE_LOOP
+        ESSENT_TAIL_LOOP
         for (int64_t L = _begin; L < _end; ++L) {
           const int64_t _other = L + (_forward ? 1 : -1);
           const uint64_t _chronoshear_mismatch_0 = (uint64_t)(!(_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$frontend$tlb$r_sectored_repl_addr$next[L] == ldut.tile_prci_domain.tile_reset_domain.boom_tile.frontend.tlb.r_sectored_repl_addr[_other]));
@@ -57555,7 +57555,7 @@ typedef struct TestHarness {
         const int64_t _end = _max < _hi ? _max : _hi;
         uint64_t _count = 0;
         uint64_t _chronoshear_signals = 0;
-        ESSENT_LANE_LOOP
+        ESSENT_TAIL_LOOP
         for (int64_t L = _begin; L < _end; ++L) {
           const int64_t _other = L + (_forward ? 1 : -1);
           const uint64_t _chronoshear_mismatch_0 = (uint64_t)(!(_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$core$csr$reg_pmp_1_cfg_x$next[L] == ldut.tile_prci_domain.tile_reset_domain.boom_tile.core.csr.reg_pmp_1_cfg_x[_other]));
@@ -57666,7 +57666,7 @@ typedef struct TestHarness {
         const int64_t _end = _max < _hi ? _max : _hi;
         uint64_t _count = 0;
         uint64_t _chronoshear_signals = 0;
-        ESSENT_LANE_LOOP
+        ESSENT_TAIL_LOOP
         for (int64_t L = _begin; L < _end; ++L) {
           const int64_t _other = L + (_forward ? 1 : -1);
           const uint64_t _chronoshear_mismatch_0 = (uint64_t)(!(_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$frontend$bpd$banked_predictors_0$components_2$REG_16$next[L] == ldut.tile_prci_domain.tile_reset_domain.boom_tile.frontend.bpd.banked_predictors_0.components_2.REG_16[_other]));
@@ -57777,7 +57777,7 @@ typedef struct TestHarness {
         const int64_t _end = _max < _hi ? _max : _hi;
         uint64_t _count = 0;
         uint64_t _chronoshear_signals = 0;
-        ESSENT_LANE_LOOP
+        ESSENT_TAIL_LOOP
         for (int64_t L = _begin; L < _end; ++L) {
           const int64_t _other = L + (_forward ? 1 : -1);
           const uint64_t _chronoshear_mismatch_0 = (uint64_t)(!(_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$lsu$stq_5_bits_addr_bits$next[L] == ldut.tile_prci_domain.tile_reset_domain.boom_tile.lsu.stq_5_bits_addr_bits[_other]));
@@ -57888,7 +57888,7 @@ typedef struct TestHarness {
         const int64_t _end = _max < _hi ? _max : _hi;
         uint64_t _count = 0;
         uint64_t _chronoshear_signals = 0;
-        ESSENT_LANE_LOOP
+        ESSENT_TAIL_LOOP
         for (int64_t L = _begin; L < _end; ++L) {
           const int64_t _other = L + (_forward ? 1 : -1);
           const uint64_t _chronoshear_mismatch_0 = (uint64_t)(!(_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$dcache$mshrs$mmios_0$req_uop_ldq_idx$next[L] == ldut.tile_prci_domain.tile_reset_domain.boom_tile.dcache.mshrs.mmios_0.req_uop_ldq_idx[_other]));
@@ -57999,7 +57999,7 @@ typedef struct TestHarness {
         const int64_t _end = _max < _hi ? _max : _hi;
         uint64_t _count = 0;
         uint64_t _chronoshear_signals = 0;
-        ESSENT_LANE_LOOP
+        ESSENT_TAIL_LOOP
         for (int64_t L = _begin; L < _end; ++L) {
           const int64_t _other = L + (_forward ? 1 : -1);
           const uint64_t _chronoshear_mismatch_0 = (uint64_t)(!(_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$core$fp_pipeline$fp_issue_unit$slots_14$ppred$next[L] == ldut.tile_prci_domain.tile_reset_domain.boom_tile.core.fp_pipeline.fp_issue_unit.slots_14.ppred[_other]));
@@ -58110,7 +58110,7 @@ typedef struct TestHarness {
         const int64_t _end = _max < _hi ? _max : _hi;
         uint64_t _count = 0;
         uint64_t _chronoshear_signals = 0;
-        ESSENT_LANE_LOOP
+        ESSENT_TAIL_LOOP
         for (int64_t L = _begin; L < _end; ++L) {
           const int64_t _other = L + (_forward ? 1 : -1);
           const uint64_t _chronoshear_mismatch_0 = (uint64_t)(!(_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$core$mem_issue_unit$slots_3$ppred$next[L] == ldut.tile_prci_domain.tile_reset_domain.boom_tile.core.mem_issue_unit.slots_3.ppred[_other]));
@@ -58221,7 +58221,7 @@ typedef struct TestHarness {
         const int64_t _end = _max < _hi ? _max : _hi;
         uint64_t _count = 0;
         uint64_t _chronoshear_signals = 0;
-        ESSENT_LANE_LOOP
+        ESSENT_TAIL_LOOP
         for (int64_t L = _begin; L < _end; ++L) {
           const int64_t _other = L + (_forward ? 1 : -1);
           const uint64_t _chronoshear_mismatch_0 = (uint64_t)(!(_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$core$mem_issue_unit$slots_3$ppred$next[L] == ldut.tile_prci_domain.tile_reset_domain.boom_tile.core.mem_issue_unit.slots_3.ppred[_other]));
@@ -58329,7 +58329,7 @@ typedef struct TestHarness {
         const int64_t _end = _max < _hi ? _max : _hi;
         uint64_t _count = 0;
         uint64_t _chronoshear_signals = 0;
-        ESSENT_LANE_LOOP
+        ESSENT_TAIL_LOOP
         for (int64_t L = _begin; L < _end; ++L) {
           const int64_t _other = L + (_forward ? 1 : -1);
           const uint64_t _chronoshear_mismatch_0 = (uint64_t)(!(ldut.subsystem_fbus.coupler_from_port_named_slave_port_axi4.axi4frag.in_w_deq.ram_strb[L] == ldut.subsystem_fbus.coupler_from_port_named_slave_port_axi4.axi4frag.in_w_deq.ram_strb[_other]));
@@ -58347,7 +58347,7 @@ typedef struct TestHarness {
         const int64_t _end = _max < _hi ? _max : _hi;
         uint64_t _count = 0;
         uint64_t _chronoshear_signals = 0;
-        ESSENT_LANE_LOOP
+        ESSENT_TAIL_LOOP
         for (int64_t L = _begin; L < _end; ++L) {
           const int64_t _other = L + (_forward ? 1 : -1);
           const uint64_t _chronoshear_mismatch_0 = (uint64_t)(!(_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$core$iregister_read$REG_3_br_mask$next[L] == ldut.tile_prci_domain.tile_reset_domain.boom_tile.core.iregister_read.REG_3_br_mask[_other]));
@@ -58458,7 +58458,7 @@ typedef struct TestHarness {
         const int64_t _end = _max < _hi ? _max : _hi;
         uint64_t _count = 0;
         uint64_t _chronoshear_signals = 0;
-        ESSENT_LANE_LOOP
+        ESSENT_TAIL_LOOP
         for (int64_t L = _begin; L < _end; ++L) {
           const int64_t _other = L + (_forward ? 1 : -1);
           const uint64_t _chronoshear_mismatch_0 = (uint64_t)(!(_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$core$iregister_read$exe_reg_valids_0$next[L] == ldut.tile_prci_domain.tile_reset_domain.boom_tile.core.iregister_read.exe_reg_valids_0[_other]));
@@ -58569,7 +58569,7 @@ typedef struct TestHarness {
         const int64_t _end = _max < _hi ? _max : _hi;
         uint64_t _count = 0;
         uint64_t _chronoshear_signals = 0;
-        ESSENT_LANE_LOOP
+        ESSENT_TAIL_LOOP
         for (int64_t L = _begin; L < _end; ++L) {
           const int64_t _other = L + (_forward ? 1 : -1);
           const uint64_t _chronoshear_mismatch_0 = (uint64_t)(!(_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$lsu$dtlb$special_entry_data_0$next[L] == ldut.tile_prci_domain.tile_reset_domain.boom_tile.lsu.dtlb.special_entry_data_0[_other]));
@@ -58680,7 +58680,7 @@ typedef struct TestHarness {
         const int64_t _end = _max < _hi ? _max : _hi;
         uint64_t _count = 0;
         uint64_t _chronoshear_signals = 0;
-        ESSENT_LANE_LOOP
+        ESSENT_TAIL_LOOP
         for (int64_t L = _begin; L < _end; ++L) {
           const int64_t _other = L + (_forward ? 1 : -1);
           const uint64_t _chronoshear_mismatch_0 = (uint64_t)(!(_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$core$rob$rob_exception_1_22$next[L] == ldut.tile_prci_domain.tile_reset_domain.boom_tile.core.rob.rob_exception_1_22[_other]));
@@ -58791,7 +58791,7 @@ typedef struct TestHarness {
         const int64_t _end = _max < _hi ? _max : _hi;
         uint64_t _count = 0;
         uint64_t _chronoshear_signals = 0;
-        ESSENT_LANE_LOOP
+        ESSENT_TAIL_LOOP
         for (int64_t L = _begin; L < _end; ++L) {
           const int64_t _other = L + (_forward ? 1 : -1);
           const uint64_t _chronoshear_mismatch_0 = (uint64_t)(!(_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$core$rob$rob_bsy_1_6$next[L] == ldut.tile_prci_domain.tile_reset_domain.boom_tile.core.rob.rob_bsy_1_6[_other]));
@@ -58902,7 +58902,7 @@ typedef struct TestHarness {
         const int64_t _end = _max < _hi ? _max : _hi;
         uint64_t _count = 0;
         uint64_t _chronoshear_signals = 0;
-        ESSENT_LANE_LOOP
+        ESSENT_TAIL_LOOP
         for (int64_t L = _begin; L < _end; ++L) {
           const int64_t _other = L + (_forward ? 1 : -1);
           const uint64_t _chronoshear_mismatch_0 = (uint64_t)(!(_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$core$rename_stage$maptable$map_table__v2_bank_0_3$next[L] == _v2_bank_ldut$tile_prci_domain$tile_reset_domain$boom_tile$core$rename_stage$maptable$map_table__v2_bank_0_3[_other]));
@@ -59013,7 +59013,7 @@ typedef struct TestHarness {
         const int64_t _end = _max < _hi ? _max : _hi;
         uint64_t _count = 0;
         uint64_t _chronoshear_signals = 0;
-        ESSENT_LANE_LOOP
+        ESSENT_TAIL_LOOP
         for (int64_t L = _begin; L < _end; ++L) {
           const int64_t _other = L + (_forward ? 1 : -1);
           const uint64_t _chronoshear_mismatch_0 = (uint64_t)(!(_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$lsu$dtlb$sectored_entries_0_data_0$next[L] == ldut.tile_prci_domain.tile_reset_domain.boom_tile.lsu.dtlb.sectored_entries_0_data_0[_other]));
@@ -59124,7 +59124,7 @@ typedef struct TestHarness {
         const int64_t _end = _max < _hi ? _max : _hi;
         uint64_t _count = 0;
         uint64_t _chronoshear_signals = 0;
-        ESSENT_LANE_LOOP
+        ESSENT_TAIL_LOOP
         for (int64_t L = _begin; L < _end; ++L) {
           const int64_t _other = L + (_forward ? 1 : -1);
           const uint64_t _chronoshear_mismatch_0 = (uint64_t)(!(_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$frontend$bpd$banked_predictors_0$components_0$columns_2$f3_entry_tag$next[L] == ldut.tile_prci_domain.tile_reset_domain.boom_tile.frontend.bpd.banked_predictors_0.components_0.columns_2.f3_entry_tag[_other]));
@@ -59235,7 +59235,7 @@ typedef struct TestHarness {
         const int64_t _end = _max < _hi ? _max : _hi;
         uint64_t _count = 0;
         uint64_t _chronoshear_signals = 0;
-        ESSENT_LANE_LOOP
+        ESSENT_TAIL_LOOP
         for (int64_t L = _begin; L < _end; ++L) {
           const int64_t _other = L + (_forward ? 1 : -1);
           const uint64_t _chronoshear_mismatch_0 = (uint64_t)(!(_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$frontend$bpd$banked_predictors_0$components_1$tables_5$REG$next[L] == ldut.tile_prci_domain.tile_reset_domain.boom_tile.frontend.bpd.banked_predictors_0.components_1.tables_5.REG[_other]));
@@ -59346,7 +59346,7 @@ typedef struct TestHarness {
         const int64_t _end = _max < _hi ? _max : _hi;
         uint64_t _count = 0;
         uint64_t _chronoshear_signals = 0;
-        ESSENT_LANE_LOOP
+        ESSENT_TAIL_LOOP
         for (int64_t L = _begin; L < _end; ++L) {
           const int64_t _other = L + (_forward ? 1 : -1);
           const uint64_t _chronoshear_mismatch_0 = (uint64_t)(!(_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$frontend$bpd$banked_predictors_0$components_1$tables_1$REG$next[L] == ldut.tile_prci_domain.tile_reset_domain.boom_tile.frontend.bpd.banked_predictors_0.components_1.tables_1.REG[_other]));
@@ -59457,7 +59457,7 @@ typedef struct TestHarness {
         const int64_t _end = _max < _hi ? _max : _hi;
         uint64_t _count = 0;
         uint64_t _chronoshear_signals = 0;
-        ESSENT_LANE_LOOP
+        ESSENT_TAIL_LOOP
         for (int64_t L = _begin; L < _end; ++L) {
           const int64_t _other = L + (_forward ? 1 : -1);
           const uint64_t _chronoshear_mismatch_0 = (uint64_t)(!(_s_ldut$debug_1$dmInner$dmiXing$bundleOut_0_a_sink$io_deq_bits_deq_bits_reg$cdc_reg$next[L] == ldut.debug_1.dmInner.dmiXing.bundleOut_0_a_sink.io_deq_bits_deq_bits_reg.cdc_reg[_other]));
@@ -59568,7 +59568,7 @@ typedef struct TestHarness {
         const int64_t _end = _max < _hi ? _max : _hi;
         uint64_t _count = 0;
         uint64_t _chronoshear_signals = 0;
-        ESSENT_LANE_LOOP
+        ESSENT_TAIL_LOOP
         for (int64_t L = _begin; L < _end; ++L) {
           const int64_t _other = L + (_forward ? 1 : -1);
           const uint64_t _chronoshear_mismatch_0 = (uint64_t)(!(_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$ptw$r_1$next[L] == ldut.tile_prci_domain.tile_reset_domain.boom_tile.ptw.r_1[_other]));
@@ -59679,7 +59679,7 @@ typedef struct TestHarness {
         const int64_t _end = _max < _hi ? _max : _hi;
         uint64_t _count = 0;
         uint64_t _chronoshear_signals = 0;
-        ESSENT_LANE_LOOP
+        ESSENT_TAIL_LOOP
         for (int64_t L = _begin; L < _end; ++L) {
           const int64_t _other = L + (_forward ? 1 : -1);
           const uint64_t _chronoshear_mismatch_0 = (uint64_t)(!(_s_ldut$subsystem_sbus$coupler_to_port_named_mmio_port_axi4$axi4buf$bundleOut_0_ar_deq$value_1$next[L] == ldut.subsystem_sbus.coupler_to_port_named_mmio_port_axi4.axi4buf.bundleOut_0_ar_deq.value_1[_other]));
@@ -59790,7 +59790,7 @@ typedef struct TestHarness {
         const int64_t _end = _max < _hi ? _max : _hi;
         uint64_t _count = 0;
         uint64_t _chronoshear_signals = 0;
-        ESSENT_LANE_LOOP
+        ESSENT_TAIL_LOOP
         for (int64_t L = _begin; L < _end; ++L) {
           const int64_t _other = L + (_forward ? 1 : -1);
           const uint64_t _chronoshear_mismatch_0 = (uint64_t)(!(_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$ptw$r_req_addr$next[L] == ldut.tile_prci_domain.tile_reset_domain.boom_tile.ptw.r_req_addr[_other]));
@@ -59901,7 +59901,7 @@ typedef struct TestHarness {
         const int64_t _end = _max < _hi ? _max : _hi;
         uint64_t _count = 0;
         uint64_t _chronoshear_signals = 0;
-        ESSENT_LANE_LOOP
+        ESSENT_TAIL_LOOP
         for (int64_t L = _begin; L < _end; ++L) {
           const int64_t _other = L + (_forward ? 1 : -1);
           const uint64_t _chronoshear_mismatch_0 = (uint64_t)(!(_s_ldut$subsystem_l2_wrapper$broadcast_1$TLBroadcastTracker_2$$inst$sent_d$next[L] == ldut.subsystem_l2_wrapper.broadcast_1.TLBroadcastTracker_2$$inst.sent_d[_other]));
@@ -60012,7 +60012,7 @@ typedef struct TestHarness {
         const int64_t _end = _max < _hi ? _max : _hi;
         uint64_t _count = 0;
         uint64_t _chronoshear_signals = 0;
-        ESSENT_LANE_LOOP
+        ESSENT_TAIL_LOOP
         for (int64_t L = _begin; L < _end; ++L) {
           const int64_t _other = L + (_forward ? 1 : -1);
           const uint64_t _chronoshear_mismatch_0 = (uint64_t)(!(_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$frontend$bpd$banked_predictors_0$components_3$meta__v2_bank_4_0$next[L] == _v2_bank_ldut$tile_prci_domain$tile_reset_domain$boom_tile$frontend$bpd$banked_predictors_0$components_3$meta__v2_bank_4_0[_other]));
@@ -60123,7 +60123,7 @@ typedef struct TestHarness {
         const int64_t _end = _max < _hi ? _max : _hi;
         uint64_t _count = 0;
         uint64_t _chronoshear_signals = 0;
-        ESSENT_LANE_LOOP
+        ESSENT_TAIL_LOOP
         for (int64_t L = _begin; L < _end; ++L) {
           const int64_t _other = L + (_forward ? 1 : -1);
           const uint64_t _chronoshear_mismatch_0 = (uint64_t)(!(_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$frontend$bpd$banked_predictors_0$components_4$REG_1$next[L] == ldut.tile_prci_domain.tile_reset_domain.boom_tile.frontend.bpd.banked_predictors_0.components_4.REG_1[_other]));
@@ -60234,7 +60234,7 @@ typedef struct TestHarness {
         const int64_t _end = _max < _hi ? _max : _hi;
         uint64_t _count = 0;
         uint64_t _chronoshear_signals = 0;
-        ESSENT_LANE_LOOP
+        ESSENT_TAIL_LOOP
         for (int64_t L = _begin; L < _end; ++L) {
           const int64_t _other = L + (_forward ? 1 : -1);
           const uint64_t _chronoshear_mismatch_0 = (uint64_t)(!(_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$frontend$bpd$banked_predictors_0$components_2$REG_35$next[L] == ldut.tile_prci_domain.tile_reset_domain.boom_tile.frontend.bpd.banked_predictors_0.components_2.REG_35[_other]));
@@ -60345,7 +60345,7 @@ typedef struct TestHarness {
         const int64_t _end = _max < _hi ? _max : _hi;
         uint64_t _count = 0;
         uint64_t _chronoshear_signals = 0;
-        ESSENT_LANE_LOOP
+        ESSENT_TAIL_LOOP
         for (int64_t L = _begin; L < _end; ++L) {
           const int64_t _other = L + (_forward ? 1 : -1);
           const uint64_t _chronoshear_mismatch_0 = (uint64_t)(!(_s_ldut$debug_1$dmOuter$io_innerCtrl_source$ready_reg$next[L] == ldut.debug_1.dmOuter.io_innerCtrl_source.ready_reg[_other]));
@@ -60456,7 +60456,7 @@ typedef struct TestHarness {
         const int64_t _end = _max < _hi ? _max : _hi;
         uint64_t _count = 0;
         uint64_t _chronoshear_signals = 0;
-        ESSENT_LANE_LOOP
+        ESSENT_TAIL_LOOP
         for (int64_t L = _begin; L < _end; ++L) {
           const int64_t _other = L + (_forward ? 1 : -1);
           const uint64_t _chronoshear_mismatch_0 = (uint64_t)(!(_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$frontend$bpd$banked_predictors_0$components_3$meta__v2_bank_19_0$next[L] == _v2_bank_ldut$tile_prci_domain$tile_reset_domain$boom_tile$frontend$bpd$banked_predictors_0$components_3$meta__v2_bank_19_0[_other]));
@@ -60567,7 +60567,7 @@ typedef struct TestHarness {
         const int64_t _end = _max < _hi ? _max : _hi;
         uint64_t _count = 0;
         uint64_t _chronoshear_signals = 0;
-        ESSENT_LANE_LOOP
+        ESSENT_TAIL_LOOP
         for (int64_t L = _begin; L < _end; ++L) {
           const int64_t _other = L + (_forward ? 1 : -1);
           const uint64_t _chronoshear_mismatch_0 = (uint64_t)(!(_s_ldut$subsystem_sbus$system_bus_xbar$beatsLeft_1$next[L] == ldut.subsystem_sbus.system_bus_xbar.beatsLeft_1[_other]));
@@ -60678,7 +60678,7 @@ typedef struct TestHarness {
         const int64_t _end = _max < _hi ? _max : _hi;
         uint64_t _count = 0;
         uint64_t _chronoshear_signals = 0;
-        ESSENT_LANE_LOOP
+        ESSENT_TAIL_LOOP
         for (int64_t L = _begin; L < _end; ++L) {
           const int64_t _other = L + (_forward ? 1 : -1);
           const uint64_t _chronoshear_mismatch_0 = (uint64_t)(!(_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$dcache$lfsr_prng$state_0$next[L] == ldut.tile_prci_domain.tile_reset_domain.boom_tile.dcache.lfsr_prng.state_0[_other]));
@@ -60789,7 +60789,7 @@ typedef struct TestHarness {
         const int64_t _end = _max < _hi ? _max : _hi;
         uint64_t _count = 0;
         uint64_t _chronoshear_signals = 0;
-        ESSENT_LANE_LOOP
+        ESSENT_TAIL_LOOP
         for (int64_t L = _begin; L < _end; ++L) {
           const int64_t _other = L + (_forward ? 1 : -1);
           const uint64_t _chronoshear_mismatch_0 = (uint64_t)(!(_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$dcache$s2_req_0_is_hella$next[L] == ldut.tile_prci_domain.tile_reset_domain.boom_tile.dcache.s2_req_0_is_hella[_other]));
@@ -60900,7 +60900,7 @@ typedef struct TestHarness {
         const int64_t _end = _max < _hi ? _max : _hi;
         uint64_t _count = 0;
         uint64_t _chronoshear_signals = 0;
-        ESSENT_LANE_LOOP
+        ESSENT_TAIL_LOOP
         for (int64_t L = _begin; L < _end; ++L) {
           const int64_t _other = L + (_forward ? 1 : -1);
           const uint64_t _chronoshear_mismatch_0 = (uint64_t)(!(_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$core$rename_stage$maptable$br_snapshots__v2_bank_0_10$next[L] == _v2_bank_ldut$tile_prci_domain$tile_reset_domain$boom_tile$core$rename_stage$maptable$br_snapshots__v2_bank_0_10[_other]));
@@ -61011,7 +61011,7 @@ typedef struct TestHarness {
         const int64_t _end = _max < _hi ? _max : _hi;
         uint64_t _count = 0;
         uint64_t _chronoshear_signals = 0;
-        ESSENT_LANE_LOOP
+        ESSENT_TAIL_LOOP
         for (int64_t L = _begin; L < _end; ++L) {
           const int64_t _other = L + (_forward ? 1 : -1);
           const uint64_t _chronoshear_mismatch_0 = (uint64_t)(!(_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$core$rename_stage$maptable$br_snapshots__v2_bank_0_33$next[L] == _v2_bank_ldut$tile_prci_domain$tile_reset_domain$boom_tile$core$rename_stage$maptable$br_snapshots__v2_bank_0_33[_other]));
@@ -61122,7 +61122,7 @@ typedef struct TestHarness {
         const int64_t _end = _max < _hi ? _max : _hi;
         uint64_t _count = 0;
         uint64_t _chronoshear_signals = 0;
-        ESSENT_LANE_LOOP
+        ESSENT_TAIL_LOOP
         for (int64_t L = _begin; L < _end; ++L) {
           const int64_t _other = L + (_forward ? 1 : -1);
           const uint64_t _chronoshear_mismatch_0 = (uint64_t)(!(_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$core$fp_rename_stage$maptable$br_snapshots__v2_bank_0_14$next[L] == _v2_bank_ldut$tile_prci_domain$tile_reset_domain$boom_tile$core$fp_rename_stage$maptable$br_snapshots__v2_bank_0_14[_other]));
@@ -61233,7 +61233,7 @@ typedef struct TestHarness {
         const int64_t _end = _max < _hi ? _max : _hi;
         uint64_t _count = 0;
         uint64_t _chronoshear_signals = 0;
-        ESSENT_LANE_LOOP
+        ESSENT_TAIL_LOOP
         for (int64_t L = _begin; L < _end; ++L) {
           const int64_t _other = L + (_forward ? 1 : -1);
           const uint64_t _chronoshear_mismatch_0 = (uint64_t)(!(_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$core$fp_pipeline$fp_issue_unit$slots_15$slot_uop__v2_bank_2_0$next[L] == _v2_bank_ldut$tile_prci_domain$tile_reset_domain$boom_tile$core$fp_pipeline$fp_issue_unit$slots_15$slot_uop__v2_bank_2_0[_other]));
@@ -61344,7 +61344,7 @@ typedef struct TestHarness {
         const int64_t _end = _max < _hi ? _max : _hi;
         uint64_t _count = 0;
         uint64_t _chronoshear_signals = 0;
-        ESSENT_LANE_LOOP
+        ESSENT_TAIL_LOOP
         for (int64_t L = _begin; L < _end; ++L) {
           const int64_t _other = L + (_forward ? 1 : -1);
           const uint64_t _chronoshear_mismatch_0 = (uint64_t)(!(_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$core$fp_pipeline$fp_issue_unit$slots_1$slot_uop__v2_bank_0_0$next[L] == _v2_bank_ldut$tile_prci_domain$tile_reset_domain$boom_tile$core$fp_pipeline$fp_issue_unit$slots_1$slot_uop__v2_bank_0_0[_other]));
@@ -61455,7 +61455,7 @@ typedef struct TestHarness {
         const int64_t _end = _max < _hi ? _max : _hi;
         uint64_t _count = 0;
         uint64_t _chronoshear_signals = 0;
-        ESSENT_LANE_LOOP
+        ESSENT_TAIL_LOOP
         for (int64_t L = _begin; L < _end; ++L) {
           const int64_t _other = L + (_forward ? 1 : -1);
           const uint64_t _chronoshear_mismatch_0 = (uint64_t)(!(_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$core$int_issue_unit$slots_7$slot_uop__v2_bank_0_1$next[L] == _v2_bank_ldut$tile_prci_domain$tile_reset_domain$boom_tile$core$int_issue_unit$slots_7$slot_uop__v2_bank_0_1[_other]));
@@ -61566,7 +61566,7 @@ typedef struct TestHarness {
         const int64_t _end = _max < _hi ? _max : _hi;
         uint64_t _count = 0;
         uint64_t _chronoshear_signals = 0;
-        ESSENT_LANE_LOOP
+        ESSENT_TAIL_LOOP
         for (int64_t L = _begin; L < _end; ++L) {
           const int64_t _other = L + (_forward ? 1 : -1);
           const uint64_t _chronoshear_mismatch_0 = (uint64_t)(!(_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$core$int_issue_unit$slots_15$slot_uop__v2_bank_0_0$next[L] == _v2_bank_ldut$tile_prci_domain$tile_reset_domain$boom_tile$core$int_issue_unit$slots_15$slot_uop__v2_bank_0_0[_other]));
@@ -61677,7 +61677,7 @@ typedef struct TestHarness {
         const int64_t _end = _max < _hi ? _max : _hi;
         uint64_t _count = 0;
         uint64_t _chronoshear_signals = 0;
-        ESSENT_LANE_LOOP
+        ESSENT_TAIL_LOOP
         for (int64_t L = _begin; L < _end; ++L) {
           const int64_t _other = L + (_forward ? 1 : -1);
           const uint64_t _chronoshear_mismatch_0 = (uint64_t)(!(_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$frontend$fb$fb_uop_ram__v2_bank_6_0$next[L] == _v2_bank_ldut$tile_prci_domain$tile_reset_domain$boom_tile$frontend$fb$fb_uop_ram__v2_bank_6_0[_other]));
@@ -61788,7 +61788,7 @@ typedef struct TestHarness {
         const int64_t _end = _max < _hi ? _max : _hi;
         uint64_t _count = 0;
         uint64_t _chronoshear_signals = 0;
-        ESSENT_LANE_LOOP
+        ESSENT_TAIL_LOOP
         for (int64_t L = _begin; L < _end; ++L) {
           const int64_t _other = L + (_forward ? 1 : -1);
           const uint64_t _chronoshear_mismatch_0 = (uint64_t)(!(_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$core$mem_issue_unit$slots_2$slot_uop__v2_bank_1_0$next[L] == _v2_bank_ldut$tile_prci_domain$tile_reset_domain$boom_tile$core$mem_issue_unit$slots_2$slot_uop__v2_bank_1_0[_other]));
@@ -61899,7 +61899,7 @@ typedef struct TestHarness {
         const int64_t _end = _max < _hi ? _max : _hi;
         uint64_t _count = 0;
         uint64_t _chronoshear_signals = 0;
-        ESSENT_LANE_LOOP
+        ESSENT_TAIL_LOOP
         for (int64_t L = _begin; L < _end; ++L) {
           const int64_t _other = L + (_forward ? 1 : -1);
           const uint64_t _chronoshear_mismatch_0 = (uint64_t)(!(_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$core$rob$rob_uop__v2_bank_0_8$next[L] == _v2_bank_ldut$tile_prci_domain$tile_reset_domain$boom_tile$core$rob$rob_uop__v2_bank_0_8[_other]));
@@ -62010,7 +62010,7 @@ typedef struct TestHarness {
         const int64_t _end = _max < _hi ? _max : _hi;
         uint64_t _count = 0;
         uint64_t _chronoshear_signals = 0;
-        ESSENT_LANE_LOOP
+        ESSENT_TAIL_LOOP
         for (int64_t L = _begin; L < _end; ++L) {
           const int64_t _other = L + (_forward ? 1 : -1);
           const uint64_t _chronoshear_mismatch_0 = (uint64_t)(!(_s_mem$axi4frag$deq_1$ram__v2_bank_0_0$next[L] == _v2_bank_mem$axi4frag$deq_1$ram__v2_bank_0_0[_other]));
@@ -62121,7 +62121,7 @@ typedef struct TestHarness {
         const int64_t _end = _max < _hi ? _max : _hi;
         uint64_t _count = 0;
         uint64_t _chronoshear_signals = 0;
-        ESSENT_LANE_LOOP
+        ESSENT_TAIL_LOOP
         for (int64_t L = _begin; L < _end; ++L) {
           const int64_t _other = L + (_forward ? 1 : -1);
           const uint64_t _chronoshear_mismatch_0 = (uint64_t)(!(_s_mem$axi4frag$deq_1$ram__v2_bank_0_0$next[L] == _v2_bank_mem$axi4frag$deq_1$ram__v2_bank_0_0[_other]));
@@ -62223,7 +62223,7 @@ typedef struct TestHarness {
         const int64_t _end = _max < _hi ? _max : _hi;
         uint64_t _count = 0;
         uint64_t _chronoshear_signals = 0;
-        ESSENT_LANE_LOOP
+        ESSENT_TAIL_LOOP
         for (int64_t L = _begin; L < _end; ++L) {
           const int64_t _other = L + (_forward ? 1 : -1);
           const uint64_t _chronoshear_mismatch_0 = (uint64_t)(!(ldut.subsystem_fbus.coupler_from_port_named_slave_port_axi4.axi4frag.in_w_deq.ram_data[L] == ldut.subsystem_fbus.coupler_from_port_named_slave_port_axi4.axi4frag.in_w_deq.ram_data[_other]));
@@ -62247,7 +62247,7 @@ typedef struct TestHarness {
         const int64_t _end = _max < _hi ? _max : _hi;
         uint64_t _count = 0;
         uint64_t _chronoshear_signals = 0;
-        ESSENT_LANE_LOOP
+        ESSENT_TAIL_LOOP
         for (int64_t L = _begin; L < _end; ++L) {
           const int64_t _other = L + (_forward ? 1 : -1);
           const uint64_t _chronoshear_mismatch_0 = (uint64_t)(!(_s_ldut$tile_prci_domain$tile_reset_domain$boom_tile$frontend$bpd$banked_predictors_0$components_1$tables_3$wrbypass__v2_bank_0_0$next[L] == _v2_bank_ldut$tile_prci_domain$tile_reset_domain$boom_tile$frontend$bpd$banked_predictors_0$components_1$tables_3$wrbypass__v2_bank_0_0[_other]));

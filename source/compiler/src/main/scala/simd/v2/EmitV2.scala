@@ -6120,6 +6120,17 @@ static inline void essent_table_read(T* out, const T* table, const I* idx) {
     finally rn.setSimdBaseOverrides(zcScratchOverrides)
   }
 
+  /** Exact mismatch counting for register groups (V2_COUNT_TAIL_LOOP=1).
+    * A register group compares lane L with its neighbour, so its slice has
+    * W-1 lanes: the unpredicated loop never reaches its W-wide vector body
+    * and counted every lane in the scalar remainder. The predicated
+    * (tail-folded) loop runs the slice as one masked vector iteration; the
+    * compared values and the count are unchanged.  Off by default like the
+    * other lowering switches. */
+  private def countTailLoop: Boolean =
+    sys.props.get("V2_COUNT_TAIL_LOOP").orElse(sys.env.get("V2_COUNT_TAIL_LOOP"))
+      .exists(v => Set("1", "true", "yes", "on")(v.trim.toLowerCase))
+
   private def emitVerifyOutlineHelperBody(res: Result, W: Int,
       outline: VerifyOutlineRegistry, w: Writer)(implicit rn: Renamer): Unit = {
     w.writeLines(1, "#if ESSENT_ORACLE_VERIFY")
@@ -6151,7 +6162,7 @@ static inline void essent_table_read(T* out, const T* table, const I* idx) {
       w.writeLines(4, "const int64_t _begin = _min > _lo ? _min : _lo;")
       w.writeLines(4, "const int64_t _end = _max < _hi ? _max : _hi;")
       w.writeLines(4, "uint64_t _count = 0;")
-      w.writeLines(4, "ESSENT_LANE_LOOP")
+      w.writeLines(4, if (group.kind != VCombVerify && countTailLoop) "ESSENT_TAIL_LOOP" else "ESSENT_LANE_LOOP")
       w.writeLines(4, "for (int64_t L = _begin; L < _end; ++L) {")
       if (group.kind != VCombVerify)
         w.writeLines(5, "const int64_t _other = L + (_forward ? 1 : -1);")

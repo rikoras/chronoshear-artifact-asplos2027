@@ -51891,7 +51891,8 @@
         "V2_SMALL_STATE_SELECT": "1",
         "V2_DISSOLVE_ANCHOR_FILE": "${INPUT}/oracle_registers.txt",
         "V2_EXTERN_ARRAY_FAMILIES": "=mem.srams.mem_0,=mem.srams.mem_1,=mem.srams.mem_2,=mem.srams.mem_3,=mem.srams.mem_4,=mem.srams.mem_5,=mem.srams.mem_6,=mem.srams.mem_7",
-        "V2_TABLE_READ": "1"
+        "V2_TABLE_READ": "1",
+        "V2_COUNT_TAIL_LOOP": "1"
       },
       "arguments": [
         "--oracle-freeze",
@@ -51928,7 +51929,8 @@
         "V2_BRANCHLESS_HOLD": "1",
         "V2_BRANCHLESS_FORWARD": "1",
         "V2_SMALL_STATE_SELECT": "1",
-        "V2_SHARED_EVAL": "1"
+        "V2_SHARED_EVAL": "1",
+        "V2_COUNT_TAIL_LOOP": "1"
       },
       "arguments": [
         "--oracle-freeze",
@@ -51963,7 +51965,8 @@
         "V2_BRANCHLESS_HOLD": "1",
         "V2_BRANCHLESS_FORWARD": "1",
         "V2_SMALL_STATE_SELECT": "1",
-        "V2_SHARED_EVAL": "1"
+        "V2_SHARED_EVAL": "1",
+        "V2_COUNT_TAIL_LOOP": "1"
       },
       "arguments": [
         "--oracle-freeze",
@@ -52023,7 +52026,8 @@
         "V2_BRANCHLESS_HOLD": "1",
         "V2_BRANCHLESS_FORWARD": "1",
         "V2_SMALL_STATE_SELECT": "1",
-        "V2_SHARED_EVAL": "1"
+        "V2_SHARED_EVAL": "1",
+        "V2_COUNT_TAIL_LOOP": "1"
       },
       "arguments": [
         "--oracle-freeze",
