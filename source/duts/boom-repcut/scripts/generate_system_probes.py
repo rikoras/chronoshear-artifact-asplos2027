@@ -48,7 +48,7 @@ def c_string(value: str) -> str:
 
 def relative_to_repo(path: str) -> str:
     """Header comments must not bake in a machine-specific absolute path."""
-    repo_root = Path(__file__).resolve().parents[3]
+    repo_root = Path(__file__).resolve().parents[4]
     resolved = Path(path).resolve()
     try:
         return str(resolved.relative_to(repo_root))

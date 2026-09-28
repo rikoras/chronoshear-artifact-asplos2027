@@ -2,7 +2,7 @@
 // Do not edit. Regenerate when the oracle manifest changes; the diff
 // is the record of what CHISA now asks the model to produce.
 //
-// manifest: /home/server/chronoshear-artifact-layout-20260923/.build/emission/boom-large/w32/oracle_manifest.json
+// manifest: .build/emission/boom-large/w32/oracle_manifest.json
 // streams:  3997
 //
 // A stream with no model binding registers as UNMODELED and is

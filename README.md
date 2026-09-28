@@ -9,7 +9,7 @@ execute them in parallel and accelerate RTL simulation.
 
 ## Access to the prepared host
 
-We offer a T550 server with a cloned repository and prebuilt binaries.
+We offer a T550 server with a copy of this repository and prebuilt binaries.
 
 Choose **either** of the following two connection methods.
 

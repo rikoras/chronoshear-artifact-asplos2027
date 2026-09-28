@@ -24,7 +24,8 @@ def remove(path):
 def clean_backend(plan,duts,kind):
     for name,spec in plan['binaries'].items():
         if spec.get('dut') not in duts or spec.get('kind')!=kind:continue
-        print('Remove',spec['output']);remove(ROOT/spec['output'])
+        if (ROOT/spec['output']).exists():print('Remove',spec['output'],flush=True)
+        remove(ROOT/spec['output'])
         receipt=ROOT/'.build/receipts'/(name+'.json')
         keys=set(json.loads(receipt.read_text()).get('objects',[])) if receipt.exists() else set()
         for unit in spec['objects']:
@@ -57,7 +58,7 @@ def execute(selection):
                 clean_backend(plan,[dut],'chronoshear')
                 clean_backend(plan,[dut],'architecture')
                 for p in (ROOT/'generated'/dut).glob('*'):
-                    if p.name.startswith(('w','mt6-w')):print('Remove',p.relative_to(ROOT));remove(p)
+                    if p.name.startswith(('w','mt6-w')):print('Remove',p.relative_to(ROOT),flush=True);remove(p)
                 remove(ROOT/'.build/emission'/dut)
             if 2 in stages and action in ['clean','clean-rebuild']:
                 clean_backend(plan,[dut],'chronoshear')
@@ -109,7 +110,7 @@ def main():
     stages=choose('Components',STAGES)
     selection={'action':{1:'clean',2:'rebuild',3:'clean-rebuild'}[action],'duts':duts,'stages':stages}
     print('Action:',selection['action'],'DUTs:',', '.join(duts))
-    print('Selected:', '; '.join(STAGES[i] for i in stages))
+    print('Selected:', '; '.join(STAGES[i] for i in stages),flush=True)
     subprocess.run([*binding(),sys.executable,__file__,'--execute',json.dumps(selection)],check=True)
 
 if __name__=='__main__':main()

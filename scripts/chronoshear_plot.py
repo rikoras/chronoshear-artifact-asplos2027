@@ -46,7 +46,7 @@ def main():
         series=[{NAMES[r['dut']]:float(r['throughput_khz']) for r in selected if int(r['width'])==w} for w in widths]
         fig,ax=plt.subplots(figsize=(theme.PAPER_WIDTH if len(duts)>3 else theme.COLUMN_WIDTH,2.5));fig.subplots_adjust(left=.085 if len(duts)>3 else .18,right=.985,bottom=.22,top=.79)
         handles=paper.grouped(ax,series,[theme.VECTOR_WIDTH_COLORS[w] for w in widths],[f'$W={w}$' for w in widths],duts)
-        ax.set_xticks(range(len(duts)),duts,rotation=0,ha='center');ax.set(yscale='log',ylabel='Throughput (kHz)')
+        ax.set_xticks(range(len(duts)),[paper.display_name(d) for d in duts],rotation=0,ha='center');ax.set(yscale='log',ylabel='Throughput (kHz)')
         ax.legend(handles,[f'$W={w}$' for w in widths],loc='lower center',bbox_to_anchor=(.5,1.07),ncol=4,columnspacing=.8,handlelength=1,handletextpad=.35)
         save(fig,a.directory)
     else:

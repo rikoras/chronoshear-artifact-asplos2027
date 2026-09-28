@@ -26,6 +26,11 @@ def ensure_runtime_header():
         temporary.write_text(content);temporary.replace(header)
     return header
 
+def remove_graph_dumps():
+    """The bundled Verilator writes ordering-graph dumps into its working directory."""
+    for pattern in ['preorder.dot','postorder.dot','orderedgraph.dot','toordergraph.dot*']:
+        for path in ROOT.glob(pattern):path.unlink(missing_ok=True)
+
 def run(command,log,**kwargs):
     log.parent.mkdir(parents=True,exist_ok=True)
     with log.open('w') as f:subprocess.run(list(map(str,command)),stdout=f,stderr=subprocess.STDOUT,check=True,**kwargs)
@@ -63,7 +68,8 @@ def generate(dut,counts=None):
         if dut.startswith('boom-'):flags+=['--output-split','20000','--x-assign','unique','-DPRINTF_COND=0','-DSTOP_COND=0']
         if dut=='rocket':flags+=['--flatten','--assert','--output-split','20000','--output-split-cfuncs','20000','--x-assign','fast','--x-initial','0','--max-num-width','1048576','-DPRINTF_COND=0','-DSTOP_COND=0']
         flags+=['-I'+str(lower),'-I'+str(inp/'blackboxes'),'-Mdir',str(output)]
-        run([*binding(),vr/'bin/verilator',*flags,verilog,*extra],ROOT/'.build/logs'/dut/('verilator'+str(threads)+'.log'),env=env,cwd=ROOT)
+        try:run([*binding(),vr/'bin/verilator',*flags,verilog,*extra],ROOT/'.build/logs'/dut/('verilator'+str(threads)+'.log'),env=env,cwd=ROOT)
+        finally:remove_graph_dumps()
     print('VERILATOR GENERATED',dut,flush=True)
 
 def recipes(plan):
