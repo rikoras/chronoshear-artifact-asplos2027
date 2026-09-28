@@ -39,7 +39,7 @@ static inline __attribute__((always_inline)) T essent_index_or_seed(
   return *essent_select_ptr(valid, values + safe_index, &seed);
 }
 
-// W16/W32 scalar fields fit in one to four vector registers. Table permutation
+// W8/W16/W32 scalar fields fit in one to four vector registers. Table permutation
 // avoids indexed loads and per-lane branches; negative indices select seed.
 // The boundary lane is written back with its original value.
 template<int W, typename T>
@@ -94,6 +94,40 @@ static inline bool essent_hold_permute(T* output, const int16_t* indices,
         _mm512_storeu_si512(output + base,
             _mm512_mask_mov_epi64(_mm512_set1_epi64(static_cast<long long>(bits)), valid, picked));
       }
+      return true;
+    }
+  } else if constexpr (W == 8 && std::is_trivially_copyable<T>::value &&
+                       (sizeof(T) == 1 || sizeof(T) == 2 || sizeof(T) == 4 || sizeof(T) == 8)) {
+    // W8 fields: 8 to 64 bytes, one register.
+    uint64_t bits = 0;
+    std::memcpy(&bits, &seed, sizeof(T));
+    const __m128i index = _mm_loadu_si128(reinterpret_cast<const __m128i*>(indices));
+    const __mmask8 valid = _mm_cmpge_epi16_mask(index, _mm_setzero_si128());
+    if constexpr (sizeof(T) == 1) {
+#if defined(__AVX512VBMI__)
+      const __m128i picked = _mm_permutexvar_epi8(_mm_cvtepi16_epi8(index),
+          _mm_loadl_epi64(reinterpret_cast<const __m128i*>(values)));
+      _mm_storel_epi64(reinterpret_cast<__m128i*>(output),
+          _mm_mask_mov_epi8(_mm_set1_epi8(static_cast<char>(bits)), valid, picked));
+      return true;
+#endif
+    } else if constexpr (sizeof(T) == 2) {
+      const __m128i picked = _mm_permutexvar_epi16(index,
+          _mm_loadu_si128(reinterpret_cast<const __m128i*>(values)));
+      _mm_storeu_si128(reinterpret_cast<__m128i*>(output),
+          _mm_mask_mov_epi16(_mm_set1_epi16(static_cast<short>(bits)), valid, picked));
+      return true;
+    } else if constexpr (sizeof(T) == 4) {
+      const __m256i picked = _mm256_permutexvar_epi32(_mm256_cvtepi16_epi32(index),
+          _mm256_loadu_si256(reinterpret_cast<const __m256i*>(values)));
+      _mm256_storeu_si256(reinterpret_cast<__m256i*>(output),
+          _mm256_mask_mov_epi32(_mm256_set1_epi32(static_cast<int>(bits)), valid, picked));
+      return true;
+    } else {
+      const __m512i picked = _mm512_permutexvar_epi64(_mm512_cvtepi16_epi64(index),
+          _mm512_loadu_si512(values));
+      _mm512_storeu_si512(output,
+          _mm512_mask_mov_epi64(_mm512_set1_epi64(static_cast<long long>(bits)), valid, picked));
       return true;
     }
   } else if constexpr (W == 16 && std::is_trivially_copyable<T>::value &&
