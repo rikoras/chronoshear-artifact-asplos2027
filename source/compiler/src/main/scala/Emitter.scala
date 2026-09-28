@@ -20,17 +20,17 @@ case class EmitContext(
   // Render Mux as the branchless by-value essent_mux helper instead of `?:`.
   // C++ `c ? a[L] : b[L]` has glvalue operands, so the backend lowers it to
   // an address select + conditional load — a pattern the loop vectorizer
-  // rejects, collapsing whole lane loops to scalar cmp/cmov chains (measured:
-  // only 11% vector instructions on sodor v2). essent_mux takes both sides
+  // rejects, collapsing whole lane loops to scalar cmp/cmov chains (few
+  // vector instructions remain). essent_mux takes both sides
   // by value and blends with a mask, which maps to vpblendm/vpternlog.
   // Only v2 emission defines the helper, so this defaults to off.
   branchlessMux: Boolean = false,
   // v2: for UInt<=64 comb assignments, render the RHS as primitive integer
   // dataflow and assign to `.val`. This avoids UInt<1>::operator bool() and
   // byte-predicate round trips while leaving wide/SInt/risky ops on the
-  // existing UInt/SInt path. v2 enables this by default after sodor W=16
-  // measurements showed no-verify KernelEval improving from ~128 ns/cycle to
-  // ~95 ns/cycle when paired with primitiveUIntMuxBlend.
+  // existing UInt/SInt path. v2 enables this by default: it speeds up
+  // kernel evaluation, with and without verification, when paired
+  // with primitiveUIntMuxBlend.
   primitiveUIntExpr: Boolean = false,
   // When primitive UInt lowering is enabled, lower FIRRTL Mux as a masked
   // integer select instead of C++ `?:`. This gives the vectorizer straight-line

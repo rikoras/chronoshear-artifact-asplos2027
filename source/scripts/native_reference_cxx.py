@@ -50,7 +50,7 @@ def main():
             report["source"] = str(source)
             reports.append(report)
         identity = hashlib.sha256(json.dumps([compiler, arguments], sort_keys=True).encode()).hexdigest()
-        directory = ROOT / "out/native-reference-audits"
+        directory = ROOT / ".build/native-reference-audits"
         directory.mkdir(parents=True, exist_ok=True)
         (directory / (identity + ".json")).write_text(json.dumps({"compiler": compiler, "arguments": arguments, "references": reports}, indent=2) + "\n")
     return subprocess.call([*compiler, *arguments])

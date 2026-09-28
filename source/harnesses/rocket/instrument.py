@@ -4,7 +4,7 @@
 The input remains the Verilog emitted directly from the locked FIRRTL.  This
 adds observation metadata, not logic.  A global --public-flat-rw prevents
 Verilator from optimizing every internal signal and substantially distorts
-the control measurement, so the paper path exposes only SimAXIMem, integer
+the baseline measurement, so this path exposes only SimAXIMem, integer
 RF, PC, DPC, and the ten signals needed to drive SimDTM from the same explicit
 DMI host as CHISA.  Exact replacement counts make source drift fail closed.
 """

@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Compile FIRRTL and generate matching online reference-model bindings."""
+"""Compile FIRRTL and generate matching reference-model bindings."""
 from pathlib import Path
 import argparse,concurrent.futures,csv,json,os,re,shutil,subprocess,sys
 from chronoshear_machine import binding

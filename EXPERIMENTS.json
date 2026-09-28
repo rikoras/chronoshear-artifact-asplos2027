@@ -640,7 +640,7 @@
       "cores": 3,
       "cycles": 196800,
       "width": 4,
-      "timing_scope": "online end-to-end wall time"
+      "timing_scope": "end-to-end wall time"
     },
     {
       "id": "chronoshear-boom-small-w8",
@@ -674,7 +674,7 @@
       "cores": 3,
       "cycles": 196800,
       "width": 8,
-      "timing_scope": "online end-to-end wall time"
+      "timing_scope": "end-to-end wall time"
     },
     {
       "id": "chronoshear-boom-small-w16",
@@ -708,7 +708,7 @@
       "cores": 3,
       "cycles": 196800,
       "width": 16,
-      "timing_scope": "online end-to-end wall time"
+      "timing_scope": "end-to-end wall time"
     },
     {
       "id": "chronoshear-boom-small-w32",
@@ -742,7 +742,7 @@
       "cores": 3,
       "cycles": 196800,
       "width": 32,
-      "timing_scope": "online end-to-end wall time"
+      "timing_scope": "end-to-end wall time"
     },
     {
       "id": "chronoshear-boom-medium-w4",
@@ -776,7 +776,7 @@
       "cores": 3,
       "cycles": 249984,
       "width": 4,
-      "timing_scope": "online end-to-end wall time"
+      "timing_scope": "end-to-end wall time"
     },
     {
       "id": "chronoshear-boom-medium-w8",
@@ -810,7 +810,7 @@
       "cores": 3,
       "cycles": 249984,
       "width": 8,
-      "timing_scope": "online end-to-end wall time"
+      "timing_scope": "end-to-end wall time"
     },
     {
       "id": "chronoshear-boom-medium-w16",
@@ -844,7 +844,7 @@
       "cores": 3,
       "cycles": 249984,
       "width": 16,
-      "timing_scope": "online end-to-end wall time"
+      "timing_scope": "end-to-end wall time"
     },
     {
       "id": "chronoshear-boom-medium-w32",
@@ -878,7 +878,7 @@
       "cores": 3,
       "cycles": 249984,
       "width": 32,
-      "timing_scope": "online end-to-end wall time"
+      "timing_scope": "end-to-end wall time"
     },
     {
       "id": "chronoshear-boom-large-w4",
@@ -912,7 +912,7 @@
       "cores": 3,
       "cycles": 249984,
       "width": 4,
-      "timing_scope": "online end-to-end wall time"
+      "timing_scope": "end-to-end wall time"
     },
     {
       "id": "chronoshear-boom-large-w8",
@@ -946,7 +946,7 @@
       "cores": 3,
       "cycles": 249984,
       "width": 8,
-      "timing_scope": "online end-to-end wall time"
+      "timing_scope": "end-to-end wall time"
     },
     {
       "id": "chronoshear-boom-large-w16",
@@ -980,7 +980,7 @@
       "cores": 3,
       "cycles": 249984,
       "width": 16,
-      "timing_scope": "online end-to-end wall time"
+      "timing_scope": "end-to-end wall time"
     },
     {
       "id": "chronoshear-boom-large-w32",
@@ -1014,7 +1014,7 @@
       "cores": 3,
       "cycles": 249984,
       "width": 32,
-      "timing_scope": "online end-to-end wall time"
+      "timing_scope": "end-to-end wall time"
     },
     {
       "id": "chronoshear-aes-w4",
@@ -1038,7 +1038,7 @@
       "cores": 2,
       "width": 4,
       "cycles": 100000,
-      "timing_scope": "online end-to-end wall time"
+      "timing_scope": "end-to-end wall time"
     },
     {
       "id": "chronoshear-aes-w8",
@@ -1062,7 +1062,7 @@
       "cores": 2,
       "width": 8,
       "cycles": 100000,
-      "timing_scope": "online end-to-end wall time"
+      "timing_scope": "end-to-end wall time"
     },
     {
       "id": "chronoshear-aes-w16",
@@ -1086,7 +1086,7 @@
       "cores": 2,
       "width": 16,
       "cycles": 100000,
-      "timing_scope": "online end-to-end wall time"
+      "timing_scope": "end-to-end wall time"
     },
     {
       "id": "chronoshear-aes-w32",
@@ -1110,7 +1110,7 @@
       "cores": 2,
       "width": 32,
       "cycles": 100000,
-      "timing_scope": "online end-to-end wall time"
+      "timing_scope": "end-to-end wall time"
     },
     {
       "id": "chronoshear-matmul-w4",
@@ -1275,7 +1275,7 @@
         "SIDECAR_CPU_CONS": "${CPU0}",
         "SIDECAR_CPU_PROD": "${CPU1}"
       },
-      "timing_scope": "online end-to-end wall time"
+      "timing_scope": "end-to-end wall time"
     },
     {
       "id": "chronoshear-sodor-w8",
@@ -1303,7 +1303,7 @@
         "SIDECAR_CPU_CONS": "${CPU0}",
         "SIDECAR_CPU_PROD": "${CPU1}"
       },
-      "timing_scope": "online end-to-end wall time"
+      "timing_scope": "end-to-end wall time"
     },
     {
       "id": "chronoshear-sodor-w16",
@@ -1331,7 +1331,7 @@
         "SIDECAR_CPU_CONS": "${CPU0}",
         "SIDECAR_CPU_PROD": "${CPU1}"
       },
-      "timing_scope": "online end-to-end wall time"
+      "timing_scope": "end-to-end wall time"
     },
     {
       "id": "chronoshear-sodor-w32",
@@ -1359,7 +1359,7 @@
         "SIDECAR_CPU_CONS": "${CPU0}",
         "SIDECAR_CPU_PROD": "${CPU1}"
       },
-      "timing_scope": "online end-to-end wall time"
+      "timing_scope": "end-to-end wall time"
     },
     {
       "id": "chronoshear-rocket-w4",
@@ -1383,7 +1383,7 @@
       ],
       "cores": 2,
       "width": 4,
-      "timing_scope": "online end-to-end wall time"
+      "timing_scope": "end-to-end wall time"
     },
     {
       "id": "chronoshear-rocket-w8",
@@ -1407,7 +1407,7 @@
       ],
       "cores": 2,
       "width": 8,
-      "timing_scope": "online end-to-end wall time"
+      "timing_scope": "end-to-end wall time"
     },
     {
       "id": "chronoshear-rocket-w16",
@@ -1431,7 +1431,7 @@
       ],
       "cores": 2,
       "width": 16,
-      "timing_scope": "online end-to-end wall time"
+      "timing_scope": "end-to-end wall time"
     },
     {
       "id": "chronoshear-rocket-w32",
@@ -1455,7 +1455,7 @@
       ],
       "cores": 2,
       "width": 32,
-      "timing_scope": "online end-to-end wall time"
+      "timing_scope": "end-to-end wall time"
     },
     {
       "id": "matmul-verilator-4t",
@@ -1507,7 +1507,7 @@
       "cores": 3,
       "cycles": 196800,
       "width": 4,
-      "timing_scope": "online end-to-end wall time"
+      "timing_scope": "end-to-end wall time"
     },
     {
       "id": "chronoshear-boom-small-w8",
@@ -1540,7 +1540,7 @@
       "cores": 3,
       "cycles": 196800,
       "width": 8,
-      "timing_scope": "online end-to-end wall time"
+      "timing_scope": "end-to-end wall time"
     },
     {
       "id": "chronoshear-boom-small-w16",
@@ -1573,7 +1573,7 @@
       "cores": 3,
       "cycles": 196800,
       "width": 16,
-      "timing_scope": "online end-to-end wall time"
+      "timing_scope": "end-to-end wall time"
     },
     {
       "id": "chronoshear-boom-small-w32",
@@ -1606,7 +1606,7 @@
       "cores": 3,
       "cycles": 196800,
       "width": 32,
-      "timing_scope": "online end-to-end wall time"
+      "timing_scope": "end-to-end wall time"
     },
     {
       "id": "chronoshear-boom-medium-w4",
@@ -1639,7 +1639,7 @@
       "cores": 3,
       "cycles": 249984,
       "width": 4,
-      "timing_scope": "online end-to-end wall time"
+      "timing_scope": "end-to-end wall time"
     },
     {
       "id": "chronoshear-boom-medium-w8",
@@ -1672,7 +1672,7 @@
       "cores": 3,
       "cycles": 249984,
       "width": 8,
-      "timing_scope": "online end-to-end wall time"
+      "timing_scope": "end-to-end wall time"
     },
     {
       "id": "chronoshear-boom-medium-w16",
@@ -1705,7 +1705,7 @@
       "cores": 3,
       "cycles": 249984,
       "width": 16,
-      "timing_scope": "online end-to-end wall time"
+      "timing_scope": "end-to-end wall time"
     },
     {
       "id": "chronoshear-boom-medium-w32",
@@ -1738,7 +1738,7 @@
       "cores": 3,
       "cycles": 249984,
       "width": 32,
-      "timing_scope": "online end-to-end wall time"
+      "timing_scope": "end-to-end wall time"
     },
     {
       "id": "chronoshear-boom-large-w4",
@@ -1771,7 +1771,7 @@
       "cores": 3,
       "cycles": 249984,
       "width": 4,
-      "timing_scope": "online end-to-end wall time"
+      "timing_scope": "end-to-end wall time"
     },
     {
       "id": "chronoshear-boom-large-w8",
@@ -1804,7 +1804,7 @@
       "cores": 3,
       "cycles": 249984,
       "width": 8,
-      "timing_scope": "online end-to-end wall time"
+      "timing_scope": "end-to-end wall time"
     },
     {
       "id": "chronoshear-boom-large-w16",
@@ -1837,7 +1837,7 @@
       "cores": 3,
       "cycles": 249984,
       "width": 16,
-      "timing_scope": "online end-to-end wall time"
+      "timing_scope": "end-to-end wall time"
     },
     {
       "id": "chronoshear-boom-large-w32",
@@ -1870,7 +1870,7 @@
       "cores": 3,
       "cycles": 249984,
       "width": 32,
-      "timing_scope": "online end-to-end wall time"
+      "timing_scope": "end-to-end wall time"
     },
     {
       "id": "chronoshear-aes-w4",
@@ -1894,7 +1894,7 @@
       "cores": 2,
       "width": 4,
       "cycles": 100000,
-      "timing_scope": "online end-to-end wall time"
+      "timing_scope": "end-to-end wall time"
     },
     {
       "id": "chronoshear-aes-w8",
@@ -1918,7 +1918,7 @@
       "cores": 2,
       "width": 8,
       "cycles": 100000,
-      "timing_scope": "online end-to-end wall time"
+      "timing_scope": "end-to-end wall time"
     },
     {
       "id": "chronoshear-aes-w16",
@@ -1942,7 +1942,7 @@
       "cores": 2,
       "width": 16,
       "cycles": 100000,
-      "timing_scope": "online end-to-end wall time"
+      "timing_scope": "end-to-end wall time"
     },
     {
       "id": "chronoshear-aes-w32",
@@ -1966,7 +1966,7 @@
       "cores": 2,
       "width": 32,
       "cycles": 100000,
-      "timing_scope": "online end-to-end wall time"
+      "timing_scope": "end-to-end wall time"
     },
     {
       "id": "chronoshear-matmul-w4",
@@ -2074,7 +2074,7 @@
         "SIDECAR_CPU_CONS": "${CPU0}",
         "SIDECAR_CPU_PROD": "${CPU1}"
       },
-      "timing_scope": "online end-to-end wall time"
+      "timing_scope": "end-to-end wall time"
     },
     {
       "id": "chronoshear-sodor-w8",
@@ -2102,7 +2102,7 @@
         "SIDECAR_CPU_CONS": "${CPU0}",
         "SIDECAR_CPU_PROD": "${CPU1}"
       },
-      "timing_scope": "online end-to-end wall time"
+      "timing_scope": "end-to-end wall time"
     },
     {
       "id": "chronoshear-sodor-w16",
@@ -2130,7 +2130,7 @@
         "SIDECAR_CPU_CONS": "${CPU0}",
         "SIDECAR_CPU_PROD": "${CPU1}"
       },
-      "timing_scope": "online end-to-end wall time"
+      "timing_scope": "end-to-end wall time"
     },
     {
       "id": "chronoshear-sodor-w32",
@@ -2158,7 +2158,7 @@
         "SIDECAR_CPU_CONS": "${CPU0}",
         "SIDECAR_CPU_PROD": "${CPU1}"
       },
-      "timing_scope": "online end-to-end wall time"
+      "timing_scope": "end-to-end wall time"
     },
     {
       "id": "chronoshear-rocket-w4",
@@ -2182,7 +2182,7 @@
       ],
       "cores": 2,
       "width": 4,
-      "timing_scope": "online end-to-end wall time"
+      "timing_scope": "end-to-end wall time"
     },
     {
       "id": "chronoshear-rocket-w8",
@@ -2206,7 +2206,7 @@
       ],
       "cores": 2,
       "width": 8,
-      "timing_scope": "online end-to-end wall time"
+      "timing_scope": "end-to-end wall time"
     },
     {
       "id": "chronoshear-rocket-w16",
@@ -2230,7 +2230,7 @@
       ],
       "cores": 2,
       "width": 16,
-      "timing_scope": "online end-to-end wall time"
+      "timing_scope": "end-to-end wall time"
     },
     {
       "id": "chronoshear-rocket-w32",
@@ -2254,7 +2254,7 @@
       ],
       "cores": 2,
       "width": 32,
-      "timing_scope": "online end-to-end wall time"
+      "timing_scope": "end-to-end wall time"
     },
     {
       "id": "chronoshear-boom-large-rtl1",
@@ -2287,7 +2287,7 @@
       "cores": 3,
       "cycles": 249984,
       "width": 16,
-      "timing_scope": "online end-to-end wall time",
+      "timing_scope": "end-to-end wall time",
       "rtl_cores": 1
     },
     {
@@ -2387,7 +2387,7 @@
         "SYSMODEL_OWNER_LOCAL_HEAD": "1",
         "SYSMODEL_RECORD_THREAD": "0"
       },
-      "timing_scope": "online end-to-end wall time"
+      "timing_scope": "end-to-end wall time"
     },
     {
       "id": "boom-large-verilator-2t-threads",
@@ -2486,7 +2486,7 @@
         "SYSMODEL_OWNER_LOCAL_HEAD": "1",
         "SYSMODEL_RECORD_THREAD": "0"
       },
-      "timing_scope": "online end-to-end wall time"
+      "timing_scope": "end-to-end wall time"
     },
     {
       "id": "boom-large-verilator-4t-threads",
@@ -2585,7 +2585,7 @@
         "SYSMODEL_OWNER_LOCAL_HEAD": "1",
         "SYSMODEL_RECORD_THREAD": "0"
       },
-      "timing_scope": "online end-to-end wall time"
+      "timing_scope": "end-to-end wall time"
     },
     {
       "id": "boom-large-verilator-6t-threads",

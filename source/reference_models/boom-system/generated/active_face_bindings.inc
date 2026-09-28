@@ -1,4 +1,4 @@
-// Auto-generated active-face bindings, wave E1 (2026-08-23).
+// Auto-generated active-face bindings.
 // Expressions follow the reuse-audit dictionary; the sample buffer is
 // filled pre-step, matching each SRAM read reconstruction below.
 

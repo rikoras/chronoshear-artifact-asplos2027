@@ -11,7 +11,7 @@ guess at what kind of state it is.  The guess is a reading aid for scoping, not
 a contract -- the contract is the RTL, and every family is printed with its
 FIRRTL source line so it can be read there.
 
-The kind taxonomy follows docs/GUIDER_PARADIGM.md section 1:
+The kind taxonomy:
 
   handshake  valid/ready/CDC registers -- one-cycle images of combinational
              signals.  Cheap: model the producer, the register follows.

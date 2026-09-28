@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Run the selected online experiments on the configured physical cores."""
+"""Run the selected experiments on the configured physical cores."""
 from pathlib import Path
 import argparse,csv,json,os,re,shlex,subprocess,sys,time
 from chronoshear_machine import PHYSICAL_CPUS,binding,host_lock

@@ -28,8 +28,8 @@
 // mismatches and continue to architectural validation while retaining the
 // real RTL recomputation and comparison cost.
 //
-// Boundary discipline (docs/GUIDER_PARADIGM.md section 1)
-// ------------------------------------------------------
+// Boundary discipline
+// -------------------
 //  1. Externalized storage is not modeled.  CHISA owns the AXI RAM and the
 //     other large arrays as chronological state computed by the RTL kernel, so
 //     this model predicts protocol and timing registers, never memory data

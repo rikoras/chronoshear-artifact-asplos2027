@@ -1,8 +1,6 @@
-"""Shared paper/experiment plotting theme: graphite, blue-gray and crimson.
+"""Shared plotting theme: graphite, blue-gray and crimson.
 
-Geometry and typography are configured here so every plotting entry point uses
-one style. Effects remain vector paths; no value, axis scale or uncertainty is
-changed. Legacy helper names remain available to the experiment scripts.
+Geometry and typography are configured here so every figure uses one style.
 """
 from __future__ import annotations
 import os
@@ -31,7 +29,7 @@ COMPILER_BAR_COLORS=(BLUE,GRAPHITE,CRIMSON)
 
 
 def configure_rc_params(plt,serif_fonts:Sequence[str]|None=None,*,font_size=9):
-    """Keep the legacy argument, but enforce the paper's actual Times font."""
+    """Use the paper's Times font from the bundled font files."""
     from matplotlib import font_manager
     for font in (Path(__file__).resolve().parents[2]/'deps/fonts').glob('*.ttf'):
         font_manager.fontManager.addfont(str(font))

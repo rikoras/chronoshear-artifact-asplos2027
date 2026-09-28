@@ -209,7 +209,7 @@ class FesvrDtmAdapter {
       current_.req_data = request.data;
       current_.resp_ready = dtm_.resp_ready();
       // Rate-limit fesvr's DMI chatter.  Between operations dtm_t::idle()
-      // hammers all-zero NOPs on a two-cycle period (measured), and
+      // hammers all-zero NOPs on a two-cycle period, and
       // dtm_t::read_chunk halts and
       // resumes the hart around every poll, so each poll is a back-to-back
       // run of DMI reads -- DMSTATUS (0x11) halt/resume busy polls,

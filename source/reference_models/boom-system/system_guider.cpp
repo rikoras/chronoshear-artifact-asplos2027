@@ -1197,7 +1197,7 @@ StepResult SystemGuider::step() {
   // wire oracles were sampled just above.  Publish before anything commits.
   {
     // Not latched: the strict qualification enables the probes only when its
-    // ROI begins (cycle ~803k), and a value latched at step 0 would leave the
+    // ROI begins, and a value latched at step 0 would leave the
     // published record empty for the first measured cycle (every pre-step
     // binding then reads 0). Two loads per cycle; the live flavors have no
     // probes and skip the publish as before.
@@ -1214,7 +1214,7 @@ StepResult SystemGuider::step() {
       // pre-step sampling) is done: the memory worker may copy the memory
       // runs into it.  The core runs are copied here, by the thread that
       // writes them: another thread reading them leaves the lines shared and
-      // the backend edge then pays the ownership transfers (240 ns per cycle).
+      // the backend edge then pays the ownership transfers.
       record_copy_gate_.publish(cycle_);
       if (publish_fn_ != nullptr)
         publish_fn_(publish_context_, *this, PublishPhase::Registers);

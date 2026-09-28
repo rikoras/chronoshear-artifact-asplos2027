@@ -1,11 +1,11 @@
 #!/usr/bin/env python3
-"""Plot online measurements using the paper's figure functions and theme."""
+"""Plot measurements using the paper's figure functions and theme."""
 from pathlib import Path
 import argparse,csv,os,sys
 ROOT=Path(__file__).resolve().parents[1]
 sys.path[:0]=[str(ROOT/'deps/python'),str(Path(__file__).resolve().parent/'plotting')]
 sys.dont_write_bytecode=True
-os.environ.setdefault('MPLCONFIGDIR',str(Path.home()/'.cache/chronoshear-matplotlib'))
+os.environ.setdefault('MPLCONFIGDIR',str(ROOT/'.build/matplotlib'))
 import chronoshear_paper_figures as paper
 import chronoshear_paper_threads as threads
 import chronoshear_plot_theme as theme
@@ -55,7 +55,7 @@ def main():
         for r in rows:data[METHODS[r['simulator']]][NAMES[r['dut']]]=float(r['ns_per_cycle'])
         fig,ax=plt.subplots(figsize=(theme.PAPER_WIDTH,2.05));fig.subplots_adjust(left=.085,right=.987,bottom=.27,top=.98)
         handles=paper.absolute_panel(ax,data,duts);ax.set_ylabel('Throughput (kHz)')
-        labels=[label for label,_ in paper.SERIES];labels[-1]='ChronoShear online'
+        labels=[label for label,_ in paper.SERIES]
         fig.legend(handles,labels,loc='lower center',bbox_to_anchor=(.535,.005),ncol=5,columnspacing=1.0,handlelength=1.2,handletextpad=.5)
         save(fig,a.directory)
 

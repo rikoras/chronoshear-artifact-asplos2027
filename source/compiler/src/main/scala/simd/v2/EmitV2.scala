@@ -17,7 +17,7 @@ import collection.mutable.ArrayBuffer
   * member arrays `T reg[W]` in nested module structs (member path == flat
   * name), top-level ports are member arrays. Produced locals are normally
   * eval-local arrays declared at first definition. Scratch can also be hoisted
-  * to file-scope static storage, or to the top object for A/B experiments.
+  * to file-scope static storage, or to the top object.
   * Expression rendering is delegated to essent.Emitter via Renamer.emitForLane
   * — v2 supplies the lane subscript, never parses names. */
 object EmitV2 {
@@ -36,8 +36,8 @@ object EmitV2 {
 
   /** Lane arrays used to be alignas(64) unconditionally, which pads every
     * UInt<1>[16] (16 real bytes) to a full cache line — with ~260 boolean
-    * scratch arrays that wasted ~16KB of the 32KB L1D (measured 4.9% L1D
-    * miss rate vs 0.01% scalar). Align to the array's natural size instead,
+    * scratch arrays that wasted about half of a 32KB L1D and inflated its
+    * miss rate. Align to the array's natural size instead,
     * capped at 64: consecutive narrow arrays then pack into shared lines and
     * unaligned AVX loads are free on the target hosts. */
   private def laneAlign(tpe: Type, w: Int): Int = {
@@ -222,7 +222,7 @@ object EmitV2 {
     * the exact write-port count instead of classifying the hardware memory by
     * depth alone.
     *
-    * V2_STATE_LAST_WRITER_DENSE_FACTOR is an A/B escape hatch.  Zero forces
+    * V2_STATE_LAST_WRITER_DENSE_FACTOR is an escape hatch.  Zero forces
     * bounded replay; larger values retain the direct table for progressively
     * deeper arrays.  Four is deliberately conservative about the extra
     * branches and address expressions in replay while eliminating the clear
@@ -251,13 +251,13 @@ object EmitV2 {
     * must copy multiple words and is itself branch based, so eagerly copying
     * them would add work without removing control flow.
     *
-    * Complete-Small BOOM qualification (Clang 19, W=4) replaced 474 sparse
-    * read sites, reduced dynamic branches by about 6.3% and branch misses by
-    * about 27%, and improved paired throughput by 1.097x across nine
-    * interleaved samples.  A transformed W=1 build then matched independent
-    * Verilator for 50,000 cycles / 96,201,920 comparisons.  Keep an env
-    * opt-out for bisecting; persistent state commits retain conditional
-    * stores and wide values retain their established branching form.
+    * On the complete SmallBOOM this replaces hundreds of sparse read sites
+    * and removes a large share of the dynamic branch misses; a transformed
+    * W=1 build matched independent Verilator cycle by cycle.
+    *
+    * Keep an env opt-out for bisecting; persistent state commits retain
+    * conditional stores and wide values retain their established branching
+    * form.
     */
   private def narrowPodStateValues(tpes: Seq[Type]): Boolean =
     tpes.nonEmpty && tpes.forall {
@@ -276,10 +276,10 @@ object EmitV2 {
     * The table is local scratch rather than architectural state; the extra
     * slot therefore changes neither the state ABI nor the persistent array.
     *
-    * Complete-Small BOOM (Clang 19, W=4) replaced 520 dense read sites across
-    * both directions.  Nine interleaved samples improved by a paired median
-    * 1.101x; dynamic branch misses fell about 29% even though retired
-    * instructions rose about 1.1%.  Keep an opt-out for bisecting. */
+    * On the complete SmallBOOM this replaces hundreds of dense read sites
+    * across both directions and removes many dynamic branch misses at the
+    * cost of slightly more retired instructions.
+    * Keep an opt-out for bisecting. */
   private def branchlessDenseLastWriter(tpes: Seq[Type]): Boolean =
     narrowPodStateValues(tpes) &&
       envBool("V2_STATE_DENSE_BRANCHLESS", default = true)
@@ -373,7 +373,7 @@ object EmitV2 {
   /** SEMANTICS-BREAKING probe (never default, never gate it as correct):
     * arrays whose flat name contains one of these comma-separated substrings
     * get their reads stubbed to zero and their read machinery skipped. The
-    * zero-data bench delta against the champion is the cost CEILING of the
+    * zero-data run bounds the cost of the
     * read-port externalization direction (injected reads + write-stream
     * verification would delete the same machinery); it decides whether the
     * full manifest/capture/consumer plumbing is worth building. */
@@ -405,18 +405,18 @@ object EmitV2 {
     * on). The forward and reverse bodies emit byte-identical comb lane loops
     * — comb statements are lane-local and always iterate L ascending — so
     * each emitted comb group becomes one member function called from both
-    * bodies instead of being duplicated. Measured on the champion build:
-    * 3,085 identical comb blocks per direction (14.5MB of duplicated
-    * source); the real-data profile shows ~6MB/window instruction streaming
-    * as the current wall, and this halves the comb share of it. */
+    * bodies instead of being duplicated. Large designs contain thousands of
+    * identical comb blocks per direction and are limited by instruction
+    * fetch, so sharing the blocks halves the comb share of the instruction
+    * stream. */
   private var capturingSharedEval = false
   private def sharedCombOutline: Boolean =
     !capturingSharedEval && envBool("V2_SHARED_COMB_OUTLINE", default = true)
   /** Only groups whose rendered body reaches this many characters are shared;
-    * smaller groups stay inline. Outlining every group measured -13..-17%:
-    * thousands of noinline boundaries broke cross-group register reuse and
+    * smaller groups stay inline. Outlining every group is slower:
+    * thousands of noinline boundaries break cross-group register reuse and
     * redundant-load elimination, costing far more than the fetch savings
-    * (text -18%) — instruction streaming was already prefetch-hidden. */
+    * for small groups. */
   private def sharedCombMinChars: Int =
     sys.env.get("V2_SHARED_COMB_MIN_CHARS").map(_.trim).filter(_.nonEmpty)
       .map(_.toInt).getOrElse(20000)
@@ -641,12 +641,12 @@ object EmitV2 {
   /** Skip one persistent-state commit lane loop when none of its write
     * conditions is true anywhere in the SIMD window.  The reduction only
     * reads already-computed write enables/masks; the original chronological
-    * lane/port loop remains unchanged on the active path.  Complete-Small
-    * BOOM W=4 emits 228 such loops across both directions, covering 529
-    * arrays but only 374 distinct write conditions per direction after
-    * same-access fields are collapsed.  A 60k x 9 interleaved Clang 19 A/B
-    * improved the monitor-free generated consumer by 1.0231x geometrically
-    * without injection and 1.0336x with injection (8/9 wins in both). */
+    * lane/port loop remains unchanged on the active path.  On SmallBOOM
+    * such loops cover hundreds of arrays but far fewer distinct write
+    * conditions once same-access fields are collapsed, and most windows
+    * leave them idle, so the guard skips most commit loops while keeping
+    * their chronological order whenever a write does occur in the
+    * window. */
   private def guardEmptyStateCommitWindows: Boolean =
     envBool("V2_STATE_COMMIT_ANY_GUARD", default = true)
 
@@ -692,7 +692,7 @@ object EmitV2 {
     // of the oracle's defining template in scheduleFwd — so a window's
     // injection sweep walks its block quasi-monotonically instead of jumping
     // by arraySymbol's alphabetical accident. V2_V4_LAYOUT_ALPHA=1 restores
-    // the old alphabetical order for A/B bisection.
+    // the old alphabetical order for bisection.
     val alphaLayout = sys.env.get("V2_V4_LAYOUT_ALPHA").exists(v => v == "1" || v == "true")
     val schedPos: Map[Int, Int] = {
       val m = mutable.HashMap[Int, Int]()
@@ -774,7 +774,7 @@ object EmitV2 {
       // RepCut's Verilator performance build compiles the source-level
       // printf/stop monitors out with PRINTF_COND=0/STOP_COND=0.  Offer the
       // same release configuration without weakening CHISA's own per-oracle
-      // Micro-Lockstep checks.  Keep it opt-in until the full-chip A/B below
+      // Micro-Lockstep checks.  Keep it opt-in until the full-chip comparison
       // has established both the contract change and runtime benefit.
       keepSourceEffects = !envBool("V2_DISABLE_SOURCE_EFFECTS", default = false))
 
@@ -1000,7 +1000,7 @@ object EmitV2 {
     }
     if (condHoldWdataAliases.nonEmpty)
       println(s"[v2-reg-bank] zero-copy cond-hold wdata: ${condHoldWdataAliases.size} bank(s)")
-    // branchlessMux measured: 161 -> 196 ns/cycle on sodor W=16. The hot mux
+    // branchlessMux is slower on the evaluated designs: the hot mux
     // conditions (stall/kill/reset) are heavily biased, so predicted branches
     // that evaluate one side beat blends that always evaluate both. Helper
     // stays emitted for experiments; default off.
@@ -1008,9 +1008,9 @@ object EmitV2 {
     // Primitive UInt lowering is different: it only applies to UInt<=64 comb
     // assignments and keeps nested Muxes as integer mask/blend dataflow. That
     // removes the UInt<1>::operator bool() / byte-array control-flow boundary
-    // that made icpx scalarize the hot lane loops. On sodor W=16 this reduced
-    // no-verify KernelEval from ~128 ns/cycle to ~95 ns/cycle and full-verify
-    // KernelEval from ~153 ns/cycle to ~121 ns/cycle. Keep env opt-outs for
+    // that made the compiler scalarize the hot lane loops, and speeds up
+    // kernel evaluation both with and without verification. Keep env
+    // opt-outs for
     // bisecting regressions:
     //   V2_PRIMITIVE_UINT_EXPR=0
     //   V2_PRIMITIVE_UINT_MUX_BLEND=0
@@ -1040,14 +1040,14 @@ object EmitV2 {
     // setting the chunk weight forces the choice for smaller kernels too.
     val explicitEvalChunkWeight = sys.env.contains("V2_EVAL_CHUNK_WEIGHT") ||
       sys.env.contains("V2_EVAL_CHUNK_BLOCKS")
-    // Complete-Small BOOM A/B (Clang 19, W=4): 1536 first removed the giant
-    // eval-function cliff; a longer interleaved scan then selected 3072 over
-    // 1536 by 1.0232x (7/9 wins).  6144 lost 0.9858x to 3072 in the follow-up
-    // ultra-long scan, while 768 was already a clear loss.  Weight 3072 emits
-    // 54 helpers per direction and compiles in about 67 seconds instead of
-    // roughly 300 seconds unoutlined.  The current full-chip schedule has
-    // 37,502 units, so use a 30,000-unit automatic threshold; the 14,174-unit
-    // core-only schedule remains unoutlined without an explicit override.
+    // On SmallBOOM, chunking the eval function removes the compile-time and
+    // code-quality cliff of one giant function.  Among the weights tried,
+    // 3072 was fastest (768 and 6144 were both slower); it emits a few dozen
+    // helpers per direction and compiles several times faster than the
+    // unoutlined function.  Full-chip schedules exceed the 30,000-unit
+    // automatic threshold, while the smaller core-only schedule remains
+    // unoutlined without an explicit override.
+    // (V2_EVAL_CHUNK_WEIGHT sets the weight explicitly.)
     val requestedEvalChunkWeight = sys.env.get("V2_EVAL_CHUNK_WEIGHT")
       .orElse(sys.env.get("V2_EVAL_CHUNK_BLOCKS")) // compatibility with early experiments
       .flatMap(_.trim.toIntOption).getOrElse(3072)
@@ -1172,8 +1172,8 @@ object EmitV2 {
       // Every template inside a residual serial region is scheduled per-lane
       // or chain-coalesced; both forms may read operand storage under the
       // previous-window (committed) model — keep every oracle register any
-      // of them reads. (Measured on Rocket W=16: the folded-expr set alone
-      // missed the consumer and the first window misverified.)
+      // of them reads. (The folded-expr set alone misses the consumer, and
+      // the first window would then fail verification.)
       val serialRegionReads = res.sccOf.keysIterator
         .flatMap(t => V2Pipeline.stmtReads(res.nodes(t).stmt)).toSet
       val coldReads: Set[String] = coldSpec match {
@@ -1247,11 +1247,11 @@ object EmitV2 {
     if (res.oracles.nonEmpty) w.writeLines(0, "#include \"oracle_data.h\"")
     w.writeLines(0, "#define UNLIKELY(condition) __builtin_expect(static_cast<bool>(condition), 0)")
     // Lane loops have no loop-carried dependences by construction (serial
-    // chains are emitted separately, without this pragma). Note: icpx still
+    // chains are emitted separately, without this pragma). Note: some compilers still
     // rejects some loops over "assumed OUTPUT dependence" between member
     // array stores reached through `this`; pair with -fno-alias (safe: every
     // emitted array is a distinct object). `omp simd` (forced vectorization)
-    // measured strictly worse — it overrides the cost model.
+    // is slower — it overrides the cost model.
     w.writeLines(0, "#if defined(__clang__) || defined(__INTEL_LLVM_COMPILER)")
     w.writeLines(0, "#define ESSENT_LANE_LOOP _Pragma(\"clang loop vectorize(assume_safety)\")")
     // Lane loops over W-1 lanes (the cross-lane register verify: next[k] vs
@@ -1260,7 +1260,7 @@ object EmitV2 {
     // covers most of the lanes. Predicated (tail-folded) vectorization at
     // the full lane width runs them as one masked vector iteration; the
     // scalar remainder never runs. Applied to every kernel lane loop it
-    // measured slower (the unroll(disable) it needs hurts the W-lane loops),
+    // was slower (the unroll(disable) it needs hurts the W-lane loops),
     // so it is limited to the short loops.
     // Width capped at 32 lanes: wider requests exceed what the backend
     // vectorizes as one masked iteration; a W-1 loop then folds in two.
@@ -1363,19 +1363,19 @@ object EmitV2 {
     w.writeLines(0, "}")
     // Oracle-inject / register-commit primitives with __restrict PARAMETERS.
     // Perf: emitted as plain fused lane loops, every [vec oracle-inject] and
-    // [vec commit] loop was rejected by icpx's vectorizer ("assumed
+    // [vec commit] loop was rejected by some vectorizers ("assumed
     // FLOW/OUTPUT/ANTI dependence"): lane elements are unsigned-char-based
     // PODs whose stores through `this` may legally alias the stream pointers
-    // and this->oracle_cycle, and icpx 2025.3 ignores both the assume_safety
+    // and this->oracle_cycle, and some compilers ignore both the assume_safety
     // pragma and block-scope __restrict locals when disproving those
     // dependences (verified on a reduced testcase; stock clang honors the
     // pragma). __restrict FUNCTION parameters are the one form all three
     // backends honor (the noalias scopes survive inlining), so each template
     // is routed through these helpers instead: every inject loop vectorizes,
     // and commit — an elementwise identity copy of two same-typed POD arrays —
-    // becomes a plain memcpy that lowers to vector moves (measured on Rocket
-    // W=8: eval_forward static instructions -10.5%, kernel 667->642 ns/cycle
-    // with the other v2 fixes excluded). Type deduction on T doubles as a
+    // becomes a plain memcpy that lowers to vector moves (fewer static
+    // instructions and a faster kernel on Rocket, independently of the
+    // other v2 fixes). Type deduction on T doubles as a
     // compile-time check that commit source/destination widths match.
     // v4 window-major: `src` already points at this stream's slot inside the
     // current super-window block, so fwd reads elements [0, W) and rev reads
@@ -1388,7 +1388,7 @@ object EmitV2 {
     // construction, the packer range-checks the tier, and Micro-Lockstep
     // verify catches any malformed injection on the very next window.
     // V2_NO_PREMIRROR=1 restores chronological rev order (layout tag v4)
-    // for A/B bisection; the mask-free copy stays in both modes.
+    // for bisection; the mask-free copy stays in both modes.
     val revIdx = if (premirror) "W + L" else "2 * W - 1 - L"
     w.writeLines(0, "template <int W, typename T, typename E>")
     w.writeLines(0, "static inline void essent_inject_fwd(T* __restrict dst, const E* __restrict src) {")
@@ -1627,7 +1627,7 @@ object EmitV2 {
     * lanes), else a ZMM (narrower lanes widened on load, narrowed on store).
     * Wider windows compose two half-scans through one scalar link, like the
     * cond-hold scan. W < 16 without a native YMM fit, and non-powers of two,
-    * use the sequential chain (measured: at W = 8 the vector setup costs
+    * use the sequential chain (at W = 8 the vector setup costs
     * more than the 7-link chain it replaces). */
   private def emitAffineScanHelpers(w: Writer): Unit = {
     def iota(n: Int) = (0 until n).mkString(", ")
@@ -2098,13 +2098,13 @@ static inline void essent_table_read(T* out, const T* table, const I* idx) {
       // Perf: without a matching (W, BW) branch the scan falls through to the scalar
       // loop below — a W-deep serially dependent cmov chain threaded through memory
       // (store-to-load forwarding between iterations). On Rocket W=8 that fallback was
-      // taken at all 156 callsites and cost ~23% of kernel time (667→516 ns/cycle when
-      // these W==8 branches were added). Each branch replaces the 7-deep cmov chain
+      // taken at every callsite and cost a large share of kernel time before
+      // these W==8 branches were added. Each branch replaces the 7-deep cmov chain
       // with a 3-step (log2 W) masked-select scan: 2 vector loads + 3 masked
       // permute/shift selects + 1 vector store, all lanes in one register.
       // The analogous W=4 prefix path was tested on the complete TestHarness.
       // Four lanes are too short to repay mask construction and vector shuffles:
-      // it retired more host instructions and was ~0.6% slower in paired A/B.
+      // it retired more host instructions and was slightly slower.
       "  if constexpr (W == 8 && BW <= 8) {",
       "    static_assert(sizeof(UInt<BW>) == sizeof(typename UInt<BW>::scalar_t));",
       "    const __m128i zero = _mm_setzero_si128();",
@@ -2251,7 +2251,7 @@ static inline void essent_table_read(T* out, const T* table, const I* idx) {
       "static inline void essent_condhold_scan_rev(UInt<BW>* __restrict r, const UInt<1>* __restrict wen, const UInt<BW>* __restrict wdata) {",
       "#if defined(__AVX512F__) && defined(__AVX512BW__) && defined(__AVX512VL__)",
       // Perf: mirrored W == 8 fast paths for the reverse (zig-zag) direction; see the
-      // comment on essent_condhold_scan_fwd above for the measured impact.
+      // comment on essent_condhold_scan_fwd above for the rationale.
       "  if constexpr (W == 8 && BW <= 8) {",
       "    static_assert(sizeof(UInt<BW>) == sizeof(typename UInt<BW>::scalar_t));",
       "    const __m128i zero = _mm_setzero_si128();",
@@ -3317,7 +3317,7 @@ static inline void essent_table_read(T* out, const T* table, const I* idx) {
     // Zero-copy stream aliases as hoisted __restrict locals: one win_base
     // load per function, and the restrict qualifier keeps the vectorizer
     // from assuming stores clobber the (read-only) stream memory — emitting
-    // the cast expression at every read site measured 2x slower (every
+    // the cast expression at every read site is much slower (every
     // char-derived pointer aliased every store).
     // When eval outlining is active, redeclare these inside every chunk. This
     // preserves their block-scope __restrict information in the function that
@@ -4303,7 +4303,7 @@ static inline void essent_table_read(T* out, const T* table, const I* idx) {
   /** Exact single-lane form used when a state read participates in a serial
     * SCC.  Earlier writer lanes are already scheduled by the EShift edges.
     *
-    * Perf (Small BOOM W=32, 2026-09-03): the per-lane scan over every earlier
+    * Perf (Small BOOM W=32): the per-lane scan over every earlier
     * lane (`for J < lane`) is O(W^2) scalar compares per read port and was the
     * largest branch-misprediction source of the consumer (loop exits with a
     * lane-dependent trip count). With V2_STATE_LANE_VECTOR_SCAN=1 (default)
@@ -4311,8 +4311,8 @@ static inline void essent_table_read(T* out, const T* table, const I* idx) {
     * one vector lane loop, reduced to a lane bitmask, masked to the earlier
     * lanes and the chronologically last writer is picked with a bit scan.
     * Lanes at or after the current one are masked out, so their not-yet
-    * computed operands are never used. Header-patched prototype: -2% wall,
-    * -27% branch mispredictions, zero mismatches over 1.4M cycles. */
+    * computed operands are never used. This removes many branch
+    * mispredictions without changing results. */
   private lazy val stateLaneVectorScan: Boolean =
     envBool("V2_STATE_LANE_VECTOR_SCAN", default = true)
 
@@ -4656,9 +4656,9 @@ static inline void essent_table_read(T* out, const T* table, const I* idx) {
         case CComb | CBoundaryComb =>
           // Perf: cap how many comb statements share one lane loop. On the
           // complete-Small W=16 build, splitting flat comb loops at six
-          // statements (text-transform prototype, 2026-08-21) measured +3.8%
-          // and raised the eval body's static vector share from 34.5% to
-          // 40.5%: smaller loops keep live vector state inside the register
+          // statements is faster
+          // and raises the eval body's static vector share:
+          // smaller loops keep live vector state inside the register
           // file and let clang vectorize runs it refused as one block.
           // Statement order is unchanged; run members are mutually
           // independent by FuseCat construction. V2_COMB_LOOP_CAP=0 restores
@@ -4867,8 +4867,8 @@ static inline void essent_table_read(T* out, const T* table, const I* idx) {
             // the lane-loop distribute (lanes [1,W) fwd / [0,W-1) rev; the
             // boundary lane is written by the window-boundary code), but one
             // unconditional wide copy per register instead of a loop the
-            // vectorizer only partially covered (34% scalar residue measured
-            // in the BOOM W=16 reg-source region).
+            // vectorizer only partially covered (with a large scalar residue
+            // in the BOOM reg-source region).
             for ((ri, idx) <- shiftRegs.zipWithIndex) {
               val (dst, srcOff) = if (dir > 0) ("1", "0") else ("0", "1")
               w.writeLines(3, s"memcpy(&${rn.emitForLane(ri.name, dst)}, &_v2s_$idx[$srcOff], " +
@@ -4894,9 +4894,9 @@ static inline void essent_table_read(T* out, const T* table, const I* idx) {
           w.writeLines(2, "}")
         case CCommit =>
           // Perf: one memcpy-backed helper call per register instead of a
-          // fused lane loop — the loop form never vectorized (icpx assumed
+          // fused lane loop — the loop form never vectorized (the compiler assumed
           // aliasing between the POD lane stores; such scalar copy loops were
-          // ~10% of kernel samples on Rocket W=8).
+          // a visible share of kernel time on Rocket).
           // Oracle registers get no commit at all: the next window's lanes
           // come entirely from injection, the cold rescan reads the injected
           // (not committed) lanes, and --dump-final dumps only harness-side
@@ -4919,9 +4919,9 @@ static inline void essent_table_read(T* out, const T* table, const I* idx) {
           stateCommitRunStr(res, tids, W, dir).foreach(line => w.writeLines(2, line))
         case COracle =>
           // done_reset is loop-invariant: hoist it, or the backend emits a
-          // byte-compare + cmov per lane per stream (measured: ~850 cmpb).
+          // byte-compare + cmov per lane per stream.
           // Perf: one essent_inject_* helper call per stream — the fused lane
-          // loop form never vectorized (icpx assumed dependences between the
+          // loop form never vectorized (the compiler assumed dependences between the
           // lane stores and the stream pointer / this->oracle_cycle).
           // Zero-copied registers need no injection at all: every read of
           // them aliases the block slot directly (see zcDirOverrides).
@@ -5637,7 +5637,7 @@ static inline void essent_table_read(T* out, const T* table, const I* idx) {
         // (gather + vpsrlv + vpand). Index safety comes from the FIRRTL type:
         // a UInt<w> lane value is always < 2^w and the table has 2^w bits.
         // The packed table itself is emitted once at file scope by
-        // emitLookupTables (2026-09-04): a block-scope `static const` inside a
+        // emitLookupTables: a block-scope `static const` inside a
         // per-lane serial statement was a distinct object per lane and per
         // direction — AES carried 565 copies of its 48 S-box tables (1.1 MB)
         // and ran its lookups out of L2/L3.
@@ -5705,8 +5705,8 @@ static inline void essent_table_read(T* out, const T* table, const I* idx) {
       case RPSerialNext(folded, _) =>
         // Whole folded expression rendered at the previous lane; the embedded
         // self-reference then reads r[k-1] — the serial chain semantics.
-        // Mask/blend rendering (V2_SERIAL_MASK_BLEND=1) measured WORSE as a
-        // default (full-verify 118 -> 178 ns/cycle on sodor W=16): serial wen
+        // Mask/blend rendering (V2_SERIAL_MASK_BLEND=1) is slower as a
+        // default: serial wen
         // conditions are heavily biased, so predicted ternary branches that
         // evaluate one side beat blends that always evaluate both — the same
         // lesson as the vec-comb essent_mux experiment. Kept as an opt-in for
@@ -5761,9 +5761,9 @@ static inline void essent_table_read(T* out, const T* table, const I* idx) {
     * (the reverse sweep's boundary lane) needs next[]; after a reverse sweep
     * only lane 0. Every other lane is rewritten by the register's shift /
     * serial source before any reader runs in the next sweep, so copying all
-    * W lanes only moved cache lines (BOOM W=16: 1,842 full-width copies per
-    * sweep -> one element each, 50-100 ns/cycle; deleting every commit
-    * measured far more, but only because the dead next cones then folded
+    * W lanes only moved cache lines (on BOOM, thousands of full-width copies per
+    * sweep become one element each; deleting every commit
+    * looks even faster, but only because the dead next cones then fold
     * away under ESSENT_ORACLE_VERIFY=0). Oracle
     * registers that keep their commit (oracleCommitKeep) still copy every
     * lane — hoisted chains read their committed operand lanes at window
@@ -5771,8 +5771,8 @@ static inline void essent_table_read(T* out, const T* table, const I* idx) {
     * (one essent_commit_lanes memcpy; a lane loop never vectorized).
     * Oracle registers keep the full copy as well: they are re-injected
     * before any reader of the next sweep runs, so the copy is observable
-    * only under reset, but gating it on `!done_reset` measured no faster
-    * (BOOM W=16 6,530 -> 6,620 ns/cycle; the copy keeps the injected
+    * only under reset, but gating it on `!done_reset` is no faster
+    * (the copy keeps the injected
     * lines warm for the next window's injection). */
   private def commitCallStr(r: String, ri: RegInfo, W: Int, boundaryLane: String)
       (implicit rn: Renamer): String =
@@ -5865,8 +5865,8 @@ static inline void essent_table_read(T* out, const T* table, const I* idx) {
     * traffic, and the commit disappear. Eligible = register oracle, plan
     * RPOracle, unsigned, width <= 64, storage tier == scalar size (raw
     * reinterpret is then layout-exact). Comb cuts keep the copy (their reset
-    * else-branch writes a typed zero). Measured VERDICT on BOOM W=16: 2x
-    * SLOWER than the inject copy (2590 vs 1328 ns/cycle, all gates green) —
+    * else-branch writes a typed zero). On BOOM this is about 2x
+    * slower than the inject copy —
     * the per-window inject copy acts as a software prefetch + L1-resident
     * staging buffer (one cold stream read + N hot lane-array re-reads);
     * aliasing turns every consumer read into a cold streaming-region read.
@@ -5918,7 +5918,7 @@ static inline void essent_table_read(T* out, const T* table, const I* idx) {
 
   /** Group-local accumulator declarations, one per tier present in the
     * group. V2_VERIFY_WIDE_ACC=1 restores the single u64 accumulator (every
-    * operand widened through essent_to_u64) for A/B bisection. */
+    * operand widened through essent_to_u64) for bisection. */
   private def vaccDecls(widths: Seq[Int]): Seq[String] =
     if (verifyWideAcc) Seq("uint64_t _v2_vacc = 0;")
     else widths.map(verifyTier).distinct.sorted.map(t => s"uint${t}_t _v2_vacc$t = 0;")
@@ -6138,7 +6138,7 @@ static inline void essent_table_read(T* out, const T* table, const I* idx) {
     // log quota exhausted still checks every value, but does not need the
     // per-mismatch branch/store/reporting machinery. The separate read-only
     // reduction can vectorize even when mismatches occur in every window.
-    // The opt-out supports identical-header A/B tests of the counting path.
+    // The opt-out allows testing the counting path with an identical header.
     w.writeLines(1, "#ifndef ESSENT_VERIFY_COUNT_ONLY")
     w.writeLines(1, "#define ESSENT_VERIFY_COUNT_ONLY 1")
     w.writeLines(1, "#endif")

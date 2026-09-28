@@ -12,10 +12,10 @@
 // invalidation, and the producer's stores wait on those.  With 512 slots
 // (7 MiB of live window data) the copies have aged out of the consumer's L2
 // into the shared L3 by the time the slot comes round again, so the stores
-// take the lines from L3 instead.  Measured on Zen 4 with the W32 Sodor
-// consumer: 32 slots left the producer at 58 ns/cycle against 38 ns/cycle
-// standalone, 512 slots brought it to 46, and 1024 or more slots pushed the
-// live data past the L3 and slowed the consumer instead.
+// take the lines from L3 instead.  With the W32 Sodor consumer, 32 slots
+// slowed the producer noticeably, 512 slots recovered most of the loss,
+// and 1024 or more slots pushed the live data past the L3 and slowed the
+// consumer instead.
 #define SODOR_RING_SLOTS 512
 #endif
 #define main _generated_main
@@ -68,7 +68,7 @@ struct alignas(64) RingSlot {
   uint64_t last_cycle = 0;
 };
 
-// Pre-recorded oracle trace (paper measurement protocol).  Recording captures
+// Optional pre-recorded oracle trace.  Recording captures
 // every ring slot the consumer takes; replay drives the same consumer from the
 // file with no reference model in the process, so the measured cost is RTL
 // evaluation and Micro-Lockstep verification alone.

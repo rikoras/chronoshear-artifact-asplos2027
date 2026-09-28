@@ -741,8 +741,8 @@ class ModelBindings {
     * the ~2,000 stores per cycle find the value unchanged); only a moved
     * value is masked, written into the record and listed.  Comparing
     * against the record's own bytes instead stalls on store forwarding
-    * (measured +750 ns/cycle), and routing the compare through per-lane
-    * tables costs two extra dependent loads per stream (+900). */
+    * and routing the compare through per-lane
+    * tables costs two extra dependent loads per stream. */
   void store_slot(std::size_t slot, uint64_t value) {
 
     uint64_t& held = slot_values_[slot];
@@ -751,8 +751,8 @@ class ModelBindings {
     commit_lane(lane_of_slot_[slot], value);
   }
   // A branch-free variant (unconditional shadow store + pending-slot list,
-  // count advanced by the change flag) was measured at +850 ns/cycle: the
-  // ~2,000 extra stores per cycle cost more than the ~107 mispredicts
+  // count advanced by the change flag) is slower: the
+  // thousands of extra stores per cycle cost more than the mispredicts
   // they remove.  Keep the branch.
   /** Store for lanes without a slot (test records). */
   void store_lane(std::uint16_t lane, uint64_t value) {

@@ -2,10 +2,10 @@
 #include "rocket_trace_support.h"
 #include "rocket_native_live_consumer.h"
 #if !defined(ESSENT_ORACLE_VERIFY) || !ESSENT_ORACLE_VERIFY
-#error "native online execution requires all original oracle checks"
+#error "native execution requires all original oracle checks"
 #endif
 #if !ROCKET_CONSUMER_EXTERNAL_DRAM
-#error "native online execution requires the complete external DRAM contract"
+#error "native execution requires the complete external DRAM contract"
 #endif
 namespace rocket_native_live {
 namespace {

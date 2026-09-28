@@ -183,9 +183,9 @@ object SplitRegUpdates extends Pass {
     * hold branch that routes THROUGH a named wire (e.g. `if_pc_next`). Without it,
     * such references dead-end: the register is mis-tagged / fails extraction and
     * silently degrades to a fully-serialized Standard shift that drags its whole
-    * reader cone into the SCC (the "mysterious extra scalar atoms" bug).
+    * reader cone into the SCC (adding extra scalar atoms).
     *
-    * NOTE (intentional, slightly ad-hoc — see docs/SIMD_CORRECTNESS_AND_PERF_RECOVERY.md):
+    * NOTE (intentional, slightly ad-hoc):
     * this hand-patches wire resolution into the one map every codegen walker shares,
     * rather than introducing a single unified `resolveRef` used everywhere (the
     * proper fix). Relies on the single-assignment-wire invariant. */
@@ -449,7 +449,7 @@ object SplitRegUpdates extends Pass {
           ))
         } else if (isMH) {
           val serialOk = getMuxHoldStrategy(currentName, annos, moduleName, lookup) == MH_Serial
-          // SAFETY NET (see docs/SIMD_CORRECTNESS_AND_PERF_RECOVERY.md): if the
+          // SAFETY NET: if the
           // strategy-based extraction fails, retry with serialOk=true. Failures here
           // are regs whose enable/hold references the reg itself (e.g. a stall
           // condition reading the pipeline reg it holds) or a nested self-ref that

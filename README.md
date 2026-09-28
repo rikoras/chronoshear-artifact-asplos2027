@@ -11,7 +11,7 @@ execute them in parallel and accelerate RTL simulation.
 
 We offer a T550 server with a cloned repository and prebuilt binaries.
 
-Choose **either** of the following two connection methods. 
+Choose **either** of the following two connection methods.
 
 ### Via Tailscale
 
@@ -39,7 +39,7 @@ source/                 ChronoShear source code
   reference_models/     Software microarchitectural reference models
   runtime/              C++ and SIMD runtime support
   harnesses/            Baseline simulation drivers
-  duts/                 Online simulation drivers and model/RTL connections
+  duts/                 Simulation drivers and model/RTL connections
 inputs/<dut>/           Original FIRRTL, workload and generation settings
   design.fir            Hardware design consumed by both compilation flows
   *.riscv or *.bin       Processor workload; AES/MatMul generate inputs in code
@@ -76,8 +76,7 @@ bash scripts/chronoshear_maintenance.sh
 ```
 
 The prepared host uses Ubuntu 22.04, Python 3.10, Clang 19 and Java 17.
-The bundled plotting modules require Python 3.10. The build script restores
-Verilator's generated version header from the bundled template when needed.
+The bundled plotting modules require Python 3.10.
 
 Select **Clean only**, **Rebuild**, or **Clean and rebuild**, then choose one or
 more DUTs and the components to process. Enter comma-separated menu numbers or
@@ -168,7 +167,7 @@ The main experiment measures simulation throughput for every DUT under
 ChronoShear, Verilator with one and four threads, ESSENT, and RepCut with four
 threads. It also computes performance relative to **single-threaded Verilator**
 on the same host. Throughput is reported in kHz, or thousands of simulated
-cycles per second. ChronoShear measurements include the online reference model,
+cycles per second. ChronoShear measurements include the reference model,
 oracle transport and synchronization, as well as checked RTL evaluation.
 
 Each DUT has a separate script that measures ChronoShear at **W=4,8,16,32**
@@ -274,15 +273,10 @@ a lane width.
 ### Two-level parallelism — Figure 9
 
 This experiment combines ChronoShear's SIMD inter-cycle execution with RTL
-partition parallelism on LargeBOOM at **W=16**. The single-RTL-core point uses
-the unpartitioned simulator and two additional model/supply cores. The other
-points place six RTL partitions on **2,4,6 RTL cores**, with four additional
-model/supply cores. ChronoShear thus uses **3,6,8,10 total physical cores** for
-its **1,2,4,6 RTL-core** points. Verilator and RepCut each use **1,2,4,6 RTL threads** on the
-corresponding number of physical cores. The single-threaded Verilator result
-supplies the speedup denominator.
-The measured total throughput includes online reference-model execution and
-oracle delivery.
+partition parallelism on LargeBOOM at **W=16**, with **1,2,4,6 RTL threads**
+for ChronoShear, Verilator and RepCut. The single-threaded Verilator result
+supplies the speedup denominator. The measured throughput includes
+reference-model execution and oracle delivery.
 
 ```sh
 bash scripts/chronoshear_threads.sh results/my-threads
@@ -290,10 +284,10 @@ bash scripts/chronoshear_threads.sh results/my-threads
 
 The script first checks the reference model against original RTL, then measures
 all **12 simulator/thread-count configurations** using the LargeBOOM workload.
-It writes logs, measured throughput
-and normalized performance to `results/my-threads/summary.csv`; the figure is
+It writes logs, measured throughput and normalized performance to
+`results/my-threads/summary.csv`; the figure is
 `results/my-threads/throughput.{pdf,svg,png}`. The left axis is throughput and the
-right axis is speedup over single-threaded Verilator. 
+right axis is speedup over single-threaded Verilator.
 
 ### Plot existing measurements
 
@@ -307,7 +301,6 @@ python3 scripts/chronoshear_plot.py results/my-main
 
 Summarization reads `samples.csv` and replaces `summary.csv`. Plotting reads
 `summary.csv` and replaces the PDF/SVG/PNG figure files in that directory.
-Plotting may also create its font cache in `~/.cache/chronoshear-matplotlib/`.
 
 ## Reading the logs
 

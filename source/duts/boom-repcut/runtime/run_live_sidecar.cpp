@@ -148,8 +148,8 @@ std::unique_ptr<TestHarness> make_kernel() {
 // Waiting threads spin with the pause hint instead of sched_yield: a
 // hyperthread sibling that hammers the yield syscall halves the throughput of
 // the partition sharing its core, whereas pause hands the core's resources
-// over (measured on the six-partition Ryzen placement: slow partitions ran
-// at half the trace-replay speed while their fast siblings spun).
+// over (with six partitions, slow partitions otherwise ran
+// at half speed while their fast siblings spun).
 static inline void spin_wait_hint() {
   for (int i = 0; i < 32; ++i) _mm_pause();
 }
@@ -264,9 +264,9 @@ struct Options {
   // 2W images of a window into the lane layout (oracle_image_codec.h).
   bool image_transport = false;
   // Transport of the oracle windows.  Image (whole record per cycle) is the
-  // default: its decoder is a vectorized transpose (1.2k ns/cycle on the
-  // Ryzen) whereas the row form's per-lane expansion costs 5.5k and the
-  // producer gains nothing from writing fewer bytes (PLAN §18.3–18.5).
+  // default: its decoder is a vectorized transpose,
+  // whereas the row form's per-lane expansion costs far more and the
+  // producer gains nothing from writing fewer bytes.
   // --row-transport: record rows that moved (kOracleRowLane); correct, kept
   // for machines where cross-core lines are expensive.  --delta-transport:
   // the legacy per-lane change list, which delivers predict-bound lanes one
@@ -845,7 +845,7 @@ int main(int argc, char** argv) {
     // Partition threads block here between windows instead of spinning: a
     // spinning hyperthread sibling halves the throughput of the partition
     // sharing its core, while a sleeping one hands the whole core over (the
-    // six-partition Ryzen placement pairs partitions on cores).
+    // six-partition placement pairs partitions on cores).
     std::mutex expanded_mutex;
     std::condition_variable expanded_cv;
     std::atomic<std::uint64_t> consumed_started{0};
@@ -878,7 +878,7 @@ int main(int argc, char** argv) {
     // thread has copied into the window blocks, and the windows it has
     // completed (the block readiness expand_ready() then waits on).
     // Deep enough that the decoder's expansion of one whole window (about
-    // 40 us on the Ryzen, 70 us on the Xeon) never stalls the producer: it
+    // 40-70 us) never stalls the producer: it
     // drains only between expansions, so the ring must hold more positions
     // than the producer writes during one expansion.  16 images = 232 KB.
     constexpr unsigned kStagingPositions = 16;

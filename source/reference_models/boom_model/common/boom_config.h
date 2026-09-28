@@ -188,7 +188,7 @@ static constexpr int DCACHE_REFILL_BEATS =
 static constexpr int DCACHE_BEAT_WORDS = TILE_BEAT_BYTES / 8;
 // Local backing-memory response startup: the Large bus path (wider beats,
 // deeper crossbars) adds cycles the Small calibration did not carry.
-static constexpr int LOCAL_RESPONSE_STARTUP = 0;  // recalibrate with seam evidence; 3 showed no effect at 2k
+static constexpr int LOCAL_RESPONSE_STARTUP = 0;  // recalibrate from RTL evidence
 // Tile TileLink source map, measured against the generated Large SystemBus
 // (map(9)=1 matches the RTL's cbus-side origin): the I-cache client id is
 // 9 on Large (after the eight D-cache MSHRs and their sibling), 4 on Small;
@@ -252,7 +252,7 @@ static_assert((NUM_FTQ & (NUM_FTQ - 1)) == 0,
     "harness ftq_pc[] indexing masks with NUM_FTQ-1");
 #if !defined(BOOM_GUIDER_CFG_LARGEBOOM_RC) && !defined(BOOM_GUIDER_CFG_MEDIUMBOOM_RC)
 static_assert(CORE_WIDTH == 1,
-    "model control flow is structurally 1-wide (see out/phaseB/GUIDER_PARADIGM.md #6)");
+    "model control flow is structurally 1-wide");
 static_assert(NUM_INT_IQ_SLOTS <= 8 && NUM_MEM_IQ_SLOTS <= 8,
     "int_iq_start_valid / mem_iq_start_valid are uint8_t bitmaps");
 static_assert(MAX_BR_COUNT <= 8,

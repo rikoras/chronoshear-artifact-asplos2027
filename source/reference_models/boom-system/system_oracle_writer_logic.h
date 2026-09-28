@@ -302,7 +302,7 @@ class SystemOracleWriter {
       // Image form: the source's record is current; copy it whole.  The
       // block is read by another core, so SYSMODEL_IMAGE_STREAM=1 streams the
       // copy past this core's cache instead of taking each line for
-      // ownership (the Xeon mesh charges 100-200 ns per such line).
+      // ownership (a cross-core line transfer can cost 100-200 ns).
       char* destination = image_destination(block, position);
       std::size_t run_count = 0;
       const SystemGuider::ImageRun* runs = nullptr;

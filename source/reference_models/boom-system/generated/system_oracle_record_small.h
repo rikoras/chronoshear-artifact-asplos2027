@@ -2979,7 +2979,7 @@ struct alignas(kOracleRecordChunkBytes) OracleRecord {
     * (scratch) are dropped.  Branch-free where the ISA allows: the
     * element size varies lane to lane in an unpredictable pattern, so
     * a size switch mispredicts on a large fraction of the ~2,000 stores
-    * per cycle (measured: sampling 1,450 -> 2,536 ns/cycle). */
+    * per cycle and nearly doubles the sampling time. */
   void store(std::size_t lane, std::uint64_t value) {
     if (lane >= kOracleRecordLanes) return;
     const OracleRecordLane& d = kOracleRecordLane[lane];

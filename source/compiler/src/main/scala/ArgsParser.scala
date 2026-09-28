@@ -25,7 +25,7 @@ case class OptFlags(
     simdV2StaticScratch: Boolean = false,
     /** v2: emit one merged eval_dir body instead of eval_forward/eval_reverse.
       * Halves kernel code size at the price of runtime direction branches:
-      * measured slower on sodor (I$ not the bottleneck), intended for DUTs
+      * slower when the instruction cache is not the bottleneck; intended for DUTs
       * whose duplicated bodies overflow the instruction cache. */
     simdV2MergeEval: Boolean = false,
     // Skip Micro-Lockstep verify emission entirely (no RVerify units, no

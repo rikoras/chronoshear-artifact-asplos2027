@@ -1315,7 +1315,7 @@ object V2Pipeline {
     if (!keepSourceEffects)
       println(s"[v2] performance build: removed $removedSourceEffects source Print/Stop effect(s); " +
         "oracle Micro-Lockstep verification remains enabled")
-    // Paper E1: graph size for oracle density (comb = lowered DefNode+Connect
+    // Graph size for oracle density (comb = lowered DefNode+Connect
     // before template pruning; regs = registers after dead-state prune, storage
     // lifts and bank packing).
     println(s"[v2] graph comb=${combStmts.size} regs=${regDefs.size} " +
@@ -1537,7 +1537,7 @@ object V2Pipeline {
               affinePattern(nextExpr.get, rName, nodeMap, rDef.tpe).isDefined) {
             // W >= 16 only: below that the scan has no vector path, and the
             // scalar chain it would fall back to made clang scalarize the
-            // producers of `add` as well (MatMul W8: 2x slower than the
+            // producers of `add` as well (much slower than the
             // serial-next chain, which stays in charge for narrow windows).
             // Accumulator / enabled counter: next ≡ keep ? r + add : add with
             // self-free keep/add. Materialized below; the source becomes a
@@ -1550,7 +1550,7 @@ object V2Pipeline {
             // wen/wdata still read the register (counters, RMW CSRs): a
             // cond-hold lowering would drag the tainted cone into the SCC
             // per-lane, and oracling costs a memory stream per register
-            // (measured net-negative on sodor). Fold the tainted cone into
+            // (a net loss). Fold the tainted cone into
             // one serial expression instead when it is small.
             case Some(folded) =>
               // RMW guard: next ≡ wen ? wdata : r with wen self-free (only
@@ -1558,7 +1558,7 @@ object V2Pipeline {
               // emitter OR-reduces the window and broadcasts the boundary
               // lane when no lane writes (CSR-quiet window, common case).
               // A trivially-true wen (literal 1) guards nothing — skip.
-              // (Soundness note, checked 2026-08-11: the serialOk identity
+              // (Soundness note: the serialOk identity
               // fallback yields wen=1 for non-hold shapes like BOOM's split
               // cycle counter, so their broadcast arm is dead code, never
               // wrong — the tautological guard is wasteful but harmless.)
@@ -2091,7 +2091,7 @@ object V2Pipeline {
             }
             val best = evaluated
               .maxBy(t => (t._2, t._3, nodes(t._1).produces.getOrElse("")))
-            // one cut costs one oracle stream; measured on sodor, cutting for
+            // one cut costs one oracle stream; cutting for
             // cone de-serialization alone does not pay — require register gain
             // (V2_COMB_CUT_MIN_REG_DROP overrides for sweeps)
             if (best._2 >= combCutMinRegDrop) {
@@ -3114,7 +3114,7 @@ object V2Pipeline {
       for (si <- stateArrayInfos.values; tid <- si.readIds :+ si.commitId)
         roots ++= stmtReads(nodes(tid).stmt)
 
-      // (a0) equality-chain lookup tables (2026-09-04). A dynamic index into
+      // (a0) equality-chain lookup tables. A dynamic index into
       // a constant Vec (AES S-box, GF(2^8) multiply tables) lowers to a chain
       // of named nodes _GEN_k = mux(eq(idx, k), c_k, _GEN_{k-1}) with literal
       // leaves, one shared index reference and a literal default at the head.
@@ -3249,7 +3249,7 @@ object V2Pipeline {
       final case class InlineShape(nodes: Int, depth: Int)
       // Defaults keep full-system Rocket/BOOM expressions bounded; the two
       // environment knobs exist for the AES-style equality-chain experiment
-      // (2026-09-04), where the cap splits one lookup chain into many
+      // where the cap splits one lookup chain into many
       // statements.
       val MaxInlineNodes = sys.env.get("V2_INLINE_MAX_NODES").map(_.toInt).getOrElse(96)
       val MaxInlineDepth = sys.env.get("V2_INLINE_MAX_DEPTH").map(_.toInt).getOrElse(20)
@@ -3393,11 +3393,11 @@ object V2Pipeline {
       {
         // Associative tree balancing: inlining turns e.g. the CSR read-port
         // mux into one linear chain of ~80 ORs — an 80-deep dependency chain
-        // per lane (measured hotspot). The terms are independent, so rebuild
+        // per lane (a hotspot). The terms are independent, so rebuild
         // same-op, same-width Or/And/Xor chains as log-depth trees. Add/Cat
         // widen in FIRRTL and are not freely reassociable — left alone.
-        // 1-bit muxes emit as C++ `?:` whose nested chains icpx if-converts
-        // poorly: measured fallout into per-lane scalar byte OR chains with
+        // 1-bit muxes emit as C++ `?:` whose nested chains compilers if-convert
+        // poorly, falling back to per-lane scalar byte OR chains with
         // real branches (the decode cone). Lower them to branchless bitwise
         // select; rebalancing below then flattens the resulting Or/And trees.
         def mux1ToBitwise(e: Expression): Expression = {
@@ -3437,10 +3437,10 @@ object V2Pipeline {
         // leaves are `eq(x, const_i)` over one shared scrutinee is a set-
         // membership test. Left as arithmetic it costs one compare + one OR
         // per term per lane — Rocket's CSR-address decode (100 eq terms on a
-        // UInt<12> node) compiled to a ~730-op serial k-mask chain worth 21%
-        // of kernel time (statement static instrs 1051 -> 40 and kernel
-        // 667 -> 546 ns/cycle when replaced by this bitmap; the loop then
-        // vectorizes as gather + shift + and). Purely structural: no signal
+        // UInt<12> node) compiled to a long serial k-mask chain worth a large
+        // share of kernel time; the bitmap replaces it with a handful of
+        // instructions, and the loop then
+        // vectorizes as gather + shift + and. Purely structural: no signal
         // names are consulted. Guards: >= MinEqTerms terms so small decoders
         // are left to the balanced tree, scrutinee width <= MaxBitmapIdxWidth
         // so the table stays cache-resident (2^14 bits = 2 KB), scrutinee is
@@ -3977,18 +3977,18 @@ object V2Pipeline {
     // order); vector units layered by role so combinational statements form
     // long fusable runs, template order within a layer approximates source
     // locality. (A greedy locality-aware list scheduler was tried here and
-    // measured strictly worse, 184 vs 162 ns/cycle on sodor W=16: it fused
-    // commits 27->3 loops and grew comb runs 8.5->15.2 templates, but the
-    // cross-loop read share stayed at 97% — multi-use values spread over
+    // was slower: it fused
+    // more commits into each loop and grew the comb runs, but the
+    // cross-loop read share stayed high — multi-use values spread over
     // many loops no matter the order — while the changed emission order
     // lost the source-order cache locality of the static priority.)
     // V2_SOURCE_RANK_LOW experiment: rank reg-sources BELOW comb. With the
     // default (source=3 > comb=2) any source that becomes ready is dequeued
-    // immediately and alone — on BOOM that emits 543 singleton reg-source
+    // immediately and alone — on BOOM that emits hundreds of singleton reg-source
     // regions which, together with serial islands, cut the fusable comb runs
-    // into ~1300 fragments. Ranking sources low lets them pool in the ready
+    // into many fragments. Ranking sources low lets them pool in the ready
     // set while comb drains, so consecutive dequeues batch into one CSource
-    // loop. Off by default pending A/B (same class of risk as the greedy
+    // loop. Off by default (same class of risk as the greedy
     // scheduler note above).
     val sourceRankLow = sys.env.get("V2_SOURCE_RANK_LOW")
       .exists(v => v == "1" || v.equalsIgnoreCase("true") || v.equalsIgnoreCase("on"))
@@ -4000,12 +4000,12 @@ object V2Pipeline {
       case RRegCommit(_) | RStateCommit(_) => 0
     }
     // (Scheduling serial lanes EARLY — priority 2 — was tried to widen the
-    // store->load distance at scalar/vector boundaries; measured 178 vs 161
-    // ns/cycle: worse. Serial chains stay lowest priority.)
+    // store->load distance at scalar/vector boundaries; it was
+    // slower. Serial chains stay lowest priority.)
     // V2_SERIAL_BURST experiment: baseline Kahn pops a serial lane only when
     // no vector unit is ready, and the comb unlocked by that lane preempts the
-    // NEXT serial region — yielding serial/tiny-comb interleaving (858
-    // serial|serial small-run interrupters on BOOM, 33% of samples in <=2
+    // NEXT serial region — yielding serial/tiny-comb interleaving (many
+    // small-run interrupters on BOOM, with much of the time spent in <=2
     // template loops). Burst mode: once a serial lane pops, keep draining
     // ready serial lanes until none remain, so independent zipper regions
     // emit contiguously and their unlocked combs coalesce into longer runs.

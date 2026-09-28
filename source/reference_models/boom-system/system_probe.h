@@ -1,7 +1,7 @@
 #pragma once
 // ==========================================================================
 // Complete-TestHarness probe registry — the breadth layer of the four-tool
-// divergence stack described in docs/GUIDER_PARADIGM.md section 4.
+// divergence stack.
 //
                                                                         
                                                                           

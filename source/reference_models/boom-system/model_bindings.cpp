@@ -282,7 +282,7 @@ void register_live_core_pipeline_bindings() {
   bindings.add_batch_sampler(sample_batch_core_pipeline, base, ModelBindings::SamplePlacement::End, watch_sample_batch_core_pipeline);
 }
 
-// ---- frontend register slice (mass-binding wave A) -----------------------
+// ---- frontend register slice ---------------------------------------------
 // Promoted after a 50k strict-lockstep run with zero mismatches on every
 // stream below.  Ghist pipelines, S2 flags, F3 queue payloads, the F4
 // occupancy bit, the F3 assembler's trailing-half registers, the I-cache
@@ -433,7 +433,7 @@ void register_frontend_wave_a_bindings() {
   bindings.add_batch_sampler(sample_batch_frontend_wave_a, base, ModelBindings::SamplePlacement::Frontend, watch_sample_batch_frontend_wave_a);
 }
 
-// ---- CSR file slice (mass-binding wave B) --------------------------------
+// ---- CSR file slice ------------------------------------------------------
 // Promoted after a 50k strict-lockstep run with zero mismatches: the
 // architectural CSR fields the guider owns (RTL reset values MPP=3,
 // dcsr.prv=3, PRV=M), the wide cycle/instret counters (cycle freezes during
@@ -443,14 +443,14 @@ void register_frontend_wave_a_bindings() {
 // register.  Any write to one of those would surface as a REAL mismatch on
 // the stream itself.
 
-// ---- rename + ROB slice (mass-binding wave C) ----------------------------
+// ---- rename + ROB slice --------------------------------------------------
 
 // Promoted after a 50k strict-lockstep run with zero mismatches: the rename
 // map table and per-branch allocation lists, every ROB row's branch mask,
 // and the ROB bookkeeping mirrors (PNR, occupancy, registered exception
 // valid) that the OracleMirror was built to carry.
 
-// ---- LSU slice (mass-binding wave D) -------------------------------------
+// ---- LSU slice -----------------------------------------------------------
 // Promoted after a 50k strict-lockstep run with zero mismatches on all 276
 // streams: every LDQ and STQ entry field the manifest selects (valids,
 // addresses, data, status bits and the resident micro-op fields), the queue
@@ -512,7 +512,7 @@ void register_structural_constant_bindings() {
 }  // namespace
 
 // ==========================================================================
-// Bank folds, wave 2 (2026-08-23): partially-covered banks completed by
+// Bank folds: partially-covered banks completed by
 // supplying the missing sibling members straight from model state (LSU entry
 // fields, stq_head, int map_table index holes). Two banks stay out: their
 // members include registered retry/wakeup pick indices the model does not

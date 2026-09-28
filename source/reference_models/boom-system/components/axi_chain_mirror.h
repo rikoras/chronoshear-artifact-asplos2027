@@ -2,9 +2,9 @@
 // ==========================================================================
 // Register mirror of the mbus AXI conversion chain + SimAXIMem timing.
 //
-// Register-level mirror of the memory-side AXI chain (the blueprint it
-// implements lived in docs/AXI_MIRROR_BLUEPRINT.md, removed 2026-08-28;
-// see git history).  A pure observer: driven each
+// Register-level mirror of the memory-side AXI chain.
+//
+// A pure observer: driven each
 // cycle by the fabric's ManagerBeats (the TL beats entering the memory bus;
 // the fixer and 1x1 xbar between are pure wires), it steps its own copies of
 // every register in TLToAXI4_1, AXI4UserYanker_2 and the harness-side
@@ -67,8 +67,8 @@ class AxiChainMirror {
   // ---- TLBroadcast trackers (4x) ----
   // Latched at the broadcast in.a fire (= the fabric's a_enq beat, one cycle
   // ahead of the manager route fire).  got_e falls at that latch and returns
-  // a fixed 18 cycles after the read's last data beat (measured constant on
-  // ten transactions: tile D delivery + GrantAck return path); sent_d sets
+  // a fixed 18 cycles after the read's last data beat (constant across
+  // transactions: tile D delivery + GrantAck return path); sent_d sets
   // at the last data beat.  Probes resolve at the latch edge (single inner
   // cache, the filter never probes the requester), so `count` stays 0.
   struct BroadcastTracker {
@@ -118,7 +118,7 @@ class AxiChainMirror {
   // per cycle starting the edge the burst arrives; the buffer is a depth-2
   // queue per channel draining one per cycle (the RAM is always ready and
   // answers reads with one cycle of latency, writes with an immediate B).
-  // Measured on the read at edge 1397 and the writeback at edge 24004:
+  // Observed in the RTL for reads and writebacks:
   //   AR/AW/W fragment i enqueues at T+i and dequeues at T+1+i;
   //   R data enqueues at T+2+i and dequeues at T+3+i (= the tl2axi4 R
   //   beats the fabric's response machinery already reproduces);
@@ -253,7 +253,7 @@ class AxiChainMirror {
   /** One cycle. `beats` = the fabric's manager-side events this cycle. */
   // ---- calibrated tile->mbus phase ----
   // The fabric's manager beats land on the same lockstep step as the
-  // mbus-side register updates (the 12-cycle gap first measured was a
+  // mbus-side register updates (an apparent 12-cycle gap was a
   // bookkeeping artifact: the fabric's debug counter starts after reset,
   // the lockstep cycle does not).  The ring stays so a nonzero phase can
   // be re-dialed if a contended case ever needs it; Micro-Lockstep is the

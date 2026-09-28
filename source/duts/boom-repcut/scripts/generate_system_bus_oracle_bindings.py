@@ -315,7 +315,7 @@ def main() -> int:
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument(
         "--manifest", type=Path,
-        default=root / "out/repcut-ae/chisa-small-v2-dead-pruned-extern/oracle_manifest.json",
+        required=True,
     )
     parser.add_argument(
         "--capture-output", type=Path,

@@ -68,11 +68,11 @@ def recipes(plan=None):
     result = {}
     inc = lambda path: '-I${ROOT}/'+str(path)
     baseline = plan['binaries'].get('rocket-verilator-1t')
-    online = plan['binaries'].get('chronoshear-rocket-w32')
-    if baseline and online and (ROOT/'generated/rocket/verilator1/VTestHarness___024root.h').is_file():
+    simulator = plan['binaries'].get('chronoshear-rocket-w32')
+    if baseline and simulator and (ROOT/'generated/rocket/verilator1/VTestHarness___024root.h').is_file():
         objects = [copy.deepcopy(unit) for unit in baseline['objects']
                    if not unit['source'].endswith('/run_backdoor_scalar.cpp')]
-        objects += [copy.deepcopy(unit) for unit in online['objects']
+        objects += [copy.deepcopy(unit) for unit in simulator['objects']
                     if unit.get('reference') or unit['source'].endswith('/run_backdoor_scalar.cpp')]
         flags = [*baseline['objects'][0]['flags'], inc('source/reference_models/rocket_model'),
                  inc('source/reference_models/rocket_model/tools'), inc('source/duts/rocket-fullchip/runtime')]
@@ -86,8 +86,8 @@ def recipes(plan=None):
         classes_path = ROOT/folder/'VTestHarness_classes.mk'
         if not classes_path.is_file():
             continue
-        online = plan['binaries']['chronoshear-'+dut+'-w32']
-        reference = [copy.deepcopy(unit) for unit in online['objects'] if unit.get('reference')]
+        simulator = plan['binaries']['chronoshear-'+dut+'-w32']
+        reference = [copy.deepcopy(unit) for unit in simulator['objects'] if unit.get('reference')]
         if not reference:
             raise ValueError('No current model object recipe for '+dut)
         flags = ['-std=c++17', '-O2', '-march=icelake-server', '-DNDEBUG', '-pthread',
@@ -109,7 +109,7 @@ def recipes(plan=None):
             objects.append({'source':'${ROOT}/'+str(harness_dir/source),
                             'flags':[*flags, inc(harness_dir)],
                             'reference':False, 'memory_gib':0.5})
-        # Model object flags stay byte-for-byte identical to the online W32
+        # Model object flags stay byte-for-byte identical to the W32 simulator
         # recipe. The harness observes both endpoints but supplies neither's state.
         harness_flags = [*reference[0]['flags'], *flags,
                          inc('source/reference_models/common'),
@@ -121,8 +121,8 @@ def recipes(plan=None):
         name = 'chronoshear-architecture-'+dut
         result[name] = {'output':'bin/'+name, 'dut':dut, 'variant':'architecture',
                         'kind':'architecture', 'objects':objects,
-                        'libraries':copy.deepcopy(online['libraries']),
-                        'link_flags':list(dict.fromkeys([*online['link_flags'], '-pthread']))}
+                        'libraries':copy.deepcopy(simulator['libraries']),
+                        'link_flags':list(dict.fromkeys([*simulator['link_flags'], '-pthread']))}
     return result
 
 

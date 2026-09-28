@@ -1,6 +1,6 @@
 #pragma once
 // ==========================================================================
-// SoftFloat-backed FP execution for the rocket guider (M2, 2026-08-15).
+// SoftFloat-backed FP execution for the Rocket reference model.
 //
 // Computes the IEEE result + fflags of every FP operation the rocket-rc DUT
 // can issue, in the IEEE domain (values enter/leave the guider's FP RF as

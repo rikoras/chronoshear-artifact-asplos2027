@@ -1,4 +1,4 @@
-// Online independent Cipher model + generated RTL. No oracle trace is opened.
+// Independent Cipher model + generated RTL. No oracle trace is opened.
 #include "Cipher.h"
 #include "aes_live_layout.h"
 #include "cipher_model.h"
@@ -22,7 +22,7 @@ constexpr unsigned CPE = 2 * W;
 constexpr unsigned slots = 32;
 static_assert(W == aes_width && ORACLE_BLOCK_BYTES == aes_block_bytes);
 static_assert(ORACLE_KERNEL_MIRRORED == aes_mirrored);
-static_assert(ESSENT_ORACLE_VERIFY == 1, "Online measurements retain RTL oracle checks");
+static_assert(ESSENT_ORACLE_VERIFY == 1, "Measurements retain RTL oracle checks");
 using Clock = std::chrono::steady_clock;
 
 struct Inputs { Bytes plaintext{}, key{}; bool start = true; };

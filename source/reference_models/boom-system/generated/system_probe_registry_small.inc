@@ -2,7 +2,7 @@
 // Do not edit. Regenerate when the oracle manifest changes; the diff
 // is the record of what CHISA now asks the model to produce.
 //
-// manifest: out/repcut-ae/chisa-small-v2-dead-pruned-extern/oracle_manifest.json
+// manifest: oracle_manifest.json (SmallBOOM)
 // streams:  2086
 //
 // A stream with no model binding registers as UNMODELED and is

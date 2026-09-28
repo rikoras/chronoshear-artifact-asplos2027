@@ -39,7 +39,7 @@ def generate(manifest, width, output, cycles):
     (output / 'layout-source.json').write_text(json.dumps({
         'manifest_sha256': hashlib.sha256(manifest.read_bytes()).hexdigest(),
         'width': width, 'logical_cycles': cycles, 'oracle_count': len(entries),
-        'source': 'independent online CipherModel; no trace input'}, indent=2) + '\n')
+        'source': 'independent CipherModel; no trace input'}, indent=2) + '\n')
 
 
 if __name__ == '__main__':

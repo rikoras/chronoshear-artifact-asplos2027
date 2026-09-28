@@ -356,7 +356,7 @@ object ColdGuard {
           rootNames += r + "$wdata"
         case RPAffineScan =>
           // The prefix scan reads both step operands unconditionally every
-          // window; they must never land in a cold group (Sodor PC, 2026-09-04).
+          // window; they must never land in a cold group (e.g. the Sodor PC).
           rootNames += r + "$keep"
           rootNames += r + "$add"
         case RPSerialNext(folded, g) =>

@@ -101,7 +101,7 @@ case object RPCondHold extends RegPlan
   * cleared sums. Both operands are materialized as the vector templates
   * `r$keep` / `r$add`; the source is a parallel prefix scan over the
   * (keep, add) step-function monoid, so nothing in the cone runs per lane
-  * (2026-09-04, replaces the per-lane serial-next chain for this shape). */
+  * (instead of a per-lane serial-next chain for this shape). */
 case object RPAffineScan extends RegPlan
 /** Self-referencing register whose update cannot be split into self-free
   * wen/wdata (counters, read-modify-write CSRs). The self-tainted part of the
