@@ -1,0 +1,77 @@
+#pragma once
+#define CHISA_CONSUMER_ARCHITECTURE_SCHEMA 2
+namespace chisa::boom_repcut::consumer_arch {
+inline constexpr unsigned kWidth = 32;
+inline constexpr unsigned kCapturedCommitWidth = 1;
+inline constexpr unsigned kCapturedRetirementFields = 10;
+enum Signal {
+  RetireValid = 0,
+  RetireRd = 1,
+  RetireRdValid = 2,
+  RetireRdType = 3,
+  RetirePdst = 4,
+  RetireFtq = 5,
+  RetirePcLow = 6,
+  RetireEdge = 7,
+  RetireStore = 8,
+  EnqueueValid = 9,
+  StoreCommitHead = 10,
+  CoreClock = 11,
+  RobHead = 12,
+  RobTail = 13,
+  DebugMode = 14,
+  FtqPc0 = 15,
+  FtqPc1 = 16,
+  FtqPc2 = 17,
+  FtqPc3 = 18,
+  FtqPc4 = 19,
+  FtqPc5 = 20,
+  FtqPc6 = 21,
+  FtqPc7 = 22,
+  FtqPc8 = 23,
+  FtqPc9 = 24,
+  FtqPc10 = 25,
+  FtqPc11 = 26,
+  FtqPc12 = 27,
+  FtqPc13 = 28,
+  FtqPc14 = 29,
+  FtqPc15 = 30,
+  StoreAddress0 = 31,
+  StoreAddress1 = 32,
+  StoreAddress2 = 33,
+  StoreAddress3 = 34,
+  StoreAddress4 = 35,
+  StoreAddress5 = 36,
+  StoreAddress6 = 37,
+  StoreAddress7 = 38,
+  StoreData0 = 39,
+  StoreData1 = 40,
+  StoreData2 = 41,
+  StoreData3 = 42,
+  StoreData4 = 43,
+  StoreData5 = 44,
+  StoreData6 = 45,
+  StoreData7 = 46,
+  StoreCommand0 = 47,
+  StoreCommand1 = 48,
+  StoreCommand2 = 49,
+  StoreCommand3 = 50,
+  StoreCommand4 = 51,
+  StoreCommand5 = 52,
+  StoreCommand6 = 53,
+  StoreCommand7 = 54,
+  StoreSize0 = 55,
+  StoreSize1 = 56,
+  StoreSize2 = 57,
+  StoreSize3 = 58,
+  StoreSize4 = 59,
+  StoreSize5 = 60,
+  StoreSize6 = 61,
+  StoreSize7 = 62,
+  SignalCount = 63
+};
+}
+namespace chisa::boom_repcut::consumer_arch {
+inline constexpr unsigned kObserverProbeBegin = 63, kObserverProbeCount = 0;
+inline constexpr const char* kObserverProbeNames[] = {""};
+}

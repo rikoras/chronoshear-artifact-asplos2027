@@ -123,6 +123,8 @@ def recipes(plan=None):
                         'kind':'architecture', 'objects':objects,
                         'libraries':copy.deepcopy(simulator['libraries']),
                         'link_flags':list(dict.fromkeys([*simulator['link_flags'], '-pthread']))}
+    from chronoshear_consumer_architecture import recipes as consumer_recipes
+    result.update(consumer_recipes(plan))
     return result
 
 

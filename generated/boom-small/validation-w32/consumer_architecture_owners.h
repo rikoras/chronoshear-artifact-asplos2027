@@ -1,0 +1,2 @@
+#pragma once
+#define CHISA_PARTITION_ARCHITECTURE_SCHEMA 0

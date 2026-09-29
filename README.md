@@ -110,7 +110,7 @@ inputs/<dut>/design.fir
 | 3. Verilator generation | `inputs/<dut>/design.fir`, external RTL modules, compiler tools | `generated/<dut>/verilog/`, `verilator1/`, `verilator4/`; LargeBOOM also includes `verilator2/` and `verilator6/` |
 | 4. Verilator backend compilation | Verilator-generated C++, runtime and baseline harness | Selected `.build/` objects and `bin/*-verilator-*` |
 | 5. ChronoShear compiler | `source/compiler/` and bundled Scala dependencies | `.build/compiler/` and `tools/chronoshear.jar` |
-| 6. Reference-model architectural checks | Original RTL, reference models and check harnesses | Generated check code, `.build/` objects and `bin/chronoshear-architecture-*` |
+| 6. Architectural checks | Original RTL, reference models, BOOM consumers and check harnesses | Generated check code, `.build/` objects, `bin/chronoshear-architecture-*` and `bin/chronoshear-validate-*` |
 
 For example, to rebuild MatMul from FIRRTL through both executable backends,
 choose action **3**, DUT **2**, and components **1,2,3,4**. After editing only a
@@ -256,6 +256,28 @@ bash scripts/chronoshear_reference_check.sh --dut boom-large
 The scripts read the supplied processor workloads and write logs and
 `summary.csv` to `results/reference/`. Each `REFERENCE ARCHITECTURE ... PASS`
 reports the architectural comparison for that workload and scope.
+
+### BOOM simulator architectural checks
+
+The three BOOM simulators also have separate **W=32 validation executables**:
+
+```sh
+bash scripts/chronoshear_validate.sh
+bash scripts/chronoshear_validate.sh --dut boom-small
+```
+
+These use the matching ChronoShear RTL computation and reference model, with
+additional observations of ordered retirement (PC, destination, writeback value
+and stores), final PC, registers written since program entry, and committed-store
+memory. Logs and `summary.csv` are written to `results/validate/`. A PASS supports
+architectural agreement for the supplied workload; it does not assert equality
+of every internal signal.
+
+The `--architecture-check` mode is enabled in `bin/chronoshear-validate-boom-*-w32`.
+Performance executables omit these observation bindings and report
+`architecture_status=not-run`. Performance scripts never invoke the validation
+executables, and validation runs do not produce performance results. Rebuild
+them through component **6** of `chronoshear_maintenance.sh`.
 
 ### Sensitivity to lane width — Table 5
 
